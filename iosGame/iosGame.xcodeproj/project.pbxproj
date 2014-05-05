@@ -486,6 +486,7 @@
 				10BE97E619178D2200D6FA77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		10BE97E719178D2200D6FA77 /* Build configuration list for PBXNativeTarget "iosGameTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +495,7 @@
 				10BE97E919178D2200D6FA77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
