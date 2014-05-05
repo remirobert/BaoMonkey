@@ -25,14 +25,35 @@
     return [SKSpriteNode spriteNodeWithImageNamed:name];
 }
 
+-(void)initMonkey{
+    monkey = [SKSpriteNode spriteNodeWithImageNamed:@"monkey.png"];
+    monkey.size = CGSizeMake(70, 84);
+    monkey.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 + 140);
+    [self addChild:monkey];
+}
+
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        monkey = [SKSpriteNode spriteNodeWithImageNamed:@"monkey.png"];
-        monkey.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
         
-        self.backgroundColor = [SKColor colorWithRed:52 green:152 blue:219 alpha:1];
+        self.backgroundColor = [SKColor colorWithRed:52/255.0f green:152/255.0f blue:219/255.0f alpha:1];
         
-        [self addChild:monkey];
+        SKSpriteNode *trunk = [SKSpriteNode spriteNodeWithImageNamed:@"trunk.png"];
+        trunk.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 370);
+        [self addChild:trunk];
+        
+        SKSpriteNode *back_leaf = [SKSpriteNode spriteNodeWithImageNamed:@"back-leaf.png"];
+        back_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 124);
+        [self addChild:back_leaf];
+        
+        SKSpriteNode *tree_branch = [SKSpriteNode spriteNodeWithImageNamed:@"tree-branch.png"];
+        tree_branch.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 180);
+        [self addChild:tree_branch];
+        
+        [self initMonkey];
+        
+        SKSpriteNode *front_leaf = [SKSpriteNode spriteNodeWithImageNamed:@"front-leaf.png"];
+        front_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 89);
+        [self addChild:front_leaf];
 
         motionManager = [[CMMotionManager alloc] init];
         

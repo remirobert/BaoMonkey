@@ -25,7 +25,11 @@
 		10BE97D719178D2200D6FA77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AF19178D2200D6FA77 /* UIKit.framework */; };
 		10BE97DF19178D2200D6FA77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97DD19178D2200D6FA77 /* InfoPlist.strings */; };
 		10BE97E119178D2200D6FA77 /* iosGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE97E019178D2200D6FA77 /* iosGameTests.m */; };
-		3F5684571917DAEB000233F9 /* iphone-monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5684561917DAEB000233F9 /* iphone-monkey.png */; };
+		3F56845D19180E91000233F9 /* back-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56845919180E91000233F9 /* back-leaf@2x.png */; };
+		3F56845E19180E91000233F9 /* front-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56845A19180E91000233F9 /* front-leaf@2x.png */; };
+		3F56845F19180E91000233F9 /* tree-branch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56845B19180E91000233F9 /* tree-branch@2x.png */; };
+		3F56846019180E91000233F9 /* trunk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56845C19180E91000233F9 /* trunk@2x.png */; };
+		3F56846219181376000233F9 /* iphone-monkey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56846119181376000233F9 /* iphone-monkey@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +67,11 @@
 		10BE97DC19178D2200D6FA77 /* iosGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iosGameTests-Info.plist"; sourceTree = "<group>"; };
 		10BE97DE19178D2200D6FA77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		10BE97E019178D2200D6FA77 /* iosGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iosGameTests.m; sourceTree = "<group>"; };
-		3F5684561917DAEB000233F9 /* iphone-monkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone-monkey.png"; path = "Resources/Monkey/iphone-monkey.png"; sourceTree = "<group>"; };
+		3F56845919180E91000233F9 /* back-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-leaf@2x.png"; sourceTree = "<group>"; };
+		3F56845A19180E91000233F9 /* front-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "front-leaf@2x.png"; sourceTree = "<group>"; };
+		3F56845B19180E91000233F9 /* tree-branch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tree-branch@2x.png"; sourceTree = "<group>"; };
+		3F56845C19180E91000233F9 /* trunk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trunk@2x.png"; sourceTree = "<group>"; };
+		3F56846119181376000233F9 /* iphone-monkey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone-monkey@2x.png"; path = "Resources/Monkey/iphone-monkey@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +181,7 @@
 		3F5684541917D9D2000233F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3F56845819180E91000233F9 /* Tree */,
 				3F5684551917D9DF000233F9 /* Monkey */,
 			);
 			name = Resources;
@@ -181,9 +190,21 @@
 		3F5684551917D9DF000233F9 /* Monkey */ = {
 			isa = PBXGroup;
 			children = (
-				3F5684561917DAEB000233F9 /* iphone-monkey.png */,
+				3F56846119181376000233F9 /* iphone-monkey@2x.png */,
 			);
 			name = Monkey;
+			sourceTree = "<group>";
+		};
+		3F56845819180E91000233F9 /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				3F56845919180E91000233F9 /* back-leaf@2x.png */,
+				3F56845A19180E91000233F9 /* front-leaf@2x.png */,
+				3F56845B19180E91000233F9 /* tree-branch@2x.png */,
+				3F56845C19180E91000233F9 /* trunk@2x.png */,
+			);
+			name = Tree;
+			path = Resources/Tree;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,12 +283,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F5684571917DAEB000233F9 /* iphone-monkey.png in Resources */,
+				3F56845F19180E91000233F9 /* tree-branch@2x.png in Resources */,
+				3F56846019180E91000233F9 /* trunk@2x.png in Resources */,
 				10BE97CC19178D2200D6FA77 /* Spaceship.png in Resources */,
 				10BE97CE19178D2200D6FA77 /* Images.xcassets in Resources */,
+				3F56846219181376000233F9 /* iphone-monkey@2x.png in Resources */,
 				10BE97C419178D2200D6FA77 /* Main_iPad.storyboard in Resources */,
 				10BE97C119178D2200D6FA77 /* Main_iPhone.storyboard in Resources */,
+				3F56845D19180E91000233F9 /* back-leaf@2x.png in Resources */,
 				10BE97B819178D2200D6FA77 /* InfoPlist.strings in Resources */,
+				3F56845E19180E91000233F9 /* front-leaf@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
