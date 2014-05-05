@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1098D9DA1917AB3900E51488 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 1098D9D91917AB3900E51488 /* Block.m */; };
+		1098D9DD1917ADE800E51488 /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 1098D9DC1917ADE800E51488 /* MyScene+GeneratorWave.m */; };
 		10BE97AC19178D2200D6FA77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AB19178D2200D6FA77 /* Foundation.framework */; };
 		10BE97AE19178D2200D6FA77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AD19178D2200D6FA77 /* CoreGraphics.framework */; };
 		10BE97B019178D2200D6FA77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AF19178D2200D6FA77 /* UIKit.framework */; };
@@ -18,7 +20,6 @@
 		10BE97C419178D2200D6FA77 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97C219178D2200D6FA77 /* Main_iPad.storyboard */; };
 		10BE97C719178D2200D6FA77 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE97C619178D2200D6FA77 /* ViewController.m */; };
 		10BE97CA19178D2200D6FA77 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE97C919178D2200D6FA77 /* MyScene.m */; };
-		10BE97CC19178D2200D6FA77 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97CB19178D2200D6FA77 /* Spaceship.png */; };
 		10BE97CE19178D2200D6FA77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97CD19178D2200D6FA77 /* Images.xcassets */; };
 		10BE97D519178D2200D6FA77 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97D419178D2200D6FA77 /* XCTest.framework */; };
 		10BE97D619178D2200D6FA77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AB19178D2200D6FA77 /* Foundation.framework */; };
@@ -38,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1098D9D81917AB3900E51488 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
+		1098D9D91917AB3900E51488 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Block.m; sourceTree = "<group>"; };
+		1098D9DB1917ADE800E51488 /* MyScene+GeneratorWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+GeneratorWave.h"; sourceTree = "<group>"; };
+		1098D9DC1917ADE800E51488 /* MyScene+GeneratorWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+GeneratorWave.m"; sourceTree = "<group>"; };
 		10BE97A819178D2200D6FA77 /* iosGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10BE97AB19178D2200D6FA77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		10BE97AD19178D2200D6FA77 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,7 +60,6 @@
 		10BE97C619178D2200D6FA77 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		10BE97C819178D2200D6FA77 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
 		10BE97C919178D2200D6FA77 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		10BE97CB19178D2200D6FA77 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		10BE97CD19178D2200D6FA77 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		10BE97D319178D2200D6FA77 /* iosGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10BE97D419178D2200D6FA77 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -131,7 +135,10 @@
 				10BE97C619178D2200D6FA77 /* ViewController.m */,
 				10BE97C819178D2200D6FA77 /* MyScene.h */,
 				10BE97C919178D2200D6FA77 /* MyScene.m */,
-				10BE97CB19178D2200D6FA77 /* Spaceship.png */,
+				1098D9DB1917ADE800E51488 /* MyScene+GeneratorWave.h */,
+				1098D9DC1917ADE800E51488 /* MyScene+GeneratorWave.m */,
+				1098D9D81917AB3900E51488 /* Block.h */,
+				1098D9D91917AB3900E51488 /* Block.m */,
 				10BE97CD19178D2200D6FA77 /* Images.xcassets */,
 				10BE97B419178D2200D6FA77 /* Supporting Files */,
 			);
@@ -243,7 +250,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10BE97CC19178D2200D6FA77 /* Spaceship.png in Resources */,
 				10BE97CE19178D2200D6FA77 /* Images.xcassets in Resources */,
 				10BE97C419178D2200D6FA77 /* Main_iPad.storyboard in Resources */,
 				10BE97C119178D2200D6FA77 /* Main_iPhone.storyboard in Resources */,
@@ -269,7 +275,9 @@
 				10BE97CA19178D2200D6FA77 /* MyScene.m in Sources */,
 				10BE97C719178D2200D6FA77 /* ViewController.m in Sources */,
 				10BE97BE19178D2200D6FA77 /* AppDelegate.m in Sources */,
+				1098D9DA1917AB3900E51488 /* Block.m in Sources */,
 				10BE97BA19178D2200D6FA77 /* main.m in Sources */,
+				1098D9DD1917ADE800E51488 /* MyScene+GeneratorWave.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +494,7 @@
 				10BE97E619178D2200D6FA77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		10BE97E719178D2200D6FA77 /* Build configuration list for PBXNativeTarget "iosGameTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +503,7 @@
 				10BE97E919178D2200D6FA77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
