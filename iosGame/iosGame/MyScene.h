@@ -7,8 +7,12 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "Block.h"
+#import "Item.h"
+#import "Trunk.h"
 
 @interface MyScene : SKScene
+
+@property (nonatomic) int sizeBlock;
+@property (nonatomic) Trunk *trunk;
 
 @end

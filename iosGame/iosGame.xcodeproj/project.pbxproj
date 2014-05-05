@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1098D9DA1917AB3900E51488 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = 1098D9D91917AB3900E51488 /* Block.m */; };
+		1024E8A61917E0AA00EB0810 /* Trunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1024E8A51917E0AA00EB0810 /* Trunk.m */; };
 		1098D9DD1917ADE800E51488 /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 1098D9DC1917ADE800E51488 /* MyScene+GeneratorWave.m */; };
+		1098D9E01917D6C700E51488 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 1098D9DF1917D6C700E51488 /* Item.m */; };
 		10BE97AC19178D2200D6FA77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AB19178D2200D6FA77 /* Foundation.framework */; };
 		10BE97AE19178D2200D6FA77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AD19178D2200D6FA77 /* CoreGraphics.framework */; };
 		10BE97B019178D2200D6FA77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AF19178D2200D6FA77 /* UIKit.framework */; };
@@ -39,10 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1098D9D81917AB3900E51488 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
-		1098D9D91917AB3900E51488 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Block.m; sourceTree = "<group>"; };
+		1024E8A41917E0AA00EB0810 /* Trunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trunk.h; sourceTree = "<group>"; };
+		1024E8A51917E0AA00EB0810 /* Trunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trunk.m; sourceTree = "<group>"; };
 		1098D9DB1917ADE800E51488 /* MyScene+GeneratorWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+GeneratorWave.h"; sourceTree = "<group>"; };
 		1098D9DC1917ADE800E51488 /* MyScene+GeneratorWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+GeneratorWave.m"; sourceTree = "<group>"; };
+		1098D9DE1917D6C700E51488 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		1098D9DF1917D6C700E51488 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		10BE97A819178D2200D6FA77 /* iosGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10BE97AB19178D2200D6FA77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		10BE97AD19178D2200D6FA77 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,8 +140,10 @@
 				10BE97C919178D2200D6FA77 /* MyScene.m */,
 				1098D9DB1917ADE800E51488 /* MyScene+GeneratorWave.h */,
 				1098D9DC1917ADE800E51488 /* MyScene+GeneratorWave.m */,
-				1098D9D81917AB3900E51488 /* Block.h */,
-				1098D9D91917AB3900E51488 /* Block.m */,
+				1098D9DE1917D6C700E51488 /* Item.h */,
+				1098D9DF1917D6C700E51488 /* Item.m */,
+				1024E8A41917E0AA00EB0810 /* Trunk.h */,
+				1024E8A51917E0AA00EB0810 /* Trunk.m */,
 				10BE97CD19178D2200D6FA77 /* Images.xcassets */,
 				10BE97B419178D2200D6FA77 /* Supporting Files */,
 			);
@@ -272,10 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1098D9E01917D6C700E51488 /* Item.m in Sources */,
 				10BE97CA19178D2200D6FA77 /* MyScene.m in Sources */,
 				10BE97C719178D2200D6FA77 /* ViewController.m in Sources */,
+				1024E8A61917E0AA00EB0810 /* Trunk.m in Sources */,
 				10BE97BE19178D2200D6FA77 /* AppDelegate.m in Sources */,
-				1098D9DA1917AB3900E51488 /* Block.m in Sources */,
 				10BE97BA19178D2200D6FA77 /* main.m in Sources */,
 				1098D9DD1917ADE800E51488 /* MyScene+GeneratorWave.m in Sources */,
 			);
@@ -351,6 +357,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: REMI HILLAIRET (NHLG76Z36Y)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -390,6 +397,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: REMI HILLAIRET (NHLG76Z36Y)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -415,6 +423,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iosGame/iosGame-Prefix.pch";
 				INFOPLIST_FILE = "iosGame/iosGame-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -429,6 +438,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iosGame/iosGame-Prefix.pch";
 				INFOPLIST_FILE = "iosGame/iosGame-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;

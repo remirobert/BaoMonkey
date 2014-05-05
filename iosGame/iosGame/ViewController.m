@@ -22,16 +22,14 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
+
+    NSLog(@"width screen = UIscreen = %f skview = %f", [UIScreen mainScreen].bounds.size.width, skView.bounds.size.width);
+    
     SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
     [skView presentScene:scene];
-}
-
-- (BOOL)shouldAutorotate
-{
-    return YES;
 }
 
 - (NSUInteger)supportedInterfaceOrientations
@@ -41,12 +39,6 @@
     } else {
         return UIInterfaceOrientationMaskAll;
     }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
 }
 
 @end
