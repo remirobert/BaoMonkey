@@ -25,6 +25,7 @@
 		10BE97D719178D2200D6FA77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AF19178D2200D6FA77 /* UIKit.framework */; };
 		10BE97DF19178D2200D6FA77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97DD19178D2200D6FA77 /* InfoPlist.strings */; };
 		10BE97E119178D2200D6FA77 /* iosGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE97E019178D2200D6FA77 /* iosGameTests.m */; };
+		3F5684571917DAEB000233F9 /* iphone-monkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F5684561917DAEB000233F9 /* iphone-monkey.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		10BE97DC19178D2200D6FA77 /* iosGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iosGameTests-Info.plist"; sourceTree = "<group>"; };
 		10BE97DE19178D2200D6FA77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		10BE97E019178D2200D6FA77 /* iosGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iosGameTests.m; sourceTree = "<group>"; };
+		3F5684561917DAEB000233F9 /* iphone-monkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone-monkey.png"; path = "Resources/Monkey/iphone-monkey.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		10BE97B319178D2200D6FA77 /* iosGame */ = {
 			isa = PBXGroup;
 			children = (
+				3F5684541917D9D2000233F9 /* Resources */,
 				10BE97BC19178D2200D6FA77 /* AppDelegate.h */,
 				10BE97BD19178D2200D6FA77 /* AppDelegate.m */,
 				10BE97BF19178D2200D6FA77 /* Main_iPhone.storyboard */,
@@ -165,6 +168,22 @@
 				10BE97DD19178D2200D6FA77 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F5684541917D9D2000233F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3F5684551917D9DF000233F9 /* Monkey */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3F5684551917D9DF000233F9 /* Monkey */ = {
+			isa = PBXGroup;
+			children = (
+				3F5684561917DAEB000233F9 /* iphone-monkey.png */,
+			);
+			name = Monkey;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F5684571917DAEB000233F9 /* iphone-monkey.png in Resources */,
 				10BE97CC19178D2200D6FA77 /* Spaceship.png in Resources */,
 				10BE97CE19178D2200D6FA77 /* Images.xcassets in Resources */,
 				10BE97C419178D2200D6FA77 /* Main_iPad.storyboard in Resources */,
@@ -343,6 +363,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: REMI HILLAIRET (NHLG76Z36Y)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -382,6 +403,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: REMI HILLAIRET (NHLG76Z36Y)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -486,6 +508,7 @@
 				10BE97E619178D2200D6FA77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		10BE97E719178D2200D6FA77 /* Build configuration list for PBXNativeTarget "iosGameTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +517,7 @@
 				10BE97E919178D2200D6FA77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

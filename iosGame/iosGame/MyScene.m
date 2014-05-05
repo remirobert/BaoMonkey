@@ -8,46 +8,78 @@
 
 #import "MyScene.h"
 
+# define kPlayerSpeed 10
+
+# define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
 @implementation MyScene
 
--(id)initWithSize:(CGSize)size {    
+@synthesize motionManager;
+
++ (SKSpriteNode *)spriteNodeWithImageNamed:(NSString *)name {
+    if (IPAD) {
+        name = [NSString stringWithFormat:@"ipad-%@", name];
+    } else {
+        name = [NSString stringWithFormat:@"iphone-%@", name];
+    }
+    return [SKSpriteNode spriteNodeWithImageNamed:name];
+}
+
+-(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        /* Setup your scene here */
+        monkey = [SKSpriteNode spriteNodeWithImageNamed:@"monkey.png"];
+        monkey.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
         
-        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+        self.backgroundColor = [SKColor colorWithRed:52 green:152 blue:219 alpha:1];
         
-        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+        [self addChild:monkey];
+
+        motionManager = [[CMMotionManager alloc] init];
         
-        myLabel.text = @"Hello, World!";
-        myLabel.fontSize = 30;
-        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame));
-        
-        [self addChild:myLabel];
+        [self startTheGame];
     }
     return self;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins */
+- (void)startTheGame
+{
+    //setup to handle accelerometer readings using CoreMotion Framework
+    [self startMonitoringAcceleration];
     
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-        
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
+}
+
+- (void)startMonitoringAcceleration
+{
+    if (motionManager.accelerometerAvailable) {
+        [motionManager startAccelerometerUpdates];
+        NSLog(@"accelerometer updates on...");
+    }
+}
+
+- (void)stopMonitoringAcceleration
+{
+    if (motionManager.accelerometerAvailable && motionManager.accelerometerActive) {
+        [motionManager stopAccelerometerUpdates];
+        NSLog(@"accelerometer updates off...");
+    }
+}
+
+- (void)updateMonkeyPositionFromMotionManager
+{
+    CMAccelerometerData *data = motionManager.accelerometerData;
+    if (fabs(data.acceleration.x) > 0.2) {
+        if (monkey.position.x > 360.0f)
+            monkey.position = CGPointMake(-40.0f, monkey.position.y);
+        else if (monkey.position.x < -40.0f)
+            monkey.position = CGPointMake(360.0f, monkey.position.y);
+        else
+            monkey.position = CGPointMake(monkey.position.x + (data.acceleration.x * kPlayerSpeed), monkey.position.y);
     }
 }
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    [self updateMonkeyPositionFromMotionManager];
 }
 
 @end
