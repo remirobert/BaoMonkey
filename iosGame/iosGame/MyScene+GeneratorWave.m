@@ -31,20 +31,16 @@
 }
 
 - (void) addNewWave {
-    NSMutableArray *wave = [[NSMutableArray alloc] init];
-    int nbBlock = rand() % 2 + 1;
 
-    for (int i = 0; i < nbBlock; i++) {
-        if (wave != nil)
-        
-        [wave addObject:[[Item alloc]
-                         init:CGPointMake([self getPosition:wave],
-                                          [UIScreen mainScreen].bounds.size.height + self.sizeBlock)]];
-        
+    NSArray *tabItem = @[[Prune class], [Banana class], [CocoNuts class]];
+    
+    Item *item = [[[tabItem objectAtIndex:rand() % 3] alloc]
+                  init:CGPointMake(((7 + 25) * (rand() % 10)) + self.sizeBlock / 2,
+                                   [UIScreen mainScreen].bounds.size.height + self.sizeBlock)];
+    
         [self performSelector:@selector(addItemToScene:)
-                   withObject:((Item *)[wave objectAtIndex:i]).node
+                   withObject:item.node
                    afterDelay:((float)arc4random() / 0x100000000)];
-    }
 }
 
 @end

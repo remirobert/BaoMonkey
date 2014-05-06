@@ -11,10 +11,19 @@
 
 #define NAME_ITEM   @"item"
 
+
+typedef enum {
+    BANANA,
+    PRUNE,
+    COCONUTS
+}ItemType;
+
+
 @interface Item : NSObject
 
-@property (nonatomic) SKSpriteNode *node;
+@property (nonatomic, strong) SKSpriteNode *node;
 
 - (instancetype) init:(CGPoint)position;
+- (void) display;
 
 @end

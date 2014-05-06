@@ -28,14 +28,14 @@
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         [self initScene];
-        [self performSelector:@selector(addWave) withObject:nil afterDelay:rand() % 3 + 1];
+        [self performSelector:@selector(addWave) withObject:nil afterDelay:1.5];
     }
     return self;
 }
 
 - (void) addWave {
     [self addNewWave];
-    [self performSelector:@selector(addWave) withObject:nil afterDelay:rand() % 3 + 1];
+    [self performSelector:@selector(addWave) withObject:nil afterDelay:rand() % 3 + 2];
 }
 
 -(void)update:(CFTimeInterval)currentTime {

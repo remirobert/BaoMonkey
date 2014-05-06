@@ -12,6 +12,7 @@
 @interface Trunk : NSObject
 
 @property (nonatomic) SKSpriteNode *node;
+
 - (instancetype) init;
 
 @end
