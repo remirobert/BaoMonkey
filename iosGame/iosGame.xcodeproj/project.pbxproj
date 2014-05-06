@@ -30,6 +30,12 @@
 		10BE97D719178D2200D6FA77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AF19178D2200D6FA77 /* UIKit.framework */; };
 		10BE97DF19178D2200D6FA77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97DD19178D2200D6FA77 /* InfoPlist.strings */; };
 		10BE97E119178D2200D6FA77 /* iosGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE97E019178D2200D6FA77 /* iosGameTests.m */; };
+		3F50F11E1918F02A00A37F85 /* Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F50F11D1918F02A00A37F85 /* Monkey.m */; };
+		3F50F1201919407E00A37F85 /* monkey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F50F11F1919407E00A37F85 /* monkey@2x.png */; };
+		3F56845D19180E91000233F9 /* back-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56845919180E91000233F9 /* back-leaf@2x.png */; };
+		3F56845E19180E91000233F9 /* front-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56845A19180E91000233F9 /* front-leaf@2x.png */; };
+		3F56845F19180E91000233F9 /* tree-branch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56845B19180E91000233F9 /* tree-branch@2x.png */; };
+		3F56846019180E91000233F9 /* trunk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56845C19180E91000233F9 /* trunk@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +84,13 @@
 		10BE97DC19178D2200D6FA77 /* iosGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iosGameTests-Info.plist"; sourceTree = "<group>"; };
 		10BE97DE19178D2200D6FA77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		10BE97E019178D2200D6FA77 /* iosGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iosGameTests.m; sourceTree = "<group>"; };
+		3F50F11C1918F02A00A37F85 /* Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Monkey.h; path = Classes/Monkey.h; sourceTree = "<group>"; };
+		3F50F11D1918F02A00A37F85 /* Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Monkey.m; path = Classes/Monkey.m; sourceTree = "<group>"; };
+		3F50F11F1919407E00A37F85 /* monkey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "monkey@2x.png"; path = "Resources/Monkey/monkey@2x.png"; sourceTree = "<group>"; };
+		3F56845919180E91000233F9 /* back-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-leaf@2x.png"; sourceTree = "<group>"; };
+		3F56845A19180E91000233F9 /* front-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "front-leaf@2x.png"; sourceTree = "<group>"; };
+		3F56845B19180E91000233F9 /* tree-branch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tree-branch@2x.png"; sourceTree = "<group>"; };
+		3F56845C19180E91000233F9 /* trunk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trunk@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +152,7 @@
 		10BE97B319178D2200D6FA77 /* iosGame */ = {
 			isa = PBXGroup;
 			children = (
+				3F5684541917D9D2000233F9 /* Resources */,
 				10BE97BC19178D2200D6FA77 /* AppDelegate.h */,
 				10BE97BD19178D2200D6FA77 /* AppDelegate.m */,
 				10BE97BF19178D2200D6FA77 /* Main_iPhone.storyboard */,
@@ -147,6 +161,7 @@
 				10BE97C619178D2200D6FA77 /* ViewController.m */,
 				10BE97C819178D2200D6FA77 /* MyScene.h */,
 				10BE97C919178D2200D6FA77 /* MyScene.m */,
+<<<<<<< HEAD
 				1098D9DB1917ADE800E51488 /* MyScene+GeneratorWave.h */,
 				1098D9DC1917ADE800E51488 /* MyScene+GeneratorWave.m */,
 				1098D9DE1917D6C700E51488 /* Item.h */,
@@ -159,8 +174,12 @@
 				104F9392191940DD00B63128 /* Prune.h */,
 				104F9393191940DD00B63128 /* Prune.m */,
 				1024E8A51917E0AA00EB0810 /* Trunk.m */,
+=======
+>>>>>>> c82e9e1d61387d22549462d3fe939d70e2f95bab
 				10BE97CD19178D2200D6FA77 /* Images.xcassets */,
 				10BE97B419178D2200D6FA77 /* Supporting Files */,
+				3F50F11C1918F02A00A37F85 /* Monkey.h */,
+				3F50F11D1918F02A00A37F85 /* Monkey.m */,
 			);
 			path = iosGame;
 			sourceTree = "<group>";
@@ -192,6 +211,35 @@
 				10BE97DD19178D2200D6FA77 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3F5684541917D9D2000233F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3F56845819180E91000233F9 /* Tree */,
+				3F5684551917D9DF000233F9 /* Monkey */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		3F5684551917D9DF000233F9 /* Monkey */ = {
+			isa = PBXGroup;
+			children = (
+				3F50F11F1919407E00A37F85 /* monkey@2x.png */,
+			);
+			name = Monkey;
+			sourceTree = "<group>";
+		};
+		3F56845819180E91000233F9 /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				3F56845919180E91000233F9 /* back-leaf@2x.png */,
+				3F56845A19180E91000233F9 /* front-leaf@2x.png */,
+				3F56845B19180E91000233F9 /* tree-branch@2x.png */,
+				3F56845C19180E91000233F9 /* trunk@2x.png */,
+			);
+			name = Tree;
+			path = Resources/Tree;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,10 +318,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+=======
+				3F56845F19180E91000233F9 /* tree-branch@2x.png in Resources */,
+				3F56846019180E91000233F9 /* trunk@2x.png in Resources */,
+>>>>>>> c82e9e1d61387d22549462d3fe939d70e2f95bab
 				10BE97CE19178D2200D6FA77 /* Images.xcassets in Resources */,
 				10BE97C419178D2200D6FA77 /* Main_iPad.storyboard in Resources */,
+				3F50F1201919407E00A37F85 /* monkey@2x.png in Resources */,
 				10BE97C119178D2200D6FA77 /* Main_iPhone.storyboard in Resources */,
+				3F56845D19180E91000233F9 /* back-leaf@2x.png in Resources */,
 				10BE97B819178D2200D6FA77 /* InfoPlist.strings in Resources */,
+				3F56845E19180E91000233F9 /* front-leaf@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +351,7 @@
 				104F9394191940DD00B63128 /* Prune.m in Sources */,
 				1098D9E01917D6C700E51488 /* Item.m in Sources */,
 				10BE97CA19178D2200D6FA77 /* MyScene.m in Sources */,
+				3F50F11E1918F02A00A37F85 /* Monkey.m in Sources */,
 				10BE97C719178D2200D6FA77 /* ViewController.m in Sources */,
 				1024E8A61917E0AA00EB0810 /* Trunk.m in Sources */,
 				10BB8A3E19193BE700968DCA /* Banana.m in Sources */,
