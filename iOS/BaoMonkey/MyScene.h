@@ -18,5 +18,6 @@
 
 @property (nonatomic) int sizeBlock;
 @property (nonatomic) TreeBranch *treeBranch;
+@property (nonatomic) NSMutableArray *wave;
 
 @end

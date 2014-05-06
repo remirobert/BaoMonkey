@@ -52,7 +52,6 @@
     front_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 89);
     [self addChild:front_leaf];
     
-
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -73,6 +72,18 @@
 
 -(void)update:(CFTimeInterval)currentTime {
     [monkey updatePosition];
+    
+    [self enumerateChildNodesWithName:NAME_ITEM usingBlock:^(SKNode *node, BOOL *stop) {
+        SKNode *tmpNode = [self nodeAtPoint:monkey.sprite.position];
+        
+        for (Item *item in _wave) {
+            if (CGPointEqualToPoint(item.node.position, tmpNode.position))
+                if ([monkey checkIsItemIsWeapon:item] == YES) {
+                    [item.node removeFromParent];
+                }
+            break;
+        }
+    }];
 }
 
 @end
