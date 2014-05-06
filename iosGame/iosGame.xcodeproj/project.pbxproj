@@ -18,18 +18,18 @@
 		10BE97C419178D2200D6FA77 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97C219178D2200D6FA77 /* Main_iPad.storyboard */; };
 		10BE97C719178D2200D6FA77 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE97C619178D2200D6FA77 /* ViewController.m */; };
 		10BE97CA19178D2200D6FA77 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE97C919178D2200D6FA77 /* MyScene.m */; };
-		10BE97CC19178D2200D6FA77 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97CB19178D2200D6FA77 /* Spaceship.png */; };
 		10BE97CE19178D2200D6FA77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97CD19178D2200D6FA77 /* Images.xcassets */; };
 		10BE97D519178D2200D6FA77 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97D419178D2200D6FA77 /* XCTest.framework */; };
 		10BE97D619178D2200D6FA77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AB19178D2200D6FA77 /* Foundation.framework */; };
 		10BE97D719178D2200D6FA77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AF19178D2200D6FA77 /* UIKit.framework */; };
 		10BE97DF19178D2200D6FA77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97DD19178D2200D6FA77 /* InfoPlist.strings */; };
 		10BE97E119178D2200D6FA77 /* iosGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE97E019178D2200D6FA77 /* iosGameTests.m */; };
+		3F50F11E1918F02A00A37F85 /* Monkey.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F50F11D1918F02A00A37F85 /* Monkey.m */; };
+		3F50F1201919407E00A37F85 /* monkey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F50F11F1919407E00A37F85 /* monkey@2x.png */; };
 		3F56845D19180E91000233F9 /* back-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56845919180E91000233F9 /* back-leaf@2x.png */; };
 		3F56845E19180E91000233F9 /* front-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56845A19180E91000233F9 /* front-leaf@2x.png */; };
 		3F56845F19180E91000233F9 /* tree-branch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56845B19180E91000233F9 /* tree-branch@2x.png */; };
 		3F56846019180E91000233F9 /* trunk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56845C19180E91000233F9 /* trunk@2x.png */; };
-		3F56846219181376000233F9 /* iphone-monkey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F56846119181376000233F9 /* iphone-monkey@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,18 +60,19 @@
 		10BE97C619178D2200D6FA77 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		10BE97C819178D2200D6FA77 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
 		10BE97C919178D2200D6FA77 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		10BE97CB19178D2200D6FA77 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		10BE97CD19178D2200D6FA77 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		10BE97D319178D2200D6FA77 /* iosGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10BE97D419178D2200D6FA77 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		10BE97DC19178D2200D6FA77 /* iosGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iosGameTests-Info.plist"; sourceTree = "<group>"; };
 		10BE97DE19178D2200D6FA77 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		10BE97E019178D2200D6FA77 /* iosGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iosGameTests.m; sourceTree = "<group>"; };
+		3F50F11C1918F02A00A37F85 /* Monkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Monkey.h; path = Classes/Monkey.h; sourceTree = "<group>"; };
+		3F50F11D1918F02A00A37F85 /* Monkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Monkey.m; path = Classes/Monkey.m; sourceTree = "<group>"; };
+		3F50F11F1919407E00A37F85 /* monkey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "monkey@2x.png"; path = "Resources/Monkey/monkey@2x.png"; sourceTree = "<group>"; };
 		3F56845919180E91000233F9 /* back-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-leaf@2x.png"; sourceTree = "<group>"; };
 		3F56845A19180E91000233F9 /* front-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "front-leaf@2x.png"; sourceTree = "<group>"; };
 		3F56845B19180E91000233F9 /* tree-branch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tree-branch@2x.png"; sourceTree = "<group>"; };
 		3F56845C19180E91000233F9 /* trunk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trunk@2x.png"; sourceTree = "<group>"; };
-		3F56846119181376000233F9 /* iphone-monkey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iphone-monkey@2x.png"; path = "Resources/Monkey/iphone-monkey@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,9 +143,10 @@
 				10BE97C619178D2200D6FA77 /* ViewController.m */,
 				10BE97C819178D2200D6FA77 /* MyScene.h */,
 				10BE97C919178D2200D6FA77 /* MyScene.m */,
-				10BE97CB19178D2200D6FA77 /* Spaceship.png */,
 				10BE97CD19178D2200D6FA77 /* Images.xcassets */,
 				10BE97B419178D2200D6FA77 /* Supporting Files */,
+				3F50F11C1918F02A00A37F85 /* Monkey.h */,
+				3F50F11D1918F02A00A37F85 /* Monkey.m */,
 			);
 			path = iosGame;
 			sourceTree = "<group>";
@@ -190,7 +192,7 @@
 		3F5684551917D9DF000233F9 /* Monkey */ = {
 			isa = PBXGroup;
 			children = (
-				3F56846119181376000233F9 /* iphone-monkey@2x.png */,
+				3F50F11F1919407E00A37F85 /* monkey@2x.png */,
 			);
 			name = Monkey;
 			sourceTree = "<group>";
@@ -285,10 +287,9 @@
 			files = (
 				3F56845F19180E91000233F9 /* tree-branch@2x.png in Resources */,
 				3F56846019180E91000233F9 /* trunk@2x.png in Resources */,
-				10BE97CC19178D2200D6FA77 /* Spaceship.png in Resources */,
 				10BE97CE19178D2200D6FA77 /* Images.xcassets in Resources */,
-				3F56846219181376000233F9 /* iphone-monkey@2x.png in Resources */,
 				10BE97C419178D2200D6FA77 /* Main_iPad.storyboard in Resources */,
+				3F50F1201919407E00A37F85 /* monkey@2x.png in Resources */,
 				10BE97C119178D2200D6FA77 /* Main_iPhone.storyboard in Resources */,
 				3F56845D19180E91000233F9 /* back-leaf@2x.png in Resources */,
 				10BE97B819178D2200D6FA77 /* InfoPlist.strings in Resources */,
@@ -312,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10BE97CA19178D2200D6FA77 /* MyScene.m in Sources */,
+				3F50F11E1918F02A00A37F85 /* Monkey.m in Sources */,
 				10BE97C719178D2200D6FA77 /* ViewController.m in Sources */,
 				10BE97BE19178D2200D6FA77 /* AppDelegate.m in Sources */,
 				10BE97BA19178D2200D6FA77 /* main.m in Sources */,

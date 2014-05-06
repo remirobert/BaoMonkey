@@ -25,13 +25,6 @@
     return [SKSpriteNode spriteNodeWithImageNamed:name];
 }
 
--(void)initMonkey{
-    monkey = [SKSpriteNode spriteNodeWithImageNamed:@"monkey.png"];
-    monkey.size = CGSizeMake(70, 84);
-    monkey.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2 + 140);
-    [self addChild:monkey];
-}
-
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         
@@ -49,58 +42,19 @@
         tree_branch.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 180);
         [self addChild:tree_branch];
         
-        [self initMonkey];
+        monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, tree_branch.position.y + 10)];
+        [self addChild:monkey.sprite];
         
         SKSpriteNode *front_leaf = [SKSpriteNode spriteNodeWithImageNamed:@"front-leaf.png"];
         front_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 89);
         [self addChild:front_leaf];
-
-        motionManager = [[CMMotionManager alloc] init];
-        
-        [self startTheGame];
     }
     return self;
 }
 
-- (void)startTheGame
-{
-    //setup to handle accelerometer readings using CoreMotion Framework
-    [self startMonitoringAcceleration];
-    
-}
-
-- (void)startMonitoringAcceleration
-{
-    if (motionManager.accelerometerAvailable) {
-        [motionManager startAccelerometerUpdates];
-        NSLog(@"accelerometer updates on...");
-    }
-}
-
-- (void)stopMonitoringAcceleration
-{
-    if (motionManager.accelerometerAvailable && motionManager.accelerometerActive) {
-        [motionManager stopAccelerometerUpdates];
-        NSLog(@"accelerometer updates off...");
-    }
-}
-
-- (void)updateMonkeyPositionFromMotionManager
-{
-    CMAccelerometerData *data = motionManager.accelerometerData;
-    if (fabs(data.acceleration.x) > 0.2) {
-        if (monkey.position.x > 360.0f)
-            monkey.position = CGPointMake(-40.0f, monkey.position.y);
-        else if (monkey.position.x < -40.0f)
-            monkey.position = CGPointMake(360.0f, monkey.position.y);
-        else
-            monkey.position = CGPointMake(monkey.position.x + (data.acceleration.x * kPlayerSpeed), monkey.position.y);
-    }
-}
-
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
-    [self updateMonkeyPositionFromMotionManager];
+    [monkey updatePosition];
 }
 
 @end
