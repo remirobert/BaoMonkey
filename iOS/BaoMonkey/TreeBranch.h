@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 
-@interface Trunk : NSObject
+@interface TreeBranch : NSObject
 
 @property (nonatomic) SKSpriteNode *node;
 

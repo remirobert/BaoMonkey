@@ -47,11 +47,11 @@
     [self addChild:front_leaf];
     
     _sizeBlock = (self.frame.size.width - (self.frame.size.width / 10)) / 10;
-    _trunk = [[Trunk alloc] init];
+    _treeBranch = [[TreeBranch alloc] init];
     
-    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:_trunk.node.frame];
+    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:_treeBranch.node.frame];
     
-    [self addChild:_trunk.node];
+    [self addChild:_treeBranch.node];
 }
 
 -(id)initWithSize:(CGSize)size {
