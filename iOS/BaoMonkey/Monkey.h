@@ -10,6 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
 #import "Item.h"
+#import "Weapon.h"
 
 # define kSpeed 10
 # define kSpriteImageName @"monkey.png"
@@ -25,5 +26,7 @@
 -(id)initWithPosition:(CGPoint)position;
 
 -(void)updatePosition;
+
+-(BOOL)checkIsItemIsWeapon:(Item *)item;
 
 @end
