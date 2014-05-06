@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 iPPLE. All rights reserved.
 //
 
-#import "Item.h"
+#import "Weapon.h"
 
-@interface CocoNuts : Item
+@interface CocoNuts : Weapon
 
 - (instancetype) init:(CGPoint)position;
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 iPPLE. All rights reserved.
 //
 
-#import "Item.h"
+#import "Malus.h"
 
-@interface Prune : Item
+@interface Prune : Malus
 
 - (instancetype) init:(CGPoint)position;
 

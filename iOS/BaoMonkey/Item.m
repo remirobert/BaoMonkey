@@ -14,10 +14,6 @@
     [item.node removeFromParent];
 }
 
-- (void) display {
-    
-}
-
 - (instancetype) init:(CGPoint)position {
     if ((self = [Item alloc]) != nil) {
         _node = [[SKSpriteNode alloc] initWithColor:[SKColor redColor]
