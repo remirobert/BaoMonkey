@@ -35,23 +35,21 @@
     back_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 124);
     [self addChild:back_leaf];
     
-    SKSpriteNode *tree_branch = [SKSpriteNode spriteNodeWithImageNamed:@"tree-branch.png"];
-    tree_branch.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 180);
-    [self addChild:tree_branch];
-    
-    monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, tree_branch.position.y + 10)];
-    [self addChild:monkey.sprite];
-    
-    SKSpriteNode *front_leaf = [SKSpriteNode spriteNodeWithImageNamed:@"front-leaf.png"];
-    front_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 89);
-    [self addChild:front_leaf];
-    
     _sizeBlock = (self.frame.size.width - (self.frame.size.width / 10)) / 10;
     _treeBranch = [[TreeBranch alloc] init];
     
     self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:_treeBranch.node.frame];
     
     [self addChild:_treeBranch.node];
+    
+    monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, _treeBranch.node.position.y + 20)];
+    [self addChild:monkey.sprite];
+    
+    SKSpriteNode *front_leaf = [SKSpriteNode spriteNodeWithImageNamed:@"front-leaf.png"];
+    front_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 89);
+    [self addChild:front_leaf];
+    
+
 }
 
 -(id)initWithSize:(CGSize)size {
