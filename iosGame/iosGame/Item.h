@@ -14,6 +14,7 @@
 @interface Item : NSObject
 
 @property (nonatomic) SKSpriteNode *node;
+
 - (instancetype) init:(CGPoint)position;
 
 @end

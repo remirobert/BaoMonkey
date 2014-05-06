@@ -1,8 +1,8 @@
 //
 //  ViewController.m
-//  iosGame
+//  testgravity
 //
-//  Created by iPPLE on 05/05/2014.
+//  Created by iPPLE on 06/05/2014.
 //  Copyright (c) 2014 iPPLE. All rights reserved.
 //
 
@@ -15,19 +15,22 @@
 {
     [super viewDidLoad];
 
-    srand(time(NULL));
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    
     SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
     [skView presentScene:scene];
+}
+
+- (BOOL)shouldAutorotate
+{
+    return YES;
 }
 
 - (NSUInteger)supportedInterfaceOrientations
@@ -37,6 +40,12 @@
     } else {
         return UIInterfaceOrientationMaskAll;
     }
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Release any cached data, images, etc that aren't in use.
 }
 
 @end

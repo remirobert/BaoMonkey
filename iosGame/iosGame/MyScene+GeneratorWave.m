@@ -26,9 +26,13 @@
     return (positionX);
 }
 
+- (void) addItemToScene:(SKSpriteNode *)node {
+    [self addChild:node];
+}
+
 - (void) addNewWave {
     NSMutableArray *wave = [[NSMutableArray alloc] init];
-    int nbBlock = rand() % 5;
+    int nbBlock = rand() % 2 + 1;
 
     for (int i = 0; i < nbBlock; i++) {
         if (wave != nil)
@@ -36,28 +40,11 @@
         [wave addObject:[[Item alloc]
                          init:CGPointMake([self getPosition:wave],
                                           [UIScreen mainScreen].bounds.size.height + self.sizeBlock)]];
-        [self addChild:((Item *)[wave objectAtIndex:i]).node];
+        
+        [self performSelector:@selector(addItemToScene:)
+                   withObject:((Item *)[wave objectAtIndex:i]).node
+                   afterDelay:((float)arc4random() / 0x100000000)];
     }
-}
-
-- (void) deleteItemAfterTime:(SKNode *)node {
-    [node removeFromParent];
-}
-
-- (void) moveWave {
-    
-    [self enumerateChildNodesWithName:NAME_ITEM usingBlock:^(SKNode *node, BOOL *stop) {
-        if (self.trunk.node.position.y < node.position.y - (node.frame.size.width / 2)) {
-        
-            node.position = CGPointMake(node.position.x, node.position.y - 2);
-        
-            if (node.position.y < 0)
-                [node removeFromParent];
-        }
-        else
-            [self performSelector:@selector(deleteItemAfterTime:) withObject:node afterDelay:1.0];
-        
-    }];
 }
 
 @end

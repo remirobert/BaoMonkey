@@ -18,7 +18,8 @@
                                 colorWithAlphaComponent:0.65]
                  size:CGSizeMake([UIScreen mainScreen].bounds.size.width, 30)];
         _node.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-                                     [UIScreen mainScreen].bounds.size.height - ([UIScreen mainScreen].bounds.size.height / 3));
+                                     [UIScreen mainScreen].bounds.size.height -
+                                     ([UIScreen mainScreen].bounds.size.height / 3));
         _node.name = @"trunk";
     }
     return (self);
