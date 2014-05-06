@@ -1,9 +1,9 @@
 //
 //  main.m
-//  iosGame
+//  BaoMonkey
 //
-//  Created by iPPLE on 05/05/2014.
-//  Copyright (c) 2014 iPPLE. All rights reserved.
+//  Created by iPPLE on 06/05/2014.
+//  Copyright (c) 2014 BaoMonkey. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -1,18 +1,18 @@
 //
-//  iosGameTests.m
-//  iosGameTests
+//  BaoMonkeyTests.m
+//  BaoMonkeyTests
 //
-//  Created by iPPLE on 05/05/2014.
-//  Copyright (c) 2014 iPPLE. All rights reserved.
+//  Created by iPPLE on 06/05/2014.
+//  Copyright (c) 2014 BaoMonkey. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface iosGameTests : XCTestCase
+@interface BaoMonkeyTests : XCTestCase
 
 @end
 
-@implementation iosGameTests
+@implementation BaoMonkeyTests
 
 - (void)setUp
 {

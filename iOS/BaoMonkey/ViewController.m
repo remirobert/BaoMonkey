@@ -14,12 +14,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-<<<<<<< HEAD
-
     srand(time(NULL));
-=======
-    
->>>>>>> c82e9e1d61387d22549462d3fe939d70e2f95bab
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
