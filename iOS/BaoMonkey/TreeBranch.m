@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 iPPLE. All rights reserved.
 //
 
-#import "Trunk.h"
+#import "TreeBranch.h"
 
-@implementation Trunk
+@implementation TreeBranch
 
 - (instancetype) init {
-    if ((self = [Trunk alloc]) != nil) {
+    if ((self = [TreeBranch alloc]) != nil) {
         
         _node = [[SKSpriteNode alloc]
                  initWithColor:[[SKColor greenColor]
@@ -20,7 +20,7 @@
         _node.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
                                      [UIScreen mainScreen].bounds.size.height -
                                      ([UIScreen mainScreen].bounds.size.height / 3));
-        _node.name = @"trunk";
+        _node.name = @"treeBranch";
     }
     return (self);
 }
