@@ -11,6 +11,7 @@
 @implementation Monkey
 
 @synthesize sprite;
+@synthesize weapon;
 
 -(id)initWithPosition:(CGPoint)position {
     self = [super init];

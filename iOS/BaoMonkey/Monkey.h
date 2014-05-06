@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
+#import "Item.h"
 
 # define kSpeed 10
 # define kSpriteImageName @"monkey.png"
@@ -19,6 +20,7 @@
 }
 
 @property (nonatomic, strong) SKSpriteNode *sprite;
+@property (nonatomic, strong) Item *weapon;
 
 -(id)initWithPosition:(CGPoint)position;
 

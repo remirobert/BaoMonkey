@@ -9,8 +9,6 @@
 #import "MyScene.h"
 #import "MyScene+GeneratorWave.h"
 
-# define kPlayerSpeed 10
-
 # define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
 @implementation MyScene
