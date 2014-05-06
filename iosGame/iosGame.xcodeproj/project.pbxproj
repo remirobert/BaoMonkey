@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1024E8A61917E0AA00EB0810 /* Trunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 1024E8A51917E0AA00EB0810 /* Trunk.m */; };
+		104F93911919407500B63128 /* CocoNuts.m in Sources */ = {isa = PBXBuildFile; fileRef = 104F93901919407500B63128 /* CocoNuts.m */; };
+		104F9394191940DD00B63128 /* Prune.m in Sources */ = {isa = PBXBuildFile; fileRef = 104F9393191940DD00B63128 /* Prune.m */; };
+		1098D9DD1917ADE800E51488 /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 1098D9DC1917ADE800E51488 /* MyScene+GeneratorWave.m */; };
+		1098D9E01917D6C700E51488 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 1098D9DF1917D6C700E51488 /* Item.m */; };
+		10BB8A3E19193BE700968DCA /* Banana.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BB8A3D19193BE700968DCA /* Banana.m */; };
 		10BE97AC19178D2200D6FA77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AB19178D2200D6FA77 /* Foundation.framework */; };
 		10BE97AE19178D2200D6FA77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AD19178D2200D6FA77 /* CoreGraphics.framework */; };
 		10BE97B019178D2200D6FA77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AF19178D2200D6FA77 /* UIKit.framework */; };
@@ -18,7 +24,6 @@
 		10BE97C419178D2200D6FA77 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97C219178D2200D6FA77 /* Main_iPad.storyboard */; };
 		10BE97C719178D2200D6FA77 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE97C619178D2200D6FA77 /* ViewController.m */; };
 		10BE97CA19178D2200D6FA77 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BE97C919178D2200D6FA77 /* MyScene.m */; };
-		10BE97CC19178D2200D6FA77 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97CB19178D2200D6FA77 /* Spaceship.png */; };
 		10BE97CE19178D2200D6FA77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10BE97CD19178D2200D6FA77 /* Images.xcassets */; };
 		10BE97D519178D2200D6FA77 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97D419178D2200D6FA77 /* XCTest.framework */; };
 		10BE97D619178D2200D6FA77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10BE97AB19178D2200D6FA77 /* Foundation.framework */; };
@@ -38,6 +43,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1024E8A41917E0AA00EB0810 /* Trunk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trunk.h; sourceTree = "<group>"; };
+		1024E8A51917E0AA00EB0810 /* Trunk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trunk.m; sourceTree = "<group>"; };
+		104F938F1919407500B63128 /* CocoNuts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoNuts.h; sourceTree = "<group>"; };
+		104F93901919407500B63128 /* CocoNuts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoNuts.m; sourceTree = "<group>"; };
+		104F9392191940DD00B63128 /* Prune.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prune.h; sourceTree = "<group>"; };
+		104F9393191940DD00B63128 /* Prune.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Prune.m; sourceTree = "<group>"; };
+		1098D9DB1917ADE800E51488 /* MyScene+GeneratorWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+GeneratorWave.h"; sourceTree = "<group>"; };
+		1098D9DC1917ADE800E51488 /* MyScene+GeneratorWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+GeneratorWave.m"; sourceTree = "<group>"; };
+		1098D9DE1917D6C700E51488 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		1098D9DF1917D6C700E51488 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		10BB8A3C19193BE700968DCA /* Banana.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Banana.h; sourceTree = "<group>"; };
+		10BB8A3D19193BE700968DCA /* Banana.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Banana.m; sourceTree = "<group>"; };
 		10BE97A819178D2200D6FA77 /* iosGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10BE97AB19178D2200D6FA77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		10BE97AD19178D2200D6FA77 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,7 +72,6 @@
 		10BE97C619178D2200D6FA77 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		10BE97C819178D2200D6FA77 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
 		10BE97C919178D2200D6FA77 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		10BE97CB19178D2200D6FA77 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		10BE97CD19178D2200D6FA77 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		10BE97D319178D2200D6FA77 /* iosGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iosGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10BE97D419178D2200D6FA77 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -131,7 +147,18 @@
 				10BE97C619178D2200D6FA77 /* ViewController.m */,
 				10BE97C819178D2200D6FA77 /* MyScene.h */,
 				10BE97C919178D2200D6FA77 /* MyScene.m */,
-				10BE97CB19178D2200D6FA77 /* Spaceship.png */,
+				1098D9DB1917ADE800E51488 /* MyScene+GeneratorWave.h */,
+				1098D9DC1917ADE800E51488 /* MyScene+GeneratorWave.m */,
+				1098D9DE1917D6C700E51488 /* Item.h */,
+				1098D9DF1917D6C700E51488 /* Item.m */,
+				1024E8A41917E0AA00EB0810 /* Trunk.h */,
+				10BB8A3C19193BE700968DCA /* Banana.h */,
+				10BB8A3D19193BE700968DCA /* Banana.m */,
+				104F938F1919407500B63128 /* CocoNuts.h */,
+				104F93901919407500B63128 /* CocoNuts.m */,
+				104F9392191940DD00B63128 /* Prune.h */,
+				104F9393191940DD00B63128 /* Prune.m */,
+				1024E8A51917E0AA00EB0810 /* Trunk.m */,
 				10BE97CD19178D2200D6FA77 /* Images.xcassets */,
 				10BE97B419178D2200D6FA77 /* Supporting Files */,
 			);
@@ -243,7 +270,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10BE97CC19178D2200D6FA77 /* Spaceship.png in Resources */,
 				10BE97CE19178D2200D6FA77 /* Images.xcassets in Resources */,
 				10BE97C419178D2200D6FA77 /* Main_iPad.storyboard in Resources */,
 				10BE97C119178D2200D6FA77 /* Main_iPhone.storyboard in Resources */,
@@ -266,10 +292,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				104F9394191940DD00B63128 /* Prune.m in Sources */,
+				1098D9E01917D6C700E51488 /* Item.m in Sources */,
 				10BE97CA19178D2200D6FA77 /* MyScene.m in Sources */,
 				10BE97C719178D2200D6FA77 /* ViewController.m in Sources */,
+				1024E8A61917E0AA00EB0810 /* Trunk.m in Sources */,
+				10BB8A3E19193BE700968DCA /* Banana.m in Sources */,
+				104F93911919407500B63128 /* CocoNuts.m in Sources */,
 				10BE97BE19178D2200D6FA77 /* AppDelegate.m in Sources */,
 				10BE97BA19178D2200D6FA77 /* main.m in Sources */,
+				1098D9DD1917ADE800E51488 /* MyScene+GeneratorWave.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +375,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: REMI HILLAIRET (NHLG76Z36Y)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -382,6 +415,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: REMI HILLAIRET (NHLG76Z36Y)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -407,6 +441,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iosGame/iosGame-Prefix.pch";
 				INFOPLIST_FILE = "iosGame/iosGame-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -421,6 +456,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iosGame/iosGame-Prefix.pch";
 				INFOPLIST_FILE = "iosGame/iosGame-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
