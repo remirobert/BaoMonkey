@@ -38,7 +38,12 @@
     _sizeBlock = (self.frame.size.width - (self.frame.size.width / 10)) / 10;
     _treeBranch = [[TreeBranch alloc] init];
     
-    self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:_treeBranch.node.frame];
+    self.physicsBody = [SKPhysicsBody
+                        bodyWithEdgeLoopFromRect:CGRectMake(_treeBranch.node.frame.origin.x,
+                                                            _treeBranch.node.frame.origin.y -
+                                                            (_treeBranch.node.frame.size.height / 2) + (_treeBranch.node.frame.size.height / 2),
+                                                            _treeBranch.node.frame.size.width,
+                                                            _treeBranch.node.frame.size.height / 2)];
     
     [self addChild:_treeBranch.node];
     
