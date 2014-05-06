@@ -13,13 +13,11 @@
 - (instancetype) init {
     if ((self = [TreeBranch alloc]) != nil) {
         
-        _node = [[SKSpriteNode alloc]
-                 initWithColor:[[SKColor greenColor]
-                                colorWithAlphaComponent:0.65]
-                 size:CGSizeMake([UIScreen mainScreen].bounds.size.width, 30)];
+        _node = [[SKSpriteNode alloc] initWithImageNamed:@"tree-branch.png"];
+        
         _node.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-                                     [UIScreen mainScreen].bounds.size.height -
-                                     ([UIScreen mainScreen].bounds.size.height / 3));
+                                     [UIScreen mainScreen].bounds.size.height - 180);
+        
         _node.name = @"treeBranch";
     }
     return (self);
