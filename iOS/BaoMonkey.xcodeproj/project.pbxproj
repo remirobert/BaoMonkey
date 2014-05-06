@@ -152,30 +152,12 @@
 		10C599BE191948A300907493 /* BaoMonkey */ = {
 			isa = PBXGroup;
 			children = (
-				10C59A0C1919492C00907493 /* Resources */,
-				10C59A071919492200907493 /* ViewController.h */,
-				10C59A081919492200907493 /* ViewController.m */,
-				10C59A041919491200907493 /* Trunk.h */,
-				10C59A2119194D1500907493 /* MyScene+GeneratorWave.h */,
-				10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */,
-				10C59A2419194D5D00907493 /* Item.h */,
-				10C59A2519194D5D00907493 /* Item.m */,
-				10C59A051919491200907493 /* Trunk.m */,
-				10C59A1E19194C7400907493 /* Prune.m */,
-				10C59A1919194A0D00907493 /* MyScene.h */,
-				10C599FE1919490900907493 /* MyScene.m */,
-				10C599FB191948CB00907493 /* Monkey.h */,
-				10C599FC191948CB00907493 /* Monkey.m */,
-				10C599F5191948B500907493 /* Banana.h */,
-				10C599F6191948B500907493 /* Banana.m */,
-				10C59A2019194CF700907493 /* Prune.h */,
-				10C599F7191948B500907493 /* CocoNuts.h */,
-				10C599F8191948B500907493 /* CocoNuts.m */,
 				10C599C7191948A300907493 /* AppDelegate.h */,
 				10C599C8191948A300907493 /* AppDelegate.m */,
-				10C599CA191948A300907493 /* Main_iPhone.storyboard */,
-				10C599CD191948A300907493 /* Main_iPad.storyboard */,
 				10C599D8191948A300907493 /* Images.xcassets */,
+				3F50F12119194EB200A37F85 /* Classes */,
+				3F50F12719194EFD00A37F85 /* Librairies */,
+				10C59A0C1919492C00907493 /* Resources */,
 				10C599BF191948A300907493 /* Supporting Files */,
 			);
 			path = BaoMonkey;
@@ -236,6 +218,128 @@
 				10C59A131919492C00907493 /* trunk@2x.png */,
 			);
 			path = Tree;
+			sourceTree = "<group>";
+		};
+		3F50F12119194EB200A37F85 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3F50F12619194EE600A37F85 /* Views */,
+				3F50F12519194EE000A37F85 /* Helpers */,
+				3F50F12419194EC700A37F85 /* Controllers */,
+				3F50F12219194EB700A37F85 /* Models */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		3F50F12219194EB700A37F85 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F50F12E19194FA400A37F85 /* Scene */,
+				3F50F12D19194F9A00A37F85 /* Monkey */,
+				3F50F12819194F3200A37F85 /* Item */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3F50F12419194EC700A37F85 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				10C59A071919492200907493 /* ViewController.h */,
+				10C59A081919492200907493 /* ViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3F50F12519194EE000A37F85 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		3F50F12619194EE600A37F85 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				10C599CA191948A300907493 /* Main_iPhone.storyboard */,
+				10C599CD191948A300907493 /* Main_iPad.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		3F50F12719194EFD00A37F85 /* Librairies */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Librairies;
+			sourceTree = "<group>";
+		};
+		3F50F12819194F3200A37F85 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				10C59A2419194D5D00907493 /* Item.h */,
+				10C59A2519194D5D00907493 /* Item.m */,
+				3F50F12919194F3F00A37F85 /* Trunk */,
+				3F50F12C19194F6D00A37F85 /* CocoNuts */,
+				3F50F12B19194F6300A37F85 /* Banana */,
+				3F50F12A19194F4D00A37F85 /* Prune */,
+			);
+			name = Item;
+			sourceTree = "<group>";
+		};
+		3F50F12919194F3F00A37F85 /* Trunk */ = {
+			isa = PBXGroup;
+			children = (
+				10C59A041919491200907493 /* Trunk.h */,
+				10C59A051919491200907493 /* Trunk.m */,
+			);
+			name = Trunk;
+			sourceTree = "<group>";
+		};
+		3F50F12A19194F4D00A37F85 /* Prune */ = {
+			isa = PBXGroup;
+			children = (
+				10C59A2019194CF700907493 /* Prune.h */,
+				10C59A1E19194C7400907493 /* Prune.m */,
+			);
+			name = Prune;
+			sourceTree = "<group>";
+		};
+		3F50F12B19194F6300A37F85 /* Banana */ = {
+			isa = PBXGroup;
+			children = (
+				10C599F5191948B500907493 /* Banana.h */,
+				10C599F6191948B500907493 /* Banana.m */,
+			);
+			name = Banana;
+			sourceTree = "<group>";
+		};
+		3F50F12C19194F6D00A37F85 /* CocoNuts */ = {
+			isa = PBXGroup;
+			children = (
+				10C599F7191948B500907493 /* CocoNuts.h */,
+				10C599F8191948B500907493 /* CocoNuts.m */,
+			);
+			name = CocoNuts;
+			sourceTree = "<group>";
+		};
+		3F50F12D19194F9A00A37F85 /* Monkey */ = {
+			isa = PBXGroup;
+			children = (
+				10C599FB191948CB00907493 /* Monkey.h */,
+				10C599FC191948CB00907493 /* Monkey.m */,
+			);
+			name = Monkey;
+			sourceTree = "<group>";
+		};
+		3F50F12E19194FA400A37F85 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				10C59A1919194A0D00907493 /* MyScene.h */,
+				10C599FE1919490900907493 /* MyScene.m */,
+				10C59A2119194D1500907493 /* MyScene+GeneratorWave.h */,
+				10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */,
+			);
+			name = Scene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -568,6 +672,7 @@
 				10C599F1191948A400907493 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		10C599F2191948A400907493 /* Build configuration list for PBXNativeTarget "BaoMonkeyTests" */ = {
 			isa = XCConfigurationList;
@@ -576,6 +681,7 @@
 				10C599F4191948A400907493 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
