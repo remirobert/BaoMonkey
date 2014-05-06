@@ -8,46 +8,53 @@
 
 #import "MyScene.h"
 
+# define kPlayerSpeed 10
+
+# define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
 @implementation MyScene
 
--(id)initWithSize:(CGSize)size {    
+@synthesize motionManager;
+
++ (SKSpriteNode *)spriteNodeWithImageNamed:(NSString *)name {
+    if (IPAD) {
+        name = [NSString stringWithFormat:@"ipad-%@", name];
+    } else {
+        name = [NSString stringWithFormat:@"iphone-%@", name];
+    }
+    return [SKSpriteNode spriteNodeWithImageNamed:name];
+}
+
+-(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        /* Setup your scene here */
         
-        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+        self.backgroundColor = [SKColor colorWithRed:52/255.0f green:152/255.0f blue:219/255.0f alpha:1];
         
-        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+        SKSpriteNode *trunk = [SKSpriteNode spriteNodeWithImageNamed:@"trunk.png"];
+        trunk.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 370);
+        [self addChild:trunk];
         
-        myLabel.text = @"Hello, World!";
-        myLabel.fontSize = 30;
-        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame));
+        SKSpriteNode *back_leaf = [SKSpriteNode spriteNodeWithImageNamed:@"back-leaf.png"];
+        back_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 124);
+        [self addChild:back_leaf];
         
-        [self addChild:myLabel];
+        SKSpriteNode *tree_branch = [SKSpriteNode spriteNodeWithImageNamed:@"tree-branch.png"];
+        tree_branch.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 180);
+        [self addChild:tree_branch];
+        
+        monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, tree_branch.position.y + 10)];
+        [self addChild:monkey.sprite];
+        
+        SKSpriteNode *front_leaf = [SKSpriteNode spriteNodeWithImageNamed:@"front-leaf.png"];
+        front_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 89);
+        [self addChild:front_leaf];
     }
     return self;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins */
-    
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-        
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
-    }
-}
-
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
+    [monkey updatePosition];
 }
 
 @end
