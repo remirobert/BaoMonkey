@@ -11,6 +11,7 @@
 @implementation Monkey
 
 @synthesize sprite;
+@synthesize weapon;
 
 -(id)initWithPosition:(CGPoint)position {
     self = [super init];
@@ -18,6 +19,9 @@
         // Init the sprite of the Monkey
         sprite = [SKSpriteNode spriteNodeWithImageNamed:kSpriteImageName];
         sprite.position = position;
+        
+        // Init the weapon
+        weapon = [[Item alloc] init];
         
         // Init the accelerometer for the Monkey
         motionManager = [[CMMotionManager alloc] init];
@@ -62,6 +66,17 @@
 
 -(void)updatePosition{
     [self updateMonkeyPositionFromMotionManager];
+}
+
+-(BOOL)checkIsItemIsWeapon:(Item *)item{
+    if ([item isKindOfClass:[Weapon class]]){
+        if (weapon == nil) {
+            weapon = item;
+            return TRUE;
+        }
+        return FALSE;
+    }
+    return FALSE;
 }
 
 @end
