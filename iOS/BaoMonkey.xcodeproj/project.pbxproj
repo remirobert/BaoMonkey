@@ -41,6 +41,7 @@
 		10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */; };
 		10C59A2619194D5D00907493 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2519194D5D00907493 /* Item.m */; };
 		3F7D436C191A3BC800DF30D6 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D436B191A3BC800DF30D6 /* GameController.m */; };
+		3F7D436F191A6FE100DF30D6 /* MonkeyWalking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3F7D436E191A6FE100DF30D6 /* MonkeyWalking.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		3F7D436A191A3BC800DF30D6 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
 		3F7D436B191A3BC800DF30D6 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		3F7D436D191A3E3F00DF30D6 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		3F7D436E191A6FE100DF30D6 /* MonkeyWalking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyWalking.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +225,7 @@
 		10C59A0D1919492C00907493 /* Monkey */ = {
 			isa = PBXGroup;
 			children = (
+				3F7D436E191A6FE100DF30D6 /* MonkeyWalking.atlas */,
 				10C59A0E1919492C00907493 /* monkey@2x.png */,
 			);
 			path = Monkey;
@@ -451,6 +454,7 @@
 				10C59A151919492C00907493 /* back-leaf@2x.png in Resources */,
 				10C599D9191948A300907493 /* Images.xcassets in Resources */,
 				10C599CF191948A300907493 /* Main_iPad.storyboard in Resources */,
+				3F7D436F191A6FE100DF30D6 /* MonkeyWalking.atlas in Resources */,
 				10C59A181919492C00907493 /* trunk@2x.png in Resources */,
 				10C599CC191948A300907493 /* Main_iPhone.storyboard in Resources */,
 				10C599C3191948A300907493 /* InfoPlist.strings in Resources */,
