@@ -11,7 +11,7 @@
 @implementation Weapon
 
 - (instancetype) init:(CGPoint)position {
-    if ((self = [super init:position]) != nil) {
+    if ((self = [super init:position :WEAPON]) != nil) {
     }
     return (self);
 }

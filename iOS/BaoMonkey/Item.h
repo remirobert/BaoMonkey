@@ -13,16 +13,17 @@
 
 
 typedef enum {
-    BANANA,
-    PRUNE,
-    COCONUTS
+    WEAPON,
+    BONUS,
+    MALUS
 }ItemType;
 
 
 @interface Item : NSObject
 
 @property (nonatomic, strong) SKSpriteNode *node;
+@property (nonatomic) ItemType type;
 
-- (instancetype) init:(CGPoint)position;
+- (instancetype) init:(CGPoint)position :(ItemType)type;
 
 @end

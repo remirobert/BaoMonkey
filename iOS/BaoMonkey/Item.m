@@ -10,7 +10,7 @@
 
 @implementation Item
 
-- (instancetype) init:(CGPoint)position {
+- (instancetype) init:(CGPoint)position :(ItemType)type {
     if ((self = [Item alloc]) != nil) {
         _node = [[SKSpriteNode alloc] initWithColor:[SKColor redColor]
                                                size:CGSizeMake(25, 25)];
@@ -19,6 +19,8 @@
         _node.physicsBody.affectedByGravity = YES;
 
         _node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_node.size];
+        
+        _type = type;
     }
     return (self);
 }

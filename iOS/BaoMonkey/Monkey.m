@@ -69,7 +69,7 @@
 }
 
 -(BOOL)checkIsItemIsWeapon:(Item *)item{
-    if ([item isKindOfClass:[Weapon class]]){
+    if (item.type == WEAPON){
         if (weapon == nil) {
             weapon = item;
             return TRUE;
