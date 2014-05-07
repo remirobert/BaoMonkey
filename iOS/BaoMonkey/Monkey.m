@@ -19,7 +19,7 @@
         // Init the sprites of the Monkey
         sprite = [SKSpriteNode spriteNodeWithImageNamed:kSpriteImageName];
         sprite.position = position;
-        
+
         [self loadWalkingSprites];
 
         // Init the notification for dropping the weapon
@@ -95,13 +95,9 @@
 #pragma mark - Checking the item receive
 
 -(void)catchItem:(id)item{
-    
-    NSLog(@"%@", [item class]);
-    
     if ([item isKindOfClass:[Weapon class]]){
         if (weapon == nil) {
             weapon = [[Item alloc] init];
-            NSLog(@"take weapon");
             weapon = item;
             weapon.isTaken = YES;
             [(Item *)item launchAction];
