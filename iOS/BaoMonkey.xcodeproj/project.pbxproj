@@ -40,6 +40,7 @@
 		10C59A1F19194C7400907493 /* Prune.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A1E19194C7400907493 /* Prune.m */; };
 		10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */; };
 		10C59A2619194D5D00907493 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2519194D5D00907493 /* Item.m */; };
+		3F7D436C191A3BC800DF30D6 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D436B191A3BC800DF30D6 /* GameController.m */; };
 		29E98B9B191A1F370046F9B2 /* lamberjack-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E98B99191A1F370046F9B2 /* lamberjack-left@2x.png */; };
 		29E98B9C191A1F370046F9B2 /* lamberjack-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E98B9A191A1F370046F9B2 /* lamberjack-right@2x.png */; };
 		29E98B9F191A212B0046F9B2 /* EnemiesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98B9E191A212B0046F9B2 /* EnemiesController.m */; };
@@ -108,6 +109,9 @@
 		10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+GeneratorWave.m"; sourceTree = "<group>"; };
 		10C59A2419194D5D00907493 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		10C59A2519194D5D00907493 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		3F7D436A191A3BC800DF30D6 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		3F7D436B191A3BC800DF30D6 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
+		3F7D436D191A3E3F00DF30D6 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		29E98B99191A1F370046F9B2 /* lamberjack-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lamberjack-left@2x.png"; path = "Enemy/lamberjack-left@2x.png"; sourceTree = "<group>"; };
 		29E98B9A191A1F370046F9B2 /* lamberjack-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lamberjack-right@2x.png"; path = "Enemy/lamberjack-right@2x.png"; sourceTree = "<group>"; };
 		29E98B9D191A212B0046F9B2 /* EnemiesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemiesController.h; sourceTree = "<group>"; };
@@ -296,7 +300,8 @@
 				29E98B96191A1D4B0046F9B2 /* Enemy */,
 				3F50F12D19194F9A00A37F85 /* Monkey */,
 			);
-			name = Models;
+				29E98B96191A1D4B0046F9B2 /* Enemy */,
+				3F7D4369191A3BB200DF30D6 /* GameController */,
 			sourceTree = "<group>";
 		};
 		3F50F12419194EC700A37F85 /* Controllers */ = {

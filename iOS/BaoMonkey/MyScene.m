@@ -76,7 +76,7 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-    [monkey updatePosition];
+    [monkey updateMonkeyPosition:[GameController getAccelerometerPosition]];
     [enemiesController updateEnemies:currentTime];
     
     [self enumerateChildNodesWithName:NAME_ITEM usingBlock:^(SKNode *node, BOOL *stop) {
