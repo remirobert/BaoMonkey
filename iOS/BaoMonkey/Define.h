@@ -28,4 +28,10 @@
 
 # define SKACTION_MONKEY_WALKING @"SKACTION_MONKEY_WALKING"
 
+/*
+** NODE NAME
+*/
+
+# define ENEMY_NODE_NAME    @"EnemyNode"
+
 #endif
