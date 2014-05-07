@@ -7,6 +7,7 @@
 //
 
 #import "Enemy.h"
+#import "Define.h"
 
 #define SPEED   0.6
 
@@ -17,7 +18,7 @@
 -(id)init {
     self = [super init];
     if (self) {
-        // Do some stuff
+        node.name = ENEMY_NODE_NAME;
     }
     return self;
 }
