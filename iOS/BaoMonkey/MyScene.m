@@ -79,24 +79,21 @@
     [monkey updateMonkeyPosition:[GameController getAccelerometerPosition]];
     [enemiesController updateEnemies:currentTime];
     
-    [self enumerateChildNodesWithName:ITEM_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-        SKNode *tmp = [self nodeAtPoint:monkey.sprite.position];
-        for (id item in _wave) {
-            
-//            if (CGRectIntersectsRect(, ))
-            
-            if (CGPointEqualToPoint(((Item *)item).node.position, tmp.position))
+    for (id item in _wave) {
+        if (((Item *)item).isTaken == NO) {
+            if (CGRectIntersectsRect(((Item *)item).node.frame, monkey.sprite.frame)) {
                 [monkey catchItem:item];
-//                    ((Item *)item).node.hidden = YES;
-//                }
+                break;
             }
-    }];
-    
-    [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-    }];
-    
-    [self enumerateChildNodesWithName:ENEMY_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-        NSLog(@"ENNEEE !!!");
+        }
+    }
+    [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *weaponNode, BOOL *stop) {
+        for (Enemy *enemy in self->enemiesController.enemies) {
+            if (CGRectIntersectsRect(weaponNode.frame, enemy.node.frame)) {
+                [self->enemiesController deleteEnemy:enemy];
+                break;
+            }
+        }
     }];
 }
 

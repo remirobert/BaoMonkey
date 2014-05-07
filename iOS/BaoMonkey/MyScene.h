@@ -12,6 +12,7 @@
 #import "TreeBranch.h"
 #import "GameController.h"
 #import "Monkey.h"
+#import "Enemy.h"
 #import "EnemiesController.h"
 #import "Define.h"
 

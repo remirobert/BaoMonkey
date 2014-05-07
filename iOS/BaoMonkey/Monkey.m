@@ -116,6 +116,7 @@
 
 -(void)launchWeapon{
     if (weapon != nil) {
+        weapon.node.position = CGPointMake(sprite.position.x, weapon.node.position.y);
         [Action dropWeapon:weapon];
         weapon = nil;
     }

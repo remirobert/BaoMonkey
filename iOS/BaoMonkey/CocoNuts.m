@@ -17,9 +17,8 @@
     return (self);
 }
 
-- (void) launchAction {
-    self.node.name = WEAPON_NODE_NAME;
-    self.node.hidden = YES;
+- (void) launchAction {    
+    self.node.physicsBody = nil;
 }
 
 @end

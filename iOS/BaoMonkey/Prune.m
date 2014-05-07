@@ -22,7 +22,8 @@
     SKAction *move = [SKAction moveTo:CGPointMake(self.node.position.x, 200) duration:0];
     SKAction *action = [SKAction resizeToWidth:300 height:300 duration:0.5];
     
-    NSLog(@"pune launch action");
+    self.node.physicsBody = nil;
+    
     self.node.physicsBody.affectedByGravity = NO;
     [self.node runAction:move completion:^{
             [self.node runAction:action];

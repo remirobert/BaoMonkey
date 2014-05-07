@@ -65,7 +65,6 @@
 }
 
 -(void)deleteEnemy:(Enemy*)enemy {
-    NSLog(@"Delete enemy");
     [enemy.node removeFromParent];
     [enemies removeObject:enemy];
 }
