@@ -68,7 +68,8 @@
 #pragma mark - Checking the item receive
 
 -(BOOL)checkIsItemIsWeapon:(Item *)item{
-    if (item.type == WEAPON){
+    if ([item isKindOfClass:[Weapon class]]){
+        NSLog(@"Weapon");
         if (weapon == nil) {
             weapon = [[Item alloc] init];
             weapon = item;
