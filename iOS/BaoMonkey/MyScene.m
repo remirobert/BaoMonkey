@@ -74,7 +74,6 @@
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         [[GameData singleton] initGameData];
-        [[GameData singleton] substractLifeToTrunkLife:100.0f];
         [self initScene];
         [self performSelector:@selector(addWave) withObject:nil afterDelay:1.5];
         [self performSelector:@selector(addWeapon) withObject:nil afterDelay:1.0];
@@ -116,6 +115,13 @@
     }];
     
     [[GameData singleton] regenerateTrunkLife];
+    
+    for (Enemy *enemy in self->enemiesController.enemies) {
+        if (((LamberJack *)enemy).isChooping) {
+            [[GameData singleton] substractLifeToTrunkLife:0.01f];
+        }
+    }
+    
     [trunkProgressLife updateProgression:[[GameData singleton] getTrunkLife]];
     score.text = [NSString stringWithFormat:@"%d", [[GameData singleton] getScore]];
 }

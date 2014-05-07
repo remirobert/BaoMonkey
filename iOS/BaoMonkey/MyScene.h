@@ -8,10 +8,13 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
+#import "TreeBranch.h"
+#import "ProgressBar.h"
 #import "GameData.h"
 #import "GameController.h"
 #import "Monkey.h"
 #import "Enemy.h"
+#import "LamberJack.h"
 #import "EnemiesController.h"
 #import "Define.h"
 

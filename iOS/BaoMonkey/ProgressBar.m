@@ -43,7 +43,7 @@
 }
 
 -(void)updateProgression:(CGFloat)progress {
-    if (progress < 100) {
+    if (progress > 0 && progress < 100) {
         CGFloat percentProgress = ((background.size.width - 5) * progress) / 100;
         front.size = CGSizeMake(percentProgress, front.size.height);
     }
