@@ -8,10 +8,6 @@
 
 #import "Item.h"
 
-@interface Item ()
-@property (nonatomic) SEL actionFunction;
-@end
-
 @implementation Item
 
 - (instancetype) init:(CGPoint)position :(ItemType)type {
@@ -27,20 +23,6 @@
         
     }
     return (self);
-}
-
-- (void) display {
-
-    NSLog(@"Item");
-    
-    /*
-    
-    if ([self respondsToSelector:_actionFunction])
-        [self performSelector:_actionFunction];
-//        [self performSelectorOnMainThread:_actionFunction withObject:nil waitUntilDone:0];
-    else
-        NSLog(@"dont respond to the selector");
-     */
 }
 
 @end

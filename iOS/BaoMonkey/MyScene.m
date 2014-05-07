@@ -76,11 +76,11 @@
     [self enumerateChildNodesWithName:NAME_ITEM usingBlock:^(SKNode *node, BOOL *stop) {
         SKNode *tmpNode = [self nodeAtPoint:monkey.sprite.position];
         
-        for (Item *item in _wave) {
-            if (CGPointEqualToPoint(item.node.position, tmpNode.position)) {
+        for (id item in _wave) {
+            if (CGPointEqualToPoint(((Item *)item).node.position, tmpNode.position)) {
                 if ([monkey checkIsItemIsWeapon:item]) {
                     NSLog(@"TRUE");
-                    [item.node removeFromParent];
+                    [((Item *)item).node removeFromParent];
                 } else {
                     NSLog(@"FALSE");
                 }
