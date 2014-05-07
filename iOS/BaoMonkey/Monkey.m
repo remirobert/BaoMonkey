@@ -20,56 +20,32 @@
         sprite = [SKSpriteNode spriteNodeWithImageNamed:kSpriteImageName];
         sprite.position = position;
         
-        // Init the accelerometer for the Monkey
-        motionManager = [[CMMotionManager alloc] init];
-        [self startMonitoringAcceleration];
+        // Listen if the gesture is tapped
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(launchWeapon) name:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
     }
     return self;
 }
 
-#pragma mark - Accelerometer Functions
-
-- (void)startMonitoringAcceleration
-{
-    if (motionManager.accelerometerAvailable) {
-        [motionManager startAccelerometerUpdates];
-    }
-}
-
-- (void)stopMonitoringAcceleration
-{
-    if (motionManager.accelerometerAvailable && motionManager.accelerometerActive) {
-        [motionManager stopAccelerometerUpdates];
-    }
-}
-
 #pragma mark - Update Sprite Functions
 
-- (void)updateMonkeyPositionFromMotionManager
+-(void)updateMonkeyPosition:(float)acceleration
 {
     float maxX = [UIScreen mainScreen].bounds.size.width + (sprite.size.width / 2);
     float minX = -(sprite.size.width / 2);
     
-    CMAccelerometerData *data = motionManager.accelerometerData;
-    if (fabs(data.acceleration.x) > 0.2) {
-        if (sprite.position.x > maxX) // The Monkey exit the screen on the right, we put him on the left
-            sprite.position = CGPointMake((0 - (sprite.size.width / 2)), sprite.position.y);
-        else if (sprite.position.x < minX) // The Monkey exit the screen on the left, we put him on the right
-            sprite.position = CGPointMake(([UIScreen mainScreen].bounds.size.width + (sprite.size.width / 2)), sprite.position.y);
-        else
-            sprite.position = CGPointMake(sprite.position.x + (data.acceleration.x * kSpeed), sprite.position.y);
+    if (sprite.position.x > maxX) {
+        sprite.position = CGPointMake(minX, sprite.position.y);
+    } else if (sprite.position.x < minX) {
+        sprite.position = CGPointMake(maxX, sprite.position.y);
+    } else {
+        sprite.position = CGPointMake(sprite.position.x + acceleration, sprite.position.y);
     }
-}
-
--(void)updatePosition{
-    [self updateMonkeyPositionFromMotionManager];
 }
 
 #pragma mark - Checking the item receive
 
--(BOOL)checkIsItemIsWeapon:(Item *)item{
+-(BOOL)checkIsItemIsWeapon:(id)item{
     if ([item isKindOfClass:[Weapon class]]){
-        NSLog(@"Weapon");
         if (weapon == nil) {
             weapon = [[Item alloc] init];
             weapon = item;
@@ -78,6 +54,16 @@
         return FALSE;
     }
     return FALSE;
+}
+
+#pragma mark - Launch a weapon
+
+-(void)launchWeapon{
+    if (weapon != nil) {
+        NSLog(@"Launch weapon");
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_WEAPON object:nil];
+        weapon = nil;
+    }
 }
 
 @end

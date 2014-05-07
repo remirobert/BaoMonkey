@@ -11,7 +11,6 @@
 @implementation Item
 
 - (instancetype) init:(CGPoint)position :(ItemType)type {
-    NSLog(@"Item");
     if ((self = [super init]) != nil) {
         _node = [[SKSpriteNode alloc] initWithColor:[SKColor redColor]
                                                 size:CGSizeMake(25, 25)];

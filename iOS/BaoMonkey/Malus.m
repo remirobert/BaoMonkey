@@ -15,7 +15,6 @@
 }
 
 - (instancetype) init:(CGPoint)position {
-    NSLog(@"Malus");
     if ((self = [super init:position :MALUS]) != nil) {
     }
     return (self);
