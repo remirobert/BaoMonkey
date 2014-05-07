@@ -39,6 +39,11 @@
 		10C59A1F19194C7400907493 /* Prune.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A1E19194C7400907493 /* Prune.m */; };
 		10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */; };
 		10C59A2619194D5D00907493 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2519194D5D00907493 /* Item.m */; };
+		29E98B9B191A1F370046F9B2 /* lamberjack-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E98B99191A1F370046F9B2 /* lamberjack-left@2x.png */; };
+		29E98B9C191A1F370046F9B2 /* lamberjack-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E98B9A191A1F370046F9B2 /* lamberjack-right@2x.png */; };
+		29E98B9F191A212B0046F9B2 /* EnemiesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98B9E191A212B0046F9B2 /* EnemiesController.m */; };
+		29E98BA2191A21700046F9B2 /* LamberJack.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BA1191A21700046F9B2 /* LamberJack.m */; };
+		29E98BA5191A263C0046F9B2 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BA4191A263C0046F9B2 /* Enemy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +105,14 @@
 		10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+GeneratorWave.m"; sourceTree = "<group>"; };
 		10C59A2419194D5D00907493 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		10C59A2519194D5D00907493 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		29E98B99191A1F370046F9B2 /* lamberjack-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lamberjack-left@2x.png"; path = "Enemy/lamberjack-left@2x.png"; sourceTree = "<group>"; };
+		29E98B9A191A1F370046F9B2 /* lamberjack-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lamberjack-right@2x.png"; path = "Enemy/lamberjack-right@2x.png"; sourceTree = "<group>"; };
+		29E98B9D191A212B0046F9B2 /* EnemiesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemiesController.h; sourceTree = "<group>"; };
+		29E98B9E191A212B0046F9B2 /* EnemiesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemiesController.m; sourceTree = "<group>"; };
+		29E98BA0191A21700046F9B2 /* LamberJack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamberJack.h; sourceTree = "<group>"; };
+		29E98BA1191A21700046F9B2 /* LamberJack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamberJack.m; sourceTree = "<group>"; };
+		29E98BA3191A263C0046F9B2 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
+		29E98BA4191A263C0046F9B2 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +219,7 @@
 		10C59A0C1919492C00907493 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				29E98B98191A1F2A0046F9B2 /* Enemy */,
 				10C59A0D1919492C00907493 /* Monkey */,
 				10C59A0F1919492C00907493 /* Tree */,
 			);
@@ -231,6 +245,36 @@
 			path = Tree;
 			sourceTree = "<group>";
 		};
+		29E98B96191A1D4B0046F9B2 /* Enemy */ = {
+			isa = PBXGroup;
+			children = (
+				29E98BA3191A263C0046F9B2 /* Enemy.h */,
+				29E98BA4191A263C0046F9B2 /* Enemy.m */,
+				29E98B9D191A212B0046F9B2 /* EnemiesController.h */,
+				29E98B9E191A212B0046F9B2 /* EnemiesController.m */,
+				29E98B97191A1D560046F9B2 /* LamberJack */,
+			);
+			name = Enemy;
+			sourceTree = "<group>";
+		};
+		29E98B97191A1D560046F9B2 /* LamberJack */ = {
+			isa = PBXGroup;
+			children = (
+				29E98BA0191A21700046F9B2 /* LamberJack.h */,
+				29E98BA1191A21700046F9B2 /* LamberJack.m */,
+			);
+			name = LamberJack;
+			sourceTree = "<group>";
+		};
+		29E98B98191A1F2A0046F9B2 /* Enemy */ = {
+			isa = PBXGroup;
+			children = (
+				29E98B99191A1F370046F9B2 /* lamberjack-left@2x.png */,
+				29E98B9A191A1F370046F9B2 /* lamberjack-right@2x.png */,
+			);
+			name = Enemy;
+			sourceTree = "<group>";
+		};
 		3F50F12119194EB200A37F85 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +289,7 @@
 		3F50F12219194EB700A37F85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				29E98B96191A1D4B0046F9B2 /* Enemy */,
 				3F50F12D19194F9A00A37F85 /* Monkey */,
 				3F50F12819194F3200A37F85 /* Item */,
 			);
@@ -427,10 +472,12 @@
 			files = (
 				10C59A161919492C00907493 /* front-leaf@2x.png in Resources */,
 				10C59A141919492C00907493 /* monkey@2x.png in Resources */,
+				29E98B9C191A1F370046F9B2 /* lamberjack-right@2x.png in Resources */,
 				10C59A171919492C00907493 /* tree-branch@2x.png in Resources */,
 				10C59A151919492C00907493 /* back-leaf@2x.png in Resources */,
 				10C599D9191948A300907493 /* Images.xcassets in Resources */,
 				10C599CF191948A300907493 /* Main_iPad.storyboard in Resources */,
+				29E98B9B191A1F370046F9B2 /* lamberjack-left@2x.png in Resources */,
 				10C59A181919492C00907493 /* trunk@2x.png in Resources */,
 				10C599CC191948A300907493 /* Main_iPhone.storyboard in Resources */,
 				10C599C3191948A300907493 /* InfoPlist.strings in Resources */,
@@ -455,6 +502,8 @@
 				10C59A1F19194C7400907493 /* Prune.m in Sources */,
 				10C59A1C19194BF000907493 /* Banana.m in Sources */,
 				10C59A1D19194BF000907493 /* CocoNuts.m in Sources */,
+				29E98BA2191A21700046F9B2 /* LamberJack.m in Sources */,
+				29E98B9F191A212B0046F9B2 /* EnemiesController.m in Sources */,
 				10C59A091919492200907493 /* ViewController.m in Sources */,
 				10123410191951CF00B035D9 /* Malus.m in Sources */,
 				10C59A061919491200907493 /* TreeBranch.m in Sources */,
@@ -464,6 +513,7 @@
 				10C599C5191948A300907493 /* main.m in Sources */,
 				1012340A1919512500B035D9 /* Weapon.m in Sources */,
 				1012340D1919519600B035D9 /* Bonus.m in Sources */,
+				29E98BA5191A263C0046F9B2 /* Enemy.m in Sources */,
 				10C59A021919490900907493 /* MyScene.m in Sources */,
 				10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */,
 			);
