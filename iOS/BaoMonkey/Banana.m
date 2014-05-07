@@ -19,7 +19,7 @@
 }
 
 - (void) actionBanana {
-    NSLog(@"banana action");
+    self.node.hidden = YES;
 }
 
 @end

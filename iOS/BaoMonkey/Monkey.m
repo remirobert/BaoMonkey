@@ -45,20 +45,19 @@
 #pragma mark - Checking the item receive
 
 -(void)catchItem:(id)item{
+    
+    NSLog(@"%@", [item class]);
+    
     if ([item isKindOfClass:[Weapon class]]){
         if (weapon == nil) {
             weapon = [[Item alloc] init];
+            NSLog(@"take weapon");
             weapon = item;
+            [(Item *)item launchAction];
         }
     }
-    
-//    } else if ([item isKindOfClass:[Malus class]]) {
-//        [item launchWeapon];
-//        NSLog(@"Malus");
-//    } else if ([item isKindOfClass:[Bonus class]]) {
-//        [item launchWeapon];
-//        NSLog(@"Bonus");
-//    }
+    else
+        [(Item *)item launchAction];
 }
 
 #pragma mark - Launch a weapon

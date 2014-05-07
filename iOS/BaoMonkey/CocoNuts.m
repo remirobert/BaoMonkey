@@ -18,7 +18,7 @@
 }
 
 - (void) launchAction {
-    NSLog(@"action coco");
+    self.node.hidden = YES;
 }
 
 @end

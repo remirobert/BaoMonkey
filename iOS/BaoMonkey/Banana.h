@@ -11,6 +11,5 @@
 @interface Banana : Malus
 
 - (instancetype) initWithPosition:(CGPoint)position;
-- (void) launchAction;
 
 @end
