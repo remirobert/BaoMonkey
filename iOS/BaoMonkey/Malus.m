@@ -16,7 +16,6 @@
 
 - (instancetype) init:(CGPoint)position {
     if ((self = [super init:position :MALUS]) != nil) {
-
     }
     return (self);
 }
