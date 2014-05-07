@@ -24,29 +24,4 @@
     return self;
 }
 
--(void)updatePosition {
-    CGRect screen = [UIScreen mainScreen].bounds;
-
-    if (self.direction == LEFT
-        && ((self.node.position.x - (self.node.size.width / 5)) > (screen.size.width / 2)))
-    {
-        [node setPosition:CGPointMake(node.position.x - speed, node.position.y)];
-    }
-    else if (self.direction == RIGHT
-             && ((self.node.position.x + (self.node.size.width / 5)) < (screen.size.width / 2)))
-    {
-        [node setPosition:CGPointMake(node.position.x + speed, node.position.y)];
-    }
-}
-
--(BOOL)reachedTheMiddle {
-    CGRect screen = [UIScreen mainScreen].bounds;
-    
-    if ((self.node.position.x - (self.node.size.width / 5)) > (screen.size.width / 2))
-        return FALSE;
-    else if ((self.node.position.x + (self.node.size.width / 5)) < (screen.size.width / 2))
-        return FALSE;
-    return TRUE;
-}
-
 @end

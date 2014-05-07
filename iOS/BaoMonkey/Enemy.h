@@ -31,7 +31,5 @@ typedef enum {
 @property (nonatomic) EnemyType type;
 
 -(id)init;
--(void)updatePosition;
--(BOOL)reachedTheMiddle;
 
 @end

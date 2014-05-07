@@ -12,6 +12,11 @@
 
 @interface LamberJack : Enemy
 
+@property (nonatomic, assign) BOOL isChooping;
+
 -(id)initWithDirection:(EnemyDirection)direction;
+-(void)startChopping;
+-(void)updatePosition;
+-(BOOL)reachedTheMiddle;
 
 @end
