@@ -10,12 +10,9 @@
 
 @implementation Malus
 
-- (void) display {
-    NSLog(@"Malus");
-}
-
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super initWithPosition:position]) != nil) {
+        
     }
     return (self);
 }

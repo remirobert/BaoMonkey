@@ -15,7 +15,9 @@
 @interface Item : NSObject
 
 @property (nonatomic, strong) SKSpriteNode *node;
+@property (nonatomic) SEL action;
 
 - (instancetype) initWithPosition:(CGPoint)position;
+- (void) launchAction;
 
 @end

@@ -17,4 +17,8 @@
     return (self);
 }
 
+- (void) launchAction {
+    self.node.hidden = YES;
+}
+
 @end

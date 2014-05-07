@@ -23,4 +23,11 @@
     return (self);
 }
 
+- (void) launchAction {
+    if ([self respondsToSelector:_action]) {
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [self performSelector:_action];
+    }
+}
+
 @end

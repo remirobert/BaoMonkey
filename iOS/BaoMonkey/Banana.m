@@ -13,8 +13,13 @@
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super initWithPosition:position]) != nil) {
         self.node.color = [SKColor yellowColor];
+        self.action = @selector(actionBanana);
     }
     return (self);
+}
+
+- (void) actionBanana {
+    self.node.hidden = YES;
 }
 
 @end
