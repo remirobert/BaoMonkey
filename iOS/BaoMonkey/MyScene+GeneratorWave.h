@@ -14,5 +14,6 @@
 @interface MyScene (GeneratorWave)
 
 - (void) addNewWave;
+- (void) addNewWeapon;
 
 @end

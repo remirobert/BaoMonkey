@@ -24,24 +24,51 @@
 - (NSObject *) createItem:(CGPoint)position {
     
     NSObject *object;
-
-    switch (rand() % 3) {
-        case 0:
-            object = [[Prune alloc] initWithPosition:position];
-            break;
-
-        case 1:
-            object = [[Banana alloc] initWithPosition:position];
-            break;
-
-        case 2:
-            object = [[CocoNuts alloc] initWithPosition:position];
-            break;
-
-        default:
-            return (nil);
-    }
+    int ratio = rand() % 3;
+    
+    if (ratio < 2)
+        object = [[Banana alloc] initWithPosition:position];
+    else
+        object = [[Prune alloc] initWithPosition:position];
     return (object);
+}
+
+- (void) addItem:(id)object {
+    if (object == nil)
+        return ;
+    
+    if (self.wave == nil)
+        self.wave = [[NSMutableArray alloc] init];
+    
+    [self.wave addObject:object];
+    [self performSelector:@selector(addItemToScene:)
+               withObject:((Item *)object).node
+               afterDelay:((float)arc4random() / 0x100000000)];
+    
+    [self performSelector:@selector(deleteItemAfterTime:)
+               withObject:object afterDelay:rand() % 4 + 2];
+}
+
+- (void) addNewWeapon {
+    CGPoint position = CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width -
+                                                  ([UIScreen mainScreen].bounds.size.width / 10)) +
+                                   ([UIScreen mainScreen].bounds.size.width / 10),
+                                   [UIScreen mainScreen].bounds.size.height + self.sizeBlock);
+    CocoNuts *coco = [[CocoNuts alloc] initWithPosition:position];
+
+    [self addItem:coco];
+    return ;
+    if (self.wave == nil)
+        self.wave = [[NSMutableArray alloc] init];
+    
+    [self.wave addObject:coco];
+    
+    [self performSelector:@selector(addItemToScene:)
+               withObject:coco.node
+               afterDelay:((float)arc4random() / 0x100000000)];
+    
+    [self performSelector:@selector(deleteItemAfterTime:)
+               withObject:coco afterDelay:rand() % 4 + 2];
 }
 
 - (void) addNewWave {
@@ -50,19 +77,7 @@
                                                             ([UIScreen mainScreen].bounds.size.width / 10)) +
                                              ([UIScreen mainScreen].bounds.size.width / 10),
                                              [UIScreen mainScreen].bounds.size.height + self.sizeBlock)];
-    if (object == nil)
-        return ;
-
-    if (self.wave == nil)
-        self.wave = [[NSMutableArray alloc] init];
-
-    [self.wave addObject:object];
-    [self performSelector:@selector(addItemToScene:)
-               withObject:((Item *)object).node
-               afterDelay:((float)arc4random() / 0x100000000)];
-
-    [self performSelector:@selector(deleteItemAfterTime:)
-               withObject:object afterDelay:rand() % 4 + 2];
+    [self addItem:object];
 }
 
 @end

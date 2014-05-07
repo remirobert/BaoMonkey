@@ -76,7 +76,6 @@
             }
         }
     }
-    NSLog(@"%@", LBState);
     return LBState;
 }
 

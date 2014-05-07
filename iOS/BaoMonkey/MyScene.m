@@ -66,13 +66,19 @@
         [self initGameController];
         [self initScene];
         [self performSelector:@selector(addWave) withObject:nil afterDelay:1.5];
+        [self performSelector:@selector(addWeapon) withObject:nil afterDelay:1.0];
     }
     return self;
 }
 
+- (void) addWeapon {
+    [self addNewWeapon];
+    [self performSelector:@selector(addWeapon) withObject:nil afterDelay:1.5];
+}
+
 - (void) addWave {
     [self addNewWave];
-    [self performSelector:@selector(addWave) withObject:nil afterDelay:rand() % 3 + 2];
+    [self performSelector:@selector(addWave) withObject:nil afterDelay:rand() % 4 + 3];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
@@ -89,9 +95,11 @@
     }
     [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *weaponNode, BOOL *stop) {
         for (Enemy *enemy in self->enemiesController.enemies) {
-            if (CGRectIntersectsRect(weaponNode.frame, enemy.node.frame)) {
+            
+            if ([weaponNode intersectsNode:enemy.node]) {
                 [self->enemiesController deleteEnemy:enemy];
-                break;
+                [weaponNode removeFromParent];
+                return ;
             }
         }
     }];
