@@ -52,6 +52,9 @@
     monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, _treeBranch.node.position.y + 20)];
     [self addChild:monkey.sprite];
     
+    // Init enemies controller
+    enemiesController = [[EnemiesController alloc] initWithScene:self];
+    
     SKSpriteNode *front_leaf = [SKSpriteNode spriteNodeWithImageNamed:@"front-leaf.png"];
     front_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 89);
     [self addChild:front_leaf];
@@ -74,6 +77,7 @@
 
 -(void)update:(CFTimeInterval)currentTime {
     [monkey updateMonkeyPosition:[GameController getAccelerometerPosition]];
+    [enemiesController updateEnemies:currentTime];
     
     [self enumerateChildNodesWithName:NAME_ITEM usingBlock:^(SKNode *node, BOOL *stop) {
         SKNode *tmp = [self nodeAtPoint:monkey.sprite.position];

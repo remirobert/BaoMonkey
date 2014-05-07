@@ -7,14 +7,17 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import <CoreMotion/CoreMotion.h>
 #import "Item.h"
 #import "TreeBranch.h"
 #import "GameController.h"
-#import <CoreMotion/CoreMotion.h>
 #import "Monkey.h"
+#import "EnemiesController.h"
+
 
 @interface MyScene : SKScene {
     Monkey *monkey;
+    EnemiesController *enemiesController;
     GameController *gc;
 }
 
