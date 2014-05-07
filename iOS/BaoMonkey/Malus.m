@@ -11,8 +11,8 @@
 @implementation Malus
 
 - (instancetype) init:(CGPoint)position {
-    if ((self = [super init:position]) != nil) {
-        
+    if ((self = [super init:position :MALUS]) != nil) {
+
     }
     return (self);
 }

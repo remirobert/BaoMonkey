@@ -66,7 +66,7 @@
 }
 
 -(BOOL)checkIsItemIsWeapon:(Item *)item{
-    if ([item class] == [Weapon class]){
+    if (item.type == WEAPON){
         if (weapon == nil) {
             weapon = [[Item alloc] init];
             weapon = item;
