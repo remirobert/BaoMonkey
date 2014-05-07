@@ -8,21 +8,39 @@
 
 #import "Item.h"
 
+@interface Item ()
+@property (nonatomic) SEL actionFunction;
+@end
+
 @implementation Item
 
 - (instancetype) init:(CGPoint)position :(ItemType)type {
     if ((self = [Item alloc]) != nil) {
         _node = [[SKSpriteNode alloc] initWithColor:[SKColor redColor]
-                                               size:CGSizeMake(25, 25)];
+                                                size:CGSizeMake(25, 25)];
         _node.position = position;
         _node.name = NAME_ITEM;
         _node.physicsBody.affectedByGravity = YES;
-
         _node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_node.size];
         
         _type = type;
+        
     }
     return (self);
+}
+
+- (void) display {
+
+    NSLog(@"Item");
+    
+    /*
+    
+    if ([self respondsToSelector:_actionFunction])
+        [self performSelector:_actionFunction];
+//        [self performSelectorOnMainThread:_actionFunction withObject:nil waitUntilDone:0];
+    else
+        NSLog(@"dont respond to the selector");
+     */
 }
 
 @end

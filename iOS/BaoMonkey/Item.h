@@ -25,5 +25,6 @@ typedef enum {
 @property (nonatomic) ItemType type;
 
 - (instancetype) init:(CGPoint)position :(ItemType)type;
+- (void) display;
 
 @end
