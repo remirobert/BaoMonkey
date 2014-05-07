@@ -9,7 +9,8 @@
 #import "Enemy.h"
 #import "Define.h"
 
-#define SPEED   0.6
+#define SPEED_MIN   0.5
+#define SPEED_MAX   1.5
 
 @implementation Enemy
 
@@ -18,7 +19,7 @@
 -(id)init {
     self = [super init];
     if (self) {
-        node.name = ENEMY_NODE_NAME;
+        speed = SPEED_MIN + ((float)arc4random() / (0x100000000 / (SPEED_MAX - SPEED_MIN)));
     }
     return self;
 }
@@ -29,12 +30,12 @@
     if (self.direction == LEFT
         && ((self.node.position.x - (self.node.size.width / 5)) > (screen.size.width / 2)))
     {
-        [node setPosition:CGPointMake(node.position.x - SPEED, node.position.y)];
+        [node setPosition:CGPointMake(node.position.x - speed, node.position.y)];
     }
     else if (self.direction == RIGHT
              && ((self.node.position.x + (self.node.size.width / 5)) < (screen.size.width / 2)))
     {
-        [node setPosition:CGPointMake(node.position.x + SPEED, node.position.y)];
+        [node setPosition:CGPointMake(node.position.x + speed, node.position.y)];
     }
 }
 

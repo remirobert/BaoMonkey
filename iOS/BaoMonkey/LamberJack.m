@@ -7,6 +7,7 @@
 //
 
 #import "LamberJack.h"
+#import "Define.h"
 
 @implementation LamberJack
 
@@ -20,6 +21,7 @@
             node = [SKSpriteNode spriteNodeWithImageNamed:@"lamberjack-left"];
         else
             node = [SKSpriteNode spriteNodeWithImageNamed:@"lamberjack-right"];
+        node.name = ENEMY_NODE_NAME;
     }
     return self;
 }

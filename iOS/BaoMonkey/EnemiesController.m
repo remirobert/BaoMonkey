@@ -45,7 +45,7 @@
 -(void)updateEnemies:(CFTimeInterval)currentTime {
     NSMutableArray *enemiesDeleted = [[NSMutableArray alloc] init];
     
-    if ([enemies count] < 10 && ((timeForAddEnemy <= currentTime) || (timeForAddEnemy == 0))){
+    if ([enemies count] < 4 && ((timeForAddEnemy <= currentTime) || (timeForAddEnemy == 0))){
         float randomFloat = (1.5 + ((float)arc4random() / (0x100000000 / (3.0 - 1.5))));
         [self addEnemy];
         timeForAddEnemy = currentTime + randomFloat;
