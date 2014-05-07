@@ -20,6 +20,9 @@
     skView.showsFPS = NO;
     skView.showsNodeCount = NO;
     
+    [GameController initAccelerometer];
+    [GameController initOneTapOnView:skView];
+    
     // Create and configure the scene.
     
     SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];

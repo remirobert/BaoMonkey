@@ -10,6 +10,7 @@
 		1012340A1919512500B035D9 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 101234091919512500B035D9 /* Weapon.m */; };
 		1012340D1919519600B035D9 /* Bonus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1012340C1919519600B035D9 /* Bonus.m */; };
 		10123410191951CF00B035D9 /* Malus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1012340F191951CF00B035D9 /* Malus.m */; };
+		109E9307191A60EF00DD5623 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 109E9306191A60EF00DD5623 /* Action.m */; };
 		10C599B7191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
 		10C599B9191948A300907493 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B8191948A300907493 /* CoreGraphics.framework */; };
 		10C599BB191948A300907493 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599BA191948A300907493 /* UIKit.framework */; };
@@ -63,6 +64,8 @@
 		1012340C1919519600B035D9 /* Bonus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bonus.m; sourceTree = "<group>"; };
 		1012340E191951CF00B035D9 /* Malus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Malus.h; sourceTree = "<group>"; };
 		1012340F191951CF00B035D9 /* Malus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Malus.m; sourceTree = "<group>"; };
+		109E9305191A60EF00DD5623 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
+		109E9306191A60EF00DD5623 /* Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
 		10C599B3191948A300907493 /* BaoMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C599B6191948A300907493 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		10C599B8191948A300907493 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -176,6 +179,7 @@
 			children = (
 				10C599C7191948A300907493 /* AppDelegate.h */,
 				10C599C8191948A300907493 /* AppDelegate.m */,
+				3F7D436D191A3E3F00DF30D6 /* Define.h */,
 				10C599CA191948A300907493 /* Main_iPhone.storyboard */,
 				10C599CD191948A300907493 /* Main_iPad.storyboard */,
 				10C599D8191948A300907493 /* Images.xcassets */,
@@ -291,7 +295,6 @@
 			children = (
 				29E98B96191A1D4B0046F9B2 /* Enemy */,
 				3F50F12D19194F9A00A37F85 /* Monkey */,
-				3F50F12819194F3200A37F85 /* Item */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -334,6 +337,8 @@
 				3F50F12C19194F6D00A37F85 /* CocoNuts */,
 				3F50F12B19194F6300A37F85 /* Banana */,
 				3F50F12A19194F4D00A37F85 /* Prune */,
+				109E9305191A60EF00DD5623 /* Action.h */,
+				109E9306191A60EF00DD5623 /* Action.m */,
 			);
 			name = Item;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 			children = (
 				10C599FB191948CB00907493 /* Monkey.h */,
 				10C599FC191948CB00907493 /* Monkey.m */,
+				3F50F12819194F3200A37F85 /* Item */,
 			);
 			name = Monkey;
 			sourceTree = "<group>";
@@ -392,6 +398,15 @@
 				10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */,
 			);
 			name = Scenes;
+			sourceTree = "<group>";
+		};
+		3F7D4369191A3BB200DF30D6 /* GameController */ = {
+			isa = PBXGroup;
+			children = (
+				3F7D436A191A3BC800DF30D6 /* GameController.h */,
+				3F7D436B191A3BC800DF30D6 /* GameController.m */,
+			);
+			name = GameController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10C59A1F19194C7400907493 /* Prune.m in Sources */,
+				109E9307191A60EF00DD5623 /* Action.m in Sources */,
 				10C59A1C19194BF000907493 /* Banana.m in Sources */,
 				10C59A1D19194BF000907493 /* CocoNuts.m in Sources */,
 				29E98BA2191A21700046F9B2 /* LamberJack.m in Sources */,
@@ -510,6 +526,7 @@
 				10C599FD191948CB00907493 /* Monkey.m in Sources */,
 				10C599C9191948A300907493 /* AppDelegate.m in Sources */,
 				10C59A2619194D5D00907493 /* Item.m in Sources */,
+				3F7D436C191A3BC800DF30D6 /* GameController.m in Sources */,
 				10C599C5191948A300907493 /* main.m in Sources */,
 				1012340A1919512500B035D9 /* Weapon.m in Sources */,
 				1012340D1919519600B035D9 /* Bonus.m in Sources */,
@@ -606,7 +623,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -640,7 +657,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

@@ -10,8 +10,9 @@
 
 @implementation Malus
 
-- (instancetype) init:(CGPoint)position {
-    if ((self = [super init:position :MALUS]) != nil) {
+- (instancetype) initWithPosition:(CGPoint)position {
+    if ((self = [super initWithPosition:position]) != nil) {
+        
     }
     return (self);
 }

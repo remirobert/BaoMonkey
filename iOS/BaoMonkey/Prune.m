@@ -10,11 +10,23 @@
 
 @implementation Prune
 
-- (instancetype) init:(CGPoint)position {
-    if ((self = [super init:position]) != nil) {
+- (instancetype) initWithPosition:(CGPoint)position {
+    if ((self = [super initWithPosition:position]) != nil) {
         self.node.color = [SKColor purpleColor];
+        self.action = @selector(actionPrune);
     }
     return (self);
+}
+
+- (void) actionPrune {
+    SKAction *move = [SKAction moveTo:CGPointMake(self.node.position.x, 200) duration:0];
+    SKAction *action = [SKAction resizeToWidth:300 height:300 duration:0.5];
+    
+    NSLog(@"pune launch action");
+    self.node.physicsBody.affectedByGravity = NO;
+    [self.node runAction:move completion:^{
+            [self.node runAction:action];
+        }];
 }
 
 @end

@@ -10,6 +10,6 @@
 
 @interface Malus : Item
 
-- (instancetype) init:(CGPoint)position;
+- (instancetype) initWithPosition:(CGPoint)position;
 
 @end

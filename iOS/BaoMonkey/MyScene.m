@@ -22,6 +22,10 @@
     return [SKSpriteNode spriteNodeWithImageNamed:name];
 }
 
+-(void)initGameController {
+    //gc = [[GameController alloc] initWithScene:self];
+}
+
 - (void) initScene {
     self.backgroundColor = [SKColor colorWithRed:52/255.0f green:152/255.0f blue:219/255.0f alpha:1];
     
@@ -59,14 +63,12 @@
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+        [self initGameController];
         [self initScene];
         [self performSelector:@selector(addWave) withObject:nil afterDelay:1.5];
-
     }
     return self;
 }
-
-
 
 - (void) addWave {
     [self addNewWave];
@@ -78,15 +80,16 @@
     [enemiesController updateEnemies:currentTime];
     
     [self enumerateChildNodesWithName:NAME_ITEM usingBlock:^(SKNode *node, BOOL *stop) {
-        SKNode *tmpNode = [self nodeAtPoint:monkey.sprite.position];
-        
-        for (Item *item in _wave) {
-            if (CGPointEqualToPoint(item.node.position, tmpNode.position))
-                if ([monkey checkIsItemIsWeapon:item] == YES) {
-                    [item.node removeFromParent];
-                }
-            break;
-        }
+        SKNode *tmp = [self nodeAtPoint:monkey.sprite.position];
+        for (id item in _wave) {
+            
+//            if (CGRectIntersectsRect(, ))
+            
+            if (CGPointEqualToPoint(((Item *)item).node.position, tmp.position))
+                [monkey catchItem:item];
+//                    ((Item *)item).node.hidden = YES;
+//                }
+            }
     }];
 }
 

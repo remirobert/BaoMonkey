@@ -8,22 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#import "Define.h"
 
 #define NAME_ITEM   @"item"
-
-
-typedef enum {
-    WEAPON,
-    BONUS,
-    MALUS
-}ItemType;
-
 
 @interface Item : NSObject
 
 @property (nonatomic, strong) SKSpriteNode *node;
-@property (nonatomic) ItemType type;
+@property (nonatomic) SEL action;
 
-- (instancetype) init:(CGPoint)position :(ItemType)type;
+- (instancetype) initWithPosition:(CGPoint)position;
+- (void) launchAction;
 
 @end

@@ -10,22 +10,6 @@
 
 @implementation MyScene (GeneratorWave)
 
-- (int) getPosition:(NSMutableArray *)wave {
-    BOOL isTaken = YES;
-    int positionX = ((7 + 25) * (rand() % 10)) + self.sizeBlock / 2;
-    
-    while (isTaken) {
-        isTaken = NO;
-        for (Item *currentBlock in wave) {
-            if (currentBlock.node.position.x == positionX) {
-                isTaken = YES;
-                return (positionX);
-            }
-        }
-    }
-    return (positionX);
-}
-
 - (void) addItemToScene:(SKSpriteNode *)node {
     [self addChild:node];
 }
@@ -35,24 +19,48 @@
     [self.wave removeObject:item];
 }
 
-- (void) addNewWave {
+- (NSObject *) createItem:(CGPoint)position {
+    
+    NSObject *object;
 
-    NSArray *tabItem = @[[Prune class], [Banana class], [CocoNuts class]];
+    switch (rand() % 3) {
+        case 0:
+            object = [[Prune alloc] initWithPosition:position];
+            break;
+
+        case 1:
+            object = [[Banana alloc] initWithPosition:position];
+            break;
+
+        case 2:
+            object = [[CocoNuts alloc] initWithPosition:position];
+            break;
+
+        default:
+            return (nil);
+    }
+    return (object);
+}
+
+- (void) addNewWave {
     
-    Item *item = [[[tabItem objectAtIndex:rand() % 3] alloc]
-                  init:CGPointMake(((7 + 25) * (rand() % 10)) + self.sizeBlock / 2,
-                                   [UIScreen mainScreen].bounds.size.height + self.sizeBlock)];
-    
-    [self performSelector:@selector(addItemToScene:)
-                withObject:item.node
-                afterDelay:((float)arc4random() / 0x100000000)];
-    
-    [self performSelector:@selector(deleteItemAfterTime:)
-               withObject:item afterDelay:rand() % 4 + 2];
-    
+    id object = [self createItem:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width -
+                                                            ([UIScreen mainScreen].bounds.size.width / 10)) +
+                                             ([UIScreen mainScreen].bounds.size.width / 10),
+                                             [UIScreen mainScreen].bounds.size.height + self.sizeBlock)];
+    if (object == nil)
+        return ;
+
     if (self.wave == nil)
         self.wave = [[NSMutableArray alloc] init];
-    [self.wave addObject:item];
+
+    [self.wave addObject:object];
+    [self performSelector:@selector(addItemToScene:)
+               withObject:((Item *)object).node
+               afterDelay:((float)arc4random() / 0x100000000)];
+
+    [self performSelector:@selector(deleteItemAfterTime:)
+               withObject:object afterDelay:rand() % 4 + 2];
 }
 
 @end

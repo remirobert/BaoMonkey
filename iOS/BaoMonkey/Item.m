@@ -10,19 +10,24 @@
 
 @implementation Item
 
-- (instancetype) init:(CGPoint)position :(ItemType)type {
-    if ((self = [Item alloc]) != nil) {
+- (instancetype) initWithPosition:(CGPoint)position {
+    if ((self = [super init]) != nil) {
         _node = [[SKSpriteNode alloc] initWithColor:[SKColor redColor]
-                                               size:CGSizeMake(25, 25)];
+                                               size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 10,
+                                                               [UIScreen mainScreen].bounds.size.width / 10 )];
         _node.position = position;
         _node.name = NAME_ITEM;
         _node.physicsBody.affectedByGravity = YES;
-
         _node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_node.size];
-        
-        _type = type;
     }
     return (self);
+}
+
+- (void) launchAction {
+    if ([self respondsToSelector:_action]) {
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [self performSelector:_action];
+    }
 }
 
 @end
