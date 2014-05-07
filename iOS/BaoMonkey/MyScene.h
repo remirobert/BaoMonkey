@@ -9,11 +9,13 @@
 #import <SpriteKit/SpriteKit.h>
 #import "Item.h"
 #import "TreeBranch.h"
+#import "GameController.h"
 #import <CoreMotion/CoreMotion.h>
 #import "Monkey.h"
 
 @interface MyScene : SKScene {
     Monkey *monkey;
+    GameController *gc;
 }
 
 @property (nonatomic) int sizeBlock;

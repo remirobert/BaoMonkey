@@ -22,6 +22,10 @@
     return [SKSpriteNode spriteNodeWithImageNamed:name];
 }
 
+-(void)initGameController {
+    //gc = [[GameController alloc] initWithScene:self];
+}
+
 - (void) initScene {
     self.backgroundColor = [SKColor colorWithRed:52/255.0f green:152/255.0f blue:219/255.0f alpha:1];
     
@@ -56,6 +60,7 @@
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+        [self initGameController];
         [self initScene];
         [self performSelector:@selector(addWave) withObject:nil afterDelay:1.5];
 
@@ -69,17 +74,14 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-    [monkey updatePosition];
+    [monkey updateMonkeyPosition:[GameController getAccelerometerPosition]];
     
     [self enumerateChildNodesWithName:NAME_ITEM usingBlock:^(SKNode *node, BOOL *stop) {
-        
+        SKNode *tmp = [self nodeAtPoint:monkey.sprite.position];
         for (id item in _wave) {
-            if (CGPointEqualToPoint(((Item *)item).node.position, monkey.sprite.position)) {
+            if (CGPointEqualToPoint(((Item *)item).node.position, tmp.position)) {
                 if ([monkey checkIsItemIsWeapon:item]) {
-                    NSLog(@"TRUE");
                     [((Item *)item).node removeFromParent];
-                } else {
-                    NSLog(@"FALSE");
                 }
             }
             break;

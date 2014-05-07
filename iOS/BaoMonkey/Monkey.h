@@ -8,16 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
-#import <CoreMotion/CoreMotion.h>
 #import "Item.h"
 #import "Weapon.h"
+#import "Define.h"
 
 # define kSpeed 10
 # define kSpriteImageName @"monkey.png"
 
 @interface Monkey : NSObject {
     SKSpriteNode *sprite;
-    CMMotionManager *motionManager;
 }
 
 @property (nonatomic, strong) SKSpriteNode *sprite;
@@ -25,8 +24,8 @@
 
 -(id)initWithPosition:(CGPoint)position;
 
--(void)updatePosition;
+-(void)updateMonkeyPosition:(float)acceleration;
 
--(BOOL)checkIsItemIsWeapon:(Item *)item;
+-(BOOL)checkIsItemIsWeapon:(id)item;
 
 @end
