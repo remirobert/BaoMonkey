@@ -27,15 +27,15 @@
         case 0:
             object = [[Prune alloc] init:position];
             break;
-            
+
         case 1:
             object = [[Banana alloc] init:position];
             break;
-            
+
         case 2:
             object = [[CocoNuts alloc] init:position];
             break;
-            
+
         default:
             return (nil);
     }
@@ -61,8 +61,6 @@
 
     [self performSelector:@selector(deleteItemAfterTime:)
                withObject:object afterDelay:rand() % 4 + 2];
-
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"runAction" object:(Item *)object];
 }
 
 @end

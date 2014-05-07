@@ -15,7 +15,7 @@
 }
 
 - (instancetype) init:(CGPoint)position {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:@"runAction" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:NOTIFICATION_DROP_WEAPON object:nil];
 
     if ((self = [super init:position :WEAPON :@selector(display)]) != nil) {
     }
