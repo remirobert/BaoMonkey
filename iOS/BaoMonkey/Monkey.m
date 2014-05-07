@@ -65,6 +65,8 @@
     [self updateMonkeyPositionFromMotionManager];
 }
 
+#pragma mark - Checking the item receive
+
 -(BOOL)checkIsItemIsWeapon:(Item *)item{
     if (item.type == WEAPON){
         if (weapon == nil) {
