@@ -22,10 +22,6 @@
     return [SKSpriteNode spriteNodeWithImageNamed:name];
 }
 
--(void)initGameController {
-    //gc = [[GameController alloc] initWithScene:self];
-}
-
 - (void) initScene {
     self.backgroundColor = [SKColor colorWithRed:52/255.0f green:152/255.0f blue:219/255.0f alpha:1];
     
@@ -59,11 +55,26 @@
     front_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 89);
     [self addChild:front_leaf];
     
+    trunkProgressLife = [[ProgressBar alloc] initWithPosition:CGPointMake(trunk.position.x, trunk.position.y / 2)
+                                                      andSize:CGSizeMake(50, 10)];
+    trunkProgressLife.backgroundColor = [UIColor blackColor];//[UIColor colorWithRed:68/255.0f green:74/255.0f blue:71/255.0f alpha:1.0f];
+    trunkProgressLife.frontColor = [UIColor redColor];
+    [trunkProgressLife createBackground];
+    [trunkProgressLife createFront];
+    [self addChild:trunkProgressLife.background];
+    [self addChild:trunkProgressLife.front];
+    
+    score = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    score.text = [NSString stringWithFormat:@"%d", [[GameData singleton] getScore]];
+    score.fontSize = 25;
+    score.position = CGPointMake(20, 10);
+    [self addChild:score];
 }
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        [self initGameController];
+        [[GameData singleton] initGameData];
+        [[GameData singleton] substractLifeToTrunkLife:100.0f];
         [self initScene];
         [self performSelector:@selector(addWave) withObject:nil afterDelay:1.5];
         [self performSelector:@selector(addWeapon) withObject:nil afterDelay:1.0];
@@ -103,6 +114,10 @@
             }
         }
     }];
+    
+    [[GameData singleton] regenerateTrunkLife];
+    [trunkProgressLife updateProgression:[[GameData singleton] getTrunkLife]];
+    score.text = [NSString stringWithFormat:@"%d", [[GameData singleton] getScore]];
 }
 
 @end

@@ -8,8 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
-#import "Item.h"
-#import "TreeBranch.h"
+#import "GameData.h"
 #import "GameController.h"
 #import "Monkey.h"
 #import "Enemy.h"
@@ -21,6 +20,9 @@
     Monkey *monkey;
     EnemiesController *enemiesController;
     GameController *gc;
+    
+    ProgressBar *trunkProgressLife;
+    SKLabelNode *score;
 }
 
 @property (nonatomic) int sizeBlock;
