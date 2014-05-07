@@ -35,15 +35,15 @@
     [self.wave removeObject:item];
 }
 
-- (id) createItem:(CGPoint)position {
+- (NSObject *) createItem:(CGPoint)position {
     
-    id object;
-    
+    NSObject *object;
+
     switch (rand() % 3) {
         case 0:
             object = [[Prune alloc] init:position];
             break;
-
+            
         case 1:
             object = [[Banana alloc] init:position];
             break;

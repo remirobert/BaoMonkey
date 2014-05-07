@@ -63,8 +63,6 @@
     return self;
 }
 
-
-
 - (void) addWave {
     [self addNewWave];
     [self performSelector:@selector(addWave) withObject:nil afterDelay:rand() % 3 + 2];
@@ -74,10 +72,9 @@
     [monkey updatePosition];
     
     [self enumerateChildNodesWithName:NAME_ITEM usingBlock:^(SKNode *node, BOOL *stop) {
-        SKNode *tmpNode = [self nodeAtPoint:monkey.sprite.position];
         
         for (id item in _wave) {
-            if (CGPointEqualToPoint(((Item *)item).node.position, tmpNode.position)) {
+            if (CGPointEqualToPoint(((Item *)item).node.position, monkey.sprite.position)) {
                 if ([monkey checkIsItemIsWeapon:item]) {
                     NSLog(@"TRUE");
                     [((Item *)item).node removeFromParent];
