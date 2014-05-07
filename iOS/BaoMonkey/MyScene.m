@@ -77,10 +77,14 @@
         SKNode *tmpNode = [self nodeAtPoint:monkey.sprite.position];
         
         for (Item *item in _wave) {
-            if (CGPointEqualToPoint(item.node.position, tmpNode.position))
-                if ([monkey checkIsItemIsWeapon:item] == YES) {
+            if (CGPointEqualToPoint(item.node.position, tmpNode.position)) {
+                if ([monkey checkIsItemIsWeapon:item]) {
+                    NSLog(@"TRUE");
                     [item.node removeFromParent];
+                } else {
+                    NSLog(@"FALSE");
                 }
+            }
             break;
         }
     }];

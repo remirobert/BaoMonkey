@@ -12,6 +12,7 @@
 
 - (instancetype) init:(CGPoint)position {
     if ((self = [super init:position]) != nil) {
+        
     }
     return (self);
 }
