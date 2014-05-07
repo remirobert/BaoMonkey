@@ -105,10 +105,6 @@
             weapon = item;
             [(Item *)item launchAction];
         }
-    } else if ([item isKindOfClass:[Malus class]]) {
-        
-    } else if ([item isKindOfClass:[Bonus class]]) {
-        
     }
     else
         [(Item *)item launchAction];
