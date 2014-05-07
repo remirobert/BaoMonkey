@@ -14,7 +14,7 @@
 
 @implementation Item
 
-- (instancetype) init:(CGPoint)position :(ItemType)type :(SEL)actionFunction {
+- (instancetype) init:(CGPoint)position :(ItemType)type {
     if ((self = [Item alloc]) != nil) {
         _node = [[SKSpriteNode alloc] initWithColor:[SKColor redColor]
                                                 size:CGSizeMake(25, 25)];
@@ -25,8 +25,6 @@
         
         _type = type;
         
-        //[[self superclass] instanceMethodForSelector:_actionFunction];
-        _actionFunction = actionFunction;
     }
     return (self);
 }

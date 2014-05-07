@@ -24,7 +24,7 @@ typedef enum {
 @property (nonatomic, strong) SKSpriteNode *node;
 @property (nonatomic) ItemType type;
 
-- (instancetype) init:(CGPoint)position :(ItemType)type :(SEL)actionFunction;
+- (instancetype) init:(CGPoint)position :(ItemType)type;
 - (void) display;
 
 @end

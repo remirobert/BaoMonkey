@@ -15,7 +15,7 @@
 }
 
 - (instancetype) init:(CGPoint)position {
-    if ((self = [super init:position :WEAPON :nil]) != nil) {
+    if ((self = [super init:position :WEAPON]) != nil) {
     }
     return (self);
 }

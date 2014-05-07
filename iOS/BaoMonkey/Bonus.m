@@ -15,7 +15,7 @@
 }
 
 - (instancetype) init:(CGPoint)position {
-    if ((self = [super init:position :BONUS :nil]) != nil) {
+    if ((self = [super init:position :BONUS]) != nil) {
     }
     return (self);
 }
