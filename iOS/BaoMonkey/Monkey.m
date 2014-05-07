@@ -31,17 +31,22 @@
 #pragma mark - Update Sprite Functions
 
 -(void)updateMonkeyPosition:(float)acceleration {
+    CGPoint position;
     float multiplierForDirection = 0;
     float maxX = [UIScreen mainScreen].bounds.size.width + (sprite.size.width / 2);
     float minX = -(sprite.size.width / 2);
     
     if (sprite.position.x > maxX) {
-        sprite.position = CGPointMake(minX, sprite.position.y);
+        position = CGPointMake(minX, sprite.position.y);
     } else if (sprite.position.x < minX) {
+        position = CGPointMake(maxX, sprite.position.y);
         sprite.position = CGPointMake(maxX, sprite.position.y);
     } else {
-        sprite.position = CGPointMake(sprite.position.x + acceleration, sprite.position.y);
+        position = CGPointMake(sprite.position.x + acceleration, sprite.position.y);
     }
+    
+    sprite.position = position;
+    weapon.node.position = position;
     
     if (acceleration < 0.0f) {
         multiplierForDirection = 1.0f;
@@ -102,9 +107,9 @@
             weapon.isTaken = YES;
             [(Item *)item launchAction];
         }
-    }
-    else
+    } else {
         [(Item *)item launchAction];
+    }
 }
 
 #pragma mark - Launch a weapon
