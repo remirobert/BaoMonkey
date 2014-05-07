@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 #import "Item.h"
+#import "Malus.h"
+#import "Bonus.h"
 #import "Weapon.h"
 #import "Define.h"
 
@@ -26,6 +28,6 @@
 
 -(void)updateMonkeyPosition:(float)acceleration;
 
--(BOOL)checkIsItemIsWeapon:(id)item;
+-(void)catchItem:(id)item;
 
 @end
