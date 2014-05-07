@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) SKSpriteNode *node;
 @property (nonatomic) SEL action;
+@property (nonatomic) BOOL isTaken;
 
 - (instancetype) initWithPosition:(CGPoint)position;
 - (void) launchAction;

@@ -19,6 +19,8 @@
         _node.name = NAME_ITEM;
         _node.physicsBody.affectedByGravity = YES;
         _node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_node.size];
+        
+        _isTaken = NO;
     }
     return (self);
 }

@@ -15,6 +15,8 @@
 }
 
 - (void) deleteItemAfterTime:(Item*)item {
+    if (item.isTaken == YES)
+        return ;
     [item.node removeFromParent];
     [self.wave removeObject:item];
 }
