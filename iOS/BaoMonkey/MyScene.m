@@ -81,7 +81,9 @@
         for (id item in _wave) {
             if (CGPointEqualToPoint(((Item *)item).node.position, tmp.position)) {
                 if ([monkey checkIsItemIsWeapon:item]) {
-                    [((Item *)item).node removeFromParent];
+                    ((Item *)item).node.hidden = YES;
+                    
+//                    [((Item *)item).node removeFromParent];
                 }
             }
             break;
