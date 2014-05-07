@@ -80,14 +80,10 @@
         SKNode *tmp = [self nodeAtPoint:monkey.sprite.position];
         for (id item in _wave) {
             if (CGPointEqualToPoint(((Item *)item).node.position, tmp.position)) {
-                if ([monkey checkIsItemIsWeapon:item]) {
-                    ((Item *)item).node.hidden = YES;
-                    
-//                    [((Item *)item).node removeFromParent];
+                [monkey catchItem:item];
+                ((Item *)item).node.hidden = YES;
                 }
             }
-            break;
-        }
     }];
 }
 
