@@ -79,7 +79,7 @@
     [monkey updateMonkeyPosition:[GameController getAccelerometerPosition]];
     [enemiesController updateEnemies:currentTime];
     
-    [self enumerateChildNodesWithName:NAME_ITEM usingBlock:^(SKNode *node, BOOL *stop) {
+    [self enumerateChildNodesWithName:ITEM_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         SKNode *tmp = [self nodeAtPoint:monkey.sprite.position];
         for (id item in _wave) {
             
@@ -90,11 +90,13 @@
 //                    ((Item *)item).node.hidden = YES;
 //                }
             }
-        [self enumerateChildNodesWithName:ENEMY_NODE_NAME usingBlock:^(SKNode *nodeEnnemi, BOOL *stop) {
-            if (CGRectIntersectsRect(node.frame, nodeEnnemi.frame)) {
-                [nodeEnnemi removeFromParent];
-            }
-        }];
+    }];
+    
+    [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+    }];
+    
+    [self enumerateChildNodesWithName:ENEMY_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+        NSLog(@"ENNEEE !!!");
     }];
 }
 

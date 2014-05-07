@@ -33,5 +33,7 @@
 */
 
 # define ENEMY_NODE_NAME    @"EnemyNode"
+# define WEAPON_NODE_NAME   @"Weapon"
+# define ITEM_NODE_NAME     @"Item"
 
 #endif

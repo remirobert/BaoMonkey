@@ -18,6 +18,7 @@
 }
 
 - (void) launchAction {
+    self.node.name = WEAPON_NODE_NAME;
     self.node.hidden = YES;
 }
 

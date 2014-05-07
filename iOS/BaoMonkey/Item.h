@@ -10,8 +10,6 @@
 #import <SpriteKit/SpriteKit.h>
 #import "Define.h"
 
-#define NAME_ITEM   @"item"
-
 @interface Item : NSObject
 
 @property (nonatomic, strong) SKSpriteNode *node;
