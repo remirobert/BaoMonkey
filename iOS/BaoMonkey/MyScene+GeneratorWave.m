@@ -35,24 +35,46 @@
     [self.wave removeObject:item];
 }
 
-- (void) addNewWave {
+- (id) createItem:(CGPoint)position {
+    
+    id object;
+    
+    switch (rand() % 3) {
+        case 0:
+            object = [[Prune alloc] init:position];
+            break;
 
-    NSArray *tabItem = @[[Prune class], [Banana class], [CocoNuts class]];
-    
-    Item *item = [[[tabItem objectAtIndex:rand() % 3] alloc]
-                  init:CGPointMake(((7 + 25) * (rand() % 10)) + self.sizeBlock / 2,
-                                   [UIScreen mainScreen].bounds.size.height + self.sizeBlock)];
-    
-    [self performSelector:@selector(addItemToScene:)
-                withObject:item.node
-                afterDelay:((float)arc4random() / 0x100000000)];
-    
-    [self performSelector:@selector(deleteItemAfterTime:)
-               withObject:item afterDelay:rand() % 4 + 2];
+        case 1:
+            object = [[Banana alloc] init:position];
+            break;
+            
+        case 2:
+            object = [[CocoNuts alloc] init:position];
+            break;
+            
+        default:
+            return (nil);
+    }
+    return (object);
+}
+
+- (void) addNewWave {
+    id object = [self createItem:CGPointMake(((7 + 25) * (rand() % 10)) + self.sizeBlock / 2,
+                                             [UIScreen mainScreen].bounds.size.height + self.sizeBlock)];
+    if (object == nil)
+        return ;
     
     if (self.wave == nil)
         self.wave = [[NSMutableArray alloc] init];
-    [self.wave addObject:item];
+    
+    [self.wave addObject:object];
+    [self performSelector:@selector(addItemToScene:)
+               withObject:((Item *)object).node
+               afterDelay:((float)arc4random() / 0x100000000)];
+    
+    [self performSelector:@selector(deleteItemAfterTime:)
+               withObject:object afterDelay:rand() % 4 + 2];
+    
 }
 
 @end

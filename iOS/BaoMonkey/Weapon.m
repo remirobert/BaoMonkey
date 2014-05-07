@@ -10,8 +10,12 @@
 
 @implementation Weapon
 
+- (void) display {
+    NSLog(@"Weapon");
+}
+
 - (instancetype) init:(CGPoint)position {
-    if ((self = [super init:position :WEAPON]) != nil) {
+    if ((self = [super init:position :WEAPON :nil]) != nil) {
     }
     return (self);
 }
