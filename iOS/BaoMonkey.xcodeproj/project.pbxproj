@@ -303,6 +303,7 @@
 				29E98BA6191A871F0046F9B2 /* Enemy */,
 				3F7D4369191A3BB200DF30D6 /* GameController */,
 				3F50F12D19194F9A00A37F85 /* Monkey */,
+				3F50F12819194F3200A37F85 /* Item */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -392,7 +393,6 @@
 			children = (
 				10C599FB191948CB00907493 /* Monkey.h */,
 				10C599FC191948CB00907493 /* Monkey.m */,
-				3F50F12819194F3200A37F85 /* Item */,
 			);
 			name = Monkey;
 			sourceTree = "<group>";
