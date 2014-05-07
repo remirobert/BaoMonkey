@@ -10,7 +10,7 @@
 
 @interface Bonus : Item
 
-- (instancetype) init:(CGPoint)position;
+- (instancetype) initWithPosition:(CGPoint)position;
 - (void) display;
 
 @end

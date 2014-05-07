@@ -14,8 +14,8 @@
     NSLog(@"bonus");
 }
 
-- (instancetype) init:(CGPoint)position {
-    if ((self = [super init:position :BONUS :@selector(display)]) != nil) {
+- (instancetype) initWithPosition:(CGPoint)position {
+    if ((self = [super initWithPosition:position]) != nil) {
     }
     return (self);
 }

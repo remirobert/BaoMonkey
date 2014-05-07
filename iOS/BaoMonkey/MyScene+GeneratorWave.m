@@ -25,15 +25,15 @@
 
     switch (rand() % 3) {
         case 0:
-            object = [[Prune alloc] init:position];
+            object = [[Prune alloc] initWithPosition:position];
             break;
 
         case 1:
-            object = [[Banana alloc] init:position];
+            object = [[Banana alloc] initWithPosition:position];
             break;
 
         case 2:
-            object = [[CocoNuts alloc] init:position];
+            object = [[CocoNuts alloc] initWithPosition:position];
             break;
 
         default:

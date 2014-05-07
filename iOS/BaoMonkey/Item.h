@@ -12,20 +12,10 @@
 
 #define NAME_ITEM   @"item"
 
-
-typedef enum {
-    WEAPON,
-    BONUS,
-    MALUS
-}ItemType;
-
-
 @interface Item : NSObject
 
 @property (nonatomic, strong) SKSpriteNode *node;
-@property (nonatomic) ItemType type;
 
-- (instancetype) init:(CGPoint)position :(ItemType)type :(SEL)actionFunction;
-- (void) runAction;
+- (instancetype) initWithPosition:(CGPoint)position;
 
 @end

@@ -10,8 +10,8 @@
 
 @implementation Prune
 
-- (instancetype) init:(CGPoint)position {
-    if ((self = [super init:position]) != nil) {
+- (instancetype) initWithPosition:(CGPoint)position {
+    if ((self = [super initWithPosition:position]) != nil) {
         self.node.color = [SKColor purpleColor];
     }
     return (self);

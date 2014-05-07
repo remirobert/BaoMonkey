@@ -14,8 +14,8 @@
     NSLog(@"Malus");
 }
 
-- (instancetype) init:(CGPoint)position {
-    if ((self = [super init:position :MALUS :@selector(display)]) != nil) {
+- (instancetype) initWithPosition:(CGPoint)position {
+    if ((self = [super initWithPosition:position]) != nil) {
     }
     return (self);
 }

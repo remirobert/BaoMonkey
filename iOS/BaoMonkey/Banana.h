@@ -10,6 +10,6 @@
 
 @interface Banana : Malus
 
-- (instancetype) init:(CGPoint)position;
+- (instancetype) initWithPosition:(CGPoint)position;
 
 @end

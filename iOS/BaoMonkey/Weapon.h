@@ -10,7 +10,6 @@
 
 @interface Weapon : Item
 
-- (instancetype) init:(CGPoint)position;
-- (void) display;
+- (instancetype) initWithPosition:(CGPoint)position;
 
 @end
