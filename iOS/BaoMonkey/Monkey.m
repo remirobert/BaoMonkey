@@ -20,9 +20,6 @@
         sprite = [SKSpriteNode spriteNodeWithImageNamed:kSpriteImageName];
         sprite.position = position;
         
-        // Init the weapon
-        weapon = [[Item alloc] init];
-        
         // Init the accelerometer for the Monkey
         motionManager = [[CMMotionManager alloc] init];
         [self startMonitoringAcceleration];
@@ -71,6 +68,7 @@
 -(BOOL)checkIsItemIsWeapon:(Item *)item{
     if (item.type == WEAPON){
         if (weapon == nil) {
+            weapon = [[Item alloc] init];
             weapon = item;
             return TRUE;
         }
