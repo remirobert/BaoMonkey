@@ -65,14 +65,12 @@ static GameController *singleton;
 }
 
 -(void)initOneTapOnView:(SKView *)view {
-    NSLog(@"initOneTap");
     UITapGestureRecognizer *oneFingerOneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneTapDetected)];
     [oneFingerOneTap setNumberOfTapsRequired:1];
     [view addGestureRecognizer:oneFingerOneTap];
 }
 
 -(void)oneTapDetected {
-    NSLog(@"One Tap Detected");
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
 }
 
