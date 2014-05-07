@@ -13,6 +13,7 @@
 #import "Bonus.h"
 #import "Weapon.h"
 #import "Define.h"
+#import "Action.h"
 
 # define kSpeed 10
 # define kSpriteImageName @"monkey.png"

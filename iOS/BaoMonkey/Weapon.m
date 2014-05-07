@@ -11,14 +11,10 @@
 @implementation Weapon
 
 - (instancetype) initWithPosition:(CGPoint)position {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(display)
-                                                 name:NOTIFICATION_DROP_WEAPON
-                                               object:nil];
 
     if ((self = [super initWithPosition:position]) != nil) {
     }
-    
+
     return (self);
 }
 

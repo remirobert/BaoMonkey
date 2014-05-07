@@ -10,14 +10,11 @@
 
 @implementation Item
 
-- (void) dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super init]) != nil) {
         _node = [[SKSpriteNode alloc] initWithColor:[SKColor redColor]
-                                                size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 10, [UIScreen mainScreen].bounds.size.width / 10 )];
+                                               size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 10,
+                                                               [UIScreen mainScreen].bounds.size.width / 10 )];
         _node.position = position;
         _node.name = NAME_ITEM;
         _node.physicsBody.affectedByGravity = YES;

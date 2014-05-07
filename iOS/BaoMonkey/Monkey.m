@@ -61,6 +61,10 @@
 
 -(void)launchWeapon{
     if (weapon != nil) {
+        NSLog(@"Launch weapon");
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_WEAPON object:nil];
+        
+        [Action dropWeapon:weapon];
         weapon = nil;
     }
 }
