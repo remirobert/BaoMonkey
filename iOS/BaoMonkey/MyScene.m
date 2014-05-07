@@ -90,8 +90,11 @@
 //                    ((Item *)item).node.hidden = YES;
 //                }
             }
-        
-        
+        [self enumerateChildNodesWithName:ENEMY_NODE_NAME usingBlock:^(SKNode *nodeEnnemi, BOOL *stop) {
+            if (CGRectIntersectsRect(node.frame, nodeEnnemi.frame)) {
+                [nodeEnnemi removeFromParent];
+            }
+        }];
     }];
 }
 

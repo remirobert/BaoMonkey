@@ -13,6 +13,7 @@
 #import "GameController.h"
 #import "Monkey.h"
 #import "EnemiesController.h"
+#import "Define.h"
 
 
 @interface MyScene : SKScene {
