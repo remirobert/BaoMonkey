@@ -10,22 +10,6 @@
 
 @implementation MyScene (GeneratorWave)
 
-- (int) getPosition:(NSMutableArray *)wave {
-    BOOL isTaken = YES;
-    int positionX = ((7 + 25) * (rand() % 10)) + self.sizeBlock / 2;
-    
-    while (isTaken) {
-        isTaken = NO;
-        for (Item *currentBlock in wave) {
-            if (currentBlock.node.position.x == positionX) {
-                isTaken = YES;
-                return (positionX);
-            }
-        }
-    }
-    return (positionX);
-}
-
 - (void) addItemToScene:(SKSpriteNode *)node {
     [self addChild:node];
 }
@@ -59,22 +43,26 @@
 }
 
 - (void) addNewWave {
-    id object = [self createItem:CGPointMake(((7 + 25) * (rand() % 10)) + self.sizeBlock / 2,
+    
+    id object = [self createItem:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width -
+                                                            ([UIScreen mainScreen].bounds.size.width / 10)) +
+                                             ([UIScreen mainScreen].bounds.size.width / 10),
                                              [UIScreen mainScreen].bounds.size.height + self.sizeBlock)];
     if (object == nil)
         return ;
-    
+
     if (self.wave == nil)
         self.wave = [[NSMutableArray alloc] init];
-    
+
     [self.wave addObject:object];
     [self performSelector:@selector(addItemToScene:)
                withObject:((Item *)object).node
                afterDelay:((float)arc4random() / 0x100000000)];
-    
+
     [self performSelector:@selector(deleteItemAfterTime:)
                withObject:object afterDelay:rand() % 4 + 2];
-    
+
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"runAction" object:(Item *)object];
 }
 
 @end

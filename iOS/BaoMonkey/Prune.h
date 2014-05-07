@@ -11,6 +11,5 @@
 @interface Prune : Malus
 
 - (instancetype) init:(CGPoint)position;
--(void) display;
 
 @end

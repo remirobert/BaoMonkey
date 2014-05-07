@@ -11,16 +11,10 @@
 @implementation Prune
 
 - (instancetype) init:(CGPoint)position {
-    NSLog(@"prune");
     if ((self = [super init:position]) != nil) {
         self.node.color = [SKColor purpleColor];
     }
     return (self);
-}
-
--(void)display{
-    [super display];
-
 }
 
 @end

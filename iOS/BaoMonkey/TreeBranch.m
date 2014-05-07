@@ -12,7 +12,7 @@
 
 - (instancetype) init {
     if ((self = [TreeBranch alloc]) != nil) {
-        
+
         _node = [[SKSpriteNode alloc] initWithImageNamed:@"tree-branch.png"];
         
         _node.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,

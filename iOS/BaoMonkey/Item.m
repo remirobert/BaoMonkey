@@ -8,13 +8,20 @@
 
 #import "Item.h"
 
+@interface Item ()
+@property (nonatomic) SEL actionFunction;
+@end
+
 @implementation Item
 
-- (instancetype) init:(CGPoint)position :(ItemType)type {
-    NSLog(@"Item");
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (instancetype) init:(CGPoint)position :(ItemType)type :(SEL)actionFunction {
     if ((self = [super init]) != nil) {
         _node = [[SKSpriteNode alloc] initWithColor:[SKColor redColor]
-                                                size:CGSizeMake(25, 25)];
+                                                size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 10, [UIScreen mainScreen].bounds.size.width / 10 )];
         _node.position = position;
         _node.name = NAME_ITEM;
         _node.physicsBody.affectedByGravity = YES;
@@ -22,8 +29,19 @@
         
         _type = type;
         
+        _actionFunction = actionFunction;
     }
     return (self);
+}
+
+- (void) runAction {
+    
+    if ([self respondsToSelector:_actionFunction]) {
+//        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+//            [self performSelector:_actionFunction];
+    }
+    else
+        NSLog(@"respond FALSE");
 }
 
 @end

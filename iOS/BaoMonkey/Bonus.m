@@ -15,7 +15,9 @@
 }
 
 - (instancetype) init:(CGPoint)position {
-    if ((self = [super init:position :BONUS]) != nil) {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(display) name:@"runAction" object:nil];
+
+    if ((self = [super init:position :BONUS :@selector(display)]) != nil) {
     }
     return (self);
 }
