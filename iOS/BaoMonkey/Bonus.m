@@ -10,10 +10,6 @@
 
 @implementation Bonus
 
-- (void) display {
-    NSLog(@"bonus");
-}
-
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super initWithPosition:position]) != nil) {
     }

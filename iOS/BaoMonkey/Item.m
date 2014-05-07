@@ -23,4 +23,10 @@
     return (self);
 }
 
+- (void) launchAction {
+    if ([self respondsToSelector:_action]) {
+        [self performSelector:_action];
+    }
+}
+
 @end

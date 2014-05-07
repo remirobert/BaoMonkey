@@ -17,4 +17,8 @@
     return (self);
 }
 
+- (void) launchAction {
+    NSLog(@"action coco");
+}
+
 @end

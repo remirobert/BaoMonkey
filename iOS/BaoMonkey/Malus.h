@@ -11,6 +11,5 @@
 @interface Malus : Item
 
 - (instancetype) initWithPosition:(CGPoint)position;
-- (void) display;
 
 @end

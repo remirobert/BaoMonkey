@@ -11,5 +11,6 @@
 @interface CocoNuts : Weapon
 
 - (instancetype) initWithPosition:(CGPoint)position;
+- (void) launchAction;
 
 @end

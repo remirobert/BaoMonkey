@@ -63,7 +63,6 @@
         [self initGameController];
         [self initScene];
         [self performSelector:@selector(addWave) withObject:nil afterDelay:1.5];
-
     }
     return self;
 }
@@ -79,10 +78,11 @@
     [self enumerateChildNodesWithName:NAME_ITEM usingBlock:^(SKNode *node, BOOL *stop) {
         SKNode *tmp = [self nodeAtPoint:monkey.sprite.position];
         for (id item in _wave) {
-            if (CGPointEqualToPoint(((Item *)item).node.position, tmp.position)) {
-                [monkey catchItem:item];
-                ((Item *)item).node.hidden = YES;
-                }
+//            if (CGPointEqualToPoint(((Item *)item).node.position, tmp.position)) {
+//                    [monkey catchItem:item];
+//                    ((Item *)item).node.hidden = YES;
+//                }
+            [(Item *)item launchAction];
             }
     }];
 }

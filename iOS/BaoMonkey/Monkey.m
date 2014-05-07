@@ -50,11 +50,15 @@
             weapon = [[Item alloc] init];
             weapon = item;
         }
-    } else if ([item isKindOfClass:[Malus class]]) {
-        NSLog(@"Malus");
-    } else if ([item isKindOfClass:[Bonus class]]) {
-        NSLog(@"Bonus");
     }
+    
+//    } else if ([item isKindOfClass:[Malus class]]) {
+//        [item launchWeapon];
+//        NSLog(@"Malus");
+//    } else if ([item isKindOfClass:[Bonus class]]) {
+//        [item launchWeapon];
+//        NSLog(@"Bonus");
+//    }
 }
 
 #pragma mark - Launch a weapon
