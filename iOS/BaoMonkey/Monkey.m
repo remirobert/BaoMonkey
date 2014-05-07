@@ -103,6 +103,7 @@
             weapon = [[Item alloc] init];
             NSLog(@"take weapon");
             weapon = item;
+            weapon.isTaken = YES;
             [(Item *)item launchAction];
         }
     }
