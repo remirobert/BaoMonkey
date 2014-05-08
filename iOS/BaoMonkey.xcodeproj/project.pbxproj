@@ -48,6 +48,7 @@
 		29E98BB0191A875D0046F9B2 /* LamberJack.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BAF191A875D0046F9B2 /* LamberJack.m */; };
 		29E98BB4191A882B0046F9B2 /* lamberjack-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E98BB2191A882B0046F9B2 /* lamberjack-left@2x.png */; };
 		29E98BB5191A882B0046F9B2 /* lamberjack-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E98BB3191A882B0046F9B2 /* lamberjack-right@2x.png */; };
+		3F5959DC191C1D5B006EE846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5959DB191C1D5B006EE846 /* HomeViewController.m */; };
 		3F64F75B191A8EB400102094 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F75A191A8EB400102094 /* GameData.m */; };
 		3F64F766191A9DD900102094 /* ProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F765191A9DD900102094 /* ProgressBar.m */; };
 		3F7D436C191A3BC800DF30D6 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D436B191A3BC800DF30D6 /* GameController.m */; };
@@ -133,6 +134,8 @@
 		29E98BAF191A875D0046F9B2 /* LamberJack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamberJack.m; sourceTree = "<group>"; };
 		29E98BB2191A882B0046F9B2 /* lamberjack-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lamberjack-left@2x.png"; path = "Enemy/lamberjack-left@2x.png"; sourceTree = "<group>"; };
 		29E98BB3191A882B0046F9B2 /* lamberjack-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lamberjack-right@2x.png"; path = "Enemy/lamberjack-right@2x.png"; sourceTree = "<group>"; };
+		3F5959DA191C1D5B006EE846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		3F5959DB191C1D5B006EE846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		3F64F759191A8EB400102094 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
 		3F64F75A191A8EB400102094 /* GameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameData.m; sourceTree = "<group>"; };
 		3F64F764191A9DD900102094 /* ProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBar.h; sourceTree = "<group>"; };
@@ -355,6 +358,8 @@
 			children = (
 				10C59A071919492200907493 /* ViewController.h */,
 				10C59A081919492200907493 /* ViewController.m */,
+				3F5959DA191C1D5B006EE846 /* HomeViewController.h */,
+				3F5959DB191C1D5B006EE846 /* HomeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -551,6 +556,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = BaoMonkey;
 				TargetAttributes = {
+					10C599B2191948A300907493 = {
+						DevelopmentTeam = RFKH8ZM9YU;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+						};
+					};
 					10C599DD191948A300907493 = {
 						TestTargetID = 10C599B2191948A300907493;
 					};
@@ -627,6 +640,7 @@
 				10C59A1F19194C7400907493 /* Prune.m in Sources */,
 				109E9307191A60EF00DD5623 /* Action.m in Sources */,
 				10C59A1C19194BF000907493 /* Banana.m in Sources */,
+				3F5959DC191C1D5B006EE846 /* HomeViewController.m in Sources */,
 				10C59A1D19194BF000907493 /* CocoNuts.m in Sources */,
 				10C59A091919492200907493 /* ViewController.m in Sources */,
 				10123410191951CF00B035D9 /* Malus.m in Sources */,
@@ -776,11 +790,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BaoMonkey/BaoMonkey-Prefix.pch";
 				INFOPLIST_FILE = "BaoMonkey/BaoMonkey-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -791,11 +808,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BaoMonkey/BaoMonkey-Prefix.pch";
 				INFOPLIST_FILE = "BaoMonkey/BaoMonkey-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
