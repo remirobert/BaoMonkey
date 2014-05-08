@@ -12,7 +12,7 @@
 
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super initWithPosition:position]) != nil) {
-        self.node.color = [SKColor grayColor];
+        [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"coconut"]]];
     }
     return (self);
 }

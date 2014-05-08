@@ -41,7 +41,6 @@
 
 -(void)startChopping {
     isChooping = TRUE;
-    NSLog(@"Start Chooping");
 }
 
 -(void)updatePosition {
