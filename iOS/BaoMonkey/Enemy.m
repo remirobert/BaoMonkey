@@ -24,4 +24,12 @@
     return self;
 }
 
+-(NSString*)directionKey {
+    if (self.direction == LEFT)
+        return @"LEFT";
+    else if (self.direction == RIGHT)
+        return @"RIGHT";
+    return @"NONE";
+}
+
 @end

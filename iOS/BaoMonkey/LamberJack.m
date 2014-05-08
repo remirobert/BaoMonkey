@@ -60,14 +60,6 @@
     }
 }
 
--(NSString*)directionKey {
-    if (self.direction == LEFT)
-        return @"LEFT";
-    else if (self.direction == RIGHT)
-        return @"RIGHT";
-    return @"NONE";
-}
-
 -(int)findFreeSlot:(NSArray*)choppingSlots {
     int i = 0;
     NSString *directionKey = [self directionKey];

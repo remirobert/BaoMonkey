@@ -10,11 +10,17 @@
 #import <SpriteKit/SpriteKit.h>
 #import "Enemy.h"
 
+#define MIN_NEXT_ENEMY  2.0
+#define MAX_NEXT_ENEMY  3.0
+#define MAX_FLOOR       4
+
 @interface EnemiesController : NSObject {
-    CFTimeInterval timeForAddEnemy;
+    CFTimeInterval timeForAddLamberJack;
+    CFTimeInterval timeForAddHunter;
     NSMutableArray *enemies;
     SKScene *scene;
     NSMutableArray *choppingSlots;
+    int numberOfFloors;
 }
 
 @property (nonatomic, strong) NSMutableArray *enemies;

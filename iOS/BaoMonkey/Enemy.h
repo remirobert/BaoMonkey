@@ -10,6 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 
 #define MAX_LUMBERJACK  6
+#define MAX_HUNTER      12
 
 typedef enum {
     LEFT,
@@ -26,6 +27,7 @@ typedef enum {
     EnemyDirection direction;
     EnemyType type;
     float speed;
+    int floor;
 }
 
 @property (nonatomic, strong) SKSpriteNode *node;
@@ -33,5 +35,6 @@ typedef enum {
 @property (nonatomic) EnemyType type;
 
 -(id)init;
+-(NSString*)directionKey;
 
 @end
