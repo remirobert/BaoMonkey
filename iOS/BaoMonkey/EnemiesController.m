@@ -8,8 +8,9 @@
 
 #import "EnemiesController.h"
 #import "LamberJack.h"
+#import "GameData.h"
 
-#define MAX_LUMBERJACK  4
+#define MAX_LUMBERJACK  6
 
 @implementation EnemiesController
 
@@ -21,8 +22,21 @@
         enemies = [[NSMutableArray alloc] init];
         scene = _scene;
         timeForAddEnemy = 0;
+        [self initChoppingSlots];
     }
     return self;
+}
+
+-(void)initChoppingSlots {
+    choppingSlots = [[NSMutableArray alloc] init];
+    CGFloat spaceDistance;
+    
+    SKSpriteNode *LBTmp = [SKSpriteNode spriteNodeWithImageNamed:@"lamberjack-left"];
+    spaceDistance = LBTmp.size.width / 2;
+    for (int i = 0; i < 3 ; i++) {
+        NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT", [NSString stringWithFormat:@"%f", (spaceDistance + (spaceDistance * i))], @"posX", nil];
+        [choppingSlots addObject:tmp];
+    }
 }
 
 -(EnemyDirection)chooseDirection {
@@ -49,36 +63,6 @@
     [scene addChild:newLamberJack.node];
 }
 
--(NSDictionary*)LamberJacksState
-{
-    NSMutableDictionary *LBState = [[NSMutableDictionary alloc] init];
-    
-    [LBState setObject:@"0" forKey:@"numberChoppingOnLeft"];
-    [LBState setObject:@"0" forKey:@"numberChoppingOnRight"];
-    for (Enemy *enemy in enemies) {
-        if (enemy.type == EnemyTypeLamberJack) {
-            LamberJack *tmp = (LamberJack*)enemy;
-            if (tmp.isChooping)
-            {
-                int number;
-                if (tmp.direction == LEFT)
-                {
-                    number = [[LBState objectForKey:@"numberChoppingOnLeft"] intValue];
-                    number++;
-                    [LBState setObject:[NSString stringWithFormat:@"%d", number] forKey:@"numberChoppingOnLeft"];
-                }
-                else if (tmp.direction == RIGHT)
-                {
-                    number = [[LBState objectForKey:@"numberChoppingOnRight"] intValue];
-                    number++;
-                    [LBState setObject:[NSString stringWithFormat:@"%d", number] forKey:@"numberChoppingOnRight"];
-                }
-            }
-        }
-    }
-    return LBState;
-}
-
 -(void)updateEnemies:(CFTimeInterval)currentTime {
     NSMutableArray *enemiesDeleted = [[NSMutableArray alloc] init];
     
@@ -89,8 +73,7 @@
     }
     //NSLog(@"Update Enemies");
     for (Enemy *enemy in enemies) {
-        [(LamberJack*)enemy updatePosition];
-        [self LamberJacksState];
+        [(LamberJack*)enemy updatePosition:choppingSlots];
         //NSLog(@"Enemy : x %f y %f", enemy.node.position.x, enemy.node.position.y);
     }
     
@@ -101,7 +84,17 @@
 }
 
 -(void)deleteEnemy:(Enemy*)enemy {
-    [enemy.node removeFromParent];
+    SKAction *fadeIn = [SKAction fadeAlphaTo:0.0 duration:0.25];
+    [enemy.node runAction:fadeIn completion:^{
+        [enemy.node removeFromParent];
+    }];
+    if (enemy.type == EnemyTypeLamberJack) {
+        LamberJack *lamber;
+        
+        lamber = (LamberJack*)enemy;
+        [lamber freeTheSlot:lamber.slotTaken direction:lamber.direction slots:choppingSlots];
+        [GameData addPointToScore:10];
+    }
     [enemies removeObject:enemy];
 }
 
