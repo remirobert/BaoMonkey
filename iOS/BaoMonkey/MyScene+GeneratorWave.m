@@ -18,18 +18,6 @@
     [self addChild:node];
 }
 
-- (void) deleteItemAfterTime:(Item*)item {
-    if (item == nil || item.isTaken == YES)
-        return ;
-    SKAction *blink = [SKAction sequence:@[[SKAction fadeOutWithDuration:0.1],
-                                           [SKAction fadeInWithDuration:0.1]]];
-    SKAction *blinkAction = [SKAction repeatAction:blink count:3];
-    [item.node runAction:blinkAction completion:^{
-        [item.node removeFromParent];
-        [self.wave removeObject:item];
-    }];
-}
-
 - (NSObject *) createItem:(CGPoint)position {
     
     NSObject *object;
@@ -53,9 +41,6 @@
     [self performSelector:@selector(addItemToScene:)
                withObject:((Item *)object).node
                afterDelay:((float)arc4random() / 0x100000000)];
-    
-    [self performSelector:@selector(deleteItemAfterTime:)
-               withObject:object afterDelay:rand() % 4 + 2];
 }
 
 - (void) addNewWeapon:(CFTimeInterval)currentTime {

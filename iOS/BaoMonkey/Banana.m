@@ -14,7 +14,8 @@
     if ((self = [super initWithPosition:position]) != nil) {
         [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"banana"]]];
         self.action = @selector(actionBanana);
-        self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 2];
+        self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 3];
+        self.node.physicsBody.mass = 10;
     }
     return (self);
 }
@@ -22,6 +23,7 @@
 - (void) actionBanana {
     self.node.hidden = YES;
     [Action increaseMove];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
 }
 
 @end

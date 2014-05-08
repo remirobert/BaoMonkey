@@ -15,8 +15,13 @@
 @property (nonatomic, strong) SKSpriteNode *node;
 @property (nonatomic) SEL action;
 @property (nonatomic) BOOL isTaken;
+@property (nonatomic) BOOL isOver;
+@property (nonatomic) NSTimer *timerHide;
 
 - (instancetype) initWithPosition:(CGPoint)position;
 - (void) launchAction;
++ (void) deleteItemAfterTimer:(Item*)item;
+- (void) pauseTimer;
+- (void) resumeTimer;
 
 @end

@@ -111,11 +111,11 @@
             weapon = item;
             [weapon.node removeAllActions];
             weapon.isTaken = YES;
-            [(Item *)item launchAction];
         }
-    } else {
-        [(Item *)item launchAction];
+        else
+            return ;
     }
+    [(Item *)item launchAction];
 }
 
 #pragma mark - Launch a weapon
@@ -124,8 +124,8 @@
     if (weapon != nil) {
         weapon.node.position = CGPointMake(sprite.position.x, weapon.node.position.y);
         [Action dropWeapon:weapon];
-        weapon = nil;
     }
+    weapon = nil;
 }
 
 @end
