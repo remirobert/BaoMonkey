@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 iPPLE. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import "Malus.h"
 #import "GameData.h"
 

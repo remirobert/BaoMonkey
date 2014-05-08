@@ -53,6 +53,7 @@
 		3FB2A494191B79900027B2C7 /* coconut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A492191B79900027B2C7 /* coconut@2x.png */; };
 		3FB2A496191B7C580027B2C7 /* prune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A495191B7C580027B2C7 /* prune@2x.png */; };
 		3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A497191B7DA80027B2C7 /* splash-prune@2x.png */; };
+		3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49B191BB20C0027B2C7 /* splash.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,7 @@
 		3FB2A492191B79900027B2C7 /* coconut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coconut@2x.png"; sourceTree = "<group>"; };
 		3FB2A495191B7C580027B2C7 /* prune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prune@2x.png"; sourceTree = "<group>"; };
 		3FB2A497191B7DA80027B2C7 /* splash-prune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-prune@2x.png"; sourceTree = "<group>"; };
+		3FB2A49B191BB20C0027B2C7 /* splash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = splash.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,7 @@
 		10C59A0C1919492C00907493 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3FB2A499191BB20C0027B2C7 /* Sounds */,
 				3FB2A490191B79900027B2C7 /* Items */,
 				29E98BB1191A88180046F9B2 /* Enemies */,
 				10C59A0D1919492C00907493 /* Monkey */,
@@ -463,6 +466,22 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
+		3FB2A499191BB20C0027B2C7 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				3FB2A49A191BB20C0027B2C7 /* Items */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		3FB2A49A191BB20C0027B2C7 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				3FB2A49B191BB20C0027B2C7 /* splash.mp3 */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -542,6 +561,7 @@
 				10C59A161919492C00907493 /* front-leaf@2x.png in Resources */,
 				10C59A141919492C00907493 /* monkey@2x.png in Resources */,
 				3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */,
+				3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */,
 				10C59A171919492C00907493 /* tree-branch@2x.png in Resources */,
 				10C59A151919492C00907493 /* back-leaf@2x.png in Resources */,
 				3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */,
