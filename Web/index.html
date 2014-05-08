@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta name="title" content="Baomonkey application website !" />
+	<meta name="description" content="Baomonkey application website for Iphone and Ipad !" />
+  <meta name="author" content="Baomonkey Team">
+  <title>Baomonkey application website !</title>
+
+	<link rel="shortcut icon" id="favicon" href="favicon.png"> 
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Pacifico:400' rel='stylesheet' type='text/css'>
+  <link href='css/main.css' rel='stylesheet' type='text/css'>
+  <link href='css/onepage-scroll.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="main">
+
+      <!-- Première section -->
+      <section id="clouds" class="page1">
+        <div class="page_container">
+            <div class="cloud x1"></div>
+            <div class="cloud x2"></div>
+            <div class="cloud x3"></div>
+            <div class="cloud x4"></div>
+            <div class="cloud x5"></div>
+            <div class="cloud x6"></div>
+            <div class="cloud x7"></div>
+            <div class="cloud x8"></div>
+            <div class="cloud x9"></div>
+            <div class="cloud x10"></div>
+            <div class="cloud x11"></div>
+            <div class="cloud x12"></div>
+        </div>
+  	    <img src="img/tree-top-2.png" alt="phones">
+      </section>
+      <!-- /première section -->
+
+      <!-- Seconde section -->
+	    <section id="clouds2" class="page2">
+	      <div class="page_container">
+           <div class="cloud x1"></div>
+            <div class="cloud x2"></div>
+            <div class="cloud x3"></div>
+            <div class="cloud x4"></div>
+            <div class="cloud x5"></div>
+            <div class="cloud x6"></div>
+            <div class="cloud x7"></div>
+            <div class="cloud x8"></div>
+            <div class="cloud x9"></div>
+            <div class="cloud x10"></div>
+            <div class="cloud x11"></div>
+            <div class="cloud x12"></div>
+	      </div>
+        <img src="img/trunk-1.png" alt="phones">
+      </section>
+      <!-- /Seconde section -->
+	    
+      <!-- Troisième section -->
+	    <section class="page3">
+	      <div class="page_container">
+  	    </div>
+        <img src="img/trunk-2.png" alt"Team">
+      </section>
+      <!-- /Troisième section -->
+
+      <!-- Quatrième section -->
+      <section class="page4">
+        <div class="page_container">
+          <h1>Contact / Footer</h1>
+        </div>
+      </section>
+      <!-- /Quatrième section -->
+
+    </div>
+  </div>
+  
+  <!-- Javascript -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="js/jquery.onepage-scroll.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".main").onepage_scroll({
+        sectionContainer: "section",
+        responsiveFallback: 600,
+        loop: true
+      });
+    });    
+  </script>
+
+</body>
+</html>
