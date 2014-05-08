@@ -88,7 +88,6 @@
     SKSpriteNode *trunk = [self trunkNode];
     [self addChild:trunk];
     [self addChild:[self backLeafNode]];
-    
     _sizeBlock = (self.frame.size.width - (self.frame.size.width / 10)) / 10;
     _treeBranch = [[TreeBranch alloc] init];
     
@@ -137,7 +136,7 @@
 }
 
 - (void) pauseGravityItem {
-    
+    self.speed = 0;
     for (Item *item in _wave) {
         [item pauseTimer];
         item.node.physicsBody = nil;
@@ -149,7 +148,7 @@
 }
 
 - (void) resumeGravityItem {
-    
+    self.speed = 1.0;
     for (Item *item in _wave) {
         [item resumeTimer];
         item.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:item.node.frame.size.width / 2];
@@ -163,12 +162,6 @@
 -(void)update:(CFTimeInterval)currentTime {
     if ([[GameData singleton] isPause]) {
         [monkey stopAnimation];
-        for (id item in _wave) {
-            if ([((Item *)item) isKindOfClass:[Prune class]]) {
-                [(Prune *)item pause];
-            }
-            break;
-        }
         return;
     }
     [self addNewWeapon:currentTime];

@@ -14,6 +14,4 @@
 
 - (instancetype) initWithPosition:(CGPoint)position;
 
--(void)pause;
-
 @end

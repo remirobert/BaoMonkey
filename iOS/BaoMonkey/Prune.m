@@ -23,21 +23,20 @@
     SKAction *move = [SKAction moveTo:CGPointMake(self.node.position.x, 200) duration:0];
     SKAction *sound = [SKAction playSoundFileNamed:@"splash.mp3" waitForCompletion:NO];
     SKAction *action = [SKAction resizeToWidth:640 height:512 duration:0.2];
+    SKAction *wait = [SKAction waitForDuration:1.0];
     
+    [self.timerHide invalidate];
+    self.timerHide = nil;
     self.node.physicsBody = nil;
+    
+    SKAction *actionPrune = [SKAction group:@[move, sound, action, wait]];
+    
     [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"splash-prune"]]];
     
-    self.node.physicsBody.affectedByGravity = NO;
-    [self.node runAction:move completion:^{
-        [self.node runAction:action completion:^(void){
-            [self.node runAction:sound];
-        }];
+    [self.node runAction:actionPrune completion:^{
+        self.isOver = YES;
+        [self.node removeFromParent];
     }];
-
-}
-
--(void)pause {
-    [self.node removeActionForKey:SKACTION_MONKEY_WALKING];
 }
 
 @end
