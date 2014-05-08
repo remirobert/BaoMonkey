@@ -131,20 +131,8 @@
     if (self = [super initWithSize:size]) {
         [[GameData singleton] initGameData];
         [self initScene];
-        [self performSelector:@selector(addWave) withObject:nil afterDelay:1.5];
-        [self performSelector:@selector(addWeapon) withObject:nil afterDelay:1.0];
     }
     return self;
-}
-
-- (void) addWeapon {
-    [self addNewWeapon];
-    [self performSelector:@selector(addWeapon) withObject:nil afterDelay:1.5];
-}
-
-- (void) addWave {
-    [self addNewWave];
-    [self performSelector:@selector(addWave) withObject:nil afterDelay:rand() % 4 + 3];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
@@ -158,6 +146,8 @@
         if (((Item *)item).isTaken == NO) {
             if (CGRectIntersectsRect(((Item *)item).node.frame, monkey.sprite.frame)) {
                 [monkey catchItem:item];
+                if ([((Item *)item) isKindOfClass:[Banana class]])
+                    [self deleteItemAfterTime:item];
                 break;
             }
         }

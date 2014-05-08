@@ -15,6 +15,7 @@ static GameController *singleton;
 +(id)singleton {
     if (!singleton) {
         singleton = [[GameController alloc] init];
+        singleton->speed = 0.0;
     }
     return singleton;
 }
@@ -52,7 +53,7 @@ static GameController *singleton;
     acceleration = 0.0f;
     
     if (fabs(data.acceleration.x) > 0.2) {
-        acceleration = data.acceleration.x * kAccelerometerSpeed;
+        acceleration = data.acceleration.x * (kAccelerometerSpeed + speed);
     }
 }
 
@@ -61,7 +62,7 @@ static GameController *singleton;
 }
 
 -(void)updateAcceleration:(float)a {
-    acceleration = a;
+    speed = a;
 }
 
 +(float)getAcceleration {
