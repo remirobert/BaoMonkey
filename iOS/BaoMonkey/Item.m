@@ -18,9 +18,7 @@
         _node.position = position;
         _node.name = ITEM_NODE_NAME;
         _node.physicsBody.affectedByGravity = YES;
-        _node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_node.size];
         _node.physicsBody.mass = 20.0;
-        
         _isTaken = NO;
     }
     return (self);

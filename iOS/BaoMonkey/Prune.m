@@ -14,6 +14,7 @@
     if ((self = [super initWithPosition:position]) != nil) {
         [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"prune"]]];
         self.action = @selector(actionPrune);
+        self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 2];
     }
     return (self);
 }

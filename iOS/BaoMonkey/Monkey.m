@@ -104,6 +104,7 @@
         if (weapon == nil) {
             weapon = [[Item alloc] init];
             weapon = item;
+            [weapon.node removeAllActions];
             weapon.isTaken = YES;
             [(Item *)item launchAction];
         }

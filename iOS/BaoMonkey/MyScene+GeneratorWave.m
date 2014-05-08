@@ -17,8 +17,13 @@
 - (void) deleteItemAfterTime:(Item*)item {
     if (item.isTaken == YES)
         return ;
-    [item.node removeFromParent];
-    [self.wave removeObject:item];
+    SKAction *blink = [SKAction sequence:@[[SKAction fadeOutWithDuration:0.1],
+                                           [SKAction fadeInWithDuration:0.1]]];
+    SKAction *blinkAction = [SKAction repeatAction:blink count:3];
+    [item.node runAction:blinkAction completion:^{
+        [item.node removeFromParent];
+        [self.wave removeObject:item];
+    }];
 }
 
 - (NSObject *) createItem:(CGPoint)position {
@@ -57,18 +62,6 @@
     CocoNuts *coco = [[CocoNuts alloc] initWithPosition:position];
 
     [self addItem:coco];
-    return ;
-    if (self.wave == nil)
-        self.wave = [[NSMutableArray alloc] init];
-    
-    [self.wave addObject:coco];
-    
-    [self performSelector:@selector(addItemToScene:)
-               withObject:coco.node
-               afterDelay:((float)arc4random() / 0x100000000)];
-    
-    [self performSelector:@selector(deleteItemAfterTime:)
-               withObject:coco afterDelay:rand() % 4 + 2];
 }
 
 - (void) addNewWave {

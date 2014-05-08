@@ -18,7 +18,7 @@
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = NO;
-    skView.showsNodeCount = NO;
+    skView.showsNodeCount = YES;
     
     [GameController initAccelerometer];
     [GameController initOneTapOnView:skView];

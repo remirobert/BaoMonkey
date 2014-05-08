@@ -110,6 +110,12 @@
             if ([weaponNode intersectsNode:enemy.node]) {
                 [self->enemiesController deleteEnemy:enemy];
                 [weaponNode removeFromParent];
+                for (Item *item in _wave) {
+                    if (item.node == weaponNode) {
+                        [_wave removeObject:item];
+                        break;
+                    }
+                }
                 return ;
             }
         }
