@@ -23,6 +23,7 @@
 - (void) actionBanana {
     self.node.hidden = YES;
     [Action increaseMove];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
 }
 
 @end
