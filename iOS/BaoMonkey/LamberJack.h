@@ -14,10 +14,13 @@
 @interface LamberJack : Enemy
 
 @property (nonatomic, assign) BOOL isChooping;
+@property (nonatomic, assign) float slotTaken;
 
 -(id)initWithDirection:(EnemyDirection)direction;
 -(void)startChopping;
--(void)updatePosition;
--(BOOL)reachedTheMiddle;
+-(void)updatePosition:(NSArray*)choppingSlots;
+-(float)findFreeSlot:(EnemyDirection)_direction inSlots:(NSArray*)choppingSlots;
+-(void)freeTheSlot:(float)freeSlot direction:(EnemyDirection)_direction slots:choppingSlots;
+-(BOOL)reachedTheMiddle:(NSArray*)choppingSlots;
 
 @end

@@ -81,15 +81,20 @@
 
 -(void)startWalking {
     if (![sprite actionForKey:SKACTION_MONKEY_WALKING]) {
-            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
+        [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
                                                                          timePerFrame:0.1f
                                                                                resize:YES
-                                                                              restore:YES]] withKey:SKACTION_MONKEY_WALKING];
+                                                                              restore:YES]]
+                  withKey:SKACTION_MONKEY_WALKING];
     }
 }
 
 -(void)stopWalking {
     [sprite removeActionForKey:SKACTION_MONKEY_WALKING];
+}
+
+-(void)stopAnimation {
+    [sprite removeAllActions];
 }
 
 -(void)wait {
