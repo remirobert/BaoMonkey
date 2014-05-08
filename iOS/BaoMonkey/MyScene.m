@@ -71,14 +71,18 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:PAUSE_BUTTON_NODE_NAME]) {
-        if ([[GameData singleton] isPause]) {
+        if ([GameData isPause]) {
             ((SKLabelNode *)node).text = [NSString stringWithFormat:@"Pause"];
             [self resumeGravityItem];
         } else {
             ((SKLabelNode *)node).text = [NSString stringWithFormat:@"Play"];
             [self pauseGravityItem];
         }
-        [[GameData singleton] updatePause];
+        [GameData updatePause];
+    } else {
+        if (![GameData isPause]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
+        }
     }
 }
 

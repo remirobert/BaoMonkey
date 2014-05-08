@@ -76,10 +76,10 @@ static GameController *singleton;
 #pragma mark - OneTap Functions
 
 +(void)initOneTapOnView:(SKView *)view {
-    [[GameController singleton] initOneTapOnView:view];
+    //[[GameController singleton] initOneTapOnView:view];
 }
 
--(void)initOneTapOnView:(SKView *)view {
+/*-(void)initOneTapOnView:(SKView *)view {
     UITapGestureRecognizer *oneFingerOneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneTapDetected)];
     [oneFingerOneTap setNumberOfTapsRequired:1];
     [view addGestureRecognizer:oneFingerOneTap];
@@ -87,6 +87,6 @@ static GameController *singleton;
 
 -(void)oneTapDetected {
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
-}
+}*/
 
 @end
