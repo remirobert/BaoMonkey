@@ -10,6 +10,7 @@
 #import "Define.h"
 #import "GameController.h"
 #import "Item.h"
+#import "GameData.h"
 
 @interface Action : NSObject
 
