@@ -111,11 +111,13 @@
             weapon = item;
             [weapon.node removeAllActions];
             weapon.isTaken = YES;
+            [(Item *)item launchAction];
         }
         else
             return ;
     }
-    [(Item *)item launchAction];
+    if (((Item *)item).isTaken == NO)
+        [(Item *)item launchAction];
 }
 
 #pragma mark - Launch a weapon

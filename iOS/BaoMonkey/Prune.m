@@ -28,6 +28,7 @@
     
     [self.timerHide invalidate];
     self.timerHide = nil;
+    self.isTaken = YES;
     self.node.physicsBody = nil;
     
     SKAction *actionPrune = [SKAction group:@[move, sound, action, wait]];
