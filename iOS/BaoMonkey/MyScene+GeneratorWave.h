@@ -15,6 +15,5 @@
 
 - (void) addNewWeapon:(CFTimeInterval)currentTime;
 - (void) addNewWave:(CFTimeInterval)currentTime;
-- (void) deleteItemAfterTime:(Item*)item;
 
 @end

@@ -88,7 +88,6 @@
     SKSpriteNode *trunk = [self trunkNode];
     [self addChild:trunk];
     [self addChild:[self backLeafNode]];
-    
     _sizeBlock = (self.frame.size.width - (self.frame.size.width / 10)) / 10;
     _treeBranch = [[TreeBranch alloc] init];
     
@@ -137,34 +136,32 @@
 }
 
 - (void) pauseGravityItem {
-    [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-        node.physicsBody = nil;
-    }];
+    self.speed = 0;
+    for (Item *item in _wave) {
+        [item pauseTimer];
+        item.node.physicsBody = nil;
+    }
     
-    [self enumerateChildNodesWithName:ITEM_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+    [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         node.physicsBody = nil;
     }];
 }
 
 - (void) resumeGravityItem {
+    self.speed = 1.0;
+    for (Item *item in _wave) {
+        [item resumeTimer];
+        item.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:item.node.frame.size.width / 2];
+    }
+    
     [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.frame.size.width / 2];
-    }];
-    
-    [self enumerateChildNodesWithName:ITEM_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-        node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.frame.size.width / 2];
-    }];
+    }];    
 }
 
 -(void)update:(CFTimeInterval)currentTime {
     if ([[GameData singleton] isPause]) {
         [monkey stopAnimation];
-        for (id item in _wave) {
-            if ([((Item *)item) isKindOfClass:[Prune class]]) {
-                [(Prune *)item pause];
-            }
-            break;
-        }
         return;
     }
     [self addNewWeapon:currentTime];
@@ -178,12 +175,22 @@
         if (((Item *)item).isTaken == NO) {
             if (CGRectIntersectsRect(((Item *)item).node.frame, monkey.sprite.frame)) {
                 [monkey catchItem:item];
-                if ([((Item *)item) isKindOfClass:[Banana class]])
-                    [self deleteItemAfterTime:item];
+                if ([((Item *)item) isKindOfClass:[Banana class]]) {
+                    [Item deleteItemAfterTimer:(Item *)item];
+                    [_wave removeObject:item];
+                }
                 break;
             }
         }
     }
+    
+    for (Item *item in _wave) {
+        if (item.isOver == YES) {
+            [_wave removeObject:item];
+            break;
+        }
+    }
+    
     [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *weaponNode, BOOL *stop) {
         for (Enemy *enemy in self->enemiesController.enemies) {
             
