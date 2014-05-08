@@ -54,7 +54,6 @@ body {
   position: relative;
   margin: 0;
   overflow: hidden;
-  height: 100%;
     -webkit-font-smoothing: antialiased;
 }
     
@@ -492,6 +491,7 @@ header {
 
 .main section.page1 img {
   position: absolute;
+  width: 1920px;
   margin: 0 auto;
   bottom: 0; left: 0; right: 0;
   display: block;
@@ -535,6 +535,7 @@ header {
 
 .main section.page2 img {
   position: absolute;
+  height: 1080px;
   top: 0; left: 0; right: 0;
   margin: 0 auto;
   display: block;
@@ -570,7 +571,22 @@ header {
 
 .main section.page3 img {
   position: absolute;
+  height: 1080px;
   top: 0;left: 0; right: 0;
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+  z-index: 999;
+}
+
+.main section.page4 {
+  background-color: #d1f5fd;
+}
+
+.main section.page4 img {
+  position: absolute;
+  height: 1080px;
+  top: 0; left: 0; right: 0;
   margin: 0 auto;
   display: block;
   max-width: 100%;
