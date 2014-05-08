@@ -123,7 +123,7 @@
 #pragma mark - Launch a weapon
 
 -(void)launchWeapon{
-    if (weapon != nil) {
+    if (weapon != nil && ![GameData isPause]) {
         weapon.node.position = CGPointMake(sprite.position.x, weapon.node.position.y);
         [Action dropWeapon:weapon];
     }

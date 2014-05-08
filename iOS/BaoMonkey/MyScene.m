@@ -60,7 +60,8 @@
     score = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     score.text = [NSString stringWithFormat:@"%d", [[GameData singleton] getScore]];
     score.fontSize = 25;
-    score.position = CGPointMake(20, 10);
+    score.position = CGPointMake(20, SCREEN_HEIGHT - 30);
+    score.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     score.name = SCORE_NODE_NAME;
 }
 
@@ -71,14 +72,19 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:PAUSE_BUTTON_NODE_NAME]) {
-        if ([[GameData singleton] isPause]) {
+        if ([GameData isPause]) {
             ((SKLabelNode *)node).text = [NSString stringWithFormat:@"Pause"];
             [self resumeGravityItem];
         } else {
             ((SKLabelNode *)node).text = [NSString stringWithFormat:@"Play"];
             [self pauseGravityItem];
         }
-        [[GameData singleton] updatePause];
+        [GameData updatePause];
+    } else if (location.y <= [UIScreen mainScreen].bounds.size.height - 30) {
+        NSLog(@"touch for monkey");
+        if (![GameData isPause]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
+        }
     }
 }
 
@@ -151,7 +157,8 @@
     self.speed = 1.0;
     for (Item *item in _wave) {
         [item resumeTimer];
-        item.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:item.node.frame.size.width / 2];
+        if (item.isTaken == NO)
+            item.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:item.node.frame.size.width / 2];
     }
     
     [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {

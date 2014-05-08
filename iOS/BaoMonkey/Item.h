@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 #import "Define.h"
+#import "GameData.h"
 
 @interface Item : NSObject
 

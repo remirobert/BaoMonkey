@@ -35,6 +35,8 @@
     
     [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"splash-prune"]]];
     
+    self.node.zPosition = 10000;
+    
     [self.node runAction:actionPrune completion:^{
         self.isOver = YES;
         [self.node removeFromParent];
