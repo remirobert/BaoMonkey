@@ -21,6 +21,7 @@
     SKScene *scene;
     NSMutableArray *choppingSlots;
     int numberOfFloors;
+    char slotFloor[MAX_FLOOR]; //representation of the floor's slots.
 }
 
 @property (nonatomic, strong) NSMutableArray *enemies;

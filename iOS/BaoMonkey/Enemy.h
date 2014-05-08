@@ -27,7 +27,6 @@ typedef enum {
     EnemyDirection direction;
     EnemyType type;
     float speed;
-    int floor;
 }
 
 @property (nonatomic, strong) SKSpriteNode *node;

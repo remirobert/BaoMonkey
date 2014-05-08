@@ -69,13 +69,20 @@
 
 -(void)addHunter {
     Hunter *newLamberJack;
+    int positionHunterInSlot = 0;
+    for (int currentSlot = 0; currentSlot < self->numberOfFloors; currentSlot++) {
+        if (((positionHunterInSlot = [self checkPositionFloorSlot:currentSlot])) != -1)
+            break;
+    }
+    if (positionHunterInSlot == -1)
+        return ;
     
-    NSLog(@"add hunter");
     newLamberJack = [[Hunter alloc] initWithFloor:numberOfFloors
-                                     numberHunter:[self countOfEnemyType:EnemyTypeHunter]];
+                                             slot:positionHunterInSlot];
     
     [enemies addObject:newLamberJack];
     [scene addChild:newLamberJack.node];
+    NSLog(@"APPERCU TAB FLOOOR = %d", self->slotFloor[0]);
 }
 
 -(NSUInteger)countOfEnemyType:(EnemyType)_type
@@ -97,7 +104,7 @@
         timeForAddLamberJack = currentTime + randomFloat;
     }
     
-    if ([GameData getScore] > 20)
+    if ([GameData getScore] >= 0)
     {
         if (numberOfFloors == 0)
             [self addFloor];
@@ -130,6 +137,11 @@
         [lamber freeTheSlot:choppingSlots];
         [GameData addPointToScore:10];
     }
+    else if (enemy.type == EnemyTypeHunter) {
+        Hunter *hunter = (Hunter *)enemy;
+        self->slotFloor[hunter.floor - 1] -= 1 << hunter.slot;
+        [GameData addPointToScore:20];
+    }
     [enemies removeObject:enemy];
 }
 
@@ -143,6 +155,24 @@
     [scene addChild:floor];
     SKAction *slide = [SKAction moveToX:(floor.size.width / 2) duration:0.5];
     [floor runAction:slide];
+}
+
+#pragma mark - Floor Slot management
+
+-(void)initFloorSlot {
+    for (int index = 0; index < MAX_FLOOR; index++) {
+        self->slotFloor[index] = 0;
+    }
+}
+
+-(int)checkPositionFloorSlot:(NSInteger)floor {
+    for (int mask = 3; mask >= 0; mask--) {
+        if ((self->slotFloor[floor] >> mask & 0x1) == 0) {
+            self->slotFloor[floor] += 1 << mask;
+            return (mask + 1);
+        }
+    }
+    return (-1);
 }
 
 @end

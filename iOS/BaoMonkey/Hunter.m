@@ -11,16 +11,18 @@
 
 @implementation Hunter
 
--(id)initWithFloor:(NSInteger)_floor numberHunter:(NSInteger)nbHunter {
+-(id)initWithFloor:(NSInteger)nbFloor slot:(NSInteger)slotFloor {
     CGRect screen = [UIScreen mainScreen].bounds;
     CGPoint position;
     
     self = [super init];
     if (self) {
-        self.direction = (_floor % 2) == 0 ? LEFT : RIGHT;
+        self.direction = (nbFloor % 2) == 0 ? LEFT : RIGHT;
         self.type = EnemyTypeHunter;
         self.node.zPosition = 1;
-        self.floor = _floor;
+        self.floor = nbFloor;
+        
+        _slot = slotFloor -1;
         
         if (self.direction == LEFT)
         {
@@ -30,13 +32,13 @@
         else
         {
             node = [SKSpriteNode spriteNodeWithImageNamed:@"hunter-right"];
-            position.x = -(node.size.width / 2);
+            position.x = - (node.size.width / 2);
         }
         node.name = ENEMY_NODE_NAME;
         position.y = screen.size.height / 4 + node.size.height / 2;
         [node setPosition:position];
-        
-        SKAction *actionMove = [SKAction moveToX:20 * nbHunter duration:2.0];
+                
+        SKAction *actionMove = [SKAction moveToX:(screen.size.width / 2 - 20) / 4 * slotFloor duration:2.0];
         
         [node runAction:actionMove];
         

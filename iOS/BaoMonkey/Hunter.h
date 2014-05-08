@@ -10,6 +10,8 @@
 
 @interface Hunter : Enemy
 
--(id)initWithFloor:(NSInteger)floor numberHunter:(NSInteger)nbHunter;
+@property (nonatomic) NSInteger slot;
+
+-(id)initWithFloor:(NSInteger)floor slot:(NSInteger)slotFloor;
 
 @end
