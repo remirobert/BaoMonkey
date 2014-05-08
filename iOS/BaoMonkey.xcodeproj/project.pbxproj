@@ -49,6 +49,10 @@
 		3F64F766191A9DD900102094 /* ProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F765191A9DD900102094 /* ProgressBar.m */; };
 		3F7D436C191A3BC800DF30D6 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D436B191A3BC800DF30D6 /* GameController.m */; };
 		3F7D436F191A6FE100DF30D6 /* MonkeyWalking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3F7D436E191A6FE100DF30D6 /* MonkeyWalking.atlas */; };
+		3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A491191B79900027B2C7 /* banana@2x.png */; };
+		3FB2A494191B79900027B2C7 /* coconut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A492191B79900027B2C7 /* coconut@2x.png */; };
+		3FB2A496191B7C580027B2C7 /* prune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A495191B7C580027B2C7 /* prune@2x.png */; };
+		3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A497191B7DA80027B2C7 /* splash-prune@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +132,10 @@
 		3F7D436B191A3BC800DF30D6 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		3F7D436D191A3E3F00DF30D6 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		3F7D436E191A6FE100DF30D6 /* MonkeyWalking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyWalking.atlas; sourceTree = "<group>"; };
+		3FB2A491191B79900027B2C7 /* banana@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banana@2x.png"; sourceTree = "<group>"; };
+		3FB2A492191B79900027B2C7 /* coconut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coconut@2x.png"; sourceTree = "<group>"; };
+		3FB2A495191B7C580027B2C7 /* prune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prune@2x.png"; sourceTree = "<group>"; };
+		3FB2A497191B7DA80027B2C7 /* splash-prune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-prune@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +243,7 @@
 		10C59A0C1919492C00907493 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3FB2A490191B79900027B2C7 /* Items */,
 				29E98BB1191A88180046F9B2 /* Enemies */,
 				10C59A0D1919492C00907493 /* Monkey */,
 				10C59A0F1919492C00907493 /* Tree */,
@@ -443,6 +452,17 @@
 			name = GameController;
 			sourceTree = "<group>";
 		};
+		3FB2A490191B79900027B2C7 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				3FB2A497191B7DA80027B2C7 /* splash-prune@2x.png */,
+				3FB2A495191B7C580027B2C7 /* prune@2x.png */,
+				3FB2A491191B79900027B2C7 /* banana@2x.png */,
+				3FB2A492191B79900027B2C7 /* coconut@2x.png */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -521,15 +541,19 @@
 			files = (
 				10C59A161919492C00907493 /* front-leaf@2x.png in Resources */,
 				10C59A141919492C00907493 /* monkey@2x.png in Resources */,
+				3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */,
 				10C59A171919492C00907493 /* tree-branch@2x.png in Resources */,
 				10C59A151919492C00907493 /* back-leaf@2x.png in Resources */,
+				3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */,
 				29E98BB4191A882B0046F9B2 /* lamberjack-left@2x.png in Resources */,
 				10C599D9191948A300907493 /* Images.xcassets in Resources */,
 				10C599CF191948A300907493 /* Main_iPad.storyboard in Resources */,
 				29E98BB5191A882B0046F9B2 /* lamberjack-right@2x.png in Resources */,
 				3F7D436F191A6FE100DF30D6 /* MonkeyWalking.atlas in Resources */,
+				3FB2A496191B7C580027B2C7 /* prune@2x.png in Resources */,
 				10C59A181919492C00907493 /* trunk@2x.png in Resources */,
 				10C599CC191948A300907493 /* Main_iPhone.storyboard in Resources */,
+				3FB2A494191B79900027B2C7 /* coconut@2x.png in Resources */,
 				10C599C3191948A300907493 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
