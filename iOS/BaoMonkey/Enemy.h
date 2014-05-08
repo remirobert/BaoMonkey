@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 
+#define MAX_LUMBERJACK  6
+
 typedef enum {
     LEFT,
     RIGHT

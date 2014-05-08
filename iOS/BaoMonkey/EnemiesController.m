@@ -10,7 +10,8 @@
 #import "LamberJack.h"
 #import "GameData.h"
 
-#define MAX_LUMBERJACK  6
+#define MIN_NEXT_ENEMY  2.0
+#define MAX_NEXT_ENEMY  3.0
 
 @implementation EnemiesController
 
@@ -32,7 +33,7 @@
     CGFloat spaceDistance;
     
     SKSpriteNode *LBTmp = [SKSpriteNode spriteNodeWithImageNamed:@"lamberjack-left"];
-    spaceDistance = LBTmp.size.width / 2;
+    spaceDistance = LBTmp.size.width / 2 - 2;
     for (int i = 0; i < 3 ; i++) {
         NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT", [NSString stringWithFormat:@"%f", (spaceDistance + (spaceDistance * i))], @"posX", nil];
         [choppingSlots addObject:tmp];
@@ -64,10 +65,9 @@
 }
 
 -(void)updateEnemies:(CFTimeInterval)currentTime {
-    NSMutableArray *enemiesDeleted = [[NSMutableArray alloc] init];
     
     if ([enemies count] < MAX_LUMBERJACK && ((timeForAddEnemy <= currentTime) || (timeForAddEnemy == 0))){
-        float randomFloat = (1.5 + ((float)arc4random() / (0x100000000 / (3.0 - 1.5))));
+        float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
         [self addEnemy];
         timeForAddEnemy = currentTime + randomFloat;
     }
@@ -75,11 +75,6 @@
     for (Enemy *enemy in enemies) {
         [(LamberJack*)enemy updatePosition:choppingSlots];
         //NSLog(@"Enemy : x %f y %f", enemy.node.position.x, enemy.node.position.y);
-    }
-    
-    // Delete enemies that reached the middle
-    for (Enemy *enemy in enemiesDeleted) {
-        [self deleteEnemy:enemy];
     }
 }
 
@@ -92,7 +87,7 @@
         LamberJack *lamber;
         
         lamber = (LamberJack*)enemy;
-        [lamber freeTheSlot:lamber.slotTaken direction:lamber.direction slots:choppingSlots];
+        [lamber freeTheSlot:choppingSlots];
         [GameData addPointToScore:10];
     }
     [enemies removeObject:enemy];

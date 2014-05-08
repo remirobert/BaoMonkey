@@ -21,6 +21,7 @@
     if (self) {
         self.direction = _direction;
         self.type = EnemyTypeLamberJack;
+        self.node.zPosition = 1;
         
         if (self.direction == LEFT)
         {
@@ -59,62 +60,52 @@
     }
 }
 
--(float)findFreeSlot:(EnemyDirection)_direction inSlots:(NSArray*)choppingSlots {
-    NSString *directionKey;
-    
-    if (_direction == LEFT)
-        directionKey = @"LEFT";
-    else if (_direction == RIGHT)
-        directionKey = @"RIGHT";
+-(NSString*)directionKey {
+    if (self.direction == LEFT)
+        return @"LEFT";
+    else if (self.direction == RIGHT)
+        return @"RIGHT";
+    return @"NONE";
+}
+
+-(int)findFreeSlot:(NSArray*)choppingSlots {
+    int i = 0;
+    NSString *directionKey = [self directionKey];
     
     for (NSMutableDictionary *slot in choppingSlots) {
         if ([[slot objectForKey:directionKey] isEqualToString:@"FREE"]) {
-            return [[slot objectForKey:@"posX"] floatValue];
+            if ((MAX_LUMBERJACK / 4) == i)
+                self.node.zPosition = 2;
+            else
+                self.node.zPosition = 1;
+            return i;
         }
+        i++;
     }
-    return 0;
+    return -1;
 }
 
--(void)takeTheSlot:(float)freeSlot direction:(EnemyDirection)_direction slots:choppingSlots {
-    NSString *directionKey;
+-(void)freeTheSlot:(NSArray*)choppingSlots {
+    NSString *directionKey = [self directionKey];
     
-    if (_direction == LEFT)
-        directionKey = @"LEFT";
-    else if (_direction == RIGHT)
-        directionKey = @"RIGHT";
-    
-    for (NSMutableDictionary *slot in choppingSlots) {
-        if ([[slot objectForKey:@"posX"] floatValue] == freeSlot) {
-            [slot setObject:@"TAKEN" forKey:directionKey];
-        }
-    }
-}
-
--(void)freeTheSlot:(float)freeSlot direction:(EnemyDirection)_direction slots:choppingSlots {
-    NSString *directionKey;
-    
-    if (_direction == LEFT)
-        directionKey = @"LEFT";
-    else if (_direction == RIGHT)
-        directionKey = @"RIGHT";
-    
-    for (NSMutableDictionary *slot in choppingSlots) {
-        if ([[slot objectForKey:@"posX"] floatValue] == freeSlot) {
-            [slot setObject:@"FREE" forKey:directionKey];
-        }
-    }
+    [[choppingSlots objectAtIndex:self.slotTaken] setObject:@"FREE" forKey:directionKey];
 }
 
 -(BOOL)reachedTheMiddle:(NSArray*)choppingSlots {
+    NSString *directionKey = [self directionKey];
     CGRect screen = [UIScreen mainScreen].bounds;
+    int freeSlot = 0;
+    float spaceSlot = 0;
     
-    float freeSlot = [self findFreeSlot:self.direction inSlots:choppingSlots];
+    freeSlot = [self findFreeSlot:choppingSlots];
+    if (freeSlot != -1)
+        spaceSlot = [[[choppingSlots objectAtIndex:freeSlot] objectForKey:@"posX"] floatValue];
     
-    if (self.direction == LEFT && ((self.node.position.x - freeSlot) > (screen.size.width / 2)))
+    if (self.direction == LEFT && ((self.node.position.x - spaceSlot) > (screen.size.width / 2)))
         return FALSE;
-    else if (self.direction == RIGHT && ((self.node.position.x + freeSlot) < (screen.size.width / 2)))
+    else if (self.direction == RIGHT && ((self.node.position.x + spaceSlot) < (screen.size.width / 2)))
         return FALSE;
-    [self takeTheSlot:freeSlot direction:self.direction slots:choppingSlots];
+    [[choppingSlots objectAtIndex:freeSlot] setObject:@"TAKEN" forKey:directionKey];
     self.slotTaken = freeSlot;
     return TRUE;
 }

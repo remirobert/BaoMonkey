@@ -19,8 +19,8 @@
 -(id)initWithDirection:(EnemyDirection)direction;
 -(void)startChopping;
 -(void)updatePosition:(NSArray*)choppingSlots;
--(float)findFreeSlot:(EnemyDirection)_direction inSlots:(NSArray*)choppingSlots;
--(void)freeTheSlot:(float)freeSlot direction:(EnemyDirection)_direction slots:choppingSlots;
+-(int)findFreeSlot:(NSArray*)choppingSlots;
+-(void)freeTheSlot:(NSArray*)choppingSlots;
 -(BOOL)reachedTheMiddle:(NSArray*)choppingSlots;
 
 @end
