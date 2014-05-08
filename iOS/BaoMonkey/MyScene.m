@@ -73,8 +73,10 @@
     if ([node.name isEqualToString:PAUSE_BUTTON_NODE_NAME]) {
         if ([[GameData singleton] isPause]) {
             ((SKLabelNode *)node).text = [NSString stringWithFormat:@"Pause"];
+            [self resumeGravityItem];
         } else {
             ((SKLabelNode *)node).text = [NSString stringWithFormat:@"Play"];
+            [self pauseGravityItem];
         }
         [[GameData singleton] updatePause];
     }
@@ -132,6 +134,26 @@
         [self initScene];
     }
     return self;
+}
+
+- (void) pauseGravityItem {
+    [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+        node.physicsBody = nil;
+    }];
+    
+    [self enumerateChildNodesWithName:ITEM_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+        node.physicsBody = nil;
+    }];
+}
+
+- (void) resumeGravityItem {
+    [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+        node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.frame.size.width / 2];
+    }];
+    
+    [self enumerateChildNodesWithName:ITEM_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+        node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.frame.size.width / 2];
+    }];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
