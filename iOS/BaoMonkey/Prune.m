@@ -28,8 +28,12 @@
     
     self.node.physicsBody.affectedByGravity = NO;
     [self.node runAction:move completion:^{
-            [self.node runAction:action];
-        }];
+        [self.node runAction:action withKey:@"toto"];
+    }];
+}
+
+-(void)pause {
+    [self.node removeActionForKey:@"toto"];
 }
 
 @end

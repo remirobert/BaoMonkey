@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#import "GameData.h"
 #import "Item.h"
 #import "Malus.h"
 #import "Bonus.h"
@@ -31,5 +32,7 @@
 -(void)updateMonkeyPosition:(float)acceleration;
 
 -(void)catchItem:(id)item;
+
+-(void)stopAnimation;
 
 @end

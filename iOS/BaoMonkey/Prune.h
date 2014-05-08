@@ -7,9 +7,12 @@
 //
 
 #import "Malus.h"
+#import "GameData.h"
 
 @interface Prune : Malus
 
 - (instancetype) initWithPosition:(CGPoint)position;
+
+-(void)pause;
 
 @end

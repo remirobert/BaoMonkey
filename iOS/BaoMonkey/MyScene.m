@@ -136,6 +136,13 @@
 
 -(void)update:(CFTimeInterval)currentTime {
     if ([[GameData singleton] isPause]) {
+        [monkey stopAnimation];
+        for (id item in _wave) {
+            if ([((Item *)item) isKindOfClass:[Prune class]]) {
+                [(Prune *)item pause];
+            }
+            break;
+        }
         return;
     }
     [self addNewWeapon:currentTime];
