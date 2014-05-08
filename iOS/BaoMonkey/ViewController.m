@@ -18,7 +18,7 @@
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = NO;
-    skView.showsNodeCount = NO;
+    skView.showsNodeCount = YES;
     
     [GameController initAccelerometer];
     [GameController initOneTapOnView:skView];
@@ -39,6 +39,10 @@
     } else {
         return UIInterfaceOrientationMaskAll;
     }
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end

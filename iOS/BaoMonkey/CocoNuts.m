@@ -13,11 +13,14 @@
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super initWithPosition:position]) != nil) {
         [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"coconut"]]];
+        self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 2];
     }
     return (self);
 }
 
-- (void) launchAction {    
+- (void) launchAction {
+    SKAction *removeBlind = [SKAction fadeInWithDuration:0.0];
+    [self.node runAction:removeBlind];
     self.node.physicsBody = nil;
 }
 

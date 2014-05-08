@@ -8,6 +8,10 @@
 
 #import "MyScene+GeneratorWave.h"
 
+@interface MyScene ()
+@property (nonatomic) CGFloat timeWeapon;
+@end
+
 @implementation MyScene (GeneratorWave)
 
 - (void) addItemToScene:(SKSpriteNode *)node {
@@ -15,10 +19,15 @@
 }
 
 - (void) deleteItemAfterTime:(Item*)item {
-    if (item.isTaken == YES)
+    if (item == nil || item.isTaken == YES)
         return ;
-    [item.node removeFromParent];
-    [self.wave removeObject:item];
+    SKAction *blink = [SKAction sequence:@[[SKAction fadeOutWithDuration:0.1],
+                                           [SKAction fadeInWithDuration:0.1]]];
+    SKAction *blinkAction = [SKAction repeatAction:blink count:3];
+    [item.node runAction:blinkAction completion:^{
+        [item.node removeFromParent];
+        [self.wave removeObject:item];
+    }];
 }
 
 - (NSObject *) createItem:(CGPoint)position {
@@ -49,7 +58,14 @@
                withObject:object afterDelay:rand() % 4 + 2];
 }
 
-- (void) addNewWeapon {
+- (void) addNewWeapon:(CFTimeInterval)currentTime {
+    static CGFloat timeNext = 0.0;
+    
+    if (currentTime < timeNext) {
+        return ;
+    }
+
+    timeNext = currentTime + 1.0;
     CGPoint position = CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width -
                                                   ([UIScreen mainScreen].bounds.size.width / 10)) +
                                    ([UIScreen mainScreen].bounds.size.width / 10),
@@ -57,22 +73,16 @@
     CocoNuts *coco = [[CocoNuts alloc] initWithPosition:position];
 
     [self addItem:coco];
-    return ;
-    if (self.wave == nil)
-        self.wave = [[NSMutableArray alloc] init];
-    
-    [self.wave addObject:coco];
-    
-    [self performSelector:@selector(addItemToScene:)
-               withObject:coco.node
-               afterDelay:((float)arc4random() / 0x100000000)];
-    
-    [self performSelector:@selector(deleteItemAfterTime:)
-               withObject:coco afterDelay:rand() % 4 + 2];
 }
 
-- (void) addNewWave {
+- (void) addNewWave:(CFTimeInterval)currentTime {
+    static CGFloat timeNext = 0.0;
     
+    if (currentTime < timeNext) {
+        return ;
+    }
+    
+    timeNext = currentTime + rand() % 4 + 3;
     id object = [self createItem:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width -
                                                             ([UIScreen mainScreen].bounds.size.width / 10)) +
                                              ([UIScreen mainScreen].bounds.size.width / 10),

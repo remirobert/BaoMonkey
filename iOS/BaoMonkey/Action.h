@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "Item.h"
 #import "Define.h"
+#import "GameController.h"
 
 @interface Action : NSObject
 
 + (void) dropWeapon:(Item *)item;
++ (void) increaseMove;
 
 @end

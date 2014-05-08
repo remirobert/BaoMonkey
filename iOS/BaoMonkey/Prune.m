@@ -14,6 +14,7 @@
     if ((self = [super initWithPosition:position]) != nil) {
         [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"prune"]]];
         self.action = @selector(actionPrune);
+        self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 2];
     }
     return (self);
 }
@@ -27,8 +28,12 @@
     
     self.node.physicsBody.affectedByGravity = NO;
     [self.node runAction:move completion:^{
-            [self.node runAction:action];
-        }];
+        [self.node runAction:action withKey:SKACTION_MONKEY_WALKING];
+    }];
+}
+
+-(void)pause {
+    [self.node removeActionForKey:SKACTION_MONKEY_WALKING];
 }
 
 @end
