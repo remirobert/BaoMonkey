@@ -81,6 +81,7 @@
         }
         [GameData updatePause];
     } else {
+        NSLog(@"touch for monkey");
         if (![GameData isPause]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
         }
@@ -156,7 +157,8 @@
     self.speed = 1.0;
     for (Item *item in _wave) {
         [item resumeTimer];
-        item.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:item.node.frame.size.width / 2];
+        if (item.isTaken == NO)
+            item.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:item.node.frame.size.width / 2];
     }
     
     [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
