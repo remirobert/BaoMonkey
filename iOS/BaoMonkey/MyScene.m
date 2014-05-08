@@ -92,7 +92,8 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-    [monkey updateMonkeyPosition:[GameController getAccelerometerPosition]];
+    [GameController updateAccelerometerAcceleration];
+    [monkey updateMonkeyPosition:[GameController getAcceleration]];
     [enemiesController updateEnemies:currentTime];
     
     for (id item in _wave) {

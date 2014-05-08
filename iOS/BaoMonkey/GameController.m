@@ -42,19 +42,33 @@ static GameController *singleton;
     }
 }
 
-+(float)getAccelerometerPosition {
-    return [[GameController singleton] getAccelerometerPosition];
++(void)updateAccelerometerAcceleration {
+    [[GameController singleton] updateAccelerometerAcceleration];
 }
 
--(float)getAccelerometerPosition {
+-(void)updateAccelerometerAcceleration{
     CMAccelerometerData *data = motionManager.accelerometerData;
     
-    float acceleration = 0.0f;
+    acceleration = 0.0f;
     
     if (fabs(data.acceleration.x) > 0.2) {
         acceleration = data.acceleration.x * kAccelerometerSpeed;
     }
-    
+}
+
++(void)updateAcceleration:(float)a {
+    [[GameController singleton] updateAcceleration:a];
+}
+
+-(void)updateAcceleration:(float)a {
+    acceleration = a;
+}
+
++(float)getAcceleration {
+    return [[GameController singleton] getAcceleration];
+}
+
+-(float)getAcceleration {
     return acceleration;
 }
 

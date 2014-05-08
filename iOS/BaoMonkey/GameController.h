@@ -13,14 +13,17 @@
 
 @interface GameController : NSObject{
     CMMotionManager *motionManager;
+    float acceleration;
 }
 
 +(id)singleton;
 
-+(float)getAccelerometerPosition;
-
 +(void)initAccelerometer;
 
 +(void)initOneTapOnView:(SKView *)view;
+
++(void)updateAccelerometerAcceleration;
++(void)updateAcceleration:(float)acceleration;
++(float)getAcceleration;
 
 @end
