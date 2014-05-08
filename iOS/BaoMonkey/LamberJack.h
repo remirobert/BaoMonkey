@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 #import "Enemy.h"
+#import "GameData.h"
 
 @interface LamberJack : Enemy
 
