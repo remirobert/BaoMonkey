@@ -13,7 +13,8 @@
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super initWithPosition:position]) != nil) {
         [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"coconut"]]];
-        self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 2];
+        self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 3];
+        self.node.physicsBody.mass = 100;
     }
     return (self);
 }
