@@ -15,7 +15,7 @@
 }
 
 - (void) deleteItemAfterTime:(Item*)item {
-    if (item.isTaken == YES)
+    if (item == nil || item.isTaken == YES)
         return ;
     SKAction *blink = [SKAction sequence:@[[SKAction fadeOutWithDuration:0.1],
                                            [SKAction fadeInWithDuration:0.1]]];

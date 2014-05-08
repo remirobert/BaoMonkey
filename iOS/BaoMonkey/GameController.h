@@ -14,6 +14,7 @@
 @interface GameController : NSObject{
     CMMotionManager *motionManager;
     float acceleration;
+    float speed;
 }
 
 +(id)singleton;

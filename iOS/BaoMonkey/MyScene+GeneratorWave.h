@@ -15,5 +15,6 @@
 
 - (void) addNewWave;
 - (void) addNewWeapon;
+- (void) deleteItemAfterTime:(Item*)item;
 
 @end

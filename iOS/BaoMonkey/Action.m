@@ -18,4 +18,15 @@
     item.node.hidden = NO;
 }
 
++ (void) decreaseMove {
+    [GameController updateAcceleration:0.0];
+}
+
++ (void) increaseMove {
+    [GameController updateAcceleration:50.0];
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self
+                                            selector:@selector(decreaseMove)
+                                            userInfo:nil repeats:NO];
+}
+
 @end

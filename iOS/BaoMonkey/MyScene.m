@@ -100,6 +100,8 @@
         if (((Item *)item).isTaken == NO) {
             if (CGRectIntersectsRect(((Item *)item).node.frame, monkey.sprite.frame)) {
                 [monkey catchItem:item];
+                if ([((Item *)item) isKindOfClass:[Banana class]])
+                    [self deleteItemAfterTime:item];
                 break;
             }
         }

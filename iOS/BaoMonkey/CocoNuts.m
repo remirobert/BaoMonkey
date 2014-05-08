@@ -18,7 +18,9 @@
     return (self);
 }
 
-- (void) launchAction {    
+- (void) launchAction {
+    SKAction *removeBlind = [SKAction fadeInWithDuration:0.0];
+    [self.node runAction:removeBlind];
     self.node.physicsBody = nil;
 }
 

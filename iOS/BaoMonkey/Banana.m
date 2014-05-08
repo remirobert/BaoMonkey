@@ -21,6 +21,7 @@
 
 - (void) actionBanana {
     self.node.hidden = YES;
+    [Action increaseMove];
 }
 
 @end
