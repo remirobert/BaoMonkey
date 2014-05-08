@@ -10,7 +10,6 @@
 
 @interface Hunter : Enemy
 
--(id)initWithDirection:(EnemyDirection)_direction;
--(void)updatePosition;
+-(id)initWithFloor:(NSInteger)floor numberHunter:(NSInteger)nbHunter;
 
 @end

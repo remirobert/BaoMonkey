@@ -210,7 +210,7 @@
                         break;
                     }
                 }
-                return ;
+                break;
             }
         }
     }];
@@ -218,8 +218,10 @@
     [[GameData singleton] regenerateTrunkLife];
     
     for (Enemy *enemy in self->enemiesController.enemies) {
-        if (((LamberJack *)enemy).isChooping) {
-            [[GameData singleton] substractLifeToTrunkLife:0.01f];
+        if (enemy.type == EnemyTypeLamberJack) {
+            if (((LamberJack *)enemy).isChooping) {
+                [[GameData singleton] substractLifeToTrunkLife:0.01f];
+            }
         }
     }
     

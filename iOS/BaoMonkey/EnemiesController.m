@@ -46,21 +46,34 @@
     NSUInteger numberRight = 0;
     
     for (Enemy *enemy in enemies) {
-        if (enemy.direction == LEFT)
-            numberLeft++;
-        else if (enemy.direction == RIGHT)
-            numberRight++;
+        if (enemy.type == EnemyTypeLamberJack) {
+            if (enemy.direction == LEFT)
+                numberLeft++;
+            else if (enemy.direction == RIGHT)
+                numberRight++;
+        }
     }
     if (numberRight < numberLeft)
         return RIGHT;
     return LEFT;
 }
 
--(void)addEnemy {
+-(void)addLamberJack {
     LamberJack *newLamberJack;
     
     newLamberJack = [[LamberJack alloc] initWithDirection:[self chooseDirection]];
 
+    [enemies addObject:newLamberJack];
+    [scene addChild:newLamberJack.node];
+}
+
+-(void)addHunter {
+    Hunter *newLamberJack;
+    
+    NSLog(@"add hunter");
+    newLamberJack = [[Hunter alloc] initWithFloor:numberOfFloors
+                                     numberHunter:[self countOfEnemyType:EnemyTypeHunter]];
+    
     [enemies addObject:newLamberJack];
     [scene addChild:newLamberJack.node];
 }
@@ -80,27 +93,25 @@
     
     if ([self countOfEnemyType:EnemyTypeLamberJack] < MAX_LUMBERJACK && ((timeForAddLamberJack <= currentTime) || (timeForAddLamberJack == 0))){
         float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
-        [self addEnemy];
+        [self addLamberJack];
         timeForAddLamberJack = currentTime + randomFloat;
     }
     
-    if ([GameData getScore] > 100)
+    if ([GameData getScore] > 20)
     {
         if (numberOfFloors == 0)
             [self addFloor];
         
-//        if ([self countOfEnemyType:EnemyTypeHunter] < MAX_HUNTER && ((timeForAddHunter <= currentTime) || (timeForAddHunter == 0))){
-//            float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
-//            [self addEnemy];
-//            timeForAddLamberJack = currentTime + randomFloat;
-//        }
+        if ([self countOfEnemyType:EnemyTypeHunter] < MAX_HUNTER && ((timeForAddHunter <= currentTime) || (timeForAddHunter == 0))){
+            float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
+            [self addHunter];
+            timeForAddHunter = currentTime + randomFloat;
+        }
     }
     
     for (Enemy *enemy in enemies) {
         if (enemy.type == EnemyTypeLamberJack)
             [(LamberJack*)enemy updatePosition:choppingSlots];
-//        else if (enemy.type == EnemyTypeHunter)
-//            [(Hunter*)enemy updatePosition];
     }
 }
 
