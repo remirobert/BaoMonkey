@@ -31,8 +31,6 @@
     
     ProgressBar *trunkProgressLife;
     SKLabelNode *score;
-    
-    BOOL isPaused;
 }
 
 @property (nonatomic) int sizeBlock;

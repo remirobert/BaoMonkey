@@ -124,4 +124,33 @@ static GameData *singleton;
     }
 }
 
+#pragma mark - Pause Functions
+
++(BOOL)isPause {
+    return [[GameData singleton] isPause];
+}
+
+-(BOOL)isPause {
+    return pause;
+}
+
++(void)updatePause {
+    [[GameData singleton] updatePause];
+}
+
+-(void)updatePause {
+    if (pause)
+        pause = FALSE;
+    else
+        pause = TRUE;
+}
+
++(void)initPause {
+    [[GameData singleton] initPause];
+}
+
+-(void)initPause {
+    pause = FALSE;
+}
+
 @end

@@ -71,13 +71,12 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:PAUSE_BUTTON_NODE_NAME]) {
-        if (isPaused) {
+        if ([[GameData singleton] isPause]) {
             ((SKLabelNode *)node).text = [NSString stringWithFormat:@"Pause"];
-            isPaused = FALSE;
         } else {
             ((SKLabelNode *)node).text = [NSString stringWithFormat:@"Play"];
-            isPaused = TRUE;
         }
+        [[GameData singleton] updatePause];
     }
 }
 
@@ -124,7 +123,7 @@
     
     [self createButtons];
     
-    isPaused = FALSE;
+    [[GameData singleton] initPause];
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -136,8 +135,12 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-    if (isPaused)
+    if ([[GameData singleton] isPause]) {
         return;
+    }
+    [self addNewWeapon:currentTime];
+    [self addNewWave:currentTime];
+    
     [GameController updateAccelerometerAcceleration];
     [monkey updateMonkeyPosition:[GameController getAcceleration]];
     [enemiesController updateEnemies:currentTime];

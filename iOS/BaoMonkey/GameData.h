@@ -13,6 +13,7 @@
 @interface GameData : NSObject {
     NSInteger score;
     CGFloat trunkLife;
+    BOOL pause;
 }
 
 +(id)singleton;
@@ -31,5 +32,9 @@
 +(void)multiplyLifeToTrunkLife:(CGFloat)life;
 +(void)divideLifeToTrunkLife:(CGFloat)life;
 +(void)regenerateTrunkLife;
+
++(void)initPause;
++(BOOL)isPause;
++(void)updatePause;
 
 @end
