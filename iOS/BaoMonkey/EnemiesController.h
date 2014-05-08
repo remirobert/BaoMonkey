@@ -14,11 +14,13 @@
     CFTimeInterval timeForAddEnemy;
     NSMutableArray *enemies;
     SKScene *scene;
+    NSMutableArray *choppingSlots;
 }
 
 @property (nonatomic, strong) NSMutableArray *enemies;
 
 -(id)initWithScene:(SKScene*)_scene;
+-(void)initChoppingSlots;
 -(void)updateEnemies:(CFTimeInterval)currentTime;
 -(void)deleteEnemy:(Enemy*)enemy;
 

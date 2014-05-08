@@ -43,10 +43,11 @@
     isChooping = TRUE;
 }
 
--(void)updatePosition {
-    if (!isChooping && [self reachedTheMiddle]) {
+-(void)updatePosition:(NSArray*)choppingSlots{
+    if (!isChooping && [self reachedTheMiddle:choppingSlots]) {
         [self startChopping];
-    } else if (!isChooping){
+    }
+    if (!isChooping){
         if (self.direction == LEFT)
         {
             [node setPosition:CGPointMake(node.position.x - speed, node.position.y)];
@@ -58,13 +59,63 @@
     }
 }
 
--(BOOL)reachedTheMiddle {
+-(float)findFreeSlot:(EnemyDirection)_direction inSlots:(NSArray*)choppingSlots {
+    NSString *directionKey;
+    
+    if (_direction == LEFT)
+        directionKey = @"LEFT";
+    else if (_direction == RIGHT)
+        directionKey = @"RIGHT";
+    
+    for (NSMutableDictionary *slot in choppingSlots) {
+        if ([[slot objectForKey:directionKey] isEqualToString:@"FREE"]) {
+            return [[slot objectForKey:@"posX"] floatValue];
+        }
+    }
+    return 0;
+}
+
+-(void)takeTheSlot:(float)freeSlot direction:(EnemyDirection)_direction slots:choppingSlots {
+    NSString *directionKey;
+    
+    if (_direction == LEFT)
+        directionKey = @"LEFT";
+    else if (_direction == RIGHT)
+        directionKey = @"RIGHT";
+    
+    for (NSMutableDictionary *slot in choppingSlots) {
+        if ([[slot objectForKey:@"posX"] floatValue] == freeSlot) {
+            [slot setObject:@"TAKEN" forKey:directionKey];
+        }
+    }
+}
+
+-(void)freeTheSlot:(float)freeSlot direction:(EnemyDirection)_direction slots:choppingSlots {
+    NSString *directionKey;
+    
+    if (_direction == LEFT)
+        directionKey = @"LEFT";
+    else if (_direction == RIGHT)
+        directionKey = @"RIGHT";
+    
+    for (NSMutableDictionary *slot in choppingSlots) {
+        if ([[slot objectForKey:@"posX"] floatValue] == freeSlot) {
+            [slot setObject:@"FREE" forKey:directionKey];
+        }
+    }
+}
+
+-(BOOL)reachedTheMiddle:(NSArray*)choppingSlots {
     CGRect screen = [UIScreen mainScreen].bounds;
     
-    if ((self.node.position.x - self.node.size.width) > (screen.size.width / 2))
+    float freeSlot = [self findFreeSlot:self.direction inSlots:choppingSlots];
+    
+    if (self.direction == LEFT && ((self.node.position.x - freeSlot) > (screen.size.width / 2)))
         return FALSE;
-    else if ((self.node.position.x + self.node.size.width) < (screen.size.width / 2))
+    else if (self.direction == RIGHT && ((self.node.position.x + freeSlot) < (screen.size.width / 2)))
         return FALSE;
+    [self takeTheSlot:freeSlot direction:self.direction slots:choppingSlots];
+    self.slotTaken = freeSlot;
     return TRUE;
 }
 
