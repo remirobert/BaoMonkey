@@ -57,18 +57,6 @@
     CocoNuts *coco = [[CocoNuts alloc] initWithPosition:position];
 
     [self addItem:coco];
-    return ;
-    if (self.wave == nil)
-        self.wave = [[NSMutableArray alloc] init];
-    
-    [self.wave addObject:coco];
-    
-    [self performSelector:@selector(addItemToScene:)
-               withObject:coco.node
-               afterDelay:((float)arc4random() / 0x100000000)];
-    
-    [self performSelector:@selector(deleteItemAfterTime:)
-               withObject:coco afterDelay:rand() % 4 + 2];
 }
 
 - (void) addNewWave {
