@@ -80,7 +80,7 @@
             [self pauseGravityItem];
         }
         [GameData updatePause];
-    } else {
+    } else if (location.y <= [UIScreen mainScreen].bounds.size.height - 30) {
         NSLog(@"touch for monkey");
         if (![GameData isPause]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
