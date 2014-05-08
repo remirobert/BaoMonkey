@@ -22,16 +22,71 @@
     return [SKSpriteNode spriteNodeWithImageNamed:name];
 }
 
+-(SKLabelNode *)pauseNode {
+    SKLabelNode *node = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    node.text = [NSString stringWithFormat:@"Pause"];
+    node.fontSize = 25;
+    node.position = CGPointMake([UIScreen mainScreen].bounds.size.width - 50, [UIScreen mainScreen].bounds.size.height - 30);
+    node.name = PAUSE_BUTTON_NODE_NAME;
+    return node;
+}
+
+-(void)createButtons {
+    [self addChild:[self pauseNode]];
+}
+
+-(SKSpriteNode *)trunkNode {
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"trunk"];
+    node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - 370));
+    node.name = TRUNK_NODE_NAME;
+    return node;
+}
+
+-(SKSpriteNode *)backLeafNode {
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"back-leaf"];
+    node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - 124));
+    node.name = BACK_LEAF_NODE_NAME;
+    return node;
+}
+
+-(SKSpriteNode *)frontLeafNode {
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"front-leaf"];
+    node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - 89));
+    node.name = FRONT_LEAF_NODE_NAME;
+    return node;
+}
+
+-(void)scoreNode {
+    score = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    score.text = [NSString stringWithFormat:@"%d", [[GameData singleton] getScore]];
+    score.fontSize = 25;
+    score.position = CGPointMake(20, 10);
+    score.name = SCORE_NODE_NAME;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:location];
+    
+    if ([node.name isEqualToString:PAUSE_BUTTON_NODE_NAME]) {
+        if (isPaused) {
+            ((SKLabelNode *)node).text = [NSString stringWithFormat:@"Pause"];
+            isPaused = FALSE;
+        } else {
+            ((SKLabelNode *)node).text = [NSString stringWithFormat:@"Play"];
+            isPaused = TRUE;
+        }
+    }
+}
+
 - (void) initScene {
     self.backgroundColor = [SKColor colorWithRed:52/255.0f green:152/255.0f blue:219/255.0f alpha:1];
     
-    SKSpriteNode *trunk = [SKSpriteNode spriteNodeWithImageNamed:@"trunk.png"];
-    trunk.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 370);
+    SKSpriteNode *trunk = [self trunkNode];
     [self addChild:trunk];
-    
-    SKSpriteNode *back_leaf = [SKSpriteNode spriteNodeWithImageNamed:@"back-leaf.png"];
-    back_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 124);
-    [self addChild:back_leaf];
+    [self addChild:[self backLeafNode]];
     
     _sizeBlock = (self.frame.size.width - (self.frame.size.width / 10)) / 10;
     _treeBranch = [[TreeBranch alloc] init];
@@ -51,9 +106,7 @@
     // Init enemies controller
     enemiesController = [[EnemiesController alloc] initWithScene:self];
     
-    SKSpriteNode *front_leaf = [SKSpriteNode spriteNodeWithImageNamed:@"front-leaf.png"];
-    front_leaf.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 89);
-    [self addChild:front_leaf];
+    [self addChild:[self frontLeafNode]];
     
     trunkProgressLife = [[ProgressBar alloc] initWithPosition:CGPointMake(trunk.position.x, trunk.position.y / 2)
                                                       andSize:CGSizeMake(50, 10)];
@@ -61,14 +114,17 @@
     trunkProgressLife.frontColor = [UIColor redColor];
     [trunkProgressLife createBackground];
     [trunkProgressLife createFront];
+    trunkProgressLife.background.name = BACKGROUND_PROGRESS_BAR_NODE_NAME;
+    trunkProgressLife.front.name = FRONT_PROGRESS_BAR_NODE_NAME;
     [self addChild:trunkProgressLife.background];
     [self addChild:trunkProgressLife.front];
     
-    score = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    score.text = [NSString stringWithFormat:@"%d", [[GameData singleton] getScore]];
-    score.fontSize = 25;
-    score.position = CGPointMake(20, 10);
+    [self scoreNode];
     [self addChild:score];
+    
+    [self createButtons];
+    
+    isPaused = FALSE;
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -92,6 +148,8 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
+    if (isPaused)
+        return;
     [GameController updateAccelerometerAcceleration];
     [monkey updateMonkeyPosition:[GameController getAcceleration]];
     [enemiesController updateEnemies:currentTime];
