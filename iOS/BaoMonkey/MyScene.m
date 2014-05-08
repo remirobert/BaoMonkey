@@ -60,7 +60,8 @@
     score = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     score.text = [NSString stringWithFormat:@"%d", [[GameData singleton] getScore]];
     score.fontSize = 25;
-    score.position = CGPointMake(20, 10);
+    score.position = CGPointMake(20, SCREEN_HEIGHT - 30);
+    score.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     score.name = SCORE_NODE_NAME;
 }
 
