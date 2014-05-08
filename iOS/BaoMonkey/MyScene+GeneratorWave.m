@@ -8,6 +8,10 @@
 
 #import "MyScene+GeneratorWave.h"
 
+@interface MyScene ()
+@property (nonatomic) CGFloat timeWeapon;
+@end
+
 @implementation MyScene (GeneratorWave)
 
 - (void) addItemToScene:(SKSpriteNode *)node {
@@ -54,7 +58,14 @@
                withObject:object afterDelay:rand() % 4 + 2];
 }
 
-- (void) addNewWeapon {
+- (void) addNewWeapon:(CFTimeInterval)currentTime {
+    static CGFloat timeNext = 0.0;
+    
+    if (currentTime < timeNext) {
+        return ;
+    }
+
+    timeNext = currentTime + 1.0;
     CGPoint position = CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width -
                                                   ([UIScreen mainScreen].bounds.size.width / 10)) +
                                    ([UIScreen mainScreen].bounds.size.width / 10),
@@ -64,8 +75,14 @@
     [self addItem:coco];
 }
 
-- (void) addNewWave {
+- (void) addNewWave:(CFTimeInterval)currentTime {
+    static CGFloat timeNext = 0.0;
     
+    if (currentTime < timeNext) {
+        return ;
+    }
+    
+    timeNext = currentTime + rand() % 4 + 3;
     id object = [self createItem:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width -
                                                             ([UIScreen mainScreen].bounds.size.width / 10)) +
                                              ([UIScreen mainScreen].bounds.size.width / 10),

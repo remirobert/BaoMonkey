@@ -75,23 +75,14 @@
     if (self = [super initWithSize:size]) {
         [[GameData singleton] initGameData];
         [self initScene];
-        [self performSelector:@selector(addWave) withObject:nil afterDelay:1.5];
-        [self performSelector:@selector(addWeapon) withObject:nil afterDelay:1.0];
     }
     return self;
 }
 
-- (void) addWeapon {
-    [self addNewWeapon];
-    [self performSelector:@selector(addWeapon) withObject:nil afterDelay:1.5];
-}
-
-- (void) addWave {
-    [self addNewWave];
-    [self performSelector:@selector(addWave) withObject:nil afterDelay:rand() % 4 + 3];
-}
-
 -(void)update:(CFTimeInterval)currentTime {
+    [self addNewWeapon:currentTime];
+    [self addNewWave:currentTime];
+    
     [GameController updateAccelerometerAcceleration];
     [monkey updateMonkeyPosition:[GameController getAcceleration]];
     [enemiesController updateEnemies:currentTime];
