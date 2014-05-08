@@ -82,7 +82,6 @@
     
     [enemies addObject:newLamberJack];
     [scene addChild:newLamberJack.node];
-    NSLog(@"APPERCU TAB FLOOOR = %d", self->slotFloor[0]);
 }
 
 -(NSUInteger)countOfEnemyType:(EnemyType)_type
