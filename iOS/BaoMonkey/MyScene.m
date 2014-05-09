@@ -137,14 +137,12 @@
     
     [[GameData singleton] initPause];
     
-    NSLog(@"INIT NOTIFICATION");
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(pauseGame)
                                                  name:NOTIFICATION_PAUSE_GAME object:nil];
 }
 
 -(id)initWithSize:(CGSize)size {
-    NSLog(@"init VIEW");
     if (self = [super initWithSize:size]) {
         [[GameData singleton] initGameData];
         [self initScene];
