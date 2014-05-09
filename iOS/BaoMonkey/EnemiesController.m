@@ -120,7 +120,7 @@
         maxLamberJack = MAX_LUMBERJACK;
     else
         maxLamberJack = MAX_LUMBERJACK / 2;
-    if ([self countOfEnemyType:EnemyTypeLamberJack] < maxLamberJack && ((timeForAddLamberJack <= currentTime) || (timeForAddLamberJack == 0))){
+    if ([self countOfEnemyType:EnemyTypeLamberJack] < maxLamberJack && ((timeForAddLamberJack <= currentTime) || (timeForAddLamberJack == 0))) {
         float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
         [self addLamberJack];
         timeForAddLamberJack = currentTime + randomFloat;
@@ -128,9 +128,11 @@
     
     if ([GameData getLevel] >= 1)
     {
-        if ([GameData getLevel] % 2 == 0 && (numberOfFloors == 0 || numberOfFloors * 2 < [GameData getLevel])) {
-            numberHunter += 1;
-            [self addFloor];
+        if ([GameData getLevel] % 2 == 0) {
+            if ((numberOfFloors == 0 || numberOfFloors * 2 < [GameData getLevel])) {
+                [self addFloor];
+                numberHunter += 1;
+            }
         }
         if ([GameData getLevel] % 4 == 0) {
             numberClimber += 1;

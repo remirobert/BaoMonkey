@@ -210,13 +210,13 @@
         }
     }
     
-//    [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-//        if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
-//            GameOver *gameOverView = [[GameOver alloc] init];
-//            [self addChild:[gameOverView launchGameOverView]];
-//            [GameData gameOver];
-//        }
-//    }];
+    [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+        if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
+            GameOver *gameOverView = [[GameOver alloc] init];
+            [self addChild:[gameOverView launchGameOverView]];
+            [GameData gameOver];
+        }
+    }];
     
     for (Item *item in _wave) {
         if (item.isOver == YES) {
