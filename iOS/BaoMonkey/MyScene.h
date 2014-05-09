@@ -12,6 +12,7 @@
 #import "ProgressBar.h"
 #import "GameData.h"
 #import "GameController.h"
+#import "GameOver.h"
 #import "Monkey.h"
 #import "Item.h"
 #import "TreeBranch.h"

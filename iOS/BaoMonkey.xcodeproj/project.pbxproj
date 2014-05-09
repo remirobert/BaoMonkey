@@ -61,6 +61,7 @@
 		3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A497191B7DA80027B2C7 /* splash-prune@2x.png */; };
 		3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49B191BB20C0027B2C7 /* splash.mp3 */; };
 		3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */; };
+		3FF63771191CD532000721A2 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF63770191CD532000721A2 /* GameOver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,8 @@
 		3FB2A497191B7DA80027B2C7 /* splash-prune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-prune@2x.png"; sourceTree = "<group>"; };
 		3FB2A49B191BB20C0027B2C7 /* splash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = splash.mp3; sourceTree = "<group>"; };
 		3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coconut.mp3; sourceTree = "<group>"; };
+		3FF6376F191CD532000721A2 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
+		3FF63770191CD532000721A2 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +369,8 @@
 		3F50F12219194EB700A37F85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3FF6376E191CD50E000721A2 /* Resume */,
+				3FF6376C191CD502000721A2 /* GameOver */,
 				3F64F763191A9DCB00102094 /* ProgressBar */,
 				29E98BA6191A871F0046F9B2 /* Enemy */,
 				3F7D4369191A3BB200DF30D6 /* GameController */,
@@ -533,6 +538,22 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
+		3FF6376C191CD502000721A2 /* GameOver */ = {
+			isa = PBXGroup;
+			children = (
+				3FF6376F191CD532000721A2 /* GameOver.h */,
+				3FF63770191CD532000721A2 /* GameOver.m */,
+			);
+			name = GameOver;
+			sourceTree = "<group>";
+		};
+		3FF6376E191CD50E000721A2 /* Resume */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resume;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -583,6 +604,9 @@
 					10C599B2191948A300907493 = {
 						DevelopmentTeam = RFKH8ZM9YU;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.GameCenter = {
 								enabled = 0;
 							};
@@ -659,6 +683,7 @@
 				3F64F766191A9DD900102094 /* ProgressBar.m in Sources */,
 				29E98BB0191A875D0046F9B2 /* LamberJack.m in Sources */,
 				3F64F75B191A8EB400102094 /* GameData.m in Sources */,
+				3FF63771191CD532000721A2 /* GameOver.m in Sources */,
 				296AFB8D191BDFD7009D5B75 /* Hunter.m in Sources */,
 				29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */,
 				29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */,
