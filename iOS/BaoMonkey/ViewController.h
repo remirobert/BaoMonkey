@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 #import "GameController.h"
+#import "MyScene.h"
 
 @interface ViewController : UIViewController
 

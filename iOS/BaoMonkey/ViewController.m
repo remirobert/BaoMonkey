@@ -7,29 +7,37 @@
 //
 
 #import "ViewController.h"
-#import "MyScene.h"
+#import "Define.h"
+
+@interface ViewController ()
+@property (nonatomic) MyScene *scene;
+@property (nonatomic) SKView *skView;
+@end
 
 @implementation ViewController
+
+- (void) initGame {
+    _scene = [MyScene sceneWithSize:_skView.bounds.size];
+    _scene.scaleMode = SKSceneScaleModeAspectFill;
+    
+    [_skView presentScene:_scene];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    srand(time(NULL));
-    // Configure the view.
-    SKView * skView = (SKView *)self.view;
-    skView.showsFPS = NO;
-    skView.showsNodeCount = YES;
-    
+    _skView = (SKView *)self.view;
+    _skView.showsFPS = NO;
+    _skView.showsNodeCount = YES;
     [GameController initAccelerometer];
-    [GameController initOneTapOnView:skView];
-    
-    // Create and configure the scene.
-    
-    SKScene * scene = [MyScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    [GameController initOneTapOnView:_skView];
 
-    // Present the scene.
-    [skView presentScene:scene];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(initGame)
+                                                 name:NOTIFICATION_RETRY_GAME
+                                               object:nil];
+    srand(time(NULL));
+    [self initGame];
 }
 
 - (NSUInteger)supportedInterfaceOrientations

@@ -19,6 +19,7 @@
 
 +(id)singleton;
 
++(void)resetAccelerometer;
 +(void)initAccelerometer;
 
 +(void)initOneTapOnView:(SKView *)view;

@@ -11,11 +11,7 @@
 #import "Hunter.h"
 #import "Climber.h"
 #import "GameData.h"
-
-#define MIN_POSY_FLOOR  90.0
-#define SPACE_BETWEEN   60.0
-#define FLOOR_WIDTH     105.0
-#define FLOOR_HEIGHT    15.0
+#import "Define.h"
 
 @implementation EnemiesController
 
@@ -85,16 +81,18 @@
 
 -(void)addHunter {
     Hunter *newHunter;
+    int hunterFloor = rand() % self->numberOfFloors + 1;
     int positionHunterInSlot = 0;
+
     for (int currentSlot = 0; currentSlot < self->numberOfFloors; currentSlot++) {
-        if (((positionHunterInSlot = [self checkPositionFloorSlot:currentSlot])) != -1)
+        if (((positionHunterInSlot = [self checkPositionFloorSlot:hunterFloor - 1])) != -1)
             break;
     }
     if (positionHunterInSlot == -1)
         return ;
     
-    newHunter = [[Hunter alloc] initWithFloor:numberOfFloors
-                                             slot:positionHunterInSlot];
+    newHunter = [[Hunter alloc] initWithFloor:hunterFloor
+                                         slot:positionHunterInSlot];
     
     [enemies addObject:newHunter];
     [scene addChild:newHunter.node];
@@ -180,7 +178,7 @@
     CGRect screen = [UIScreen mainScreen].bounds;
     SKAction *slide;
     
-    if (numberOfFloors == MAX_FLOOR)
+    if (numberOfFloors >= MAX_FLOOR)
         return ;
     numberOfFloors++;
     SKSpriteNode *floor = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(FLOOR_WIDTH, FLOOR_HEIGHT)];
@@ -218,10 +216,12 @@
 }
 
 -(int)checkPositionFloorSlot:(NSInteger)floor {
-    for (int mask = 3; mask >= 0; mask--) {
-        if ((self->slotFloor[floor] >> mask & 0x1) == 0) {
-            self->slotFloor[floor] += 1 << mask;
-            return (mask + 1);
+    if (floor < MAX_FLOOR) {
+        for (int rank = 3; rank >= 0; rank--) {
+            if ((self->slotFloor[floor] >> rank & 0x1) == 0) {
+                self->slotFloor[floor] += 1 << rank;
+                return (rank + 1);
+            }
         }
     }
     return (-1);

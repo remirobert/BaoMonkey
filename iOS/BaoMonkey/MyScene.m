@@ -71,13 +71,21 @@
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
     
+    if ([GameData isGameOver] && [node.name isEqualToString:RETRY_NODE_NAME]) {
+        [GameData resetGameData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAUSE_GAME object:nil];
+        [self removeAllChildren];
+        [self removeAllActions];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
+        return ;
+    }
+    
     if ([node.name isEqualToString:PAUSE_BUTTON_NODE_NAME]) {
         if ([GameData isPause]) {
             [self resumeGame];
         } else {
             [self pauseGame];
         }
-        [GameData updatePause];
     } else if (location.y <= [UIScreen mainScreen].bounds.size.height - 30) {
         if (![GameData isPause]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
@@ -131,7 +139,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(pauseGame)
-                                                 name:NOTIFICATION_RESUME_GAME object:nil];
+                                                 name:NOTIFICATION_PAUSE_GAME object:nil];
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -155,6 +163,8 @@
     [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         node.physicsBody = nil;
     }];
+
+    [GameData pauseGame];
 }
 
 - (void) resumeGame {
@@ -170,7 +180,9 @@
     
     [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.frame.size.width / 2];
-    }];    
+    }];
+    
+    [GameData resumeGame];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
@@ -200,7 +212,9 @@
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
-            /* DEAD MONKEY*/
+            GameOver *gameOverView = [[GameOver alloc] init];
+            [self addChild:[gameOverView launchGameOverView]];
+            [GameData gameOver];
         }
     }];
     

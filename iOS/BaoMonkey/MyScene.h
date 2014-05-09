@@ -12,6 +12,7 @@
 #import "ProgressBar.h"
 #import "GameData.h"
 #import "GameController.h"
+#import "GameOver.h"
 #import "Monkey.h"
 #import "Item.h"
 #import "TreeBranch.h"
@@ -24,12 +25,10 @@
 #import "ProgressBar.h"
 #import "Define.h"
 
-
 @interface MyScene : SKScene {
     Monkey *monkey;
     EnemiesController *enemiesController;
     GameController *gc;
-    
     ProgressBar *trunkProgressLife;
     SKLabelNode *score;
 }

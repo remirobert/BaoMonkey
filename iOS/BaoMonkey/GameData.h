@@ -20,6 +20,7 @@
 
 +(id)singleton;
 
++(void)resetGameData;
 +(void)initGameData;
 
 +(NSInteger)getScore;
@@ -37,8 +38,12 @@
 +(void)divideLifeToTrunkLife:(CGFloat)life;
 +(void)regenerateTrunkLife;
 
++(void)pauseGame;
++(void)resumeGame;
 +(void)initPause;
 +(BOOL)isPause;
++(BOOL)isGameOver;
 +(void)updatePause;
++(void)gameOver;
 
 @end
