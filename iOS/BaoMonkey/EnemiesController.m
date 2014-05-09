@@ -112,7 +112,7 @@
 -(void)updateEnemies:(CFTimeInterval)currentTime {
     int maxLamberJack;
     
-    if ([GameData getLevel] >= 2)
+    if ([GameData getLevel] >= 1)
         maxLamberJack = MAX_LUMBERJACK;
     else
         maxLamberJack = MAX_LUMBERJACK / 2;
