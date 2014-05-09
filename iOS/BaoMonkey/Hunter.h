@@ -13,5 +13,6 @@
 @property (nonatomic) NSInteger slot;
 
 -(id)initWithFloor:(NSInteger)floor slot:(NSInteger)slotFloor;
+- (SKSpriteNode *) shootMonkey :(CFTimeInterval)currentTime :(CGPoint)positionMonkey;
 
 @end

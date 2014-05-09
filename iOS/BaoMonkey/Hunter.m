@@ -9,6 +9,10 @@
 #import "Hunter.h"
 #import "Define.h"
 
+@interface Hunter ()
+@property (nonatomic) CGFloat timeAction;
+@end
+
 @implementation Hunter
 
 -(id)initWithFloor:(NSInteger)nbFloor slot:(NSInteger)slotFloor {
@@ -23,6 +27,7 @@
         self.floor = nbFloor;
         
         _slot = slotFloor -1;
+        _timeAction = 0.0;
         
         if (self.direction == LEFT)
         {
@@ -44,6 +49,28 @@
         
     }
     return self;
+}
+
+- (SKSpriteNode *) shootMonkey :(CFTimeInterval)currentTime :(CGPoint)positionMonkey {
+    int positionX;
+    
+    if (currentTime < _timeAction)
+        return (nil);
+    
+    _timeAction = currentTime + 2.0;
+    
+    positionX = (rand() % (int)positionMonkey.x + 50) + positionMonkey.x - 50;
+    SKSpriteNode *shoot = [[SKSpriteNode alloc] initWithColor:[SKColor blackColor] size:CGSizeMake(10, 10)];
+    SKAction *moveShoot = [SKAction moveTo:CGPointMake(positionX,
+                                                       [UIScreen mainScreen].bounds.size.height) duration:1.5];
+
+
+    shoot.name = SHOOT_NODE_NAME;
+    shoot.position = self.node.position;
+    [shoot runAction:moveShoot completion:^{
+        [shoot removeFromParent];
+    }];
+    return (shoot);
 }
 
 @end

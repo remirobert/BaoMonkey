@@ -19,6 +19,7 @@
 #import "Monkey.h"
 #import "Enemy.h"
 #import "LamberJack.h"
+#import "Hunter.h"
 #import "EnemiesController.h"
 #import "ProgressBar.h"
 #import "Define.h"

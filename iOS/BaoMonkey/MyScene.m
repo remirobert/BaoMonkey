@@ -73,11 +73,9 @@
     
     if ([node.name isEqualToString:PAUSE_BUTTON_NODE_NAME]) {
         if ([GameData isPause]) {
-            ((SKLabelNode *)node).text = [NSString stringWithFormat:@"Pause"];
-            [self resumeGravityItem];
+            [self resumeGame];
         } else {
-            ((SKLabelNode *)node).text = [NSString stringWithFormat:@"Play"];
-            [self pauseGravityItem];
+            [self pauseGame];
         }
         [GameData updatePause];
     } else if (location.y <= [UIScreen mainScreen].bounds.size.height - 30) {
@@ -130,6 +128,10 @@
     [self createButtons];
     
     [[GameData singleton] initPause];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(pauseGame)
+                                                 name:NOTIFICATION_RESUME_GAME object:nil];
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -140,8 +142,11 @@
     return self;
 }
 
-- (void) pauseGravityItem {
+- (void) pauseGame {
     self.speed = 0;
+    SKNode *text = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
+    
+    ((SKLabelNode *)text).text = [NSString stringWithFormat:@"Play"];
     for (Item *item in _wave) {
         [item pauseTimer];
         item.node.physicsBody = nil;
@@ -152,8 +157,11 @@
     }];
 }
 
-- (void) resumeGravityItem {
+- (void) resumeGame {
     self.speed = 1.0;
+    SKNode *text = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
+    
+    ((SKLabelNode *)text).text = [NSString stringWithFormat:@"Pause"];
     for (Item *item in _wave) {
         [item resumeTimer];
         if (item.isTaken == NO)
@@ -190,6 +198,12 @@
         }
     }
     
+    [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+        if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
+            NSLog(@"TOUCH MONKY DEAD !!!!!");
+        }
+    }];
+    
     for (Item *item in _wave) {
         if (item.isOver == YES) {
             [_wave removeObject:item];
@@ -222,6 +236,12 @@
                 [[GameData singleton] substractLifeToTrunkLife:0.01f];
             }
         }
+        else {
+            SKSpriteNode *tmp = [((Hunter *)enemy) shootMonkey:currentTime :monkey.sprite.position];
+            if (tmp != nil)
+                [self addChild:tmp];
+        }
+            
     }
     
     [trunkProgressLife updateProgression:[[GameData singleton] getTrunkLife]];
