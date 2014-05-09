@@ -17,10 +17,13 @@
 @interface EnemiesController : NSObject {
     CFTimeInterval timeForAddLamberJack;
     CFTimeInterval timeForAddHunter;
+    CFTimeInterval timeForAddClimber;
     NSMutableArray *enemies;
     SKScene *scene;
     NSMutableArray *choppingSlots;
     int numberOfFloors;
+    int numberHunter;
+    int numberClimber;
     char slotFloor[MAX_FLOOR]; //representation of the floor's slots.
     NSArray *floorsPosition;
 }
