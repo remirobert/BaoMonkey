@@ -25,12 +25,10 @@
 #import "ProgressBar.h"
 #import "Define.h"
 
-
 @interface MyScene : SKScene {
     Monkey *monkey;
     EnemiesController *enemiesController;
     GameController *gc;
-    
     ProgressBar *trunkProgressLife;
     SKLabelNode *score;
 }

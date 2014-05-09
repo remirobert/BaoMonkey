@@ -20,6 +20,12 @@ static GameController *singleton;
     return singleton;
 }
 
+#pragma mark - Reset GameController
+
++(void)resetAccelerometer {
+    [[GameController singleton] initAccelerometer];
+}
+
 #pragma mark - Accelerometer Functions
 
 +(void)initAccelerometer {

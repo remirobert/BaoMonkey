@@ -14,10 +14,14 @@
     NSInteger score;
     CGFloat trunkLife;
     BOOL pause;
+    NSUInteger level;
+    NSArray *levels;
+    BOOL gameOver;
 }
 
 +(id)singleton;
 
++(void)resetGameData;
 +(void)initGameData;
 
 +(NSInteger)getScore;
@@ -26,6 +30,8 @@
 +(void)multiplyPointToScore:(NSInteger)point;
 +(void)dividePointToScore:(NSInteger)point;
 
++(NSUInteger)getLevel;
+
 +(CGFloat)getTrunkLife;
 +(void)addLifeToTrunkLife:(CGFloat)life;
 +(void)substractLifeToTrunkLife:(CGFloat)life;
@@ -33,8 +39,12 @@
 +(void)divideLifeToTrunkLife:(CGFloat)life;
 +(void)regenerateTrunkLife;
 
++(void)pauseGame;
++(void)resumeGame;
 +(void)initPause;
 +(BOOL)isPause;
++(BOOL)isGameOver;
 +(void)updatePause;
++(void)gameOver;
 
 @end

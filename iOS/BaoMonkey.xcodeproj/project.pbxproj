@@ -41,6 +41,7 @@
 		10C59A1F19194C7400907493 /* Prune.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A1E19194C7400907493 /* Prune.m */; };
 		10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */; };
 		10C59A2619194D5D00907493 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2519194D5D00907493 /* Item.m */; };
+		2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */; };
 		296AFB8D191BDFD7009D5B75 /* Hunter.m in Sources */ = {isa = PBXBuildFile; fileRef = 296AFB8C191BDFD7009D5B75 /* Hunter.m */; };
 		296AFB90191BE197009D5B75 /* hunter-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB8E191BE197009D5B75 /* hunter-left@2x.png */; };
 		296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB8F191BE197009D5B75 /* hunter-right@2x.png */; };
@@ -127,6 +128,7 @@
 		10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+GeneratorWave.m"; sourceTree = "<group>"; };
 		10C59A2419194D5D00907493 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		10C59A2519194D5D00907493 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BaoMonkey.mp3; sourceTree = "<group>"; };
 		296AFB8B191BDFD7009D5B75 /* Hunter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hunter.h; sourceTree = "<group>"; };
 		296AFB8C191BDFD7009D5B75 /* Hunter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hunter.m; sourceTree = "<group>"; };
 		296AFB8E191BE197009D5B75 /* hunter-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hunter-left@2x.png"; path = "Enemy/hunter-left@2x.png"; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 		3FB2A499191BB20C0027B2C7 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */,
 				3FB2A49A191BB20C0027B2C7 /* Items */,
 			);
 			path = Sounds;
@@ -655,6 +658,7 @@
 				10C599CF191948A300907493 /* Main_iPad.storyboard in Resources */,
 				29E98BB5191A882B0046F9B2 /* lamberjack-right@2x.png in Resources */,
 				296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */,
+				2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */,
 				3F7D436F191A6FE100DF30D6 /* MonkeyWalking.atlas in Resources */,
 				3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */,
 				3FB2A496191B7C580027B2C7 /* prune@2x.png in Resources */,

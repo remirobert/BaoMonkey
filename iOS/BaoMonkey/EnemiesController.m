@@ -11,11 +11,7 @@
 #import "Hunter.h"
 #import "Climber.h"
 #import "GameData.h"
-
-#define MIN_POSY_FLOOR  90.0
-#define SPACE_BETWEEN   60.0
-#define FLOOR_WIDTH     105.0
-#define FLOOR_HEIGHT    15.0
+#import "Define.h"
 
 @implementation EnemiesController
 
@@ -27,7 +23,11 @@
         enemies = [[NSMutableArray alloc] init];
         scene = _scene;
         timeForAddLamberJack = 0;
+        timeForAddHunter = 0;
+        timeForAddClimber = 0;
         numberOfFloors = 0;
+        numberHunter = 0;
+        numberClimber = 0;
         [self initChoppingSlots];
         [self initFloorsPosition];
     }
@@ -39,9 +39,9 @@
     CGFloat spaceDistance;
     
     SKSpriteNode *Lamber = [SKSpriteNode spriteNodeWithImageNamed:@"lamberjack-left"];
-    spaceDistance = Lamber.size.width / 2 - 2;
+    spaceDistance = Lamber.size.width + 2;
     for (int i = 0; i < 3 ; i++) {
-        NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT", [NSString stringWithFormat:@"%f", (spaceDistance + (spaceDistance * i))], @"posX", nil];
+        NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT", [[NSNumber alloc] initWithFloat:(spaceDistance /2 + (spaceDistance * i))], @"posX", nil];
         [choppingSlots addObject:tmp];
     }
 }
@@ -85,16 +85,18 @@
 
 -(void)addHunter {
     Hunter *newHunter;
+    int hunterFloor = rand() % self->numberOfFloors + 1;
     int positionHunterInSlot = 0;
+
     for (int currentSlot = 0; currentSlot < self->numberOfFloors; currentSlot++) {
-        if (((positionHunterInSlot = [self checkPositionFloorSlot:currentSlot])) != -1)
+        if (((positionHunterInSlot = [self checkPositionFloorSlot:hunterFloor - 1])) != -1)
             break;
     }
     if (positionHunterInSlot == -1)
         return ;
     
-    newHunter = [[Hunter alloc] initWithFloor:numberOfFloors
-                                             slot:positionHunterInSlot];
+    newHunter = [[Hunter alloc] initWithFloor:hunterFloor
+                                         slot:positionHunterInSlot];
     
     [enemies addObject:newHunter];
     [scene addChild:newHunter.node];
@@ -112,29 +114,42 @@
 }
 
 -(void)updateEnemies:(CFTimeInterval)currentTime {
+    int maxLamberJack;
     
-    if ([self countOfEnemyType:EnemyTypeLamberJack] < MAX_LUMBERJACK && ((timeForAddLamberJack <= currentTime) || (timeForAddLamberJack == 0))){
+    if ([GameData getLevel] >= 1)
+        maxLamberJack = MAX_LUMBERJACK;
+    else
+        maxLamberJack = MAX_LUMBERJACK / 2;
+    if ([self countOfEnemyType:EnemyTypeLamberJack] < maxLamberJack && ((timeForAddLamberJack <= currentTime) || (timeForAddLamberJack == 0))) {
         float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
         [self addLamberJack];
         timeForAddLamberJack = currentTime + randomFloat;
     }
     
-    if ([GameData getScore] >= 20)
+    if ([GameData getLevel] >= 1)
     {
-        if ([GameData getScore] % 20 == 0)
-            [self addFloor];
+        if ([GameData getLevel] % 2 == 0) {
+            if ((numberOfFloors == 0 || numberOfFloors * 2 < [GameData getLevel])) {
+                [self addFloor];
+                numberHunter += 1;
+            }
+        }
+        if ([GameData getLevel] % 4 == 0) {
+            numberClimber += 1;
+        }
         
-        if ([self countOfEnemyType:EnemyTypeHunter] < MAX_HUNTER && ((timeForAddHunter <= currentTime) || (timeForAddHunter == 0))){
+        if ([self countOfEnemyType:EnemyTypeClimber] < numberClimber && ((timeForAddClimber <= currentTime) || (timeForAddClimber == 0))){
+            float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY + 2 - MIN_NEXT_ENEMY))));
+            [self addClimber];
+            timeForAddClimber = currentTime + randomFloat;
+        }
+        
+        if (numberOfFloors > 0 &&
+            [self countOfEnemyType:EnemyTypeHunter] < numberHunter && ((timeForAddHunter <= currentTime) || (timeForAddHunter == 0))){
             float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
             [self addHunter];
             timeForAddHunter = currentTime + randomFloat;
         }
-    }
-    
-    static int a = 0;
-    if (a == 0) {
-        [self addClimber];
-        a = 1;
     }
     
     for (Enemy *enemy in enemies) {
@@ -174,7 +189,7 @@
     CGRect screen = [UIScreen mainScreen].bounds;
     SKAction *slide;
     
-    if (numberOfFloors == MAX_FLOOR)
+    if (numberOfFloors >= MAX_FLOOR)
         return ;
     numberOfFloors++;
     SKSpriteNode *floor = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(FLOOR_WIDTH, FLOOR_HEIGHT)];
@@ -212,10 +227,12 @@
 }
 
 -(int)checkPositionFloorSlot:(NSInteger)floor {
-    for (int mask = 3; mask >= 0; mask--) {
-        if ((self->slotFloor[floor] >> mask & 0x1) == 0) {
-            self->slotFloor[floor] += 1 << mask;
-            return (mask + 1);
+    if (floor < MAX_FLOOR) {
+        for (int rank = 3; rank >= 0; rank--) {
+            if ((self->slotFloor[floor] >> rank & 0x1) == 0) {
+                self->slotFloor[floor] += 1 << rank;
+                return (rank + 1);
+            }
         }
     }
     return (-1);

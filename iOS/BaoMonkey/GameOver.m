@@ -7,6 +7,7 @@
 //
 
 #import "GameOver.h"
+#import "GameData.h"
 
 @implementation GameOver
 
@@ -48,6 +49,7 @@
     
     SKLabelNode *retry = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     retry.text = @"Retry";
+    retry.name = RETRY_NODE_NAME;
     retry.fontSize = 20;
     retry.fontColor = [UIColor whiteColor];
     [node addChild:retry];

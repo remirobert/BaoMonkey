@@ -46,7 +46,7 @@
     SKAction *waitClimb = [SKAction waitForDuration:0.5];
     SKAction *climb = [SKAction moveToY:[UIScreen mainScreen].bounds.size.height - 180
                                duration:3.0];
-    SKAction *act = [SKAction sequence:@[moveToTrunk, waitClimb, climb]];
+    SKAction *act = [SKAction sequence:@[waitClimb, moveToTrunk, waitClimb, climb]];
     
     [self.node runAction:act];
 }
