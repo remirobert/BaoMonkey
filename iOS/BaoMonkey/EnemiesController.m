@@ -9,6 +9,7 @@
 #import "EnemiesController.h"
 #import "LamberJack.h"
 #import "Hunter.h"
+#import "Climber.h"
 #import "GameData.h"
 
 @implementation EnemiesController
@@ -67,8 +68,17 @@
     [scene addChild:newLamberJack.node];
 }
 
+-(void)addClimber {
+    Climber *newClimber;
+    
+    newClimber = [[Climber alloc] initWithDirection:LEFT];
+    
+    [enemies addObject:newClimber];
+    [scene addChild:newClimber.node];
+}
+
 -(void)addHunter {
-    Hunter *newLamberJack;
+    Hunter *newHunter;
     int positionHunterInSlot = 0;
     for (int currentSlot = 0; currentSlot < self->numberOfFloors; currentSlot++) {
         if (((positionHunterInSlot = [self checkPositionFloorSlot:currentSlot])) != -1)
@@ -77,11 +87,11 @@
     if (positionHunterInSlot == -1)
         return ;
     
-    newLamberJack = [[Hunter alloc] initWithFloor:numberOfFloors
+    newHunter = [[Hunter alloc] initWithFloor:numberOfFloors
                                              slot:positionHunterInSlot];
     
-    [enemies addObject:newLamberJack];
-    [scene addChild:newLamberJack.node];
+    [enemies addObject:newHunter];
+    [scene addChild:newHunter.node];
 }
 
 -(NSUInteger)countOfEnemyType:(EnemyType)_type
@@ -113,6 +123,12 @@
             [self addHunter];
             timeForAddHunter = currentTime + randomFloat;
         }
+    }
+    
+    static int a = 0;
+    if (a == 0) {
+        [self addClimber];
+        a = 1;
     }
     
     for (Enemy *enemy in enemies) {

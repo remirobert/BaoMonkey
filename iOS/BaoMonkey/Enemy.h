@@ -19,7 +19,8 @@ typedef enum {
 
 typedef enum {
     EnemyTypeLamberJack,
-    EnemyTypeHunter
+    EnemyTypeHunter,
+    EnemyTypeClimber
 } EnemyType;
 
 @interface Enemy : NSObject {
