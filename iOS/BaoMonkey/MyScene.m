@@ -200,7 +200,7 @@
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
-            NSLog(@"TOUCH MONKY DEAD !!!!!");
+            /* DEAD MONKEY*/
         }
     }];
     
