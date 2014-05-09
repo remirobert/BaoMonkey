@@ -23,7 +23,11 @@
         enemies = [[NSMutableArray alloc] init];
         scene = _scene;
         timeForAddLamberJack = 0;
+        timeForAddHunter = 0;
+        timeForAddClimber = 0;
         numberOfFloors = 0;
+        numberHunter = 0;
+        numberClimber = 0;
         [self initChoppingSlots];
         [self initFloorsPosition];
     }
@@ -124,21 +128,26 @@
     
     if ([GameData getLevel] >= 1)
     {
-        if ([GameData getLevel] % 2 == 0 && (numberOfFloors == 0 || numberOfFloors * 2 < [GameData getLevel]))
+        if ([GameData getLevel] % 2 == 0 && (numberOfFloors == 0 || numberOfFloors * 2 < [GameData getLevel])) {
+            numberHunter += 1;
             [self addFloor];
+        }
+        if ([GameData getLevel] % 4 == 0) {
+            numberClimber += 1;
+        }
+        
+        if ([self countOfEnemyType:EnemyTypeClimber] < numberClimber && ((timeForAddClimber <= currentTime) || (timeForAddClimber == 0))){
+            float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY + 2 - MIN_NEXT_ENEMY))));
+            [self addClimber];
+            timeForAddClimber = currentTime + randomFloat;
+        }
         
         if (numberOfFloors > 0 &&
-            [self countOfEnemyType:EnemyTypeHunter] < MAX_HUNTER && ((timeForAddHunter <= currentTime) || (timeForAddHunter == 0))){
+            [self countOfEnemyType:EnemyTypeHunter] < numberHunter && ((timeForAddHunter <= currentTime) || (timeForAddHunter == 0))){
             float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
             [self addHunter];
             timeForAddHunter = currentTime + randomFloat;
         }
-    }
-    
-    static int a = 0;
-    if (a == 0) {
-        [self addClimber];
-        a = 1;
     }
     
     for (Enemy *enemy in enemies) {
