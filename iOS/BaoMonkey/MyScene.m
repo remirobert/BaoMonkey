@@ -240,7 +240,7 @@
                 [[GameData singleton] substractLifeToTrunkLife:0.01f];
             }
         }
-        else {
+        else if (enemy.type == EnemyTypeHunter){
             SKSpriteNode *tmp = [((Hunter *)enemy) shootMonkey:currentTime :monkey.sprite.position];
             if (tmp != nil)
                 [self addChild:tmp];

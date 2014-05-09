@@ -9,7 +9,13 @@
 #import "EnemiesController.h"
 #import "LamberJack.h"
 #import "Hunter.h"
+#import "Climber.h"
 #import "GameData.h"
+
+#define MIN_POSY_FLOOR  90.0
+#define SPACE_BETWEEN   60.0
+#define FLOOR_WIDTH     105.0
+#define FLOOR_HEIGHT    15.0
 
 @implementation EnemiesController
 
@@ -23,6 +29,7 @@
         timeForAddLamberJack = 0;
         numberOfFloors = 0;
         [self initChoppingSlots];
+        [self initFloorsPosition];
     }
     return self;
 }
@@ -67,8 +74,17 @@
     [scene addChild:newLamberJack.node];
 }
 
+-(void)addClimber {
+    Climber *newClimber;
+    
+    newClimber = [[Climber alloc] initWithDirection:LEFT];
+    
+    [enemies addObject:newClimber];
+    [scene addChild:newClimber.node];
+}
+
 -(void)addHunter {
-    Hunter *newLamberJack;
+    Hunter *newHunter;
     int positionHunterInSlot = 0;
     for (int currentSlot = 0; currentSlot < self->numberOfFloors; currentSlot++) {
         if (((positionHunterInSlot = [self checkPositionFloorSlot:currentSlot])) != -1)
@@ -77,11 +93,11 @@
     if (positionHunterInSlot == -1)
         return ;
     
-    newLamberJack = [[Hunter alloc] initWithFloor:numberOfFloors
+    newHunter = [[Hunter alloc] initWithFloor:numberOfFloors
                                              slot:positionHunterInSlot];
     
-    [enemies addObject:newLamberJack];
-    [scene addChild:newLamberJack.node];
+    [enemies addObject:newHunter];
+    [scene addChild:newHunter.node];
 }
 
 -(NSUInteger)countOfEnemyType:(EnemyType)_type
@@ -103,9 +119,9 @@
         timeForAddLamberJack = currentTime + randomFloat;
     }
     
-    if ([GameData getScore] >= 0)
+    if ([GameData getScore] >= 20)
     {
-        if (numberOfFloors == 0)
+        if ([GameData getScore] % 20 == 0)
             [self addFloor];
         
         if ([self countOfEnemyType:EnemyTypeHunter] < MAX_HUNTER && ((timeForAddHunter <= currentTime) || (timeForAddHunter == 0))){
@@ -113,6 +129,12 @@
             [self addHunter];
             timeForAddHunter = currentTime + randomFloat;
         }
+    }
+    
+    static int a = 0;
+    if (a == 0) {
+        [self addClimber];
+        a = 1;
     }
     
     for (Enemy *enemy in enemies) {
@@ -150,15 +172,38 @@
 
 -(void)addFloor {
     CGRect screen = [UIScreen mainScreen].bounds;
+    SKAction *slide;
+    
+    if (numberOfFloors == MAX_FLOOR)
+        return ;
     numberOfFloors++;
-    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(screen.size.width / 2 - 20, 10)];
-    floor.position = CGPointMake(-screen.size.width / 2, screen.size.height / MAX_FLOOR);
+    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(FLOOR_WIDTH, FLOOR_HEIGHT)];
+    if (numberOfFloors % 2 != 0)
+    {
+        floor.position = CGPointMake(-(FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
+        slide = [SKAction moveToX:(floor.size.width / 2) duration:0.5];
+    }
+    else
+    {
+        floor.position = CGPointMake(screen.size.width + (FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
+        slide = [SKAction moveToX:(screen.size.width - (floor.size.width / 2)) duration:0.5];
+    }
     [scene addChild:floor];
-    SKAction *slide = [SKAction moveToX:(floor.size.width / 2) duration:0.5];
     [floor runAction:slide];
 }
 
 #pragma mark - Floor Slot management
+
+-(void)initFloorsPosition {
+    NSMutableArray *positions;
+    
+    positions = [[NSMutableArray alloc] init];
+    for (int i = 0 ; i < MAX_FLOOR ; i++) {
+        CGFloat posY = MIN_POSY_FLOOR + (SPACE_BETWEEN * i);
+        [positions addObject:[NSNumber numberWithDouble:posY]];
+    }
+    floorsPosition = [[NSArray alloc] initWithArray:positions];
+}
 
 -(void)initFloorSlot {
     for (int index = 0; index < MAX_FLOOR; index++) {
