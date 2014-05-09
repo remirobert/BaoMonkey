@@ -14,6 +14,8 @@
     NSInteger score;
     CGFloat trunkLife;
     BOOL pause;
+    NSUInteger level;
+    NSArray *levels;
 }
 
 +(id)singleton;
@@ -25,6 +27,8 @@
 +(void)substractPointToScore:(NSInteger)point;
 +(void)multiplyPointToScore:(NSInteger)point;
 +(void)dividePointToScore:(NSInteger)point;
+
++(NSUInteger)getLevel;
 
 +(CGFloat)getTrunkLife;
 +(void)addLifeToTrunkLife:(CGFloat)life;

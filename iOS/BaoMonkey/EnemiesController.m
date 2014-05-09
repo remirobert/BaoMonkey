@@ -39,9 +39,9 @@
     CGFloat spaceDistance;
     
     SKSpriteNode *Lamber = [SKSpriteNode spriteNodeWithImageNamed:@"lamberjack-left"];
-    spaceDistance = Lamber.size.width / 2 - 2;
+    spaceDistance = Lamber.size.width + 2;
     for (int i = 0; i < 3 ; i++) {
-        NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT", [[NSNumber alloc] initWithFloat:(spaceDistance + (spaceDistance * i))], @"posX", nil];
+        NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT", [[NSNumber alloc] initWithFloat:(spaceDistance /2 + (spaceDistance * i))], @"posX", nil];
         [choppingSlots addObject:tmp];
     }
 }
@@ -112,16 +112,22 @@
 }
 
 -(void)updateEnemies:(CFTimeInterval)currentTime {
+    int maxLamberJack;
     
-    if ([self countOfEnemyType:EnemyTypeLamberJack] < MAX_LUMBERJACK && ((timeForAddLamberJack <= currentTime) || (timeForAddLamberJack == 0))){
+    NSLog(@"SCORE : %d LEVEL : %d", (int)[GameData getScore], (int)[GameData getLevel]);
+    if ([GameData getLevel] >= 2)
+        maxLamberJack = MAX_LUMBERJACK;
+    else
+        maxLamberJack = MAX_LUMBERJACK / 2;
+    if ([self countOfEnemyType:EnemyTypeLamberJack] < maxLamberJack && ((timeForAddLamberJack <= currentTime) || (timeForAddLamberJack == 0))){
         float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
         [self addLamberJack];
         timeForAddLamberJack = currentTime + randomFloat;
     }
     
-    if ([GameData getScore] >= 20)
+    if ([GameData getLevel] >= 1)
     {
-        if ([GameData getScore] % 20 == 0)
+        if ([GameData getLevel] > numberOfFloors)
             [self addFloor];
         
         if ([self countOfEnemyType:EnemyTypeHunter] < MAX_HUNTER && ((timeForAddHunter <= currentTime) || (timeForAddHunter == 0))){
