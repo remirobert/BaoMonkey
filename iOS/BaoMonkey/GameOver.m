@@ -13,15 +13,31 @@
 -(id)init {
     self = [super init];
     if (self) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAUSE_GAME object:nil];
+
     }
     return self;
 }
 
+-(void)createCloud {
+    cloud = [[SKSpriteNode alloc] initWithImageNamed:@"cloud"];
+    cloud.position = CGPointMake(-(SCREEN_WIDTH * 2), -(SCREEN_HEIGHT * 2));
+    cloud.name = CLOUD_NODE_NAME;
+}
+
+-(void)runActionCloud {
+    [cloud runAction:[SKAction moveTo:CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2)) duration:0.3] completion:^(void){
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAUSE_GAME object:nil];
+    }];
+}
+
 -(SKSpriteNode *)launchGameOverView {
-    SKSpriteNode *node = [[SKSpriteNode alloc] initWithColor:[UIColor colorWithRed:0/255 green:0/255 blue:0/255 alpha:0.5]
-                                                        size:CGSizeMake((SCREEN_WIDTH - 30), (SCREEN_HEIGHT - 30))];
-    node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
+    SKSpriteNode *node = [[SKSpriteNode alloc] init];
+    node.size = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);
+    node.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+
+    [self createCloud];
+    [node addChild:cloud];
+    [self runActionCloud];
     
     SKLabelNode *gameOver = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     gameOver.text = @"Game Over";

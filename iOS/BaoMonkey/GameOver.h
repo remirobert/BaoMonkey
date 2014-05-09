@@ -10,7 +10,9 @@
 #import <SpriteKit/SpriteKit.h>
 #import "Define.h"
 
-@interface GameOver : NSObject
+@interface GameOver : NSObject {
+    SKSpriteNode *cloud;
+}
 
 -(SKSpriteNode *)launchGameOverView;
 
