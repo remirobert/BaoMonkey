@@ -559,6 +559,9 @@
 					10C599B2191948A300907493 = {
 						DevelopmentTeam = RFKH8ZM9YU;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.GameCenter = {
 								enabled = 0;
 							};
