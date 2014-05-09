@@ -41,7 +41,7 @@
     SKSpriteNode *Lamber = [SKSpriteNode spriteNodeWithImageNamed:@"lamberjack-left"];
     spaceDistance = Lamber.size.width / 2 - 2;
     for (int i = 0; i < 3 ; i++) {
-        NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT", [NSString stringWithFormat:@"%f", (spaceDistance + (spaceDistance * i))], @"posX", nil];
+        NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT", [[NSNumber alloc] initWithFloat:(spaceDistance + (spaceDistance * i))], @"posX", nil];
         [choppingSlots addObject:tmp];
     }
 }
