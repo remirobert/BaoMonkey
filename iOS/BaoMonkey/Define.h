@@ -53,4 +53,13 @@
 # define SCORE_NODE_NAME                    @"SCORE"
 # define SHOOT_NODE_NAME                    @"Shoot"
 
+/*
+** POS FLOOR
+*/
+
+#define MIN_POSY_FLOOR  90.0
+#define SPACE_BETWEEN   60.0
+#define FLOOR_WIDTH     105.0
+#define FLOOR_HEIGHT    15.0
+
 #endif
