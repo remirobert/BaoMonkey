@@ -13,7 +13,9 @@
 #import "GameData.h"
 
 #define MIN_POSY_FLOOR  90.0
-#define SPACE_BETWEEN   45.0
+#define SPACE_BETWEEN   60.0
+#define FLOOR_WIDTH     105.0
+#define FLOOR_HEIGHT    15.0
 
 @implementation EnemiesController
 
@@ -117,9 +119,9 @@
         timeForAddLamberJack = currentTime + randomFloat;
     }
     
-    if ([GameData getScore] >= 0)
+    if ([GameData getScore] >= 20)
     {
-        if (numberOfFloors == 0)
+        if ([GameData getScore] % 20 == 0)
             [self addFloor];
         
         if ([self countOfEnemyType:EnemyTypeHunter] < MAX_HUNTER && ((timeForAddHunter <= currentTime) || (timeForAddHunter == 0))){
@@ -170,11 +172,23 @@
 
 -(void)addFloor {
     CGRect screen = [UIScreen mainScreen].bounds;
+    SKAction *slide;
+    
+    if (numberOfFloors == MAX_FLOOR)
+        return ;
     numberOfFloors++;
-    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(screen.size.width / 2 - 20, 10)];
-    floor.position = CGPointMake(-screen.size.width / 2, screen.size.height / MAX_FLOOR);
+    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(FLOOR_WIDTH, FLOOR_HEIGHT)];
+    if (numberOfFloors % 2 != 0)
+    {
+        floor.position = CGPointMake(-(FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
+        slide = [SKAction moveToX:(floor.size.width / 2) duration:0.5];
+    }
+    else
+    {
+        floor.position = CGPointMake(screen.size.width + (FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
+        slide = [SKAction moveToX:(screen.size.width - (floor.size.width / 2)) duration:0.5];
+    }
     [scene addChild:floor];
-    SKAction *slide = [SKAction moveToX:(floor.size.width / 2) duration:0.5];
     [floor runAction:slide];
 }
 
