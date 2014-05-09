@@ -124,10 +124,11 @@
     
     if ([GameData getLevel] >= 1)
     {
-        if ([GameData getLevel] > numberOfFloors)
+        if ([GameData getLevel] % 2 == 0 && (numberOfFloors == 0 || numberOfFloors * 2 < [GameData getLevel]))
             [self addFloor];
         
-        if ([self countOfEnemyType:EnemyTypeHunter] < MAX_HUNTER && ((timeForAddHunter <= currentTime) || (timeForAddHunter == 0))){
+        if (numberOfFloors > 0 &&
+            [self countOfEnemyType:EnemyTypeHunter] < MAX_HUNTER && ((timeForAddHunter <= currentTime) || (timeForAddHunter == 0))){
             float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
             [self addHunter];
             timeForAddHunter = currentTime + randomFloat;
