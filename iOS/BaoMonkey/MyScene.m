@@ -190,6 +190,12 @@
         }
     }
     
+    [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+        if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
+            NSLog(@"TOUCH MONKY DEAD !!!!!");
+        }
+    }];
+    
     for (Item *item in _wave) {
         if (item.isOver == YES) {
             [_wave removeObject:item];
@@ -222,6 +228,12 @@
                 [[GameData singleton] substractLifeToTrunkLife:0.01f];
             }
         }
+        else {
+            SKSpriteNode *tmp = [((Hunter *)enemy) shootMonkey:currentTime :monkey.sprite.position];
+            if (tmp != nil)
+                [self addChild:tmp];
+        }
+            
     }
     
     [trunkProgressLife updateProgression:[[GameData singleton] getTrunkLife]];

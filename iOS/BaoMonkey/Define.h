@@ -40,15 +40,16 @@
 ** NODE NAME
 */
 
-# define ENEMY_NODE_NAME @"EnemyNode"
-# define WEAPON_NODE_NAME @"Weapon"
-# define ITEM_NODE_NAME @"Item"
-# define PAUSE_BUTTON_NODE_NAME @"PAUSE"
-# define TRUNK_NODE_NAME @"TRUNK"
-# define BACK_LEAF_NODE_NAME @"BACK_LEAF"
-# define FRONT_LEAF_NODE_NAME @"FRONT_LEAF"
-# define BACKGROUND_PROGRESS_BAR_NODE_NAME @"trunkProgressLife background"
-# define FRONT_PROGRESS_BAR_NODE_NAME @"trunkProgressLife front"
-# define SCORE_NODE_NAME @"SCORE"
+# define ENEMY_NODE_NAME                    @"EnemyNode"
+# define WEAPON_NODE_NAME                   @"Weapon"
+# define ITEM_NODE_NAME                     @"Item"
+# define PAUSE_BUTTON_NODE_NAME             @"PAUSE"
+# define TRUNK_NODE_NAME                    @"TRUNK"
+# define BACK_LEAF_NODE_NAME                @"BACK_LEAF"
+# define FRONT_LEAF_NODE_NAME               @"FRONT_LEAF"
+# define BACKGROUND_PROGRESS_BAR_NODE_NAME  @"trunkProgressLife background"
+# define FRONT_PROGRESS_BAR_NODE_NAME       @"trunkProgressLife front"
+# define SCORE_NODE_NAME                    @"SCORE"
+# define SHOOT_NODE_NAME                    @"Shoot"
 
 #endif
