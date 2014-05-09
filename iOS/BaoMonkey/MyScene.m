@@ -77,7 +77,6 @@
         } else {
             [self pauseGame];
         }
-        [GameData updatePause];
     } else if (location.y <= [UIScreen mainScreen].bounds.size.height - 30) {
         if (![GameData isPause]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
@@ -131,7 +130,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(pauseGame)
-                                                 name:NOTIFICATION_RESUME_GAME object:nil];
+                                                 name:NOTIFICATION_PAUSE_GAME object:nil];
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -155,6 +154,8 @@
     [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         node.physicsBody = nil;
     }];
+
+    [GameData updatePause];
 }
 
 - (void) resumeGame {
@@ -170,7 +171,9 @@
     
     [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.frame.size.width / 2];
-    }];    
+    }];
+    
+    [GameData updatePause];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
@@ -200,7 +203,8 @@
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
-            NSLog(@"TOUCH MONKY DEAD !!!!!");
+            GameOver *gameOverView = [[GameOver alloc] init];
+            [self addChild:[gameOverView launchGameOverView]];
         }
     }];
     
