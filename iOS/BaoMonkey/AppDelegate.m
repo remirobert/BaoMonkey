@@ -51,7 +51,7 @@
 -(void)loadMusicPlayer
 {
     NSError *error;
-    NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"BaoMonkey" withExtension:@"mp3"];
+    NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"baomonkey" withExtension:@"m4a"];
     self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
     self.backgroundMusicPlayer.numberOfLoops = -1;
     self.backgroundMusicPlayer.volume = 0.5;

@@ -20,7 +20,7 @@
 ** ACCELEROMETER
 */
 
-# define kAccelerometerSpeed 15
+# define kAccelerometerSpeed 25
 
 /*
 ** NOTIFICATIONS
@@ -54,6 +54,7 @@
 # define SCORE_NODE_NAME                    @"SCORE_NODE_NAME"
 # define SHOOT_NODE_NAME                    @"SHOOT_NODE_NAME"
 # define CLOUD_NODE_NAME                    @"CLOUD_NODE_NAME"
+# define RETRY_NODE_NAME                    @"RETRY_NODE_NAME"
 
 /*
 ** POS FLOOR
