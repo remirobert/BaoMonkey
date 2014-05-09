@@ -9,6 +9,7 @@
 #import "EnemiesController.h"
 #import "LamberJack.h"
 #import "Hunter.h"
+#import "Climber.h"
 #import "GameData.h"
 
 #define MIN_POSY_FLOOR  90.0
@@ -71,8 +72,17 @@
     [scene addChild:newLamberJack.node];
 }
 
+-(void)addClimber {
+    Climber *newClimber;
+    
+    newClimber = [[Climber alloc] initWithDirection:LEFT];
+    
+    [enemies addObject:newClimber];
+    [scene addChild:newClimber.node];
+}
+
 -(void)addHunter {
-    Hunter *newLamberJack;
+    Hunter *newHunter;
     int positionHunterInSlot = 0;
     for (int currentSlot = 0; currentSlot < self->numberOfFloors; currentSlot++) {
         if (((positionHunterInSlot = [self checkPositionFloorSlot:currentSlot])) != -1)
@@ -81,11 +91,11 @@
     if (positionHunterInSlot == -1)
         return ;
     
-    newLamberJack = [[Hunter alloc] initWithFloor:numberOfFloors
+    newHunter = [[Hunter alloc] initWithFloor:numberOfFloors
                                              slot:positionHunterInSlot];
     
-    [enemies addObject:newLamberJack];
-    [scene addChild:newLamberJack.node];
+    [enemies addObject:newHunter];
+    [scene addChild:newHunter.node];
 }
 
 -(NSUInteger)countOfEnemyType:(EnemyType)_type
@@ -119,6 +129,12 @@
         }
     }
     
+    static int a = 0;
+    if (a == 0) {
+        [self addClimber];
+        a = 1;
+    }
+    
     for (Enemy *enemy in enemies) {
         if (enemy.type == EnemyTypeLamberJack)
             [(LamberJack*)enemy updatePosition:choppingSlots];
@@ -128,11 +144,13 @@
 -(void)deleteEnemy:(Enemy*)enemy {
     SKAction *fadeIn = [SKAction fadeAlphaTo:0.0 duration:0.25];
     SKAction *sound = [SKAction playSoundFileNamed:@"coconut.mp3" waitForCompletion:NO];
-    [enemy.node runAction:sound completion:^(void){
-        [enemy.node runAction:fadeIn completion:^{
-            [enemy.node removeFromParent];
+    if (sound != nil) {
+        [enemy.node runAction:sound completion:^(void){
+            [enemy.node runAction:fadeIn completion:^{
+                [enemy.node removeFromParent];
+            }];
         }];
-    }];
+    }
     
     if (enemy.type == EnemyTypeLamberJack) {
         LamberJack *lamber;

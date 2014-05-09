@@ -25,7 +25,7 @@
 
 + (void) increaseMove {
     [GameController updateAcceleration:25.0];
-    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self
+    [NSTimer scheduledTimerWithTimeInterval:0.75 target:self
                                             selector:@selector(decreaseMove)
                                             userInfo:nil repeats:NO];
 }
