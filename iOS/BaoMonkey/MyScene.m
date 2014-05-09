@@ -71,6 +71,15 @@
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
     
+    if ([GameData isGameOver] && [node.name isEqualToString:RETRY_NODE_NAME]) {
+        [GameData resetGameData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAUSE_GAME object:nil];
+        [self removeAllChildren];
+        [self removeAllActions];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
+        return ;
+    }
+    
     if ([node.name isEqualToString:PAUSE_BUTTON_NODE_NAME]) {
         if ([GameData isPause]) {
             [self resumeGame];
@@ -128,12 +137,14 @@
     
     [[GameData singleton] initPause];
     
+    NSLog(@"INIT NOTIFICATION");
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(pauseGame)
                                                  name:NOTIFICATION_PAUSE_GAME object:nil];
 }
 
 -(id)initWithSize:(CGSize)size {
+    NSLog(@"init VIEW");
     if (self = [super initWithSize:size]) {
         [[GameData singleton] initGameData];
         [self initScene];
@@ -155,7 +166,7 @@
         node.physicsBody = nil;
     }];
 
-    [GameData updatePause];
+    [GameData pauseGame];
 }
 
 - (void) resumeGame {
@@ -173,7 +184,7 @@
         node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.frame.size.width / 2];
     }];
     
-    [GameData updatePause];
+    [GameData resumeGame];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
@@ -205,6 +216,7 @@
         if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
             GameOver *gameOverView = [[GameOver alloc] init];
             [self addChild:[gameOverView launchGameOverView]];
+            [GameData gameOver];
         }
     }];
     

@@ -14,10 +14,12 @@
     NSInteger score;
     CGFloat trunkLife;
     BOOL pause;
+    BOOL gameOver;
 }
 
 +(id)singleton;
 
++(void)resetGameData;
 +(void)initGameData;
 
 +(NSInteger)getScore;
@@ -33,8 +35,12 @@
 +(void)divideLifeToTrunkLife:(CGFloat)life;
 +(void)regenerateTrunkLife;
 
++(void)pauseGame;
++(void)resumeGame;
 +(void)initPause;
 +(BOOL)isPause;
++(BOOL)isGameOver;
 +(void)updatePause;
++(void)gameOver;
 
 @end

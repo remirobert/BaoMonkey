@@ -21,6 +21,12 @@ static GameData *singleton;
 
 #pragma mark - Init
 
++(void)resetGameData {
+    [[GameData singleton] initGameData];
+}
+
+#pragma mark - Init
+
 +(void)initGameData {
     [[GameData singleton] initGameData];
 }
@@ -28,6 +34,7 @@ static GameData *singleton;
 -(void)initGameData {
     score = 0;
     trunkLife = 100;
+    gameOver = NO;
 }
 
 #pragma mark - Score Functions
@@ -126,12 +133,36 @@ static GameData *singleton;
 
 #pragma mark - Pause Functions
 
++(BOOL)isGameOver {
+    return ([[GameData singleton] isGameOver]);
+}
+
+-(BOOL)isGameOver {
+    return (gameOver);
+}
+
 +(BOOL)isPause {
     return [[GameData singleton] isPause];
 }
 
 -(BOOL)isPause {
     return pause;
+}
+
++(void)pauseGame {
+    [[GameData singleton] pauseGame];
+}
+
+-(void)pauseGame {
+    pause = YES;
+}
+
++(void)resumeGame {
+    [[GameData singleton] resumeGame];
+}
+
+-(void)resumeGame {
+    pause = NO;
 }
 
 +(void)updatePause {
@@ -151,6 +182,14 @@ static GameData *singleton;
 
 -(void)initPause {
     pause = FALSE;
+}
+
++(void)gameOver {
+    [[GameData singleton] gameOver];
+}
+
+-(void)gameOver {
+    gameOver = YES;
 }
 
 @end

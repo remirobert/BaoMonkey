@@ -7,6 +7,7 @@
 //
 
 #import "GameOver.h"
+#import "GameData.h"
 
 @implementation GameOver
 
@@ -19,6 +20,7 @@
 }
 
 -(SKSpriteNode *)launchGameOverView {
+    NSLog(@"CALL - GAME OVER");
     SKSpriteNode *node = [[SKSpriteNode alloc] initWithColor:[UIColor colorWithRed:0/255 green:0/255 blue:0/255 alpha:0.5]
                                                         size:CGSizeMake((SCREEN_WIDTH - 30), (SCREEN_HEIGHT - 30))];
     node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
@@ -32,6 +34,7 @@
     
     SKLabelNode *retry = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     retry.text = @"Retry";
+    retry.name = RETRY_NODE_NAME;
     retry.fontSize = 20;
     retry.fontColor = [UIColor whiteColor];
     [node addChild:retry];
