@@ -16,6 +16,7 @@
     BOOL pause;
     NSUInteger level;
     NSArray *levels;
+    BOOL gameOver;
 }
 
 +(id)singleton;

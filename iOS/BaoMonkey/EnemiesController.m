@@ -112,7 +112,6 @@
 -(void)updateEnemies:(CFTimeInterval)currentTime {
     int maxLamberJack;
     
-    NSLog(@"SCORE : %d LEVEL : %d", (int)[GameData getScore], (int)[GameData getLevel]);
     if ([GameData getLevel] >= 2)
         maxLamberJack = MAX_LUMBERJACK;
     else

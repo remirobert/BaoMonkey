@@ -34,6 +34,7 @@ static GameData *singleton;
 -(void)initGameData {
     score = 0;
     trunkLife = 100;
+    gameOver = NO;
     level = 0;
     levels = [[NSArray alloc] initWithObjects:  [NSNumber numberWithInt:100],
                                                 [NSNumber numberWithInt:200],
