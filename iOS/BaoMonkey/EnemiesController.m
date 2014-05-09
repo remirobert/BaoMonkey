@@ -11,6 +11,9 @@
 #import "Hunter.h"
 #import "GameData.h"
 
+#define MIN_POSY_FLOOR  90.0
+#define SPACE_BETWEEN   45.0
+
 @implementation EnemiesController
 
 @synthesize enemies;
@@ -23,6 +26,7 @@
         timeForAddLamberJack = 0;
         numberOfFloors = 0;
         [self initChoppingSlots];
+        [self initFloorsPosition];
     }
     return self;
 }
@@ -157,6 +161,17 @@
 }
 
 #pragma mark - Floor Slot management
+
+-(void)initFloorsPosition {
+    NSMutableArray *positions;
+    
+    positions = [[NSMutableArray alloc] init];
+    for (int i = 0 ; i < MAX_FLOOR ; i++) {
+        CGFloat posY = MIN_POSY_FLOOR + (SPACE_BETWEEN * i);
+        [positions addObject:[NSNumber numberWithDouble:posY]];
+    }
+    floorsPosition = [[NSArray alloc] initWithArray:positions];
+}
 
 -(void)initFloorSlot {
     for (int index = 0; index < MAX_FLOOR; index++) {

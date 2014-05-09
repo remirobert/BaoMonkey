@@ -166,6 +166,7 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
+    NSLog(@"currentTime : %f", currentTime);
     if ([[GameData singleton] isPause]) {
         [monkey stopAnimation];
         return;

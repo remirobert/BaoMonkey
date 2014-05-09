@@ -22,6 +22,7 @@
     NSMutableArray *choppingSlots;
     int numberOfFloors;
     char slotFloor[MAX_FLOOR]; //representation of the floor's slots.
+    NSArray *floorsPosition;
 }
 
 @property (nonatomic, strong) NSMutableArray *enemies;
