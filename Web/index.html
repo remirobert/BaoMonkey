@@ -1,95 +1,101 @@
-<!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
-	<meta name="title" content="Baomonkey application website !" />
-	<meta name="description" content="Baomonkey application website for Iphone and Ipad !" />
-  <meta name="author" content="Baomonkey Team">
-  <title>Baomonkey application website !</title>
+	<script type="text/javascript" src="js/jq.js"></script>
+	<link rel="Stylesheet" type="text/css" href="css/xo.css" />
 
-	<link rel="shortcut icon" id="favicon" href="favicon.png"> 
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Pacifico:400' rel='stylesheet' type='text/css'>
-  <link href='css/main.css' rel='stylesheet' type='text/css'>
-  <link href='css/onepage-scroll.css' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<script type="text/javascript" src="js/parallax.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/examples.js"></script>
+	<link rel="Stylesheet" type="text/css" href="css/index.css" />
 </head>
 
-<body>
-  <div class="wrapper">
-    <div class="main">
-
-      <!-- Première section -->
-      <section id="clouds" class="page1">
-        <div class="page_container">
-            <div class="cloud x1"></div>
-            <div class="cloud x2"></div>
-            <div class="cloud x3"></div>
-            <div class="cloud x4"></div>
-            <div class="cloud x5"></div>
-            <div class="cloud x6"></div>
-            <div class="cloud x7"></div>
-            <div class="cloud x8"></div>
-            <div class="cloud x9"></div>
-            <div class="cloud x10"></div>
-            <div class="cloud x11"></div>
-            <div class="cloud x12"></div>
+<body class="background">
+		
+	<div class="navbar navbar-default navbar-static-top nav" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img class="logo" src="assets/logo-bao.png"></a>
         </div>
-  	    <img src="img/tree1.png" alt="phones">
-      </section>
-      <!-- /première section -->
-
-      <!-- Seconde section -->
-	    <section id="clouds2" class="page2">
-	      <div class="page_container">
-           <div class="cloud x1"></div>
-            <div class="cloud x2"></div>
-            <div class="cloud x3"></div>
-            <div class="cloud x4"></div>
-            <div class="cloud x5"></div>
-            <div class="cloud x6"></div>
-            <div class="cloud x7"></div>
-            <div class="cloud x8"></div>
-            <div class="cloud x9"></div>
-            <div class="cloud x10"></div>
-            <div class="cloud x11"></div>
-            <div class="cloud x12"></div>
-	      </div>
-        <img src="img/tree2.png" alt="phones">
-      </section>
-      <!-- /Seconde section -->
-	    
-      <!-- Troisième section -->
-	    <section class="page3">
-	      <div class="page_container">
-  	    </div>
-        <img src="img/tree3.png" alt"Team">
-      </section>
-      <!-- /Troisième section -->
-
-      <!-- Quatrième section -->
-      <section class="page4">
-        <div class="page_container">
-        </div>
-        <img src="img/tree4.png" alt="contact">
-      </section>
-      <!-- /Quatrième section -->
-
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#info">Info</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
-  </div>
-  
-  <!-- Javascript -->
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-  <script type="text/javascript" src="js/jquery.onepage-scroll.js"></script>
-  <script>
-    $(document).ready(function(){
-      $(".main").onepage_scroll({
-        sectionContainer: "section",
-        responsiveFallback: 600,
-        loop: true
-      });
-    });    
-  </script>
+	
+	<div class="row">
+
+		<!-- Home page -->
+		<div id="home" class="leaguegothic white col-md-8">
+			<div id="titlebox" class="f2 lghtgrey">
+				<div class="f5 white">Home</div>
+				ey coucou
+			</div>
+		</div>
+		<!-- End home page -->
+
+		<!-- info page -->
+		<div id="info" class="leaguegothic white col-md-8">
+			<div id="titlebox" class="f2 lghtgrey">
+				<div class="f5 white">Info</div>
+				ey coucou
+			</div>
+		</div>
+		<!-- End info page -->
+
+		<!-- gallery page -->
+		<div id="gallery" class="leaguegothic white col-md-8">
+			<div id="titlebox" class="f2 lghtgrey">
+				<div class="f5 white">gallery</div>
+				ey coucou
+			</div>
+		</div>
+		<!-- End gallery page -->
+
+		<!-- team page -->
+		<div id="team" class="leaguegothic white col-md-8">
+			<div id="titlebox" class="f2 lghtgrey">
+				<div class="f5 white">Team</div>
+				ey coucou
+			</div>
+		</div>
+		<!-- End team page -->
+
+		<!-- contact page -->
+		<div id="contact" class="leaguegothic white col-md-8">
+			<div id="titlebox" class="f2 lghtgrey">
+				<div class="f5 white">Contact</div>
+				ey coucou
+			</div>
+		</div>
+		<!-- End contact page -->
+
+		<!-- Footer -->
+		<!-- End footer -->
+
+		<div id="leftControl" class="control">
+			<img id="leftArrow" class="arrow left" style="width:20px;" src="assets/arrow.png"></img>
+			<div id="leftText" class="dirText" style="float:right"> Test</div>
+		</div>
+
+		<div id="rightControl" class="control">
+			<img id="rightArrow" class="arrow right" style="width:20px;" src="assets/arrow-right.png"></img>
+			<div id="rightText" class="dirText" style="float:left"> Test</div>
+	    </div>
+
+	</div>
 
 </body>
 </html>
