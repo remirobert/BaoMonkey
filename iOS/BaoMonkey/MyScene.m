@@ -8,6 +8,7 @@
 
 #import "MyScene.h"
 #import "MyScene+GeneratorWave.h"
+#import "UserData.h"
 
 # define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
@@ -229,6 +230,7 @@
         for (Enemy *enemy in self->enemiesController.enemies) {
             
             if ([weaponNode intersectsNode:enemy.node]) {
+                [UserData addEnemy];
                 [self->enemiesController deleteEnemy:enemy];
                 [weaponNode removeFromParent];
                 for (Item *item in _wave) {

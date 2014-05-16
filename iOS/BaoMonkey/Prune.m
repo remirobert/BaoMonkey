@@ -7,6 +7,7 @@
 //
 
 #import "Prune.h"
+#import "UserData.h"
 
 @implementation Prune
 
@@ -25,6 +26,8 @@
     SKAction *sound = [SKAction playSoundFileNamed:@"splash.mp3" waitForCompletion:NO];
     SKAction *action = [SKAction resizeToWidth:640 height:512 duration:0.2];
     SKAction *wait = [SKAction waitForDuration:1.0];
+    
+    [UserData addPrune];
     
     [self.timerHide invalidate];
     self.timerHide = nil;
