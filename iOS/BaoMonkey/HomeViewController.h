@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameData.h"
 
 @interface HomeViewController : UIViewController
+
+-(IBAction)gameCenter:(id)sender;
 
 @end

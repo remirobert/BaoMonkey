@@ -8,15 +8,18 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import <Foundation/Foundation.h>
+#import <GameKit/GameKit.h>
 #import "Define.h"
 
-@interface GameData : NSObject {
+@interface GameData : NSObject <GKGameCenterControllerDelegate> {
     NSInteger score;
     CGFloat trunkLife;
     BOOL pause;
     NSUInteger level;
     NSArray *levels;
     BOOL gameOver;
+    BOOL gameCenterEnabled;
+    NSString *leaderboardIdentifier;
 }
 
 +(id)singleton;
@@ -46,5 +49,8 @@
 +(BOOL)isGameOver;
 +(void)updatePause;
 +(void)gameOver;
+
++(void)authenticateLocalPlayer;
++(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard withViewController:(UIViewController*)viewController;
 
 @end
