@@ -12,6 +12,7 @@
 #import "Climber.h"
 #import "GameData.h"
 #import "Define.h"
+#import "PreloadData.h"
 
 @implementation EnemiesController
 
@@ -160,7 +161,7 @@
 
 -(void)deleteEnemy:(Enemy*)enemy {
     SKAction *fadeIn = [SKAction fadeAlphaTo:0.0 duration:0.25];
-    SKAction *sound = [SKAction playSoundFileNamed:@"coconut.mp3" waitForCompletion:NO];
+    SKAction *sound = [PreloadData getDataWithKey:DATA_COCONUT_SOUND];
     if (sound != nil) {
         [enemy.node runAction:sound completion:^(void){
             [enemy.node runAction:fadeIn completion:^{

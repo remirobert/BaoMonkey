@@ -7,12 +7,13 @@
 //
 
 #import "CocoNuts.h"
+#import "PreloadData.h"
 
 @implementation CocoNuts
 
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super initWithPosition:position]) != nil) {
-        [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"coconut"]]];
+        [self.node setTexture:[PreloadData getDataWithKey:DATA_COCONUT_TEXTURE]];
         self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 3];
         self.node.physicsBody.mass = 100;
     }

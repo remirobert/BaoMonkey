@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "UserData.h"
+#import "PreloadData.h"
 
 @interface HomeViewController ()
 
@@ -28,9 +29,9 @@
 {
     [super viewDidLoad];
     
-    _enemy.text = [NSString stringWithFormat:@"enemy = %d", [UserData defaultUser].enemy_score];
-    _prune.text = [NSString stringWithFormat:@"prune = %d", [UserData defaultUser].prune_score];
-    _score.text = [NSString stringWithFormat:@"best score = %d", [UserData defaultUser].score];
+    _enemy.text = [NSString stringWithFormat:@"enemy = %ld", (long)[UserData defaultUser].enemy_score];
+    _prune.text = [NSString stringWithFormat:@"prune = %ld", (long)[UserData defaultUser].prune_score];
+    _score.text = [NSString stringWithFormat:@"best score = %ld", (long)[UserData defaultUser].score];
     
     // Do any additional setup after loading the view.
 }

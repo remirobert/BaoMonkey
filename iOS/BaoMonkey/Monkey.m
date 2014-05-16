@@ -7,6 +7,7 @@
 //
 
 #import "Monkey.h"
+#import "PreloadData.h"
 
 @implementation Monkey
 
@@ -66,7 +67,7 @@
 
 -(void)loadWalkingSprites {
     NSMutableArray *walkFrames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *monkeyWalkingAtlas = [SKTextureAtlas atlasNamed:@"MonkeyWalking"];
+    SKTextureAtlas *monkeyWalkingAtlas = [PreloadData getDataWithKey:DATA_MONKEY_WALK_ATLAS];
     int numberOfFrames = monkeyWalkingAtlas.textureNames.count;
     
     for (int i = 1; i <= numberOfFrames; i++) {
@@ -98,7 +99,7 @@
 }
 
 -(void)wait {
-    SKTexture *texture = [SKTexture textureWithImage:[UIImage imageNamed:@"monkey"]];
+    SKTexture *texture = [PreloadData getDataWithKey:DATA_MONKEY_TEXTURE];
     [sprite setTexture:texture];
 }
 
