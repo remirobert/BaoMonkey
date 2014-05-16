@@ -7,12 +7,15 @@
 //
 
 #import "AppDelegate.h"
+#import "UserData.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    [UserData initUserData];
     [self loadMusicPlayer];
     return YES;
 }
@@ -23,6 +26,7 @@
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     [self.backgroundMusicPlayer pause];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAUSE_GAME object:nil];
+    [UserData saveUserData];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -46,9 +50,10 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [UserData saveUserData];
 }
 
--(void)loadMusicPlayer
+- (void)loadMusicPlayer
 {
     NSError *error;
     NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"baomonkey" withExtension:@"m4a"];

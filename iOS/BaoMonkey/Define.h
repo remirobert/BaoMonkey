@@ -17,6 +17,14 @@
 # define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 /*
+** USER INFORMATIONS
+*/
+
+# define ENEMY_KEY                          @"enemy_key"
+# define PRUNE_KEY                          @"prune_key"
+# define SCORE_KEY                          @"score_key"
+
+/*
 ** ACCELEROMETER
 */
 
