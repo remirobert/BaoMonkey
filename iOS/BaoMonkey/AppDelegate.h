@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Define.h"
+#import "GameData.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

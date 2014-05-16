@@ -63,6 +63,7 @@
 		3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A497191B7DA80027B2C7 /* splash-prune@2x.png */; };
 		3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49B191BB20C0027B2C7 /* splash.mp3 */; };
 		3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */; };
+		3FF111231926078C005C9DD1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF111221926078C005C9DD1 /* SettingsViewController.m */; };
 		3FF63771191CD532000721A2 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF63770191CD532000721A2 /* GameOver.m */; };
 /* End PBXBuildFile section */
 
@@ -160,6 +161,8 @@
 		3FB2A497191B7DA80027B2C7 /* splash-prune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-prune@2x.png"; sourceTree = "<group>"; };
 		3FB2A49B191BB20C0027B2C7 /* splash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = splash.mp3; sourceTree = "<group>"; };
 		3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coconut.mp3; sourceTree = "<group>"; };
+		3FF111211926078C005C9DD1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		3FF111221926078C005C9DD1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		3FF6376F191CD532000721A2 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
 		3FF63770191CD532000721A2 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -393,6 +396,8 @@
 				10C59A081919492200907493 /* ViewController.m */,
 				3F5959DA191C1D5B006EE846 /* HomeViewController.h */,
 				3F5959DB191C1D5B006EE846 /* HomeViewController.m */,
+				3FF111211926078C005C9DD1 /* SettingsViewController.h */,
+				3FF111221926078C005C9DD1 /* SettingsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -713,6 +718,7 @@
 				1012340D1919519600B035D9 /* Bonus.m in Sources */,
 				10C59A021919490900907493 /* MyScene.m in Sources */,
 				10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */,
+				3FF111231926078C005C9DD1 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
