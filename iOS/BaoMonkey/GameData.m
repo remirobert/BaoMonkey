@@ -46,6 +46,11 @@ static GameData *singleton;
                                                 [NSNumber numberWithInt:800],
                                                 [NSNumber numberWithInt:900],
                                                 [NSNumber numberWithInt:1000], nil];
+    
+    settings = [NSUserDefaults standardUserDefaults];
+    accelerometerUserSpeed = [settings floatForKey:NSUSERDEFAULT_ACCELEROMETER_SPEED];
+    musicUserVolume = [settings floatForKey:NSUSERDEFAULT_MUSIC_VOLUME];
+    soundEffectsUserVolume = [settings floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME];
 }
 
 #pragma mark - Score Functions

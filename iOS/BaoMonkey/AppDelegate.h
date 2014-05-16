@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "GameData.h"
 #import "Define.h"
+#import "GameData.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

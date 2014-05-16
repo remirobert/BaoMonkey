@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "UserData.h"
 
 @implementation AppDelegate
 
@@ -24,6 +25,7 @@
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
     [self.backgroundMusicPlayer pause];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAUSE_GAME object:nil];
+    [UserData saveUserData];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -47,15 +49,20 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [UserData saveUserData];
 }
-
+
 -(void)loadMusicPlayer
 {
     NSError *error;
     NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"baomonkey" withExtension:@"m4a"];
     self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
     self.backgroundMusicPlayer.numberOfLoops = -1;
-    self.backgroundMusicPlayer.volume = 0.5;
+    if ([GameData getMusicUserVolume]) {
+        self.backgroundMusicPlayer.volume = [GameData getMusicUserVolume];
+    } else {
+        self.backgroundMusicPlayer.volume = 0.5;
+    }
     [self.backgroundMusicPlayer prepareToPlay];
     [self.backgroundMusicPlayer play];
 }

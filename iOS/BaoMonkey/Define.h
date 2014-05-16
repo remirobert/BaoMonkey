@@ -17,9 +17,18 @@
 # define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 /*
+** USER INFORMATIONS
+*/
+
+# define ENEMY_KEY                          @"enemy_key"
+# define PRUNE_KEY                          @"prune_key"
+# define SCORE_KEY                          @"score_key"
+
+/*
 ** ACCELEROMETER
 */
 
+# define kAccelerometerTilt 0.1
 # define kAccelerometerSpeed 25
 
 /*
@@ -64,5 +73,21 @@
 #define SPACE_BETWEEN   60.0
 #define FLOOR_WIDTH     105.0
 #define FLOOR_HEIGHT    15.0
+
+/*
+** NSUSERDEFAULT
+*/
+
+# define NSUSERDEFAULT_ACCELEROMETER_SPEED @"NSUSERDEFAULT_ACCELEROMETER_SPEED"
+# define NSUSERDEFAULT_MUSIC_VOLUME @"NSUSERDEFAULT_MUSIC_VOLUME"
+# define NSUSERDEFAULT_EFFECTS_VOLUME @"NSUSERDEFAULT_EFFECTS_VOLUME"
+
+/*
+** Stroryboard tag
+*/
+
+# define TAG_SLIDER_MUSIC_VOLUME 1
+# define TAG_SLIDER_SOUND_EFFECTS_VOLUME 2
+# define TAG_SLIDER_ACCELEROMETER_SPEED 3
 
 #endif
