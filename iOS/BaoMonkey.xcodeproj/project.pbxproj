@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1010BD5519261655003F8436 /* PreloadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1010BD5419261655003F8436 /* PreloadData.m */; };
+		1010BD5819266447003F8436 /* Achievement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1010BD5719266447003F8436 /* Achievement.m */; };
 		1012340A1919512500B035D9 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 101234091919512500B035D9 /* Weapon.m */; };
 		1012340D1919519600B035D9 /* Bonus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1012340C1919519600B035D9 /* Bonus.m */; };
 		10123410191951CF00B035D9 /* Malus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1012340F191951CF00B035D9 /* Malus.m */; };
@@ -83,6 +84,8 @@
 /* Begin PBXFileReference section */
 		1010BD5319261655003F8436 /* PreloadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreloadData.h; sourceTree = "<group>"; };
 		1010BD5419261655003F8436 /* PreloadData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreloadData.m; sourceTree = "<group>"; };
+		1010BD5619266447003F8436 /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achievement.h; sourceTree = "<group>"; };
+		1010BD5719266447003F8436 /* Achievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Achievement.m; sourceTree = "<group>"; };
 		101234081919512500B035D9 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weapon.h; sourceTree = "<group>"; };
 		101234091919512500B035D9 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon.m; sourceTree = "<group>"; };
 		1012340B1919519600B035D9 /* Bonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bonus.h; sourceTree = "<group>"; };
@@ -517,6 +520,8 @@
 			children = (
 				3F64F759191A8EB400102094 /* GameData.h */,
 				3F64F75A191A8EB400102094 /* GameData.m */,
+				1010BD5619266447003F8436 /* Achievement.h */,
+				1010BD5719266447003F8436 /* Achievement.m */,
 				1010BD5319261655003F8436 /* PreloadData.h */,
 				1010BD5419261655003F8436 /* PreloadData.m */,
 			);
@@ -726,6 +731,7 @@
 				10C59A1F19194C7400907493 /* Prune.m in Sources */,
 				10B4196419260681005D4EDC /* UserData.m in Sources */,
 				109E9307191A60EF00DD5623 /* Action.m in Sources */,
+				1010BD5819266447003F8436 /* Achievement.m in Sources */,
 				10C59A1C19194BF000907493 /* Banana.m in Sources */,
 				3F5959DC191C1D5B006EE846 /* HomeViewController.m in Sources */,
 				10A12F0D191CD02700AA86BE /* Climber.m in Sources */,
