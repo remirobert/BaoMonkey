@@ -17,6 +17,20 @@
 # define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 /*
+** LOAD DATA
+*/
+
+# define DATA_SPLASH_SOUND                  @"splash_prune"
+# define DATA_SPLASH_TEXTURE                @"splash_texture"
+# define DATA_COCONUT_TEXTURE               @"coconut_texture"
+# define DATA_BANANA_TEXTURE                @"banana_texture"
+# define DATA_PRUNE_TEXTURE                 @"prune_texture"
+# define DATA_COCONUT_SOUND                 @"coconut_sound"
+
+# define DATA_MONKEY_TEXTURE                @"monkey_texture"
+# define DATA_MONKEY_WALK_ATLAS             @"monkey_walk_atlas_texture"
+
+/*
 ** USER INFORMATIONS
 */
 

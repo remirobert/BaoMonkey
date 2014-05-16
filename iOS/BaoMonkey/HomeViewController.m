@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "UserData.h"
+#import "PreloadData.h"
 
 @interface HomeViewController ()
 
@@ -28,17 +29,21 @@
 {
     [super viewDidLoad];
     
-    _enemy.text = [NSString stringWithFormat:@"enemy = %d", [UserData defaultUser].enemy_score];
-    _prune.text = [NSString stringWithFormat:@"prune = %d", [UserData defaultUser].prune_score];
-    _score.text = [NSString stringWithFormat:@"best score = %d", [UserData defaultUser].score];
-    
     // Do any additional setup after loading the view.
+}
+
+-(IBAction)gameCenter:(id)sender {
+    [GameData showLeaderboardAndAchievements:YES withViewController:self];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 /*

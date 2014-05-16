@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1010BD5519261655003F8436 /* PreloadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1010BD5419261655003F8436 /* PreloadData.m */; };
 		1012340A1919512500B035D9 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 101234091919512500B035D9 /* Weapon.m */; };
 		1012340D1919519600B035D9 /* Bonus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1012340C1919519600B035D9 /* Bonus.m */; };
 		10123410191951CF00B035D9 /* Malus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1012340F191951CF00B035D9 /* Malus.m */; };
@@ -47,6 +48,7 @@
 		296AFB90191BE197009D5B75 /* hunter-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB8E191BE197009D5B75 /* hunter-left@2x.png */; };
 		296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB8F191BE197009D5B75 /* hunter-right@2x.png */; };
 		296AFB94191CE06B009D5B75 /* cloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB93191CE06B009D5B75 /* cloud@2x.png */; };
+		29CE19001926008600513925 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CE18FF1926008600513925 /* GameKit.framework */; };
 		29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BA9191A87440046F9B2 /* EnemiesController.m */; };
 		29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BAC191A874A0046F9B2 /* Enemy.m */; };
 		29E98BB0191A875D0046F9B2 /* LamberJack.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BAF191A875D0046F9B2 /* LamberJack.m */; };
@@ -79,6 +81,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1010BD5319261655003F8436 /* PreloadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreloadData.h; sourceTree = "<group>"; };
+		1010BD5419261655003F8436 /* PreloadData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreloadData.m; sourceTree = "<group>"; };
 		101234081919512500B035D9 /* Weapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weapon.h; sourceTree = "<group>"; };
 		101234091919512500B035D9 /* Weapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon.m; sourceTree = "<group>"; };
 		1012340B1919519600B035D9 /* Bonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bonus.h; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 		296AFB8E191BE197009D5B75 /* hunter-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hunter-left@2x.png"; path = "Enemy/hunter-left@2x.png"; sourceTree = "<group>"; };
 		296AFB8F191BE197009D5B75 /* hunter-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hunter-right@2x.png"; path = "Enemy/hunter-right@2x.png"; sourceTree = "<group>"; };
 		296AFB93191CE06B009D5B75 /* cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloud@2x.png"; path = "Cloud/cloud@2x.png"; sourceTree = "<group>"; };
+		29CE18FF1926008600513925 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		29E98BA8191A87440046F9B2 /* EnemiesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemiesController.h; sourceTree = "<group>"; };
 		29E98BA9191A87440046F9B2 /* EnemiesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemiesController.m; sourceTree = "<group>"; };
 		29E98BAB191A874A0046F9B2 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
@@ -179,6 +184,7 @@
 				10C599BB191948A300907493 /* UIKit.framework in Frameworks */,
 				10C599BD191948A300907493 /* SpriteKit.framework in Frameworks */,
 				10C599B7191948A300907493 /* Foundation.framework in Frameworks */,
+				29CE19001926008600513925 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +241,7 @@
 		10C599B5191948A300907493 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29CE18FF1926008600513925 /* GameKit.framework */,
 				10C599B6191948A300907493 /* Foundation.framework */,
 				10C599B8191948A300907493 /* CoreGraphics.framework */,
 				10C599BA191948A300907493 /* UIKit.framework */,
@@ -510,6 +517,8 @@
 			children = (
 				3F64F759191A8EB400102094 /* GameData.h */,
 				3F64F75A191A8EB400102094 /* GameData.m */,
+				1010BD5319261655003F8436 /* PreloadData.h */,
+				1010BD5419261655003F8436 /* PreloadData.m */,
 			);
 			name = GameData;
 			sourceTree = "<group>";
@@ -632,7 +641,7 @@
 								enabled = 0;
 							};
 							com.apple.GameCenter = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -710,6 +719,7 @@
 				29E98BB0191A875D0046F9B2 /* LamberJack.m in Sources */,
 				3F64F75B191A8EB400102094 /* GameData.m in Sources */,
 				3FF63771191CD532000721A2 /* GameOver.m in Sources */,
+				1010BD5519261655003F8436 /* PreloadData.m in Sources */,
 				296AFB8D191BDFD7009D5B75 /* Hunter.m in Sources */,
 				29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */,
 				29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */,

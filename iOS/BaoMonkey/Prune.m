@@ -8,12 +8,14 @@
 
 #import "Prune.h"
 #import "UserData.h"
+#import "PreloadData.h"
+#import "Define.h"
 
 @implementation Prune
 
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super initWithPosition:position]) != nil) {
-        [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"prune"]]];
+        [self.node setTexture:[PreloadData getDataWithKey:DATA_PRUNE_TEXTURE]];
         self.action = @selector(actionPrune);
         self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 3];
         self.node.physicsBody.mass = 10.0;
@@ -23,12 +25,13 @@
 
 - (void) actionPrune {
     SKAction *move = [SKAction moveTo:CGPointMake(self.node.position.x, 200) duration:0];
-    SKAction *sound = [SKAction playSoundFileNamed:@"splash.mp3" waitForCompletion:NO];
+    SKAction *sound = (SKAction *)[PreloadData getDataWithKey:DATA_SPLASH_SOUND];
+    
     SKAction *action = [SKAction resizeToWidth:640 height:512 duration:0.2];
     SKAction *wait = [SKAction waitForDuration:1.0];
     
     [UserData addPrune];
-    
+
     [self.timerHide invalidate];
     self.timerHide = nil;
     self.isTaken = YES;
@@ -36,7 +39,7 @@
     
     SKAction *actionPrune = [SKAction group:@[move, sound, action, wait]];
     
-    [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"splash-prune"]]];
+    [self.node setTexture:(SKTexture *)[PreloadData getDataWithKey:DATA_SPLASH_TEXTURE]];
     
     self.node.zPosition = 10000;
     

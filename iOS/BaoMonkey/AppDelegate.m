@@ -14,6 +14,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [GameData authenticateLocalPlayer];
     [GameData initGameData];
     
     [UserData initUserData];
