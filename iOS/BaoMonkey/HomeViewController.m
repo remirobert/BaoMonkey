@@ -28,9 +28,6 @@
 {
     [super viewDidLoad];
     
-    _enemy.text = [NSString stringWithFormat:@"enemy = %d", [UserData defaultUser].enemy_score];
-    _prune.text = [NSString stringWithFormat:@"prune = %d", [UserData defaultUser].prune_score];
-    _score.text = [NSString stringWithFormat:@"best score = %d", [UserData defaultUser].score];
     
     // Do any additional setup after loading the view.
 }
