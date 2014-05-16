@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameData.h"
 
 @interface HomeViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *enemy;
-@property (weak, nonatomic) IBOutlet UILabel *prune;
-@property (weak, nonatomic) IBOutlet UILabel *score;
+-(IBAction)gameCenter:(id)sender;
 
 @end

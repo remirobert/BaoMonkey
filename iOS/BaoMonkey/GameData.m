@@ -46,6 +46,11 @@ static GameData *singleton;
                                                 [NSNumber numberWithInt:800],
                                                 [NSNumber numberWithInt:900],
                                                 [NSNumber numberWithInt:1000], nil];
+    
+    settings = [NSUserDefaults standardUserDefaults];
+    accelerometerUserSpeed = [settings floatForKey:NSUSERDEFAULT_ACCELEROMETER_SPEED];
+    musicUserVolume = [settings floatForKey:NSUSERDEFAULT_MUSIC_VOLUME];
+    soundEffectsUserVolume = [settings floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME];
 }
 
 #pragma mark - Score Functions
@@ -227,6 +232,120 @@ static GameData *singleton;
 
 -(void)gameOver {
     gameOver = YES;
+}
+
+#pragma mark - User Settings values
+
++(CGFloat)getAccelerometerUserSpeed{
+    return [[GameData singleton] getAccelerometerUserSpeed];
+}
+
+-(CGFloat)getAccelerometerUserSpeed{
+    return accelerometerUserSpeed;
+}
+
++(CGFloat)getMusicUserVolume{
+    return [[GameData singleton] getMusicUserVolume];
+}
+
+-(CGFloat)getMusicUserVolume{
+    return musicUserVolume;
+}
+
++(CGFloat)getSoundEffectsUserVolume{
+    return [[GameData singleton] getSoundEffectsUserVolume];
+}
+
+-(CGFloat)getSoundEffectsUserVolume{
+    return soundEffectsUserVolume;
+}
+
++(void)setAccelerometerUserSpeed:(CGFloat)speed{
+    [[GameData singleton] setAccelerometerUserSpeed:speed];
+}
+
+-(void)setAccelerometerUserSpeed:(CGFloat)speed{
+    if (accelerometerUserSpeed != speed) {
+        accelerometerUserSpeed = speed;
+        [settings setFloat:speed forKey:NSUSERDEFAULT_ACCELEROMETER_SPEED];
+    }
+}
+
++(void)setMusicUserVolume:(CGFloat)volume{
+    [[GameData singleton] setMusicUserVolume:volume];
+}
+
+-(void)setMusicUserVolume:(CGFloat)volume{
+    if (musicUserVolume != volume) {
+        musicUserVolume = volume;
+        [settings setFloat:volume forKey:NSUSERDEFAULT_MUSIC_VOLUME];
+    }
+}
+
++(void)setSoundEffectsUserVolume:(CGFloat)volume{
+    [[GameData singleton] setSoundEffectsUserVolume:volume];
+}
+
+-(void)setSoundEffectsUserVolume:(CGFloat)volume{
+    if (soundEffectsUserVolume != volume) {
+        soundEffectsUserVolume = volume;
+        [settings setFloat:volume forKey:NSUSERDEFAULT_EFFECTS_VOLUME];
+    }
+}
+
+#pragma mark - Game Center
+
++(void)authenticateLocalPlayer {
+    [[GameData singleton] authenticateLocalPlayer];
+}
+
+-(void)authenticateLocalPlayer{
+    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    
+    localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
+            if ([GKLocalPlayer localPlayer].authenticated) {
+                gameCenterEnabled = YES;
+                
+                // Get the default leaderboard identifier.
+                [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *_leaderboardIdentifier, NSError *error) {
+                    
+                    if (error != nil) {
+                        NSLog(@"%@", [error localizedDescription]);
+                    }
+                    else{
+                        leaderboardIdentifier = _leaderboardIdentifier;
+                    }
+                }];
+            }
+            
+            else{
+                gameCenterEnabled = NO;
+            }
+    };
+}
+
++(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard withViewController:(UIViewController*)viewController{
+    [[GameData singleton] showLeaderboardAndAchievements:shouldShowLeaderboard withViewController:viewController];
+}
+
+-(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard withViewController:(UIViewController*)viewController {
+    GKGameCenterViewController *gcViewController = [[GKGameCenterViewController alloc] init];
+    
+    gcViewController.gameCenterDelegate = self;
+    
+    if (shouldShowLeaderboard) {
+        gcViewController.viewState = GKGameCenterViewControllerStateLeaderboards;
+        gcViewController.leaderboardIdentifier = leaderboardIdentifier;
+    }
+    else {
+        gcViewController.viewState = GKGameCenterViewControllerStateAchievements;
+    }
+    [viewController presentViewController:gcViewController animated:YES completion:nil];
+}
+
+-(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
+{
+    [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

@@ -36,10 +36,18 @@
     // Do any additional setup after loading the view.
 }
 
+-(IBAction)gameCenter:(id)sender {
+    [GameData showLeaderboardAndAchievements:YES withViewController:self];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 /*

@@ -48,6 +48,7 @@
 		296AFB90191BE197009D5B75 /* hunter-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB8E191BE197009D5B75 /* hunter-left@2x.png */; };
 		296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB8F191BE197009D5B75 /* hunter-right@2x.png */; };
 		296AFB94191CE06B009D5B75 /* cloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB93191CE06B009D5B75 /* cloud@2x.png */; };
+		29CE19001926008600513925 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CE18FF1926008600513925 /* GameKit.framework */; };
 		29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BA9191A87440046F9B2 /* EnemiesController.m */; };
 		29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BAC191A874A0046F9B2 /* Enemy.m */; };
 		29E98BB0191A875D0046F9B2 /* LamberJack.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BAF191A875D0046F9B2 /* LamberJack.m */; };
@@ -65,6 +66,7 @@
 		3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A497191B7DA80027B2C7 /* splash-prune@2x.png */; };
 		3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49B191BB20C0027B2C7 /* splash.mp3 */; };
 		3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */; };
+		3FF111231926078C005C9DD1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF111221926078C005C9DD1 /* SettingsViewController.m */; };
 		3FF63771191CD532000721A2 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF63770191CD532000721A2 /* GameOver.m */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +143,7 @@
 		296AFB8E191BE197009D5B75 /* hunter-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hunter-left@2x.png"; path = "Enemy/hunter-left@2x.png"; sourceTree = "<group>"; };
 		296AFB8F191BE197009D5B75 /* hunter-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hunter-right@2x.png"; path = "Enemy/hunter-right@2x.png"; sourceTree = "<group>"; };
 		296AFB93191CE06B009D5B75 /* cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloud@2x.png"; path = "Cloud/cloud@2x.png"; sourceTree = "<group>"; };
+		29CE18FF1926008600513925 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		29E98BA8191A87440046F9B2 /* EnemiesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemiesController.h; sourceTree = "<group>"; };
 		29E98BA9191A87440046F9B2 /* EnemiesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemiesController.m; sourceTree = "<group>"; };
 		29E98BAB191A874A0046F9B2 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 		3FB2A497191B7DA80027B2C7 /* splash-prune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-prune@2x.png"; sourceTree = "<group>"; };
 		3FB2A49B191BB20C0027B2C7 /* splash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = splash.mp3; sourceTree = "<group>"; };
 		3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coconut.mp3; sourceTree = "<group>"; };
+		3FF111211926078C005C9DD1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		3FF111221926078C005C9DD1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		3FF6376F191CD532000721A2 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
 		3FF63770191CD532000721A2 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +184,7 @@
 				10C599BB191948A300907493 /* UIKit.framework in Frameworks */,
 				10C599BD191948A300907493 /* SpriteKit.framework in Frameworks */,
 				10C599B7191948A300907493 /* Foundation.framework in Frameworks */,
+				29CE19001926008600513925 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +241,7 @@
 		10C599B5191948A300907493 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29CE18FF1926008600513925 /* GameKit.framework */,
 				10C599B6191948A300907493 /* Foundation.framework */,
 				10C599B8191948A300907493 /* CoreGraphics.framework */,
 				10C599BA191948A300907493 /* UIKit.framework */,
@@ -409,6 +416,8 @@
 				10C59A081919492200907493 /* ViewController.m */,
 				3F5959DA191C1D5B006EE846 /* HomeViewController.h */,
 				3F5959DB191C1D5B006EE846 /* HomeViewController.m */,
+				3FF111211926078C005C9DD1 /* SettingsViewController.h */,
+				3FF111221926078C005C9DD1 /* SettingsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -632,7 +641,7 @@
 								enabled = 0;
 							};
 							com.apple.GameCenter = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -733,6 +742,7 @@
 				1012340D1919519600B035D9 /* Bonus.m in Sources */,
 				10C59A021919490900907493 /* MyScene.m in Sources */,
 				10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */,
+				3FF111231926078C005C9DD1 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
