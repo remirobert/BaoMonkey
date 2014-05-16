@@ -8,6 +8,7 @@
 
 #import "GameOver.h"
 #import "GameData.h"
+#import "UserData.h"
 
 @implementation GameOver
 
@@ -36,6 +37,8 @@
     node.size = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);
     node.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 
+    [UserData updateScore:[GameData getScore]];
+    
     [self createCloud];
     [node addChild:cloud];
     [self runActionCloud];

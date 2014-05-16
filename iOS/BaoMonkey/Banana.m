@@ -7,12 +7,13 @@
 //
 
 #import "Banana.h"
+#import "PreloadData.h"
 
 @implementation Banana
 
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super initWithPosition:position]) != nil) {
-        [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"banana"]]];
+        [self.node setTexture:[PreloadData getDataWithKey:DATA_BANANA_TEXTURE]];
         self.action = @selector(actionBanana);
         self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 3];
         self.node.physicsBody.mass = 10;
