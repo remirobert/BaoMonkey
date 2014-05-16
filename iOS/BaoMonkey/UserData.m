@@ -108,29 +108,32 @@
 -(void)setAccelerometerUserSpeed:(CGFloat)speed{
     if (accelerometerSpeed != speed) {
         accelerometerSpeed = speed;
-        [UserData.user setFloat:speed forKey:NSUSERDEFAULT_ACCELEROMETER_SPEED];
+        UserData *userData = [UserData defaultUser];
+        [userData.user setFloat:speed forKey:NSUSERDEFAULT_ACCELEROMETER_SPEED];
     }
 }
 
 +(void)setMusicUserVolume:(CGFloat)volume{
-    [[GameData singleton] setMusicUserVolume:volume];
+    [[UserData defaultUser] setMusicUserVolume:volume];
 }
 
 -(void)setMusicUserVolume:(CGFloat)volume{
-    if (musicUserVolume != volume) {
-        musicUserVolume = volume;
-        [settings setFloat:volume forKey:NSUSERDEFAULT_MUSIC_VOLUME];
+    if (musicVolume != volume) {
+        musicVolume = volume;
+        UserData *userData = [UserData defaultUser];
+        [userData.user setFloat:volume forKey:NSUSERDEFAULT_MUSIC_VOLUME];
     }
 }
 
 +(void)setSoundEffectsUserVolume:(CGFloat)volume{
-    [[GameData singleton] setSoundEffectsUserVolume:volume];
+    [[UserData defaultUser] setSoundEffectsUserVolume:volume];
 }
 
 -(void)setSoundEffectsUserVolume:(CGFloat)volume{
-    if (soundEffectsUserVolume != volume) {
-        soundEffectsUserVolume = volume;
-        [settings setFloat:volume forKey:NSUSERDEFAULT_EFFECTS_VOLUME];
+    if (soundEffectsVolume != volume) {
+        soundEffectsVolume = volume;
+        UserData *userData = [UserData defaultUser];
+        [userData.user setFloat:volume forKey:NSUSERDEFAULT_EFFECTS_VOLUME];
     }
 }
 

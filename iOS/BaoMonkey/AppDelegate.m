@@ -55,14 +55,14 @@
     [UserData saveUserData];
 }
 
-- (void)loadMusicPlayer
+-(void)loadMusicPlayer
 {
     NSError *error;
     NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"baomonkey" withExtension:@"m4a"];
     self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
     self.backgroundMusicPlayer.numberOfLoops = -1;
-    if ([GameData getMusicUserVolume]) {
-        self.backgroundMusicPlayer.volume = [GameData getMusicUserVolume];
+    if ([UserData getMusicUserVolume]) {
+        self.backgroundMusicPlayer.volume = [UserData getMusicUserVolume];
     } else {
         self.backgroundMusicPlayer.volume = 0.5;
     }

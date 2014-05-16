@@ -42,20 +42,20 @@
     accelerometerSpeed.maximumValue = 100.0f;
     accelerometerSpeed.continuous = YES;
     
-    if ([GameData getMusicUserVolume]) {
-        musicVolume.value = [GameData getMusicUserVolume];
+    if ([UserData getMusicUserVolume]) {
+        musicVolume.value = [UserData getMusicUserVolume];
     } else {
         musicVolume.value = 0.5f;
     }
     
-    if ([GameData getSoundEffectsUserVolume]) {
-        effectsVolume.value = [GameData getSoundEffectsUserVolume];
+    if ([UserData getSoundEffectsUserVolume]) {
+        effectsVolume.value = [UserData getSoundEffectsUserVolume];
     } else {
         effectsVolume.value = 0.5f;
     }
     
-    if ([GameData getAccelerometerUserSpeed]) {
-        accelerometerSpeed.value = [GameData getAccelerometerUserSpeed];
+    if ([UserData getAccelerometerUserSpeed]) {
+        accelerometerSpeed.value = [UserData getAccelerometerUserSpeed];
     } else {
         accelerometerSpeed.value = kAccelerometerSpeed;
     }
@@ -71,21 +71,21 @@
 -(IBAction)updateMusicUserVolume:(id)sender{
     UISlider *slider = (UISlider *)sender;
     if (slider.tag == TAG_SLIDER_MUSIC_VOLUME) {
-        [GameData setMusicUserVolume:slider.value];
+        [UserData setMusicUserVolume:slider.value];
     }
 }
 
 -(IBAction)updateSoundEffectsUserVolume:(id)sender{
     UISlider *slider = (UISlider *)sender;
     if (slider.tag == TAG_SLIDER_SOUND_EFFECTS_VOLUME) {
-        [GameData setSoundEffectsUserVolume:slider.value];
+        [UserData setSoundEffectsUserVolume:slider.value];
     }
 }
 
 -(IBAction)updateAccelerometerUserSpeed:(id)sender{
     UISlider *slider = (UISlider *)sender;
     if (slider.tag == TAG_SLIDER_ACCELEROMETER_SPEED) {
-        [GameData setAccelerometerUserSpeed:slider.value];
+        [UserData setAccelerometerUserSpeed:slider.value];
     }
 }
 

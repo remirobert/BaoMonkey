@@ -54,13 +54,6 @@
 +(void)updatePause;
 +(void)gameOver;
 
-+(CGFloat)getAccelerometerUserSpeed;
-+(CGFloat)getMusicUserVolume;
-+(CGFloat)getSoundEffectsUserVolume;
-+(void)setAccelerometerUserSpeed:(CGFloat)speed;
-+(void)setMusicUserVolume:(CGFloat)volume;
-+(void)setSoundEffectsUserVolume:(CGFloat)volume;
-
 +(void)authenticateLocalPlayer;
 +(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard withViewController:(UIViewController*)viewController;
 
