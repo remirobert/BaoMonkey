@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Define.h"
-#import "GameData.h"
+#import "UserData.h"
 
 @interface SettingsViewController : UIViewController
 

@@ -16,6 +16,8 @@
     // Override point for customization after application launch.
     [GameData authenticateLocalPlayer];
     [GameData initGameData];
+    
+    [UserData initUserData];
     [self loadMusicPlayer];
     return YES;
 }
@@ -59,8 +61,8 @@
     NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"baomonkey" withExtension:@"m4a"];
     self.backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
     self.backgroundMusicPlayer.numberOfLoops = -1;
-    if ([GameData getMusicUserVolume]) {
-        self.backgroundMusicPlayer.volume = [GameData getMusicUserVolume];
+    if ([UserData getMusicUserVolume]) {
+        self.backgroundMusicPlayer.volume = [UserData getMusicUserVolume];
     } else {
         self.backgroundMusicPlayer.volume = 0.5;
     }
