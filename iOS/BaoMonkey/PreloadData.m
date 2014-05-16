@@ -33,7 +33,8 @@
 + (id) getDataWithKey:(NSString *)key {
     PreloadData *defaultData = [PreloadData defaultData];
     
-    return ([defaultData.data objectForKey:key]);
+    id item = [defaultData.data objectForKey:key];
+    return (item);
 }
 
 @end
