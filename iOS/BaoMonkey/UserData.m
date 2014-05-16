@@ -15,6 +15,8 @@
 
 @implementation UserData
 
+@synthesize musicVolume, soundEffectsVolume, accelerometerSpeed;
+
 + (instancetype) defaultUser {
     static UserData *userData;
     
@@ -71,6 +73,65 @@
     userData = [UserData defaultUser];
     if (userData.score < score)
         userData.score = score;
+}
+
+#pragma mark - User Settings values
+
++(CGFloat)getAccelerometerUserSpeed{
+    return [[UserData defaultUser] getAccelerometerUserSpeed];
+}
+
+-(CGFloat)getAccelerometerUserSpeed{
+    return accelerometerSpeed;
+}
+
++(CGFloat)getMusicUserVolume{
+    return [[UserData defaultUser] getMusicUserVolume];
+}
+
+-(CGFloat)getMusicUserVolume{
+    return musicVolume;
+}
+
++(CGFloat)getSoundEffectsUserVolume{
+    return [[UserData defaultUser] getSoundEffectsUserVolume];
+}
+
+-(CGFloat)getSoundEffectsUserVolume{
+    return musicVolume;
+}
+
++(void)setAccelerometerUserSpeed:(CGFloat)speed{
+    [[UserData defaultUser] setAccelerometerUserSpeed:speed];
+}
+
+-(void)setAccelerometerUserSpeed:(CGFloat)speed{
+    if (accelerometerSpeed != speed) {
+        accelerometerSpeed = speed;
+        [UserData.user setFloat:speed forKey:NSUSERDEFAULT_ACCELEROMETER_SPEED];
+    }
+}
+
++(void)setMusicUserVolume:(CGFloat)volume{
+    [[GameData singleton] setMusicUserVolume:volume];
+}
+
+-(void)setMusicUserVolume:(CGFloat)volume{
+    if (musicUserVolume != volume) {
+        musicUserVolume = volume;
+        [settings setFloat:volume forKey:NSUSERDEFAULT_MUSIC_VOLUME];
+    }
+}
+
++(void)setSoundEffectsUserVolume:(CGFloat)volume{
+    [[GameData singleton] setSoundEffectsUserVolume:volume];
+}
+
+-(void)setSoundEffectsUserVolume:(CGFloat)volume{
+    if (soundEffectsUserVolume != volume) {
+        soundEffectsUserVolume = volume;
+        [settings setFloat:volume forKey:NSUSERDEFAULT_EFFECTS_VOLUME];
+    }
 }
 
 @end

@@ -15,6 +15,8 @@
 {
     // Override point for customization after application launch.
     [GameData initGameData];
+    
+    [UserData initUserData];
     [self loadMusicPlayer];
     return YES;
 }
@@ -51,8 +53,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     [UserData saveUserData];
 }
-
--(void)loadMusicPlayer
+
+- (void)loadMusicPlayer
 {
     NSError *error;
     NSURL * backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"baomonkey" withExtension:@"m4a"];
