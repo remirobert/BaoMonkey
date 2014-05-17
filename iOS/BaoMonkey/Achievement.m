@@ -39,7 +39,7 @@
 }
 
 
-+ (void) updateScore:(NSArray *)tabScore {
++ (void) updateScore {
     Achievement *ach = [Achievement defaultAchievement];
     NSInteger currentScore = [[UserData defaultUser] score];
     int indexAchievement = 0;
@@ -53,7 +53,37 @@
     }
 }
 
++ (void) updateEnemy {
+    Achievement *ach = [Achievement defaultAchievement];
+    NSInteger currentEnemy = [[UserData defaultUser] enemy_score];
+    
+    int indexAchievement = 0;
+    
+    for (int index = 1; index < [((NSArray *)ACHIEVEMENT_ENEMIES) count]; index += 2) {
+        ((GKAchievement *)[ach.achievementScore
+                           objectAtIndex:indexAchievement++]).percentComplete = 100 *
+        currentEnemy / [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue];
+    }
+}
 
++ (void) updatePlums {
+    Achievement *ach = [Achievement defaultAchievement];
+    NSInteger currentPrune = [[UserData defaultUser] prune_score];
+    
+    int indexAchievement = 0;
+    
+    for (int index = 1; index < [((NSArray *)ACHIEVEMENT_PLUMS) count]; index += 2) {
+        ((GKAchievement *)[ach.achievementScore
+                           objectAtIndex:indexAchievement++]).percentComplete = 100 *
+        currentPrune / [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue];
+    }
+}
+
++ (void) updateAchievement {
+    [Achievement updateEnemy];
+    [Achievement updateScore];
+    [Achievement updatePlums];
+}
 
 + (instancetype) defaultAchievement {
     static Achievement *ach;
@@ -74,6 +104,7 @@
                                  [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:4]],
                                  [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:6]]];
     }
+    [Achievement updateAchievement];
     return (ach);
 }
 
