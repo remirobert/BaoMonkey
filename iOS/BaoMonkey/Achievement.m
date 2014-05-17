@@ -40,12 +40,20 @@
 
 
 + (void) updateScore:(NSArray *)tabScore {
+    Achievement *ach = [Achievement defaultAchievement];
     NSInteger currentScore = [[UserData defaultUser] score];
+    int indexAchievement = 0;
     
-    for (int index = 0; index < [tabScore count]; index += 2) {
-        
+    for (int index = 1; index < [((NSArray *)ACHIEVEMENT_POINTS) count]; index += 2) {
+        if (currentScore >= [[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index] integerValue]) {
+            ((GKAchievement *)[ach.achievementScore objectAtIndex:indexAchievement++]).percentComplete = 100.0;
+        }
+        else
+            return ;
     }
 }
+
+
 
 + (instancetype) defaultAchievement {
     static Achievement *ach;
