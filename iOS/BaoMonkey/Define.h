@@ -108,8 +108,8 @@
 ** ACHIEVEMENTS
 */
 
-# define    ACHIEVEMENT_POINTS  @[@[@"Achievement_500points", 500], @[@"Achievement_1000points", 1000], @[@"Achievement_1500points", 1500], @[@"Achievement_5000points", 5000]]
-# define    ACHIEVEMENT_PLUMS   @[@[@"Achievement_10plums", 10], @[@"Achievement_50plums", 50], @[@"Achievement_500plums", 500], @[@"Achievement_2500plums", 2500]]
-# define    ACHIEVEMENT_ENEMIES @[@[@"Achievement_50Enemies", 50], @[@"Achievement_500Enemies", 500], @[@"Achievement_5000Enemies", 5000], @[@"Achievement_15000Enemies", 15000]]
+# define    ACHIEVEMENT_POINTS  [NSArray arrayWithObjects:@"Achievement_500points", @"500", @"Achievement_1000points", @"1000", @"Achievement_1500points", @"1500", @"Achievement_5000points", @"5000", nil]
+# define    ACHIEVEMENT_PLUMS   [NSArray arrayWithObjects:@"Achievement_10plums", @"10", @"Achievement_50plums", @"50", @"Achievement_500plums", @"500", @"Achievement_2500plums", @"2500", nil]
+# define    ACHIEVEMENT_ENEMIES [NSArray arrayWithObjects:@"Achievement_50Enemies", @"50", @"Achievement_500Enemies", @"500", @"Achievement_5000Enemies", @"5000", @"Achievement_15000Enemies", @"15000", nil]
 
 #endif
