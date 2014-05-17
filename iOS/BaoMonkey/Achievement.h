@@ -10,4 +10,6 @@
 
 @interface Achievement : NSObject
 
++ (void) updateAchievement;
+
 @end

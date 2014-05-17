@@ -19,26 +19,6 @@
 
 @implementation Achievement
 
-- (void) completeMultipleAchievements
-{
-    GKAchievement *achievement1 = [[GKAchievement alloc] initWithIdentifier: @"DefeatedFinalBoss"];
-    GKAchievement *achievement2 = [[GKAchievement alloc] initWithIdentifier: @"FinishedTheGame"];
-    GKAchievement *achievement3 = [[GKAchievement alloc] initWithIdentifier: @"PlayerIsAwesome"];
-    achievement1.percentComplete = 100.0;
-    achievement2.percentComplete = 100.0;
-    achievement3.percentComplete = 100.0;
-    
-    NSArray *achievementsToComplete = [NSArray arrayWithObjects:achievement1,achievement2,achievement3, nil];
-    [GKAchievement reportAchievements: achievementsToComplete withCompletionHandler:^(NSError *error)
-     {
-         if (error != nil)
-         {
-             NSLog(@"Error in reporting achievements: %@", error);
-         }
-     }];
-}
-
-
 + (void) updateScore {
     Achievement *ach = [Achievement defaultAchievement];
     NSInteger currentScore = [[UserData defaultUser] score];
@@ -80,9 +60,19 @@
 }
 
 + (void) updateAchievement {
+    Achievement *ach = [Achievement defaultAchievement];
     [Achievement updateEnemy];
     [Achievement updateScore];
     [Achievement updatePlums];
+    
+    NSArray *achievementsToComplete = [NSArray arrayWithObjects:ach.achievementScore,
+                                       ach.achievementPlums,
+                                       ach.achievementEnemy, nil];
+    [GKAchievement reportAchievements: achievementsToComplete withCompletionHandler:^(NSError *error)
+     {
+         if (error != nil)
+             NSLog(@"Error in reporting achievements: %@", error);
+     }];
 }
 
 + (instancetype) defaultAchievement {
