@@ -9,6 +9,13 @@
 #import <GameKit/GameKit.h>
 #import "UserData.h"
 #import "Achievement.h"
+#import "Define.h"
+
+@interface Achievement ()
+@property (nonatomic, strong) NSArray *achievementScore;
+@property (nonatomic, strong) NSArray *achievementPlums;
+@property (nonatomic, strong) NSArray *achievementEnemy;
+@end
 
 @implementation Achievement
 
@@ -32,7 +39,12 @@
 }
 
 
-+ (void) initializeAchieviement:(NSArray *)tab {
++ (void) updateScore:(NSArray *)tabScore {
+    NSInteger currentScore = [[UserData defaultUser] score];
+    
+    for (int index = 0; index < [tabScore count]; index += 2) {
+        
+    }
 }
 
 + (instancetype) defaultAchievement {
@@ -40,6 +52,19 @@
     
     if (ach == nil) {
         ach = [[Achievement alloc] init];
+        
+        ach.achievementEnemy = @[[[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:0]],
+                                 [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:2]],
+                                 [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:4]],
+                                 [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:6]]];
+        ach.achievementScore = @[[[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:0]],
+                                 [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:2]],
+                                 [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:4]],
+                                 [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:6]]];
+        ach.achievementPlums = @[[[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:0]],
+                                 [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:2]],
+                                 [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:4]],
+                                 [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:6]]];
     }
     return (ach);
 }
