@@ -79,11 +79,7 @@
                                        nil];
 
     [GKAchievement reportAchievements:achievementsToComplete
-                withCompletionHandler:^(NSError *error)
-     {
-         if (error != nil)
-             NSLog(@"Error in reporting achievements: %@", error);
-     }];
+                withCompletionHandler:nil];
 }
 
 + (instancetype) defaultAchievement {
