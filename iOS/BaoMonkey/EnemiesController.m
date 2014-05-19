@@ -61,7 +61,9 @@
                 numberRight++;
         }
     }
-    if (numberRight < numberLeft)
+    if (numberRight == numberLeft)
+        return arc4random() % 2 ? LEFT : RIGHT;
+    else if (numberRight < numberLeft)
         return RIGHT;
     return LEFT;
 }
