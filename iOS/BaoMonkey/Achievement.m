@@ -53,9 +53,14 @@
     int indexAchievement = 0;
     
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_PLUMS) count]; index += 2) {
-        ((GKAchievement *)[ach.achievementPlums
-                           objectAtIndex:indexAchievement]).percentComplete = 100 *
-        currentPrune / [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue];
+        if (currentPrune <= [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue]) {
+            ((GKAchievement *)[ach.achievementPlums
+                               objectAtIndex:indexAchievement]).percentComplete = 100 *
+            currentPrune / [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue];
+            if (currentPrune <= [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue])
+                ((GKAchievement *)[ach.achievementPlums
+                                   objectAtIndex:indexAchievement]).showsCompletionBanner = YES;
+        }
         indexAchievement++;
     }
 }

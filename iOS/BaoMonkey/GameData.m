@@ -255,7 +255,7 @@ static GameData *singleton;
                     NSLog(@"%@", [error localizedDescription]);
                 }
                 else{
-                    leaderboardIdentifier = _leaderboardIdentifier;
+                    _leaderboardIdentifier = leaderboardIdentifier;
                 }
             }];
         }
@@ -291,7 +291,8 @@ static GameData *singleton;
 }
 
 +(void)reportScore {
-    GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"leaderBoardI"];
+    return ;
+    GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:[[GameData singleton] leaderboardIdentifier]];
     scoreReport.value = [[UserData defaultUser] score];
     
     NSArray *tabScore = [NSArray arrayWithObjects:scoreReport, nil];
