@@ -255,7 +255,7 @@ static GameData *singleton;
                     NSLog(@"%@", [error localizedDescription]);
                 }
                 else{
-                    _leaderboardIdentifier = leaderboardIdentifier;
+                    leaderboardIdentifier = _leaderboardIdentifier;
                 }
             }];
         }
@@ -299,7 +299,8 @@ static GameData *singleton;
 }
 
 +(void)reportScore {
-    GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:[[GameData singleton] leaderboardIdentifier]];
+    NSLog(@"identifr = %@", [GameData getLeaderboardIdentifier]);
+    GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"baoMonkeyLeaderboard"];
     scoreReport.value = [[UserData defaultUser] score];
     
     
