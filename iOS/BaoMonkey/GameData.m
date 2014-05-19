@@ -295,9 +295,14 @@ static GameData *singleton;
     GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:[[GameData singleton] leaderboardIdentifier]];
     scoreReport.value = [[UserData defaultUser] score];
     
+    
+    NSLog(@"score = %lld", scoreReport.value);
     NSArray *tabScore = [NSArray arrayWithObjects:scoreReport, nil];
     
-    [GKScore reportScores:tabScore withCompletionHandler:nil];
+    [GKScore reportScores:tabScore withCompletionHandler:^(NSError *error) {
+        if (error != nil)
+            NSLog(@"Error = %@", error);
+    }];
 }
 
 @end
