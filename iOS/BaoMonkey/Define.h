@@ -92,9 +92,9 @@
 ** NSUSERDEFAULT
 */
 
-# define NSUSERDEFAULT_ACCELEROMETER_SPEED @"NSUSERDEFAULT_ACCELEROMETER_SPEED"
-# define NSUSERDEFAULT_MUSIC_VOLUME @"NSUSERDEFAULT_MUSIC_VOLUME"
-# define NSUSERDEFAULT_EFFECTS_VOLUME @"NSUSERDEFAULT_EFFECTS_VOLUME"
+# define NSUSERDEFAULT_ACCELEROMETER_SPEED  @"NSUSERDEFAULT_ACCELEROMETER_SPEED"
+# define NSUSERDEFAULT_MUSIC_VOLUME         @"NSUSERDEFAULT_MUSIC_VOLUME"
+# define NSUSERDEFAULT_EFFECTS_VOLUME       @"NSUSERDEFAULT_EFFECTS_VOLUME"
 
 /*
 ** Stroryboard tag
@@ -103,5 +103,13 @@
 # define TAG_SLIDER_MUSIC_VOLUME 1
 # define TAG_SLIDER_SOUND_EFFECTS_VOLUME 2
 # define TAG_SLIDER_ACCELEROMETER_SPEED 3
+
+/*
+** ACHIEVEMENTS
+*/
+
+# define    ACHIEVEMENT_POINTS  [NSArray arrayWithObjects:@"Achievement_500points", @"500", @"Achievement_1000points", @"1000", @"Achievement_1500points", @"1500", @"Achievement_5000points", @"5000", nil]
+# define    ACHIEVEMENT_PLUMS   [NSArray arrayWithObjects:@"Achievement_10plums", @"10", @"Achievement_50plums", @"50", @"Achievement_500plums", @"500", @"Achievement_2500plums", @"2500", nil]
+# define    ACHIEVEMENT_ENEMIES [NSArray arrayWithObjects:@"Achievement_50Enemies", @"50", @"Achievement_500Enemies", @"500", @"Achievement_5000Enemies", @"5000", @"Achievement_15000Enemies", @"15000", nil]
 
 #endif
