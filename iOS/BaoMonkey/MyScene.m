@@ -141,6 +141,15 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(pauseGame)
                                                  name:NOTIFICATION_PAUSE_GAME object:nil];
+    
+    /*
+    ** Pause control timer
+    */
+    
+    pauseTime = 0;
+    lastTime = 0;
+    oncePause = 0;
+    oncePlay = -1;
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -187,10 +196,26 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
+    
     if ([[GameData singleton] isPause]) {
+        
+        dispatch_once(&oncePause, ^{
+            oncePlay = 0;
+            lastTime = currentTime;
+            NSLog(@"lastTime : %f", lastTime);
+        });
+        
         [monkey stopAnimation];
         return;
     }
+    
+    dispatch_once(&oncePlay, ^{
+        oncePause = 0;
+        pauseTime += currentTime - lastTime;
+        NSLog(@"pauseTime : %f", pauseTime);
+    });
+    
+    currentTime -= pauseTime;
     [self addNewWeapon:currentTime];
     [self addNewWave:currentTime];
     

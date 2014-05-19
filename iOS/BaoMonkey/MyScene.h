@@ -26,11 +26,15 @@
 #import "Define.h"
 
 @interface MyScene : SKScene {
+    CFTimeInterval pauseTime;
+    CFTimeInterval lastTime;
     Monkey *monkey;
     EnemiesController *enemiesController;
     GameController *gc;
     ProgressBar *trunkProgressLife;
     SKLabelNode *score;
+    dispatch_once_t oncePause;
+    dispatch_once_t oncePlay;
 }
 
 @property (nonatomic) int sizeBlock;
