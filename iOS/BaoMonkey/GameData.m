@@ -305,6 +305,21 @@ static GameData *singleton;
     NSArray *tabScore = [NSArray arrayWithObjects:scoreReport, nil];
     
     [GKScore reportScores:tabScore withCompletionHandler:nil];
+    [GameData getBestScorePlayer];
+}
+
++ (void) getBestScorePlayer {
+    GKLeaderboard *leaderboardRequest = [[GKLeaderboard alloc] init];
+    leaderboardRequest.identifier = [GameData getLeaderboardIdentifier];
+    NSLog(@"display score ");
+    [leaderboardRequest loadScoresWithCompletionHandler:^(NSArray *scores, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        } else if (scores) {
+            GKScore *localPlayerScore = leaderboardRequest.localPlayerScore;
+            NSLog(@"Local player's score: %lld", localPlayerScore.value);
+        }
+    }];
 }
 
 @end
