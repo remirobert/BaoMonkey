@@ -290,6 +290,14 @@ static GameData *singleton;
     [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
++(NSString*)getLeaderboardIdentifier {
+    return [[GameData singleton] getLeaderboardIdentifier];
+}
+
+-(NSString*)getLeaderboardIdentifier {
+    return leaderboardIdentifier;
+}
+
 +(void)reportScore {
     return ;
     GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:[[GameData singleton] leaderboardIdentifier]];
