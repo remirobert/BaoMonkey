@@ -291,14 +291,12 @@ static GameData *singleton;
 }
 
 +(void)reportScore {
-    GKScore *scoreReport = [[GKScore alloc] init];
+    GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"leaderBoardI"];
     scoreReport.value = [[UserData defaultUser] score];
     
-    [GKScore reportScores:@[scoreReport] withCompletionHandler:^(NSError *error) {
-        if (error != nil) {
-            NSLog(@"%@", [error localizedDescription]);
-        }
-    }];
+    NSArray *tabScore = [NSArray arrayWithObjects:scoreReport, nil];
+    
+    [GKScore reportScores:tabScore withCompletionHandler:nil];
 }
 
 @end
