@@ -8,6 +8,7 @@
 
 #import "GameData.h"
 #import "UserData.h"
+#import "Achievement.h"
 
 @implementation GameData
 
@@ -305,7 +306,6 @@ static GameData *singleton;
     NSArray *tabScore = [NSArray arrayWithObjects:scoreReport, nil];
     
     [GKScore reportScores:tabScore withCompletionHandler:nil];
-    [GameData getBestScorePlayer];
 }
 
 + (void) getBestScorePlayer {

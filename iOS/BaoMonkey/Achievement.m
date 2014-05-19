@@ -102,6 +102,38 @@
                 withCompletionHandler:nil];
 }
 
++ (void) initUserConfigPlayer {
+    Achievement *ach = [Achievement defaultAchievement];
+    
+    NSInteger plums = 0;
+    int indexValue = 1;
+    
+    for (int index = 0; index < 3; index += 1) {
+        NSLog(@"%f", ((GKAchievement *)[ach.achievementEnemy
+                                        objectAtIndex:index]).percentComplete);
+        if (((GKAchievement *)[ach.achievementEnemy
+                               objectAtIndex:index]).percentComplete != 100) {
+            plums = ([[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:indexValue] integerValue]) /
+            (100 / ((GKAchievement *)[ach.achievementEnemy
+                                      objectAtIndex:index]).percentComplete);
+            indexValue += 2;
+        }
+    }
+    indexValue = 0;
+    for (int index = 0; index < 3; index += 1) {
+        NSLog(@"%f", ((GKAchievement *)[ach.achievementPlums
+                                        objectAtIndex:index]).percentComplete);
+        if (((GKAchievement *)[ach.achievementPlums
+                               objectAtIndex:index]).percentComplete != 100) {
+            plums = ([[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:indexValue] integerValue]) /
+            (100 / ((GKAchievement *)[ach.achievementPlums
+                                      objectAtIndex:index]).percentComplete);
+            indexValue += 2;
+        }
+    }
+    NSLog(@"init plums = %d", plums);
+}
+
 + (instancetype) defaultAchievement {
     static Achievement *ach;
     
