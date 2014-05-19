@@ -59,7 +59,11 @@ static GameController *singleton;
     acceleration = 0.0f;
     
     if (fabs(data.acceleration.x) > kAccelerometerTilt) {
-        acceleration = data.acceleration.x * (kAccelerometerSpeed + speed);
+        if ([UserData getAccelerometerUserSpeed]) {
+            acceleration = data.acceleration.x * ([UserData getAccelerometerUserSpeed] + speed);
+        } else {
+            acceleration = data.acceleration.x * (kAccelerometerSpeed + speed);
+        }
     }
 }
 
