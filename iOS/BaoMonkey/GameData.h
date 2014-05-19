@@ -56,5 +56,6 @@
 
 +(void)authenticateLocalPlayer;
 +(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard withViewController:(UIViewController*)viewController;
++(void)reportScore;
 
 @end

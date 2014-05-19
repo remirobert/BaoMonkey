@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Define.h"
 #import "PreloadData.h"
+#import "UserData.h"
 
 @interface ViewController ()
 @property (nonatomic) MyScene *scene;
@@ -28,6 +29,8 @@
 {
     [super viewDidLoad];
     [self loadAssets];
+    [UserData initUserData];
+    
     _skView = (SKView *)self.view;
     _skView.showsFPS = NO;
     _skView.showsNodeCount = YES;
@@ -51,7 +54,6 @@
     [PreloadData loadDataWithKey:[SKAction playSoundFileNamed:@"coconut.mp3" waitForCompletion:NO] key:DATA_COCONUT_SOUND];
     [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyWalking"] key:DATA_MONKEY_WALK_ATLAS];
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"monkey"]] key:DATA_MONKEY_TEXTURE];
-    
 }
 
 - (NSUInteger)supportedInterfaceOrientations

@@ -7,6 +7,7 @@
 //
 
 #import "GameData.h"
+#import "UserData.h"
 
 @implementation GameData
 
@@ -287,6 +288,20 @@ static GameData *singleton;
 -(void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
 {
     [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
++(void)reportScore {
+    GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"leaderBoard"];
+    scoreReport.value = [[UserData defaultUser] score];
+    
+    
+    NSLog(@"score = %lld", scoreReport.value);
+    NSArray *tabScore = [NSArray arrayWithObjects:scoreReport, nil];
+    
+    [GKScore reportScores:tabScore withCompletionHandler:^(NSError *error) {
+        if (error != nil)
+            NSLog(@"Error = %@", error);
+    }];
 }
 
 @end

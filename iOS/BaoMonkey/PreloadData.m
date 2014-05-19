@@ -15,14 +15,14 @@
 @implementation PreloadData
 
 + (instancetype) defaultData {
-    static PreloadData *defautl;
+    static PreloadData *preload;
     
-    if (defautl == nil) {
-        defautl = [[PreloadData alloc] init];
-        defautl.data = [[NSMutableDictionary alloc] init];
+    if (preload == nil) {
+        preload = [[PreloadData alloc] init];
+        preload.data = [[NSMutableDictionary alloc] init];
     }
     
-    return (defautl);
+    return (preload);
 }
 
 + (void) loadDataWithKey:(id)data key:(NSString *)key {

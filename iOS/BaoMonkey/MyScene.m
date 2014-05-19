@@ -59,7 +59,7 @@
 
 -(void)scoreNode {
     score = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    score.text = [NSString stringWithFormat:@"%d", [[GameData singleton] getScore]];
+    score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
     score.fontSize = 25;
     score.position = CGPointMake(20, SCREEN_HEIGHT - 30);
     score.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
@@ -286,7 +286,7 @@
     }
     
     [trunkProgressLife updateProgression:[[GameData singleton] getTrunkLife]];
-    score.text = [NSString stringWithFormat:@"%d", [[GameData singleton] getScore]];
+    score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
 }
 
 @end

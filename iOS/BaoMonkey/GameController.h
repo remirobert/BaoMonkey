@@ -10,6 +10,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreMotion/CoreMotion.h>
 #import "Define.h"
+#import "UserData.h"
 
 @interface GameController : NSObject{
     CMMotionManager *motionManager;
