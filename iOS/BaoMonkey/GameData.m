@@ -255,7 +255,7 @@ static GameData *singleton;
                     NSLog(@"%@", [error localizedDescription]);
                 }
                 else{
-                    leaderboardIdentifier = _leaderboardIdentifier;
+                    leaderboardIdentifier = _<leaderboardIdentifier;
                 }
             }];
         }
@@ -299,18 +299,12 @@ static GameData *singleton;
 }
 
 +(void)reportScore {
-    NSLog(@"identifr = %@", [GameData getLeaderboardIdentifier]);
     GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"baoMonkeyLeaderboard"];
     scoreReport.value = [[UserData defaultUser] score];
     
-    
-    NSLog(@"score = %lld", scoreReport.value);
     NSArray *tabScore = [NSArray arrayWithObjects:scoreReport, nil];
     
-    [GKScore reportScores:tabScore withCompletionHandler:^(NSError *error) {
-        if (error != nil)
-            NSLog(@"Error = %@", error);
-    }];
+    [GKScore reportScores:tabScore withCompletionHandler:nil];
 }
 
 @end
