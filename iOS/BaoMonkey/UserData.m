@@ -8,6 +8,7 @@
 
 #import "UserData.h"
 #import "Define.h"
+#import "Achievement.h"
 
 @interface UserData ()
 @property (nonatomic, strong) NSUserDefaults *user;
@@ -58,6 +59,7 @@
     
     userData = [UserData defaultUser];
     userData.enemy_score++;
+    [Achievement updateAchievement];
 }
 
 + (void) addPrune {
@@ -65,14 +67,17 @@
     
     userData = [UserData defaultUser];
     userData.prune_score++;
+    [Achievement updateAchievement];
 }
 
 + (void) updateScore:(NSInteger)score {
     UserData *userData;
     
     userData = [UserData defaultUser];
-    if (userData.score < score)
+    if (userData.score < score) {
         userData.score = score;
+        [Achievement updateAchievement];
+    }
 }
 
 #pragma mark - User Settings values
