@@ -27,6 +27,10 @@
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_POINTS) count]; index += 2) {
         if (currentScore >= [[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index] integerValue]) {
             ((GKAchievement *)[ach.achievementScore objectAtIndex:indexAchievement++]).percentComplete = 100.0;
+            [GKNotificationBanner showBannerWithTitle:@"Challenge"
+                                              message:[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index - 1]
+                                             duration:0.5
+                                    completionHandler:nil];
         }
         else
             return ;
@@ -40,9 +44,17 @@
     int indexAchievement = 0;
     
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_ENEMIES) count]; index += 2) {
-        ((GKAchievement *)[ach.achievementEnemy
-                           objectAtIndex:indexAchievement++]).percentComplete = 100 *
-        currentEnemy / [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue];
+         if (currentEnemy <= [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue]) {
+             ((GKAchievement *)[ach.achievementEnemy
+                                objectAtIndex:indexAchievement++]).percentComplete = 100 *
+            currentEnemy / [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue];
+            if (currentEnemy == [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue]) {
+                [GKNotificationBanner showBannerWithTitle:@"Challenge"
+                                                  message:[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index - 1]
+                                                 duration:0.5
+                                        completionHandler:nil];
+            }
+         }
     }
 }
 
@@ -57,9 +69,12 @@
             ((GKAchievement *)[ach.achievementPlums
                                objectAtIndex:indexAchievement]).percentComplete = 100 *
             currentPrune / [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue];
-            if (currentPrune <= [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue])
-                ((GKAchievement *)[ach.achievementPlums
-                                   objectAtIndex:indexAchievement]).showsCompletionBanner = YES;
+            if (currentPrune == [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue]) {
+                [GKNotificationBanner showBannerWithTitle:@"Challenge"
+                                                  message:[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index - 1]
+                                                 duration:0.5
+                                        completionHandler:nil];
+            }
         }
         indexAchievement++;
     }

@@ -299,7 +299,6 @@ static GameData *singleton;
 }
 
 +(void)reportScore {
-    return ;
     GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:[[GameData singleton] leaderboardIdentifier]];
     scoreReport.value = [[UserData defaultUser] score];
     
