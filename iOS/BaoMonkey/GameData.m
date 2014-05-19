@@ -311,14 +311,13 @@ static GameData *singleton;
 + (void) getBestScorePlayer {
     GKLeaderboard *leaderboardRequest = [[GKLeaderboard alloc] init];
     leaderboardRequest.identifier = [GameData getLeaderboardIdentifier];
-    NSLog(@"display score ");
+    
     [leaderboardRequest loadScoresWithCompletionHandler:^(NSArray *scores, NSError *error) {
-        if (error) {
-            NSLog(@"%@", error);
-        } else if (scores) {
-            GKScore *localPlayerScore = leaderboardRequest.localPlayerScore;
-            NSLog(@"Local player's score: %lld", localPlayerScore.value);
+
+        if (scores) {
+            [UserData defaultUser].score = (int)leaderboardRequest.localPlayerScore.value;
         }
+        return ;
     }];
 }
 
