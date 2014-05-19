@@ -56,8 +56,6 @@
         ((GKAchievement *)[ach.achievementPlums
                            objectAtIndex:indexAchievement]).percentComplete = 100 *
         currentPrune / [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue];
-        NSLog(@"current plums = %ld / %f", (long)currentPrune, ((GKAchievement *)[ach.achievementPlums
-                                                                      objectAtIndex:indexAchievement]).percentComplete);
         indexAchievement++;
     }
 }
@@ -68,7 +66,8 @@
     [Achievement updateScore];
     [Achievement updatePlums];
     
-    NSArray *achievementsToComplete = [NSArray arrayWithObjects:[ach.achievementScore objectAtIndex:0],
+    NSArray *achievementsToComplete = [NSArray arrayWithObjects:
+                                       [ach.achievementScore objectAtIndex:0],
                                        [ach.achievementScore objectAtIndex:1],
                                        [ach.achievementScore objectAtIndex:2],
                                        [ach.achievementEnemy objectAtIndex:0],
@@ -79,13 +78,12 @@
                                        [ach.achievementPlums objectAtIndex:2],
                                        nil];
 
-    [GKAchievement reportAchievements:achievementsToComplete withCompletionHandler:^(NSError *error)
+    [GKAchievement reportAchievements:achievementsToComplete
+                withCompletionHandler:^(NSError *error)
      {
          if (error != nil)
              NSLog(@"Error in reporting achievements: %@", error);
      }];
-    
-    NSLog(@"debug achievement 2");
 }
 
 + (instancetype) defaultAchievement {
@@ -107,7 +105,6 @@
                                  [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:4]],
                                  [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:6]]];
     }
-    //[Achievement updateAchievement];
     return (ach);
 }
 
