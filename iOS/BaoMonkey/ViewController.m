@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Define.h"
 #import "PreloadData.h"
+#import "UserData.h"
 
 @interface ViewController ()
 @property (nonatomic) MyScene *scene;
@@ -28,6 +29,8 @@
 {
     [super viewDidLoad];
     [self loadAssets];
+    [UserData initUserData];
+    
     _skView = (SKView *)self.view;
     _skView.showsFPS = NO;
     _skView.showsNodeCount = YES;

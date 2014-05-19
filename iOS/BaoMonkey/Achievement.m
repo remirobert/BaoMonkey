@@ -40,7 +40,7 @@
     int indexAchievement = 0;
     
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_ENEMIES) count]; index += 2) {
-        ((GKAchievement *)[ach.achievementScore
+        ((GKAchievement *)[ach.achievementEnemy
                            objectAtIndex:indexAchievement++]).percentComplete = 100 *
         currentEnemy / [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue];
     }
@@ -53,9 +53,12 @@
     int indexAchievement = 0;
     
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_PLUMS) count]; index += 2) {
-        ((GKAchievement *)[ach.achievementScore
-                           objectAtIndex:indexAchievement++]).percentComplete = 100 *
+        ((GKAchievement *)[ach.achievementPlums
+                           objectAtIndex:indexAchievement]).percentComplete = 100 *
         currentPrune / [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue];
+        NSLog(@"current plums = %ld / %f", (long)currentPrune, ((GKAchievement *)[ach.achievementPlums
+                                                                      objectAtIndex:indexAchievement]).percentComplete);
+        indexAchievement++;
     }
 }
 
@@ -65,14 +68,24 @@
     [Achievement updateScore];
     [Achievement updatePlums];
     
-    NSArray *achievementsToComplete = [NSArray arrayWithObjects:ach.achievementScore,
-                                       ach.achievementPlums,
-                                       ach.achievementEnemy, nil];
-    [GKAchievement reportAchievements: achievementsToComplete withCompletionHandler:^(NSError *error)
+    NSArray *achievementsToComplete = [NSArray arrayWithObjects:[ach.achievementScore objectAtIndex:0],
+                                       [ach.achievementScore objectAtIndex:1],
+                                       [ach.achievementScore objectAtIndex:2],
+                                       [ach.achievementEnemy objectAtIndex:0],
+                                       [ach.achievementEnemy objectAtIndex:1],
+                                       [ach.achievementEnemy objectAtIndex:2],
+                                       [ach.achievementPlums objectAtIndex:0],
+                                       [ach.achievementPlums objectAtIndex:1],
+                                       [ach.achievementPlums objectAtIndex:2],
+                                       nil];
+
+    [GKAchievement reportAchievements:achievementsToComplete withCompletionHandler:^(NSError *error)
      {
          if (error != nil)
              NSLog(@"Error in reporting achievements: %@", error);
      }];
+    
+    NSLog(@"debug achievement 2");
 }
 
 + (instancetype) defaultAchievement {
@@ -94,7 +107,7 @@
                                  [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:4]],
                                  [[GKAchievement alloc] initWithIdentifier: [((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:6]]];
     }
-    [Achievement updateAchievement];
+    //[Achievement updateAchievement];
     return (ach);
 }
 

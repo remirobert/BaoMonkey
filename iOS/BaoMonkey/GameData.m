@@ -7,6 +7,7 @@
 //
 
 #import "GameData.h"
+#import "UserData.h"
 
 @implementation GameData
 
@@ -289,23 +290,15 @@ static GameData *singleton;
     [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
-+ (void) completeMultipleAchievements
-{
-    GKAchievement *achievement1 = [[GKAchievement alloc] initWithIdentifier: @"DefeatedFinalBoss"];
-    GKAchievement *achievement2 = [[GKAchievement alloc] initWithIdentifier: @"FinishedTheGame"];
-    GKAchievement *achievement3 = [[GKAchievement alloc] initWithIdentifier: @"PlayerIsAwesome"];
-    achievement1.percentComplete = 100.0;
-    achievement2.percentComplete = 100.0;
-    achievement3.percentComplete = 100.0;
++(void)reportScore {
+    GKScore *scoreReport = [[GKScore alloc] init];
+    scoreReport.value = [[UserData defaultUser] score];
     
-    NSArray *achievementsToComplete = [NSArray arrayWithObjects:achievement1,achievement2,achievement3, nil];
-    [GKAchievement reportAchievements: achievementsToComplete withCompletionHandler:^(NSError *error)
-     {
-         if (error != nil)
-         {
-             NSLog(@"Error in reporting achievements: %@", error);
-         }
-     }];
+    [GKScore reportScores:@[scoreReport] withCompletionHandler:^(NSError *error) {
+        if (error != nil) {
+            NSLog(@"%@", [error localizedDescription]);
+        }
+    }];
 }
 
 @end
