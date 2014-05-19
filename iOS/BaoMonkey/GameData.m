@@ -255,7 +255,7 @@ static GameData *singleton;
                     NSLog(@"%@", [error localizedDescription]);
                 }
                 else{
-                    leaderboardIdentifier = _<leaderboardIdentifier;
+                    leaderboardIdentifier = _leaderboardIdentifier;
                 }
             }];
         }
