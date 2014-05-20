@@ -119,11 +119,15 @@
     
     [GKAchievement loadAchievementsWithCompletionHandler:^(NSArray *achievements, NSError *error) {
         for (GKAchievement *currentAchievement in achievements) {
-            NSArray *tabParseIdentifer = [currentAchievement.identifier componentsSeparatedByString:@"0"];
             
-            NSLog(@"first = ù%@")
-            
-            NSLog(@"%@ = %f", currentAchievement.identifier, currentAchievement.percentComplete);
+            if (currentAchievement.percentComplete != 100) {
+                NSArray *tabParseIdentifer = [currentAchievement.identifier componentsSeparatedByString:@"0"];
+
+                if ([((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"plums"])
+                    [[UserData defaultUser] setPrune_score:0];
+                else if ([((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"Enemies"])
+                    [[UserData defaultUser] setEnemy_score:0];
+            }
         }
     }];
     
