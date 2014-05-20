@@ -164,13 +164,10 @@
 -(void)deleteEnemy:(Enemy*)enemy {
     SKAction *fadeIn = [SKAction fadeAlphaTo:0.0 duration:0.25];
     SKAction *sound = [PreloadData getDataWithKey:DATA_COCONUT_SOUND];
-    if (sound != nil) {
-        [enemy.node runAction:sound completion:^(void){
-            [enemy.node runAction:fadeIn completion:^{
-                [enemy.node removeFromParent];
-            }];
-        }];
-    }
+    
+    [enemy.node runAction: [SKAction sequence:@[fadeIn, sound]]completion:^{
+        [enemy.node removeFromParent];
+    }];
     
     if (enemy.type == EnemyTypeLamberJack) {
         LamberJack *lamber;
