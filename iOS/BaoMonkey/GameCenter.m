@@ -116,22 +116,38 @@
 + (void) initUserDataProgress {
     if (![[GameCenter defaultGameCenter] gameCenterEnabled])
         return ;
-    NSArray *achievements = [NSArray arrayWithObjects:[[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_POINTS objectAtIndex:0]],
-                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_POINTS objectAtIndex:2]],
-                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_POINTS objectAtIndex:4]],
-                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_POINTS objectAtIndex:6]],
-                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_PLUMS objectAtIndex:0]],
-                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_PLUMS objectAtIndex:2]],
-                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_PLUMS objectAtIndex:4]],
-                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_PLUMS objectAtIndex:6]],
-                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_ENEMIES objectAtIndex:0]],
-                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_ENEMIES objectAtIndex:2]],
-                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_ENEMIES objectAtIndex:4]],
-                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_ENEMIES objectAtIndex:6]], nil];
+    NSArray *achievements = [NSArray arrayWithObjects:
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_POINTS objectAtIndex:0]
+                                                             forPlayer:[[GameCenter defaultGameCenter] localPlayer].playerID],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_POINTS objectAtIndex:2]
+                                                             forPlayer:[[GameCenter defaultGameCenter] localPlayer].playerID],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_POINTS objectAtIndex:4]
+                                                             forPlayer:[[GameCenter defaultGameCenter] localPlayer].playerID],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_POINTS objectAtIndex:6]
+                                                             forPlayer:[[GameCenter defaultGameCenter] localPlayer].playerID],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_PLUMS objectAtIndex:0]
+                                                             forPlayer:[[GameCenter defaultGameCenter] localPlayer].playerID],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_PLUMS objectAtIndex:2]
+                                                             forPlayer:[[GameCenter defaultGameCenter] localPlayer].playerID],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_PLUMS objectAtIndex:4]
+                                                             forPlayer:[[GameCenter defaultGameCenter] localPlayer].playerID],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_PLUMS objectAtIndex:6]
+                                                             forPlayer:[[GameCenter defaultGameCenter] localPlayer].playerID],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_ENEMIES objectAtIndex:0]
+                                                             forPlayer:[[GameCenter defaultGameCenter] localPlayer].playerID],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_ENEMIES objectAtIndex:2]
+                                                             forPlayer:[[GameCenter defaultGameCenter] localPlayer].playerID],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_ENEMIES objectAtIndex:4]
+                                                             forPlayer:[[GameCenter defaultGameCenter] localPlayer].playerID],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_ENEMIES objectAtIndex:6]
+                                                             forPlayer:[[GameCenter defaultGameCenter] localPlayer].playerID], nil];
     
-    for (GKAchievement *currentAchievement in achievements) {
-        NSLog(@"%@ = %f", currentAchievement.identifier, currentAchievement.percentComplete);
-    }
+    [GKAchievement loadAchievementsWithCompletionHandler:^(NSArray *achievements, NSError *error) {
+        for (GKAchievement *currentAchievement in achievements) {
+            NSLog(@"%@ = %f", currentAchievement.identifier, currentAchievement.percentComplete);
+        }
+    }];
+    
 }
 
 @end
