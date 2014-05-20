@@ -31,7 +31,7 @@
         if (percent >= 100 && ((GKAchievement *)[ach.achievementScore
                                                  objectAtIndex:indexAchievement]).completed == NO) {
             
-            [GKNotificationBanner showBannerWithTitle:@"Challenge"
+            [GKNotificationBanner showBannerWithTitle:@"Score"
                                               message:[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index - 1]
                                              duration:0.5
                                     completionHandler:nil];
@@ -54,7 +54,7 @@
         if (percent >= 100 && ((GKAchievement *)[ach.achievementEnemy
                                                  objectAtIndex:indexAchievement]).completed == NO) {
             
-            [GKNotificationBanner showBannerWithTitle:@"Challenge"
+            [GKNotificationBanner showBannerWithTitle:@"Enemy"
                                               message:[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index - 1]
                                              duration:0.5
                                     completionHandler:nil];
@@ -77,7 +77,7 @@
             if (percent >= 100 && ((GKAchievement *)[ach.achievementPlums
                                                      objectAtIndex:indexAchievement]).completed == NO) {
                 
-                [GKNotificationBanner showBannerWithTitle:@"Challenge"
+                [GKNotificationBanner showBannerWithTitle:@"Plums"
                                                   message:[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index - 1]
                                                  duration:0.5
                                         completionHandler:nil];
