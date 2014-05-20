@@ -37,7 +37,6 @@
     SKLabelNode *score;
     dispatch_once_t oncePause;
     dispatch_once_t oncePlay;
-    NSArray *pauseView;
 }
 
 @property (nonatomic) int sizeBlock;

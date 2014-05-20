@@ -9,6 +9,7 @@
 #import "MyScene.h"
 #import "MyScene+GeneratorWave.h"
 #import "UserData.h"
+#import "PauseTransition.h"
 
 # define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
@@ -151,6 +152,7 @@
                                              selector:@selector(pauseGame)
                                                  name:NOTIFICATION_PAUSE_GAME object:nil];
     
+    
     /*
     ** Pause control timer
     */
@@ -169,15 +171,16 @@
     return self;
 }
 
--(void)launchPauseView{
-    pauseView = [[NSArray alloc] initWithObjects:[Resume backgroundNode], [Resume replayNode], [Resume resumeNode], [Resume homeNode], [Resume settingsNode], nil];
-    for (int i = 0; i < [pauseView count]; i++) {
-        [self addChild:[pauseView objectAtIndex:i]];
-    }
-}
+//-(void)launchPauseView{
+//    pauseView = [[NSArray alloc] initWithObjects:[Resume replayNode], [Resume resumeNode], [Resume homeNode], [Resume settingsNode], nil];
+//    for (int i = 0; i < [pauseView count]; i++) {
+//        [self addChild:[pauseView objectAtIndex:i]];
+//    }
+//}
 
 - (void) pauseGame {
-    [self launchPauseView];
+    //[self launchPauseView];
+    [PauseTransition runTransition:self];
     
     self.speed = 0;
     SKNode *text = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
@@ -195,12 +198,13 @@
     [GameData pauseGame];
 }
 
--(void)removePauseView{
-    [self removeChildrenInArray:pauseView];
-}
+//-(void)removePauseView{
+//    [self removeChildrenInArray:pauseView];
+//}
 
 - (void) resumeGame {
-    [self removePauseView];
+    //[self removePauseView];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RESUME_GAME object:nil];
     self.speed = 1.0;
     SKNode *text = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
     

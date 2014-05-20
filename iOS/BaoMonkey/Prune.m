@@ -41,7 +41,7 @@
     
     [self.node setTexture:(SKTexture *)[PreloadData getDataWithKey:DATA_SPLASH_TEXTURE]];
     
-    self.node.zPosition = 10000;
+    self.node.zPosition = 500;
     
     [self.node runAction:actionPrune completion:^{
         self.isOver = YES;
