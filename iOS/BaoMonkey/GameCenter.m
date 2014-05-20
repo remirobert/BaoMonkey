@@ -108,6 +108,7 @@
         
         if (scores) {
             [UserData defaultUser].score = (int)leaderboardRequest.localPlayerScore.value;
+            [UserData saveUserData];
         }
         return ;
     }];
