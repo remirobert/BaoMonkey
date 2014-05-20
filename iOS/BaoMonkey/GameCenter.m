@@ -118,16 +118,40 @@
         return ;
     
     [GKAchievement loadAchievementsWithCompletionHandler:^(NSArray *achievements, NSError *error) {
+        
+        if (error != nil) {
+            NSLog(@"Error debug for download achievement : %@", error);
+            return ;
+        }
+        NSInteger indexPlums = 1;
+        NSInteger indexEnemie = 1;
+        
         for (GKAchievement *currentAchievement in achievements) {
+            NSArray *tabParseIdentifer = [currentAchievement.identifier componentsSeparatedByString:@"0"];
             
             if (currentAchievement.percentComplete != 100) {
-                NSArray *tabParseIdentifer = [currentAchievement.identifier componentsSeparatedByString:@"0"];
+                if (indexPlums < [ACHIEVEMENT_PLUMS count] &&
+                    [((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"plums"]) {
+                    NSLog(@"Plums = %f", [[ACHIEVEMENT_PLUMS objectAtIndex:indexPlums] integerValue] * currentAchievement.percentComplete / 100);
+                    NSLog(@"CHACK VALUES = %d %d", [[UserData defaultUser] prune_score], [[ACHIEVEMENT_PLUMS objectAtIndex:indexPlums] integerValue]);
+//                    [[UserData defaultUser] setPrune_score:0];
+                }
+                else if (indexEnemie < [ACHIEVEMENT_ENEMIES count] &&
+                         [((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"Enemies"]) {
+                    NSLog(@"Enemies = %f", [[ACHIEVEMENT_ENEMIES objectAtIndex:indexEnemie] integerValue] * currentAchievement.percentComplete / 100);
+                    NSLog(@"CHACK VALUES = %d %d", [[UserData defaultUser] enemy_score], [[ACHIEVEMENT_ENEMIES objectAtIndex:indexPlums] integerValue]);
 
-                if ([((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"plums"])
-                    [[UserData defaultUser] setPrune_score:0];
-                else if ([((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"Enemies"])
-                    [[UserData defaultUser] setEnemy_score:0];
+//                    [[UserData defaultUser] setEnemy_score:0];
+                }
             }
+            
+            if ([((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"plums"]) {
+                indexPlums += 2;
+            }
+            else if ([((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"Enemies"]) {
+                indexEnemie += 2;
+            }
+            NSLog(@"check value = %d %d", indexEnemie, indexPlums);
         }
     }];
     
