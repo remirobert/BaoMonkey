@@ -24,6 +24,7 @@
 #import "EnemiesController.h"
 #import "ProgressBar.h"
 #import "Define.h"
+#import "Resume.h"
 
 @interface MyScene : SKScene {
     CFTimeInterval pauseTime;
@@ -35,6 +36,7 @@
     SKLabelNode *score;
     dispatch_once_t oncePause;
     dispatch_once_t oncePlay;
+    NSArray *pauseView;
 }
 
 @property (nonatomic) int sizeBlock;

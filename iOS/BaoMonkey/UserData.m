@@ -11,7 +11,9 @@
 #import "Achievement.h"
 
 @interface UserData ()
+
 @property (nonatomic, strong) NSUserDefaults *user;
+
 @end
 
 @implementation UserData

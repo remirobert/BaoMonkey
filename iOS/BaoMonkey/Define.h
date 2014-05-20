@@ -78,6 +78,9 @@
 # define SHOOT_NODE_NAME                    @"SHOOT_NODE_NAME"
 # define CLOUD_NODE_NAME                    @"CLOUD_NODE_NAME"
 # define RETRY_NODE_NAME                    @"RETRY_NODE_NAME"
+# define RESUME_NODE_NAME                   @"RESUME_NODE_NAME"
+# define HOME_NODE_NAME                     @"HOME_NODE_NAME"
+# define SETTINGS_NODE_NAME                 @"SETTINGS_NODE_NAME"
 
 /*
 ** POS FLOOR
