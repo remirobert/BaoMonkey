@@ -72,7 +72,7 @@
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
     
-    if ([GameData isGameOver] && [node.name isEqualToString:RETRY_NODE_NAME]) {
+    if (([GameData isGameOver] && [node.name isEqualToString:RETRY_NODE_NAME]) || [node.name isEqualToString:RETRY_NODE_NAME]) {
         [GameData resetGameData];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAUSE_GAME object:nil];
         [self removeAllChildren];
@@ -81,7 +81,7 @@
         return ;
     }
     
-    if ([node.name isEqualToString:PAUSE_BUTTON_NODE_NAME]) {
+    if ([node.name isEqualToString:PAUSE_BUTTON_NODE_NAME] || [node.name isEqualToString:RESUME_NODE_NAME]) {
         if ([GameData isPause]) {
             [self resumeGame];
         } else {
@@ -91,6 +91,14 @@
         if (![GameData isPause]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
         }
+    }
+    
+    if ([node.name isEqualToString:HOME_NODE_NAME]){
+        
+    }
+    
+    if ([node.name isEqualToString:SETTINGS_NODE_NAME]){
+        
     }
 }
 
@@ -160,7 +168,16 @@
     return self;
 }
 
+-(void)launchPauseView{
+    pauseView = [[NSArray alloc] initWithObjects:[Resume backgroundNode], [Resume replayNode], [Resume resumeNode], [Resume homeNode], [Resume settingsNode], nil];
+    for (int i = 0; i < [pauseView count]; i++) {
+        [self addChild:[pauseView objectAtIndex:i]];
+    }
+}
+
 - (void) pauseGame {
+    [self launchPauseView];
+    
     self.speed = 0;
     SKNode *text = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
     
@@ -177,7 +194,12 @@
     [GameData pauseGame];
 }
 
+-(void)removePauseView{
+    [self removeChildrenInArray:pauseView];
+}
+
 - (void) resumeGame {
+    [self removePauseView];
     self.speed = 1.0;
     SKNode *text = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
     

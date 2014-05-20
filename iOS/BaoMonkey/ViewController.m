@@ -30,8 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
+    [self.navigationController setNavigationBarHidden:YES];
     [self loadAssets];
     [UserData initUserData];
     
