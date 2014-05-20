@@ -94,11 +94,12 @@
     }
     
     if ([node.name isEqualToString:HOME_NODE_NAME]){
-        
+        NSLog(@"HOME");
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
     }
     
     if ([node.name isEqualToString:SETTINGS_NODE_NAME]){
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_SETTINGS object:nil];
     }
 }
 
