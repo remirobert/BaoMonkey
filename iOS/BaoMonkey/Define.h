@@ -37,6 +37,7 @@
 # define ENEMY_KEY                          @"enemy_key"
 # define PRUNE_KEY                          @"prune_key"
 # define SCORE_KEY                          @"score_key"
+# define LAUNCH_KEY                         @"launch_key"
 
 /*
 ** ACCELEROMETER

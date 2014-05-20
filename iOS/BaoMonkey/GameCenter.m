@@ -21,16 +21,19 @@
     return (gameCenter);
 }
 
+# pragma mark - GameCenter authentification
+
 +(void)authenticateLocalPlayer {
     [[GameCenter defaultGameCenter] authenticateLocalPlayer];
 }
 
 -(void)authenticateLocalPlayer{
-    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    _localPlayer = [GKLocalPlayer localPlayer];
     
-    localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
+    __weak typeof(self) weakSelf = self;
+    _localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
         if ([GKLocalPlayer localPlayer].authenticated) {
-            _gameCenterEnabled = YES;
+            weakSelf.gameCenterEnabled = YES;
             
             // Get the default leaderboard identifier.
             [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *defaultLeaderboardIdentifier, NSError *error) {
@@ -39,16 +42,19 @@
                     NSLog(@"%@", [error localizedDescription]);
                 }
                 else{
-                    _leaderboardIdentifier = defaultLeaderboardIdentifier;
+                    weakSelf.leaderboardIdentifier = defaultLeaderboardIdentifier;
+                    NSLog(@"player %@", weakSelf.localPlayer.playerID);
                 }
             }];
         }
         
-        else{
-            _gameCenterEnabled = NO;
+        else {
+            weakSelf.gameCenterEnabled = NO;
         }
     };
 }
+
+# pragma mark - GameCenter LeaderBoard
 
 +(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard withViewController:(UIViewController*)viewController{
     [[GameCenter defaultGameCenter] showLeaderboardAndAchievements:shouldShowLeaderboard withViewController:viewController];
@@ -82,7 +88,9 @@
     return _leaderboardIdentifier;
 }
 
-+(void)reportScore {
+# pragma mark - GameCenter score
+
++ (void) reportScore {
     GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"baoMonkeyLeaderboard"];
     scoreReport.value = [[UserData defaultUser] score];
     

@@ -11,6 +11,7 @@
 #import "PreloadData.h"
 #import "UserData.h"
 #import "Achievement.h"
+#import "GameCenter.h"
 
 @interface ViewController ()
 @property (nonatomic) MyScene *scene;
@@ -31,7 +32,6 @@
     [super viewDidLoad];
     [self.navigationController setNavigationBarHidden:YES];
     [self loadAssets];
-    [Achievement initUserConfigPlayer];
     [UserData initUserData];
     
     _skView = (SKView *)self.view;

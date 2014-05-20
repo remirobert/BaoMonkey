@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "UserData.h"
 #import "GameCenter.h"
+#import "UserData.h"
 
 @implementation AppDelegate
 
@@ -16,9 +17,29 @@
 {
     // Override point for customization after application launch.
     [GameCenter authenticateLocalPlayer];
-    [GameData initGameData];
     
+
+    NSString *playerId = [[GameCenter defaultGameCenter] localPlayer].playerID;
+    
+    if ([[UserData defaultUser] isFirstRun] ||
+        ![playerId isEqualToString:[[UserData defaultUser] playerId]]) {
+
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            while (![[GameCenter defaultGameCenter] gameCenterEnabled]) {
+                [GameCenter getBestScorePlayer];
+                NSLog(@"score %d", [[UserData defaultUser] score]);
+                usleep(5000);
+            }
+            NSLog(@"final game center Best Score = %d", [[UserData defaultUser] score]);
+        });
+    }
+    
+    [UserData launch];
+    
+    [GameData initGameData];
     [UserData initUserData];
+    [[UserData defaultUser] setPlayerId:playerId];
+    
     [self loadMusicPlayer];
     return YES;
 }

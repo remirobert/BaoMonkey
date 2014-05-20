@@ -16,6 +16,8 @@
 @property (nonatomic, assign) CGFloat musicVolume;
 @property (nonatomic, assign) CGFloat soundEffectsVolume;
 @property (nonatomic, assign) CGFloat accelerometerSpeed;
+@property (nonatomic, assign) BOOL isFirstRun;
+@property (nonatomic, strong) NSString *playerId;
 
 + (void) initUserData;
 + (void) saveUserData;
@@ -31,5 +33,6 @@
 +(void)setAccelerometerUserSpeed:(CGFloat)speed;
 +(void)setMusicUserVolume:(CGFloat)volume;
 +(void)setSoundEffectsUserVolume:(CGFloat)volume;
++(void)launch;
 
 @end

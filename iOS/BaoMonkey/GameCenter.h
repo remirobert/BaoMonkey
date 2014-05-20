@@ -13,6 +13,7 @@
 
 @property (nonatomic, assign) BOOL gameCenterEnabled;
 @property (nonatomic, strong) NSString *leaderboardIdentifier;
+@property (nonatomic, strong) GKLocalPlayer *localPlayer;
 
 + (void) showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard withViewController:(UIViewController*)viewController;
 + (void) authenticateLocalPlayer;
