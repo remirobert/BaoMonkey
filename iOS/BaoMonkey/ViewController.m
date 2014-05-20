@@ -33,7 +33,6 @@
     
     
     [self loadAssets];
-    [Achievement initUserConfigPlayer];
     [UserData initUserData];
     
     _skView = (SKView *)self.view;
