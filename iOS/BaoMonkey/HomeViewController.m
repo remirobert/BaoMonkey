@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "UserData.h"
 #import "PreloadData.h"
+#import "GameCenter.h"
 
 @interface HomeViewController ()
 
@@ -33,7 +34,7 @@
 }
 
 -(IBAction)gameCenter:(id)sender {
-    [GameData showLeaderboardAndAchievements:YES withViewController:self];
+    [GameCenter showLeaderboardAndAchievements:YES withViewController:self];
 }
 
 - (void)didReceiveMemoryWarning

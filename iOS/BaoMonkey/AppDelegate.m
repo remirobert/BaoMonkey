@@ -8,13 +8,14 @@
 
 #import "AppDelegate.h"
 #import "UserData.h"
+#import "GameCenter.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [GameData authenticateLocalPlayer];
+    [GameCenter authenticateLocalPlayer];
     [GameData initGameData];
     
     [UserData initUserData];
