@@ -26,6 +26,9 @@
     // Override point for customization after application launch.
     [GameCenter authenticateLocalPlayer];
     
+    
+    
+    
     NSThread *th = [[NSThread alloc] initWithTarget:self selector:@selector(initDataGameCenter) object:nil];
     [th start];
     

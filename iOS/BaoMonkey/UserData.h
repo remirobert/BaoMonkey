@@ -16,6 +16,7 @@
 @property (nonatomic, assign) CGFloat musicVolume;
 @property (nonatomic, assign) CGFloat soundEffectsVolume;
 @property (nonatomic, assign) CGFloat accelerometerSpeed;
+@property (nonatomic, assign) BOOL isFirstRun;
 
 + (void) initUserData;
 + (void) saveUserData;
