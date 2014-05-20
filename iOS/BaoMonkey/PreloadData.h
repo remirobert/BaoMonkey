@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface PreloadData : NSObject
 
 + (void) loadDataWithKey:(id)data key:(NSString *)key;
 + (id) getDataWithKey:(NSString *)key;
+
++(SKAction *)playSoundFileNamed:(NSString *)filename atVolume:(CGFloat)volume waitForCompletion:(BOOL)wait;
 
 @end
