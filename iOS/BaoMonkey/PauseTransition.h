@@ -16,6 +16,7 @@
     NSArray *pauseButton;
 }
 
-+(void)runTransition:(SKScene*)scene;
+-(id)init;
+-(void)runTransition:(SKScene*)_scene;
 
 @end

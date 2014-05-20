@@ -157,6 +157,7 @@
     ** Pause control timer
     */
     
+    pauseTransition = [[PauseTransition alloc] init];
     pauseTime = 0;
     lastTime = 0;
     oncePause = 0;
@@ -180,7 +181,7 @@
 
 - (void) pauseGame {
     //[self launchPauseView];
-    [PauseTransition runTransition:self];
+    [pauseTransition runTransition:self];
     
     self.speed = 0;
     SKNode *text = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];

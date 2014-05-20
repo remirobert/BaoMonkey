@@ -121,8 +121,6 @@
         for (GKAchievement *currentAchievement in achievements) {
             NSArray *tabParseIdentifer = [currentAchievement.identifier componentsSeparatedByString:@"0"];
             
-            NSLog(@"first = ù%@")
-            
             NSLog(@"%@ = %f", currentAchievement.identifier, currentAchievement.percentComplete);
         }
     }];

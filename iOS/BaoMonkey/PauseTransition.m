@@ -24,25 +24,12 @@
         bottomLeaf.position = CGPointMake(SCREEN_WIDTH + (bottomLeaf.size.width / 2), -(bottomLeaf.size.height / 2));
         upLeaf.zPosition = 998;
         bottomLeaf.zPosition = 998;
+        bottomLeaf.name = @"LEAF";
+        upLeaf.name = @"LEAF";
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidePauseMenu) name:NOTIFICATION_RESUME_GAME object:nil];
-         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidePauseMenu) name:NOTIFICATION_RETRY_GAME object:nil];
         pauseButton = [[NSArray alloc] initWithObjects:[Resume replayNode], [Resume resumeNode], [Resume homeNode], [Resume settingsNode], nil];
     }
     return self;
-}
-
-+(PauseTransition*)singleton {
-    static PauseTransition *singleton;
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        singleton = [[PauseTransition alloc] init];
-    });
-    return singleton;
-}
-
-+(void)runTransition:(SKScene*)scene {
-    [[PauseTransition singleton] runTransition:scene];
 }
 
 -(void)showLeafs {
