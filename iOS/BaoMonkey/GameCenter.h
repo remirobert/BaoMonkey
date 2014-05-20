@@ -14,4 +14,11 @@
 @property (nonatomic, assign) BOOL gameCenterEnabled;
 @property (nonatomic, strong) NSString *leaderboardIdentifier;
 
++ (void) showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard withViewController:(UIViewController*)viewController;
++ (void) authenticateLocalPlayer;
++ (instancetype) defaultGameCenter;
++ (NSString *) getLeaderboardIdentifier;
++ (void) reportScore;
++ (void) getBestScorePlayer;
+
 @end

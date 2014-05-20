@@ -75,7 +75,7 @@
 }
 
 +(NSString*)getLeaderboardIdentifier {
-    return [[GameData singleton] getLeaderboardIdentifier];
+    return [[GameCenter defaultGameCenter] leaderboardIdentifier];
 }
 
 -(NSString*)getLeaderboardIdentifier {
