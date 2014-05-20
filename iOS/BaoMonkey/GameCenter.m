@@ -8,6 +8,7 @@
 
 #import "GameCenter.h"
 #import "UserData.h"
+#import "Define.h"
 
 @implementation GameCenter
 
@@ -16,7 +17,7 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        gameCenter = [[GameCenter alloc] init];
+        gameCenter = [[GameCenter alloc] init];        
     });
     return (gameCenter);
 }
@@ -110,6 +111,27 @@
         }
         return ;
     }];
+}
+
++ (void) initUserDataProgress {
+    if (![[GameCenter defaultGameCenter] gameCenterEnabled])
+        return ;
+    NSArray *achievements = [NSArray arrayWithObjects:[[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_POINTS objectAtIndex:0]],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_POINTS objectAtIndex:2]],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_POINTS objectAtIndex:4]],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_POINTS objectAtIndex:6]],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_PLUMS objectAtIndex:0]],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_PLUMS objectAtIndex:2]],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_PLUMS objectAtIndex:4]],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_PLUMS objectAtIndex:6]],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_ENEMIES objectAtIndex:0]],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_ENEMIES objectAtIndex:2]],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_ENEMIES objectAtIndex:4]],
+                             [[GKAchievement alloc] initWithIdentifier:[ACHIEVEMENT_ENEMIES objectAtIndex:6]], nil];
+    
+    for (GKAchievement *currentAchievement in achievements) {
+        NSLog(@"%@ = %f", currentAchievement.identifier, currentAchievement.percentComplete);
+    }
 }
 
 @end

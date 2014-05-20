@@ -31,6 +31,7 @@
                 usleep(5000);
             }
             NSLog(@"final game center Best Score = %d", [[UserData defaultUser] score]);
+            [GameCenter initUserDataProgress];
         });
     }
     

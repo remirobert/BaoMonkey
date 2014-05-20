@@ -21,5 +21,6 @@
 + (NSString *) getLeaderboardIdentifier;
 + (void) reportScore;
 + (void) getBestScorePlayer;
++ (void) initUserDataProgress;
 
 @end
