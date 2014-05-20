@@ -9,13 +9,26 @@
 #import "AppDelegate.h"
 #import "UserData.h"
 #import "GameCenter.h"
+#import "UserData.h"
 
 @implementation AppDelegate
+
+- (void) initDataGameCenter {
+    while (![[GameCenter defaultGameCenter] gameCenterEnabled]) {
+        [GameCenter getBestScorePlayer];
+        NSLog(@"score %d", [[UserData defaultUser] score]);
+    }
+    NSLog(@"score %d", [[UserData defaultUser] score]);
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     [GameCenter authenticateLocalPlayer];
+    
+    NSThread *th = [[NSThread alloc] initWithTarget:self selector:@selector(initDataGameCenter) object:nil];
+    [th start];
+    
     [GameData initGameData];
     
     [UserData initUserData];

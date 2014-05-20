@@ -88,7 +88,7 @@
 
 # pragma mark - GameCenter score
 
-+(void)reportScore {
++ (void) reportScore {
     GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"baoMonkeyLeaderboard"];
     scoreReport.value = [[UserData defaultUser] score];
     

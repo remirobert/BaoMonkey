@@ -11,6 +11,7 @@
 #import "PreloadData.h"
 #import "UserData.h"
 #import "Achievement.h"
+#import "GameCenter.h"
 
 @interface ViewController ()
 @property (nonatomic) MyScene *scene;
@@ -29,6 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
     [self loadAssets];
     [Achievement initUserConfigPlayer];
     [UserData initUserData];
