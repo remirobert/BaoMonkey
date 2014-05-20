@@ -44,7 +44,6 @@
                 }
                 else{
                     weakSelf.leaderboardIdentifier = defaultLeaderboardIdentifier;
-                    NSLog(@"player %@", weakSelf.localPlayer.playerID);
                 }
             }];
         }
@@ -108,6 +107,7 @@
         
         if (scores) {
             [UserData defaultUser].score = (int)leaderboardRequest.localPlayerScore.value;
+            [UserData saveUserData];
         }
         return ;
     }];
@@ -118,11 +118,20 @@
         return ;
     
     [GKAchievement loadAchievementsWithCompletionHandler:^(NSArray *achievements, NSError *error) {
+        
+        if (error != nil) {
+            NSLog(@"Error debug for download achievement : %@", error);
+            return ;
+        }
+        NSInteger indexPlums = 1;
+        NSInteger indexEnemie = 1;
+        
         for (GKAchievement *currentAchievement in achievements) {
             NSArray *tabParseIdentifer = [currentAchievement.identifier componentsSeparatedByString:@"0"];
             
             NSLog(@"%@ = %f", currentAchievement.identifier, currentAchievement.percentComplete);
         }
+        [UserData saveUserData];
     }];
     
 }

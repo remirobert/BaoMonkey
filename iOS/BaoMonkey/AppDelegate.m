@@ -27,10 +27,8 @@
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             while (![[GameCenter defaultGameCenter] gameCenterEnabled]) {
                 [GameCenter getBestScorePlayer];
-                NSLog(@"score %d", [[UserData defaultUser] score]);
                 usleep(5000);
             }
-            NSLog(@"final game center Best Score = %d", [[UserData defaultUser] score]);
             [GameCenter initUserDataProgress];
         });
     }

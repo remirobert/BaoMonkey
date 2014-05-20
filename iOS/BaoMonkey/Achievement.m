@@ -26,15 +26,21 @@
     int indexAchievement = 0;
     
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_POINTS) count]; index += 2) {
-        if (currentScore >= [[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index] integerValue]) {
-            ((GKAchievement *)[ach.achievementScore objectAtIndex:indexAchievement++]).percentComplete = 100.0;
-            [GKNotificationBanner showBannerWithTitle:@"Challenge"
-                                              message:[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index - 1]
-                                             duration:0.5
-                                    completionHandler:nil];
+        CGFloat percent = 100 * currentScore / [[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index] integerValue];
+        
+        if (percent >= 100 && ((GKAchievement *)[ach.achievementScore
+                                                 objectAtIndex:indexAchievement]).completed == NO) {
+            
+            if (currentScore == [[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index] integerValue])
+            
+                [GKNotificationBanner showBannerWithTitle:@"Score"
+                                                  message:[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index - 1]
+                                                 duration:0.5
+                                        completionHandler:nil];
         }
-        else
-            return ;
+        ((GKAchievement *)[ach.achievementScore
+                           objectAtIndex:indexAchievement]).percentComplete = percent;
+        indexAchievement++;
     }
 }
 
@@ -45,17 +51,21 @@
     int indexAchievement = 0;
     
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_ENEMIES) count]; index += 2) {
-         if (currentEnemy <= [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue]) {
-             ((GKAchievement *)[ach.achievementEnemy
-                                objectAtIndex:indexAchievement++]).percentComplete = 100 *
-            currentEnemy / [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue];
-            if (currentEnemy == [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue]) {
-                [GKNotificationBanner showBannerWithTitle:@"Challenge"
+        CGFloat percent = 100 * currentEnemy / [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue];
+        
+        if (percent >= 100 && ((GKAchievement *)[ach.achievementEnemy
+                                                 objectAtIndex:indexAchievement]).completed == NO) {
+
+            if (currentEnemy == [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue])
+
+                [GKNotificationBanner showBannerWithTitle:@"Enemy"
                                                   message:[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index - 1]
                                                  duration:0.5
                                         completionHandler:nil];
-            }
-         }
+        }
+        ((GKAchievement *)[ach.achievementEnemy
+                           objectAtIndex:indexAchievement]).percentComplete = percent;
+        indexAchievement++;
     }
 }
 
@@ -66,26 +76,27 @@
     int indexAchievement = 0;
     
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_PLUMS) count]; index += 2) {
-        if (currentPrune <= [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue]) {
-            ((GKAchievement *)[ach.achievementPlums
-                               objectAtIndex:indexAchievement]).percentComplete = 100 *
-            currentPrune / [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue];
-            if (currentPrune == [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue]) {
-                [GKNotificationBanner showBannerWithTitle:@"Challenge"
-                                                  message:[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index - 1]
-                                                 duration:0.5
-                                        completionHandler:nil];
+            CGFloat percent = 100 * currentPrune / [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue];
+        
+            if (percent >= 100 && ((GKAchievement *)[ach.achievementPlums
+                                                     objectAtIndex:indexAchievement]).completed == NO) {
+                
+                if (currentPrune == [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue])
+
+                    [GKNotificationBanner showBannerWithTitle:@"Plums"
+                                                      message:[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index - 1]
+                                                     duration:0.5
+                                            completionHandler:nil];
             }
-        }
+            ((GKAchievement *)[ach.achievementPlums
+                               objectAtIndex:indexAchievement]).percentComplete = percent;
         indexAchievement++;
     }
 }
 
 + (void) updateAchievement {
     Achievement *ach = [Achievement defaultAchievement];
-    
-    if (![[GameCenter defaultGameCenter] gameCenterEnabled])
-        return ;
+
     [Achievement updateEnemy];
     [Achievement updateScore];
     [Achievement updatePlums];
