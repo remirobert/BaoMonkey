@@ -38,7 +38,6 @@
     node.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 
     [UserData updateScore:[GameData getScore]];
-    [GameData reportScore];
     
     [self createCloud];
     [node addChild:cloud];
