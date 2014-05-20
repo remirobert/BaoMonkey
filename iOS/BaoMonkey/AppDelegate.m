@@ -13,17 +13,6 @@
 
 @implementation AppDelegate
 
-- (void) initDataGameCenter {
-    
-    while (![[GameCenter defaultGameCenter] gameCenterEnabled]) {
-        [GameCenter getBestScorePlayer];
-        NSLog(@"score %d", [[UserData defaultUser] score]);
-        usleep(5000);
-    }
-    
-    NSLog(@"final game center Best Score = %d", [[UserData defaultUser] score]);
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
@@ -34,8 +23,15 @@
     
     if ([[UserData defaultUser] isFirstRun] ||
         ![playerId isEqualToString:[[UserData defaultUser] playerId]]) {
-        NSThread *th = [[NSThread alloc] initWithTarget:self selector:@selector(initDataGameCenter) object:nil];
-        [th start];
+
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            while (![[GameCenter defaultGameCenter] gameCenterEnabled]) {
+                [GameCenter getBestScorePlayer];
+                NSLog(@"score %d", [[UserData defaultUser] score]);
+                usleep(5000);
+            }
+            NSLog(@"final game center Best Score = %d", [[UserData defaultUser] score]);
+        });
     }
     
     [UserData launch];
