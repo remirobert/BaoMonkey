@@ -28,6 +28,13 @@
     return (userData);
 }
 
++ (void) launch {
+    UserData *userData;
+    
+    userData = [UserData defaultUser];
+    [userData.user setBool:YES forKey:LAUNCH_KEY];
+}
+
 + (void) initUserData {
     UserData *userData;
     

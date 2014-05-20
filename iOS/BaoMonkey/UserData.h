@@ -32,5 +32,6 @@
 +(void)setAccelerometerUserSpeed:(CGFloat)speed;
 +(void)setMusicUserVolume:(CGFloat)volume;
 +(void)setSoundEffectsUserVolume:(CGFloat)volume;
++(void)launch;
 
 @end

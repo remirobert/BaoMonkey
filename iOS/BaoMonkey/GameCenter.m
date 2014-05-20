@@ -28,11 +28,12 @@
 }
 
 -(void)authenticateLocalPlayer{
-    GKLocalPlayer *localPlayer = [GKLocalPlayer localPlayer];
+    _localPlayer = [GKLocalPlayer localPlayer];
     
-    localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
+    __weak typeof(self) weakSelf = self;
+    _localPlayer.authenticateHandler = ^(UIViewController *viewController, NSError *error){
         if ([GKLocalPlayer localPlayer].authenticated) {
-            _gameCenterEnabled = YES;
+            weakSelf.gameCenterEnabled = YES;
             
             // Get the default leaderboard identifier.
             [[GKLocalPlayer localPlayer] loadDefaultLeaderboardIdentifierWithCompletionHandler:^(NSString *defaultLeaderboardIdentifier, NSError *error) {
@@ -41,13 +42,14 @@
                     NSLog(@"%@", [error localizedDescription]);
                 }
                 else{
-                    _leaderboardIdentifier = defaultLeaderboardIdentifier;
+                    weakSelf.leaderboardIdentifier = defaultLeaderboardIdentifier;
+                    NSLog(@"player %@", weakSelf.localPlayer.playerID);
                 }
             }];
         }
         
         else {
-            _gameCenterEnabled = NO;
+            weakSelf.gameCenterEnabled = NO;
         }
     };
 }
