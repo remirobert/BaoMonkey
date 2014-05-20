@@ -21,6 +21,8 @@
     return (gameCenter);
 }
 
+# pragma mark - GameCenter authentification
+
 +(void)authenticateLocalPlayer {
     [[GameCenter defaultGameCenter] authenticateLocalPlayer];
 }
@@ -44,11 +46,13 @@
             }];
         }
         
-        else{
+        else {
             _gameCenterEnabled = NO;
         }
     };
 }
+
+# pragma mark - GameCenter LeaderBoard
 
 +(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard withViewController:(UIViewController*)viewController{
     [[GameCenter defaultGameCenter] showLeaderboardAndAchievements:shouldShowLeaderboard withViewController:viewController];
@@ -81,6 +85,8 @@
 -(NSString*)getLeaderboardIdentifier {
     return _leaderboardIdentifier;
 }
+
+# pragma mark - GameCenter score
 
 +(void)reportScore {
     GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"baoMonkeyLeaderboard"];
