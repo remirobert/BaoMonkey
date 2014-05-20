@@ -44,7 +44,6 @@
                 }
                 else{
                     weakSelf.leaderboardIdentifier = defaultLeaderboardIdentifier;
-                    NSLog(@"player %@", weakSelf.localPlayer.playerID);
                 }
             }];
         }
