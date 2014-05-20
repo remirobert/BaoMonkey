@@ -66,34 +66,25 @@
     int indexAchievement = 0;
     
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_PLUMS) count]; index += 2) {
-        if (currentPrune <= [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue]) {
-            
             CGFloat percent = 100 * currentPrune / [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue];
-            
-            if (percent == 100 && ((GKAchievement *)[ach.achievementPlums
+        
+            if (percent >= 100 && ((GKAchievement *)[ach.achievementPlums
                                                      objectAtIndex:indexAchievement]).completed == NO) {
                 
-                NSLog(@"win challenge");
                 [GKNotificationBanner showBannerWithTitle:@"Challenge"
                                                   message:[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index - 1]
                                                  duration:0.5
                                         completionHandler:nil];
             }
-            
-            NSLog(@"percent plums = %f", percent);
             ((GKAchievement *)[ach.achievementPlums
                                objectAtIndex:indexAchievement]).percentComplete = percent;
-        }
         indexAchievement++;
     }
 }
 
 + (void) updateAchievement {
     Achievement *ach = [Achievement defaultAchievement];
-    
-    if (![[GameCenter defaultGameCenter] gameCenterEnabled])
-        return ;
-    
+
     [Achievement updateEnemy];
     [Achievement updateScore];
     [Achievement updatePlums];
