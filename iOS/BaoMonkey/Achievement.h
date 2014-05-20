@@ -11,5 +11,7 @@
 @interface Achievement : NSObject
 
 + (void) updateAchievement;
++ (instancetype) defaultAchievement;
++ (void) initUserConfigPlayer;
 
 @end

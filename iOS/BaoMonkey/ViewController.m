@@ -10,6 +10,7 @@
 #import "Define.h"
 #import "PreloadData.h"
 #import "UserData.h"
+#import "Achievement.h"
 
 @interface ViewController ()
 @property (nonatomic) MyScene *scene;
@@ -29,6 +30,7 @@
 {
     [super viewDidLoad];
     [self loadAssets];
+    [Achievement initUserConfigPlayer];
     [UserData initUserData];
     
     _skView = (SKView *)self.view;

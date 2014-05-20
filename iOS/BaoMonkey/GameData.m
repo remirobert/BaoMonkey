@@ -8,6 +8,7 @@
 
 #import "GameData.h"
 #import "UserData.h"
+#import "Achievement.h"
 
 @implementation GameData
 
@@ -290,17 +291,33 @@ static GameData *singleton;
     [gameCenterViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
++(NSString*)getLeaderboardIdentifier {
+    return [[GameData singleton] getLeaderboardIdentifier];
+}
+
+-(NSString*)getLeaderboardIdentifier {
+    return leaderboardIdentifier;
+}
+
 +(void)reportScore {
-    GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"leaderBoard"];
+    GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"baoMonkeyLeaderboard"];
     scoreReport.value = [[UserData defaultUser] score];
     
-    
-    NSLog(@"score = %lld", scoreReport.value);
     NSArray *tabScore = [NSArray arrayWithObjects:scoreReport, nil];
     
-    [GKScore reportScores:tabScore withCompletionHandler:^(NSError *error) {
-        if (error != nil)
-            NSLog(@"Error = %@", error);
+    [GKScore reportScores:tabScore withCompletionHandler:nil];
+}
+
++ (void) getBestScorePlayer {
+    GKLeaderboard *leaderboardRequest = [[GKLeaderboard alloc] init];
+    leaderboardRequest.identifier = [GameData getLeaderboardIdentifier];
+    
+    [leaderboardRequest loadScoresWithCompletionHandler:^(NSArray *scores, NSError *error) {
+
+        if (scores) {
+            [UserData defaultUser].score = (int)leaderboardRequest.localPlayerScore.value;
+        }
+        return ;
     }];
 }
 
