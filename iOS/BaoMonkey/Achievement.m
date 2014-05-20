@@ -9,6 +9,7 @@
 #import <GameKit/GameKit.h>
 #import "UserData.h"
 #import "Achievement.h"
+#import "GameCenter.h"
 #import "Define.h"
 
 @interface Achievement ()
@@ -82,6 +83,9 @@
 
 + (void) updateAchievement {
     Achievement *ach = [Achievement defaultAchievement];
+    
+    if (![[GameCenter defaultGameCenter] gameCenterEnabled])
+        return ;
     [Achievement updateEnemy];
     [Achievement updateScore];
     [Achievement updatePlums];
