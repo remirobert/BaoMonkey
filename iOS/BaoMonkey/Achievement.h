@@ -12,6 +12,5 @@
 
 + (void) updateAchievement;
 + (instancetype) defaultAchievement;
-+ (void) initUserConfigPlayer;
 
 @end
