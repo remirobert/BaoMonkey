@@ -131,7 +131,7 @@
             indexValue += 2;
         }
     }
-    NSLog(@"init plums = %d", plums);
+    NSLog(@"init plums = %ld", (long)plums);
 }
 
 + (instancetype) defaultAchievement {

@@ -8,10 +8,9 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import <Foundation/Foundation.h>
-#import <GameKit/GameKit.h>
 #import "Define.h"
 
-@interface GameData : NSObject <GKGameCenterControllerDelegate> {
+@interface GameData : NSObject {
     NSInteger score;
     CGFloat trunkLife;
     BOOL pause;
@@ -22,8 +21,6 @@
     CGFloat musicUserVolume;
     CGFloat soundEffectsUserVolume;
     NSUserDefaults *settings;
-    BOOL gameCenterEnabled;
-    NSString *leaderboardIdentifier;
 }
 
 +(id)singleton;
@@ -53,10 +50,5 @@
 +(BOOL)isGameOver;
 +(void)updatePause;
 +(void)gameOver;
-
-+(void)authenticateLocalPlayer;
-+(void)showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard withViewController:(UIViewController*)viewController;
-+(void)reportScore;
-+(NSString*)getLeaderboardIdentifier;
 
 @end
