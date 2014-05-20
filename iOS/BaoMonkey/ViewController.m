@@ -44,8 +44,23 @@
                                              selector:@selector(initGame)
                                                  name:NOTIFICATION_RETRY_GAME
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(goToHome)
+                                                 name:NOTIFICATION_GO_TO_HOME
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(goToSettings)
+                                                 name:NOTIFICATION_GO_TO_SETTINGS
+                                               object:nil];
+    
     srand(time(NULL));
     [self initGame];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void) loadAssets {
@@ -62,6 +77,15 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"prune"]] key:DATA_PRUNE_TEXTURE];
     [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyWalking"] key:DATA_MONKEY_WALK_ATLAS];
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"monkey"]] key:DATA_MONKEY_TEXTURE];
+}
+
+-(void)goToHome {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void)goToSettings {
+    SettingsViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:STORYBOARD_IDENTIFIER_SETTINGS];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (NSUInteger)supportedInterfaceOrientations

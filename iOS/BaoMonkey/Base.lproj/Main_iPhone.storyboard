@@ -75,7 +75,7 @@
         <!--Settings View Controller - Settings-->
         <scene sceneID="DXg-Pe-MA7">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="Sbx-VW-elf" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SETTINGS_VIEW_CONTROLLER" id="Sbx-VW-elf" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="izs-T3-vmj"/>
                         <viewControllerLayoutGuide type="bottom" id="GIs-bx-Nwq"/>

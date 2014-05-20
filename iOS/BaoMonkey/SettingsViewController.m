@@ -29,6 +29,8 @@
 {
     [super viewDidLoad];
     
+    [self.navigationController setNavigationBarHidden:NO];
+    
     /* Init slider min and max value */
     musicVolume.minimumValue = 0.0f;
     musicVolume.maximumValue = 1.0f;
