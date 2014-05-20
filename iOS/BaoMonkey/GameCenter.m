@@ -132,16 +132,11 @@
             if (currentAchievement.percentComplete != 100) {
                 if (indexPlums < [ACHIEVEMENT_PLUMS count] &&
                     [((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"plums"]) {
-                    NSLog(@"Plums = %f", [[ACHIEVEMENT_PLUMS objectAtIndex:indexPlums] integerValue] * currentAchievement.percentComplete / 100);
-                    NSLog(@"CHACK VALUES = %d %d", [[UserData defaultUser] prune_score], [[ACHIEVEMENT_PLUMS objectAtIndex:indexPlums] integerValue]);
-//                    [[UserData defaultUser] setPrune_score:0];
+                    [[UserData defaultUser] setPrune_score:(int)([[ACHIEVEMENT_PLUMS objectAtIndex:indexPlums] integerValue] * currentAchievement.percentComplete / 100)];
                 }
                 else if (indexEnemie < [ACHIEVEMENT_ENEMIES count] &&
                          [((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"Enemies"]) {
-                    NSLog(@"Enemies = %f", [[ACHIEVEMENT_ENEMIES objectAtIndex:indexEnemie] integerValue] * currentAchievement.percentComplete / 100);
-                    NSLog(@"CHACK VALUES = %d %d", [[UserData defaultUser] enemy_score], [[ACHIEVEMENT_ENEMIES objectAtIndex:indexPlums] integerValue]);
-
-//                    [[UserData defaultUser] setEnemy_score:0];
+                    [[UserData defaultUser] setEnemy_score:(int)([[ACHIEVEMENT_ENEMIES objectAtIndex:indexEnemie] integerValue] * currentAchievement.percentComplete / 100)];
                 }
             }
             
@@ -151,8 +146,8 @@
             else if ([((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"Enemies"]) {
                 indexEnemie += 2;
             }
-            NSLog(@"check value = %d %d", indexEnemie, indexPlums);
         }
+        [UserData saveUserData];
     }];
     
 }
