@@ -45,6 +45,9 @@
 		10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */; };
 		10C59A2619194D5D00907493 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2519194D5D00907493 /* Item.m */; };
 		2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */; };
+		2950D27E192B869E00C12A52 /* PauseTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2950D27D192B869E00C12A52 /* PauseTransition.m */; };
+		2950D282192B8DBC00C12A52 /* bottom-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */; };
+		2950D283192B8DBC00C12A52 /* up-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2950D281192B8DBC00C12A52 /* up-leaf@2x.png */; };
 		296AFB8D191BDFD7009D5B75 /* Hunter.m in Sources */ = {isa = PBXBuildFile; fileRef = 296AFB8C191BDFD7009D5B75 /* Hunter.m */; };
 		296AFB90191BE197009D5B75 /* hunter-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB8E191BE197009D5B75 /* hunter-left@2x.png */; };
 		296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB8F191BE197009D5B75 /* hunter-right@2x.png */; };
@@ -143,6 +146,10 @@
 		10C59A2419194D5D00907493 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		10C59A2519194D5D00907493 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BaoMonkey.mp3; sourceTree = "<group>"; };
+		2950D27C192B869E00C12A52 /* PauseTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseTransition.h; sourceTree = "<group>"; };
+		2950D27D192B869E00C12A52 /* PauseTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseTransition.m; sourceTree = "<group>"; };
+		2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-leaf@2x.png"; path = "Leaf/bottom-leaf@2x.png"; sourceTree = "<group>"; };
+		2950D281192B8DBC00C12A52 /* up-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "up-leaf@2x.png"; path = "Leaf/up-leaf@2x.png"; sourceTree = "<group>"; };
 		296AFB8B191BDFD7009D5B75 /* Hunter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hunter.h; sourceTree = "<group>"; };
 		296AFB8C191BDFD7009D5B75 /* Hunter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hunter.m; sourceTree = "<group>"; };
 		296AFB8E191BE197009D5B75 /* hunter-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hunter-left@2x.png"; path = "Enemy/hunter-left@2x.png"; sourceTree = "<group>"; };
@@ -309,6 +316,7 @@
 		10C59A0C1919492C00907493 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2950D27F192B8DB500C12A52 /* Leaf */,
 				296AFB92191CE05A009D5B75 /* Cloud */,
 				3FB2A499191BB20C0027B2C7 /* Sounds */,
 				3FB2A490191B79900027B2C7 /* Items */,
@@ -337,6 +345,24 @@
 				10C59A131919492C00907493 /* trunk@2x.png */,
 			);
 			path = Tree;
+			sourceTree = "<group>";
+		};
+		2950D27B192B865C00C12A52 /* PauseTransition */ = {
+			isa = PBXGroup;
+			children = (
+				2950D27C192B869E00C12A52 /* PauseTransition.h */,
+				2950D27D192B869E00C12A52 /* PauseTransition.m */,
+			);
+			name = PauseTransition;
+			sourceTree = "<group>";
+		};
+		2950D27F192B8DB500C12A52 /* Leaf */ = {
+			isa = PBXGroup;
+			children = (
+				2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */,
+				2950D281192B8DBC00C12A52 /* up-leaf@2x.png */,
+			);
+			name = Leaf;
 			sourceTree = "<group>";
 		};
 		296AFB8A191BDF4A009D5B75 /* Hunter */ = {
@@ -411,6 +437,7 @@
 				29E98BA6191A871F0046F9B2 /* Enemy */,
 				3F7D4369191A3BB200DF30D6 /* GameController */,
 				3F64F758191A8E9500102094 /* GameData */,
+				2950D27B192B865C00C12A52 /* PauseTransition */,
 				3F50F12D19194F9A00A37F85 /* Monkey */,
 				3F50F12919194F3F00A37F85 /* TreeBranch */,
 				3F50F12819194F3200A37F85 /* Item */,
@@ -693,6 +720,7 @@
 				10C59A141919492C00907493 /* monkey@2x.png in Resources */,
 				3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */,
 				3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */,
+				2950D282192B8DBC00C12A52 /* bottom-leaf@2x.png in Resources */,
 				10C59A171919492C00907493 /* tree-branch@2x.png in Resources */,
 				10C59A151919492C00907493 /* back-leaf@2x.png in Resources */,
 				3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */,
@@ -707,6 +735,7 @@
 				2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */,
 				3F7D436F191A6FE100DF30D6 /* MonkeyWalking.atlas in Resources */,
 				3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */,
+				2950D283192B8DBC00C12A52 /* up-leaf@2x.png in Resources */,
 				3FB2A496191B7C580027B2C7 /* prune@2x.png in Resources */,
 				10C59A181919492C00907493 /* trunk@2x.png in Resources */,
 				10C599CC191948A300907493 /* Main_iPhone.storyboard in Resources */,
@@ -746,6 +775,7 @@
 				10C59A1C19194BF000907493 /* Banana.m in Sources */,
 				3F5959DC191C1D5B006EE846 /* HomeViewController.m in Sources */,
 				10A495E0192B419D005299D8 /* GameCenter.m in Sources */,
+				2950D27E192B869E00C12A52 /* PauseTransition.m in Sources */,
 				10A12F0D191CD02700AA86BE /* Climber.m in Sources */,
 				10C59A1D19194BF000907493 /* CocoNuts.m in Sources */,
 				10C59A091919492200907493 /* ViewController.m in Sources */,
