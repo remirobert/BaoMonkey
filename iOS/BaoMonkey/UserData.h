@@ -17,6 +17,7 @@
 @property (nonatomic, assign) CGFloat soundEffectsVolume;
 @property (nonatomic, assign) CGFloat accelerometerSpeed;
 @property (nonatomic, assign) BOOL isFirstRun;
+@property (nonatomic, strong) NSString *playerId;
 
 + (void) initUserData;
 + (void) saveUserData;

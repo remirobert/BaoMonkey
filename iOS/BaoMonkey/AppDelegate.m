@@ -14,11 +14,14 @@
 @implementation AppDelegate
 
 - (void) initDataGameCenter {
+    
     while (![[GameCenter defaultGameCenter] gameCenterEnabled]) {
         [GameCenter getBestScorePlayer];
         NSLog(@"score %d", [[UserData defaultUser] score]);
+        usleep(5000);
     }
-    NSLog(@"score %d", [[UserData defaultUser] score]);
+    
+    NSLog(@"final game center Best Score = %d", [[UserData defaultUser] score]);
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -26,7 +29,11 @@
     // Override point for customization after application launch.
     [GameCenter authenticateLocalPlayer];
     
-    if ([[UserData defaultUser] isFirstRun]) {
+
+    NSString *playerId = [[GameCenter defaultGameCenter] localPlayer].playerID;
+    
+    if ([[UserData defaultUser] isFirstRun] ||
+        ![playerId isEqualToString:[[UserData defaultUser] playerId]]) {
         NSThread *th = [[NSThread alloc] initWithTarget:self selector:@selector(initDataGameCenter) object:nil];
         [th start];
     }
@@ -34,8 +41,9 @@
     [UserData launch];
     
     [GameData initGameData];
-    
     [UserData initUserData];
+    [[UserData defaultUser] setPlayerId:playerId];
+    
     [self loadMusicPlayer];
     return YES;
 }
