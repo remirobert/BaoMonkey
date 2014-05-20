@@ -130,6 +130,23 @@
             NSArray *tabParseIdentifer = [currentAchievement.identifier componentsSeparatedByString:@"0"];
             
             NSLog(@"%@ = %f", currentAchievement.identifier, currentAchievement.percentComplete);
+            if (currentAchievement.percentComplete != 100) {
+                if (indexPlums < [ACHIEVEMENT_PLUMS count] &&
+                    [((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"plums"]) {
+                    [[UserData defaultUser] setPrune_score:(int)([[ACHIEVEMENT_PLUMS objectAtIndex:indexPlums] integerValue] * currentAchievement.percentComplete / 100)];
+                }
+                else if (indexEnemie < [ACHIEVEMENT_ENEMIES count] &&
+                         [((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"Enemies"]) {
+                    [[UserData defaultUser] setEnemy_score:(int)([[ACHIEVEMENT_ENEMIES objectAtIndex:indexEnemie] integerValue] * currentAchievement.percentComplete / 100)];
+                }
+            }
+            
+            if ([((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"plums"]) {
+                indexPlums += 2;
+            }
+            else if ([((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"Enemies"]) {
+                indexEnemie += 2;
+            }
         }
         [UserData saveUserData];
     }];

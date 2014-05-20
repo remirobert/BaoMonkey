@@ -41,7 +41,8 @@
     else {
         for (SKSpriteNode *node in pauseButton) {
             node.zPosition = 999;
-            [scene addChild:node];
+            if (node.parent == nil)
+                [scene addChild:node];
         }
     }
 }
@@ -56,17 +57,26 @@
         
         NSLog(@"upLeaf position %f x %f y", upLeaf.position.x, upLeaf.position.y);
         NSLog(@"bottomLeaf position %f x %f y", bottomLeaf.position.x, bottomLeaf.position.y);
-        [self performSelector:@selector(showLeafs) withObject:nil afterDelay:0];
+        [self showLeafs];
+    }
+}
+
+-(void)hideLeafs {
+    upLeaf.position = CGPointMake(upLeaf.position.x - ANIMATION_SPEED, upLeaf.position.y + ANIMATION_SPEED);
+    bottomLeaf.position = CGPointMake(bottomLeaf.position.x + ANIMATION_SPEED, bottomLeaf.position.y - ANIMATION_SPEED);
+    if ((bottomLeaf.position.y > -(bottomLeaf.size.height / 2)) && (upLeaf.position.y < (SCREEN_HEIGHT + (upLeaf.size.height / 2)))) {
+        [self performSelector:@selector(hideLeafs) withObject:nil afterDelay:0.016];
+    }
+    else {
+        [upLeaf removeFromParent];
+        [bottomLeaf removeFromParent];
+        scene = nil;
     }
 }
 
 -(void)hidePauseMenu {
     [scene removeChildrenInArray:pauseButton];
-    [upLeaf removeFromParent];
-    [bottomLeaf removeFromParent];
-    scene = nil;
-    upLeaf.position = CGPointMake(-(upLeaf.size.width / 2), SCREEN_HEIGHT + (upLeaf.size.height / 2));
-    bottomLeaf.position = CGPointMake(SCREEN_WIDTH + (bottomLeaf.size.width / 2), -(bottomLeaf.size.height / 2));
+    [self hideLeafs];
 }
 
 @end

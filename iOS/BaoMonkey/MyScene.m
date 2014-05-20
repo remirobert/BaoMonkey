@@ -67,6 +67,15 @@
     score.name = SCORE_NODE_NAME;
 }
 
+-(SKLabelNode*)countDownNode {
+    SKLabelNode *countDownNode = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    countDownNode.text = @"3";
+    countDownNode.fontSize = 120;
+    countDownNode.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+    countDownNode.name = COUNTDOWN_NODE_NAME;
+    return countDownNode;
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
@@ -168,6 +177,8 @@
     if (self = [super initWithSize:size]) {
         [[GameData singleton] initGameData];
         [self initScene];
+        [GameData pauseGame];
+        [self gameCountDown];
     }
     return self;
 }
@@ -178,6 +189,30 @@
 //        [self addChild:[pauseView objectAtIndex:i]];
 //    }
 //}
+
+- (void) gameCountDown {
+    static int countDown = 3;
+    
+    if (countDown > 0)
+    {
+        if (countDown == 3) {
+            SKLabelNode *countDownNode = [self countDownNode];
+            [self addChild:countDownNode];
+        }
+        else {
+            SKNode *countDownNode = [self childNodeWithName:COUNTDOWN_NODE_NAME];
+            ((SKLabelNode*)countDownNode).text = [NSString stringWithFormat:@"%d", countDown];
+        }
+        --countDown;
+        [self performSelector:@selector(gameCountDown) withObject:nil afterDelay:1.0];
+    }
+    else {
+        SKNode *countDownNode = [self childNodeWithName:COUNTDOWN_NODE_NAME];
+        [countDownNode removeFromParent];
+        [GameData resumeGame];
+        countDown = 3;
+    }
+}
 
 - (void) pauseGame {
     //[self launchPauseView];
@@ -220,7 +255,7 @@
         node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.frame.size.width / 2];
     }];
     
-    [GameData resumeGame];
+    [self gameCountDown];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
