@@ -11,9 +11,7 @@
 @interface Tank ()
 @end
 
-@implementation Tank {
-    SEL selectorStrat[3];
-}
+@implementation Tank
 
 - (void) initSpriteTank {
     _tankSprite = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor]
@@ -26,7 +24,6 @@
     if (self != nil) {
         [self initSpriteTank];
     }
-    
     return (self);
 }
 
@@ -67,11 +64,22 @@
     [nodeShoot runAction:sequenceAction];
 }
 
+- (void) mediumStrat:(CGPoint)positionMonkey :(SKScene *)scene {
+    
+}
+
+- (void) hardStrat:(CGPoint)positionMonkey :(SKScene *)scene {
+    
+}
+
 - (void) shootTank:(CGPoint)positionMonkey scene:(SKScene *)scene {
-    SEL selectorStrat[3];
     
-    _selectorStrat = [NSArray arrayWithObjects:@selector(lowStrat::), nil];
-    
+    if (_currentStrat == 0)
+        [self lowStrat:positionMonkey :scene];
+    else if (_currentStrat == 1)
+        [self mediumStrat:positionMonkey :scene];
+    else if (_currentStrat == 2)
+        [self hardStrat:positionMonkey :scene];
     
 }
 

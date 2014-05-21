@@ -69,13 +69,13 @@
 
 - (void) update:(NSTimeInterval)currentTime {
     if (_timerStrat == 0) {
-        _timerStrat = currentTime + 30;
+        _timerStrat = currentTime + 20;
         _currentShootTime = currentTime + 1;
     }
     
     if (currentTime >= _timerStrat) {
         
-        _timerStrat = currentTime + 30;
+        _timerStrat = currentTime + 20;
         _currentStrat += 1;
         _currentShootTime = currentTime + 1;
         NSLog(@"start ok");
