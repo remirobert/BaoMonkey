@@ -113,6 +113,29 @@ header {
   animation: spin 1s infinite linear;
 }
 
+.thumbnail {
+    border: 0;
+    text-align: center;
+}
+
+.thumbnail img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    margin-top: 10px;
+
+    -moz-transition: all 0.6s ease;
+    -webkit-transition: all 0.6s ease;
+    -ms-transition: all 0.6s ease;
+    -o-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+
+.thumbnail .caption span {
+    line-height: 20px;
+    font-size: 15px;
+}
+
 /*----------------------------------------
     GALLERY
 ----------------------------------------*/
@@ -360,7 +383,7 @@ footer .footer-links > li > a {
 }
 .overview {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 0px;
 }
 .user-avatar img {
     margin: 0 auto;
