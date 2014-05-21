@@ -26,7 +26,7 @@
         self.direction = ((nbFloor) % 2) == 0 ? LEFT : RIGHT;
         self.type = EnemyTypeHunter;
         self.node.zPosition = 1;
-        self.floor = nbFloor;
+        self.floor = (int)nbFloor;
         
         _slot = slotFloor -1;
         _timeAction = 0.0;
