@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Define.h"
 #import "UserData.h"
+#import "Music.h"
+#import "PreloadData.h"
 
 @interface SettingsViewController : UIViewController
 

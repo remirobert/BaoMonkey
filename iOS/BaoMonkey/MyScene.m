@@ -349,7 +349,11 @@
             
     }
     
-    [trunkProgressLife updateProgression:[[GameData singleton] getTrunkLife]];
+    if ([GameData getTrunkLife] < 0) {
+        // Call the GameOver view when the trunk is dead
+    } else{
+        [trunkProgressLife updateProgression:[GameData getTrunkLife]];
+    }
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
 }
 
