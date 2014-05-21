@@ -69,16 +69,15 @@
 
 - (void) update:(NSTimeInterval)currentTime {
     if (_timerStrat == 0) {
-        _timerStrat = currentTime + 20;
+        _timerStrat = currentTime + 10;
         _currentShootTime = currentTime + 1;
     }
     
     if (currentTime >= _timerStrat) {
-        
-        _timerStrat = currentTime + 20;
+        _timerStrat = currentTime + 10;
+        _tank.currentStrat += 1;
         _currentStrat += 1;
         _currentShootTime = currentTime + 1;
-        NSLog(@"start ok");
     }
     
     
@@ -90,7 +89,7 @@
         [_tank shootTank:_monkey.sprite.position scene:self];
         [_tank shootTank:_monkey.sprite.position scene:self];
         [_tank shootTank:_monkey.sprite.position scene:self];
-        _currentShootTime = currentTime + 1;
+        _currentShootTime = currentTime + 1.0;
     }
     
     [self enumerateChildNodesWithName:NAME_SPRITE_SHOOT_TANK usingBlock:^(SKNode *node, BOOL *stop) {

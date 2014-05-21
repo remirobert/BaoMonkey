@@ -9,6 +9,7 @@
 #import "Tank.h"
 
 @interface Tank ()
+@property (nonatomic, assign) CGPoint positionMediumStrat;
 @end
 
 @implementation Tank
@@ -23,6 +24,8 @@
     
     if (self != nil) {
         [self initSpriteTank];
+        
+        _positionMediumStrat = CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width / 2)+ ([UIScreen mainScreen].bounds.size.width / 2), [UIScreen mainScreen].bounds.size.height);
     }
     return (self);
 }
@@ -66,6 +69,19 @@
 
 - (void) mediumStrat:(CGPoint)positionMonkey :(SKScene *)scene {
     
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        SKSpriteNode *nodeShoot;
+        
+        nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(20, 20)];
+        
+        [scene addChild:nodeShoot];
+        
+        nodeShoot.position = _tankSprite.position;
+        SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % 2 - ([UIScreen mainScreen].bounds.size.width / 2) + ([UIScreen mainScreen].bounds.size.width / 2), positionMonkey.y) duration:3.0];
+        
+        [nodeShoot runAction:moveShoot];
+    });
 }
 
 - (void) hardStrat:(CGPoint)positionMonkey :(SKScene *)scene {
