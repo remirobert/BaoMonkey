@@ -7,13 +7,20 @@
 //
 
 #import "Enemy.h"
+#import "PreloadData.h"
 
-@interface Hunter : Enemy
+@interface Hunter : Enemy {
+    NSArray *walkingFrames;
+    NSArray *deadFrames;
+}
 
 @property (nonatomic, assign) NSInteger slot;
 @property (nonatomic, assign) BOOL isMoving;
 
 -(id)initWithFloor:(NSInteger)floor slot:(NSInteger)slotFloor;
 - (SKSpriteNode *) shootMonkey :(CFTimeInterval)currentTime :(CGPoint)positionMonkey;
+
+-(void)startDead;
+-(void)stopDead;
 
 @end

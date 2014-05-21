@@ -60,6 +60,15 @@
 		29E98BB5191A882B0046F9B2 /* lamberjack-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E98BB3191A882B0046F9B2 /* lamberjack-right@2x.png */; };
 		3F0CD895191D423E0079A5EB /* baomonkey.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3F0CD894191D423E0079A5EB /* baomonkey.m4a */; };
 		3F47F9B5192CCF9D00C36A39 /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F47F9B4192CCF9D00C36A39 /* Music.m */; };
+		3F47F9BA192D106300C36A39 /* background-progress-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9B8192D106300C36A39 /* background-progress-bar.png */; };
+		3F47F9BB192D106300C36A39 /* front-progress-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9B9192D106300C36A39 /* front-progress-bar.png */; };
+		3F47F9C1192D41E200C36A39 /* lamber-jack-waiting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9BD192D41E200C36A39 /* lamber-jack-waiting@2x.png */; };
+		3F47F9C2192D41E200C36A39 /* LamberJackCutting.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9BE192D41E200C36A39 /* LamberJackCutting.atlas */; };
+		3F47F9C3192D41E200C36A39 /* LamberJackDead.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9BF192D41E200C36A39 /* LamberJackDead.atlas */; };
+		3F47F9C4192D41E200C36A39 /* LamberJackWalking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9C0192D41E200C36A39 /* LamberJackWalking.atlas */; };
+		3F47F9C9192D50F900C36A39 /* hunter-waiting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9C6192D50F900C36A39 /* hunter-waiting@2x.png */; };
+		3F47F9CA192D50F900C36A39 /* HunterDead.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9C7192D50F900C36A39 /* HunterDead.atlas */; };
+		3F47F9CB192D50F900C36A39 /* HunterWalking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9C8192D50F900C36A39 /* HunterWalking.atlas */; };
 		3F5959DC191C1D5B006EE846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5959DB191C1D5B006EE846 /* HomeViewController.m */; };
 		3F64F75B191A8EB400102094 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F75A191A8EB400102094 /* GameData.m */; };
 		3F64F766191A9DD900102094 /* ProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F765191A9DD900102094 /* ProgressBar.m */; };
@@ -168,6 +177,15 @@
 		3F0CD894191D423E0079A5EB /* baomonkey.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = baomonkey.m4a; sourceTree = "<group>"; };
 		3F47F9B3192CCF9D00C36A39 /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
 		3F47F9B4192CCF9D00C36A39 /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
+		3F47F9B8192D106300C36A39 /* background-progress-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-progress-bar.png"; sourceTree = "<group>"; };
+		3F47F9B9192D106300C36A39 /* front-progress-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "front-progress-bar.png"; sourceTree = "<group>"; };
+		3F47F9BD192D41E200C36A39 /* lamber-jack-waiting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lamber-jack-waiting@2x.png"; sourceTree = "<group>"; };
+		3F47F9BE192D41E200C36A39 /* LamberJackCutting.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = LamberJackCutting.atlas; sourceTree = "<group>"; };
+		3F47F9BF192D41E200C36A39 /* LamberJackDead.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = LamberJackDead.atlas; sourceTree = "<group>"; };
+		3F47F9C0192D41E200C36A39 /* LamberJackWalking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = LamberJackWalking.atlas; sourceTree = "<group>"; };
+		3F47F9C6192D50F900C36A39 /* hunter-waiting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hunter-waiting@2x.png"; sourceTree = "<group>"; };
+		3F47F9C7192D50F900C36A39 /* HunterDead.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HunterDead.atlas; sourceTree = "<group>"; };
+		3F47F9C8192D50F900C36A39 /* HunterWalking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HunterWalking.atlas; sourceTree = "<group>"; };
 		3F5959DA191C1D5B006EE846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		3F5959DB191C1D5B006EE846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		3F64F759191A8EB400102094 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
@@ -319,6 +337,7 @@
 		10C59A0C1919492C00907493 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3F47F9B7192D106300C36A39 /* Progress */,
 				2950D27F192B8DB500C12A52 /* Leaf */,
 				296AFB92191CE05A009D5B75 /* Cloud */,
 				3FB2A499191BB20C0027B2C7 /* Sounds */,
@@ -411,6 +430,8 @@
 		29E98BB1191A88180046F9B2 /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
+				3F47F9C5192D50F900C36A39 /* Hunter */,
+				3F47F9BC192D41E200C36A39 /* LamberJack */,
 				29E98BB2191A882B0046F9B2 /* lamberjack-left@2x.png */,
 				29E98BB3191A882B0046F9B2 /* lamberjack-right@2x.png */,
 				296AFB8E191BE197009D5B75 /* hunter-left@2x.png */,
@@ -426,6 +447,38 @@
 				3F47F9B4192CCF9D00C36A39 /* Music.m */,
 			);
 			name = Music;
+			sourceTree = "<group>";
+		};
+		3F47F9B7192D106300C36A39 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				3F47F9B8192D106300C36A39 /* background-progress-bar.png */,
+				3F47F9B9192D106300C36A39 /* front-progress-bar.png */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
+		3F47F9BC192D41E200C36A39 /* LamberJack */ = {
+			isa = PBXGroup;
+			children = (
+				3F47F9BD192D41E200C36A39 /* lamber-jack-waiting@2x.png */,
+				3F47F9BE192D41E200C36A39 /* LamberJackCutting.atlas */,
+				3F47F9BF192D41E200C36A39 /* LamberJackDead.atlas */,
+				3F47F9C0192D41E200C36A39 /* LamberJackWalking.atlas */,
+			);
+			name = LamberJack;
+			path = Enemy/LamberJack;
+			sourceTree = "<group>";
+		};
+		3F47F9C5192D50F900C36A39 /* Hunter */ = {
+			isa = PBXGroup;
+			children = (
+				3F47F9C6192D50F900C36A39 /* hunter-waiting@2x.png */,
+				3F47F9C7192D50F900C36A39 /* HunterDead.atlas */,
+				3F47F9C8192D50F900C36A39 /* HunterWalking.atlas */,
+			);
+			name = Hunter;
+			path = Enemy/Hunter;
 			sourceTree = "<group>";
 		};
 		3F50F12119194EB200A37F85 /* Classes */ = {
@@ -733,8 +786,13 @@
 				10C59A141919492C00907493 /* monkey@2x.png in Resources */,
 				3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */,
 				3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */,
+				3F47F9BA192D106300C36A39 /* background-progress-bar.png in Resources */,
+				3F47F9BB192D106300C36A39 /* front-progress-bar.png in Resources */,
 				2950D282192B8DBC00C12A52 /* bottom-leaf@2x.png in Resources */,
 				10C59A171919492C00907493 /* tree-branch@2x.png in Resources */,
+				3F47F9CA192D50F900C36A39 /* HunterDead.atlas in Resources */,
+				3F47F9C9192D50F900C36A39 /* hunter-waiting@2x.png in Resources */,
+				3F47F9C1192D41E200C36A39 /* lamber-jack-waiting@2x.png in Resources */,
 				10C59A151919492C00907493 /* back-leaf@2x.png in Resources */,
 				3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */,
 				296AFB90191BE197009D5B75 /* hunter-left@2x.png in Resources */,
@@ -745,11 +803,15 @@
 				10C599CF191948A300907493 /* Main_iPad.storyboard in Resources */,
 				29E98BB5191A882B0046F9B2 /* lamberjack-right@2x.png in Resources */,
 				296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */,
+				3F47F9C2192D41E200C36A39 /* LamberJackCutting.atlas in Resources */,
 				2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */,
 				3F7D436F191A6FE100DF30D6 /* MonkeyWalking.atlas in Resources */,
 				3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */,
 				2950D283192B8DBC00C12A52 /* up-leaf@2x.png in Resources */,
+				3F47F9C4192D41E200C36A39 /* LamberJackWalking.atlas in Resources */,
+				3F47F9CB192D50F900C36A39 /* HunterWalking.atlas in Resources */,
 				3FB2A496191B7C580027B2C7 /* prune@2x.png in Resources */,
+				3F47F9C3192D41E200C36A39 /* LamberJackDead.atlas in Resources */,
 				10C59A181919492C00907493 /* trunk@2x.png in Resources */,
 				10C599CC191948A300907493 /* Main_iPhone.storyboard in Resources */,
 				3FB2A494191B79900027B2C7 /* coconut@2x.png in Resources */,
