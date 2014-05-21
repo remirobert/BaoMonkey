@@ -85,7 +85,8 @@
         _tank.currentStrat += 1;
         _currentStrat += 1;
         _currentShootTime = currentTime + 1;
-        
+        if (_currentStrat == 1)
+            [self.view presentScene:_parentScene];
     }
     
     
@@ -98,7 +99,6 @@
         [_tank shootTank:_monkey.sprite.position scene:self];
         [_tank shootTank:_monkey.sprite.position scene:self];
         _currentShootTime = currentTime + 1.0;
-        
     }
     
     [self enumerateChildNodesWithName:NAME_SPRITE_SHOOT_TANK usingBlock:^(SKNode *node, BOOL *stop) {

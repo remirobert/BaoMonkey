@@ -264,8 +264,13 @@
 -(void)update:(CFTimeInterval)currentTime {
     
     if ([GameData getScore] >= 10) {
-        TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
-        [self.view presentScene:tankScene];
+        
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
+            [self.view presentScene:tankScene];
+        });
+        
     }
     
     if ([[GameData singleton] isPause]) {
