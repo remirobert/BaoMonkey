@@ -50,6 +50,25 @@
     [userData.user setBool:YES forKey:LAUNCH_KEY];
 }
 
++ (void) updateAchievementStatus {
+    UserData *userData = [UserData defaultUser];
+    
+    userData.achievement_enemy_1 = [userData.user boolForKey:ACHIEVEMENT_ENEMY1];
+    userData.achievement_enemy_2 = [userData.user boolForKey:ACHIEVEMENT_ENEMY2];
+    userData.achievement_enemy_3 = [userData.user boolForKey:ACHIEVEMENT_ENEMY3];
+    userData.achievement_enemy_4 = [userData.user boolForKey:ACHIEVEMENT_ENEMY4];
+    
+    userData.achievement_score_1 = [userData.user boolForKey:ACHIEVEMENT_SCORE1];
+    userData.achievement_score_2 = [userData.user boolForKey:ACHIEVEMENT_SCORE2];
+    userData.achievement_score_3 = [userData.user boolForKey:ACHIEVEMENT_SCORE3];
+    userData.achievement_score_4 = [userData.user boolForKey:ACHIEVEMENT_SCORE4];
+    
+    userData.achievement_plums_1 = [userData.user boolForKey:ACHIEVEMENT_PLUMS1];
+    userData.achievement_plums_2 = [userData.user boolForKey:ACHIEVEMENT_PLUMS2];
+    userData.achievement_plums_3 = [userData.user boolForKey:ACHIEVEMENT_PLUMS3];
+    userData.achievement_plums_4 = [userData.user boolForKey:ACHIEVEMENT_PLUMS4];
+}
+
 + (void) initUserData {
     UserData *userData;
     
@@ -58,23 +77,16 @@
     userData.prune_score = [userData.user integerForKey:PRUNE_KEY];
     userData.score = [userData.user integerForKey:SCORE_KEY];
     
-    userData.achievement_enemy_1 = [userData.user boolForKey:ACHIEVEMENT_ENEMY1];
-    userData.achievement_enemy_2 = [userData.user boolForKey:ACHIEVEMENT_ENEMY2];
-    userData.achievement_enemy_3 = [userData.user boolForKey:ACHIEVEMENT_ENEMY3];
-    userData.achievement_enemy_4 = [userData.user boolForKey:ACHIEVEMENT_ENEMY4];
-
-    userData.achievement_score_1 = [userData.user boolForKey:ACHIEVEMENT_SCORE1];
-    userData.achievement_score_2 = [userData.user boolForKey:ACHIEVEMENT_SCORE2];
-    userData.achievement_score_3 = [userData.user boolForKey:ACHIEVEMENT_SCORE3];
-    userData.achievement_score_4 = [userData.user boolForKey:ACHIEVEMENT_SCORE4];
-
-    userData.achievement_plums_1 = [userData.user boolForKey:ACHIEVEMENT_PLUMS1];
-    userData.achievement_plums_2 = [userData.user boolForKey:ACHIEVEMENT_PLUMS2];
-    userData.achievement_plums_3 = [userData.user boolForKey:ACHIEVEMENT_PLUMS3];
-    userData.achievement_plums_4 = [userData.user boolForKey:ACHIEVEMENT_PLUMS4];
+    [UserData updateAchievementStatus];
 }
 
-+ (BOOL) check
++ (BOOL) completedAchievement:(NSString *)achievement {
+    BOOL currentComplet = [[UserData defaultUser] achievement_enemy_1];
+    
+    [[UserData defaultUser].user setBool:YES forKey:achievement];
+    [UserData updateAchievementStatus];
+    return (currentComplet);
+}
 
 + (void) saveUserData {
     UserData *userData;
