@@ -10,10 +10,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import "Define.h"
 #import "GameData.h"
+#import "Music.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic) AVAudioPlayer *backgroundMusicPlayer;
 
 @end

@@ -14,6 +14,7 @@
 
 + (void) loadDataWithKey:(id)data key:(NSString *)key;
 + (id) getDataWithKey:(NSString *)key;
++ (void) removeDataWithKey:(NSString *)key;
 
 +(SKAction *)playSoundFileNamed:(NSString *)filename atVolume:(CGFloat)volume waitForCompletion:(BOOL)wait;
 

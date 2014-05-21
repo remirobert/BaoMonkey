@@ -61,6 +61,7 @@
 		29E98BB4191A882B0046F9B2 /* lamberjack-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E98BB2191A882B0046F9B2 /* lamberjack-left@2x.png */; };
 		29E98BB5191A882B0046F9B2 /* lamberjack-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E98BB3191A882B0046F9B2 /* lamberjack-right@2x.png */; };
 		3F0CD895191D423E0079A5EB /* baomonkey.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3F0CD894191D423E0079A5EB /* baomonkey.m4a */; };
+		3F47F9B5192CCF9D00C36A39 /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F47F9B4192CCF9D00C36A39 /* Music.m */; };
 		3F5959DC191C1D5B006EE846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5959DB191C1D5B006EE846 /* HomeViewController.m */; };
 		3F64F75B191A8EB400102094 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F75A191A8EB400102094 /* GameData.m */; };
 		3F64F766191A9DD900102094 /* ProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F765191A9DD900102094 /* ProgressBar.m */; };
@@ -171,6 +172,8 @@
 		29E98BB2191A882B0046F9B2 /* lamberjack-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lamberjack-left@2x.png"; path = "Enemy/lamberjack-left@2x.png"; sourceTree = "<group>"; };
 		29E98BB3191A882B0046F9B2 /* lamberjack-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lamberjack-right@2x.png"; path = "Enemy/lamberjack-right@2x.png"; sourceTree = "<group>"; };
 		3F0CD894191D423E0079A5EB /* baomonkey.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = baomonkey.m4a; sourceTree = "<group>"; };
+		3F47F9B3192CCF9D00C36A39 /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
+		3F47F9B4192CCF9D00C36A39 /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
 		3F5959DA191C1D5B006EE846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		3F5959DB191C1D5B006EE846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		3F64F759191A8EB400102094 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
@@ -432,6 +435,15 @@
 			name = Enemies;
 			sourceTree = "<group>";
 		};
+		3F47F9B6192CCFA600C36A39 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				3F47F9B3192CCF9D00C36A39 /* Music.h */,
+				3F47F9B4192CCF9D00C36A39 /* Music.m */,
+			);
+			name = Music;
+			sourceTree = "<group>";
+		};
 		3F50F12119194EB200A37F85 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,6 +458,7 @@
 		3F50F12219194EB700A37F85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3F47F9B6192CCFA600C36A39 /* Music */,
 				10B4196119260667005D4EDC /* UserData */,
 				3FF6376E191CD50E000721A2 /* Resume */,
 				3FF6376C191CD502000721A2 /* GameOver */,
@@ -783,6 +796,7 @@
 				3FB67CDB192B4FF700381BDC /* Resume.m in Sources */,
 				3FF63771191CD532000721A2 /* GameOver.m in Sources */,
 				1010BD5519261655003F8436 /* PreloadData.m in Sources */,
+				3F47F9B5192CCF9D00C36A39 /* Music.m in Sources */,
 				296AFB8D191BDFD7009D5B75 /* Hunter.m in Sources */,
 				29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */,
 				29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */,
