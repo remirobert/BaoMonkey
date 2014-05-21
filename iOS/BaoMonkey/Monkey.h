@@ -35,4 +35,6 @@
 
 -(void)stopAnimation;
 
+-(void)launchWeapon;
+
 @end

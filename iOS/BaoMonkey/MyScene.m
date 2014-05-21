@@ -100,7 +100,9 @@
         }
     } else if (location.y <= [UIScreen mainScreen].bounds.size.height - 30) {
         if (![GameData isPause]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
+            if (monkey == nil)
+                NSLog(@"monkey is nil");
+            [monkey launchWeapon];
         }
     }
     
@@ -263,15 +265,15 @@
 
 -(void)update:(CFTimeInterval)currentTime {
     
-    if ([GameData getScore] >= 10) {
-        
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
-            [self.view presentScene:tankScene];
-        });
-        
-    }
+    /* TEST TANK GAME UNCOMMNT FOR TRY */
+//    if ([GameData getScore] >= 10) {
+//        
+//        static dispatch_once_t onceToken;
+//        dispatch_once(&onceToken, ^{
+//            TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
+//            [self.view presentScene:tankScene];
+//        });
+//    }
     
     if ([[GameData singleton] isPause]) {
         
