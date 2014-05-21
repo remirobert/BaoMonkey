@@ -102,6 +102,7 @@
             [node removeFromParent];
         }];
     });
+    [self lowStrat:positionMonkey :scene];
 }
 
 - (void) shootTank:(CGPoint)positionMonkey scene:(SKScene *)scene {
