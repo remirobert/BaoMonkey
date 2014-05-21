@@ -8,7 +8,12 @@
 
 #import "Tank.h"
 
-@implementation Tank
+@interface Tank ()
+@end
+
+@implementation Tank {
+    SEL selectorStrat[3];
+}
 
 - (void) initSpriteTank {
     _tankSprite = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor]
@@ -46,17 +51,28 @@
     }
 }
 
-- (void) shootTank:(CGPoint)positionMonkey scene:(SKScene *)scene {
-    SKSpriteNode *nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(25, 25)];
+- (void) lowStrat:(CGPoint)positionMonkey :(SKScene *)scene {
+    SKSpriteNode *nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(15, 15)];
     
     nodeShoot.position = _tankSprite.position;
     nodeShoot.name = NAME_SPRITE_SHOOT_TANK;
+    
+    SKAction *shoot = [SKAction moveTo:CGPointMake(rand() % 80 + (positionMonkey.x - 40), [UIScreen mainScreen].bounds.size.height) duration:1.5];
+    
+    SKAction *wait = [SKAction waitForDuration:1.0 withRange:1.0];
     [scene addChild:nodeShoot];
     
-    SKAction *shoot = [SKAction moveTo:CGPointMake(rand() % 40 + (positionMonkey.x - 20), [UIScreen mainScreen].bounds.size.height) duration:1.5];
+    SKAction *sequenceAction = [SKAction sequence:@[wait, shoot]];
     
-    SKAction *sequenceShoot = [SKAction sequence:@[shoot]];
-    [nodeShoot runAction:sequenceShoot];
+    [nodeShoot runAction:sequenceAction];
+}
+
+- (void) shootTank:(CGPoint)positionMonkey scene:(SKScene *)scene {
+    SEL selectorStrat[3];
+    
+    _selectorStrat = [NSArray arrayWithObjects:@selector(lowStrat::), nil];
+    
+    
 }
 
 @end
