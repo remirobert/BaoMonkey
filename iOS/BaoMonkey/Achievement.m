@@ -28,8 +28,9 @@
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_POINTS) count]; index += 2) {
         CGFloat percent = 100 * currentScore / [[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index] integerValue];
         
-        if (percent >= 100 && ((GKAchievement *)[ach.achievementScore
-                                                 objectAtIndex:indexAchievement]).completed == NO) {
+        if (percent >= 100 && [UserData completedAchievement:[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index - 1]] == NO &&
+            ((GKAchievement *)[ach.achievementScore
+                               objectAtIndex:indexAchievement]).completed == NO) {
             
             if (currentScore >= [[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index] integerValue])
             
@@ -53,7 +54,8 @@
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_ENEMIES) count]; index += 2) {
         CGFloat percent = 100 * currentEnemy / [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue];
         
-        if (percent >= 100 && ((GKAchievement *)[ach.achievementEnemy
+        if (percent >= 100 && [UserData completedAchievement:[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index - 1]] == NO &&
+            ((GKAchievement *)[ach.achievementEnemy
                                                  objectAtIndex:indexAchievement]).completed == NO) {
 
             if (currentEnemy == [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue])
@@ -78,8 +80,9 @@
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_PLUMS) count]; index += 2) {
             CGFloat percent = 100 * currentPrune / [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue];
         
-            if (percent >= 100 && ((GKAchievement *)[ach.achievementPlums
-                                                     objectAtIndex:indexAchievement]).completed == NO) {
+            if (percent >= 100 && [UserData completedAchievement:[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index - 1]] == NO &&
+                ((GKAchievement *)[ach.achievementPlums
+                                   objectAtIndex:indexAchievement]).completed == NO) {
                 
                 if (currentPrune >= [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue])
 

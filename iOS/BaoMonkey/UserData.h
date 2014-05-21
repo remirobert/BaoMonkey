@@ -26,6 +26,7 @@
 + (void) addPrune;
 + (void) updateScore:(NSInteger)score;
 + (instancetype) defaultUser;
++ (BOOL) completedAchievement:(NSString *)achievement;
 
 +(CGFloat)getAccelerometerUserSpeed;
 +(CGFloat)getMusicUserVolume;
