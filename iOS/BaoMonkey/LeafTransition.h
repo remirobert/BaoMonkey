@@ -1,5 +1,5 @@
 //
-//  PauseTransition.h
+//  LeafTransition.h
 //  BaoMonkey
 //
 //  Created by Rémi Hillairet on 20/05/2014.
@@ -9,14 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 
-@interface PauseTransition : NSObject {
+@interface LeafTransition : NSObject {
     SKSpriteNode *upLeaf;
     SKSpriteNode *bottomLeaf;
     SKScene *scene;
     NSArray *pauseButton;
+    NSArray *gameOverButton;
 }
 
--(id)init;
--(void)runTransition:(SKScene*)_scene;
+-(id)initWithScene:(SKScene*)_scene;
+-(void)runPauseTransition;
+-(void)runGameOverTransition;
 
 @end

@@ -9,7 +9,7 @@
 #import "MyScene.h"
 #import "MyScene+GeneratorWave.h"
 #import "UserData.h"
-#import "PauseTransition.h"
+#import "LeafTransition.h"
 
 # define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
@@ -166,7 +166,7 @@
     ** Pause control timer
     */
     
-    pauseTransition = [[PauseTransition alloc] init];
+    leafTransition = [[LeafTransition alloc] initWithScene:self];
     pauseTime = 0;
     lastTime = 0;
     oncePause = 0;
@@ -233,7 +233,7 @@
     SKNode *pauseNode = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
     [pauseNode removeFromParent];
     
-    [pauseTransition runTransition:self];
+    [leafTransition runPauseTransition];
     
     self.speed = 0;
     for (Item *item in _wave) {
@@ -301,8 +301,9 @@
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
-            GameOver *gameOverView = [[GameOver alloc] init];
-            [self addChild:[gameOverView launchGameOverView]];
+//            GameOver *gameOverView = [[GameOver alloc] init];
+//            [self addChild:[gameOverView launchGameOverView]];
+            [leafTransition runGameOverTransition];
             [GameData gameOver];
         }
     }];

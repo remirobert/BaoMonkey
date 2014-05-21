@@ -17,5 +17,6 @@
 +(SKSpriteNode *)resumeNode;
 +(SKSpriteNode *)homeNode;
 +(SKSpriteNode *)settingsNode;
++(SKSpriteNode *)gameOverNode;
 
 @end
