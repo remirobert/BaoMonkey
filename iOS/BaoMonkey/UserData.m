@@ -77,6 +77,10 @@
     userData.prune_score = [userData.user integerForKey:PRUNE_KEY];
     userData.score = [userData.user integerForKey:SCORE_KEY];
     
+    userData.musicVolume = [userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME];
+    userData.soundEffectsVolume = [userData.user floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME];
+    userData.accelerometerSpeed = [userData.user floatForKey:NSUSERDEFAULT_ACCELEROMETER_SPEED];
+    
     [UserData updateAchievementStatus];
 }
 
@@ -154,7 +158,7 @@
 }
 
 -(CGFloat)getSoundEffectsUserVolume{
-    return musicVolume;
+    return soundEffectsVolume;
 }
 
 +(void)setAccelerometerUserSpeed:(CGFloat)speed{

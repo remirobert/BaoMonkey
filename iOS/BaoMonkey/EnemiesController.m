@@ -80,7 +80,10 @@
 -(void)addClimber {
     Climber *newClimber;
     
-    newClimber = [[Climber alloc] initWithDirection:LEFT];
+    if (rand() % 2 == 1)
+        newClimber = [[Climber alloc] initWithDirection:LEFT];
+    else
+        newClimber = [[Climber alloc] initWithDirection:RIGHT];
     
     [enemies addObject:newClimber];
     [scene addChild:newClimber.node];

@@ -37,6 +37,12 @@
     return (item);
 }
 
++ (void) removeDataWithKey:(NSString *)key {
+    PreloadData *defaultData = [PreloadData defaultData];
+
+    [defaultData.data removeObjectForKey:key];
+}
+
 +(SKAction *)playSoundFileNamed:(NSString *)filename atVolume:(CGFloat)volume waitForCompletion:(BOOL)wait{
     return [[PreloadData defaultData] playSoundFileNamed:filename atVolume:volume waitForCompletion:wait];
 }

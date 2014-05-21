@@ -122,7 +122,7 @@
 # define NSUSERDEFAULT_EFFECTS_VOLUME       @"NSUSERDEFAULT_EFFECTS_VOLUME"
 
 /*
-** Stroryboard tag
+** STORYBOARD TAG
 */
 
 # define TAG_SLIDER_MUSIC_VOLUME 1
@@ -142,5 +142,12 @@
 # define    ACHIEVEMENT_POINTS  [NSArray arrayWithObjects:@"Achievement_500points", @"500", @"Achievement_1000points", @"1000", @"Achievement_1500points", @"1500", @"Achievement_5000points", @"5000", nil]
 # define    ACHIEVEMENT_PLUMS   [NSArray arrayWithObjects:@"Achievement_10plums", @"10", @"Achievement_50plums", @"50", @"Achievement_500plums", @"500", @"Achievement_2500plums", @"2500", nil]
 # define    ACHIEVEMENT_ENEMIES [NSArray arrayWithObjects:@"Achievement_50Enemies", @"50", @"Achievement_500Enemies", @"500", @"Achievement_5000Enemies", @"5000", @"Achievement_15000Enemies", @"15000", nil]
+
+/*
+** TRUNK LIFE
+*/
+
+# define LUMBERJACK_DESTROY_POINT 0.05
+# define TRUNKLIFE_REGENERATE 0.02
 
 #endif

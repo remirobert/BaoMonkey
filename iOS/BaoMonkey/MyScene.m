@@ -147,6 +147,7 @@
     [trunkProgressLife createFront];
     trunkProgressLife.background.name = BACKGROUND_PROGRESS_BAR_NODE_NAME;
     trunkProgressLife.front.name = FRONT_PROGRESS_BAR_NODE_NAME;
+    [trunkProgressLife updateProgression:100.0f];
     [self addChild:trunkProgressLife.background];
     [self addChild:trunkProgressLife.front];
     
@@ -338,7 +339,7 @@
     for (Enemy *enemy in self->enemiesController.enemies) {
         if (enemy.type == EnemyTypeLamberJack) {
             if (((LamberJack *)enemy).isChooping) {
-                [[GameData singleton] substractLifeToTrunkLife:0.01f];
+                [[GameData singleton] substractLifeToTrunkLife:LUMBERJACK_DESTROY_POINT];
             }
         }
         else if (enemy.type == EnemyTypeHunter && ((Hunter *)enemy).isMoving == NO) {
@@ -349,7 +350,11 @@
             
     }
     
-    [trunkProgressLife updateProgression:[[GameData singleton] getTrunkLife]];
+    if ([GameData getTrunkLife] < 0) {
+        // Call the GameOver view when the trunk is dead
+    } else{
+        [trunkProgressLife updateProgression:[GameData getTrunkLife]];
+    }
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
 }
 
