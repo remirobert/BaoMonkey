@@ -39,6 +39,22 @@
 # define SCORE_KEY                          @"score_key"
 # define LAUNCH_KEY                         @"launch_key"
 
+# define ACHIEVEMENT_SCORE1                 @"achievement_score1"
+# define ACHIEVEMENT_SCORE2                 @"achievement_score2"
+# define ACHIEVEMENT_SCORE3                 @"achievement_score3"
+# define ACHIEVEMENT_SCORE4                 @"achievement_score4"
+
+# define ACHIEVEMENT_PLUMS1                 @"achievement_plums1"
+# define ACHIEVEMENT_PLUMS2                 @"achievement_plums2"
+# define ACHIEVEMENT_PLUMS3                 @"achievement_plums3"
+# define ACHIEVEMENT_PLUMS4                 @"achievement_plums4"
+
+# define ACHIEVEMENT_ENEMY1                 @"achievement_enemy1"
+# define ACHIEVEMENT_ENEMY2                 @"achievement_enemy2"
+# define ACHIEVEMENT_ENEMY3                 @"achievement_enemy3"
+# define ACHIEVEMENT_ENEMY4                 @"achievement_enemy4"
+
+
 /*
 ** ACCELEROMETER
 */

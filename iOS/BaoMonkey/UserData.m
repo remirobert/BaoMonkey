@@ -11,9 +11,22 @@
 #import "Achievement.h"
 
 @interface UserData ()
-
 @property (nonatomic, strong) NSUserDefaults *user;
 
+@property (nonatomic, assign) BOOL achievement_score_1;
+@property (nonatomic, assign) BOOL achievement_score_2;
+@property (nonatomic, assign) BOOL achievement_score_3;
+@property (nonatomic, assign) BOOL achievement_score_4;
+
+@property (nonatomic, assign) BOOL achievement_enemy_1;
+@property (nonatomic, assign) BOOL achievement_enemy_2;
+@property (nonatomic, assign) BOOL achievement_enemy_3;
+@property (nonatomic, assign) BOOL achievement_enemy_4;
+
+@property (nonatomic, assign) BOOL achievement_plums_1;
+@property (nonatomic, assign) BOOL achievement_plums_2;
+@property (nonatomic, assign) BOOL achievement_plums_3;
+@property (nonatomic, assign) BOOL achievement_plums_4;
 @end
 
 @implementation UserData
@@ -44,6 +57,21 @@
     userData.enemy_score = [userData.user integerForKey:ENEMY_KEY];
     userData.prune_score = [userData.user integerForKey:PRUNE_KEY];
     userData.score = [userData.user integerForKey:SCORE_KEY];
+    
+    userData.achievement_enemy_1 = [userData.user boolForKey:ACHIEVEMENT_ENEMY1];
+    userData.achievement_enemy_2 = [userData.user boolForKey:ACHIEVEMENT_ENEMY2];
+    userData.achievement_enemy_3 = [userData.user boolForKey:ACHIEVEMENT_ENEMY3];
+    userData.achievement_enemy_4 = [userData.user boolForKey:ACHIEVEMENT_ENEMY4];
+
+    userData.achievement_score_1 = [userData.user boolForKey:ACHIEVEMENT_SCORE1];
+    userData.achievement_score_2 = [userData.user boolForKey:ACHIEVEMENT_SCORE2];
+    userData.achievement_score_3 = [userData.user boolForKey:ACHIEVEMENT_SCORE3];
+    userData.achievement_score_4 = [userData.user boolForKey:ACHIEVEMENT_SCORE4];
+
+    userData.achievement_plums_1 = [userData.user boolForKey:ACHIEVEMENT_PLUMS1];
+    userData.achievement_plums_2 = [userData.user boolForKey:ACHIEVEMENT_PLUMS2];
+    userData.achievement_plums_3 = [userData.user boolForKey:ACHIEVEMENT_PLUMS3];
+    userData.achievement_plums_4 = [userData.user boolForKey:ACHIEVEMENT_PLUMS4];
 }
 
 + (void) saveUserData {
