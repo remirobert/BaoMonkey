@@ -211,17 +211,31 @@
         [countDownNode removeFromParent];
         [GameData resumeGame];
         countDown = 3;
+        
+        // Reactive speed & physics
+        self.speed = 1.0;
+        [self addChild:[self pauseNode]];
+        
+        for (Item *item in _wave) {
+            [item resumeTimer];
+            if (item.isTaken == NO)
+                item.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:item.node.frame.size.width / 2];
+        }
+        
+        [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+            node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.frame.size.width / 2];
+        }];
     }
 }
 
 - (void) pauseGame {
     //[self launchPauseView];
+    SKNode *pauseNode = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
+    [pauseNode removeFromParent];
+    
     [pauseTransition runTransition:self];
     
     self.speed = 0;
-    SKNode *text = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
-    
-    ((SKLabelNode *)text).text = [NSString stringWithFormat:@"Play"];
     for (Item *item in _wave) {
         [item pauseTimer];
         item.node.physicsBody = nil;
@@ -241,20 +255,6 @@
 - (void) resumeGame {
     //[self removePauseView];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RESUME_GAME object:nil];
-    self.speed = 1.0;
-    SKNode *text = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
-    
-    ((SKLabelNode *)text).text = [NSString stringWithFormat:@"Pause"];
-    for (Item *item in _wave) {
-        [item resumeTimer];
-        if (item.isTaken == NO)
-            item.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:item.node.frame.size.width / 2];
-    }
-    
-    [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-        node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.frame.size.width / 2];
-    }];
-    
     [self gameCountDown];
 }
 
