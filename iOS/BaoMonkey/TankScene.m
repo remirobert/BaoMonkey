@@ -72,6 +72,9 @@
     }
     
     if (currentTime >= _timerStrat) {
+        
+        _timerStrat = currentTime + 30;
+        _currentStrat += 1;
         NSLog(@"start ok");
     }
     
@@ -79,6 +82,13 @@
     [GameController updateAccelerometerAcceleration];
     [_monkey updateMonkeyPosition:[GameController getAcceleration]];
     [_tank move];
+    [_tank shootTank:_monkey.sprite.position scene:self];
+    
+    
+    [self enumerateChildNodesWithName:NAME_SPRITE_SHOOT_TANK usingBlock:^(SKNode *node, BOOL *stop) {
+        if (node.position.y >= [UIScreen mainScreen].bounds.size.height)
+            [node removeFromParent];
+    }];
 }
 
 @end

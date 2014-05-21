@@ -46,4 +46,18 @@
     }
 }
 
+- (void) shootTank:(CGPoint)positionMonkey scene:(SKScene *)scene {
+    SKSpriteNode *nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(25, 25)];
+    
+    nodeShoot.position = _tankSprite.position;
+    nodeShoot.name = NAME_SPRITE_SHOOT_TANK;
+    [scene addChild:nodeShoot];
+    
+    SKAction *waitAction = [SKAction waitForDuration:1.0 withRange:1.0];
+    SKAction *shoot = [SKAction moveTo:CGPointMake(rand() % 20 + positionMonkey.x, [UIScreen mainScreen].bounds.size.height) duration:1.5];
+    
+    SKAction *sequenceShoot = [SKAction sequence:@[waitAction, shoot]];
+    [nodeShoot runAction:sequenceShoot];
+}
+
 @end

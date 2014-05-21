@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 
+# define NAME_SPRITE_SHOOT_TANK     @"sprite_name_shoot_tank"
+
 NS_ENUM(int, SENS_TANK){
     LEFT = 0,
     RIGHT = 1
@@ -17,8 +19,10 @@ NS_ENUM(int, SENS_TANK){
 
 @property (nonatomic, strong) SKSpriteNode *tankSprite;
 @property (nonatomic, assign) enum SENS_TANK sens;
+@property (nonatomic, assign) NSInteger currentStrat;
 
 - (instancetype) init;
 - (void) move;
+- (void) shootTank:(CGPoint)positionMonkey scene:(SKScene *)scene;
 
 @end
