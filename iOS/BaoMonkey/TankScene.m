@@ -16,6 +16,7 @@
 @property (nonatomic, strong) Tank *tank;
 @property (nonatomic, assign) NSTimeInterval timerStrat;
 @property (nonatomic, assign) NSInteger currentStrat;
+@property (nonatomic, assign) NSInteger currentShootTime;
 @end
 
 @implementation TankScene
@@ -69,12 +70,14 @@
 - (void) update:(NSTimeInterval)currentTime {
     if (_timerStrat == 0) {
         _timerStrat = currentTime + 30;
+        _currentShootTime = currentTime + 1;
     }
     
     if (currentTime >= _timerStrat) {
         
         _timerStrat = currentTime + 30;
         _currentStrat += 1;
+        _currentShootTime = currentTime + 1;
         NSLog(@"start ok");
     }
     
@@ -82,8 +85,13 @@
     [GameController updateAccelerometerAcceleration];
     [_monkey updateMonkeyPosition:[GameController getAcceleration]];
     [_tank move];
-    [_tank shootTank:_monkey.sprite.position scene:self];
     
+    if (currentTime >= _currentShootTime) {
+        [_tank shootTank:_monkey.sprite.position scene:self];
+        [_tank shootTank:_monkey.sprite.position scene:self];
+        [_tank shootTank:_monkey.sprite.position scene:self];
+        _currentShootTime = currentTime + 1;
+    }
     
     [self enumerateChildNodesWithName:NAME_SPRITE_SHOOT_TANK usingBlock:^(SKNode *node, BOOL *stop) {
         if (node.position.y >= [UIScreen mainScreen].bounds.size.height)

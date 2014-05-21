@@ -53,10 +53,9 @@
     nodeShoot.name = NAME_SPRITE_SHOOT_TANK;
     [scene addChild:nodeShoot];
     
-    SKAction *waitAction = [SKAction waitForDuration:1.0 withRange:1.0];
-    SKAction *shoot = [SKAction moveTo:CGPointMake(rand() % 20 + positionMonkey.x, [UIScreen mainScreen].bounds.size.height) duration:1.5];
+    SKAction *shoot = [SKAction moveTo:CGPointMake(rand() % 40 + (positionMonkey.x - 20), [UIScreen mainScreen].bounds.size.height) duration:1.5];
     
-    SKAction *sequenceShoot = [SKAction sequence:@[waitAction, shoot]];
+    SKAction *sequenceShoot = [SKAction sequence:@[shoot]];
     [nodeShoot runAction:sequenceShoot];
 }
 
