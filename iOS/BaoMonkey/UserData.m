@@ -74,6 +74,8 @@
     userData.achievement_plums_4 = [userData.user boolForKey:ACHIEVEMENT_PLUMS4];
 }
 
++ (BOOL) check
+
 + (void) saveUserData {
     UserData *userData;
     
