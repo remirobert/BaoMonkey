@@ -14,6 +14,7 @@
 @interface TankScene ()
 @property (nonatomic, strong) Monkey *monkey;
 @property (nonatomic, strong) Tank *tank;
+@property (nonatomic, assign) NSTimeInterval timerStrat;
 @end
 
 @implementation TankScene
@@ -56,6 +57,7 @@
     if (self != nil) {
         self.view.frame = CGRectMake(0, 0, size.width, size.height);
         self.backgroundColor = [SKColor redColor];
+        _timerStrat = 0;
         [self initScene];
         [self initTank];
     }
@@ -63,6 +65,14 @@
 }
 
 - (void) update:(NSTimeInterval)currentTime {
+    if (_timerStrat == 0) {
+        _timerStrat = currentTime + 1000;
+    }
+    
+    if (currentTime >= _timerStrat) {
+        NSLog(@"start ok");
+    }
+    
     [GameController updateAccelerometerAcceleration];
     [_monkey updateMonkeyPosition:[GameController getAcceleration]];
     [_tank move];
