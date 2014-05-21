@@ -49,7 +49,12 @@
         position.y = MIN_POSY_FLOOR + (SPACE_BETWEEN * (nbFloor)) - (self.node.size.height / 2) - 10;
         [node setPosition:position];
         _isMoving = YES;
-        [node runAction:actionMove completion:^{
+        
+        CGFloat randomWait = 0.5 + (float)(rand()) / (float) (RAND_MAX/(2.0 - 1.0));
+        
+        SKAction *sequence = [SKAction sequence:@[[SKAction waitForDuration:randomWait], actionMove]];
+        
+        [node runAction:sequence completion:^{
             _isMoving = NO;
         }];
     }
