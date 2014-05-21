@@ -35,7 +35,7 @@ header {
     background-repeat: no-repeat;
     background-position: bottom center!important;
     padding-top: 50px;
-    padding-bottom: 200px;
+    padding-bottom: 50px;
     color: #fff;
     height: 100%;
     z-index: 3;
@@ -58,8 +58,8 @@ header {
     FEATURES
 ----------------------------------------*/
 #features {
-    padding-top: 100px;
-    padding-bottom: 150px;
+    padding-top: 50px;
+    padding-bottom: 30px;
 }
 
 #features .item {
@@ -89,8 +89,8 @@ header {
     ABOUT
 ----------------------------------------*/
 #about {
-    padding-top: 100px;
-    padding-bottom: 150px;
+    padding-top: 50px;
+    padding-bottom: 30px;
     background-color: #4DAE34;
 }
 #about .user {
@@ -140,9 +140,9 @@ header {
     GALLERY
 ----------------------------------------*/
 #gallery {
-    background-color: #fff;
-    padding-top: 100px;
-    padding-bottom: 150px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    background-color: #4DAE34;
 }
 #owl-demo .item {
     margin: 10px;
