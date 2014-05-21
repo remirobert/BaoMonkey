@@ -48,12 +48,15 @@
         node.name = ENEMY_NODE_NAME;
         position.y = MIN_POSY_FLOOR + (SPACE_BETWEEN * (nbFloor)) - (self.node.size.height / 2) - 10;
         [node setPosition:position];
-        [node runAction:actionMove];
+        _isMoving = YES;
+        [node runAction:actionMove completion:^{
+            _isMoving = NO;
+        }];
     }
     return self;
 }
 
-- (SKSpriteNode *) shootMonkey :(CFTimeInterval)currentTime :(CGPoint)positionMonkey {
+- (SKSpriteNode *) shootMonkey :(CFTimeInterval)currentTime :(CGPoint)positionMonkey {    
     int positionX;
     SKAction *moveShoot;
     
@@ -69,7 +72,8 @@
     
     SKSpriteNode *shoot = [[SKSpriteNode alloc] initWithColor:[SKColor blackColor] size:CGSizeMake(10, 10)];
     
-    moveShoot = [SKAction moveTo:CGPointMake(positionX, [UIScreen mainScreen].bounds.size.height) duration:2.0 - (float)([GameData getLevel] / 10.0)];
+    moveShoot = [SKAction moveTo:CGPointMake(positionX, [UIScreen mainScreen].bounds.size.height)
+                        duration:2.0 - (float)([GameData getLevel] / 10.0)];
 
     shoot.name = SHOOT_NODE_NAME;
     shoot.position = self.node.position;

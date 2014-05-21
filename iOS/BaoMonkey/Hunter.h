@@ -10,7 +10,8 @@
 
 @interface Hunter : Enemy
 
-@property (nonatomic) NSInteger slot;
+@property (nonatomic, assign) NSInteger slot;
+@property (nonatomic, assign) BOOL isMoving;
 
 -(id)initWithFloor:(NSInteger)floor slot:(NSInteger)slotFloor;
 - (SKSpriteNode *) shootMonkey :(CFTimeInterval)currentTime :(CGPoint)positionMonkey;

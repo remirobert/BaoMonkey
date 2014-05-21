@@ -31,7 +31,7 @@
         if (percent >= 100 && ((GKAchievement *)[ach.achievementScore
                                                  objectAtIndex:indexAchievement]).completed == NO) {
             
-            if (currentScore == [[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index] integerValue])
+            if (currentScore >= [[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index] integerValue])
             
                 [GKNotificationBanner showBannerWithTitle:@"Score"
                                                   message:[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index - 1]
@@ -81,7 +81,7 @@
             if (percent >= 100 && ((GKAchievement *)[ach.achievementPlums
                                                      objectAtIndex:indexAchievement]).completed == NO) {
                 
-                if (currentPrune == [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue])
+                if (currentPrune >= [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue])
 
                     [GKNotificationBanner showBannerWithTitle:@"Plums"
                                                       message:[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index - 1]
