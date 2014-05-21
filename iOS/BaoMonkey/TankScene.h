@@ -11,7 +11,7 @@
 
 @interface TankScene : SKScene
 
-- (instancetype) initWithSize:(CGSize)size;
+- (instancetype) initWithSize:(CGSize)size parent:(SKScene *)parentScene;
 
 @property (nonatomic) TreeBranch *treeBranch;
 
