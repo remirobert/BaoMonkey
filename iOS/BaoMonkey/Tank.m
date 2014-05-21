@@ -68,24 +68,40 @@
 }
 
 - (void) mediumStrat:(CGPoint)positionMonkey :(SKScene *)scene {
-    
+    static int shootReady = 0;
     static dispatch_once_t onceToken;
+    
     dispatch_once(&onceToken, ^{
         SKSpriteNode *nodeShoot;
         
         nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(20, 20)];
         
+        nodeShoot.name = NAME_SPRITE_FIRE_TANK;
         [scene addChild:nodeShoot];
         
         nodeShoot.position = _tankSprite.position;
-        SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % 2 - ([UIScreen mainScreen].bounds.size.width / 2) + ([UIScreen mainScreen].bounds.size.width / 2), positionMonkey.y) duration:3.0];
+        SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width), positionMonkey.y) duration:2.0];
         
-        [nodeShoot runAction:moveShoot];
+        SKAction *fireAction = [SKAction resizeToWidth:rand() % 40 + 60 duration:1.5];
+        
+        [nodeShoot runAction:moveShoot completion:^{
+            [nodeShoot runAction:fireAction];
+            shootReady = 1;
+        }];
     });
+    if (shootReady == 1) {
+        [self lowStrat:positionMonkey :scene];
+    }
 }
 
 - (void) hardStrat:(CGPoint)positionMonkey :(SKScene *)scene {
+    static dispatch_once_t onceToken;
     
+    dispatch_once(&onceToken, ^{
+        [scene enumerateChildNodesWithName:NAME_SPRITE_FIRE_TANK usingBlock:^(SKNode *node, BOOL *stop) {
+            [node removeFromParent];
+        }];
+    });
 }
 
 - (void) shootTank:(CGPoint)positionMonkey scene:(SKScene *)scene {

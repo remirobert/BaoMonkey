@@ -10,6 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 
 # define NAME_SPRITE_SHOOT_TANK     @"sprite_name_shoot_tank"
+# define NAME_SPRITE_FIRE_TANK      @"sprite_name_fire_tank"
 
 NS_ENUM(int, SENS_TANK){
     LEFT = 0,
