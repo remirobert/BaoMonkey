@@ -10,6 +10,7 @@
 #import "MyScene+GeneratorWave.h"
 #import "UserData.h"
 #import "PauseTransition.h"
+#import "TankScene.h"
 
 # define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
@@ -176,6 +177,7 @@
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+        
         [[GameData singleton] initGameData];
         [self initScene];
         [GameData pauseGame];
@@ -260,6 +262,11 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
+    
+    if ([GameData getScore] >= 10) {
+        TankScene *tankScene = [[TankScene alloc] initWithSize:self.size];
+        [self.view presentScene:tankScene];
+    }
     
     if ([[GameData singleton] isPause]) {
         
