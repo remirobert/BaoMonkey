@@ -28,7 +28,7 @@
     NSURL *backgroundMusicURL = [[NSBundle mainBundle] URLForResource:@"baomonkey" withExtension:@"m4a"];
     backgroundMusicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:backgroundMusicURL error:&error];
     backgroundMusicPlayer.numberOfLoops = -1;
-    if ([UserData getMusicUserVolume]) {
+    if ([UserData getMusicUserVolume] >= 0) {
         backgroundMusicPlayer.volume = [UserData getMusicUserVolume];
     } else {
         backgroundMusicPlayer.volume = 0.5;

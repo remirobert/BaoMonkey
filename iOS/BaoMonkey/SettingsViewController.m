@@ -44,19 +44,19 @@
     accelerometerSpeed.maximumValue = 100.0f;
     accelerometerSpeed.continuous = YES;
     
-    if ([UserData getMusicUserVolume]) {
+    if ([UserData getMusicUserVolume] >= 0) {
         musicVolume.value = [UserData getMusicUserVolume];
     } else {
         musicVolume.value = 0.5f;
     }
     
-    if ([UserData getSoundEffectsUserVolume]) {
+    if ([UserData getSoundEffectsUserVolume] >= 0) {
         effectsVolume.value = [UserData getSoundEffectsUserVolume];
     } else {
         effectsVolume.value = 0.5f;
     }
     
-    if ([UserData getAccelerometerUserSpeed]) {
+    if ([UserData getAccelerometerUserSpeed] >= 1) {
         accelerometerSpeed.value = [UserData getAccelerometerUserSpeed];
     } else {
         accelerometerSpeed.value = kAccelerometerSpeed;
