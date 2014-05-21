@@ -10,6 +10,7 @@
 #import "MyScene+GeneratorWave.h"
 #import "UserData.h"
 #import "PauseTransition.h"
+#import "TankScene.h"
 
 # define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
@@ -99,7 +100,9 @@
         }
     } else if (location.y <= [UIScreen mainScreen].bounds.size.height - 30) {
         if (![GameData isPause]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
+            if (monkey == nil)
+                NSLog(@"monkey is nil");
+            [monkey launchWeapon];
         }
     }
     
@@ -174,6 +177,7 @@
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+        
         [[GameData singleton] initGameData];
         [self initScene];
         [GameData pauseGame];
@@ -258,6 +262,16 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
+    
+    /* TEST TANK GAME UNCOMMNT FOR TRY */
+//    if ([GameData getScore] >= 10) {
+//        
+//        static dispatch_once_t onceToken;
+//        dispatch_once(&onceToken, ^{
+//            TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
+//            [self.view presentScene:tankScene];
+//        });
+//    }
     
     if ([[GameData singleton] isPause]) {
         

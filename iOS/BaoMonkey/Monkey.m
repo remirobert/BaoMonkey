@@ -24,7 +24,7 @@
         [self loadWalkingSprites];
 
         // Init the notification for dropping the weapon
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(launchWeapon) name:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(launchWeapon) name:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
     }
     return self;
 }
