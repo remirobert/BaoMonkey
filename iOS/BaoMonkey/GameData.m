@@ -171,7 +171,7 @@ static GameData *singleton;
 
 -(void)regenerateTrunkLife {
     if (trunkLife < 100) {
-        trunkLife += 0.02f;
+        trunkLife += TRUNKLIFE_REGENERATE;
     }
 }
 
