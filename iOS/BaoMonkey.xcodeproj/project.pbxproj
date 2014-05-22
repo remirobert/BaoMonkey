@@ -83,6 +83,7 @@
 		3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49B191BB20C0027B2C7 /* splash.mp3 */; };
 		3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */; };
 		3FB67CDB192B4FF700381BDC /* Resume.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB67CDA192B4FF600381BDC /* Resume.m */; };
+		3FB7C483192DE4CA00801643 /* BaoSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7C482192DE4CA00801643 /* BaoSize.m */; };
 		3FF111231926078C005C9DD1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF111221926078C005C9DD1 /* SettingsViewController.m */; };
 		A5731ABC19275AF300023346 /* Achievement.m in Sources */ = {isa = PBXBuildFile; fileRef = A5731ABB19275AF300023346 /* Achievement.m */; };
 /* End PBXBuildFile section */
@@ -209,6 +210,8 @@
 		3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coconut.mp3; sourceTree = "<group>"; };
 		3FB67CD9192B4FF600381BDC /* Resume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resume.h; sourceTree = "<group>"; };
 		3FB67CDA192B4FF600381BDC /* Resume.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resume.m; sourceTree = "<group>"; };
+		3FB7C481192DE4CA00801643 /* BaoSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaoSize.h; sourceTree = "<group>"; };
+		3FB7C482192DE4CA00801643 /* BaoSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoSize.m; sourceTree = "<group>"; };
 		3FF111211926078C005C9DD1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		3FF111221926078C005C9DD1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A5731ABA19275AF300023346 /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achievement.h; sourceTree = "<group>"; };
@@ -546,6 +549,7 @@
 		3F50F12519194EE000A37F85 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3FB7C480192DE4BE00801643 /* Size */,
 				299400F9192CD0FD00F0CC97 /* LabelButton */,
 			);
 			name = Helpers;
@@ -697,6 +701,15 @@
 				3FB2A49B191BB20C0027B2C7 /* splash.mp3 */,
 			);
 			path = Items;
+			sourceTree = "<group>";
+		};
+		3FB7C480192DE4BE00801643 /* Size */ = {
+			isa = PBXGroup;
+			children = (
+				3FB7C481192DE4CA00801643 /* BaoSize.h */,
+				3FB7C482192DE4CA00801643 /* BaoSize.m */,
+			);
+			name = Size;
 			sourceTree = "<group>";
 		};
 		3FF6376E191CD50E000721A2 /* Resume */ = {
@@ -867,6 +880,7 @@
 				2950D27E192B869E00C12A52 /* LeafTransition.m in Sources */,
 				10A12F0D191CD02700AA86BE /* Climber.m in Sources */,
 				10C59A1D19194BF000907493 /* CocoNuts.m in Sources */,
+				3FB7C483192DE4CA00801643 /* BaoSize.m in Sources */,
 				10C59A091919492200907493 /* ViewController.m in Sources */,
 				10123410191951CF00B035D9 /* Malus.m in Sources */,
 				10C59A061919491200907493 /* TreeBranch.m in Sources */,

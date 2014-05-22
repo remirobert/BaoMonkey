@@ -13,6 +13,7 @@
 #import "GameData.h"
 #import "Define.h"
 #import "PreloadData.h"
+#import "BaoSize.h"
 
 @implementation EnemiesController
 
@@ -38,9 +39,9 @@
 -(void)initChoppingSlots {
     choppingSlots = [[NSMutableArray alloc] init];
     CGFloat spaceDistance;
+    CGSize lamberSize = [BaoSize lamberJack];
     
-    SKSpriteNode *Lamber = [SKSpriteNode spriteNodeWithImageNamed:@"lamberjack-left"];
-    spaceDistance = Lamber.size.width + 2;
+    spaceDistance = lamberSize.width + lamberSize.width / 8;
     for (int i = 0; i < 3 ; i++) {
         NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT", [[NSNumber alloc] initWithFloat:(spaceDistance /2 + (spaceDistance * i))], @"posX", nil];
         [choppingSlots addObject:tmp];
