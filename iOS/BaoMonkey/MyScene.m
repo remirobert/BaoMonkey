@@ -260,13 +260,9 @@
 -(void)update:(CFTimeInterval)currentTime {
     
     /* TEST TANK GAME UNCOMMNT FOR TRY */
-    if ([GameData getScore] >= 10) {
-        
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
-            [self.view presentScene:tankScene];
-        });
+    if ([GameData getScore] == 10) {
+        TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
+        [self.view presentScene:tankScene];
     }
     
     if ([[GameData singleton] isPause]) {
