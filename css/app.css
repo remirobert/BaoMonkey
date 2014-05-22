@@ -89,16 +89,6 @@ header {
   text-align: center;
 }
 
-#about .team-arrow {
-  background: url(../assets/coconut.png) no-repeat; 
-  color: #0d5e4e;
-  width: 40px;
-  height: 22px;
-    -moz-animation: spin 1s infinite linear;
-    -webkit-animation: spin 1s infinite linear;
-  animation: spin 1s infinite linear;
-}
-
 .thumbnail {
     border: 0;
     text-align: center;
@@ -197,8 +187,8 @@ header {
     FOOTER
 ----------------------------------------*/
 footer {
-    background: url(../assets/footer.png);
-    background-color: #4DAE34;
+    background: url(../assets/background/footer.png);
+    background-color: #75A939;
     color: #fff;
     margin: 0;
     padding: 50px;

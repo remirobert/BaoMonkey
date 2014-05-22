@@ -4,7 +4,7 @@
 		<!-- META
 		============================== -->
         <meta charset="utf-8">
-        <meta name="description" content="Baomonkey applications">
+        <meta name="description" content="Baomonkey application">
         <meta name="author" content="Baomonkey">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         
@@ -91,16 +91,16 @@
                             <div class="flexslider">
                               <ul class="slides">
                                 <li>
-                                  <img src="assets/slider.png" />
+                                  <img src="assets/gallery/slider.png" />
                                 </li>
                                 <li>
-                                  <img src="assets/slider.png" />
+                                  <img src="assets/gallery/slider.png" />
                                 </li>
                                 <li>
-                                  <img src="assets/slider.png" />
+                                  <img src="assets/gallery/slider.png" />
                                 </li>
                                 <li>
-                                  <img src="assets/slider.png" />
+                                  <img src="assets/gallery/slider.png" />
                                 </li>
                               </ul>
                             </div>
@@ -118,14 +118,13 @@
                             <div class="overview">
                                 <h1>The team project</h1>
                                 <p class="lead">Baomonkey has been thought by Epitech and E-artsup studients. We especially wanted to make a simple and unique application.</p>
-                                <div class="team-arrow"></div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 col-sm-6 text-center">
                             <div class="thumbnail">
-                                <img src="assets/bribri.jpg" alt="gege">
+                                <img src="assets/team/bribri.jpg" alt="gege">
                                 <div class="caption">
                                     <h4>Brieuc de La Fouchardière <br /><span>Developer</span></h4>
                                     <p>Browse and analyze detailed statistics of each of your keywords and phrases. </p>
@@ -156,7 +155,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6 text-center">
                             <div class="thumbnail">
-                                <img src="assets/remii.jpg" alt="remi hillairet">
+                                <img src="assets/team/remii.jpg" alt="remi hillairet">
                                 <div class="caption">
                                     <h4>Rémi Hillairet <br /><span>Developer</span></h4>
                                     <p>Browse and analyze detailed statistics of each of your keywords and phrases. </p>
@@ -187,7 +186,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6 text-center">
                             <div class="thumbnail">
-                                <img src="assets/remi.jpg" alt="remi robert">
+                                <img src="assets/team/remi.jpg" alt="remi robert">
                                 <div class="caption">
                                     <h4>Rémi Robert <br /><span>Developer</span></h4>
                                     <p>Browse and analyze detailed statistics of each of your keywords and phrases. </p>
@@ -218,7 +217,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6 text-center">
                             <div class="thumbnail">
-                                <img src="assets/romain.jpg" alt="romain">
+                                <img src="assets/team/romain.jpg" alt="romain">
                                 <div class="caption">
                                     <h4>Romain Combe <br /><span>Developer</span></h4>
                                     <p>Browse and analyze detailed statistics of each of your keywords and phrases. </p>
@@ -249,7 +248,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6 text-center">
                             <div class="thumbnail">
-                                <img src="assets/alex.jpg" alt="alex">
+                                <img src="assets/team/alex.jpg" alt="alex">
                                 <div class="caption">
                                     <h4>Alexandre Quintin <br /><span>Game designer</span></h4>
                                     <p>Browse and analyze detailed statistics of each of your keywords and phrases. </p>
@@ -280,7 +279,7 @@
                         </div>
                         <div class="col-md-4 col-sm-6 text-center">
                             <div class="thumbnail">
-                                <img src="assets/gege.jpg" alt="gege">
+                                <img src="assets/team/gege.jpg" alt="gege">
                                 <div class="caption">
                                     <h4>Jeremy Peltier <br /><span>Developer</span></h4>
                                     <p>Browse and analyze detailed statistics of each of your keywords and phrases. </p>
@@ -358,25 +357,11 @@
             <script src="js/app.js"></script>
 
             <!-- Parallax -->
-            <script src="js/jquery.parallax.js"></script>
             <script src="js/parallax.js"></script>
             <script>
 
                 var scene = document.getElementById('scene');
                 var parallax = new Parallax(scene);
-
-                // Resize handler.
-                (resize = function() {
-                    $scene[0].style.width = window.innerWidth + 'px';
-                    $scene[0].style.height = window.innerHeight + 'px';
-                    if (!$prompt.hasClass('hide')) {
-                        if (window.innerWidth < 600) {
-                            $toggle.addClass('hide');
-                        } else {
-                            $toggle.removeClass('hide');
-                        }
-                    }
-                })();
     
             </script>
 
@@ -384,9 +369,6 @@
             <script src="js/jquery.flexslider.js"></script>
 
             <script type="text/javascript">
-            $(function(){
-              SyntaxHighlighter.all();
-            });
             $(window).load(function(){
               $('.flexslider').flexslider({
                 animation: "slide",
