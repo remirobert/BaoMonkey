@@ -1,16 +1,4 @@
 /*----------------------------------------
-	HERO FLEXSLIDER
-----------------------------------------*/
-$(document).ready(function() {
-	$('#main-slider').flexslider({
-		animation: "fade",//effects
-		slideshowSpeed: 3500,//duration
-		controlNav: false,
-		directionNav: false
-	});
-});
-
-/*----------------------------------------
 	TOOLTIP
 ----------------------------------------*/
 $('.social-icons a, .social-icons-bottom a').tooltip();
@@ -45,7 +33,7 @@ $('a[href*=#]:not([href=#])').click(function() {
         });
 
 /*----------------------------------------
-    PARALLAX
+    FLEXSLIDER
 ----------------------------------------*/
 $(window).load(function(){
   $('.flexslider').flexslider({
