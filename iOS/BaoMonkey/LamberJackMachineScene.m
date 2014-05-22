@@ -13,20 +13,20 @@
 
 @interface LamberJackMachineScene ()
 @property (nonatomic, strong) SKScene *parentScene;
+@property (nonatomic, assign) NSTimeInterval timer;
 @property (nonatomic, strong) Monkey *monkey;
-@property (nonatomic, strong) TreeBranch *treeBranch;
+@property (nonatomic, strong) SKSpriteNode *treeBranch;
 @end
 
 @implementation LamberJackMachineScene
 
 - (void) initMonkey {
     _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2,
-                                                           _treeBranch.node.position.y + 20)];
+                                                           _treeBranch.position.y + 20)];
 
     _monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_monkey.sprite.size];
     _monkey.sprite.physicsBody.affectedByGravity = YES;
     _monkey.sprite.physicsBody.mass = 50;
-    
     [self addChild:_monkey.sprite];
 }
 
@@ -36,20 +36,24 @@
                                             blue:219/255.0f
                                            alpha:1];
     
-    _treeBranch = [[TreeBranch alloc] init];
+    _treeBranch = [[SKSpriteNode alloc] initWithColor:[SKColor brownColor] size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2, 35)];
     
-    _treeBranch.node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_treeBranch.node.size];
+    _treeBranch.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+                                       [UIScreen mainScreen].bounds.size.height - 180);
     
-    self.physicsWorld.speed = 0.25;
+    _treeBranch.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_treeBranch.size];
+    _treeBranch.physicsBody.mass = 1000000;
+    _treeBranch.physicsBody.affectedByGravity = NO;
+    _treeBranch.physicsBody.dynamic = NO;
+    _treeBranch.physicsBody.allowsRotation = NO;
+    
     self.physicsBody = [SKPhysicsBody
-                        bodyWithEdgeLoopFromRect:self.frame];
+                        bodyWithEdgeLoopFromRect:CGRectMake(0, 0,
+                                                            [UIScreen mainScreen].bounds.size.width - _monkey.sprite.size.width,
+                                                            [UIScreen mainScreen].bounds.size.height)];
+    
     [GameController initAccelerometer];
-    
-    [self addChild:_treeBranch.node];
-    
-    SKAction *rotate = [SKAction moveToY:100 duration:1.0];
-    
-    [_treeBranch.node runAction:rotate];
+    [self addChild:_treeBranch];
 }
 
 - (instancetype) initWithSize:(CGSize)size parent:(SKScene *)parentScene {
@@ -68,8 +72,9 @@
 }
 
 - (void) update:(NSTimeInterval)currentTime {
-//    [GameController updateAccelerometerAcceleration];
-//    [_monkey updateMonkeyPosition:[GameController getAcceleration]];
+    
+    [GameController updateAccelerometerAcceleration];
+    [_monkey updateMonkeyPosition:[GameController getAcceleration]];
 }
 
 @end
