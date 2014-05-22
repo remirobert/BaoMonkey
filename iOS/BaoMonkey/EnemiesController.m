@@ -165,7 +165,7 @@
 }
 
 -(void)deleteEnemy:(Enemy*)enemy {
-    SKAction *fadeIn = [SKAction fadeAlphaTo:0.0 duration:0.25];
+    SKAction *fadeIn = [SKAction fadeAlphaTo:1.0 duration:0.25];
     SKAction *sound = [PreloadData getDataWithKey:DATA_COCONUT_SOUND];
     
     [enemy.node runAction: [SKAction sequence:@[fadeIn, sound]]completion:^{
@@ -175,12 +175,15 @@
     if (enemy.type == EnemyTypeLamberJack) {
         LamberJack *lamber;
         lamber = (LamberJack*)enemy;
+        [lamber stopChopping];
+        [lamber startDead];
         [lamber freeTheSlot:choppingSlots];
         [GameData addPointToScore:10];
     }
     else if (enemy.type == EnemyTypeHunter) {
         Hunter *hunter = (Hunter *)enemy;
         self->slotFloor[hunter.floor - 1] -= 1 << hunter.slot;
+        [hunter startDead];
         [GameData addPointToScore:20];
     }
     [enemies removeObject:enemy];

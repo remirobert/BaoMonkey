@@ -10,7 +10,7 @@
 
 @implementation ProgressBar
 
-@synthesize position, size, cornerRadius, backgroundColor, frontColor, background, front;
+@synthesize position, size, background, front, progress;
 
 -(id)initWithPosition:(CGPoint)p andSize:(CGSize)s {
     self = [super init];
@@ -19,34 +19,37 @@
         position = CGPointMake(p.x, p.y);
         size = CGSizeMake(s.width, s.height);
     }
-    
     return self;
 }
 
 -(void)createBackground {
-    if (backgroundColor != nil) {
-        background = [SKSpriteNode spriteNodeWithColor:backgroundColor size:size];
-    } else {
-        background = [SKSpriteNode spriteNodeWithColor:[UIColor blackColor] size:size];
-    }
+    background = [SKSpriteNode node];
     background.position = position;
 }
 
 -(void)createFront {
-    if (frontColor != nil) {
-        front = [SKSpriteNode spriteNodeWithColor:frontColor size:CGSizeMake(0, background.size.height - 5)];
-    } else {
-        front = [SKSpriteNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(0, background.size.height - 5)];
-    }
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"front-progress-bar"];
+    SKCropNode *crop = [SKCropNode node];
+    SKShapeNode *mask = [SKShapeNode node];
+    
+    [mask setPath:CGPathCreateWithRoundedRect(CGRectMake(node.frame.origin.x, node.frame.origin.y, node.frame.size.width, node.frame.size.height),
+                                              node.frame.size.width / 2,
+                                              node.frame.size.height / 2,
+                                              nil)];
+    [mask setFillColor:[SKColor blackColor]];
+    [crop setMaskNode:mask];
+    [crop addChild:node];
+    front = [SKSpriteNode node];
+    [front addChild:crop];
     front.anchorPoint = CGPointMake(0, 0.5);
-    front.position = CGPointMake(background.position.x - (background.size.width / 2) + 2.5, position.y);
+    front.position = CGPointMake(background.position.x - (background.size.width + 2) + 2.5, position.y);
 }
 
--(void)updateProgression:(CGFloat)progress {
-    if (progress > 0 && progress < 100) {
-        CGFloat percentProgress = ((background.size.width - 5) * progress) / 100;
+-(void)updateProgression:(CGFloat)p {
+    /*if (p > 0 && p < 100) {
+        CGFloat percentProgress = ((background.size.width - 5) * p) / 100;
         front.size = CGSizeMake(percentProgress, front.size.height);
-    }
+    }*/
 }
 
 @end

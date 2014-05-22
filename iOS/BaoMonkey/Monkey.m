@@ -18,13 +18,13 @@
     self = [super init];
     if (self) {
         // Init the sprites of the Monkey
-        sprite = [SKSpriteNode spriteNodeWithImageNamed:kSpriteImageName];
+        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_TEXTURE] size:CGSizeMake(28, 43)];
         sprite.position = position;
 
         [self loadWalkingSprites];
 
         // Init the notification for dropping the weapon
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(launchWeapon) name:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(launchWeapon) name:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
     }
     return self;
 }
@@ -68,7 +68,7 @@
 -(void)loadWalkingSprites {
     NSMutableArray *walkFrames = [[NSMutableArray alloc] init];
     SKTextureAtlas *monkeyWalkingAtlas = [PreloadData getDataWithKey:DATA_MONKEY_WALK_ATLAS];
-    int numberOfFrames = monkeyWalkingAtlas.textureNames.count;
+    NSUInteger numberOfFrames = monkeyWalkingAtlas.textureNames.count;
     
     for (int i = 1; i <= numberOfFrames; i++) {
         NSString *textureName = [NSString stringWithFormat:@"monkey-walking-%d", i];

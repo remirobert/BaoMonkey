@@ -96,7 +96,9 @@
         }
     } else if (location.y <= [UIScreen mainScreen].bounds.size.height - 30) {
         if (![GameData isPause]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
+            if (monkey == nil)
+                NSLog(@"monkey is nil");
+            [monkey launchWeapon];
         }
     }
     
@@ -138,15 +140,13 @@
     
     trunkProgressLife = [[ProgressBar alloc] initWithPosition:CGPointMake(trunk.position.x, trunk.position.y / 2)
                                                       andSize:CGSizeMake(50, 10)];
-    trunkProgressLife.backgroundColor = [UIColor blackColor];//[UIColor colorWithRed:68/255.0f green:74/255.0f blue:71/255.0f alpha:1.0f];
-    trunkProgressLife.frontColor = [UIColor redColor];
     [trunkProgressLife createBackground];
-    [trunkProgressLife createFront];
+    //[trunkProgressLife createFront];
     trunkProgressLife.background.name = BACKGROUND_PROGRESS_BAR_NODE_NAME;
-    trunkProgressLife.front.name = FRONT_PROGRESS_BAR_NODE_NAME;
+    //trunkProgressLife.front.name = FRONT_PROGRESS_BAR_NODE_NAME;
     [trunkProgressLife updateProgression:100.0f];
     [self addChild:trunkProgressLife.background];
-    [self addChild:trunkProgressLife.front];
+    //[self addChild:trunkProgressLife.front];
     
     [self scoreNode];
     [self addChild:score];
@@ -173,6 +173,7 @@
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+        
         [[GameData singleton] initGameData];
         [self initScene];
         [GameData pauseGame];
@@ -257,6 +258,16 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
+    
+    /* TEST TANK GAME UNCOMMNT FOR TRY */
+//    if ([GameData getScore] >= 10) {
+//        
+//        static dispatch_once_t onceToken;
+//        dispatch_once(&onceToken, ^{
+//            TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
+//            [self.view presentScene:tankScene];
+//        });
+//    }
     
     if ([[GameData singleton] isPause]) {
         

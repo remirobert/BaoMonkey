@@ -22,31 +22,32 @@
         self.direction = _direction;
         self.type = EnemyTypeLamberJack;
         self.node.zPosition = 1;
+        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_LAMBERJACK_WAITING] size:CGSizeMake(25, 48)];
         
         if (self.direction == LEFT)
         {
-            node = [SKSpriteNode spriteNodeWithImageNamed:@"lamberjack-left"];
+            node.xScale = -1;
             position.x = screen.size.width + (node.size.width / 2);
         }
         else
         {
-            node = [SKSpriteNode spriteNodeWithImageNamed:@"lamberjack-right"];
+            node.xScale = 1;
             position.x = -(node.size.width / 2);
         }
         node.name = ENEMY_NODE_NAME;
         position.y = node.size.height / 2;
         [node setPosition:position];
+        [self loadWalkingSprites];
+        [self loadCuttingSprites];
+        [self loadDeadSprites];
     }
     return self;
-}
-
--(void)startChopping {
-    isChooping = TRUE;
 }
 
 -(void)updatePosition:(NSArray*)choppingSlots{
     if (!isChooping && [self reachedTheMiddle:choppingSlots]) {
         [self startChopping];
+        [self stopWalking];
     }
     if (!isChooping){
         if (self.direction == LEFT)
@@ -57,7 +58,110 @@
         {
             [node setPosition:CGPointMake(node.position.x + speed, node.position.y)];
         }
+        [self startWalking];
     }
+}
+
+-(void)loadWalkingSprites {
+    NSMutableArray *frames = [[NSMutableArray alloc] init];
+    SKTextureAtlas *lamberJackWalkingAtlas = [PreloadData getDataWithKey:DATA_LAMBERJACK_WALKING_ATLAS];
+    NSUInteger numberOfFrames = lamberJackWalkingAtlas.textureNames.count;
+    
+    for (int i = 1; i <= numberOfFrames; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"lamber-jack-walking-%d", i];
+        SKTexture *tmp = [lamberJackWalkingAtlas textureNamed:textureName];
+        [frames addObject:tmp];
+    }
+    
+    walkingFrames = [[NSArray alloc] init];
+    walkingFrames = frames;
+}
+
+-(void)loadCuttingSprites {
+    NSMutableArray *frames = [[NSMutableArray alloc] init];
+    SKTextureAtlas *lamberJackCuttingAtlas = [PreloadData getDataWithKey:DATA_LAMBERJACK_CUTTING_ATLAS];
+    NSUInteger numberOfFrames = lamberJackCuttingAtlas.textureNames.count;
+    
+    for (int i = 1; i <= numberOfFrames; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"lamber-jack-cutting-%d", i];
+        SKTexture *tmp = [lamberJackCuttingAtlas textureNamed:textureName];
+        [frames addObject:tmp];
+    }
+    
+    cuttingFrames = [[NSArray alloc] init];
+    cuttingFrames = frames;
+}
+
+-(void)loadDeadSprites {
+    NSMutableArray *frames = [[NSMutableArray alloc] init];
+    SKTextureAtlas *lamberJackDeadAtlas = [PreloadData getDataWithKey:DATA_LAMBERJACK_DEAD_ATLAS];
+    NSUInteger numberOfFrames = lamberJackDeadAtlas.textureNames.count;
+    
+    for (int i = 1; i <= numberOfFrames; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"lamber-jack-dead-%d", i];
+        SKTexture *tmp = [lamberJackDeadAtlas textureNamed:textureName];
+        [frames addObject:tmp];
+    }
+    
+    deadFrames = [[NSArray alloc] init];
+    deadFrames = frames;
+}
+
+-(void)startWalking {
+    if (![node actionForKey:SKACTION_LAMBERJACK_WALKING]) {
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
+                                                                         timePerFrame:0.1f
+                                                                               resize:YES
+                                                                              restore:YES]]
+                  withKey:SKACTION_LAMBERJACK_WALKING];
+    }
+}
+
+-(void)stopWalking {
+    [node removeActionForKey:SKACTION_LAMBERJACK_WALKING];
+    if (self.direction == LEFT) {
+        node.xScale = -1;
+    } else {
+        node.xScale = 1;
+    }
+}
+
+-(void)startChopping {
+    isChooping = TRUE;
+    if (![node actionForKey:SKACTION_LAMBERJACK_CUTTING]) {
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:cuttingFrames
+                                                                       timePerFrame:0.1f
+                                                                             resize:YES
+                                                                            restore:YES]]
+                withKey:SKACTION_LAMBERJACK_CUTTING];
+    }
+}
+
+-(void)stopChopping {
+    isChooping = FALSE;
+    [node removeActionForKey:SKACTION_LAMBERJACK_CUTTING];
+    if (self.direction == LEFT) {
+        node.xScale = -1;
+    } else {
+        node.xScale = 1;
+    }
+}
+
+-(void)startDead {
+    if (!isChooping) {
+        if (![node actionForKey:SKACTION_LAMBERJACK_DEAD]) {
+            [node runAction:[SKAction repeatAction:[SKAction animateWithTextures:deadFrames
+                                                                    timePerFrame:0.1f
+                                                                          resize:YES
+                                                                         restore:YES]
+                                             count:1]
+             withKey:SKACTION_LAMBERJACK_DEAD];
+        }
+    }
+}
+
+-(void)stopDead {
+    [node removeActionForKey:SKACTION_LAMBERJACK_DEAD];
 }
 
 -(int)findFreeSlot:(NSArray*)choppingSlots {

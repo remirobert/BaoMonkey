@@ -10,14 +10,21 @@
 #import <SpriteKit/SpriteKit.h>
 #import "Enemy.h"
 #import "GameData.h"
+#import "PreloadData.h"
 
-@interface LamberJack : Enemy
+@interface LamberJack : Enemy {
+    NSArray *walkingFrames;
+    NSArray *cuttingFrames;
+    NSArray *deadFrames;
+}
 
 @property (nonatomic, assign) BOOL isChooping;
 @property (nonatomic, assign) float slotTaken;
 
 -(id)initWithDirection:(EnemyDirection)direction;
 -(void)startChopping;
+-(void)stopChopping;
+-(void)startDead;
 -(void)updatePosition:(NSArray*)choppingSlots;
 -(int)findFreeSlot:(NSArray*)choppingSlots;
 -(void)freeTheSlot:(NSArray*)choppingSlots;
