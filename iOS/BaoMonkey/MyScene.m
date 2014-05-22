@@ -9,7 +9,7 @@
 #import "MyScene.h"
 #import "MyScene+GeneratorWave.h"
 #import "UserData.h"
-#import "PauseTransition.h"
+#import "LeafTransition.h"
 #import "TankScene.h"
 #import "Define.h"
 

@@ -11,7 +11,7 @@
 #import "GameController.h"
 #import "Tank.h"
 #import "GameData.h"
-#import "GameOver.h"
+#import "LeafTransition.h"
 
 @interface TankScene ()
 @property (nonatomic, strong) Monkey *monkey;
@@ -76,6 +76,19 @@
     return (self);
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:location];
+    
+    if (([GameData isGameOver] && [node.name isEqualToString:RETRY_NODE_NAME]) || [node.name isEqualToString:RETRY_NODE_NAME]) {
+        [GameData resetGameData];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
+        return ;
+    }
+}
+
 - (void) update:(NSTimeInterval)currentTime {
     if (_timerStrat == 0) {
         _timerStrat = currentTime + 10;
@@ -106,8 +119,8 @@
     [self enumerateChildNodesWithName:NAME_SPRITE_SHOOT_TANK usingBlock:^(SKNode *node, BOOL *stop) {
         
         if ([node intersectsNode:_monkey.sprite]) {
-            GameOver *gameOverView = [[GameOver alloc] init];
-            [self addChild:[gameOverView launchGameOverView]];
+            LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
+            [transitionGameOver runGameOverTransition];
             [GameData gameOver];
         }
         if (node.position.y >= [UIScreen mainScreen].bounds.size.height)
@@ -117,8 +130,8 @@
     [self enumerateChildNodesWithName:NAME_SPRITE_FIRE_TANK usingBlock:^(SKNode *node, BOOL *stop) {
 
         if ([node intersectsNode:_monkey.sprite]) {
-            GameOver *gameOverView = [[GameOver alloc] init];
-            [self addChild:[gameOverView launchGameOverView]];
+            LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
+            [transitionGameOver runGameOverTransition];
             [GameData gameOver];
         }
     }];
