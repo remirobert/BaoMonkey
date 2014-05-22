@@ -19,6 +19,18 @@
 
 @implementation LamberJackMachineScene
 
+- (void) initMonkey {
+    _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2,
+                                                           _treeBranch.node.position.y + 20)];
+
+    _monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_monkey.sprite.size];
+    _monkey.sprite.physicsBody.affectedByGravity = YES;
+    
+    [self addChild:_monkey.sprite];
+    [GameController initAccelerometer];
+
+}
+
 - (void) initScene {
     self.backgroundColor = [SKColor colorWithRed:52/255.0f
                                            green:152/255.0f
@@ -36,11 +48,6 @@
                                                             _treeBranch.node.frame.size.height / 2)];
     
     [self addChild:_treeBranch.node];
-    
-    _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2,
-                                                           _treeBranch.node.position.y + 20)];
-    [self addChild:_monkey.sprite];
-    [GameController initAccelerometer];
 }
 
 - (instancetype) initWithSize:(CGSize)size parent:(SKScene *)parentScene {
@@ -50,6 +57,7 @@
         self.backgroundColor = [SKColor redColor];
 
         [self initScene];
+        [self initMonkey];
         
         _parentScene = parentScene;
     }
