@@ -155,8 +155,10 @@
         _tank.currentStrat += 1;
         _currentStrat += 1;
         _currentShootTime = currentTime + 1;
-        if (_currentStrat == 3)
+        if (_currentStrat == 3) {
+            [GameData addPointToScore:10];
             [self.view presentScene:_parentScene];
+        }
     }
     
     if (currentTime >= _currentShootTime) {
