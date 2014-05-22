@@ -84,7 +84,6 @@
 		3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */; };
 		3FB67CDB192B4FF700381BDC /* Resume.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB67CDA192B4FF600381BDC /* Resume.m */; };
 		3FF111231926078C005C9DD1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF111221926078C005C9DD1 /* SettingsViewController.m */; };
-		3FF63771191CD532000721A2 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF63770191CD532000721A2 /* GameOver.m */; };
 		A5731ABC19275AF300023346 /* Achievement.m in Sources */ = {isa = PBXBuildFile; fileRef = A5731ABB19275AF300023346 /* Achievement.m */; };
 /* End PBXBuildFile section */
 
@@ -212,8 +211,6 @@
 		3FB67CDA192B4FF600381BDC /* Resume.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resume.m; sourceTree = "<group>"; };
 		3FF111211926078C005C9DD1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		3FF111221926078C005C9DD1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		3FF6376F191CD532000721A2 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
-		3FF63770191CD532000721A2 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 		A5731ABA19275AF300023346 /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achievement.h; sourceTree = "<group>"; };
 		A5731ABB19275AF300023346 /* Achievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Achievement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -521,7 +518,6 @@
 				3F47F9B6192CCFA600C36A39 /* Music */,
 				10B4196119260667005D4EDC /* UserData */,
 				3FF6376E191CD50E000721A2 /* Resume */,
-				3FF6376C191CD502000721A2 /* GameOver */,
 				3F64F763191A9DCB00102094 /* ProgressBar */,
 				29E98BA6191A871F0046F9B2 /* Enemy */,
 				3F7D4369191A3BB200DF30D6 /* GameController */,
@@ -703,15 +699,6 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
-		3FF6376C191CD502000721A2 /* GameOver */ = {
-			isa = PBXGroup;
-			children = (
-				3FF6376F191CD532000721A2 /* GameOver.h */,
-				3FF63770191CD532000721A2 /* GameOver.m */,
-			);
-			name = GameOver;
-			sourceTree = "<group>";
-		};
 		3FF6376E191CD50E000721A2 /* Resume */ = {
 			isa = PBXGroup;
 			children = (
@@ -864,7 +851,6 @@
 				29E98BB0191A875D0046F9B2 /* LamberJack.m in Sources */,
 				3F64F75B191A8EB400102094 /* GameData.m in Sources */,
 				3FB67CDB192B4FF700381BDC /* Resume.m in Sources */,
-				3FF63771191CD532000721A2 /* GameOver.m in Sources */,
 				1010BD5519261655003F8436 /* PreloadData.m in Sources */,
 				3F47F9B5192CCF9D00C36A39 /* Music.m in Sources */,
 				296AFB8D191BDFD7009D5B75 /* Hunter.m in Sources */,
