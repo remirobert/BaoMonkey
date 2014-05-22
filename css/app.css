@@ -380,8 +380,8 @@ hr.separator-alt {
     SIDE MENU
 ----------------------------------------*/
 #sidebar-wrapper {
-    margin-right: -250px;
-    right: 0;
+    margin-left: -250px;
+    left: 0;
     width: 250px;
     background: #3C885C;
     position: fixed;
@@ -434,12 +434,12 @@ hr.separator-alt {
 }
 #menu-toggle {
     top: 25px;
-    right: 16px;
+    left: 16px;
     position: fixed;
     z-index: 1000;
 }
 #sidebar-wrapper.active {
-    right: 250px;
+    left: 250px;
     width: 250px;
     -webkit-transition: all 0.4s ease 0s;
     -moz-transition: all 0.4s ease 0s;
