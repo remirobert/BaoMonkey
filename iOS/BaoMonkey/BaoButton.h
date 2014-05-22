@@ -11,10 +11,11 @@
 
 @interface BaoButton : NSObject
 
-+(SKSpriteNode*)buttonPlay;
-+(SKSpriteNode*)buttonPause;
-+(SKSpriteNode*)buttonReplay;
-+(SKSpriteNode*)buttonHome;
-+(SKSpriteNode*)buttonSettings;
++(SKSpriteNode*)play;
++(SKSpriteNode*)pause;
++(SKSpriteNode*)replay;
++(SKSpriteNode*)home;
++(SKSpriteNode*)settings;
++(SKLabelNode*)pauseLabel;
 
 @end
