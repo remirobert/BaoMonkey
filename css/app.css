@@ -43,24 +43,19 @@ header {
 }
 
 /*----------------------------------------
-    FEATURES
+    PROJECT
 ----------------------------------------*/
-#features {
-    padding-top: 50px;
-    padding-bottom: 30px;
+#project {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
 }
 
-#features .item {
-    text-align: center;
-    padding: 25px 0px;
-}
-#features .item-icon {
-    border-radius: 50%;
-    border: 2px solid #555;
-    width: 50px;
-    height: 50px;
-    padding-top: 12px;
-    margin: 0 auto;
+#project .cadre {
+    background: url(../assets/cadre.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 275px;
 }
 
 /*----------------------------------------
@@ -108,7 +103,7 @@ header {
     GALLERY
 ----------------------------------------*/
 #gallery {
-    padding-top: 50px;
+    padding-top: 10px;
     padding-bottom: 30px;
     background-color: #74AC41;
 }
@@ -451,6 +446,27 @@ hr.separator-alt {
 .toggle {
     color: #0d5e4e;
     margin: 5px 5px 0px 0px;
+}
+
+/*----------------------------------------
+    FEATURES
+----------------------------------------*/
+#features {
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+#features .item {
+    text-align: center;
+    padding: 25px 0px;
+}
+#features .item-icon {
+    border-radius: 50%;
+    border: 2px solid #555;
+    width: 50px;
+    height: 50px;
+    padding-top: 12px;
+    margin: 0 auto;
 }
 
 /*----------------------------------------
