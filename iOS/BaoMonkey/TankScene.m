@@ -20,6 +20,7 @@
 @property (nonatomic, assign) NSInteger currentStrat;
 @property (nonatomic, assign) NSInteger currentShootTime;
 @property (nonatomic, strong) SKScene *parentScene;
+@property (nonatomic, assign) BOOL isPaused;
 @end
 
 @implementation TankScene
@@ -62,6 +63,17 @@
     [GameController initAccelerometer];
 }
 
+- (void) pauseGame {
+    if (_isPaused == NO) {
+        self.speed = 0.0;
+        _isPaused = NO;
+    }
+    else {
+        self.speed = 1.0;
+        _isPaused = YES;
+    }
+}
+
 - (instancetype) initWithSize:(CGSize)size parent:(SKScene *)parentScene {
     self = [super initWithSize:size];
     if (self != nil) {
@@ -70,6 +82,7 @@
         _timerStrat = 0;
         _currentStrat = 0;
         _parentScene = parentScene;
+        _isPaused = NO;
         [self initScene];
         [self initTank];
     }
@@ -95,6 +108,7 @@
     [self enumerateChildNodesWithName:NAME_SPRITE_SHOOT_TANK usingBlock:^(SKNode *node, BOOL *stop) {
         
         if ([node intersectsNode:monkeyNode]) {
+            [self pauseGame];
             LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
             [transitionGameOver runGameOverTransition];
             [GameData gameOver];
@@ -106,6 +120,7 @@
     [self enumerateChildNodesWithName:NAME_SPRITE_FIRE_TANK usingBlock:^(SKNode *node, BOOL *stop) {
         
         if ([node intersectsNode:monkeyNode]) {
+            [self pauseGame];
             LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
             [transitionGameOver runGameOverTransition];
             [GameData gameOver];
@@ -131,10 +146,11 @@
             [self.view presentScene:_parentScene];
     }
     
-    
-    [GameController updateAccelerometerAcceleration];
-    [_monkey updateMonkeyPosition:[GameController getAcceleration]];
-    [_tank move];
+    if (_isPaused == NO) {
+        [GameController updateAccelerometerAcceleration];
+        [_monkey updateMonkeyPosition:[GameController getAcceleration]];
+        [_tank move];
+    }
     
     if (currentTime >= _currentShootTime) {
         [_tank shootTank:_monkey.sprite.position scene:self];
