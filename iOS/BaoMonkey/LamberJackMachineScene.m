@@ -10,12 +10,14 @@
 #import "GameController.h"
 #import "TreeBranch.h"
 #import "Monkey.h"
+#import "LamberJackMachine.h"
 
 @interface LamberJackMachineScene ()
 @property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, assign) NSTimeInterval timer;
 @property (nonatomic, strong) Monkey *monkey;
 @property (nonatomic, strong) SKSpriteNode *treeBranch;
+@property (nonatomic, strong) LamberJackMachine *lamber;
 @end
 
 @implementation LamberJackMachineScene
@@ -63,6 +65,9 @@
 
         [self initScene];
         [self initMonkey];
+        
+        _lamber = [[LamberJackMachine alloc] init];
+        [self addChild:_lamber.node];
 
         self.physicsWorld.gravity = CGVectorMake(0, -10);
         
