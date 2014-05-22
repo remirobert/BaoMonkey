@@ -180,6 +180,12 @@
     }
 }
 
+- (void) toreBranch {
+    /*
+     Rotation branch
+     */
+}
+
 - (void) update:(NSTimeInterval)currentTime {
     if (_timer == 0) {
         _timer = currentTime + 30;
@@ -202,6 +208,11 @@
     [self moveTreeBranch];
     [self stressTree:currentTime];
     [self updatePhysicBody];
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self toreBranch];
+    });
 }
 
 @end
