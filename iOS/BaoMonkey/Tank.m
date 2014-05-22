@@ -10,6 +10,9 @@
 
 @interface Tank ()
 @property (nonatomic, assign) CGPoint positionMediumStrat;
+@property (nonatomic, assign) BOOL isShoot;
+@property (nonatomic, assign) BOOL isMediumStrat;
+@property (nonatomic, assign) BOOL isHardStrat;
 @end
 
 @implementation Tank
@@ -24,6 +27,8 @@
     
     if (self != nil) {
         [self initSpriteTank];
+        
+        _isHardStrat = _isMediumStrat = NO;
         
         _positionMediumStrat = CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width / 2)+ ([UIScreen mainScreen].bounds.size.width / 2), [UIScreen mainScreen].bounds.size.height);
     }
@@ -67,42 +72,51 @@
     [nodeShoot runAction:sequenceAction];
 }
 
-- (void) mediumStrat:(CGPoint)positionMonkey :(SKScene *)scene {
-    static int shootReady = 0;
-    static dispatch_once_t onceToken;
+- (void) shootFireBomb:(CGPoint)positionMonkey :(SKScene *)scene {
+    SKSpriteNode *nodeShoot;
     
-    dispatch_once(&onceToken, ^{
-        SKSpriteNode *nodeShoot;
-        
-        nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(20, 20)];
-        
-        nodeShoot.name = NAME_SPRITE_FIRE_TANK;
-        [scene addChild:nodeShoot];
-        
-        nodeShoot.position = _tankSprite.position;
-        SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width), positionMonkey.y) duration:2.0];
-        
-        SKAction *fireAction = [SKAction resizeToWidth:rand() % 40 + 60 duration:1.5];
-        
-        [nodeShoot runAction:moveShoot completion:^{
-            [nodeShoot runAction:fireAction];
-            shootReady = 1;
-        }];
-    });
-    if (shootReady == 1) {
+    nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(20, 20)];
+    
+    nodeShoot.name = NAME_SPRITE_FIRE_TANK;
+    [scene addChild:nodeShoot];
+    
+    nodeShoot.position = _tankSprite.position;
+    SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width), positionMonkey.y) duration:2.0];
+    
+    SKAction *fireAction = [SKAction resizeToWidth:rand() % 20 + 40 duration:1.5];
+    
+    [nodeShoot runAction:moveShoot completion:^{
+        [nodeShoot runAction:fireAction];
+        _isShoot = YES;
+    }];
+}
+
+- (void) mediumStrat:(CGPoint)positionMonkey :(SKScene *)scene {
+
+    if (_isMediumStrat == NO) {
+        _isMediumStrat = YES;
+        _isShoot = NO;
+        [self shootFireBomb:positionMonkey :scene];
+    };
+    if (_isShoot == 1) {
         [self lowStrat:positionMonkey :scene];
     }
 }
 
 - (void) hardStrat:(CGPoint)positionMonkey :(SKScene *)scene {
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
+
+    if (_isHardStrat == NO) {
+        _isHardStrat = YES;
+        _isShoot = NO;
+        
         [scene enumerateChildNodesWithName:NAME_SPRITE_FIRE_TANK usingBlock:^(SKNode *node, BOOL *stop) {
             [node removeFromParent];
         }];
-    });
-    [self lowStrat:positionMonkey :scene];
+        
+        [self shootFireBomb:positionMonkey :scene];
+    };
+    if (_isShoot == YES)
+        [self lowStrat:positionMonkey :scene];
 }
 
 - (void) shootTank:(CGPoint)positionMonkey scene:(SKScene *)scene {
@@ -113,7 +127,6 @@
         [self mediumStrat:positionMonkey :scene];
     else if (_currentStrat == 2)
         [self hardStrat:positionMonkey :scene];
-    
 }
 
 @end

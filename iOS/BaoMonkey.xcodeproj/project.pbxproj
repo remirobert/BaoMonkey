@@ -17,6 +17,7 @@
 		10AB3472192CC74E00661301 /* TankScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AB3471192CC74E00661301 /* TankScene.m */; };
 		10AB3476192CD1B200661301 /* Tank.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AB3475192CD1B200661301 /* Tank.m */; };
 		10B4196419260681005D4EDC /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4196319260681005D4EDC /* UserData.m */; };
+		10BCACE4192DFA5600A846F1 /* MyScene+Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */; };
 		10C599B7191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
 		10C599B9191948A300907493 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B8191948A300907493 /* CoreGraphics.framework */; };
 		10C599BB191948A300907493 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599BA191948A300907493 /* UIKit.framework */; };
@@ -47,6 +48,15 @@
 		10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */; };
 		10C59A2619194D5D00907493 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2519194D5D00907493 /* Item.m */; };
 		2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */; };
+		2919C63C192DEE1F00A2F2D1 /* button-home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C637192DEE1F00A2F2D1 /* button-home@2x.png */; };
+		2919C63D192DEE1F00A2F2D1 /* button-pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C638192DEE1F00A2F2D1 /* button-pause@2x.png */; };
+		2919C63E192DEE1F00A2F2D1 /* button-play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C639192DEE1F00A2F2D1 /* button-play@2x.png */; };
+		2919C63F192DEE1F00A2F2D1 /* button-replay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C63A192DEE1F00A2F2D1 /* button-replay@2x.png */; };
+		2919C640192DEE1F00A2F2D1 /* button-settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C63B192DEE1F00A2F2D1 /* button-settings@2x.png */; };
+		2919C643192DF46300A2F2D1 /* BaoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2919C642192DF46300A2F2D1 /* BaoButton.m */; };
+		2919C648192E2CFC00A2F2D1 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C645192E2CFC00A2F2D1 /* background@2x.png */; };
+		2919C649192E2CFC00A2F2D1 /* branch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C646192E2CFC00A2F2D1 /* branch@2x.png */; };
+		2919C64A192E2CFC00A2F2D1 /* leafs-foreground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C647192E2CFC00A2F2D1 /* leafs-foreground@2x.png */; };
 		2950D27E192B869E00C12A52 /* LeafTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2950D27D192B869E00C12A52 /* LeafTransition.m */; };
 		2950D282192B8DBC00C12A52 /* bottom-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */; };
 		2950D283192B8DBC00C12A52 /* up-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2950D281192B8DBC00C12A52 /* up-leaf@2x.png */; };
@@ -119,6 +129,8 @@
 		10AB3475192CD1B200661301 /* Tank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tank.m; sourceTree = "<group>"; };
 		10B4196219260681005D4EDC /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		10B4196319260681005D4EDC /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		10BCACE2192DFA5600A846F1 /* MyScene+Climber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Climber.h"; sourceTree = "<group>"; };
+		10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Climber.m"; sourceTree = "<group>"; };
 		10C599B3191948A300907493 /* BaoMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C599B6191948A300907493 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		10C599B8191948A300907493 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -162,6 +174,16 @@
 		10C59A2419194D5D00907493 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		10C59A2519194D5D00907493 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BaoMonkey.mp3; sourceTree = "<group>"; };
+		2919C637192DEE1F00A2F2D1 /* button-home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-home@2x.png"; path = "Buttons/button-home@2x.png"; sourceTree = "<group>"; };
+		2919C638192DEE1F00A2F2D1 /* button-pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pause@2x.png"; path = "Buttons/button-pause@2x.png"; sourceTree = "<group>"; };
+		2919C639192DEE1F00A2F2D1 /* button-play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-play@2x.png"; path = "Buttons/button-play@2x.png"; sourceTree = "<group>"; };
+		2919C63A192DEE1F00A2F2D1 /* button-replay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-replay@2x.png"; path = "Buttons/button-replay@2x.png"; sourceTree = "<group>"; };
+		2919C63B192DEE1F00A2F2D1 /* button-settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-settings@2x.png"; path = "Buttons/button-settings@2x.png"; sourceTree = "<group>"; };
+		2919C641192DF46300A2F2D1 /* BaoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaoButton.h; sourceTree = "<group>"; };
+		2919C642192DF46300A2F2D1 /* BaoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoButton.m; sourceTree = "<group>"; };
+		2919C645192E2CFC00A2F2D1 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "Background/background@2x.png"; sourceTree = "<group>"; };
+		2919C646192E2CFC00A2F2D1 /* branch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "branch@2x.png"; path = "Background/branch@2x.png"; sourceTree = "<group>"; };
+		2919C647192E2CFC00A2F2D1 /* leafs-foreground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "leafs-foreground@2x.png"; path = "Background/leafs-foreground@2x.png"; sourceTree = "<group>"; };
 		2950D27C192B869E00C12A52 /* LeafTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeafTransition.h; sourceTree = "<group>"; };
 		2950D27D192B869E00C12A52 /* LeafTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeafTransition.m; sourceTree = "<group>"; };
 		2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-leaf@2x.png"; path = "Leaf/bottom-leaf@2x.png"; sourceTree = "<group>"; };
@@ -352,6 +374,8 @@
 		10C59A0C1919492C00907493 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2919C644192E2CB900A2F2D1 /* Background */,
+				2919C636192DEDF300A2F2D1 /* Buttons */,
 				3F47F9B7192D106300C36A39 /* Progress */,
 				2950D27F192B8DB500C12A52 /* Leaf */,
 				296AFB92191CE05A009D5B75 /* Cloud */,
@@ -382,6 +406,28 @@
 				10C59A131919492C00907493 /* trunk@2x.png */,
 			);
 			path = Tree;
+			sourceTree = "<group>";
+		};
+		2919C636192DEDF300A2F2D1 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				2919C637192DEE1F00A2F2D1 /* button-home@2x.png */,
+				2919C638192DEE1F00A2F2D1 /* button-pause@2x.png */,
+				2919C639192DEE1F00A2F2D1 /* button-play@2x.png */,
+				2919C63A192DEE1F00A2F2D1 /* button-replay@2x.png */,
+				2919C63B192DEE1F00A2F2D1 /* button-settings@2x.png */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		2919C644192E2CB900A2F2D1 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				2919C645192E2CFC00A2F2D1 /* background@2x.png */,
+				2919C646192E2CFC00A2F2D1 /* branch@2x.png */,
+				2919C647192E2CFC00A2F2D1 /* leafs-foreground@2x.png */,
+			);
+			name = Background;
 			sourceTree = "<group>";
 		};
 		2950D27B192B865C00C12A52 /* LeafTransition */ = {
@@ -419,11 +465,13 @@
 			name = Cloud;
 			sourceTree = "<group>";
 		};
-		299400F9192CD0FD00F0CC97 /* LabelButton */ = {
+		299400F9192CD0FD00F0CC97 /* BaoButton */ = {
 			isa = PBXGroup;
 			children = (
+				2919C641192DF46300A2F2D1 /* BaoButton.h */,
+				2919C642192DF46300A2F2D1 /* BaoButton.m */,
 			);
-			name = LabelButton;
+			name = BaoButton;
 			sourceTree = "<group>";
 		};
 		29E98BA6191A871F0046F9B2 /* Enemy */ = {
@@ -634,6 +682,8 @@
 				10C599FE1919490900907493 /* MyScene.m */,
 				10C59A2119194D1500907493 /* MyScene+GeneratorWave.h */,
 				10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */,
+				10BCACE2192DFA5600A846F1 /* MyScene+Climber.h */,
+				10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */,
 				10AB3470192CC74E00661301 /* TankScene.h */,
 				10AB3471192CC74E00661301 /* TankScene.m */,
 			);
@@ -809,7 +859,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				10C59A161919492C00907493 /* front-leaf@2x.png in Resources */,
+				2919C63C192DEE1F00A2F2D1 /* button-home@2x.png in Resources */,
 				10C59A141919492C00907493 /* monkey@2x.png in Resources */,
+				2919C63D192DEE1F00A2F2D1 /* button-pause@2x.png in Resources */,
 				3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */,
 				3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */,
 				3F47F9BA192D106300C36A39 /* background-progress-bar.png in Resources */,
@@ -821,6 +873,7 @@
 				3F47F9C1192D41E200C36A39 /* lamber-jack-waiting@2x.png in Resources */,
 				10C59A151919492C00907493 /* back-leaf@2x.png in Resources */,
 				3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */,
+				2919C64A192E2CFC00A2F2D1 /* leafs-foreground@2x.png in Resources */,
 				296AFB90191BE197009D5B75 /* hunter-left@2x.png in Resources */,
 				29E98BB4191A882B0046F9B2 /* lamberjack-left@2x.png in Resources */,
 				3F0CD895191D423E0079A5EB /* baomonkey.m4a in Resources */,
@@ -831,7 +884,9 @@
 				296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */,
 				3F47F9C2192D41E200C36A39 /* LamberJackCutting.atlas in Resources */,
 				2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */,
+				2919C649192E2CFC00A2F2D1 /* branch@2x.png in Resources */,
 				3F7D436F191A6FE100DF30D6 /* MonkeyWalking.atlas in Resources */,
+				2919C640192DEE1F00A2F2D1 /* button-settings@2x.png in Resources */,
 				3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */,
 				2950D283192B8DBC00C12A52 /* up-leaf@2x.png in Resources */,
 				3F47F9C4192D41E200C36A39 /* LamberJackWalking.atlas in Resources */,
@@ -841,6 +896,9 @@
 				10C59A181919492C00907493 /* trunk@2x.png in Resources */,
 				10C599CC191948A300907493 /* Main_iPhone.storyboard in Resources */,
 				3FB2A494191B79900027B2C7 /* coconut@2x.png in Resources */,
+				2919C63F192DEE1F00A2F2D1 /* button-replay@2x.png in Resources */,
+				2919C63E192DEE1F00A2F2D1 /* button-play@2x.png in Resources */,
+				2919C648192E2CFC00A2F2D1 /* background@2x.png in Resources */,
 				10C599C3191948A300907493 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -866,6 +924,7 @@
 				3FB67CDB192B4FF700381BDC /* Resume.m in Sources */,
 				1010BD5519261655003F8436 /* PreloadData.m in Sources */,
 				3F47F9B5192CCF9D00C36A39 /* Music.m in Sources */,
+				10BCACE4192DFA5600A846F1 /* MyScene+Climber.m in Sources */,
 				296AFB8D191BDFD7009D5B75 /* Hunter.m in Sources */,
 				29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */,
 				29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */,
@@ -873,6 +932,7 @@
 				10B4196419260681005D4EDC /* UserData.m in Sources */,
 				109E9307191A60EF00DD5623 /* Action.m in Sources */,
 				A5731ABC19275AF300023346 /* Achievement.m in Sources */,
+				2919C643192DF46300A2F2D1 /* BaoButton.m in Sources */,
 				10AB3472192CC74E00661301 /* TankScene.m in Sources */,
 				10C59A1C19194BF000907493 /* Banana.m in Sources */,
 				3F5959DC191C1D5B006EE846 /* HomeViewController.m in Sources */,

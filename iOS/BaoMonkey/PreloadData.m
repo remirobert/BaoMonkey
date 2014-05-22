@@ -21,7 +21,6 @@
         preload = [[PreloadData alloc] init];
         preload.data = [[NSMutableDictionary alloc] init];
     }
-    
     return (preload);
 }
 

@@ -9,8 +9,9 @@
 #import "LeafTransition.h"
 #import "GameData.h"
 #import "Define.h"
-#import "Resume.h"
+#import "BaoButton.h"
 #import "UserData.h"
+#import "Resume.h"
 
 #define ANIMATION_SPEED    20
 
@@ -29,7 +30,7 @@
         bottomLeaf.name = @"LEAF_BOTTOM";
         upLeaf.name = @"LEAF_UP";
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidePauseMenu) name:NOTIFICATION_RESUME_GAME object:nil];
-        pauseButton = [[NSArray alloc] initWithObjects:[Resume replayNode], [Resume resumeNode], [Resume homeNode], [Resume settingsNode], nil];
+        pauseButton = [[NSArray alloc] initWithObjects:[BaoButton replay], [BaoButton play], [BaoButton home], [BaoButton settings], [BaoButton pauseLabel], nil];
         gameOverButton = [[NSArray alloc] initWithObjects:[Resume gameOverNode], [Resume replayNode], nil];
     }
     return self;
@@ -78,16 +79,24 @@
 
 -(void)runPauseTransition {
     if (![GameData isPause]) {
-        [scene addChild:upLeaf];
-        [scene addChild:bottomLeaf];
+        if (upLeaf.parent == nil) {
+            [scene addChild:upLeaf];
+        }
+        if (bottomLeaf.parent == nil) {
+            [scene addChild:bottomLeaf];
+        }
         [self showPauseLeafs];
     }
 }
 
 -(void)runGameOverTransition {
     if (![GameData isPause] && ![GameData isGameOver]) {
-        [scene addChild:upLeaf];
-        [scene addChild:bottomLeaf];
+        if (upLeaf.parent == nil) {
+            [scene addChild:upLeaf];
+        }
+        if (bottomLeaf.parent == nil) {
+            [scene addChild:bottomLeaf];
+        }
         [self showGameOverLeafs];
     }
 }
