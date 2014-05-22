@@ -10,6 +10,7 @@
 
 @interface Tank ()
 @property (nonatomic, assign) CGPoint positionMediumStrat;
+@property (nonatomic, assign) BOOL isShoot;
 @end
 
 @implementation Tank
@@ -67,29 +68,33 @@
     [nodeShoot runAction:sequenceAction];
 }
 
+- (void) shootFireBomb:(CGPoint)positionMonkey :(SKScene *)scene {
+    SKSpriteNode *nodeShoot;
+    
+    nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(20, 20)];
+    
+    nodeShoot.name = NAME_SPRITE_FIRE_TANK;
+    [scene addChild:nodeShoot];
+    
+    nodeShoot.position = _tankSprite.position;
+    SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width), positionMonkey.y) duration:2.0];
+    
+    SKAction *fireAction = [SKAction resizeToWidth:rand() % 40 + 60 duration:1.5];
+    
+    [nodeShoot runAction:moveShoot completion:^{
+        [nodeShoot runAction:fireAction];
+        _isShoot = YES;
+    }];
+}
+
 - (void) mediumStrat:(CGPoint)positionMonkey :(SKScene *)scene {
-    static int shootReady = 0;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        SKSpriteNode *nodeShoot;
-        
-        nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(20, 20)];
-        
-        nodeShoot.name = NAME_SPRITE_FIRE_TANK;
-        [scene addChild:nodeShoot];
-        
-        nodeShoot.position = _tankSprite.position;
-        SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width), positionMonkey.y) duration:2.0];
-        
-        SKAction *fireAction = [SKAction resizeToWidth:rand() % 40 + 60 duration:1.5];
-        
-        [nodeShoot runAction:moveShoot completion:^{
-            [nodeShoot runAction:fireAction];
-            shootReady = 1;
-        }];
+        _isShoot = NO;
+        [self shootFireBomb:positionMonkey :scene];
     });
-    if (shootReady == 1) {
+    if (_isShoot == 1) {
         [self lowStrat:positionMonkey :scene];
     }
 }
@@ -98,11 +103,16 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
+        _isShoot = NO;
         [scene enumerateChildNodesWithName:NAME_SPRITE_FIRE_TANK usingBlock:^(SKNode *node, BOOL *stop) {
             [node removeFromParent];
         }];
+        
+        [self shootFireBomb:positionMonkey :scene];
+        [self shootFireBomb:positionMonkey :scene];
     });
-    [self lowStrat:positionMonkey :scene];
+    if (_isShoot == YES)
+        [self lowStrat:positionMonkey :scene];
 }
 
 - (void) shootTank:(CGPoint)positionMonkey scene:(SKScene *)scene {
