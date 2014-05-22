@@ -51,4 +51,12 @@
     [self.node runAction:act];
 }
 
+-(void)loadWalkingSprites {
+    
+}
+
+-(void)loadClumbingSprites {
+    
+}
+
 @end

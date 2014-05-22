@@ -10,6 +10,12 @@
 # define __DEFINE_H__
 
 /*
+** SYSTEM
+*/
+
+# define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
+/*
 ** GENERAL
 */
 
