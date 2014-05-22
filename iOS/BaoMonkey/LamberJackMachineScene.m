@@ -85,29 +85,10 @@
     return (self);
 }
 
-- (void) moveVariationTree {
-    [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
-                                                        _treeBranch.position.y + 10) duration:0.15] completion:^{
-        _treeBranch.position = CGPointMake(_treeBranch.position.x, _treeBranch.position.y + 10);
-        [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
-                                                            _treeBranch.position.y + 10) duration:0.15] completion:^{
-            _treeBranch.position = CGPointMake(_treeBranch.position.x, _treeBranch.position.y - 10);
-            [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
-                                                                _treeBranch.position.y + 10) duration:0.15] completion:^{
-                _treeBranch.position = CGPointMake(_treeBranch.position.x, _treeBranch.position.y + 10);
-                [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
-                                                                    _treeBranch.position.y + 10) duration:0.15] completion:^{
-                    _treeBranch.position = CGPointMake(_treeBranch.position.x, _treeBranch.position.y - 10);
-                }];
-            }];
-        }];
-    }];
-}
-
 - (void) stressTree:(NSTimeInterval)currentTime {
     static NSTimeInterval time = 0;
     NSInteger pushStress = 20;
-    CGFloat timerStress = 0.15;
+    CGFloat timerStress = 0.05;
     
     if (time == 0) {
         time = currentTime + rand() % 5 + 2;
@@ -115,7 +96,6 @@
     }
     if (currentTime >= time) {
         
-//        [self moveVariationTree];
         [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
                                                             _treeBranch.position.y) duration:timerStress] completion:^{
             [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
