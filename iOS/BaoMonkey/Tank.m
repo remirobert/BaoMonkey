@@ -109,7 +109,6 @@
         }];
         
         [self shootFireBomb:positionMonkey :scene];
-        [self shootFireBomb:positionMonkey :scene];
     });
     if (_isShoot == YES)
         [self lowStrat:positionMonkey :scene];

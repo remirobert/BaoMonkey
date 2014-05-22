@@ -89,7 +89,34 @@
     }
 }
 
+- (void) checkCollisionMonkey {
+    SKNode *monkeyNode = [self.scene nodeAtPoint:_monkey.sprite.position];
+    
+    [self enumerateChildNodesWithName:NAME_SPRITE_SHOOT_TANK usingBlock:^(SKNode *node, BOOL *stop) {
+        
+        if ([node intersectsNode:monkeyNode]) {
+            LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
+            [transitionGameOver runGameOverTransition];
+            [GameData gameOver];
+        }
+        if (node.position.y >= [UIScreen mainScreen].bounds.size.height)
+            [node removeFromParent];
+    }];
+    
+    [self enumerateChildNodesWithName:NAME_SPRITE_FIRE_TANK usingBlock:^(SKNode *node, BOOL *stop) {
+        
+        if ([node intersectsNode:monkeyNode]) {
+            LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
+            [transitionGameOver runGameOverTransition];
+            [GameData gameOver];
+        }
+    }];
+}
+
 - (void) update:(NSTimeInterval)currentTime {
+    
+    [self checkCollisionMonkey];
+    
     if (_timerStrat == 0) {
         _timerStrat = currentTime + 10;
         _currentShootTime = currentTime + 1;
@@ -115,27 +142,6 @@
         [_tank shootTank:_monkey.sprite.position scene:self];
         _currentShootTime = currentTime + 1.0;
     }
-    
-    [self enumerateChildNodesWithName:NAME_SPRITE_SHOOT_TANK usingBlock:^(SKNode *node, BOOL *stop) {
-        
-        if ([node intersectsNode:_monkey.sprite]) {
-            LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
-            [transitionGameOver runGameOverTransition];
-            [GameData gameOver];
-        }
-        if (node.position.y >= [UIScreen mainScreen].bounds.size.height)
-            [node removeFromParent];
-    }];
-    
-    [self enumerateChildNodesWithName:NAME_SPRITE_FIRE_TANK usingBlock:^(SKNode *node, BOOL *stop) {
-
-        if ([node intersectsNode:_monkey.sprite]) {
-            LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
-            [transitionGameOver runGameOverTransition];
-            [GameData gameOver];
-        }
-    }];
-    
 }
 
 @end
