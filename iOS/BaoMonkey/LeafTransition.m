@@ -10,6 +10,7 @@
 #import "GameData.h"
 #import "Define.h"
 #import "Resume.h"
+#import "UserData.h"
 
 #define ANIMATION_SPEED    20
 
@@ -58,7 +59,16 @@
         [self performSelector:@selector(showGameOverLeafs) withObject:nil afterDelay:0.016];
     }
     else {
+        [UserData updateScore:[GameData getScore]];
         for (SKSpriteNode *node in gameOverButton) {
+            
+            // Temporarily
+            
+            if ([node.name isEqualToString:RETRY_NODE_NAME])
+                node.position = CGPointMake(node.position.x, SCREEN_HEIGHT / 2 - (node.size.height / 2));
+            
+            // End temporarily
+            
             node.zPosition = 999;
             if (node.parent == nil)
                 [scene addChild:node];
@@ -75,7 +85,7 @@
 }
 
 -(void)runGameOverTransition {
-    if (![GameData isPause]) {
+    if (![GameData isPause] && ![GameData isGameOver]) {
         [scene addChild:upLeaf];
         [scene addChild:bottomLeaf];
         [self showGameOverLeafs];

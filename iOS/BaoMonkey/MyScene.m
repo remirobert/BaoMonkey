@@ -84,9 +84,6 @@
     
     if (([GameData isGameOver] && [node.name isEqualToString:RETRY_NODE_NAME]) || [node.name isEqualToString:RETRY_NODE_NAME]) {
         [GameData resetGameData];
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAUSE_GAME object:nil];
-        [self removeAllChildren];
-        [self removeAllActions];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
         return ;
     }
@@ -232,7 +229,7 @@
 - (void) pauseGame {
     //[self launchPauseView];
     SKNode *pauseNode = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
-    [pauseNode removeFromParent];
+    [(SKSpriteNode*)pauseNode removeFromParent];
     
     [leafTransition runPauseTransition];
     

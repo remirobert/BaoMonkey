@@ -103,7 +103,7 @@ static Resume *singleton;
     SKLabelNode *label = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
     label.text = @"Game Over";
     label.name = GAMEOVER_NODE_NAME;
-    label.fontSize = 70;
+    label.fontSize = 40;
     
     SKSpriteNode *node = [[SKSpriteNode alloc] init];
     node.anchorPoint = CGPointMake(0, 0);
