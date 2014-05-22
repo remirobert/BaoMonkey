@@ -12,12 +12,17 @@
 #import "Monkey.h"
 #import "LamberJackMachine.h"
 
+#define NAME_NODE_TREEBRANCH    @"name_node_treebranch"
+
 @interface LamberJackMachineScene ()
 @property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, assign) NSTimeInterval timer;
+@property (nonatomic, assign) NSTimeInterval timerMove;
+@property (nonatomic, assign) NSInteger pushforce;
 @property (nonatomic, strong) Monkey *monkey;
 @property (nonatomic, strong) SKSpriteNode *treeBranch;
 @property (nonatomic, strong) LamberJackMachine *lamber;
+@property (nonatomic, assign) NSInteger sens;
 @end
 
 @implementation LamberJackMachineScene
@@ -38,7 +43,7 @@
                                             blue:219/255.0f
                                            alpha:1];
     
-    _treeBranch = [[SKSpriteNode alloc] initWithColor:[SKColor brownColor] size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2, 35)];
+    _treeBranch = [[SKSpriteNode alloc] initWithColor:[SKColor brownColor] size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2 + 60, 35)];
     
     _treeBranch.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
                                        [UIScreen mainScreen].bounds.size.height - 180);
@@ -49,11 +54,12 @@
     _treeBranch.physicsBody.dynamic = NO;
     _treeBranch.physicsBody.allowsRotation = NO;
     
+    _treeBranch.name = NAME_NODE_TREEBRANCH;
+    
     self.physicsBody = [SKPhysicsBody
                         bodyWithEdgeLoopFromRect:CGRectMake(0, 0,
                                                             [UIScreen mainScreen].bounds.size.width - _monkey.sprite.size.width,
                                                             [UIScreen mainScreen].bounds.size.height)];
-    
     [GameController initAccelerometer];
     [self addChild:_treeBranch];
 }
@@ -70,16 +76,36 @@
         [self addChild:_lamber.node];
 
         self.physicsWorld.gravity = CGVectorMake(0, -10);
-        
+
+        _pushforce = 3;
+        _sens = 0;
         _timer = 0;
         _parentScene = parentScene;
     }
     return (self);
 }
 
+- (void) stressTree:(NSTimeInterval)currentTime {
+    static NSTimeInterval time = 0;
+
+    if (time == 0) {
+        time = currentTime + rand() % 5 + 2;
+        return ;
+    }
+    if (currentTime >= time) {
+        SKAction *actionStreeLeft = [SKAction moveTo:CGPointMake(_treeBranch.position.x - 30, _treeBranch.position.y) duration:0.25];
+        SKAction *actionStreeRight = [SKAction moveTo:CGPointMake(_treeBranch.position.x + 30, _treeBranch.position.y) duration:0.25];
+        
+        SKAction *sequenceStress = [SKAction sequence:@[actionStreeLeft, actionStreeRight,
+                                                        actionStreeLeft, actionStreeRight]];
+        [_treeBranch runAction:sequenceStress];
+    }
+}
+
 - (void) update:(NSTimeInterval)currentTime {
     if (_timer == 0) {
         _timer = currentTime + 30;
+        _timerMove = currentTime + 5;
     }
 
     if (currentTime >= _timer) {
@@ -87,13 +113,30 @@
         [self.view presentScene:_parentScene];
     }
     
-    
-    [self enumerateChildNodesWithName:LAMBER_JACK_MACHINE usingBlock:^(SKNode *node, BOOL *stop) {
-        node.position = CGPointMake(node.position.x + 1, node.position.y);
-    }];
+    if (currentTime >= _timerMove) {
+        _timerMove = currentTime + 5;
+        _pushforce += 1;
+    }
     
     [GameController updateAccelerometerAcceleration];
     [_monkey updateMonkeyPosition:[GameController getAcceleration]];
+
+    if (_sens == 1) {
+        if (_treeBranch.position.x < [UIScreen mainScreen].bounds.size.width)
+            _treeBranch.position = CGPointMake(_treeBranch.position.x + _pushforce,
+                                               _treeBranch.position.y);
+        else
+            _sens = 0;
+    }
+    else if (_sens == 0) {
+        if (_treeBranch.position.x > 0)
+            _treeBranch.position = CGPointMake(_treeBranch.position.x - _pushforce,
+                                               _treeBranch.position.y);
+        else
+            _sens = 1;
+    }
+    
+    [self stressTree:currentTime];
 }
 
 @end
