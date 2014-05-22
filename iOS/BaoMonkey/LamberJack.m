@@ -9,6 +9,8 @@
 #import "LamberJack.h"
 #import "Define.h"
 
+# define FLOOR_HEIGHT 30
+
 @implementation LamberJack
 
 @synthesize isChooping;
@@ -35,7 +37,7 @@
             position.x = -(node.size.width / 2);
         }
         node.name = ENEMY_NODE_NAME;
-        position.y = node.size.height / 2;
+        position.y = node.size.height / 2 + FLOOR_HEIGHT;
         [node setPosition:position];
         [self loadWalkingSprites];
         [self loadCuttingSprites];

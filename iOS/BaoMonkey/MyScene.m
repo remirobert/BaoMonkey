@@ -32,31 +32,33 @@
     node.fontSize = 25;
     node.position = CGPointMake([UIScreen mainScreen].bounds.size.width - 50, [UIScreen mainScreen].bounds.size.height - 30);
     node.name = PAUSE_BUTTON_NODE_NAME;
+    node.zPosition = 55;
     return node;
 }
 
 -(void)createButtons {
-    [self addChild:[self pauseNode]];
+    [self addChild:[BaoButton pause]];
 }
 
--(SKSpriteNode *)trunkNode {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"trunk"];
-    node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - 370));
+-(SKSpriteNode *)backgroundNode {
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
+    node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
     node.name = TRUNK_NODE_NAME;
     return node;
 }
 
--(SKSpriteNode *)backLeafNode {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"back-leaf"];
-    node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - 124));
-    node.name = BACK_LEAF_NODE_NAME;
-    return node;
-}
+//-(SKSpriteNode *)backLeafNode {
+//    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"back-leaf"];
+//    node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - 124));
+//    node.name = BACK_LEAF_NODE_NAME;
+//    return node;
+//}
 
 -(SKSpriteNode *)frontLeafNode {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"front-leaf"];
-    node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - 89));
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"leafs-foreground"];
+    node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (node.size.height / 2)));
     node.name = FRONT_LEAF_NODE_NAME;
+    node.zPosition = 50;
     return node;
 }
 
@@ -67,6 +69,7 @@
     score.position = CGPointMake(20, SCREEN_HEIGHT - 30);
     score.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     score.name = SCORE_NODE_NAME;
+    score.zPosition = 55;
 }
 
 -(SKLabelNode*)countDownNode {
@@ -117,9 +120,9 @@
 - (void) initScene {
     self.backgroundColor = [SKColor colorWithRed:52/255.0f green:152/255.0f blue:219/255.0f alpha:1];
     
-    SKSpriteNode *trunk = [self trunkNode];
+    SKSpriteNode *trunk = [self backgroundNode];
     [self addChild:trunk];
-    [self addChild:[self backLeafNode]];
+    //[self addChild:[self backLeafNode]];
     _sizeBlock = (self.frame.size.width - (self.frame.size.width / 10)) / 10;
     _treeBranch = [[TreeBranch alloc] init];
     
@@ -185,13 +188,6 @@
     return self;
 }
 
-//-(void)launchPauseView{
-//    pauseView = [[NSArray alloc] initWithObjects:[Resume replayNode], [Resume resumeNode], [Resume homeNode], [Resume settingsNode], nil];
-//    for (int i = 0; i < [pauseView count]; i++) {
-//        [self addChild:[pauseView objectAtIndex:i]];
-//    }
-//}
-
 - (void) gameCountDown {
     static int countDown = 3;
     
@@ -216,7 +212,7 @@
         
         // Reactive speed & physics
         self.speed = 1.0;
-        [self addChild:[self pauseNode]];
+        [self addChild:[BaoButton pause]];
         
         for (Item *item in _wave) {
             [item resumeTimer];
@@ -309,11 +305,10 @@
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
-//            GameOver *gameOverView = [[GameOver alloc] init];
-//            [self addChild:[gameOverView launchGameOverView]];
             [leafTransition runGameOverTransition];
             [GameData pauseGame];
             [GameData gameOver];
+            return ;
         }
     }];
     
