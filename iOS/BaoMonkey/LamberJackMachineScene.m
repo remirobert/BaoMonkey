@@ -66,12 +66,21 @@
 
         self.physicsWorld.gravity = CGVectorMake(0, -10);
         
+        _timer = 0;
         _parentScene = parentScene;
     }
     return (self);
 }
 
 - (void) update:(NSTimeInterval)currentTime {
+    if (_timer == 0) {
+        _timer = currentTime + 30;
+    }
+
+    if (currentTime >= _timer) {
+        [GameData addPointToScore:10];
+        [self.view presentScene:_parentScene];
+    }
     
     [GameController updateAccelerometerAcceleration];
     [_monkey updateMonkeyPosition:[GameController getAcceleration]];
