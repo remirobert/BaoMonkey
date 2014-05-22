@@ -11,8 +11,7 @@
 #import "UserData.h"
 #import "PauseTransition.h"
 #import "TankScene.h"
-
-# define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#import "Define.h"
 
 @implementation MyScene
 
@@ -85,9 +84,6 @@
     
     if (([GameData isGameOver] && [node.name isEqualToString:RETRY_NODE_NAME]) || [node.name isEqualToString:RETRY_NODE_NAME]) {
         [GameData resetGameData];
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_PAUSE_GAME object:nil];
-        [self removeAllChildren];
-        [self removeAllActions];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
         return ;
     }
@@ -168,7 +164,7 @@
     ** Pause control timer
     */
     
-    pauseTransition = [[PauseTransition alloc] init];
+    leafTransition = [[LeafTransition alloc] initWithScene:self];
     pauseTime = 0;
     lastTime = 0;
     oncePause = 0;
@@ -234,9 +230,9 @@
 - (void) pauseGame {
     //[self launchPauseView];
     SKNode *pauseNode = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
-    [pauseNode removeFromParent];
+    [(SKSpriteNode*)pauseNode removeFromParent];
     
-    [pauseTransition runTransition:self];
+    [leafTransition runPauseTransition];
     
     self.speed = 0;
     for (Item *item in _wave) {
@@ -314,8 +310,9 @@
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
-            GameOver *gameOverView = [[GameOver alloc] init];
-            [self addChild:[gameOverView launchGameOverView]];
+//            GameOver *gameOverView = [[GameOver alloc] init];
+//            [self addChild:[gameOverView launchGameOverView]];
+            [leafTransition runGameOverTransition];
             [GameData gameOver];
         }
     }];

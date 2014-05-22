@@ -87,12 +87,12 @@
 }
 
 -(void)goToHome {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 -(void)goToSettings {
     SettingsViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:STORYBOARD_IDENTIFIER_SETTINGS];
-    [self.navigationController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:NO];
 }
 
 - (NSUInteger)supportedInterfaceOrientations
