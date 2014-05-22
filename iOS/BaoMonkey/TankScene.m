@@ -128,9 +128,22 @@
     }];
 }
 
+- (void) performPositionShoot {
+    [self enumerateChildNodesWithName:NAME_SPRITE_SHOOT_TANK usingBlock:^(SKNode *node, BOOL *stop) {
+        if (node.position.y == _tank.tankSprite.position.y)
+            node.position = CGPointMake(_tank.tankSprite.position.x, node.position.y);
+    }];
+}
+
 - (void) update:(NSTimeInterval)currentTime {
     
     [self checkCollisionMonkey];
+    
+    if (_isPaused == NO) {
+        [GameController updateAccelerometerAcceleration];
+        [_monkey updateMonkeyPosition:[GameController getAcceleration]];
+        [_tank move];
+    }
     
     if (_timerStrat == 0) {
         _timerStrat = currentTime + 10;
@@ -146,18 +159,14 @@
             [self.view presentScene:_parentScene];
     }
     
-    if (_isPaused == NO) {
-        [GameController updateAccelerometerAcceleration];
-        [_monkey updateMonkeyPosition:[GameController getAcceleration]];
-        [_tank move];
-    }
-    
     if (currentTime >= _currentShootTime) {
         [_tank shootTank:_monkey.sprite.position scene:self];
         [_tank shootTank:_monkey.sprite.position scene:self];
         [_tank shootTank:_monkey.sprite.position scene:self];
         _currentShootTime = currentTime + 1.0;
     }
+    
+    [self performPositionShoot];
 }
 
 @end

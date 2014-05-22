@@ -108,6 +108,7 @@
     if (_isHardStrat == NO) {
         _isHardStrat = YES;
         _isShoot = NO;
+        
         [scene enumerateChildNodesWithName:NAME_SPRITE_FIRE_TANK usingBlock:^(SKNode *node, BOOL *stop) {
             [node removeFromParent];
         }];
