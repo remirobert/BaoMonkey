@@ -10,6 +10,9 @@
 
 @interface Climber : Enemy
 
+@property (nonatomic, assign) BOOL isClimb;
+
 -(id)initWithDirection:(EnemyDirection)_direction;
+- (void) actionClimber:(NSInteger)positionclimb;
 
 @end

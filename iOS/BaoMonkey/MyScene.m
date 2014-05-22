@@ -8,6 +8,7 @@
 
 #import "MyScene.h"
 #import "MyScene+GeneratorWave.h"
+#import "MyScene+Climber.h"
 #import "UserData.h"
 #import "LeafTransition.h"
 #import "TankScene.h"

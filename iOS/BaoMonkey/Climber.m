@@ -40,17 +40,17 @@
         node.name = ENEMY_NODE_NAME;
         position.y = node.size.height / 2;
         [node setPosition:position];
-        [self actionClimber];
+        _isClimb = NO;
     }
-    
     return (self);
 }
 
-- (void) actionClimber {
+- (void) actionClimber:(NSInteger)positionclimb {
+    _isClimb = YES;
     SKAction *moveToTrunk = [SKAction moveToX:_climbPositionX
                                      duration:1.5];
     SKAction *waitClimb = [SKAction waitForDuration:0.5];
-    SKAction *climb = [SKAction moveToY:[UIScreen mainScreen].bounds.size.height - 180
+    SKAction *climb = [SKAction moveToY:positionclimb
                                duration:4.0];
 
     SKAction *act = [SKAction sequence:@[waitClimb, moveToTrunk, waitClimb, climb]];
