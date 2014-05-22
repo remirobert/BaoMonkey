@@ -85,20 +85,65 @@
     return (self);
 }
 
+- (void) moveVariationTree {
+    [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
+                                                        _treeBranch.position.y + 10) duration:0.15] completion:^{
+        [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
+                                                            _treeBranch.position.y + 10) duration:0.15] completion:^{
+            [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
+                                                                _treeBranch.position.y + 10) duration:0.15] completion:^{
+                [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
+                                                                    _treeBranch.position.y + 10) duration:0.15] completion:^{
+                }];
+            }];
+        }];
+    }];
+}
+
 - (void) stressTree:(NSTimeInterval)currentTime {
     static NSTimeInterval time = 0;
-
+    NSInteger pushStress = 20;
+    CGFloat timerStress = 0.15;
+    
     if (time == 0) {
         time = currentTime + rand() % 5 + 2;
         return ;
     }
     if (currentTime >= time) {
-        SKAction *actionStreeLeft = [SKAction moveTo:CGPointMake(_treeBranch.position.x - 30, _treeBranch.position.y) duration:0.25];
-        SKAction *actionStreeRight = [SKAction moveTo:CGPointMake(_treeBranch.position.x + 30, _treeBranch.position.y) duration:0.25];
         
-        SKAction *sequenceStress = [SKAction sequence:@[actionStreeLeft, actionStreeRight,
-                                                        actionStreeLeft, actionStreeRight]];
-        [_treeBranch runAction:sequenceStress];
+        [self moveVariationTree];
+        [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
+                                                            _treeBranch.position.y) duration:timerStress] completion:^{
+            [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x + (rand() % 10 + pushStress),
+                                                                _treeBranch.position.y) duration:timerStress] completion:^{
+                [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
+                                                                    _treeBranch.position.y) duration:timerStress] completion:^{
+                    [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x + (rand() % 10 + pushStress),
+                                                                        _treeBranch.position.y) duration:timerStress] completion:^{
+                    }];
+                }];
+            }];
+        }];
+        
+        time = currentTime + rand() % 5 + 2;
+
+    }
+}
+
+- (void) moveTreeBranch {
+    if (_sens == 1) {
+        if (_treeBranch.position.x < [UIScreen mainScreen].bounds.size.width)
+            _treeBranch.position = CGPointMake(_treeBranch.position.x + _pushforce,
+                                               _treeBranch.position.y);
+        else
+            _sens = 0;
+    }
+    else if (_sens == 0) {
+        if (_treeBranch.position.x > 0)
+            _treeBranch.position = CGPointMake(_treeBranch.position.x - _pushforce,
+                                               _treeBranch.position.y);
+        else
+            _sens = 1;
     }
 }
 
@@ -121,21 +166,7 @@
     [GameController updateAccelerometerAcceleration];
     [_monkey updateMonkeyPosition:[GameController getAcceleration]];
 
-    if (_sens == 1) {
-        if (_treeBranch.position.x < [UIScreen mainScreen].bounds.size.width)
-            _treeBranch.position = CGPointMake(_treeBranch.position.x + _pushforce,
-                                               _treeBranch.position.y);
-        else
-            _sens = 0;
-    }
-    else if (_sens == 0) {
-        if (_treeBranch.position.x > 0)
-            _treeBranch.position = CGPointMake(_treeBranch.position.x - _pushforce,
-                                               _treeBranch.position.y);
-        else
-            _sens = 1;
-    }
-    
+    [self moveTreeBranch];
     [self stressTree:currentTime];
 }
 
