@@ -125,6 +125,7 @@
 # define HOME_NODE_NAME                     @"HOME_NODE_NAME"
 # define SETTINGS_NODE_NAME                 @"SETTINGS_NODE_NAME"
 # define COUNTDOWN_NODE_NAME                @"COUNTDOWN_NODE_NAME"
+# define GAMEOVER_NODE_NAME                 @"GAMEOVER_NODE_NAME"
 
 /*
 ** POS FLOOR

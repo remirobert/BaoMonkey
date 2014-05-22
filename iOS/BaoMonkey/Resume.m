@@ -99,4 +99,22 @@ static Resume *singleton;
     return node;
 }
 
+-(SKSpriteNode *)gameOverNode {
+    SKLabelNode *label = [[SKLabelNode alloc] initWithFontNamed:@"Chalkduster"];
+    label.text = @"Game Over";
+    label.name = GAMEOVER_NODE_NAME;
+    label.fontSize = 40;
+    
+    SKSpriteNode *node = [[SKSpriteNode alloc] init];
+    node.anchorPoint = CGPointMake(0, 0);
+    node.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 100);
+    [node addChild:label];
+    
+    return node;
+}
+
++(SKSpriteNode *)gameOverNode {
+    return [[Resume singleton] gameOverNode];
+}
+
 @end
