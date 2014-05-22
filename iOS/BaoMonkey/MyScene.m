@@ -10,6 +10,7 @@
 #import "MyScene+GeneratorWave.h"
 #import "UserData.h"
 #import "LeafTransition.h"
+#import "TankScene.h"
 
 # define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
