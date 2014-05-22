@@ -87,6 +87,11 @@
         [self.view presentScene:_parentScene];
     }
     
+    
+    [self enumerateChildNodesWithName:LAMBER_JACK_MACHINE usingBlock:^(SKNode *node, BOOL *stop) {
+        node.position = CGPointMake(node.position.x + 1, node.position.y);
+    }];
+    
     [GameController updateAccelerometerAcceleration];
     [_monkey updateMonkeyPosition:[GameController getAcceleration]];
 }
