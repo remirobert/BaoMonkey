@@ -88,12 +88,16 @@
 - (void) moveVariationTree {
     [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
                                                         _treeBranch.position.y + 10) duration:0.15] completion:^{
+        _treeBranch.position = CGPointMake(_treeBranch.position.x, _treeBranch.position.y + 10);
         [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
                                                             _treeBranch.position.y + 10) duration:0.15] completion:^{
+            _treeBranch.position = CGPointMake(_treeBranch.position.x, _treeBranch.position.y - 10);
             [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
                                                                 _treeBranch.position.y + 10) duration:0.15] completion:^{
+                _treeBranch.position = CGPointMake(_treeBranch.position.x, _treeBranch.position.y + 10);
                 [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
                                                                     _treeBranch.position.y + 10) duration:0.15] completion:^{
+                    _treeBranch.position = CGPointMake(_treeBranch.position.x, _treeBranch.position.y - 10);
                 }];
             }];
         }];
@@ -111,15 +115,27 @@
     }
     if (currentTime >= time) {
         
-        [self moveVariationTree];
+//        [self moveVariationTree];
         [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
                                                             _treeBranch.position.y) duration:timerStress] completion:^{
-            [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x + (rand() % 10 + pushStress),
-                                                                _treeBranch.position.y) duration:timerStress] completion:^{
-                [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
+            [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
+                                                                _treeBranch.position.y + 10) duration:0.05] completion:^{
+                [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x + (rand() % 10 + pushStress),
                                                                     _treeBranch.position.y) duration:timerStress] completion:^{
-                    [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x + (rand() % 10 + pushStress),
-                                                                        _treeBranch.position.y) duration:timerStress] completion:^{
+                    [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
+                                                                        _treeBranch.position.y - 10) duration:timerStress] completion:^{
+                        [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
+                                                                            _treeBranch.position.y) duration:0.05] completion:^{
+                            [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
+                                                                                _treeBranch.position.y + 10) duration:0.05] completion:^{
+                                [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x + (rand() % 10 + pushStress),
+                                                                                    _treeBranch.position.y) duration:timerStress] completion:^{
+                                    [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
+                                                                                        _treeBranch.position.y - 10) duration:0.05] completion:^{
+                                    }];
+                                }];
+                            }];
+                        }];
                     }];
                 }];
             }];
