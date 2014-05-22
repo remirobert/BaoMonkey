@@ -11,6 +11,8 @@
 @interface Tank ()
 @property (nonatomic, assign) CGPoint positionMediumStrat;
 @property (nonatomic, assign) BOOL isShoot;
+@property (nonatomic, assign) BOOL isMediumStrat;
+@property (nonatomic, assign) BOOL isHardStrat;
 @end
 
 @implementation Tank
@@ -25,6 +27,8 @@
     
     if (self != nil) {
         [self initSpriteTank];
+        
+        _isHardStrat = _isMediumStrat = NO;
         
         _positionMediumStrat = CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width / 2)+ ([UIScreen mainScreen].bounds.size.width / 2), [UIScreen mainScreen].bounds.size.height);
     }
@@ -88,28 +92,28 @@
 }
 
 - (void) mediumStrat:(CGPoint)positionMonkey :(SKScene *)scene {
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
+
+    if (_isMediumStrat == NO) {
+        _isMediumStrat = YES;
         _isShoot = NO;
         [self shootFireBomb:positionMonkey :scene];
-    });
+    };
     if (_isShoot == 1) {
         [self lowStrat:positionMonkey :scene];
     }
 }
 
 - (void) hardStrat:(CGPoint)positionMonkey :(SKScene *)scene {
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
+
+    if (_isHardStrat == NO) {
+        _isHardStrat = YES;
         _isShoot = NO;
         [scene enumerateChildNodesWithName:NAME_SPRITE_FIRE_TANK usingBlock:^(SKNode *node, BOOL *stop) {
             [node removeFromParent];
         }];
         
         [self shootFireBomb:positionMonkey :scene];
-    });
+    };
     if (_isShoot == YES)
         [self lowStrat:positionMonkey :scene];
 }
@@ -122,7 +126,6 @@
         [self mediumStrat:positionMonkey :scene];
     else if (_currentStrat == 2)
         [self hardStrat:positionMonkey :scene];
-    
 }
 
 @end
