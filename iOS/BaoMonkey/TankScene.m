@@ -162,9 +162,9 @@
     }
     
     if (currentTime >= _currentShootTime) {
-        [_tank shootTank:_monkey.sprite.position scene:self];
-        [_tank shootTank:_monkey.sprite.position scene:self];
-        [_tank shootTank:_monkey.sprite.position scene:self];
+        for (int indexShoot = 0; indexShoot < _currentStrat + 1 ; indexShoot++) {
+            [_tank shootTank:_monkey.sprite.position scene:self];
+        }
         _currentShootTime = currentTime + 1.0;
     }
     
