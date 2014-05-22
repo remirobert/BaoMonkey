@@ -83,7 +83,7 @@
     nodeShoot.position = _tankSprite.position;
     SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width), positionMonkey.y) duration:2.0];
     
-    SKAction *fireAction = [SKAction resizeToWidth:rand() % 40 + 60 duration:1.5];
+    SKAction *fireAction = [SKAction resizeToWidth:rand() % 20 + 40 duration:1.5];
     
     [nodeShoot runAction:moveShoot completion:^{
         [nodeShoot runAction:fireAction];
