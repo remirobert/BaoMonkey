@@ -25,10 +25,9 @@
 
     _monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_monkey.sprite.size];
     _monkey.sprite.physicsBody.affectedByGravity = YES;
+    _monkey.sprite.physicsBody.mass = 50;
     
     [self addChild:_monkey.sprite];
-    [GameController initAccelerometer];
-
 }
 
 - (void) initScene {
@@ -39,29 +38,38 @@
     
     _treeBranch = [[TreeBranch alloc] init];
     
+    _treeBranch.node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_treeBranch.node.size];
+    
+    self.physicsWorld.speed = 0.25;
     self.physicsBody = [SKPhysicsBody
-                        bodyWithEdgeLoopFromRect:CGRectMake(_treeBranch.node.frame.origin.x,
-                                                            _treeBranch.node.frame.origin.y -
-                                                            (_treeBranch.node.frame.size.height / 2) +
-                                                            (_treeBranch.node.frame.size.height / 2),
-                                                            _treeBranch.node.frame.size.width,
-                                                            _treeBranch.node.frame.size.height / 2)];
+                        bodyWithEdgeLoopFromRect:self.frame];
+    [GameController initAccelerometer];
     
     [self addChild:_treeBranch.node];
+    
+    SKAction *rotate = [SKAction moveToY:100 duration:1.0];
+    
+    [_treeBranch.node runAction:rotate];
 }
 
 - (instancetype) initWithSize:(CGSize)size parent:(SKScene *)parentScene {
     self = [super initWithSize:size];
     if (self != nil) {
         self.view.frame = CGRectMake(0, 0, size.width, size.height);
-        self.backgroundColor = [SKColor redColor];
 
         [self initScene];
         [self initMonkey];
+
+        self.physicsWorld.gravity = CGVectorMake(0, -10);
         
         _parentScene = parentScene;
     }
     return (self);
+}
+
+- (void) update:(NSTimeInterval)currentTime {
+//    [GameController updateAccelerometerAcceleration];
+//    [_monkey updateMonkeyPosition:[GameController getAcceleration]];
 }
 
 @end

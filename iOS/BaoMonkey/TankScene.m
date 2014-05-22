@@ -78,7 +78,6 @@
     self = [super initWithSize:size];
     if (self != nil) {
         self.view.frame = CGRectMake(0, 0, size.width, size.height);
-        self.backgroundColor = [SKColor redColor];
         _timerStrat = 0;
         _currentStrat = 0;
         _parentScene = parentScene;
