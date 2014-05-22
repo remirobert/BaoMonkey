@@ -2,7 +2,7 @@
     GENERAL
 ----------------------------------------*/
 body {
-    background-color: #75A939;
+    background-color: #74AC41;
     font-family: 'Lato', sans-serif;
     color: #444;
       -webkit-transition:all 700ms cubic-bezier(.4,.1,.4,1) 200ms;
@@ -10,9 +10,11 @@ body {
       -o-transition:all 700ms cubic-bezier(.4,.1,.4,1) 200ms;
     transition:all 700ms cubic-bezier(.4,.1,.4,1) 200ms
 }
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .lead {
     font-weight: 300;
 }
+
 .spacer-25px {
     background: none !important;
     height: 25px;
@@ -62,22 +64,12 @@ header {
 }
 
 /*----------------------------------------
-    IMAGE
-----------------------------------------*/
-#image {
-    background-color: #75A939;
-    color: #444;
-    padding-top: 100px;
-    padding-bottom: 0px;
-}
-
-/*----------------------------------------
     ABOUT
 ----------------------------------------*/
 #about {
     padding-top: 50px;
     padding-bottom: 30px;
-    background-color: #75A939;
+    background-color: #74AC41;
 }
 #about .user {
     padding: 25px 0px;
@@ -118,7 +110,7 @@ header {
 #gallery {
     padding-top: 50px;
     padding-bottom: 30px;
-    background-color: #75A939;
+    background-color: #74AC41;
 }
 #owl-demo .item {
     margin: 10px;
@@ -188,7 +180,7 @@ header {
 ----------------------------------------*/
 footer {
     background: url(../assets/background/footer.png);
-    background-color: #75A939;
+    background-color: #74AC41;
     color: #fff;
     margin: 0;
     padding: 50px;
