@@ -1,6 +1,12 @@
 /*----------------------------------------
     GENERAL
 ----------------------------------------*/
+* {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
 body {
     background-color: #74AC41;
     font-family: 'Lato', sans-serif;
@@ -345,6 +351,15 @@ footer .footer-links > li > a {
     margin-bottom: 50px;
 }
 .overview {
+    background-color: #fff;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 0px;
+}
+.overview_project {
+    background-color: #fff;
+    color: #000;
+    border-radius: 6px;
     text-align: center;
     margin-bottom: 0px;
 }
