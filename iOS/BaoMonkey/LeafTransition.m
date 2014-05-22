@@ -79,16 +79,24 @@
 
 -(void)runPauseTransition {
     if (![GameData isPause]) {
-        [scene addChild:upLeaf];
-        [scene addChild:bottomLeaf];
+        if (upLeaf.parent == nil) {
+            [scene addChild:upLeaf];
+        }
+        if (bottomLeaf.parent == nil) {
+            [scene addChild:bottomLeaf];
+        }
         [self showPauseLeafs];
     }
 }
 
 -(void)runGameOverTransition {
     if (![GameData isPause] && ![GameData isGameOver]) {
-        [scene addChild:upLeaf];
-        [scene addChild:bottomLeaf];
+        if (upLeaf.parent == nil) {
+            [scene addChild:upLeaf];
+        }
+        if (bottomLeaf.parent == nil) {
+            [scene addChild:bottomLeaf];
+        }
         [self showGameOverLeafs];
     }
 }

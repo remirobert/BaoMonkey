@@ -54,6 +54,9 @@
 		2919C63F192DEE1F00A2F2D1 /* button-replay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C63A192DEE1F00A2F2D1 /* button-replay@2x.png */; };
 		2919C640192DEE1F00A2F2D1 /* button-settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C63B192DEE1F00A2F2D1 /* button-settings@2x.png */; };
 		2919C643192DF46300A2F2D1 /* BaoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2919C642192DF46300A2F2D1 /* BaoButton.m */; };
+		2919C648192E2CFC00A2F2D1 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C645192E2CFC00A2F2D1 /* background@2x.png */; };
+		2919C649192E2CFC00A2F2D1 /* branch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C646192E2CFC00A2F2D1 /* branch@2x.png */; };
+		2919C64A192E2CFC00A2F2D1 /* leafs-foreground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C647192E2CFC00A2F2D1 /* leafs-foreground@2x.png */; };
 		2950D27E192B869E00C12A52 /* LeafTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2950D27D192B869E00C12A52 /* LeafTransition.m */; };
 		2950D282192B8DBC00C12A52 /* bottom-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */; };
 		2950D283192B8DBC00C12A52 /* up-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2950D281192B8DBC00C12A52 /* up-leaf@2x.png */; };
@@ -177,6 +180,9 @@
 		2919C63B192DEE1F00A2F2D1 /* button-settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-settings@2x.png"; path = "Buttons/button-settings@2x.png"; sourceTree = "<group>"; };
 		2919C641192DF46300A2F2D1 /* BaoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaoButton.h; sourceTree = "<group>"; };
 		2919C642192DF46300A2F2D1 /* BaoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoButton.m; sourceTree = "<group>"; };
+		2919C645192E2CFC00A2F2D1 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "Background/background@2x.png"; sourceTree = "<group>"; };
+		2919C646192E2CFC00A2F2D1 /* branch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "branch@2x.png"; path = "Background/branch@2x.png"; sourceTree = "<group>"; };
+		2919C647192E2CFC00A2F2D1 /* leafs-foreground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "leafs-foreground@2x.png"; path = "Background/leafs-foreground@2x.png"; sourceTree = "<group>"; };
 		2950D27C192B869E00C12A52 /* LeafTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeafTransition.h; sourceTree = "<group>"; };
 		2950D27D192B869E00C12A52 /* LeafTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeafTransition.m; sourceTree = "<group>"; };
 		2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-leaf@2x.png"; path = "Leaf/bottom-leaf@2x.png"; sourceTree = "<group>"; };
@@ -365,6 +371,7 @@
 		10C59A0C1919492C00907493 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2919C644192E2CB900A2F2D1 /* Background */,
 				2919C636192DEDF300A2F2D1 /* Buttons */,
 				3F47F9B7192D106300C36A39 /* Progress */,
 				2950D27F192B8DB500C12A52 /* Leaf */,
@@ -408,6 +415,16 @@
 				2919C63B192DEE1F00A2F2D1 /* button-settings@2x.png */,
 			);
 			name = Buttons;
+			sourceTree = "<group>";
+		};
+		2919C644192E2CB900A2F2D1 /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				2919C645192E2CFC00A2F2D1 /* background@2x.png */,
+				2919C646192E2CFC00A2F2D1 /* branch@2x.png */,
+				2919C647192E2CFC00A2F2D1 /* leafs-foreground@2x.png */,
+			);
+			name = Background;
 			sourceTree = "<group>";
 		};
 		2950D27B192B865C00C12A52 /* LeafTransition */ = {
@@ -843,6 +860,7 @@
 				3F47F9C1192D41E200C36A39 /* lamber-jack-waiting@2x.png in Resources */,
 				10C59A151919492C00907493 /* back-leaf@2x.png in Resources */,
 				3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */,
+				2919C64A192E2CFC00A2F2D1 /* leafs-foreground@2x.png in Resources */,
 				296AFB90191BE197009D5B75 /* hunter-left@2x.png in Resources */,
 				29E98BB4191A882B0046F9B2 /* lamberjack-left@2x.png in Resources */,
 				3F0CD895191D423E0079A5EB /* baomonkey.m4a in Resources */,
@@ -853,6 +871,7 @@
 				296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */,
 				3F47F9C2192D41E200C36A39 /* LamberJackCutting.atlas in Resources */,
 				2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */,
+				2919C649192E2CFC00A2F2D1 /* branch@2x.png in Resources */,
 				3F7D436F191A6FE100DF30D6 /* MonkeyWalking.atlas in Resources */,
 				2919C640192DEE1F00A2F2D1 /* button-settings@2x.png in Resources */,
 				3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */,
@@ -866,6 +885,7 @@
 				3FB2A494191B79900027B2C7 /* coconut@2x.png in Resources */,
 				2919C63F192DEE1F00A2F2D1 /* button-replay@2x.png in Resources */,
 				2919C63E192DEE1F00A2F2D1 /* button-play@2x.png in Resources */,
+				2919C648192E2CFC00A2F2D1 /* background@2x.png in Resources */,
 				10C599C3191948A300907493 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -40,15 +40,16 @@
     
     if (IPAD){
         nodeSize = CGSizeMake(0, 0);
-        positionNode = CGPointMake(SCREEN_WIDTH - (nodeSize.width / 2), SCREEN_HEIGHT);
+        positionNode = CGPointMake(SCREEN_WIDTH - (nodeSize.width / 2), SCREEN_HEIGHT - (nodeSize.height / 2));
     }
     else {
-        nodeSize = CGSizeMake(50, 82);
-        positionNode = CGPointMake(SCREEN_WIDTH - (nodeSize.width / 2), SCREEN_HEIGHT);
+        nodeSize = CGSizeMake(60, 60);
+        positionNode = CGPointMake(SCREEN_WIDTH - (nodeSize.width / 2), SCREEN_HEIGHT - (nodeSize.height / 2));
     }
     node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_BUTTON_PAUSE] size:nodeSize];
     node.position = positionNode;
     node.name = PAUSE_BUTTON_NODE_NAME;
+    node.zPosition = 55;
     return node;
 }
 
