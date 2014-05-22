@@ -11,6 +11,7 @@
 #import "TreeBranch.h"
 #import "Monkey.h"
 #import "LamberJackMachine.h"
+#import "CocoNuts.h"
 
 #define NAME_NODE_TREEBRANCH    @"name_node_treebranch"
 
@@ -37,13 +38,24 @@
     [self addChild:_monkey.sprite];
 }
 
+- (void) updatePhysicBody {
+    self.physicsBody = [SKPhysicsBody
+                        bodyWithEdgeLoopFromRect:CGRectMake(_treeBranch.frame.origin.x,
+                                                            _treeBranch.frame.origin.y -
+                                                            (_treeBranch.frame.size.height / 2) +
+                                                            (_treeBranch.frame.size.height / 2),
+                                                            _treeBranch.frame.size.width,
+                                                            _treeBranch.frame.size.height / 2)];
+}
+
 - (void) initScene {
     self.backgroundColor = [SKColor colorWithRed:52/255.0f
                                            green:152/255.0f
                                             blue:219/255.0f
                                            alpha:1];
     
-    _treeBranch = [[SKSpriteNode alloc] initWithColor:[SKColor brownColor] size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2 + 60, 35)];
+    _treeBranch = [[SKSpriteNode alloc] initWithColor:[SKColor brownColor]
+                                                 size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2 + 60, 35)];
     
     _treeBranch.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
                                        [UIScreen mainScreen].bounds.size.height - 180);
@@ -55,11 +67,9 @@
     _treeBranch.physicsBody.allowsRotation = NO;
     
     _treeBranch.name = NAME_NODE_TREEBRANCH;
+
+    [self updatePhysicBody];
     
-    self.physicsBody = [SKPhysicsBody
-                        bodyWithEdgeLoopFromRect:CGRectMake(0, 0,
-                                                            [UIScreen mainScreen].bounds.size.width - _monkey.sprite.size.width,
-                                                            [UIScreen mainScreen].bounds.size.height)];
     [GameController initAccelerometer];
     [self addChild:_treeBranch];
 }
@@ -85,6 +95,26 @@
     return (self);
 }
 
+- (void) popCocoNuts {
+    NSInteger nbCocoNuts = rand() % 2 + 2;
+    
+    for (int index = 0; index <= nbCocoNuts; index ++) {
+        CocoNuts *coco = [[CocoNuts alloc]
+                          initWithPosition:CGPointMake((rand() %
+                                                        (int)(_treeBranch.size.width / 2)) +
+                                                       _treeBranch.position.x,
+                                                       [UIScreen mainScreen].bounds.size.height + 35)];
+        coco.node.name = @"toto";
+        [coco.timerHide invalidate];
+        [self addChild:coco.node];
+        SKPhysicsBody *tmpBody = coco.node.physicsBody;
+        coco.node.physicsBody = nil;
+        [coco.node runAction:[SKAction waitForDuration:(float)arc4random() / 0x100000000] completion:^{
+            coco.node.physicsBody = tmpBody;
+        }];
+    }
+}
+
 - (void) stressTree:(NSTimeInterval)currentTime {
     static NSTimeInterval time = 0;
     NSInteger pushStress = 20;
@@ -95,21 +125,29 @@
         return ;
     }
     if (currentTime >= time) {
+        [self performSelector:@selector(popCocoNuts)];
         
         [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
                                                             _treeBranch.position.y) duration:timerStress] completion:^{
+            
             [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
                                                                 _treeBranch.position.y + 10) duration:0.05] completion:^{
+            
                 [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x + (rand() % 10 + pushStress),
                                                                     _treeBranch.position.y) duration:timerStress] completion:^{
+                    
                     [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
                                                                         _treeBranch.position.y - 10) duration:timerStress] completion:^{
+
                         [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
                                                                             _treeBranch.position.y) duration:0.05] completion:^{
+                            
                             [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
                                                                                 _treeBranch.position.y + 10) duration:0.05] completion:^{
+
                                 [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x + (rand() % 10 + pushStress),
                                                                                     _treeBranch.position.y) duration:timerStress] completion:^{
+                                    
                                     [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
                                                                                         _treeBranch.position.y - 10) duration:0.05] completion:^{
                                     }];
@@ -122,7 +160,6 @@
         }];
         
         time = currentTime + rand() % 5 + 2;
-
     }
 }
 
@@ -164,6 +201,7 @@
 
     [self moveTreeBranch];
     [self stressTree:currentTime];
+    [self updatePhysicBody];
 }
 
 @end

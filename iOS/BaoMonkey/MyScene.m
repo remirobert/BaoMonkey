@@ -126,7 +126,8 @@
     self.physicsBody = [SKPhysicsBody
                         bodyWithEdgeLoopFromRect:CGRectMake(_treeBranch.node.frame.origin.x,
                                                             _treeBranch.node.frame.origin.y -
-                                                            (_treeBranch.node.frame.size.height / 2) + (_treeBranch.node.frame.size.height / 2),
+                                                            (_treeBranch.node.frame.size.height / 2) +
+                                                            (_treeBranch.node.frame.size.height / 2),
                                                             _treeBranch.node.frame.size.width,
                                                             _treeBranch.node.frame.size.height / 2)];
     
