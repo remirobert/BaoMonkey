@@ -41,11 +41,14 @@
         position.y = node.size.height / 2;
         [node setPosition:position];
         _isClimb = NO;
+        _isOnPlateform = NO;
     }
     return (self);
 }
 
 - (void) actionClimber:(NSInteger)positionclimb {
+    if (_isClimb == YES)
+        return ;
     _isClimb = YES;
     SKAction *moveToTrunk = [SKAction moveToX:_climbPositionX
                                      duration:1.5];
@@ -55,7 +58,9 @@
 
     SKAction *act = [SKAction sequence:@[waitClimb, moveToTrunk, waitClimb, climb]];
     
-    [self.node runAction:act];
+    [self.node runAction:act completion:^{
+        _isOnPlateform = YES;
+    }];
 }
 
 -(void)loadWalkingSprites {

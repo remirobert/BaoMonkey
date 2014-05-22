@@ -122,6 +122,15 @@
 -(void)updateEnemies:(CFTimeInterval)currentTime {
     int maxLamberJack;
     
+    
+    /* TEST CLIMBER DEBUG REMOVE THIS BLOCK */
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self addClimber];
+    });
+    /* END TEST CLIMBER */
+
+    
     if ([GameData getLevel] >= 1)
         maxLamberJack = MAX_LUMBERJACK;
     else
@@ -144,11 +153,11 @@
             numberClimber += 1;
         }
         
-        if ([self countOfEnemyType:EnemyTypeClimber] < numberClimber && ((timeForAddClimber <= currentTime) || (timeForAddClimber == 0))){
-            float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY + 2 - MIN_NEXT_ENEMY))));
-            [self addClimber];
-            timeForAddClimber = currentTime + randomFloat;
-        }
+//        if ([self countOfEnemyType:EnemyTypeClimber] < numberClimber && ((timeForAddClimber <= currentTime) || (timeForAddClimber == 0))){
+//            float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY + 2 - MIN_NEXT_ENEMY))));
+//            [self addClimber];
+//            timeForAddClimber = currentTime + randomFloat;
+//        }
         
         if (numberOfFloors > 0 &&
             [self countOfEnemyType:EnemyTypeHunter] < numberHunter && ((timeForAddHunter <= currentTime) || (timeForAddHunter == 0))){

@@ -355,6 +355,8 @@
             
     }
     
+    [self actionClimber];
+    
     if ([GameData getTrunkLife] < 0) {
         // Call the GameOver view when the trunk is dead
     } else{

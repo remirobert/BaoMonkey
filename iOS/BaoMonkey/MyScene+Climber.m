@@ -19,8 +19,25 @@
             if (((Climber *)currrentEnemy).isClimb == NO) {
                 [((Climber *)currrentEnemy) actionClimber:self.treeBranch.node.position.y + 20];
             }
+            if (((Climber *)currrentEnemy).isOnPlateform == YES) {
+                [self moveOnPlateform:(Climber *)currrentEnemy];
+            }
         }
     }
+}
+
+- (void) moveOnPlateform:(Climber *)climber {
+    CGPoint newPositionClimber;
+    
+    if (self->monkey.sprite.position.x > climber.node.position.x) {
+        newPositionClimber = CGPointMake(climber.node.position.x + 1,
+                                         climber.node.position.y);
+    }
+    else {
+        newPositionClimber = CGPointMake(climber.node.position.x - 1,
+                                         climber.node.position.y);
+    }
+    climber.node.position = newPositionClimber;
 }
 
 @end
