@@ -11,8 +11,7 @@
 #import "UserData.h"
 #import "PauseTransition.h"
 #import "TankScene.h"
-
-# define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#import "Define.h"
 
 @implementation MyScene
 
