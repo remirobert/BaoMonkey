@@ -18,6 +18,7 @@
 		10AB3476192CD1B200661301 /* Tank.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AB3475192CD1B200661301 /* Tank.m */; };
 		10B4196419260681005D4EDC /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4196319260681005D4EDC /* UserData.m */; };
 		10BCACE4192DFA5600A846F1 /* MyScene+Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */; };
+		10BCACE7192E02CA00A846F1 /* LamberJackMachineScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */; };
 		10C599B7191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
 		10C599B9191948A300907493 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B8191948A300907493 /* CoreGraphics.framework */; };
 		10C599BB191948A300907493 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599BA191948A300907493 /* UIKit.framework */; };
@@ -121,6 +122,8 @@
 		10B4196319260681005D4EDC /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		10BCACE2192DFA5600A846F1 /* MyScene+Climber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Climber.h"; sourceTree = "<group>"; };
 		10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Climber.m"; sourceTree = "<group>"; };
+		10BCACE5192E02CA00A846F1 /* LamberJackMachineScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamberJackMachineScene.h; sourceTree = "<group>"; };
+		10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamberJackMachineScene.m; sourceTree = "<group>"; };
 		10C599B3191948A300907493 /* BaoMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C599B6191948A300907493 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		10C599B8191948A300907493 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -637,6 +640,8 @@
 				10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */,
 				10AB3470192CC74E00661301 /* TankScene.h */,
 				10AB3471192CC74E00661301 /* TankScene.m */,
+				10BCACE5192E02CA00A846F1 /* LamberJackMachineScene.h */,
+				10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -862,6 +867,7 @@
 				296AFB8D191BDFD7009D5B75 /* Hunter.m in Sources */,
 				29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */,
 				29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */,
+				10BCACE7192E02CA00A846F1 /* LamberJackMachineScene.m in Sources */,
 				10C59A1F19194C7400907493 /* Prune.m in Sources */,
 				10B4196419260681005D4EDC /* UserData.m in Sources */,
 				109E9307191A60EF00DD5623 /* Action.m in Sources */,
