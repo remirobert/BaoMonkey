@@ -10,6 +10,8 @@
 #import "Monkey.h"
 #import "GameController.h"
 #import "Tank.h"
+#import "GameData.h"
+#import "GameOver.h"
 
 @interface TankScene ()
 @property (nonatomic, strong) Monkey *monkey;
@@ -85,7 +87,7 @@
         _tank.currentStrat += 1;
         _currentStrat += 1;
         _currentShootTime = currentTime + 1;
-        if (_currentStrat == 1)
+        if (_currentStrat == 3)
             [self.view presentScene:_parentScene];
     }
     
@@ -102,9 +104,25 @@
     }
     
     [self enumerateChildNodesWithName:NAME_SPRITE_SHOOT_TANK usingBlock:^(SKNode *node, BOOL *stop) {
+        
+        if ([node intersectsNode:_monkey.sprite]) {
+            GameOver *gameOverView = [[GameOver alloc] init];
+            [self addChild:[gameOverView launchGameOverView]];
+            [GameData gameOver];
+        }
         if (node.position.y >= [UIScreen mainScreen].bounds.size.height)
             [node removeFromParent];
     }];
+    
+    [self enumerateChildNodesWithName:NAME_SPRITE_FIRE_TANK usingBlock:^(SKNode *node, BOOL *stop) {
+
+        if ([node intersectsNode:_monkey.sprite]) {
+            GameOver *gameOverView = [[GameOver alloc] init];
+            [self addChild:[gameOverView launchGameOverView]];
+            [GameData gameOver];
+        }
+    }];
+    
 }
 
 @end
