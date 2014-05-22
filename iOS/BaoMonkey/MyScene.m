@@ -8,6 +8,7 @@
 
 #import "MyScene.h"
 #import "MyScene+GeneratorWave.h"
+#import "MyScene+Climber.h"
 #import "UserData.h"
 #import "LeafTransition.h"
 #import "TankScene.h"
@@ -253,10 +254,10 @@
 -(void)update:(CFTimeInterval)currentTime {
     
     /* TEST TANK GAME UNCOMMNT FOR TRY */
-    if ([GameData getScore] == 10) {
-        TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
-        [self.view presentScene:tankScene];
-    }
+//    if ([GameData getScore] == 10) {
+//        TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
+//        [self.view presentScene:tankScene];
+//    }
     
     if ([[GameData singleton] isPause]) {
         
@@ -344,6 +345,8 @@
         }
             
     }
+    
+    [self actionClimber];
     
     if ([GameData getTrunkLife] < 0) {
         // Call the GameOver view when the trunk is dead
