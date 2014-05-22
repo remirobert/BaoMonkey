@@ -52,7 +52,7 @@
     _isClimb = YES;
     SKAction *moveToTrunk = [SKAction moveToX:_climbPositionX
                                      duration:1.5];
-    SKAction *waitClimb = [SKAction waitForDuration:0.5];
+    SKAction *waitClimb = [SKAction waitForDuration:0.25];
     SKAction *climb = [SKAction moveToY:positionclimb
                                duration:4.0];
 
@@ -60,6 +60,7 @@
     
     [self.node runAction:act completion:^{
         _isOnPlateform = YES;
+        node.name = SHOOT_NODE_NAME;
     }];
 }
 
