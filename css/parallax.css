@@ -1,7 +1,7 @@
 /* DESKTOP NAVIGATION PARALLAX
 ============================== */
 .wrapper {
-  min-height: 460px;
+  height: 460px;
   position: absolute;
   overflow: hidden;
   display: table;
