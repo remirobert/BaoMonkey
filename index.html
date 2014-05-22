@@ -16,6 +16,7 @@
         ============================== -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="css/parallax.css">
         <link rel="stylesheet" href="css/flexslider.css">
         <link rel="stylesheet" href="css/magnific-popup.css">
         <link rel="stylesheet" href="includes/owl-carousel/owl.carousel.css">
@@ -61,32 +62,20 @@
             <!-- MAIN SECTION
         	============================== -->
             <section id="hero">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            <div class="intro">
-                                <h1>Baomonkey</h1>
-                                <p class="lead">Save your tree by defending it with coconuts against hunter ! Make your best score and beat your friends !</p>
-                                <!-- <div class="buttons">
-                                    <a class="btn btn-1 btn-lg"><i class="fa fa-download icon"></i>Download</a>
-                                    <a class="btn btn-link btn-lg"><i class="fa fa-arrow-circle-o-right"></i> Learn more</a>
-                                </div> -->
-                            </div>
-                        </div>
-                        <!-- <div class="col-md-6 col-sm-6">
-                            <div id="main-slider" class="flexslider">
-                                <ul class="slides">
-                                    <li class="" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0;z-index: 2; display: block; -webkit-transition: opacity 0.6s ease; transition: opacity 0.6s ease; z-index: 1;"><img src="assets/iphone-white.png" alt="Slide One"></li>
-                                </ul>
-                            </div>
-                        </div> -->
-                    </div>
+                <div id="container" class="wrapper">
+                    <ul id="scene" class="scene unselectable" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="15" data-scalar-y="0" data-mode="cursor">
+                        <li class="layer" data-depth="0.00"></li>
+                        <li class="layer" data-depth="0.10"><div class="background"></div></li>
+                        <li class="layer" data-depth="0.20"><div class="ipad"></div></li>
+                        <li class="layer" data-depth="0.00"><div class="iphone2"></div></li>
+                        <li class="layer" data-depth="0.30"><div class="foreground"></div></li>
+                    </ul>
                 </div>
             </section>
 
             <!-- ABOUT Gallery
             ============================== -->
-            <section id="gallery">
+           <section id="gallery">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -367,6 +356,29 @@
             <script src="js/jquery.easing.min.js"></script>
             <script src="includes/owl-carousel/owl.carousel.min.js"></script>
             <script src="js/app.js"></script>
+
+            <!-- Parallax -->
+            <script src="js/jquery.parallax.js"></script>
+            <script src="js/parallax.js"></script>
+            <script>
+
+                var scene = document.getElementById('scene');
+                var parallax = new Parallax(scene);
+
+                // Resize handler.
+                (resize = function() {
+                    $scene[0].style.width = window.innerWidth + 'px';
+                    $scene[0].style.height = window.innerHeight + 'px';
+                    if (!$prompt.hasClass('hide')) {
+                        if (window.innerWidth < 600) {
+                            $toggle.addClass('hide');
+                        } else {
+                            $toggle.removeClass('hide');
+                        }
+                    }
+                })();
+    
+            </script>
 
             <!-- FlexSlider -->
             <script src="js/jquery.flexslider.js"></script>
