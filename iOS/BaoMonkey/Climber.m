@@ -9,6 +9,10 @@
 #import "Climber.h"
 #import "Define.h"
 
+@interface Climber ()
+@property (nonatomic, assign) NSInteger climbPositionX;
+@end
+
 @implementation Climber
 
 -(id)initWithDirection:(EnemyDirection)_direction {
@@ -22,13 +26,16 @@
         
         if (self.direction == LEFT)
         {
-            node = [SKSpriteNode spriteNodeWithImageNamed:@"hunter-left"];
+            node = [SKSpriteNode spriteNodeWithImageNamed:@"hunter-right"];
             position.x = 0;
+            _climbPositionX = ([UIScreen mainScreen].bounds.size.width / 2) - 40;
         }
         else
         {
-            node = [SKSpriteNode spriteNodeWithImageNamed:@"hunter-right"];
-            position.x = - (node.size.width / 2);
+            node = [SKSpriteNode spriteNodeWithImageNamed:@"hunter-left"];
+            position.x = [UIScreen mainScreen].bounds.size.width + (node.size.width / 2);
+            _climbPositionX = ([UIScreen mainScreen].bounds.size.width / 2) + 40;
+
         }
         
         node.name = ENEMY_NODE_NAME;
@@ -41,11 +48,12 @@
 }
 
 - (void) actionClimber {
-    SKAction *moveToTrunk = [SKAction moveToX:[UIScreen mainScreen].bounds.size.width / 2
+    SKAction *moveToTrunk = [SKAction moveToX:_climbPositionX
                                      duration:1.5];
     SKAction *waitClimb = [SKAction waitForDuration:0.5];
     SKAction *climb = [SKAction moveToY:[UIScreen mainScreen].bounds.size.height - 180
                                duration:3.0];
+
     SKAction *act = [SKAction sequence:@[waitClimb, moveToTrunk, waitClimb, climb]];
     
     [self.node runAction:act];
