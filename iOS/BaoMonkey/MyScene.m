@@ -183,13 +183,6 @@
     return self;
 }
 
-//-(void)launchPauseView{
-//    pauseView = [[NSArray alloc] initWithObjects:[Resume replayNode], [Resume resumeNode], [Resume homeNode], [Resume settingsNode], nil];
-//    for (int i = 0; i < [pauseView count]; i++) {
-//        [self addChild:[pauseView objectAtIndex:i]];
-//    }
-//}
-
 - (void) gameCountDown {
     static int countDown = 3;
     
@@ -311,8 +304,6 @@
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
-//            GameOver *gameOverView = [[GameOver alloc] init];
-//            [self addChild:[gameOverView launchGameOverView]];
             [leafTransition runGameOverTransition];
             [GameData gameOver];
         }

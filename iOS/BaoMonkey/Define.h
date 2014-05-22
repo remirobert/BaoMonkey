@@ -38,6 +38,11 @@
 # define DATA_HUNTER_WALKING_ATLAS          @"DATA_HUNTER_WALKING_ATLAS"
 # define DATA_HUNTER_DEAD_ATLAS             @"DATA_HUNTER_DEAD_ATLAS"
 # define DATA_HUNTER_WAITING                @"DATA_HUNTER_WAITING"
+# define DATA_BUTTON_PLAY                   @"DATA_BUTTON_PLAY"
+# define DATA_BUTTON_REPLAY                 @"DATA_BUTTON_REPLAY"
+# define DATA_BUTTON_HOME                   @"DATA_BUTTON_HOME"
+# define DATA_BUTTON_SETTINGS               @"DATA_BUTTON_SETTINGS"
+# define DATA_BUTTON_PAUSE                  @"DATA_BUTTON_PAUSE"
 
 /*
 ** USER INFORMATIONS
