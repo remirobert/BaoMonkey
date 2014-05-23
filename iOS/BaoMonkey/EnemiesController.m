@@ -43,7 +43,10 @@
     
     spaceDistance = lamberSize.width + lamberSize.width / 8;
     for (int i = 0; i < 3 ; i++) {
-        NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT", [[NSNumber alloc] initWithFloat:(spaceDistance /2 + (spaceDistance * i))], @"posX", nil];
+        NSMutableDictionary *tmp = [[NSMutableDictionary alloc]
+                                    initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT",
+                                    [[NSNumber alloc]
+                                     initWithFloat:(spaceDistance /2 + (spaceDistance * i))], @"posX", nil];
         [choppingSlots addObject:tmp];
     }
 }
@@ -138,7 +141,7 @@
 
         if ([GameData getLevel] > 2) {
             if ([GameData getLevel] / 2 % 2 == 0)
-                numberClimber = [GameData getLevel] / 2;
+                numberClimber = (int)[GameData getLevel] / 2;
         }
         
         

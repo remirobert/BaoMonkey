@@ -263,11 +263,11 @@
 -(void)update:(CFTimeInterval)currentTime {
     
     /* TEST BOSS SCENE FOR TRY */
-    /*
+    
     if ([GameData getScore] == 10) {
         LamberJackMachineScene *lamberScene = [[LamberJackMachineScene alloc] initWithSize:self.size parent:self];
         [self.view presentScene:lamberScene];
-    }*/
+    }
     
     if ([[GameData singleton] isPause]) {
         
