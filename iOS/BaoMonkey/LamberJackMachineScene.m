@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 BaoMonkey. All rights reserved.
 //
 
+#import <AudioToolbox/AudioToolbox.h>
 #import "LamberJackMachineScene.h"
 #import "GameController.h"
 #import "TreeBranch.h"
@@ -118,7 +119,8 @@
     }
     if (currentTime >= time) {
         [self performSelector:@selector(popCocoNuts)];
-        
+
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
                                                             _treeBranch.position.y) duration:timerStress] completion:^{
             
