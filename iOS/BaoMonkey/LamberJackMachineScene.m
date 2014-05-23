@@ -19,11 +19,12 @@
 @property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, assign) NSTimeInterval timer;
 @property (nonatomic, assign) NSTimeInterval timerMove;
-@property (nonatomic, assign) NSInteger pushforce;
+@property (nonatomic, assign) CGFloat pushforce;
 @property (nonatomic, strong) Monkey *monkey;
 @property (nonatomic, strong) SKSpriteNode *treeBranch;
 @property (nonatomic, strong) LamberJackMachine *lamber;
 @property (nonatomic, assign) NSInteger sens;
+@property (nonatomic, assign) BOOL lanchMove;
 @end
 
 @implementation LamberJackMachineScene
@@ -58,8 +59,6 @@
     _treeBranch.physicsBody.allowsRotation = NO;
     
     _treeBranch.name = NAME_NODE_TREEBRANCH;
-
-    [self updatePhysicBody];
     
     [GameController initAccelerometer];
     [self addChild:_treeBranch];
@@ -78,8 +77,9 @@
 
         self.physicsWorld.gravity = CGVectorMake(0, -10);
 
+        _lanchMove = NO;
         _pushforce = 3;
-        _sens = 0;
+        _sens = rand() % 2;
         _timer = 0;
         _parentScene = parentScene;
     }
@@ -95,7 +95,8 @@
                                                         (int)(_treeBranch.size.width / 2)) +
                                                        _treeBranch.position.x,
                                                        [UIScreen mainScreen].bounds.size.height + 35)];
-        coco.node.name = @"toto";
+        coco.node.name = @"invalid_coco";
+        coco.node.physicsBody.mass = 10.0;
         [coco.timerHide invalidate];
         [self addChild:coco.node];
         SKPhysicsBody *tmpBody = coco.node.physicsBody;
@@ -154,8 +155,16 @@
     }
 }
 
+- (void) updateAngleTree {
+    if (_sens == 0) {
+        [_treeBranch runAction:[SKAction rotateToAngle:0.2 duration:0.5]];
+    }
+    else {
+        [_treeBranch runAction:[SKAction rotateToAngle:-0.2 duration:0.5]];
+    }
+}
+
 - (void) moveTreeBranch {
-    static CGFloat nextAngle = 0.1;
     
     if (_sens == 1) {
         if (_treeBranch.position.x < [UIScreen mainScreen].bounds.size.width)
@@ -163,9 +172,6 @@
                                                _treeBranch.position.y);
         else {
             _sens = 0;
-            SKAction *rotation = [SKAction rotateByAngle:nextAngle duration:0.5];
-            nextAngle = 0.2;
-            [_treeBranch runAction:rotation];
         }
     }
     else if (_sens == 0) {
@@ -174,15 +180,14 @@
                                                _treeBranch.position.y);
         else {
             _sens = 1;
-            SKAction *rotation = [SKAction rotateByAngle:nextAngle duration:0.5];
-            nextAngle = -0.2;
-            [_treeBranch runAction:rotation];
         }
     }
+    [self updateAngleTree];
 }
 
 - (void) toreBranch {
-    CGFloat angleStress = 0.2;
+
+    CGFloat angleStress = 0.5;
     
     if (_sens == 0)
         angleStress = -0.2;
@@ -193,12 +198,13 @@
                 [_treeBranch runAction:[SKAction rotateByAngle:angleStress * -1 duration:0.1] completion:^{
                     
                     if (_sens == 0) {
-                        [_treeBranch runAction:[SKAction rotateByAngle:0.2 duration:0.5]];
+                        [_treeBranch runAction:[SKAction rotateToAngle:0.2 duration:0.2]];
                     }
                     else {
-                        [_treeBranch runAction:[SKAction rotateByAngle:-0.2 duration:0.5]];
+                        [_treeBranch runAction:[SKAction rotateToAngle:0.2 duration:0.2]];
                     }
                     
+                    _lanchMove = YES;
                 }];
             }];
         }];
@@ -206,9 +212,11 @@
 }
 
 - (void) update:(NSTimeInterval)currentTime {
+    
     if (_timer == 0) {
         _timer = currentTime + 30;
         _timerMove = currentTime + 5;
+        [self toreBranch];
     }
 
     if (currentTime >= _timer) {
@@ -218,18 +226,17 @@
     
     if (currentTime >= _timerMove) {
         _timerMove = currentTime + 5;
-        _pushforce += 1;
+        _pushforce += 0.2;
         [self toreBranch];
     }
     
     [GameController updateAccelerometerAcceleration];
     [_monkey updateMonkeyPosition:[GameController getAcceleration]];
 
-    [self moveTreeBranch];
-    [self stressTree:currentTime];
-
-    [self updatePhysicBody];
-    
+    if (_lanchMove == YES) {
+        [self moveTreeBranch];
+        [self stressTree:currentTime];
+    }
 }
 
 @end
