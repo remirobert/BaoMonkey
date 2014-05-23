@@ -38,18 +38,6 @@
     [self addChild:_monkey.sprite];
 }
 
-- (void) updatePhysicBody {
-    
-    
-//    self.physicsBody = [SKPhysicsBody
-//                        bodyWithEdgeLoopFromRect:CGRectMake(_treeBranch.frame.origin.x,
-//                                                            _treeBranch.frame.origin.y -
-//                                                            (_treeBranch.frame.size.height / 2) +
-//                                                            (_treeBranch.frame.size.height / 2),
-//                                                            _treeBranch.frame.size.width,
-//                                                            _treeBranch.frame.size.height / 2)];
-}
-
 - (void) initScene {
     self.backgroundColor = [SKColor colorWithRed:52/255.0f
                                            green:152/255.0f
@@ -198,7 +186,7 @@
     
     if (_sens == 0)
         angleStress = -0.2;
-    
+
     [_treeBranch runAction:[SKAction rotateByAngle:angleStress duration:0.1] completion:^{
         [_treeBranch runAction:[SKAction rotateByAngle:angleStress * -1 duration:0.1] completion:^{
             [_treeBranch runAction:[SKAction rotateByAngle:angleStress duration:0.1] completion:^{
@@ -239,7 +227,6 @@
 
     [self moveTreeBranch];
     [self stressTree:currentTime];
-    [self toreBranch];
 
     [self updatePhysicBody];
     
