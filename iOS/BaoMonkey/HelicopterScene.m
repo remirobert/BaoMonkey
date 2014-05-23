@@ -32,7 +32,7 @@
 
 
 - (void) update:(NSTimeInterval)currentTime {
-    
+    [_heli move];
 }
 
 @end

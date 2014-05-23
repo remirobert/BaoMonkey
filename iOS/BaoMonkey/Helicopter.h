@@ -15,5 +15,6 @@
 @property (nonatomic, assign) NSInteger sens;
 
 - (instancetype) init;
+- (void) move;
 
 @end
