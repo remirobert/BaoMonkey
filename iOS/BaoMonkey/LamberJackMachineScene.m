@@ -83,6 +83,7 @@
         _sens = rand() % 2;
         _timer = 0;
         _parentScene = parentScene;
+        [self updateAngleTree];
     }
     return (self);
 }
@@ -199,17 +200,17 @@
 
     time = currentTime + rand() % 5 + 3;
 
-    CGFloat angleStress = 2.0;
+    CGFloat angleStress = 1.0;
     
     if (_sens == 0)
-        angleStress = -2.0;
+        angleStress = -1.0;
 
     [_treeBranch runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
         [_treeBranch runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
             [_treeBranch runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
                 [_treeBranch runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
                     
-                    [self updateAngleTree];                    
+                    [self updateAngleTree];
                 }];
             }];
         }];
