@@ -13,7 +13,7 @@
 #import "LeafTransition.h"
 #import "TankScene.h"
 #import "Define.h"
-#import "BaoButton.h"
+#import "LamberJackMachineScene.h"
 
 @implementation MyScene
 
@@ -131,7 +131,8 @@
     self.physicsBody = [SKPhysicsBody
                         bodyWithEdgeLoopFromRect:CGRectMake(_treeBranch.node.frame.origin.x,
                                                             _treeBranch.node.frame.origin.y -
-                                                            (_treeBranch.node.frame.size.height / 2) + (_treeBranch.node.frame.size.height / 2),
+                                                            (_treeBranch.node.frame.size.height / 2) +
+                                                            (_treeBranch.node.frame.size.height / 2),
                                                             _treeBranch.node.frame.size.width,
                                                             _treeBranch.node.frame.size.height / 2)];
     
@@ -261,8 +262,8 @@
     
     /* TEST TANK GAME UNCOMMNT FOR TRY */
 //    if ([GameData getScore] == 10) {
-//        TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
-//        [self.view presentScene:tankScene];
+//        LamberJackMachineScene *lamberScene = [[LamberJackMachineScene alloc] initWithSize:self.size parent:self];
+//        [self.view presentScene:lamberScene];
 //    }
     
     if ([[GameData singleton] isPause]) {

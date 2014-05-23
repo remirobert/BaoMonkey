@@ -64,11 +64,19 @@
     }];
 }
 
--(void)loadWalkingSprites {
+-(void)loadBadMonkeyWalkingSprites {
     
 }
 
--(void)loadClumbingSprites {
+-(void)loadSpecialForceWalkingSprites {
+    
+}
+
+-(void)loadBadMonkeyClumbingSprites {
+    
+}
+
+-(void)loadSpecialForceClumbingSprites {
     
 }
 

@@ -14,10 +14,12 @@
 		109E9307191A60EF00DD5623 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 109E9306191A60EF00DD5623 /* Action.m */; };
 		10A12F0D191CD02700AA86BE /* Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A12F0C191CD02700AA86BE /* Climber.m */; };
 		10A495E0192B419D005299D8 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A495DF192B419D005299D8 /* GameCenter.m */; };
+		10A7E66F192E2F6300D37183 /* LamberJackMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E66E192E2F6300D37183 /* LamberJackMachine.m */; };
 		10AB3472192CC74E00661301 /* TankScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AB3471192CC74E00661301 /* TankScene.m */; };
 		10AB3476192CD1B200661301 /* Tank.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AB3475192CD1B200661301 /* Tank.m */; };
 		10B4196419260681005D4EDC /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4196319260681005D4EDC /* UserData.m */; };
 		10BCACE4192DFA5600A846F1 /* MyScene+Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */; };
+		10BCACE7192E02CA00A846F1 /* LamberJackMachineScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */; };
 		10C599B7191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
 		10C599B9191948A300907493 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B8191948A300907493 /* CoreGraphics.framework */; };
 		10C599BB191948A300907493 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599BA191948A300907493 /* UIKit.framework */; };
@@ -68,8 +70,6 @@
 		29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BA9191A87440046F9B2 /* EnemiesController.m */; };
 		29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BAC191A874A0046F9B2 /* Enemy.m */; };
 		29E98BB0191A875D0046F9B2 /* LamberJack.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BAF191A875D0046F9B2 /* LamberJack.m */; };
-		29E98BB4191A882B0046F9B2 /* lamberjack-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E98BB2191A882B0046F9B2 /* lamberjack-left@2x.png */; };
-		29E98BB5191A882B0046F9B2 /* lamberjack-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E98BB3191A882B0046F9B2 /* lamberjack-right@2x.png */; };
 		3F0CD895191D423E0079A5EB /* baomonkey.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3F0CD894191D423E0079A5EB /* baomonkey.m4a */; };
 		3F47F9B5192CCF9D00C36A39 /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F47F9B4192CCF9D00C36A39 /* Music.m */; };
 		3F47F9BA192D106300C36A39 /* background-progress-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9B8192D106300C36A39 /* background-progress-bar.png */; };
@@ -93,6 +93,11 @@
 		3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49B191BB20C0027B2C7 /* splash.mp3 */; };
 		3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */; };
 		3FB67CDB192B4FF700381BDC /* Resume.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB67CDA192B4FF600381BDC /* Resume.m */; };
+		3FB7C483192DE4CA00801643 /* BaoSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FB7C482192DE4CA00801643 /* BaoSize.m */; };
+		3FB7C48E192E823D00801643 /* back-slider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB7C48B192E823D00801643 /* back-slider@2x.png */; };
+		3FB7C48F192E823D00801643 /* front-slider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB7C48C192E823D00801643 /* front-slider@2x.png */; };
+		3FB7C490192E823D00801643 /* selector-slider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB7C48D192E823D00801643 /* selector-slider@2x.png */; };
+		3FB7C492192E866B00801643 /* plateform@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB7C491192E866B00801643 /* plateform@2x.png */; };
 		3FF111231926078C005C9DD1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF111221926078C005C9DD1 /* SettingsViewController.m */; };
 		A5731ABC19275AF300023346 /* Achievement.m in Sources */ = {isa = PBXBuildFile; fileRef = A5731ABB19275AF300023346 /* Achievement.m */; };
 /* End PBXBuildFile section */
@@ -122,6 +127,8 @@
 		10A12F0C191CD02700AA86BE /* Climber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Climber.m; sourceTree = "<group>"; };
 		10A495DE192B419D005299D8 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenter.h; sourceTree = "<group>"; };
 		10A495DF192B419D005299D8 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenter.m; sourceTree = "<group>"; };
+		10A7E66D192E2F6300D37183 /* LamberJackMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamberJackMachine.h; sourceTree = "<group>"; };
+		10A7E66E192E2F6300D37183 /* LamberJackMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamberJackMachine.m; sourceTree = "<group>"; };
 		10AB3470192CC74E00661301 /* TankScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TankScene.h; sourceTree = "<group>"; };
 		10AB3471192CC74E00661301 /* TankScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TankScene.m; sourceTree = "<group>"; };
 		10AB3474192CD1B200661301 /* Tank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tank.h; sourceTree = "<group>"; };
@@ -130,6 +137,8 @@
 		10B4196319260681005D4EDC /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		10BCACE2192DFA5600A846F1 /* MyScene+Climber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Climber.h"; sourceTree = "<group>"; };
 		10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Climber.m"; sourceTree = "<group>"; };
+		10BCACE5192E02CA00A846F1 /* LamberJackMachineScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamberJackMachineScene.h; sourceTree = "<group>"; };
+		10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamberJackMachineScene.m; sourceTree = "<group>"; };
 		10C599B3191948A300907493 /* BaoMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C599B6191948A300907493 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		10C599B8191948A300907493 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -199,8 +208,6 @@
 		29E98BAC191A874A0046F9B2 /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 		29E98BAE191A875D0046F9B2 /* LamberJack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamberJack.h; sourceTree = "<group>"; };
 		29E98BAF191A875D0046F9B2 /* LamberJack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamberJack.m; sourceTree = "<group>"; };
-		29E98BB2191A882B0046F9B2 /* lamberjack-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lamberjack-left@2x.png"; path = "Enemy/lamberjack-left@2x.png"; sourceTree = "<group>"; };
-		29E98BB3191A882B0046F9B2 /* lamberjack-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lamberjack-right@2x.png"; path = "Enemy/lamberjack-right@2x.png"; sourceTree = "<group>"; };
 		3F0CD894191D423E0079A5EB /* baomonkey.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = baomonkey.m4a; sourceTree = "<group>"; };
 		3F47F9B3192CCF9D00C36A39 /* Music.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
 		3F47F9B4192CCF9D00C36A39 /* Music.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
@@ -231,6 +238,12 @@
 		3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coconut.mp3; sourceTree = "<group>"; };
 		3FB67CD9192B4FF600381BDC /* Resume.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Resume.h; sourceTree = "<group>"; };
 		3FB67CDA192B4FF600381BDC /* Resume.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Resume.m; sourceTree = "<group>"; };
+		3FB7C481192DE4CA00801643 /* BaoSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaoSize.h; sourceTree = "<group>"; };
+		3FB7C482192DE4CA00801643 /* BaoSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoSize.m; sourceTree = "<group>"; };
+		3FB7C48B192E823D00801643 /* back-slider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "back-slider@2x.png"; path = "BaoMonkey/Resources/Slider/back-slider@2x.png"; sourceTree = SOURCE_ROOT; };
+		3FB7C48C192E823D00801643 /* front-slider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "front-slider@2x.png"; path = "BaoMonkey/Resources/Slider/front-slider@2x.png"; sourceTree = SOURCE_ROOT; };
+		3FB7C48D192E823D00801643 /* selector-slider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "selector-slider@2x.png"; path = "BaoMonkey/Resources/Slider/selector-slider@2x.png"; sourceTree = SOURCE_ROOT; };
+		3FB7C491192E866B00801643 /* plateform@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plateform@2x.png"; path = "Enemy/plateform@2x.png"; sourceTree = "<group>"; };
 		3FF111211926078C005C9DD1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		3FF111221926078C005C9DD1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A5731ABA19275AF300023346 /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achievement.h; sourceTree = "<group>"; };
@@ -371,6 +384,7 @@
 		10C59A0C1919492C00907493 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3FB7C484192E7F1F00801643 /* Slider */,
 				2919C644192E2CB900A2F2D1 /* Background */,
 				2919C636192DEDF300A2F2D1 /* Buttons */,
 				3F47F9B7192D106300C36A39 /* Progress */,
@@ -475,6 +489,8 @@
 			isa = PBXGroup;
 			children = (
 				10AB3473192CD1A500661301 /* Tank */,
+				10A7E66D192E2F6300D37183 /* LamberJackMachine.h */,
+				10A7E66E192E2F6300D37183 /* LamberJackMachine.m */,
 				29E98BAB191A874A0046F9B2 /* Enemy.h */,
 				29E98BAC191A874A0046F9B2 /* Enemy.m */,
 				29E98BA8191A87440046F9B2 /* EnemiesController.h */,
@@ -498,10 +514,9 @@
 		29E98BB1191A88180046F9B2 /* Enemies */ = {
 			isa = PBXGroup;
 			children = (
+				3FB7C491192E866B00801643 /* plateform@2x.png */,
 				3F47F9C5192D50F900C36A39 /* Hunter */,
 				3F47F9BC192D41E200C36A39 /* LamberJack */,
-				29E98BB2191A882B0046F9B2 /* lamberjack-left@2x.png */,
-				29E98BB3191A882B0046F9B2 /* lamberjack-right@2x.png */,
 				296AFB8E191BE197009D5B75 /* hunter-left@2x.png */,
 				296AFB8F191BE197009D5B75 /* hunter-right@2x.png */,
 			);
@@ -594,6 +609,8 @@
 		3F50F12519194EE000A37F85 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3FB7C480192DE4BE00801643 /* Size */,
+				299400F9192CD0FD00F0CC97 /* BaoButton */,
 				299400F9192CD0FD00F0CC97 /* BaoButton */,
 			);
 			name = Helpers;
@@ -682,6 +699,8 @@
 				10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */,
 				10AB3470192CC74E00661301 /* TankScene.h */,
 				10AB3471192CC74E00661301 /* TankScene.m */,
+				10BCACE5192E02CA00A846F1 /* LamberJackMachineScene.h */,
+				10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -747,6 +766,26 @@
 				3FB2A49B191BB20C0027B2C7 /* splash.mp3 */,
 			);
 			path = Items;
+			sourceTree = "<group>";
+		};
+		3FB7C480192DE4BE00801643 /* Size */ = {
+			isa = PBXGroup;
+			children = (
+				3FB7C481192DE4CA00801643 /* BaoSize.h */,
+				3FB7C482192DE4CA00801643 /* BaoSize.m */,
+			);
+			name = Size;
+			sourceTree = "<group>";
+		};
+		3FB7C484192E7F1F00801643 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				3FB7C48B192E823D00801643 /* back-slider@2x.png */,
+				3FB7C48C192E823D00801643 /* front-slider@2x.png */,
+				3FB7C48D192E823D00801643 /* selector-slider@2x.png */,
+			);
+			name = Slider;
+			path = ProgressBar;
 			sourceTree = "<group>";
 		};
 		3FF6376E191CD50E000721A2 /* Resume */ = {
@@ -849,6 +888,7 @@
 				2919C63C192DEE1F00A2F2D1 /* button-home@2x.png in Resources */,
 				10C59A141919492C00907493 /* monkey@2x.png in Resources */,
 				2919C63D192DEE1F00A2F2D1 /* button-pause@2x.png in Resources */,
+				3FB7C490192E823D00801643 /* selector-slider@2x.png in Resources */,
 				3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */,
 				3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */,
 				3F47F9BA192D106300C36A39 /* background-progress-bar.png in Resources */,
@@ -862,16 +902,16 @@
 				3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */,
 				2919C64A192E2CFC00A2F2D1 /* leafs-foreground@2x.png in Resources */,
 				296AFB90191BE197009D5B75 /* hunter-left@2x.png in Resources */,
-				29E98BB4191A882B0046F9B2 /* lamberjack-left@2x.png in Resources */,
+				3FB7C48F192E823D00801643 /* front-slider@2x.png in Resources */,
 				3F0CD895191D423E0079A5EB /* baomonkey.m4a in Resources */,
 				296AFB94191CE06B009D5B75 /* cloud@2x.png in Resources */,
 				10C599D9191948A300907493 /* Images.xcassets in Resources */,
 				10C599CF191948A300907493 /* Main_iPad.storyboard in Resources */,
-				29E98BB5191A882B0046F9B2 /* lamberjack-right@2x.png in Resources */,
 				296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */,
 				3F47F9C2192D41E200C36A39 /* LamberJackCutting.atlas in Resources */,
 				2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */,
 				2919C649192E2CFC00A2F2D1 /* branch@2x.png in Resources */,
+				3FB7C492192E866B00801643 /* plateform@2x.png in Resources */,
 				3F7D436F191A6FE100DF30D6 /* MonkeyWalking.atlas in Resources */,
 				2919C640192DEE1F00A2F2D1 /* button-settings@2x.png in Resources */,
 				3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */,
@@ -885,6 +925,7 @@
 				3FB2A494191B79900027B2C7 /* coconut@2x.png in Resources */,
 				2919C63F192DEE1F00A2F2D1 /* button-replay@2x.png in Resources */,
 				2919C63E192DEE1F00A2F2D1 /* button-play@2x.png in Resources */,
+				3FB7C48E192E823D00801643 /* back-slider@2x.png in Resources */,
 				2919C648192E2CFC00A2F2D1 /* background@2x.png in Resources */,
 				10C599C3191948A300907493 /* InfoPlist.strings in Resources */,
 			);
@@ -915,6 +956,7 @@
 				296AFB8D191BDFD7009D5B75 /* Hunter.m in Sources */,
 				29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */,
 				29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */,
+				10BCACE7192E02CA00A846F1 /* LamberJackMachineScene.m in Sources */,
 				10C59A1F19194C7400907493 /* Prune.m in Sources */,
 				10B4196419260681005D4EDC /* UserData.m in Sources */,
 				109E9307191A60EF00DD5623 /* Action.m in Sources */,
@@ -923,10 +965,12 @@
 				10AB3472192CC74E00661301 /* TankScene.m in Sources */,
 				10C59A1C19194BF000907493 /* Banana.m in Sources */,
 				3F5959DC191C1D5B006EE846 /* HomeViewController.m in Sources */,
+				10A7E66F192E2F6300D37183 /* LamberJackMachine.m in Sources */,
 				10A495E0192B419D005299D8 /* GameCenter.m in Sources */,
 				2950D27E192B869E00C12A52 /* LeafTransition.m in Sources */,
 				10A12F0D191CD02700AA86BE /* Climber.m in Sources */,
 				10C59A1D19194BF000907493 /* CocoNuts.m in Sources */,
+				3FB7C483192DE4CA00801643 /* BaoSize.m in Sources */,
 				10C59A091919492200907493 /* ViewController.m in Sources */,
 				10123410191951CF00B035D9 /* Malus.m in Sources */,
 				10C59A061919491200907493 /* TreeBranch.m in Sources */,

@@ -31,6 +31,10 @@
     
     [self.navigationController setNavigationBarHidden:NO];
     
+    [self setupSlidersSkins];
+    
+    [musicVolume sizeThatFits:CGSizeMake(234, 20.5)];
+    
     /* Init slider min and max value */
     musicVolume.minimumValue = 0.0f;
     musicVolume.maximumValue = 1.0f;
@@ -94,6 +98,16 @@
     if (slider.tag == TAG_SLIDER_ACCELEROMETER_SPEED) {
         [UserData setAccelerometerUserSpeed:slider.value];
     }
+}
+
+-(void)setupSlidersSkins {
+    UIImage *maxImage = [UIImage imageNamed:@"back-slider"];
+    UIImage *minImage = [UIImage imageNamed:@"front-slider"];
+    UIImage *selector = [UIImage imageNamed:@"selector-slider"];
+
+    [[UISlider appearance] setMaximumTrackImage:maxImage forState:UIControlStateNormal];
+    [[UISlider appearance] setMinimumTrackImage:minImage forState:UIControlStateNormal];
+    [[UISlider appearance] setThumbImage:selector forState:UIControlStateNormal];
 }
 
 /*

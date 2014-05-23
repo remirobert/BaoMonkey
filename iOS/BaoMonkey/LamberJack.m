@@ -8,6 +8,7 @@
 
 #import "LamberJack.h"
 #import "Define.h"
+#import "BaoSize.h"
 
 # define FLOOR_HEIGHT 30
 
@@ -24,8 +25,7 @@
         self.direction = _direction;
         self.type = EnemyTypeLamberJack;
         self.node.zPosition = 1;
-        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_LAMBERJACK_WAITING] size:CGSizeMake(25, 48)];
-        
+        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_LAMBERJACK_WAITING] size:[BaoSize lamberJack]];
         if (self.direction == LEFT)
         {
             node.xScale = -1;
@@ -113,7 +113,7 @@
     if (![node actionForKey:SKACTION_LAMBERJACK_WALKING]) {
         [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
                                                                          timePerFrame:0.1f
-                                                                               resize:YES
+                                                                               resize:NO
                                                                               restore:YES]]
                   withKey:SKACTION_LAMBERJACK_WALKING];
     }
@@ -133,7 +133,7 @@
     if (![node actionForKey:SKACTION_LAMBERJACK_CUTTING]) {
         [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:cuttingFrames
                                                                        timePerFrame:0.1f
-                                                                             resize:YES
+                                                                             resize:NO
                                                                             restore:YES]]
                 withKey:SKACTION_LAMBERJACK_CUTTING];
     }

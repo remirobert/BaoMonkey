@@ -8,6 +8,7 @@
 
 #import "Monkey.h"
 #import "PreloadData.h"
+#import "BaoSize.h"
 
 @implementation Monkey
 
@@ -18,7 +19,7 @@
     self = [super init];
     if (self) {
         // Init the sprites of the Monkey
-        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_TEXTURE] size:CGSizeMake(28, 43)];
+        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_TEXTURE] size:[BaoSize monkey]];
         sprite.position = position;
 
         [self loadWalkingSprites];
@@ -50,9 +51,9 @@
     weapon.node.position = position;
     
     if (acceleration < 0.0f) {
-        multiplierForDirection = 1.0f;
-    } else if (acceleration > 0.0f) {
         multiplierForDirection = -1.0f;
+    } else if (acceleration > 0.0f) {
+        multiplierForDirection = 1.0f;
     } else {
         multiplierForDirection = 0.0f;
     }
@@ -84,7 +85,7 @@
     if (![sprite actionForKey:SKACTION_MONKEY_WALKING]) {
         [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
                                                                          timePerFrame:0.1f
-                                                                               resize:YES
+                                                                               resize:NO
                                                                               restore:YES]]
                   withKey:SKACTION_MONKEY_WALKING];
     }
