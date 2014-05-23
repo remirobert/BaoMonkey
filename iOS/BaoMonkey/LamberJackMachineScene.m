@@ -158,10 +158,10 @@
 }
 
 - (void) updateAngleTree {
-    if (_sens == 0) {
+    if (_sens == 0 && _treeBranch.position.x > [UIScreen mainScreen].bounds.size.width / 2) {
         [_treeBranch runAction:[SKAction rotateToAngle:0.2 duration:0.5]];
     }
-    else {
+    else if (_sens == 1 && _treeBranch.position.x < [UIScreen mainScreen].bounds.size.width / 2){
         [_treeBranch runAction:[SKAction rotateToAngle:-0.2 duration:0.5]];
     }
 }
@@ -209,12 +209,7 @@
             [_treeBranch runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
                 [_treeBranch runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
                     
-                    if (_sens == 0) {
-                        [_treeBranch runAction:[SKAction rotateToAngle:0.2 duration:0.1]];
-                    }
-                    else {
-                        [_treeBranch runAction:[SKAction rotateToAngle:0.2 duration:0.1]];
-                    }
+                    [self updateAngleTree];                    
                 }];
             }];
         }];
@@ -236,7 +231,7 @@
     
     if (currentTime >= _timerMove) {
         _timerMove = currentTime + 5;
-        _pushforce += 1.0;
+        _pushforce += 0.75;
     }
     
     [GameController updateAccelerometerAcceleration];
