@@ -92,11 +92,11 @@
     for (int index = 0; index <= nbCocoNuts; index ++) {
         CocoNuts *coco = [[CocoNuts alloc]
                           initWithPosition:CGPointMake((rand() %
-                                                        (int)(_treeBranch.size.width / 2)) +
-                                                       _treeBranch.position.x,
+                                                        (int)(_treeBranch.size.width)) +
+                                                       (_treeBranch.position.x - (_treeBranch.size.width / 2)),
                                                        [UIScreen mainScreen].bounds.size.height + 35)];
         coco.node.name = @"invalid_coco";
-        coco.node.physicsBody.mass = 10.0;
+        coco.node.physicsBody.mass = 20.0;
         [coco.timerHide invalidate];
         [self addChild:coco.node];
         SKPhysicsBody *tmpBody = coco.node.physicsBody;
@@ -186,7 +186,6 @@
 }
 
 - (void) toreBranch {
-
     CGFloat angleStress = 0.5;
     
     if (_sens == 0)
@@ -226,7 +225,7 @@
     
     if (currentTime >= _timerMove) {
         _timerMove = currentTime + 5;
-        _pushforce += 0.2;
+        _pushforce += 0.5;
         [self toreBranch];
     }
     
