@@ -13,6 +13,7 @@
 #import "GameData.h"
 #import "Define.h"
 #import "PreloadData.h"
+#import "BaoSize.h"
 
 @implementation EnemiesController
 
@@ -38,9 +39,9 @@
 -(void)initChoppingSlots {
     choppingSlots = [[NSMutableArray alloc] init];
     CGFloat spaceDistance;
+    CGSize lamberSize = [BaoSize lamberJack];
     
-    SKSpriteNode *Lamber = [SKSpriteNode spriteNodeWithImageNamed:@"lamberjack-left"];
-    spaceDistance = Lamber.size.width + 2;
+    spaceDistance = lamberSize.width + lamberSize.width / 8;
     for (int i = 0; i < 3 ; i++) {
         NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT", [[NSNumber alloc] initWithFloat:(spaceDistance /2 + (spaceDistance * i))], @"posX", nil];
         [choppingSlots addObject:tmp];
@@ -198,14 +199,16 @@
     if (numberOfFloors >= MAX_FLOOR)
         return ;
     numberOfFloors++;
-    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(FLOOR_WIDTH, FLOOR_HEIGHT)];
+    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_PLATEFORM] size:[BaoSize plateform]];
     if (numberOfFloors % 2 != 0)
     {
+        floor.xScale = -1;
         floor.position = CGPointMake(-(FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
         slide = [SKAction moveToX:(floor.size.width / 2) duration:0.5];
     }
     else
     {
+        floor.xScale = 1;
         floor.position = CGPointMake(screen.size.width + (FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
         slide = [SKAction moveToX:(screen.size.width - (floor.size.width / 2)) duration:0.5];
     }
