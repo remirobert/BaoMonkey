@@ -191,30 +191,30 @@
     static NSTimeInterval time = 0;
     
     if (time == 0) {
-        time = currentTime + rand() % 5 + 3;
+        time = currentTime + rand() % 3 + 2;
     }
     
     if (currentTime < time)
         return ;
-    
-    CGFloat angleStress = 0.5;
+
+    time = currentTime + rand() % 5 + 3;
+
+    CGFloat angleStress = 2.0;
     
     if (_sens == 0)
-        angleStress = -0.2;
+        angleStress = -2.0;
 
-    [_treeBranch runAction:[SKAction rotateByAngle:angleStress duration:0.1] completion:^{
-        [_treeBranch runAction:[SKAction rotateByAngle:angleStress * -1 duration:0.1] completion:^{
-            [_treeBranch runAction:[SKAction rotateByAngle:angleStress duration:0.1] completion:^{
-                [_treeBranch runAction:[SKAction rotateByAngle:angleStress * -1 duration:0.1] completion:^{
+    [_treeBranch runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
+        [_treeBranch runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
+            [_treeBranch runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
+                [_treeBranch runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
                     
                     if (_sens == 0) {
-                        [_treeBranch runAction:[SKAction rotateToAngle:0.2 duration:0.2]];
+                        [_treeBranch runAction:[SKAction rotateToAngle:0.2 duration:0.1]];
                     }
                     else {
-                        [_treeBranch runAction:[SKAction rotateToAngle:0.2 duration:0.2]];
+                        [_treeBranch runAction:[SKAction rotateToAngle:0.2 duration:0.1]];
                     }
-                    
-                    _lanchMove = YES;
                 }];
             }];
         }];
@@ -226,7 +226,7 @@
     if (_timer == 0) {
         _timer = currentTime + 30;
         _timerMove = currentTime + 5;
-        [self toreBranch:currentTime];
+        _lanchMove = YES;
     }
 
     if (currentTime >= _timer) {
@@ -236,8 +236,7 @@
     
     if (currentTime >= _timerMove) {
         _timerMove = currentTime + 5;
-        _pushforce += 0.5;
-        [self toreBranch:currentTime];
+        _pushforce += 1.0;
     }
     
     [GameController updateAccelerometerAcceleration];
@@ -246,6 +245,7 @@
     if (_lanchMove == YES) {
         [self moveTreeBranch];
         [self stressTree:currentTime];
+        [self toreBranch:currentTime];
     }
     
     [self enumerateChildNodesWithName:@"invalid_coco" usingBlock:^(SKNode *node, BOOL *stop) {
