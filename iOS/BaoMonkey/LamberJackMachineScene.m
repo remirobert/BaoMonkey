@@ -53,14 +53,14 @@
     
     _treeBranch.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
                                        [UIScreen mainScreen].bounds.size.height - 180);
-    
+
+    _treeBranch.size = CGSizeMake(_treeBranch.size.width / 2, _treeBranch.size.height / 2);
     _treeBranch.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_treeBranch.size];
     _treeBranch.physicsBody.mass = 100;
     _treeBranch.physicsBody.resting = YES;
     _treeBranch.physicsBody.affectedByGravity = NO;
     _treeBranch.physicsBody.dynamic = NO;
     _treeBranch.physicsBody.allowsRotation = NO;
-    
     _treeBranch.name = NAME_NODE_TREEBRANCH;
     
     [GameController initAccelerometer];
@@ -70,8 +70,17 @@
     _background.size = self.size;
     _background.position = CGPointMake(self.size.width / 2, self.size.height / 2);
     
+    _tree = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"tree-boss-machine"]]];
+    _tree.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+                                 [UIScreen mainScreen].bounds.size.height / 2);
+    //_tree.size = CGSizeMake(_tree.size.width / 2, _tree.size.height / 2);
+    
     [self addChild:_background];
+    [self addChild:_tree];
     [self addChild:_treeBranch];
+    
+    _monkey.sprite.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+                                          _treeBranch.position.y + (_treeBranch.size.height / 2));
 }
 
 - (instancetype) initWithSize:(CGSize)size parent:(SKScene *)parentScene {
@@ -197,6 +206,11 @@
     [self updateAngleTree];
 }
 
+- (void) updateTreePosition {
+    _tree.position = CGPointMake(_treeBranch.position.x, _tree.position.y);
+    _tree.zRotation = _treeBranch.zRotation;
+}
+
 - (void) toreBranch:(NSTimeInterval)currentTime {
     static NSTimeInterval time = 0;
     
@@ -247,10 +261,12 @@
     [GameController updateAccelerometerAcceleration];
     [_monkey updateMonkeyPosition:[GameController getAcceleration]];
 
+    [self updateTreePosition];
+    
     if (_lanchMove == YES) {
         [self moveTreeBranch];
         [self stressTree:currentTime];
-        [self toreBranch:currentTime];
+        //[self toreBranch:currentTime];
     }
     
     [self enumerateChildNodesWithName:@"invalid_coco" usingBlock:^(SKNode *node, BOOL *stop) {
