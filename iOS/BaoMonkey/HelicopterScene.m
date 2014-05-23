@@ -10,8 +10,6 @@
 
 @implementation HelicopterScene
 
-
-
 - (instancetype) initWithSize:(CGSize)size parent:(SKScene *)parentScene {
     self = [super initWithSize:size];
     if (self != nil) {

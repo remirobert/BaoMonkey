@@ -10,4 +10,6 @@
 
 @interface HelicopterScene : SKScene
 
+- (instancetype) initWithSize:(CGSize)size parent:(SKScene *)parentScene;
+
 @end

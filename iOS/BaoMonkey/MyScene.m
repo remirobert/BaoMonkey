@@ -16,6 +16,7 @@
 #import "BaoButton.h"
 #import "LamberJackMachineScene.h"
 #import "BaoButton.h"
+#import "HelicopterScene.h"
 
 @implementation MyScene
 
@@ -265,8 +266,8 @@
     /* TEST BOSS SCENE FOR TRY */
     
     if ([GameData getScore] == 10) {
-        LamberJackMachineScene *lamberScene = [[LamberJackMachineScene alloc] initWithSize:self.size parent:self];
-        [self.view presentScene:lamberScene];
+        HelicopterScene *helicopterScene = [[HelicopterScene alloc] initWithSize:self.size parent:self];
+        [self.view presentScene:helicopterScene];
     }
     
     if ([[GameData singleton] isPause]) {
