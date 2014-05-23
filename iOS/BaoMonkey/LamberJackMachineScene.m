@@ -187,7 +187,16 @@
     [self updateAngleTree];
 }
 
-- (void) toreBranch {
+- (void) toreBranch:(NSTimeInterval)currentTime {
+    static NSTimeInterval time = 0;
+    
+    if (time == 0) {
+        time = currentTime + rand() % 5 + 3;
+    }
+    
+    if (currentTime < time)
+        return ;
+    
     CGFloat angleStress = 0.5;
     
     if (_sens == 0)
@@ -217,7 +226,7 @@
     if (_timer == 0) {
         _timer = currentTime + 30;
         _timerMove = currentTime + 5;
-        [self toreBranch];
+        [self toreBranch:currentTime];
     }
 
     if (currentTime >= _timer) {
@@ -228,7 +237,7 @@
     if (currentTime >= _timerMove) {
         _timerMove = currentTime + 5;
         _pushforce += 0.5;
-        [self toreBranch];
+        [self toreBranch:currentTime];
     }
     
     [GameController updateAccelerometerAcceleration];
@@ -240,7 +249,7 @@
     }
     
     [self enumerateChildNodesWithName:@"invalid_coco" usingBlock:^(SKNode *node, BOOL *stop) {
-        if (node.position.y > [UIScreen mainScreen].bounds.size.height)
+        if (node.position.y < 0)
             [node removeFromParent];
     }];
 }
