@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 
-#define MAX_LUMBERJACK  4
+#define MAX_LUMBERJACK  2
 #define MAX_HUNTER      4
 
 typedef enum {

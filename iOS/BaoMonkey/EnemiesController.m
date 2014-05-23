@@ -121,13 +121,7 @@
 }
 
 -(void)updateEnemies:(CFTimeInterval)currentTime {
-    int maxLamberJack;
-    
-    if ([GameData getLevel] >= 1)
-        maxLamberJack = MAX_LUMBERJACK;
-    else
-        maxLamberJack = MAX_LUMBERJACK / 2;
-    if ([self countOfEnemyType:EnemyTypeLamberJack] < maxLamberJack && ((timeForAddLamberJack <= currentTime) || (timeForAddLamberJack == 0))) {
+    if ([self countOfEnemyType:EnemyTypeLamberJack] < MAX_LUMBERJACK && ((timeForAddLamberJack <= currentTime) || (timeForAddLamberJack == 0))) {
         float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
         [self addLamberJack];
         timeForAddLamberJack = currentTime + randomFloat;

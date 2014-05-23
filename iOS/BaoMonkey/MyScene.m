@@ -15,6 +15,7 @@
 #import "Define.h"
 #import "BaoButton.h"
 #import "LamberJackMachineScene.h"
+#import "BaoButton.h"
 
 @implementation MyScene
 
@@ -64,7 +65,7 @@
 }
 
 -(void)scoreNode {
-    score = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    score = [SKLabelNode labelNodeWithFontNamed:@"ChalkboardSE-Regular"];
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
     score.fontSize = 25;
     score.position = CGPointMake(20, SCREEN_HEIGHT - 30);
@@ -94,13 +95,15 @@
         return ;
     }
     
-    if ([node.name isEqualToString:PAUSE_BUTTON_NODE_NAME] || [node.name isEqualToString:RESUME_NODE_NAME]) {
-        if ([GameData isPause]) {
-            [self resumeGame];
-        } else {
+    if ([node.name isEqualToString:PAUSE_BUTTON_NODE_NAME]) {
+        if (![GameData isPause]) {
             [self pauseGame];
         }
-    } else if (location.y <= [UIScreen mainScreen].bounds.size.height - 30) {
+    } else if ([node.name isEqualToString:RESUME_NODE_NAME]){
+        if ([GameData isPause]) {
+            [self resumeGame];
+        }
+    }else if (location.y <= [UIScreen mainScreen].bounds.size.height - 30) {
         if (![GameData isPause]) {
             if (monkey == nil)
                 NSLog(@"monkey is nil");
