@@ -19,7 +19,7 @@
     self = [super init];
     if (self) {
         // Init the sprites of the Monkey
-        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_TEXTURE] size:[BaoSize monkey]];
+        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING] size:[BaoSize monkey]];
         sprite.position = position;
 
         [self loadWalkingSprites];
@@ -68,7 +68,7 @@
 
 -(void)loadWalkingSprites {
     NSMutableArray *walkFrames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *monkeyWalkingAtlas = [PreloadData getDataWithKey:DATA_MONKEY_WALK_ATLAS];
+    SKTextureAtlas *monkeyWalkingAtlas = [PreloadData getDataWithKey:DATA_MONKEY_WALKING_ATLAS];
     NSUInteger numberOfFrames = monkeyWalkingAtlas.textureNames.count;
     
     for (int i = 1; i <= numberOfFrames; i++) {
@@ -100,7 +100,7 @@
 }
 
 -(void)wait {
-    SKTexture *texture = [PreloadData getDataWithKey:DATA_MONKEY_TEXTURE];
+    SKTexture *texture = [PreloadData getDataWithKey:DATA_MONKEY_WAITING];
     [sprite setTexture:texture];
 }
 
