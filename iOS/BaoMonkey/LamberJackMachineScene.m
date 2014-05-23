@@ -29,6 +29,9 @@
 @property (nonatomic, strong) LamberJackMachine *lamber;
 @property (nonatomic, assign) NSInteger sens;
 @property (nonatomic, assign) BOOL lanchMove;
+
+@property (nonatomic, strong) SKSpriteNode *background;
+@property (nonatomic, strong) SKSpriteNode *tree;
 @end
 
 @implementation LamberJackMachineScene
@@ -46,13 +49,7 @@
 }
 
 - (void) initScene {
-    self.backgroundColor = [SKColor colorWithRed:52/255.0f
-                                           green:152/255.0f
-                                            blue:219/255.0f
-                                           alpha:1];
-    
-    _treeBranch = [[SKSpriteNode alloc] initWithColor:[SKColor brownColor]
-                                                 size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2 + 60, 35)];
+    _treeBranch = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"branch-boss-machine"]]];
     
     _treeBranch.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
                                        [UIScreen mainScreen].bounds.size.height - 180);
@@ -67,6 +64,13 @@
     _treeBranch.name = NAME_NODE_TREEBRANCH;
     
     [GameController initAccelerometer];
+    
+    _background = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bgboss-machine"]]];
+    _background.zPosition = -20;
+    _background.size = self.size;
+    _background.position = CGPointMake(self.size.width / 2, self.size.height / 2);
+    
+    [self addChild:_background];
     [self addChild:_treeBranch];
 }
 
