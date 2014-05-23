@@ -13,6 +13,7 @@
 #import "LeafTransition.h"
 #import "TankScene.h"
 #import "Define.h"
+#import "BaoButton.h"
 #import "LamberJackMachineScene.h"
 #import "BaoButton.h"
 
@@ -261,11 +262,12 @@
 
 -(void)update:(CFTimeInterval)currentTime {
     
-    /* TEST TANK GAME UNCOMMNT FOR TRY */
-//    if ([GameData getScore] == 10) {
-//        LamberJackMachineScene *lamberScene = [[LamberJackMachineScene alloc] initWithSize:self.size parent:self];
-//        [self.view presentScene:lamberScene];
-//    }
+    /* TEST BOSS SCENE FOR TRY */
+    /*
+    if ([GameData getScore] == 10) {
+        LamberJackMachineScene *lamberScene = [[LamberJackMachineScene alloc] initWithSize:self.size parent:self];
+        [self.view presentScene:lamberScene];
+    }*/
     
     if ([[GameData singleton] isPause]) {
         
