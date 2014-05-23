@@ -79,7 +79,7 @@
         self.physicsWorld.gravity = CGVectorMake(0, -10);
 
         _lanchMove = NO;
-        _pushforce = 3;
+        _pushforce = 2;
         _sens = rand() % 2;
         _timer = 0;
         _parentScene = parentScene;
