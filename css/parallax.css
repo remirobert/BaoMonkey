@@ -84,15 +84,6 @@
   top: -8%;
 }
 
-.coconut {
-  background: url(../assets/elements/coconuts.png) no-repeat 50% 100%;
-  position: absolute;
-  width: 110%;
-  height: 100%;
-  left: -15%;
-  top: -9%;
-}
-
 .logo {
   background: url(../assets/elements/logo.png) no-repeat 50% 100%;
   position: absolute;
