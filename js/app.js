@@ -38,6 +38,7 @@ $('a[href*=#]:not([href=#])').click(function() {
 $(window).load(function(){
   $('.flexslider').flexslider({
     animation: "slide",
+    /*directionNav: true,*/
     start: function(slider){
       $('body').removeClass('loading');
     }

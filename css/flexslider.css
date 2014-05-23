@@ -83,8 +83,8 @@ right: 0px;
 
 }
 .flex-direction-nav a {width: 30px; height: 30px; margin: -7px 0 0; display: block; background: none; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 1; -webkit-transition: all .3s ease;}
-.flex-direction-nav .flex-next {background:url(../images/next.png) no-repeat center center;right: 0px; }
-.flex-direction-nav .flex-prev {left: 0px;background:url(../images/prev.png) no-repeat center center;}
+.flex-direction-nav .flex-next {background:url(../assets/next.png) no-repeat center center;right: 0px; }
+.flex-direction-nav .flex-prev {left: 0px;background:url(../assets/prev.png) no-repeat center center;}
 .flexslider:hover .flex-next {opacity: 0.5; right: 0px;}
 .flexslider:hover .flex-prev {opacity: 0.5; left: 0px;}
 .flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover {opacity: 1;}
