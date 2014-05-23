@@ -13,6 +13,9 @@
 #import "Monkey.h"
 #import "LamberJackMachine.h"
 #import "CocoNuts.h"
+#import "Define.h"
+#import "LeafTransition.h"
+#import "GameData.h"
 
 #define NAME_NODE_TREEBRANCH    @"name_node_treebranch"
 
@@ -37,6 +40,8 @@
     _monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_monkey.sprite.size];
     _monkey.sprite.physicsBody.affectedByGravity = YES;
     _monkey.sprite.physicsBody.mass = 50;
+    _monkey.sprite.name = @"monkey_node_name";
+    
     [self addChild:_monkey.sprite];
 }
 
@@ -247,6 +252,14 @@
     [self enumerateChildNodesWithName:@"invalid_coco" usingBlock:^(SKNode *node, BOOL *stop) {
         if (node.position.y < 0)
             [node removeFromParent];
+    }];
+    
+    [self enumerateChildNodesWithName:@"monkey_node_name" usingBlock:^(SKNode *node, BOOL *stop) {
+        if (node.position.y < [UIScreen mainScreen].bounds.size.height / 2) {
+            LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
+            [transitionGameOver runGameOverTransition];
+            [GameData gameOver];
+        }
     }];
 }
 
