@@ -238,6 +238,11 @@
         [self moveTreeBranch];
         [self stressTree:currentTime];
     }
+    
+    [self enumerateChildNodesWithName:@"invalid_coco" usingBlock:^(SKNode *node, BOOL *stop) {
+        if (node.position.y > [UIScreen mainScreen].bounds.size.height)
+            [node removeFromParent];
+    }];
 }
 
 @end
