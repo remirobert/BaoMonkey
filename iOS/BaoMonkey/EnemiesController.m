@@ -135,12 +135,15 @@
                 numberHunter += 1;
             }
         }
-        if ([GameData getLevel] % 4 == 0) {
-            numberClimber += 1;
+
+        if ([GameData getLevel] > 2) {
+            if ([GameData getLevel] / 2 % 2 == 0)
+                numberClimber = [GameData getLevel] / 2;
         }
         
+        
         if ([self countOfEnemyType:EnemyTypeClimber] < numberClimber && ((timeForAddClimber <= currentTime) || (timeForAddClimber == 0))){
-            float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY + 2 - MIN_NEXT_ENEMY))));
+            float randomFloat = (6.0 + ((float)arc4random() / (0x100000000 / (3.0 + 2 - 2.5))));
             [self addClimber];
             timeForAddClimber = currentTime + randomFloat;
         }
