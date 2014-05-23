@@ -12,7 +12,7 @@
 @implementation BaoSize
 
 +(CGSize)monkey {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
+    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(25, 48);
 }
 
 +(CGSize)lamberJack {
@@ -25,6 +25,10 @@
 
 +(CGSize)ball {
     return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
+}
+
++(CGSize)plateform {
+    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(150, 58);
 }
 
 +(CGSize)climber {

@@ -199,14 +199,16 @@
     if (numberOfFloors >= MAX_FLOOR)
         return ;
     numberOfFloors++;
-    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithColor:[SKColor brownColor] size:CGSizeMake(FLOOR_WIDTH, FLOOR_HEIGHT)];
+    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_PLATEFORM] size:[BaoSize plateform]];
     if (numberOfFloors % 2 != 0)
     {
+        floor.xScale = -1;
         floor.position = CGPointMake(-(FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
         slide = [SKAction moveToX:(floor.size.width / 2) duration:0.5];
     }
     else
     {
+        floor.xScale = 1;
         floor.position = CGPointMake(screen.size.width + (FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
         slide = [SKAction moveToX:(screen.size.width - (floor.size.width / 2)) duration:0.5];
     }

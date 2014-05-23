@@ -14,6 +14,7 @@
 +(CGSize)lamberJack;
 +(CGSize)hunter;
 +(CGSize)ball;
++(CGSize)plateform;
 +(CGSize)climber;
 +(CGSize)trunk;
 +(CGSize)treeBranch;
