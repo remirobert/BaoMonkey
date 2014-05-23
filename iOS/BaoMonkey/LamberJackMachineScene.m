@@ -39,13 +39,15 @@
 }
 
 - (void) updatePhysicBody {
-    self.physicsBody = [SKPhysicsBody
-                        bodyWithEdgeLoopFromRect:CGRectMake(_treeBranch.frame.origin.x,
-                                                            _treeBranch.frame.origin.y -
-                                                            (_treeBranch.frame.size.height / 2) +
-                                                            (_treeBranch.frame.size.height / 2),
-                                                            _treeBranch.frame.size.width,
-                                                            _treeBranch.frame.size.height / 2)];
+    
+    
+//    self.physicsBody = [SKPhysicsBody
+//                        bodyWithEdgeLoopFromRect:CGRectMake(_treeBranch.frame.origin.x,
+//                                                            _treeBranch.frame.origin.y -
+//                                                            (_treeBranch.frame.size.height / 2) +
+//                                                            (_treeBranch.frame.size.height / 2),
+//                                                            _treeBranch.frame.size.width,
+//                                                            _treeBranch.frame.size.height / 2)];
 }
 
 - (void) initScene {
@@ -61,7 +63,8 @@
                                        [UIScreen mainScreen].bounds.size.height - 180);
     
     _treeBranch.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_treeBranch.size];
-    _treeBranch.physicsBody.mass = 1000000;
+    _treeBranch.physicsBody.mass = 100;
+    _treeBranch.physicsBody.resting = YES;
     _treeBranch.physicsBody.affectedByGravity = NO;
     _treeBranch.physicsBody.dynamic = NO;
     _treeBranch.physicsBody.allowsRotation = NO;
@@ -164,26 +167,54 @@
 }
 
 - (void) moveTreeBranch {
+    static CGFloat nextAngle = 0.1;
+    
     if (_sens == 1) {
         if (_treeBranch.position.x < [UIScreen mainScreen].bounds.size.width)
             _treeBranch.position = CGPointMake(_treeBranch.position.x + _pushforce,
                                                _treeBranch.position.y);
-        else
+        else {
             _sens = 0;
+            SKAction *rotation = [SKAction rotateByAngle:nextAngle duration:0.5];
+            nextAngle = 0.2;
+            [_treeBranch runAction:rotation];
+        }
     }
     else if (_sens == 0) {
         if (_treeBranch.position.x > 0)
             _treeBranch.position = CGPointMake(_treeBranch.position.x - _pushforce,
                                                _treeBranch.position.y);
-        else
+        else {
             _sens = 1;
+            SKAction *rotation = [SKAction rotateByAngle:nextAngle duration:0.5];
+            nextAngle = -0.2;
+            [_treeBranch runAction:rotation];
+        }
     }
 }
 
 - (void) toreBranch {
-    /*
-     Rotation branch
-     */
+    CGFloat angleStress = 0.2;
+    
+    if (_sens == 0)
+        angleStress = -0.2;
+    
+    [_treeBranch runAction:[SKAction rotateByAngle:angleStress duration:0.1] completion:^{
+        [_treeBranch runAction:[SKAction rotateByAngle:angleStress * -1 duration:0.1] completion:^{
+            [_treeBranch runAction:[SKAction rotateByAngle:angleStress duration:0.1] completion:^{
+                [_treeBranch runAction:[SKAction rotateByAngle:angleStress * -1 duration:0.1] completion:^{
+                    
+                    if (_sens == 0) {
+                        [_treeBranch runAction:[SKAction rotateByAngle:0.2 duration:0.5]];
+                    }
+                    else {
+                        [_treeBranch runAction:[SKAction rotateByAngle:-0.2 duration:0.5]];
+                    }
+                    
+                }];
+            }];
+        }];
+    }];
 }
 
 - (void) update:(NSTimeInterval)currentTime {
@@ -200,6 +231,7 @@
     if (currentTime >= _timerMove) {
         _timerMove = currentTime + 5;
         _pushforce += 1;
+        [self toreBranch];
     }
     
     [GameController updateAccelerometerAcceleration];
@@ -207,12 +239,10 @@
 
     [self moveTreeBranch];
     [self stressTree:currentTime];
+    [self toreBranch];
+
     [self updatePhysicBody];
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self toreBranch];
-    });
 }
 
 @end
