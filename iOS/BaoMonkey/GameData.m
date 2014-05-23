@@ -38,10 +38,10 @@ static GameData *singleton;
     trunkLife = 100;
     gameOver = NO;
     level = 0;
-    levels = [[NSArray alloc] initWithObjects:  [NSNumber numberWithInt:100],
-                                                [NSNumber numberWithInt:200],
+    levels = [[NSArray alloc] initWithObjects:  [NSNumber numberWithInt:30],
+                                                [NSNumber numberWithInt:50],
+                                                [NSNumber numberWithInt:100],
                                                 [NSNumber numberWithInt:300],
-                                                [NSNumber numberWithInt:400],
                                                 [NSNumber numberWithInt:500],
                                                 [NSNumber numberWithInt:600],
                                                 [NSNumber numberWithInt:700],
