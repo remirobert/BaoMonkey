@@ -14,6 +14,7 @@
 #import "TankScene.h"
 #import "Define.h"
 #import "LamberJackMachineScene.h"
+#import "BaoButton.h"
 
 @implementation MyScene
 
