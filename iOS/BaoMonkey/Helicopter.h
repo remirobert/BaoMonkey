@@ -7,8 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 
 @interface Helicopter : NSObject
+
+@property (nonatomic, strong) SKSpriteNode *node;
+@property (nonatomic, assign) NSInteger sens;
 
 - (instancetype) init;
 
