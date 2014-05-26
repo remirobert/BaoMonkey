@@ -19,6 +19,7 @@
         _node = [[SKSpriteNode alloc] initWithColor:[SKColor redColor]
                                                size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 10,
                                                                [UIScreen mainScreen].bounds.size.width / 10 )];
+        _node.zPosition = 10;
         _node.position = position;
         _node.name = ITEM_NODE_NAME;
         _node.physicsBody.affectedByGravity = YES;

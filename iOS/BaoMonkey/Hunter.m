@@ -136,11 +136,11 @@
 
 -(void)stopWalking {
     [node removeActionForKey:SKACTION_HUNTER_WALKING];
-    if (self.direction == RIGHT) {
-        node.xScale = -1;
-    } else {
-        node.xScale = 1;
-    }
+//    if (self.direction == RIGHT) {
+//        node.xScale = -1;
+//    } else {
+//        node.xScale = 1;
+//    }
 }
 
 -(void)startDead {

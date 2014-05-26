@@ -146,7 +146,7 @@
         
         
         if ([self countOfEnemyType:EnemyTypeClimber] < numberClimber && ((timeForAddClimber <= currentTime) || (timeForAddClimber == 0))){
-            float randomFloat = (6.0 + ((float)arc4random() / (0x100000000 / (3.0 + 2 - 2.5))));
+            float randomFloat = (8.5 + ((float)arc4random() / (0x100000000 / (3.0 + 2 - 2.5))));
             [self addClimber];
             timeForAddClimber = currentTime + randomFloat;
         }
@@ -223,7 +223,7 @@
     
     positions = [[NSMutableArray alloc] init];
     for (int i = 0 ; i < MAX_FLOOR ; i++) {
-        CGFloat posY = MIN_POSY_FLOOR + (SPACE_BETWEEN * i);
+        CGFloat posY = MIN_POSY_FLOOR + (SPACE_BETWEEN * i) - 22;
         [positions addObject:[NSNumber numberWithDouble:posY]];
     }
     floorsPosition = [[NSArray alloc] initWithArray:positions];

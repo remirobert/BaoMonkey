@@ -54,7 +54,7 @@
                                      duration:1.5];
     SKAction *waitClimb = [SKAction waitForDuration:0.25];
     SKAction *climb = [SKAction moveToY:positionclimb
-                               duration:4.5];
+                               duration:5.5];
 
     SKAction *act = [SKAction sequence:@[waitClimb, moveToTrunk, waitClimb, climb]];
     
