@@ -15,13 +15,15 @@
 - (void) loadTankScene {
     TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
     
-    SKTransition *transitionScene = [SKTransition fadeWithDuration:1.0];
-    [self.view presentScene:tankScene transition:transitionScene];
+    [self.view presentScene:tankScene transition:[SKTransition fadeWithDuration:1.0]];
 }
 
 - (void) loadstepBoss {
-    if ([GameData getScore] == 200)
+    
+    if ([GameData getScore] == STEP_TANK_BOSS) {
+        [GameData addPointToScore:10];
         [self loadTankScene];
+    }
 }
 
 @end

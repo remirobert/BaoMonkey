@@ -8,6 +8,8 @@
 
 #import "MyScene.h"
 
+# define STEP_TANK_BOSS     200
+
 @interface MyScene (LoadBoss)
 
 - (void) loadstepBoss;
