@@ -75,10 +75,10 @@
 }
 
 -(SKLabelNode*)countDownNode {
-    SKLabelNode *countDownNode = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    SKLabelNode *countDownNode = [SKLabelNode labelNodeWithFontNamed:@"ChalkboardSE-Regular"];
     countDownNode.text = @"3";
     countDownNode.fontSize = 120;
-    countDownNode.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+    countDownNode.position = CGPointMake(SCREEN_WIDTH / 2, (SCREEN_HEIGHT / 2) - (countDownNode.fontSize / 2));
     countDownNode.name = COUNTDOWN_NODE_NAME;
     return countDownNode;
 }
