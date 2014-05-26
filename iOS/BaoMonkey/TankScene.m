@@ -156,7 +156,7 @@
         _currentShootTime = currentTime + 1;
         if (_currentStrat == 3) {
             [GameData addPointToScore:10];
-            [self.view presentScene:_parentScene];
+            [self.view presentScene:_parentScene transition:[SKTransition fadeWithDuration:1.0]];
         }
     }
     
