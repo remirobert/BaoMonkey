@@ -1,0 +1,4 @@
+#footer .cols { width: 980px; overflow: hidden; height: 238px; }
+
+.product { background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='css/images/product-bg.png', sizingMethod='image'); }
+.product:hover { background: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='css/images/product-hover.png', sizingMethod='image'); }
