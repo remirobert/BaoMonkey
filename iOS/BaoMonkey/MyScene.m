@@ -183,6 +183,7 @@
     oncePlay = -1;
 }
 
+
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         
