@@ -265,10 +265,10 @@
     
     /* TEST BOSS SCENE FOR TRY */
     
-    if ([GameData getScore] == 10) {
-        HelicopterScene *helicopterScene = [[HelicopterScene alloc] initWithSize:self.size parent:self];
-        [self.view presentScene:helicopterScene];
-    }
+//    if ([GameData getScore] == 10) {
+//        HelicopterScene *helicopterScene = [[HelicopterScene alloc] initWithSize:self.size parent:self];
+//        [self.view presentScene:helicopterScene];
+//    }
     
     if ([[GameData singleton] isPause]) {
         
