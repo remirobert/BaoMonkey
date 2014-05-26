@@ -17,6 +17,7 @@
 #import "LamberJackMachineScene.h"
 #import "BaoButton.h"
 #import "HelicopterScene.h"
+#import "MyScene+LoadBoss.h"
 
 @implementation MyScene
 
@@ -262,13 +263,8 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-    
-    /* TEST BOSS SCENE FOR TRY */
-    
-//    if ([GameData getScore] == 10) {
-//        HelicopterScene *helicopterScene = [[HelicopterScene alloc] initWithSize:self.size parent:self];
-//        [self.view presentScene:helicopterScene];
-//    }
+
+    [self loadstepBoss];
     
     if ([[GameData singleton] isPause]) {
         

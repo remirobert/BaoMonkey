@@ -17,6 +17,7 @@
 		10A12F0D191CD02700AA86BE /* Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A12F0C191CD02700AA86BE /* Climber.m */; };
 		10A495E0192B419D005299D8 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A495DF192B419D005299D8 /* GameCenter.m */; };
 		10A7E66F192E2F6300D37183 /* LamberJackMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E66E192E2F6300D37183 /* LamberJackMachine.m */; };
+		10AAE77D193362C20065F61D /* MyScene+LoadBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AAE77C193362C20065F61D /* MyScene+LoadBoss.m */; };
 		10AB3472192CC74E00661301 /* TankScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AB3471192CC74E00661301 /* TankScene.m */; };
 		10AB3476192CD1B200661301 /* Tank.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AB3475192CD1B200661301 /* Tank.m */; };
 		10B4196419260681005D4EDC /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4196319260681005D4EDC /* UserData.m */; };
@@ -138,6 +139,8 @@
 		10A495DF192B419D005299D8 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenter.m; sourceTree = "<group>"; };
 		10A7E66D192E2F6300D37183 /* LamberJackMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamberJackMachine.h; sourceTree = "<group>"; };
 		10A7E66E192E2F6300D37183 /* LamberJackMachine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamberJackMachine.m; sourceTree = "<group>"; };
+		10AAE77B193362C20065F61D /* MyScene+LoadBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+LoadBoss.h"; sourceTree = "<group>"; };
+		10AAE77C193362C20065F61D /* MyScene+LoadBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+LoadBoss.m"; sourceTree = "<group>"; };
 		10AB3470192CC74E00661301 /* TankScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TankScene.h; sourceTree = "<group>"; };
 		10AB3471192CC74E00661301 /* TankScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TankScene.m; sourceTree = "<group>"; };
 		10AB3474192CD1B200661301 /* Tank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tank.h; sourceTree = "<group>"; };
@@ -683,11 +686,11 @@
 				1012340C1919519600B035D9 /* Bonus.m */,
 				1012340E191951CF00B035D9 /* Malus.h */,
 				1012340F191951CF00B035D9 /* Malus.m */,
+				109E9305191A60EF00DD5623 /* Action.h */,
+				109E9306191A60EF00DD5623 /* Action.m */,
 				3F50F12C19194F6D00A37F85 /* CocoNuts */,
 				3F50F12B19194F6300A37F85 /* Banana */,
 				3F50F12A19194F4D00A37F85 /* Prune */,
-				109E9305191A60EF00DD5623 /* Action.h */,
-				109E9306191A60EF00DD5623 /* Action.m */,
 			);
 			name = Item;
 			sourceTree = "<group>";
@@ -744,6 +747,8 @@
 				10C599FE1919490900907493 /* MyScene.m */,
 				10C59A2119194D1500907493 /* MyScene+GeneratorWave.h */,
 				10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */,
+				10AAE77B193362C20065F61D /* MyScene+LoadBoss.h */,
+				10AAE77C193362C20065F61D /* MyScene+LoadBoss.m */,
 				10BCACE2192DFA5600A846F1 /* MyScene+Climber.h */,
 				10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */,
 				10AB3470192CC74E00661301 /* TankScene.h */,
@@ -1039,6 +1044,7 @@
 				1012340D1919519600B035D9 /* Bonus.m in Sources */,
 				10C59A021919490900907493 /* MyScene.m in Sources */,
 				10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */,
+				10AAE77D193362C20065F61D /* MyScene+LoadBoss.m in Sources */,
 				3FF111231926078C005C9DD1 /* SettingsViewController.m in Sources */,
 				10AB3476192CD1B200661301 /* Tank.m in Sources */,
 			);
