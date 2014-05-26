@@ -14,16 +14,23 @@
 
 - (void) loadTankScene {
     TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
-    
+
+    [self cleanEnemiesScene];
     [self.view presentScene:tankScene transition:[SKTransition fadeWithDuration:1.0]];
 }
 
-- (void) loadstepBoss {
+- (void) cleanEnemiesScene {
+
+    [self enumerateChildNodesWithName:ENEMY_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+        [node removeFromParent];
+    }];
     
-    if ([GameData getScore] == STEP_TANK_BOSS) {
-        [GameData addPointToScore:10];
-        [self loadTankScene];
-    }
+    [self->enemiesController.enemies removeAllObjects];
+    
+    [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+        [node removeFromParent];
+    }];
 }
+
 
 @end

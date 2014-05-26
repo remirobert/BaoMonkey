@@ -183,7 +183,6 @@
     oncePlay = -1;
 }
 
-
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         
@@ -265,7 +264,7 @@
 
 -(void)update:(CFTimeInterval)currentTime {
 
-    [self loadstepBoss];
+    NSInteger oldLevel = [GameData getLevel];
     
     if ([[GameData singleton] isPause]) {
         
@@ -364,6 +363,13 @@
         [trunkProgressLife updateProgression:[GameData getTrunkLife]];
     }
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
+    
+    if (oldLevel != [GameData getLevel]) {
+        if (oldLevel == 3) {
+            [self loadTankScene];
+        }
+    }
+    
 }
 
 @end

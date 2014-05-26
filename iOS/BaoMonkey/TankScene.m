@@ -84,6 +84,7 @@
         _isPaused = NO;
         [self initScene];
         [self initTank];
+        [_monkey.sprite removeAllActions];
     }
     return (self);
 }
@@ -137,7 +138,7 @@
 - (void) update:(NSTimeInterval)currentTime {
     
     [self checkCollisionMonkey];
-    
+        
     if (_isPaused == NO) {
         [GameController updateAccelerometerAcceleration];
         [_monkey updateMonkeyPosition:[GameController getAcceleration]];
