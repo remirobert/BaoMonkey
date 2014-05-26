@@ -22,7 +22,7 @@
         CGPoint position;
         self.direction = _direction;
         self.type = EnemyTypeClimber;
-        self.node.zPosition = 1;
+        self.node.zPosition = 10;
         
         if (self.direction == LEFT)
         {

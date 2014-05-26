@@ -66,7 +66,7 @@
     [GameController initAccelerometer];
     
     _background = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bgboss-machine"]]];
-    _background.zPosition = -20;
+    _background.zPosition = 0;
     _background.size = self.size;
     _background.position = CGPointMake(self.size.width / 2, self.size.height / 2);
     

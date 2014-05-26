@@ -25,7 +25,7 @@
     if (self) {
         self.direction = ((nbFloor) % 2) == 0 ? LEFT : RIGHT;
         self.type = EnemyTypeHunter;
-        self.node.zPosition = 1;
+        self.node.zPosition = 10;
         self.floor = (int)nbFloor;
         self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_HUNTER_WAITING] size:CGSizeMake(30, 48)];
         
@@ -136,7 +136,7 @@
 
 -(void)stopWalking {
     [node removeActionForKey:SKACTION_HUNTER_WALKING];
-    if (self.direction == LEFT) {
+    if (self.direction == RIGHT) {
         node.xScale = -1;
     } else {
         node.xScale = 1;
