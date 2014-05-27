@@ -45,6 +45,14 @@
     return ([_cursor isEqual:node]);
 }
 
+- (void) setCurrentValue:(CGFloat)currentValue {
+    CGFloat positionX = ((currentValue * _node.size.width) / 100);
+    
+    [self updatePositionCursorWithLocation:CGPointMake(positionX +
+                                                       (_node.position.x -
+                                                        _node.size.width / 2), 0)];
+}
+
 - (void) updatePositionCursorWithLocation:(CGPoint)location {
     if (_cursor.position.x >= _node.position.x - (_node.size.width / 2) &&
         _cursor.position.x <= _node.position.x + (_node.size.width / 2))

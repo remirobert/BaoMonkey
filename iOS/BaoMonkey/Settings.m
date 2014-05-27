@@ -35,6 +35,9 @@
         [_cursorAccelerometer addChild:self];
         [_cursorVolumeMusic addChild:self];
         [_cursorVolumeSound addChild:self];
+        
+        
+        [_cursorAccelerometer setCurrentValue:50.0];
     }
     return (self);
 }
