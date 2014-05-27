@@ -11,6 +11,7 @@
 		1012340A1919512500B035D9 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 101234091919512500B035D9 /* Weapon.m */; };
 		1012340D1919519600B035D9 /* Bonus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1012340C1919519600B035D9 /* Bonus.m */; };
 		10123410191951CF00B035D9 /* Malus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1012340F191951CF00B035D9 /* Malus.m */; };
+		1012D3541934FB8200CAACDD /* splash_screen_FINAL.png in Resources */ = {isa = PBXBuildFile; fileRef = 1012D3531934FB8200CAACDD /* splash_screen_FINAL.png */; };
 		1016CA5E192F80F400B58759 /* HelicopterScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1016CA5D192F80F400B58759 /* HelicopterScene.m */; };
 		1016CA63192F970400B58759 /* Helicopter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1016CA62192F970400B58759 /* Helicopter.m */; };
 		109E9307191A60EF00DD5623 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 109E9306191A60EF00DD5623 /* Action.m */; };
@@ -133,6 +134,7 @@
 		1012340C1919519600B035D9 /* Bonus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bonus.m; sourceTree = "<group>"; };
 		1012340E191951CF00B035D9 /* Malus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Malus.h; sourceTree = "<group>"; };
 		1012340F191951CF00B035D9 /* Malus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Malus.m; sourceTree = "<group>"; };
+		1012D3531934FB8200CAACDD /* splash_screen_FINAL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_screen_FINAL.png; sourceTree = "<group>"; };
 		1016CA5C192F80F400B58759 /* HelicopterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelicopterScene.h; sourceTree = "<group>"; };
 		1016CA5D192F80F400B58759 /* HelicopterScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelicopterScene.m; sourceTree = "<group>"; };
 		1016CA61192F970400B58759 /* Helicopter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helicopter.h; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 		10C59A0C1919492C00907493 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1012D3531934FB8200CAACDD /* splash_screen_FINAL.png */,
 				29F418EF192F84C10064B52A /* Boss */,
 				3FB7C484192E7F1F00801643 /* Slider */,
 				2919C644192E2CB900A2F2D1 /* Background */,
@@ -1012,6 +1015,7 @@
 				3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */,
 				2950D283192B8DBC00C12A52 /* up-leaf@2x.png in Resources */,
 				3F47F9C4192D41E200C36A39 /* LamberJackWalking.atlas in Resources */,
+				1012D3541934FB8200CAACDD /* splash_screen_FINAL.png in Resources */,
 				3F47F9CB192D50F900C36A39 /* HunterWalking.atlas in Resources */,
 				3FB2A496191B7C580027B2C7 /* prune@2x.png in Resources */,
 				3F47F9C3192D41E200C36A39 /* LamberJackDead.atlas in Resources */,
