@@ -63,8 +63,10 @@
     if (_cursor.position.x + (_cursor.frame.size.width / 2) > _node.position.x + (_node.size.width / 2))
         _cursor.position = CGPointMake(_node.position.x + (_node.size.width / 2) - (_cursor.frame.size.width / 2), _cursor.position.y);
 
-    _bg.size = CGSizeMake((_cursor.position.x - (([UIScreen mainScreen].bounds.size.width - _node.size.width) / 2) -
+    _bg.size = CGSizeMake((_cursor.position.x - (_node.position.x -
+                                                  _node.size.width / 2) -
                            (_cursor.size.width / 2)), _bg.size.height);
+
     _bg.position = CGPointMake((_bg.size.width  / 2) + (_node.position.x - _node.size.width / 2), _bg.position.y);
 }
 

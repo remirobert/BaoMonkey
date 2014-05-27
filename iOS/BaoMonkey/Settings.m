@@ -26,18 +26,18 @@
         self.backgroundColor = [SKColor blueColor];
         
         _cursorVolumeSound = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2, 50)
-                                               position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, 100)];
+                                               position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, 50)];
         _cursorVolumeMusic = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2, 50)
                                                           position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, 300)];
-        _cursorAccelerometer = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2, 50)
-                                                          position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, 500)];
+        _cursorAccelerometer = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2, 25)
+                                                          position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2 - 75, 500)];
         
         [_cursorAccelerometer addChild:self];
         [_cursorVolumeMusic addChild:self];
         [_cursorVolumeSound addChild:self];
         
         
-        [_cursorAccelerometer setCurrentValue:50.0];
+        [_cursorAccelerometer setCurrentValue:25.0];
     }
     return (self);
 }
