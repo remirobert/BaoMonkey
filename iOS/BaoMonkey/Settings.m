@@ -38,6 +38,8 @@
         
         
         [_cursorAccelerometer setCurrentValue:25.0];
+        
+        [_cursorAccelerometer setBackgroundTexture:[UIImage imageNamed:@"coconut@2x"] withSize:CGSizeMake(100, 100)];
     }
     return (self);
 }

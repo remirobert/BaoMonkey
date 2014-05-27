@@ -90,4 +90,19 @@
     [_foreground setTexture:[SKTexture textureWithImage:image]];
 }
 
+- (void) setBackgroundTexture:(UIImage *)image withSize:(CGSize)size {
+    [_background setTexture:[SKTexture textureWithImage:image]];
+    _background.size = size;
+}
+
+- (void) setCursorTexture:(UIImage *)image withSize:(CGSize)size {
+    [_cursor setTexture:[SKTexture textureWithImage:image]];
+    _cursor.size = size;
+}
+
+- (void) setForeground:(UIImage *)image withSize:(CGSize)size {
+    [_foreground setTexture:[SKTexture textureWithImage:image]];
+    _foreground.size = size;
+}
+
 @end

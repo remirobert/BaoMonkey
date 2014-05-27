@@ -28,4 +28,8 @@
 - (void) setCursorTexture:(UIImage *)image;
 - (void) setForegroundTexture:(UIImage *)image;
 
+- (void) setBackgroundTexture:(UIImage *)image withSize:(CGSize)size;
+- (void) setCursorTexture:(UIImage *)image withSize:(CGSize)size;
+- (void) setForeground:(UIImage *)image withSize:(CGSize)size;
+
 @end
