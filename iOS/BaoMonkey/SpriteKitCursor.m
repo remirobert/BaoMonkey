@@ -13,16 +13,16 @@
 @synthesize currentValue = _currentValue;
 
 - (void) initSprite:(CGSize)size position:(CGPoint)position {
-    _node = [[SKSpriteNode alloc] initWithColor:[SKColor redColor] size:size];
-    _node.position = position;
-    _node.zPosition = 50;
+    _foreground = [[SKSpriteNode alloc] initWithColor:[SKColor redColor] size:size];
+    _foreground.position = position;
+    _foreground.zPosition = 50;
     
-    _bg = [[SKSpriteNode alloc] initWithColor:[SKColor orangeColor] size:CGSizeMake(0, size.height)];
-    _bg.position = CGPointMake(position.x - _node.size.width / 2, position.y);
-    _bg.zPosition = 55;
+    _background = [[SKSpriteNode alloc] initWithColor:[SKColor orangeColor] size:CGSizeMake(0, size.height)];
+    _background.position = CGPointMake(position.x - _foreground.size.width / 2, position.y);
+    _background.zPosition = 55;
     
     _cursor = [[SKSpriteNode alloc] initWithColor:[SKColor greenColor] size:CGSizeMake(size.height, size.height)];
-    _cursor.position = CGPointMake(_node.position.x - _node.size.width / 2 + _node.size.height / 2, position.y);
+    _cursor.position = CGPointMake(_foreground.position.x - _foreground.size.width / 2 + _foreground.size.height / 2, position.y);
     _cursor.zPosition = 75;
 }
 
@@ -36,8 +36,8 @@
 }
 
 - (void) addChild:(SKScene *)parentScene {
-    [parentScene addChild:_node];
-    [parentScene addChild:_bg];
+    [parentScene addChild:_foreground];
+    [parentScene addChild:_background];
     [parentScene addChild:_cursor];
 }
 
@@ -46,40 +46,40 @@
 }
 
 - (void) setCurrentValue:(CGFloat)currentValue {
-    CGFloat positionX = ((currentValue * _node.size.width) / 100);
+    CGFloat positionX = ((currentValue * _foreground.size.width) / 100);
     
     [self updatePositionCursorWithLocation:CGPointMake(positionX +
-                                                       (_node.position.x -
-                                                        _node.size.width / 2), 0)];
+                                                       (_foreground.position.x -
+                                                        _foreground.size.width / 2), 0)];
 }
 
 - (void) updatePositionCursorWithLocation:(CGPoint)location {
-    if (_cursor.position.x >= _node.position.x - (_node.size.width / 2) &&
-        _cursor.position.x <= _node.position.x + (_node.size.width / 2))
+    if (_cursor.position.x >= _foreground.position.x - (_foreground.size.width / 2) &&
+        _cursor.position.x <= _foreground.position.x + (_foreground.size.width / 2))
         _cursor.position = CGPointMake(location.x, _cursor.position.y);
         
-    if (_cursor.position.x - (_cursor.frame.size.width / 2) < _node.position.x - (_node.size.width / 2))
-        _cursor.position = CGPointMake(_node.position.x - (_node.size.width / 2) + (_cursor.frame.size.width / 2), _cursor.position.y);
-    if (_cursor.position.x + (_cursor.frame.size.width / 2) > _node.position.x + (_node.size.width / 2))
-        _cursor.position = CGPointMake(_node.position.x + (_node.size.width / 2) - (_cursor.frame.size.width / 2), _cursor.position.y);
+    if (_cursor.position.x - (_cursor.frame.size.width / 2) < _foreground.position.x - (_foreground.size.width / 2))
+        _cursor.position = CGPointMake(_foreground.position.x - (_foreground.size.width / 2) + (_cursor.frame.size.width / 2), _cursor.position.y);
+    if (_cursor.position.x + (_cursor.frame.size.width / 2) > _foreground.position.x + (_foreground.size.width / 2))
+        _cursor.position = CGPointMake(_foreground.position.x + (_foreground.size.width / 2) - (_cursor.frame.size.width / 2), _cursor.position.y);
 
-    _bg.size = CGSizeMake((_cursor.position.x - (_node.position.x -
-                                                  _node.size.width / 2) -
-                           (_cursor.size.width / 2)), _bg.size.height);
+    _background.size = CGSizeMake((_cursor.position.x - (_foreground.position.x -
+                                                  _foreground.size.width / 2) -
+                           (_cursor.size.width / 2)), _background.size.height);
 
-    _bg.position = CGPointMake((_bg.size.width  / 2) + (_node.position.x - _node.size.width / 2), _bg.position.y);
+    _background.position = CGPointMake((_background.size.width  / 2) + (_foreground.position.x - _foreground.size.width / 2), _background.position.y);
 }
 
 - (CGFloat) currentValue {
-    return (100 * (_cursor.position.x - (([UIScreen mainScreen].bounds.size.width - _node.size.width) / 2) -
+    return (100 * (_cursor.position.x - (([UIScreen mainScreen].bounds.size.width - _foreground.size.width) / 2) -
                    (_cursor.size.width / 2)) / (([UIScreen mainScreen].bounds.size.width -
-                                                 _node.size.width - (_cursor.size.width))));
+                                                 _foreground.size.width - (_cursor.size.width))));
 }
 
 #pragma mark - Custom slider
 
 - (void) setBackgroundTexture:(UIImage *)image {
-    [_bg setTexture:[SKTexture textureWithImage:image]];
+    [_background setTexture:[SKTexture textureWithImage:image]];
 }
 
 - (void) setCursorTexture:(UIImage *)image {
@@ -87,7 +87,7 @@
 }
 
 - (void) setForegroundTexture:(UIImage *)image {
-    [_node setTexture:[SKTexture textureWithImage:image]];
+    [_foreground setTexture:[SKTexture textureWithImage:image]];
 }
 
 @end
