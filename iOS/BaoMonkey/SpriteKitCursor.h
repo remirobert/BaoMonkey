@@ -23,4 +23,9 @@
 - (void) updatePositionCursorWithLocation:(CGPoint)location;
 - (BOOL) checkCursorClickWithNode:(SKNode *)node;
 
+#pragma mark - Custom slider
+- (void) setBackgroundTexture:(UIImage *)image;
+- (void) setCursorTexture:(UIImage *)image;
+- (void) setForegroundTexture:(UIImage *)image;
+
 @end

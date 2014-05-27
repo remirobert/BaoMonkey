@@ -76,4 +76,18 @@
                                                  _node.size.width - (_cursor.size.width))));
 }
 
+#pragma mark - Custom slider
+
+- (void) setBackgroundTexture:(UIImage *)image {
+    [_bg setTexture:[SKTexture textureWithImage:image]];
+}
+
+- (void) setCursorTexture:(UIImage *)image {
+    [_cursor setTexture:[SKTexture textureWithImage:image]];
+}
+
+- (void) setForegroundTexture:(UIImage *)image {
+    [_node setTexture:[SKTexture textureWithImage:image]];
+}
+
 @end
