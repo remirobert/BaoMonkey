@@ -10,6 +10,8 @@
 
 @implementation SpriteKitCursor
 
+@synthesize currentValue = _currentValue;
+
 - (void) initSprite:(CGSize)size position:(CGPoint)position {
     _node = [[SKSpriteNode alloc] initWithColor:[SKColor redColor] size:size];
     _node.position = position;
@@ -37,8 +39,6 @@
 - (void) updatePositionCursorWithNode:(SKNode *)nodeTouch location:(CGPoint)location {
     
     if ([_cursor isEqual:nodeTouch] == YES) {
-        NSLog(@"detect OK");
-        
         if (nodeTouch.position.x >= _node.position.x - (_node.size.width / 2) &&
             nodeTouch.position.x <= _node.position.x + (_node.size.width / 2))
             nodeTouch.position = CGPointMake(location.x, nodeTouch.position.y);
@@ -48,6 +48,12 @@
         if (nodeTouch.position.x + (nodeTouch.frame.size.width / 2) > _node.position.x + (_node.size.width / 2))
             nodeTouch.position = CGPointMake(_node.position.x + (_node.size.width / 2) - (nodeTouch.frame.size.width / 2), nodeTouch.position.y);
     }
+}
+
+- (CGFloat) currentValue {
+    return (100 * (_cursor.position.x - (([UIScreen mainScreen].bounds.size.width - _node.size.width) / 2) -
+                   (_cursor.size.width / 2)) / (([UIScreen mainScreen].bounds.size.width -
+                                                 _node.size.width - (_cursor.size.width))));
 }
 
 @end

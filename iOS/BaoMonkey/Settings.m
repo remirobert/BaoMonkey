@@ -71,6 +71,8 @@
 
     
     [_cursor updatePositionCursorWithNode:[self nodeAtPoint:location] location:location];
+    
+    NSLog(@"current Value = %f", _cursor.currentValue);
 //    if (_isClick == YES) {
 //        SKNode *node = [self childNodeWithName:@"cursor"];
 //        
