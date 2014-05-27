@@ -10,6 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface LeafTransition : NSObject {
+    SKScene *leafScene;
     SKSpriteNode *upLeaf;
     SKSpriteNode *bottomLeaf;
     SKScene *scene;

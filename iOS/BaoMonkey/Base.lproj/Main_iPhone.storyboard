@@ -25,6 +25,9 @@
             <point key="canvasLocation" x="-27" y="78"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background-menu.png" width="320" height="568"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

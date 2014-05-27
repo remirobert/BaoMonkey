@@ -9,6 +9,7 @@
 #import "Hunter.h"
 #import "Define.h"
 #import "GameData.h"
+#import "BaoSize.h"
 
 @interface Hunter ()
 @property (nonatomic) CGFloat timeAction;
@@ -49,7 +50,7 @@
         [self loadDeadSprites];
         
         node.name = ENEMY_NODE_NAME;
-        position.y = MIN_POSY_FLOOR + (SPACE_BETWEEN * (nbFloor)) - (self.node.size.height / 2) - 10;
+        position.y = MIN_POSY_FLOOR + (SPACE_BETWEEN * (nbFloor - 1)) + [BaoSize plateform].height;
         [node setPosition:position];
         _isMoving = YES;
         

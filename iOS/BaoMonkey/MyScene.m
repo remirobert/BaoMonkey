@@ -16,6 +16,7 @@
 #import "BaoButton.h"
 #import "LamberJackMachineScene.h"
 #import "BaoButton.h"
+#import "PauseScene.h"
 #import "HelicopterScene.h"
 #import "MyScene+LoadBoss.h"
 
@@ -77,10 +78,10 @@
 }
 
 -(SKLabelNode*)countDownNode {
-    SKLabelNode *countDownNode = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    SKLabelNode *countDownNode = [SKLabelNode labelNodeWithFontNamed:@"ChalkboardSE-Regular"];
     countDownNode.text = @"3";
     countDownNode.fontSize = 120;
-    countDownNode.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+    countDownNode.position = CGPointMake(SCREEN_WIDTH / 2, (SCREEN_HEIGHT / 2) - (countDownNode.fontSize / 2));
     countDownNode.name = COUNTDOWN_NODE_NAME;
     return countDownNode;
 }
@@ -181,6 +182,8 @@
     lastTime = 0;
     oncePause = 0;
     oncePlay = -1;
+    
+    pauseScene = [[PauseScene alloc] initWithSize:self.size andScene:self];
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -237,8 +240,6 @@
     SKNode *pauseNode = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
     [(SKSpriteNode*)pauseNode removeFromParent];
     
-    [leafTransition runPauseTransition];
-    
     self.speed = 0;
     for (Item *item in _wave) {
         [item pauseTimer];
@@ -250,6 +251,9 @@
     }];
 
     [GameData pauseGame];
+    
+    SKTransition *pauseTransition = [SKTransition pushWithDirection:SKTransitionDirectionRight duration:1.0];
+    [self.view presentScene:pauseScene transition:pauseTransition];
 }
 
 //-(void)removePauseView{
