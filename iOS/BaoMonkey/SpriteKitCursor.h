@@ -14,6 +14,7 @@
 @interface SpriteKitCursor : NSObject
 
 @property (nonatomic, strong) SKSpriteNode *node;
+@property (nonatomic, strong) SKSpriteNode *bg;
 @property (nonatomic, strong) SKSpriteNode *cursor;
 @property (nonatomic, assign) CGFloat currentValue;
 
