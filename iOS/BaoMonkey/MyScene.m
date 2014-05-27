@@ -265,13 +265,8 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-    
-    /* TEST BOSS SCENE FOR TRY */
-    /*
-    if ([GameData getScore] == 10) {
-        LamberJackMachineScene *lamberScene = [[LamberJackMachineScene alloc] initWithSize:self.size parent:self];
-        [self.view presentScene:lamberScene];
-    }*/
+
+    NSInteger oldLevel = [GameData getLevel];
     
     if ([[GameData singleton] isPause]) {
         
@@ -370,6 +365,13 @@
         [trunkProgressLife updateProgression:[GameData getTrunkLife]];
     }
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
+    
+    if (oldLevel != [GameData getLevel]) {
+        if (oldLevel == 3) {
+            [self loadTankScene];
+        }
+    }
+    
 }
 
 @end
