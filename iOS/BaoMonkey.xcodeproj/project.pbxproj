@@ -25,6 +25,7 @@
 		10BCACE4192DFA5600A846F1 /* MyScene+Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */; };
 		10BCACE7192E02CA00A846F1 /* LamberJackMachineScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */; };
 		10C00DBA19347AA400710924 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C00DB919347AA400710924 /* Settings.m */; };
+		10C00DBD193485C600710924 /* SpriteKitCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C00DBC193485C600710924 /* SpriteKitCursor.m */; };
 		10C599B7191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
 		10C599B9191948A300907493 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B8191948A300907493 /* CoreGraphics.framework */; };
 		10C599BB191948A300907493 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599BA191948A300907493 /* UIKit.framework */; };
@@ -157,6 +158,8 @@
 		10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamberJackMachineScene.m; sourceTree = "<group>"; };
 		10C00DB819347AA400710924 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		10C00DB919347AA400710924 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		10C00DBB193485C600710924 /* SpriteKitCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteKitCursor.h; sourceTree = "<group>"; };
+		10C00DBC193485C600710924 /* SpriteKitCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteKitCursor.m; sourceTree = "<group>"; };
 		10C599B3191948A300907493 /* BaoMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C599B6191948A300907493 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		10C599B8191948A300907493 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -349,6 +352,8 @@
 				10B488FC193476FD009FBEB1 /* MainMenu.m */,
 				10C00DB819347AA400710924 /* Settings.h */,
 				10C00DB919347AA400710924 /* Settings.m */,
+				10C00DBB193485C600710924 /* SpriteKitCursor.h */,
+				10C00DBC193485C600710924 /* SpriteKitCursor.m */,
 			);
 			name = SceneMenu;
 			sourceTree = "<group>";
@@ -1058,6 +1063,7 @@
 				10C599FD191948CB00907493 /* Monkey.m in Sources */,
 				10C599C9191948A300907493 /* AppDelegate.m in Sources */,
 				10C59A2619194D5D00907493 /* Item.m in Sources */,
+				10C00DBD193485C600710924 /* SpriteKitCursor.m in Sources */,
 				3F7D436C191A3BC800DF30D6 /* GameController.m in Sources */,
 				10C599C5191948A300907493 /* main.m in Sources */,
 				1012340A1919512500B035D9 /* Weapon.m in Sources */,
