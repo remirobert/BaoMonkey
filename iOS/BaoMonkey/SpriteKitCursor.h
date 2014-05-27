@@ -19,6 +19,7 @@
 
 - (instancetype) initWithSize:(CGSize)size position:(CGPoint)position;
 - (void) addChild:(SKScene *)parentScene;
-- (void) updatePositionCursorWithNode:(SKNode *)nodeTouch location:(CGPoint)location;
+- (void) updatePositionCursorWithLocation:(CGPoint)location;
+- (BOOL) checkCursorClickWithNode:(SKNode *)node;
 
 @end

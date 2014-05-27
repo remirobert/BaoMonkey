@@ -36,18 +36,19 @@
     [parentScene addChild:_cursor];
 }
 
-- (void) updatePositionCursorWithNode:(SKNode *)nodeTouch location:(CGPoint)location {
-    
-    if ([_cursor isEqual:nodeTouch] == YES) {
-        if (nodeTouch.position.x >= _node.position.x - (_node.size.width / 2) &&
-            nodeTouch.position.x <= _node.position.x + (_node.size.width / 2))
-            nodeTouch.position = CGPointMake(location.x, nodeTouch.position.y);
+- (BOOL) checkCursorClickWithNode:(SKNode *)node {
+    return ([_cursor isEqual:node]);
+}
+
+- (void) updatePositionCursorWithLocation:(CGPoint)location {
+    if (_cursor.position.x >= _node.position.x - (_node.size.width / 2) &&
+        _cursor.position.x <= _node.position.x + (_node.size.width / 2))
+        _cursor.position = CGPointMake(location.x, _cursor.position.y);
         
-        if (nodeTouch.position.x - (nodeTouch.frame.size.width / 2) < _node.position.x - (_node.size.width / 2))
-            nodeTouch.position = CGPointMake(_node.position.x - (_node.size.width / 2) + (nodeTouch.frame.size.width / 2), nodeTouch.position.y);
-        if (nodeTouch.position.x + (nodeTouch.frame.size.width / 2) > _node.position.x + (_node.size.width / 2))
-            nodeTouch.position = CGPointMake(_node.position.x + (_node.size.width / 2) - (nodeTouch.frame.size.width / 2), nodeTouch.position.y);
-    }
+    if (_cursor.position.x - (_cursor.frame.size.width / 2) < _node.position.x - (_node.size.width / 2))
+        _cursor.position = CGPointMake(_node.position.x - (_node.size.width / 2) + (_cursor.frame.size.width / 2), _cursor.position.y);
+    if (_cursor.position.x + (_cursor.frame.size.width / 2) > _node.position.x + (_node.size.width / 2))
+        _cursor.position = CGPointMake(_node.position.x + (_node.size.width / 2) - (_cursor.frame.size.width / 2), _cursor.position.y);
 }
 
 - (CGFloat) currentValue {
