@@ -24,7 +24,6 @@
     
     if (self != nil) {
         self.backgroundColor = [SKColor blueColor];
-        NSLog(@"Main Menu ok");
         
         _cursorVolumeSound = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2, 50)
                                                position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, 100)];
