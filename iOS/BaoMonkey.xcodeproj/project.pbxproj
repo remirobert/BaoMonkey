@@ -766,6 +766,8 @@
 				10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */,
 				29F418FC1933B4CD0064B52A /* PauseScene.h */,
 				29F418FD1933B4CD0064B52A /* PauseScene.m */,
+				1016CA5C192F80F400B58759 /* HelicopterScene.h */,
+				1016CA5D192F80F400B58759 /* HelicopterScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";

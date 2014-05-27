@@ -17,6 +17,8 @@
 #import "LamberJackMachineScene.h"
 #import "BaoButton.h"
 #import "PauseScene.h"
+#import "HelicopterScene.h"
+#import "MyScene+LoadBoss.h"
 
 @implementation MyScene
 
