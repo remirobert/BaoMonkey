@@ -21,8 +21,10 @@
 		10AB3472192CC74E00661301 /* TankScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AB3471192CC74E00661301 /* TankScene.m */; };
 		10AB3476192CD1B200661301 /* Tank.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AB3475192CD1B200661301 /* Tank.m */; };
 		10B4196419260681005D4EDC /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4196319260681005D4EDC /* UserData.m */; };
+		10B488FD193476FD009FBEB1 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B488FC193476FD009FBEB1 /* MainMenu.m */; };
 		10BCACE4192DFA5600A846F1 /* MyScene+Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */; };
 		10BCACE7192E02CA00A846F1 /* LamberJackMachineScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */; };
+		10C00DBA19347AA400710924 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C00DB919347AA400710924 /* Settings.m */; };
 		10C599B7191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
 		10C599B9191948A300907493 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B8191948A300907493 /* CoreGraphics.framework */; };
 		10C599BB191948A300907493 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599BA191948A300907493 /* UIKit.framework */; };
@@ -147,10 +149,14 @@
 		10AB3475192CD1B200661301 /* Tank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tank.m; sourceTree = "<group>"; };
 		10B4196219260681005D4EDC /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		10B4196319260681005D4EDC /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
+		10B488FB193476FD009FBEB1 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		10B488FC193476FD009FBEB1 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		10BCACE2192DFA5600A846F1 /* MyScene+Climber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Climber.h"; sourceTree = "<group>"; };
 		10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Climber.m"; sourceTree = "<group>"; };
 		10BCACE5192E02CA00A846F1 /* LamberJackMachineScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamberJackMachineScene.h; sourceTree = "<group>"; };
 		10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamberJackMachineScene.m; sourceTree = "<group>"; };
+		10C00DB819347AA400710924 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		10C00DB919347AA400710924 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		10C599B3191948A300907493 /* BaoMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C599B6191948A300907493 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		10C599B8191948A300907493 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -334,6 +340,17 @@
 				10B4196319260681005D4EDC /* UserData.m */,
 			);
 			name = UserData;
+			sourceTree = "<group>";
+		};
+		10B488FE19347A59009FBEB1 /* SceneMenu */ = {
+			isa = PBXGroup;
+			children = (
+				10B488FB193476FD009FBEB1 /* MainMenu.h */,
+				10B488FC193476FD009FBEB1 /* MainMenu.m */,
+				10C00DB819347AA400710924 /* Settings.h */,
+				10C00DB919347AA400710924 /* Settings.m */,
+			);
+			name = SceneMenu;
 			sourceTree = "<group>";
 		};
 		10C599AA191948A300907493 = {
@@ -757,6 +774,7 @@
 				10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */,
 				1016CA5C192F80F400B58759 /* HelicopterScene.h */,
 				1016CA5D192F80F400B58759 /* HelicopterScene.m */,
+				10B488FE19347A59009FBEB1 /* SceneMenu */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1019,6 +1037,7 @@
 				10BCACE7192E02CA00A846F1 /* LamberJackMachineScene.m in Sources */,
 				10C59A1F19194C7400907493 /* Prune.m in Sources */,
 				10B4196419260681005D4EDC /* UserData.m in Sources */,
+				10C00DBA19347AA400710924 /* Settings.m in Sources */,
 				109E9307191A60EF00DD5623 /* Action.m in Sources */,
 				A5731ABC19275AF300023346 /* Achievement.m in Sources */,
 				2919C643192DF46300A2F2D1 /* BaoButton.m in Sources */,
@@ -1026,6 +1045,7 @@
 				10C59A1C19194BF000907493 /* Banana.m in Sources */,
 				3F5959DC191C1D5B006EE846 /* HomeViewController.m in Sources */,
 				10A7E66F192E2F6300D37183 /* LamberJackMachine.m in Sources */,
+				10B488FD193476FD009FBEB1 /* MainMenu.m in Sources */,
 				10A495E0192B419D005299D8 /* GameCenter.m in Sources */,
 				2950D27E192B869E00C12A52 /* LeafTransition.m in Sources */,
 				10A12F0D191CD02700AA86BE /* Climber.m in Sources */,
