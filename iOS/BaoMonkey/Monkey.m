@@ -26,7 +26,8 @@
     self = [super init];
     if (self) {
         // Init the sprites of the Monkey
-        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING] size:[BaoSize monkey]];
+        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING]
+                                                size:[BaoSize monkey]];
         sprite.position = position;
         
         [self loadWalkingSprites];
@@ -88,7 +89,9 @@
 
     [sprite removeAllActions];
     if (weapon == nil) {
-        [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopFrames timePerFrame:0.1 resize:YES restore:NO]]];
+        [sprite runAction:[SKAction
+                           repeatActionForever:[SKAction animateWithTextures:stopFrames
+                                                                         timePerFrame:0.1 resize:YES restore:NO]]];
     }
     else {
         [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopCocoframes timePerFrame:0.1 resize:YES restore:NO]]];
@@ -221,7 +224,8 @@
         [Action dropWeapon:weapon];
 
         [sprite removeAllActions];
-        SKAction *actionLaunch = [SKAction animateWithTextures:launchFrames timePerFrame:0.1 resize:YES restore:NO];
+        SKAction *actionLaunch = [SKAction animateWithTextures:launchFrames
+                                                  timePerFrame:0.1 resize:YES restore:NO];
         [sprite runAction:actionLaunch withKey:@"lanchAction"];
     }
     weapon = nil;
@@ -232,7 +236,9 @@
 - (void) deadMonkey {
     [sprite removeAllActions];
 
-    [sprite runAction:[SKAction animateWithTextures:deadFrames timePerFrame:0.1 resize:YES restore:NO] withKey:@"deadMonkey"];
+    [sprite runAction:[SKAction animateWithTextures:deadFrames
+                                       timePerFrame:0.1 resize:YES restore:NO]
+              withKey:@"deadMonkey"];
 }
 
 @end
