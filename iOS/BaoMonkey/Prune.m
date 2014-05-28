@@ -30,6 +30,11 @@
     SKAction *action = [SKAction resizeToWidth:640 height:512 duration:0.2];
     SKAction *wait = [SKAction waitForDuration:1.0];
     
+    SKSpriteNode *secondSplash = [[SKSpriteNode alloc] initWithTexture:[PreloadData getDataWithKey:DATA_SPLASH_PLUMS2]];
+    secondSplash.position = CGPointMake(rand() % (int)[UIScreen mainScreen].bounds.size.width, rand() % (int)[UIScreen mainScreen].bounds.size.height);
+    
+    [self.node removeAllActions];
+    
     [UserData addPrune];
 
     [self.timerHide invalidate];
@@ -39,13 +44,22 @@
     
     SKAction *actionPrune = [SKAction group:@[move, sound, action, wait]];
     
-    [self.node setTexture:(SKTexture *)[PreloadData getDataWithKey:DATA_SPLASH_TEXTURE]];
+    [self.node setTexture:(SKTexture *)[PreloadData getDataWithKey:DATA_SPLASH_PLUMS1]];
+    
+    if (_parentScene != nil) {
+        [_parentScene addChild:secondSplash];
+        secondSplash.zPosition = 500;
+        [secondSplash runAction:[SKAction waitForDuration:1.5] completion:^{
+            [secondSplash removeFromParent];
+        }];
+    }
     
     self.node.zPosition = 500;
     
     [self.node runAction:actionPrune completion:^{
         self.isOver = YES;
         [self.node removeFromParent];
+        [secondSplash removeFromParent];
     }];
 }
 

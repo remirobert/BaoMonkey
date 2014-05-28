@@ -28,6 +28,8 @@
 
 # define DATA_SPLASH_SOUND                  @"splash_prune"
 # define DATA_SPLASH_TEXTURE                @"splash_texture"
+# define DATA_SPLASH_PLUMS1                 @"splash_plums1"
+# define DATA_SPLASH_PLUMS2                 @"splash_plums2"
 # define DATA_COCONUT_TEXTURE               @"coconut_texture"
 # define DATA_BANANA_TEXTURE                @"banana_texture"
 # define DATA_PRUNE_TEXTURE                 @"prune_texture"

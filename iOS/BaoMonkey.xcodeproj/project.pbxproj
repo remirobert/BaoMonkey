@@ -11,6 +11,8 @@
 		1012340A1919512500B035D9 /* Weapon.m in Sources */ = {isa = PBXBuildFile; fileRef = 101234091919512500B035D9 /* Weapon.m */; };
 		1012340D1919519600B035D9 /* Bonus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1012340C1919519600B035D9 /* Bonus.m */; };
 		10123410191951CF00B035D9 /* Malus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1012340F191951CF00B035D9 /* Malus.m */; };
+		102D554D1936430800D7072D /* grosse_tache@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 102D554B1936430800D7072D /* grosse_tache@2x.png */; };
+		102D554E1936430800D7072D /* petite_tache@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 102D554C1936430800D7072D /* petite_tache@2x.png */; };
 		109E9307191A60EF00DD5623 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 109E9306191A60EF00DD5623 /* Action.m */; };
 		10A12F0D191CD02700AA86BE /* Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A12F0C191CD02700AA86BE /* Climber.m */; };
 		10A495E0192B419D005299D8 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A495DF192B419D005299D8 /* GameCenter.m */; };
@@ -137,6 +139,8 @@
 		1012340C1919519600B035D9 /* Bonus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bonus.m; sourceTree = "<group>"; };
 		1012340E191951CF00B035D9 /* Malus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Malus.h; sourceTree = "<group>"; };
 		1012340F191951CF00B035D9 /* Malus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Malus.m; sourceTree = "<group>"; };
+		102D554B1936430800D7072D /* grosse_tache@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grosse_tache@2x.png"; sourceTree = "<group>"; };
+		102D554C1936430800D7072D /* petite_tache@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petite_tache@2x.png"; sourceTree = "<group>"; };
 		109E9305191A60EF00DD5623 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		109E9306191A60EF00DD5623 /* Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
 		10A12F0B191CD02700AA86BE /* Climber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Climber.h; sourceTree = "<group>"; };
@@ -807,6 +811,8 @@
 		3FB2A490191B79900027B2C7 /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				102D554B1936430800D7072D /* grosse_tache@2x.png */,
+				102D554C1936430800D7072D /* petite_tache@2x.png */,
 				3FB2A497191B7DA80027B2C7 /* splash-prune@2x.png */,
 				3FB2A495191B7C580027B2C7 /* prune@2x.png */,
 				3FB2A491191B79900027B2C7 /* banana@2x.png */,
@@ -984,7 +990,9 @@
 				296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */,
 				3F47F9C2192D41E200C36A39 /* LamberJackCutting.atlas in Resources */,
 				2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */,
+				102D554D1936430800D7072D /* grosse_tache@2x.png in Resources */,
 				2919C649192E2CFC00A2F2D1 /* branch@2x.png in Resources */,
+				102D554E1936430800D7072D /* petite_tache@2x.png in Resources */,
 				3FB7C492192E866B00801643 /* plateform@2x.png in Resources */,
 				2919C640192DEE1F00A2F2D1 /* button-settings-selected@2x.png in Resources */,
 				29A3D4B21935DA12003A71DC /* button-home@2x.png in Resources */,

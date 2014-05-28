@@ -25,8 +25,10 @@
     
     if (ratio < 2)
         object = [[Banana alloc] initWithPosition:position];
-    else
+    else {
         object = [[Prune alloc] initWithPosition:position];
+        ((Prune *)object).parentScene = self;
+    }
     return (object);
 }
 
