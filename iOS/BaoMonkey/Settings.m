@@ -19,28 +19,43 @@
 
 @implementation Settings
 
+- (void) customCursor {
+    [_cursorAccelerometer setCursorTexture:[UIImage imageNamed:@"selector-slider@2x"]];
+    [_cursorVolumeMusic setCursorTexture:[UIImage imageNamed:@"selector-slider@2x"]];
+    [_cursorVolumeSound setCursorTexture:[UIImage imageNamed:@"selector-slider@2x"]];
+    
+    [_cursorAccelerometer setBackgroundTexture:[UIImage imageNamed:@"front-slider@2x"]];
+    [_cursorVolumeSound setBackgroundTexture:[UIImage imageNamed:@"front-slider@2x"]];
+    [_cursorVolumeMusic setBackgroundTexture:[UIImage imageNamed:@"front-slider@2x"]];
+    
+    [_cursorAccelerometer setForegroundTexture:[UIImage imageNamed:@"back-slider@2x"]];
+    [_cursorVolumeMusic setForegroundTexture:[UIImage imageNamed:@"back-slider@2x"]];
+    [_cursorVolumeSound setForegroundTexture:[UIImage imageNamed:@"back-slider@2x"]];
+}
+
+- (void) initCursor {
+    _cursorVolumeSound = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2 + 100, 25)
+                                                      position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, 50)];
+    _cursorVolumeMusic = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2 + 100, 25)
+                                                      position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, 300)];
+    _cursorAccelerometer = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2 + 100, 25)
+                                                        position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2 - 75, 500)];
+    
+    [self customCursor];
+}
+
 - (instancetype) initWithSize:(CGSize)size {
     self = [super initWithSize:size];
     
     if (self != nil) {
         self.backgroundColor = [SKColor blueColor];
         
-        _cursorVolumeSound = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2, 50)
-                                               position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, 50)];
-        _cursorVolumeMusic = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2, 50)
-                                                          position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, 300)];
-        _cursorAccelerometer = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2, 25)
-                                                          position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2 - 75, 500)];
-        
+        [self initCursor];
         
         [_cursorAccelerometer addChild:self];
         [_cursorVolumeMusic addChild:self];
         [_cursorVolumeSound addChild:self];
         
-        
-        [_cursorAccelerometer setCurrentValue:25.0];
-        
-        [_cursorAccelerometer setBackgroundTexture:[UIImage imageNamed:@"coconut@2x"] withSize:CGSizeMake(100, 100)];
         
         
         SKLabelNode * homeButton = [[SKLabelNode alloc] init];
