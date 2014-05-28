@@ -39,7 +39,7 @@
     CGPoint positionNode;
     
     if (IPAD){
-        nodeSize = CGSizeMake(0, 0);
+        nodeSize = CGSizeMake(120, 120);
         positionNode = CGPointMake(SCREEN_WIDTH - (nodeSize.width / 2), SCREEN_HEIGHT - (nodeSize.height / 2));
     }
     else {
