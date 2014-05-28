@@ -8,7 +8,6 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
-#import "HomeViewController.h"
 #import "TreeBranch.h"
 #import "ProgressBar.h"
 #import "GameData.h"

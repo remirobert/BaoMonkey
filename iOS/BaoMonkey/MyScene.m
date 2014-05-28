@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 iPPLE. All rights reserved.
 //
 
+#import "HomeViewController.h"
 #import "MyScene.h"
 #import "MyScene+GeneratorWave.h"
 #import "MyScene+Climber.h"

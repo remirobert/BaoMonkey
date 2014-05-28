@@ -49,6 +49,13 @@
 		10C59A1F19194C7400907493 /* Prune.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A1E19194C7400907493 /* Prune.m */; };
 		10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */; };
 		10C59A2619194D5D00907493 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2519194D5D00907493 /* Item.m */; };
+		10F65E6A1935E0EF00ED0DA8 /* Helicopter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F65E5D1935E0EF00ED0DA8 /* Helicopter.m */; };
+		10F65E6B1935E0EF00ED0DA8 /* HelicopterScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F65E5F1935E0EF00ED0DA8 /* HelicopterScene.m */; };
+		10F65E6C1935E0EF00ED0DA8 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F65E611935E0EF00ED0DA8 /* MainMenu.m */; };
+		10F65E6D1935E0EF00ED0DA8 /* MyScene+LoadBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F65E631935E0EF00ED0DA8 /* MyScene+LoadBoss.m */; };
+		10F65E6E1935E0EF00ED0DA8 /* PauseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F65E651935E0EF00ED0DA8 /* PauseScene.m */; };
+		10F65E6F1935E0EF00ED0DA8 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F65E671935E0EF00ED0DA8 /* Settings.m */; };
+		10F65E701935E0EF00ED0DA8 /* SpriteKitCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F65E691935E0EF00ED0DA8 /* SpriteKitCursor.m */; };
 		2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */; };
 		2919C63C192DEE1F00A2F2D1 /* button-home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C637192DEE1F00A2F2D1 /* button-home@2x.png */; };
 		2919C63D192DEE1F00A2F2D1 /* button-pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C638192DEE1F00A2F2D1 /* button-pause@2x.png */; };
@@ -187,6 +194,20 @@
 		10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+GeneratorWave.m"; sourceTree = "<group>"; };
 		10C59A2419194D5D00907493 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		10C59A2519194D5D00907493 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		10F65E5C1935E0EF00ED0DA8 /* Helicopter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helicopter.h; sourceTree = "<group>"; };
+		10F65E5D1935E0EF00ED0DA8 /* Helicopter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helicopter.m; sourceTree = "<group>"; };
+		10F65E5E1935E0EF00ED0DA8 /* HelicopterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelicopterScene.h; sourceTree = "<group>"; };
+		10F65E5F1935E0EF00ED0DA8 /* HelicopterScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelicopterScene.m; sourceTree = "<group>"; };
+		10F65E601935E0EF00ED0DA8 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		10F65E611935E0EF00ED0DA8 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		10F65E621935E0EF00ED0DA8 /* MyScene+LoadBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+LoadBoss.h"; sourceTree = "<group>"; };
+		10F65E631935E0EF00ED0DA8 /* MyScene+LoadBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+LoadBoss.m"; sourceTree = "<group>"; };
+		10F65E641935E0EF00ED0DA8 /* PauseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseScene.h; sourceTree = "<group>"; };
+		10F65E651935E0EF00ED0DA8 /* PauseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseScene.m; sourceTree = "<group>"; };
+		10F65E661935E0EF00ED0DA8 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		10F65E671935E0EF00ED0DA8 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		10F65E681935E0EF00ED0DA8 /* SpriteKitCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteKitCursor.h; sourceTree = "<group>"; };
+		10F65E691935E0EF00ED0DA8 /* SpriteKitCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteKitCursor.m; sourceTree = "<group>"; };
 		2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BaoMonkey.mp3; sourceTree = "<group>"; };
 		2919C637192DEE1F00A2F2D1 /* button-home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-home@2x.png"; path = "Buttons/button-home@2x.png"; sourceTree = "<group>"; };
 		2919C638192DEE1F00A2F2D1 /* button-pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pause@2x.png"; path = "Buttons/button-pause@2x.png"; sourceTree = "<group>"; };
@@ -435,6 +456,21 @@
 				10C59A131919492C00907493 /* trunk@2x.png */,
 			);
 			path = Tree;
+			sourceTree = "<group>";
+		};
+		10F65E711935E12600ED0DA8 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				10F65E681935E0EF00ED0DA8 /* SpriteKitCursor.h */,
+				10F65E691935E0EF00ED0DA8 /* SpriteKitCursor.m */,
+				10F65E601935E0EF00ED0DA8 /* MainMenu.h */,
+				10F65E611935E0EF00ED0DA8 /* MainMenu.m */,
+				10F65E641935E0EF00ED0DA8 /* PauseScene.h */,
+				10F65E651935E0EF00ED0DA8 /* PauseScene.m */,
+				10F65E661935E0EF00ED0DA8 /* Settings.h */,
+				10F65E671935E0EF00ED0DA8 /* Settings.m */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		2919C636192DEDF300A2F2D1 /* Buttons */ = {
@@ -715,10 +751,17 @@
 				10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */,
 				10BCACE2192DFA5600A846F1 /* MyScene+Climber.h */,
 				10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */,
+				10F65E5C1935E0EF00ED0DA8 /* Helicopter.h */,
+				10F65E5D1935E0EF00ED0DA8 /* Helicopter.m */,
+				10F65E5E1935E0EF00ED0DA8 /* HelicopterScene.h */,
+				10F65E5F1935E0EF00ED0DA8 /* HelicopterScene.m */,
+				10F65E621935E0EF00ED0DA8 /* MyScene+LoadBoss.h */,
+				10F65E631935E0EF00ED0DA8 /* MyScene+LoadBoss.m */,
 				10AB3470192CC74E00661301 /* TankScene.h */,
 				10AB3471192CC74E00661301 /* TankScene.m */,
 				10BCACE5192E02CA00A846F1 /* LamberJackMachineScene.h */,
 				10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */,
+				10F65E711935E12600ED0DA8 /* Menu */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -972,15 +1015,18 @@
 			files = (
 				3F64F766191A9DD900102094 /* ProgressBar.m in Sources */,
 				29E98BB0191A875D0046F9B2 /* LamberJack.m in Sources */,
+				10F65E6F1935E0EF00ED0DA8 /* Settings.m in Sources */,
 				3F64F75B191A8EB400102094 /* GameData.m in Sources */,
 				3FB67CDB192B4FF700381BDC /* Resume.m in Sources */,
 				1010BD5519261655003F8436 /* PreloadData.m in Sources */,
 				3F47F9B5192CCF9D00C36A39 /* Music.m in Sources */,
+				10F65E6A1935E0EF00ED0DA8 /* Helicopter.m in Sources */,
 				10BCACE4192DFA5600A846F1 /* MyScene+Climber.m in Sources */,
 				296AFB8D191BDFD7009D5B75 /* Hunter.m in Sources */,
 				29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */,
 				29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */,
 				10BCACE7192E02CA00A846F1 /* LamberJackMachineScene.m in Sources */,
+				10F65E701935E0EF00ED0DA8 /* SpriteKitCursor.m in Sources */,
 				10C59A1F19194C7400907493 /* Prune.m in Sources */,
 				10B4196419260681005D4EDC /* UserData.m in Sources */,
 				109E9307191A60EF00DD5623 /* Action.m in Sources */,
@@ -988,9 +1034,11 @@
 				2919C643192DF46300A2F2D1 /* BaoButton.m in Sources */,
 				10AB3472192CC74E00661301 /* TankScene.m in Sources */,
 				10C59A1C19194BF000907493 /* Banana.m in Sources */,
+				10F65E6B1935E0EF00ED0DA8 /* HelicopterScene.m in Sources */,
 				3F5959DC191C1D5B006EE846 /* HomeViewController.m in Sources */,
 				10A7E66F192E2F6300D37183 /* LamberJackMachine.m in Sources */,
 				10A495E0192B419D005299D8 /* GameCenter.m in Sources */,
+				10F65E6D1935E0EF00ED0DA8 /* MyScene+LoadBoss.m in Sources */,
 				2950D27E192B869E00C12A52 /* LeafTransition.m in Sources */,
 				10A12F0D191CD02700AA86BE /* Climber.m in Sources */,
 				10C59A1D19194BF000907493 /* CocoNuts.m in Sources */,
@@ -1003,8 +1051,10 @@
 				10C59A2619194D5D00907493 /* Item.m in Sources */,
 				3F7D436C191A3BC800DF30D6 /* GameController.m in Sources */,
 				10C599C5191948A300907493 /* main.m in Sources */,
+				10F65E6C1935E0EF00ED0DA8 /* MainMenu.m in Sources */,
 				1012340A1919512500B035D9 /* Weapon.m in Sources */,
 				1012340D1919519600B035D9 /* Bonus.m in Sources */,
+				10F65E6E1935E0EF00ED0DA8 /* PauseScene.m in Sources */,
 				10C59A021919490900907493 /* MyScene.m in Sources */,
 				10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */,
 				3FF111231926078C005C9DD1 /* SettingsViewController.m in Sources */,
