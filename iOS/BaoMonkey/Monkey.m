@@ -62,7 +62,10 @@
     
     if (acceleration == 0) {
         [sprite removeAllChildren];
-        [sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING]];
+        if (weapon == nil)
+            [sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING]];
+        else
+            [sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING_COCONUT]];
         sprite.xScale = 1.0;
         oldAcceleration = 0;
         [sprite removeAllActions];
@@ -169,7 +172,7 @@
 
 #pragma mark - Launch a weapon
 
--(void)launchWeapon{
+-(void)launchWeapon {
     if (weapon != nil && ![GameData isPause]) {
         weapon.node.hidden = FALSE;
         weapon.node.position = CGPointMake(sprite.position.x, weapon.node.position.y);
