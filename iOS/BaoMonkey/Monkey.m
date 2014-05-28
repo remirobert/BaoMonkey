@@ -56,6 +56,8 @@
     weapon.node.position = position;
 }
 
+#pragma mark - Action animation monkey
+
 - (void) moveActionWalking {
     NSArray *framesWalking;
     
@@ -69,20 +71,25 @@
                                             animateWithTextures:framesWalking timePerFrame:0.1]] withKey:@"runactionwalk"];
 }
 
+- (void) waitMonkey {
+    if (weapon == nil) {
+        [sprite setTexture:[SKTexture textureWithImageNamed:@"monkey-waiting"]];
+        //            [sprite setSize:[BaoSize monkey]];
+    }
+    else {
+        [sprite setTexture:[SKTexture textureWithImageNamed:@"monkey-waiting-coconut"]];
+        //            [sprite setSize:[BaoSize monkey]];
+    }
+}
+
 -(void)updateMonkeyPosition:(float)acceleration {
     static CGFloat oldAcceleration = 0;
 
     if (acceleration == 0) {
         if (oldAcceleration == 0)
             return;
-
+        [self waitMonkey];
         [sprite removeAllActions];
-        if (weapon == nil) {
-            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopFrames timePerFrame:0.1]]];
-        }
-        else {
-            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopCocoframes timePerFrame:0.1]]];
-        }
         oldAcceleration = 0;
         return ;
     }
@@ -184,6 +191,7 @@
             weapon.isTaken = YES;
             weapon.node.hidden = YES;
             [(Item *)item launchAction];
+            [self waitMonkey];
         }
         else
             return ;
@@ -201,6 +209,10 @@
         [Action dropWeapon:weapon];
     }
     weapon = nil;
+    [sprite removeAllActions];
+    [sprite runAction:[SKAction animateWithTextures:launchFrames timePerFrame:0.5] completion:^{
+        [self waitMonkey];
+    }];
 }
 
 @end
