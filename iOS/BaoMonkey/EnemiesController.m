@@ -53,7 +53,7 @@
 
 #pragma mark - Enemy Controller
 
--(EnemyDirection)chooseDirection {
+-(Direction)chooseDirection {
     NSUInteger numberLeft = 0;
     NSUInteger numberRight = 0;
     

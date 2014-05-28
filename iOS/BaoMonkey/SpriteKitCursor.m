@@ -46,6 +46,12 @@
 }
 
 - (void) setCurrentValue:(CGFloat)currentValue {
+    
+    if (currentValue < 0)
+        currentValue = 0.0;
+    if (currentValue > 100.0)
+        currentValue = 100.0;
+    
     CGFloat positionX = ((currentValue * _foreground.size.width) / 100);
     
     [self updatePositionCursorWithLocation:CGPointMake(positionX +
@@ -71,9 +77,22 @@
 }
 
 - (CGFloat) currentValue {
-    return (100 * (_cursor.position.x - (([UIScreen mainScreen].bounds.size.width - _foreground.size.width) / 2) -
-                   (_cursor.size.width / 2)) / (([UIScreen mainScreen].bounds.size.width -
-                                                 _foreground.size.width - (_cursor.size.width))));
+
+    NSLog(@"current get");
+    
+//    NSLog(@"max %f", ([UIScreen mainScreen].bounds.size.width - _foreground.size.width));
+//    NSLog(@"current %f", ((([UIScreen mainScreen].bounds.size.width - _foreground.size.width) / 2) - (_cursor.size.width / 2)));
+    
+    return (100 * ([UIScreen mainScreen].bounds.size.width - _foreground.size.width) / ((([UIScreen mainScreen].bounds.size.width - _foreground.size.width) / 2) - (_cursor.size.width / 2)));
+    
+    
+    return (100 * (([UIScreen mainScreen].bounds.size.width -
+                    _foreground.size.width - (_cursor.size.width))) / (_cursor.position.x - (([UIScreen mainScreen].bounds.size.width - _foreground.size.width) / 2) -
+                                                                       (_cursor.size.width / 2)));
+    
+//    return (100 * (_cursor.position.x - (([UIScreen mainScreen].bounds.size.width - _foreground.size.width) / 2) -
+//                   (_cursor.size.width / 2)) / (([UIScreen mainScreen].bounds.size.width -
+//                                                 _foreground.size.width - (_cursor.size.width))));
 }
 
 #pragma mark - Custom slider

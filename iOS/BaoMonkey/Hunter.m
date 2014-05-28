@@ -129,8 +129,8 @@
     if (![node actionForKey:SKACTION_HUNTER_WALKING]) {
         [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
                                                                        timePerFrame:0.1f
-                                                                             resize:YES
-                                                                            restore:YES]]
+                                                                             resize:NO
+                                                                            restore:NO]]
                 withKey:SKACTION_HUNTER_WALKING];
     }
 }
@@ -148,8 +148,8 @@
     if (![node actionForKey:SKACTION_HUNTER_DEAD]) {
         [node runAction:[SKAction repeatAction:[SKAction animateWithTextures:deadFrames
                                                                 timePerFrame:0.1f
-                                                                      resize:YES
-                                                                     restore:YES]
+                                                                      resize:NO
+                                                                     restore:NO]
                                          count:1]
          withKey:SKACTION_HUNTER_DEAD];
     }

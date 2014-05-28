@@ -19,10 +19,15 @@
     self = [super init];
     if (self) {
         // Init the sprites of the Monkey
-        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_TEXTURE] size:[BaoSize monkey]];
+        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING] size:[BaoSize monkey]];
         sprite.position = position;
+        
+        direction = FRONT;
 
         [self loadWalkingSprites];
+        [self loadWalkingCoconutSprites];
+        [self loadLaunchSprites];
+        [self loadDeadSprites];
 
         // Init the notification for dropping the weapon
 //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(launchWeapon) name:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
@@ -50,58 +55,187 @@
     sprite.position = position;
     weapon.node.position = position;
     
-    if (acceleration < 0.0f) {
-        multiplierForDirection = -1.0f;
-    } else if (acceleration > 0.0f) {
-        multiplierForDirection = 1.0f;
+    if (acceleration < 0) {
+        direction = LEFT;
+        multiplierForDirection = -1;
+    } else if (acceleration > 0) {
+        direction = RIGHT;
+        multiplierForDirection = 1;
     } else {
-        multiplierForDirection = 0.0f;
+        direction = FRONT;
+        multiplierForDirection = 0;
     }
     
-    if (multiplierForDirection != 0.0f) {
+    if (multiplierForDirection != 0) {
+        /*if (direction == LEFT) {
+            sprite.xScale = -1;
+        } else if (direction == RIGHT) {
+            sprite.xScale = 1;
+        }*/
         sprite.xScale = fabs(sprite.xScale) * multiplierForDirection;
         [self startWalking];
     } else {
-        [self stopWalking];
+        if (weapon != nil) {
+            [self stopWalkingWithCoconut];
+        } else {
+            [self stopWalking];
+        }
     }
 }
 
 -(void)loadWalkingSprites {
-    NSMutableArray *walkFrames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *monkeyWalkingAtlas = [PreloadData getDataWithKey:DATA_MONKEY_WALK_ATLAS];
+    NSMutableArray *frames = [[NSMutableArray alloc] init];
+    SKTextureAtlas *monkeyWalkingAtlas = [PreloadData getDataWithKey:DATA_MONKEY_WALKING_ATLAS];
     NSUInteger numberOfFrames = monkeyWalkingAtlas.textureNames.count;
     
     for (int i = 1; i <= numberOfFrames; i++) {
         NSString *textureName = [NSString stringWithFormat:@"monkey-walking-%d", i];
         SKTexture *tmp = [monkeyWalkingAtlas textureNamed:textureName];
-        [walkFrames addObject:tmp];
+        [frames addObject:tmp];
     }
 
     walkingFrames = [[NSArray alloc] init];
-    walkingFrames = walkFrames;
+    walkingFrames = frames;
+}
+
+-(void)loadWalkingCoconutSprites {
+    NSMutableArray *frames = [[NSMutableArray alloc] init];
+    SKTextureAtlas *monkeyWalkingCoconutAtlas = [PreloadData getDataWithKey:DATA_MONKEY_WALKING_COCONUT_ATLAS];
+    NSUInteger numberOfFrames = monkeyWalkingCoconutAtlas.textureNames.count;
+    
+    for (int i = 1; i <= numberOfFrames; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"monkey-walking-coconut-%d", i];
+        SKTexture *tmp = [monkeyWalkingCoconutAtlas textureNamed:textureName];
+        [frames addObject:tmp];
+    }
+    
+    walkingCoconutFrames = [[NSArray alloc] init];
+    walkingCoconutFrames = frames;
 }
 
 -(void)startWalking {
+    NSLog(@"orientation walking : %f", sprite.xScale);
+    /*if (direction == LEFT) {
+        sprite.xScale = -1;
+    } else if (direction == RIGHT) {
+        sprite.xScale = 1;
+    }*/
     if (![sprite actionForKey:SKACTION_MONKEY_WALKING]) {
-        [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
+        if (weapon != nil){
+            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingCoconutFrames
+                                                                             timePerFrame:0.1f
+                                                                                   resize:NO
+                                                                                  restore:NO]]
+                      withKey:SKACTION_MONKEY_WALKING];
+        } else {
+            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
                                                                          timePerFrame:0.1f
                                                                                resize:NO
-                                                                              restore:YES]]
-                  withKey:SKACTION_MONKEY_WALKING];
+                                                                              restore:NO]]
+                      withKey:SKACTION_MONKEY_WALKING];
+        }
+    }
+}
+
+-(void)startWalkingWithCoconut {
+    [self stopWalking];
+    if (![sprite actionForKey:SKACTION_MONKEY_WALKING_COCONUT]) {
+        [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingCoconutFrames
+                                                                         timePerFrame:0.1f
+                                                                               resize:NO
+                                                                              restore:NO]]
+                  withKey:SKACTION_MONKEY_WALKING_COCONUT];
     }
 }
 
 -(void)stopWalking {
     [sprite removeActionForKey:SKACTION_MONKEY_WALKING];
+    [self wait];
+}
+
+-(void)stopWalkingWithCoconut {
+    [sprite removeActionForKey:SKACTION_MONKEY_WALKING_COCONUT];
+    [self wait];
 }
 
 -(void)stopAnimation {
     [sprite removeAllActions];
 }
 
+-(void)loadLaunchSprites {
+    NSMutableArray *frames = [[NSMutableArray alloc] init];
+    SKTextureAtlas *atlas = [PreloadData getDataWithKey:DATA_MONKEY_LAUNCH_ATLAS];
+    NSUInteger numberOfFrames = atlas.textureNames.count;
+    
+    for (int i = 1; i <= numberOfFrames; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"monkey-launch-%d", i];
+        SKTexture *tmp = [atlas textureNamed:textureName];
+        [frames addObject:tmp];
+    }
+    
+    launchFrames = [[NSArray alloc] init];
+    launchFrames = frames;
+}
+
+-(void)startLaunch {
+    //direction = FRONT;
+    if (![sprite actionForKey:SKACTION_MONKEY_LAUNCH]) {
+        [sprite runAction:[SKAction repeatAction:[SKAction animateWithTextures:launchFrames
+                                                                  timePerFrame:0.1f
+                                                                        resize:NO
+                                                                       restore:NO]
+                                           count:1]
+                  withKey:SKACTION_MONKEY_LAUNCH];
+    }
+}
+
+-(void)stopLaunch {
+    [sprite removeActionForKey:SKACTION_MONKEY_LAUNCH];
+}
+
+-(void)loadDeadSprites {
+    NSMutableArray *frames = [[NSMutableArray alloc] init];
+    SKTextureAtlas *atlas = [PreloadData getDataWithKey:DATA_MONKEY_DEAD_ATLAS];
+    NSUInteger numberOfFrames = atlas.textureNames.count;
+    
+    for (int i = 1; i <= numberOfFrames; i++) {
+        NSString *textureName = [NSString stringWithFormat:@"monkey-dead-%d", i];
+        SKTexture *tmp = [atlas textureNamed:textureName];
+        [frames addObject:tmp];
+    }
+    
+    deadFrames = [[NSArray alloc] init];
+    deadFrames = frames;
+}
+
+-(void)startDead {
+    /*if (direction == LEFT) {
+        sprite.xScale = -1;
+    } else if (direction == RIGHT) {
+        sprite.xScale = 1;
+    }*/
+    if (![sprite actionForKey:SKACTION_MONKEY_DEAD]) {
+        [sprite runAction:[SKAction repeatAction:[SKAction animateWithTextures:deadFrames
+                                                                  timePerFrame:0.1f
+                                                                        resize:NO
+                                                                       restore:NO]
+                                           count:1]
+                  withKey:SKACTION_MONKEY_DEAD];
+    }
+}
+
+-(void)stopDead {
+    [sprite removeActionForKey:SKACTION_MONKEY_DEAD];
+}
+
 -(void)wait {
-    SKTexture *texture = [PreloadData getDataWithKey:DATA_MONKEY_TEXTURE];
-    [sprite setTexture:texture];
+    //direction = FRONT;
+    [sprite setSize:[BaoSize monkey]];
+    if (weapon != nil) {
+        [sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING_COCONUT]];
+    } else {
+        [sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING]];
+    }
 }
 
 #pragma mark - Checking the item receive
@@ -109,11 +243,19 @@
 -(void)catchItem:(id)item{
     if ([item isKindOfClass:[Weapon class]]){
         if (weapon == nil) {
+            //[sprite setSize:[BaoSize monkey]];
+            //[sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING_COCONUT]];
             weapon = [[Item alloc] init];
             weapon = item;
             [weapon.node removeAllActions];
             weapon.isTaken = YES;
+            weapon.node.hidden = YES;
             [(Item *)item launchAction];
+            if (direction == LEFT || direction == RIGHT) {
+                [self startWalkingWithCoconut];
+            } else {
+                [sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING_COCONUT]];
+            }
         }
         else
             return ;
@@ -125,11 +267,19 @@
 #pragma mark - Launch a weapon
 
 -(void)launchWeapon{
+    [self stopWalking];
+    [self startLaunch];
     if (weapon != nil && ![GameData isPause]) {
+        weapon.node.hidden = FALSE;
         weapon.node.position = CGPointMake(sprite.position.x, weapon.node.position.y);
         [Action dropWeapon:weapon];
     }
     weapon = nil;
+    if (direction == LEFT || direction == RIGHT) {
+        [self startWalking];
+    } else {
+        [self wait];
+    }
 }
 
 @end

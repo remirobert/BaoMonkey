@@ -12,7 +12,7 @@
 @implementation BaoSize
 
 +(CGSize)monkey {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(25, 48);
+    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(60, 70);
 }
 
 +(CGSize)lamberJack {

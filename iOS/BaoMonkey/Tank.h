@@ -8,18 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#import "Define.h"
 
 # define NAME_SPRITE_SHOOT_TANK     @"sprite_name_shoot_tank"
 # define NAME_SPRITE_FIRE_TANK      @"sprite_name_fire_tank"
 
-NS_ENUM(int, SENS_TANK){
-    LEFT = 0,
-    RIGHT = 1
-};
 @interface Tank : NSObject
 
 @property (nonatomic, strong) SKSpriteNode *tankSprite;
-@property (nonatomic, assign) enum SENS_TANK sens;
+@property (nonatomic, assign) Direction sens;
 @property (nonatomic, assign) NSInteger currentStrat;
 
 - (instancetype) init;
