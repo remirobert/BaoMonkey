@@ -143,7 +143,7 @@
     
     [self addChild:_treeBranch.node];
     
-    monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, _treeBranch.node.position.y + 20)];
+    monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, _treeBranch.node.position.y + 40)];
     [self addChild:monkey.sprite];
     
     // Init enemies controller

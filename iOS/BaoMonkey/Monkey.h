@@ -22,6 +22,10 @@
 @interface Monkey : NSObject {
     SKSpriteNode *sprite;
     NSArray *walkingFrames;
+    NSArray *walkingCoconutFrames;
+    NSArray *deadFrames;
+    NSArray *launchFrames;
+    Direction direction;
 }
 
 @property (nonatomic, strong) SKSpriteNode *sprite;

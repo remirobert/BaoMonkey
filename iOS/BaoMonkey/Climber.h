@@ -13,7 +13,7 @@
 @property (nonatomic, assign) BOOL isClimb;
 @property (nonatomic, assign) BOOL isOnPlateform;
 
--(id)initWithDirection:(EnemyDirection)_direction;
+-(id)initWithDirection:(Direction)_direction;
 - (void) actionClimber:(NSInteger)positionclimb;
 
 @end

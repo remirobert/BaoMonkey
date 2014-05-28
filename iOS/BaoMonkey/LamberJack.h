@@ -21,7 +21,7 @@
 @property (nonatomic, assign) BOOL isChooping;
 @property (nonatomic, assign) float slotTaken;
 
--(id)initWithDirection:(EnemyDirection)direction;
+-(id)initWithDirection:(Direction)direction;
 -(void)startChopping;
 -(void)stopChopping;
 -(void)startDead;

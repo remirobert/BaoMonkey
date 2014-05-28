@@ -15,7 +15,7 @@
 
 @implementation Climber
 
--(id)initWithDirection:(EnemyDirection)_direction {
+-(id)initWithDirection:(Direction)_direction {
     self = [super init];
     
     if (self) {
