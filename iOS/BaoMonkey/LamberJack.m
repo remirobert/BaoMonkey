@@ -16,7 +16,7 @@
 
 @synthesize isChooping;
 
--(id)initWithDirection:(EnemyDirection)_direction {
+-(id)initWithDirection:(Direction)_direction {
     CGRect screen = [UIScreen mainScreen].bounds;
     CGPoint position;
     
@@ -114,7 +114,7 @@
         [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
                                                                          timePerFrame:0.1f
                                                                                resize:NO
-                                                                              restore:YES]]
+                                                                              restore:NO]]
                   withKey:SKACTION_LAMBERJACK_WALKING];
     }
 }
@@ -134,7 +134,7 @@
         [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:cuttingFrames
                                                                        timePerFrame:0.1f
                                                                              resize:NO
-                                                                            restore:YES]]
+                                                                            restore:NO]]
                 withKey:SKACTION_LAMBERJACK_CUTTING];
     }
 }
@@ -155,7 +155,7 @@
             [node runAction:[SKAction repeatAction:[SKAction animateWithTextures:deadFrames
                                                                     timePerFrame:0.1f
                                                                           resize:YES
-                                                                         restore:YES]
+                                                                         restore:NO]
                                              count:1]
              withKey:SKACTION_LAMBERJACK_DEAD];
         }

@@ -85,7 +85,6 @@
 		3F64F75B191A8EB400102094 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F75A191A8EB400102094 /* GameData.m */; };
 		3F64F766191A9DD900102094 /* ProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F765191A9DD900102094 /* ProgressBar.m */; };
 		3F7D436C191A3BC800DF30D6 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D436B191A3BC800DF30D6 /* GameController.m */; };
-		3F7D436F191A6FE100DF30D6 /* MonkeyWalking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3F7D436E191A6FE100DF30D6 /* MonkeyWalking.atlas */; };
 		3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A491191B79900027B2C7 /* banana@2x.png */; };
 		3FB2A494191B79900027B2C7 /* coconut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A492191B79900027B2C7 /* coconut@2x.png */; };
 		3FB2A496191B7C580027B2C7 /* prune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A495191B7C580027B2C7 /* prune@2x.png */; };
@@ -103,7 +102,8 @@
 		3FD47F01192F4EBB0074B256 /* MonkeyWalkingWithCoconut.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EFB192F4EBB0074B256 /* MonkeyWalkingWithCoconut.atlas */; };
 		3FD47F02192F4EBB0074B256 /* monkey-waiting-coconut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EFC192F4EBB0074B256 /* monkey-waiting-coconut@2x.png */; };
 		3FD47F03192F4EBB0074B256 /* monkey-waiting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EFD192F4EBB0074B256 /* monkey-waiting@2x.png */; };
-		3FD47F04192F4EBB0074B256 /* MonkeyWalking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EFE192F4EBB0074B256 /* MonkeyWalking.atlas */; };
+		3FD47F06192F52B70074B256 /* MonkeyWalking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47F05192F52B70074B256 /* MonkeyWalking.atlas */; };
+		3FE2405419338B410017C470 /* MonkeyLaunch.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2405319338B410017C470 /* MonkeyLaunch.atlas */; };
 		3FF111231926078C005C9DD1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF111221926078C005C9DD1 /* SettingsViewController.m */; };
 		A5731ABC19275AF300023346 /* Achievement.m in Sources */ = {isa = PBXBuildFile; fileRef = A5731ABB19275AF300023346 /* Achievement.m */; };
 /* End PBXBuildFile section */
@@ -235,7 +235,6 @@
 		3F7D436A191A3BC800DF30D6 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
 		3F7D436B191A3BC800DF30D6 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		3F7D436D191A3E3F00DF30D6 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
-		3F7D436E191A6FE100DF30D6 /* MonkeyWalking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyWalking.atlas; sourceTree = "<group>"; };
 		3FB2A491191B79900027B2C7 /* banana@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banana@2x.png"; sourceTree = "<group>"; };
 		3FB2A492191B79900027B2C7 /* coconut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coconut@2x.png"; sourceTree = "<group>"; };
 		3FB2A495191B7C580027B2C7 /* prune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prune@2x.png"; sourceTree = "<group>"; };
@@ -255,7 +254,8 @@
 		3FD47EFB192F4EBB0074B256 /* MonkeyWalkingWithCoconut.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyWalkingWithCoconut.atlas; sourceTree = "<group>"; };
 		3FD47EFC192F4EBB0074B256 /* monkey-waiting-coconut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monkey-waiting-coconut@2x.png"; sourceTree = "<group>"; };
 		3FD47EFD192F4EBB0074B256 /* monkey-waiting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monkey-waiting@2x.png"; sourceTree = "<group>"; };
-		3FD47EFE192F4EBB0074B256 /* MonkeyWalking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyWalking.atlas; sourceTree = "<group>"; };
+		3FD47F05192F52B70074B256 /* MonkeyWalking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyWalking.atlas; sourceTree = "<group>"; };
+		3FE2405319338B410017C470 /* MonkeyLaunch.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyLaunch.atlas; sourceTree = "<group>"; };
 		3FF111211926078C005C9DD1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		3FF111221926078C005C9DD1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A5731ABA19275AF300023346 /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achievement.h; sourceTree = "<group>"; };
@@ -414,13 +414,13 @@
 		10C59A0D1919492C00907493 /* Monkey */ = {
 			isa = PBXGroup;
 			children = (
+				3FE2405319338B410017C470 /* MonkeyLaunch.atlas */,
+				3FD47F05192F52B70074B256 /* MonkeyWalking.atlas */,
 				3FD47EF9192F4EBB0074B256 /* monkey-launch-coconut@2x.png */,
 				3FD47EFA192F4EBB0074B256 /* MonkeyDead.atlas */,
 				3FD47EFB192F4EBB0074B256 /* MonkeyWalkingWithCoconut.atlas */,
 				3FD47EFC192F4EBB0074B256 /* monkey-waiting-coconut@2x.png */,
 				3FD47EFD192F4EBB0074B256 /* monkey-waiting@2x.png */,
-				3FD47EFE192F4EBB0074B256 /* MonkeyWalking.atlas */,
-				3F7D436E191A6FE100DF30D6 /* MonkeyWalking.atlas */,
 				10C59A0E1919492C00907493 /* monkey@2x.png */,
 			);
 			path = Monkey;
@@ -917,6 +917,7 @@
 				3F47F9C9192D50F900C36A39 /* hunter-waiting@2x.png in Resources */,
 				3FD47F01192F4EBB0074B256 /* MonkeyWalkingWithCoconut.atlas in Resources */,
 				3F47F9C1192D41E200C36A39 /* lamber-jack-waiting@2x.png in Resources */,
+				3FE2405419338B410017C470 /* MonkeyLaunch.atlas in Resources */,
 				10C59A151919492C00907493 /* back-leaf@2x.png in Resources */,
 				3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */,
 				2919C64A192E2CFC00A2F2D1 /* leafs-foreground@2x.png in Resources */,
@@ -928,13 +929,12 @@
 				296AFB94191CE06B009D5B75 /* cloud@2x.png in Resources */,
 				10C599D9191948A300907493 /* Images.xcassets in Resources */,
 				10C599CF191948A300907493 /* Main_iPad.storyboard in Resources */,
-				3FD47F04192F4EBB0074B256 /* MonkeyWalking.atlas in Resources */,
 				296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */,
 				3F47F9C2192D41E200C36A39 /* LamberJackCutting.atlas in Resources */,
 				2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */,
 				2919C649192E2CFC00A2F2D1 /* branch@2x.png in Resources */,
 				3FB7C492192E866B00801643 /* plateform@2x.png in Resources */,
-				3F7D436F191A6FE100DF30D6 /* MonkeyWalking.atlas in Resources */,
+				3FD47F06192F52B70074B256 /* MonkeyWalking.atlas in Resources */,
 				3FD47F03192F4EBB0074B256 /* monkey-waiting@2x.png in Resources */,
 				2919C640192DEE1F00A2F2D1 /* button-settings@2x.png in Resources */,
 				3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */,

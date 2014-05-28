@@ -8,14 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#import "Define.h"
 
 #define MAX_LUMBERJACK  2
 #define MAX_HUNTER      4
-
-typedef enum {
-    LEFT,
-    RIGHT
-} EnemyDirection;
 
 typedef enum {
     EnemyTypeLamberJack,
@@ -25,13 +21,13 @@ typedef enum {
 
 @interface Enemy : NSObject {
     SKSpriteNode *node;
-    EnemyDirection direction;
+    Direction direction;
     EnemyType type;
     float speed;
 }
 
 @property (nonatomic, strong) SKSpriteNode *node;
-@property (nonatomic) EnemyDirection direction;
+@property (nonatomic) Direction direction;
 @property (nonatomic) EnemyType type;
 @property (nonatomic, assign) int floor;
 
