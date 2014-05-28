@@ -32,6 +32,7 @@
         _cursorAccelerometer = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2, 25)
                                                           position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2 - 75, 500)];
         
+        
         [_cursorAccelerometer addChild:self];
         [_cursorVolumeMusic addChild:self];
         [_cursorVolumeSound addChild:self];
@@ -40,6 +41,15 @@
         [_cursorAccelerometer setCurrentValue:25.0];
         
         [_cursorAccelerometer setBackgroundTexture:[UIImage imageNamed:@"coconut@2x"] withSize:CGSizeMake(100, 100)];
+        
+        
+        SKLabelNode * homeButton = [[SKLabelNode alloc] init];
+        
+        homeButton.text = @"home";
+        homeButton.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2 + 110);
+        homeButton.name = @"home";
+        
+        [self addChild:homeButton];
     }
     return (self);
 }
@@ -70,6 +80,14 @@
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (_cursorAccelerometer != nil) {
+        UITouch *touch = [touches anyObject];
+        CGPoint location = [touch locationInNode:self];
+        SKNode *node = [self nodeAtPoint:location];
+        
+        if ([node.name isEqualToString:@"home"])
+             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
+   }
     _currentCursorClicked = nil;
 }
 
