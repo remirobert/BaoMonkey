@@ -57,33 +57,49 @@
 
 -(void)updateMonkeyPosition:(float)acceleration {
     static CGFloat oldAcceleration = 0;
-    
-    NSLog(@"current direction %d", direction);
-    
+
     if (acceleration == 0) {
-        [sprite removeAllChildren];
+        if (oldAcceleration == 0)
+            return;
+        
+        [sprite removeActionForKey:@"runactionwalk"];
         if (weapon == nil)
-            [sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING]];
+            [sprite setTexture:[SKTexture textureWithImageNamed:@"monkey-waiting@2x"]];
         else
-            [sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING_COCONUT]];
-        sprite.xScale = 1.0;
+            [sprite setTexture:[SKTexture textureWithImageNamed:@"monkey-waiting-coconut@2x"]];
+        
         oldAcceleration = 0;
         [sprite removeAllActions];
         return ;
     }
     else if (acceleration < 0) {
-        if (oldAcceleration >= 0)
-            [sprite runAction:[SKAction
-                               repeatActionForever:[SKAction
-                                                    animateWithTextures:walkingFrames timePerFrame:0.1]]];
+        if (oldAcceleration >= 0) {
+            [sprite removeActionForKey:@"runactionwalk"];
+            if (weapon == nil)
+                [sprite runAction:[SKAction
+                                   repeatActionForever:[SKAction
+                                                        animateWithTextures:walkingFrames timePerFrame:0.1]] withKey:@"runactionwalk"];
+            else
+                [sprite runAction:[SKAction
+                                   repeatActionForever:[SKAction
+                                                        animateWithTextures:walkingCoconutFrames timePerFrame:0.1]] withKey:@"runactionwalk"];
+        }
         oldAcceleration = -1;
         sprite.xScale = -1.0;
     }
     else if (acceleration > 0) {
-        if (oldAcceleration <= 0)
-            [sprite runAction:[SKAction
-                               repeatActionForever:[SKAction
-                                                    animateWithTextures:walkingFrames timePerFrame:0.1]]];
+        if (oldAcceleration <= 0) {
+            [sprite removeActionForKey:@"runactionwalk"];
+
+            if (weapon == nil)
+                [sprite runAction:[SKAction
+                                   repeatActionForever:[SKAction
+                                                        animateWithTextures:walkingFrames timePerFrame:0.1]] withKey:@"runactionwalk"];
+            else
+                [sprite runAction:[SKAction
+                                   repeatActionForever:[SKAction
+                                                        animateWithTextures:walkingCoconutFrames timePerFrame:0.1]] withKey:@"runactionwalk"];
+        }
         oldAcceleration = 1;
         sprite.xScale = 1.0;
     }
