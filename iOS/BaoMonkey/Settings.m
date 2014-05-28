@@ -20,9 +20,9 @@
 @implementation Settings
 
 - (void) customCursor {
-    [_cursorAccelerometer setCursorTexture:[UIImage imageNamed:@"selector-slider@2x"]];
-    [_cursorVolumeMusic setCursorTexture:[UIImage imageNamed:@"selector-slider@2x"]];
-    [_cursorVolumeSound setCursorTexture:[UIImage imageNamed:@"selector-slider@2x"]];
+    [_cursorAccelerometer setCursorTexture:[UIImage imageNamed:@"selector-slider@2x"] withSize:CGSizeMake(35, 35)];
+    [_cursorVolumeMusic setCursorTexture:[UIImage imageNamed:@"selector-slider@2x"] withSize:CGSizeMake(35, 35)];
+    [_cursorVolumeSound setCursorTexture:[UIImage imageNamed:@"selector-slider@2x"] withSize:CGSizeMake(35, 35)];
     
     [_cursorAccelerometer setBackgroundTexture:[UIImage imageNamed:@"front-slider@2x"]];
     [_cursorVolumeSound setBackgroundTexture:[UIImage imageNamed:@"front-slider@2x"]];
@@ -35,11 +35,16 @@
 
 - (void) initCursor {
     _cursorVolumeSound = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2 + 100, 25)
-                                                      position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, 50)];
+                                                      position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+                                                                           [UIScreen mainScreen].bounds.size.height / 2 + 100)];
+    
     _cursorVolumeMusic = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2 + 100, 25)
-                                                      position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2, 300)];
+                                                      position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+                                                                           [UIScreen mainScreen].bounds.size.height / 2)];
+    
     _cursorAccelerometer = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2 + 100, 25)
-                                                        position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2 - 75, 500)];
+                                                        position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+                                                                             [UIScreen mainScreen].bounds.size.height / 2 - 100)];
     
     [self customCursor];
 }
@@ -61,7 +66,8 @@
         SKLabelNode * homeButton = [[SKLabelNode alloc] init];
         
         homeButton.text = @"home";
-        homeButton.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, [UIScreen mainScreen].bounds.size.height / 2 + 110);
+        homeButton.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+                                          [UIScreen mainScreen].bounds.size.height / 2 - 200);
         homeButton.name = @"home";
         
         [self addChild:homeButton];
