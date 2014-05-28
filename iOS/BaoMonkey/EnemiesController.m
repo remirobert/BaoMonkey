@@ -41,12 +41,12 @@
     CGFloat spaceDistance;
     CGSize lamberSize = [BaoSize lamberJack];
     
-    spaceDistance = lamberSize.width + lamberSize.width / 8;
+    spaceDistance = lamberSize.width;
     for (int i = 0; i < 3 ; i++) {
         NSMutableDictionary *tmp = [[NSMutableDictionary alloc]
                                     initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT",
                                     [[NSNumber alloc]
-                                     initWithFloat:(spaceDistance /2 + (spaceDistance * i))], @"posX", nil];
+                                     initWithFloat:(spaceDistance + (spaceDistance * i))], @"posX", nil];
         [choppingSlots addObject:tmp];
     }
 }

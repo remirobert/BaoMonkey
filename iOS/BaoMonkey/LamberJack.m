@@ -10,7 +10,7 @@
 #import "Define.h"
 #import "BaoSize.h"
 
-# define FLOOR_HEIGHT 30
+# define FLOOR_HEIGHT 24
 
 @implementation LamberJack
 

@@ -23,10 +23,25 @@
         panel.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2));
         [self addChild:panel];
         
-        SKSpriteNode *resumeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-play"] size:CGSizeMake(66, 66)];
-        resumeNode.position = CGPointMake(103, 380);
+        resumeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-play"] size:CGSizeMake(52, 52)];
+        resumeNode.position = CGPointMake(102, 380);
         resumeNode.name = RESUME_NODE_NAME;
         [self addChild:resumeNode];
+        
+        replayNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-replay"] size:CGSizeMake(52, 52)];
+        replayNode.position = CGPointMake(224, 380);
+        replayNode.name = RETRY_NODE_NAME;
+        [self addChild:replayNode];
+        
+        homeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-home"] size:CGSizeMake(52, 52)];
+        homeNode.position = CGPointMake(102, 270);
+        homeNode.name = HOME_NODE_NAME;
+        [self addChild:homeNode];
+        
+        settingsNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-settings"] size:CGSizeMake(52, 52)];
+        settingsNode.position = CGPointMake(224, 270);
+        settingsNode.name = SETTINGS_NODE_NAME;
+        [self addChild:settingsNode];
     }
     return self;
 }
@@ -38,9 +53,60 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:RESUME_NODE_NAME]) {
-        SKTransition *resumeTransition = [SKTransition doorwayWithDuration:1.0];
+        [resumeNode setTexture:[SKTexture textureWithImageNamed:@"button-play-selected"]];
+        [resumeNode setSize:CGSizeMake(66, 66)];
+    }
+    else if ([node.name isEqualToString:RETRY_NODE_NAME]) {
+        [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay-selected"]];
+        [replayNode setSize:CGSizeMake(66, 66)];
+    }
+    else if ([node.name isEqualToString:HOME_NODE_NAME]) {
+        [homeNode setTexture:[SKTexture textureWithImageNamed:@"button-home-selected"]];
+        [homeNode setSize:CGSizeMake(66, 66)];
+    }
+    else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
+        [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings-selected"]];
+        [settingsNode setSize:CGSizeMake(66, 66)];
+    }
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    [resumeNode setTexture:[SKTexture textureWithImageNamed:@"button-play"]];
+    [resumeNode setSize:CGSizeMake(52, 52)];
+    [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay"]];
+    [replayNode setSize:CGSizeMake(52, 52)];
+    [homeNode setTexture:[SKTexture textureWithImageNamed:@"button-home"]];
+    [homeNode setSize:CGSizeMake(52, 52)];
+    [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
+    [settingsNode setSize:CGSizeMake(52, 52)];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:location];
+    
+    if ([node.name isEqualToString:RESUME_NODE_NAME]) {
+        SKTransition *resumeTransition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
         [self.view presentScene:fromScene transition:resumeTransition];
         [(MyScene*)fromScene resumeGame];
+        [resumeNode setTexture:[SKTexture textureWithImageNamed:@"button-play"]];
+        [resumeNode setSize:CGSizeMake(52, 52)];
+    }
+    else if ([node.name isEqualToString:RETRY_NODE_NAME]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
+        [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay"]];
+        [replayNode setSize:CGSizeMake(52, 52)];
+    }
+    else if ([node.name isEqualToString:HOME_NODE_NAME]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
+        [homeNode setTexture:[SKTexture textureWithImageNamed:@"button-home"]];
+        [homeNode setSize:CGSizeMake(52, 52)];
+    }
+    else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_SETTINGS object:nil];
+        [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
+        [settingsNode setSize:CGSizeMake(52, 52)];
     }
 }
 
