@@ -33,11 +33,9 @@
 @property (nonatomic, strong) Item *weapon;
 
 -(id)initWithPosition:(CGPoint)position;
-
 -(void)updateMonkeyPosition:(float)acceleration;
-
 -(void)catchItem:(id)item;
-
 -(void)launchWeapon;
+- (void) deadMonkey;
 
 @end

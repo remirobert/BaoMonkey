@@ -56,7 +56,8 @@
 #pragma mark - Action animation monkey
 
 - (void) moveActionWalking {
-    if ([sprite actionForKey:@"lanchAction"] != nil) {
+    if ([sprite actionForKey:@"lanchAction"] != nil ||
+        [sprite actionForKey:@"deadMonkey"] != nil) {
         NSLog(@"launch not finish");
         return ;
     }
@@ -74,7 +75,8 @@
 }
 
 - (void) waitMonkey {
-    if ([sprite actionForKey:@"lanchAction"] != nil) {
+    if ([sprite actionForKey:@"lanchAction"] != nil ||
+        [sprite actionForKey:@"deadMonkey"] != nil) {
         NSLog(@"lanch not finish");
         return ;
     }
@@ -218,6 +220,14 @@
         [sprite runAction:actionLaunch withKey:@"lanchAction"];
     }
     weapon = nil;
+}
+
+#pragma mark - Launch a weapon
+
+- (void) deadMonkey {
+    [sprite removeAllActions];
+
+    [sprite runAction:[SKAction animateWithTextures:deadFrames timePerFrame:0.1] withKey:@"deadMonkey"];
 }
 
 @end
