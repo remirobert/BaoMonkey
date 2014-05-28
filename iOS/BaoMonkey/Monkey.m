@@ -22,16 +22,13 @@
         sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING] size:[BaoSize monkey]];
         sprite.position = position;
         
-        direction = FRONT;
-
         [self loadWalkingSprites];
         [self loadWalkingCoconutSprites];
         [self loadLaunchSprites];
         [self loadDeadSprites];
         [self loadWaitframes];
-
-        // Init the notification for dropping the weapon
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(launchWeapon) name:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
+        
+        [self waitMonkey];
     }
     return self;
 }
@@ -59,6 +56,11 @@
 #pragma mark - Action animation monkey
 
 - (void) moveActionWalking {
+    if ([sprite actionForKey:@"lanchAction"] != nil) {
+        NSLog(@"launch not finish");
+        return ;
+    }
+    
     NSArray *framesWalking;
     
     if (weapon == nil)
@@ -72,15 +74,21 @@
 }
 
 - (void) waitMonkey {
+    if ([sprite actionForKey:@"lanchAction"] != nil) {
+        NSLog(@"lanch not finish");
+        return ;
+    }
+
+    [sprite removeAllActions];
     if (weapon == nil) {
-        [sprite setTexture:[SKTexture textureWithImageNamed:@"monkey-waiting"]];
-        //            [sprite setSize:[BaoSize monkey]];
+        [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopFrames timePerFrame:0.1 resize:YES restore:NO]]];
     }
     else {
-        [sprite setTexture:[SKTexture textureWithImageNamed:@"monkey-waiting-coconut"]];
-        //            [sprite setSize:[BaoSize monkey]];
+        [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopCocoframes timePerFrame:0.1 resize:YES restore:NO]]];
     }
 }
+
+#pragma mark - Update monkey position
 
 -(void)updateMonkeyPosition:(float)acceleration {
     static CGFloat oldAcceleration = 0;
@@ -89,13 +97,11 @@
         if (oldAcceleration == 0)
             return;
         [self waitMonkey];
-        [sprite removeAllActions];
         oldAcceleration = 0;
         return ;
     }
     else if (acceleration < 0) {
         if (oldAcceleration >= 0) {
-            [sprite removeActionForKey:@"runactionwalk"];
             [self moveActionWalking];
         }
         oldAcceleration = -1;
@@ -103,7 +109,6 @@
     }
     else if (acceleration > 0) {
         if (oldAcceleration <= 0) {
-            [sprite removeActionForKey:@"runactionwalk"];
             [self moveActionWalking];
         }
         oldAcceleration = 1;
@@ -207,12 +212,12 @@
         weapon.node.hidden = FALSE;
         weapon.node.position = CGPointMake(sprite.position.x, weapon.node.position.y);
         [Action dropWeapon:weapon];
+
+        [sprite removeAllActions];
+        SKAction *actionLaunch = [SKAction animateWithTextures:launchFrames timePerFrame:0.1 resize:YES restore:NO];
+        [sprite runAction:actionLaunch withKey:@"lanchAction"];
     }
     weapon = nil;
-    [sprite removeAllActions];
-    [sprite runAction:[SKAction animateWithTextures:launchFrames timePerFrame:0.5] completion:^{
-        [self waitMonkey];
-    }];
 }
 
 @end

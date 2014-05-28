@@ -27,7 +27,6 @@
     NSArray *launchFrames;
     NSArray *stopFrames;
     NSArray *stopCocoframes;
-    Direction direction;
 }
 
 @property (nonatomic, strong) SKSpriteNode *sprite;
