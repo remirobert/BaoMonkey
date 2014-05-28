@@ -28,6 +28,7 @@
         [self loadWalkingCoconutSprites];
         [self loadLaunchSprites];
         [self loadDeadSprites];
+        [self loadWaitframes];
 
         // Init the notification for dropping the weapon
 //        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(launchWeapon) name:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
@@ -55,34 +56,40 @@
     weapon.node.position = position;
 }
 
+- (void) moveActionWalking {
+    NSArray *framesWalking;
+    
+    if (weapon == nil)
+        framesWalking = walkingFrames;
+    else
+        framesWalking = walkingCoconutFrames;
+    
+    [sprite runAction:[SKAction
+                       repeatActionForever:[SKAction
+                                            animateWithTextures:framesWalking timePerFrame:0.1]] withKey:@"runactionwalk"];
+}
+
 -(void)updateMonkeyPosition:(float)acceleration {
     static CGFloat oldAcceleration = 0;
 
     if (acceleration == 0) {
         if (oldAcceleration == 0)
             return;
-        
-        [sprite removeActionForKey:@"runactionwalk"];
-        if (weapon == nil)
-            [sprite setTexture:[SKTexture textureWithImageNamed:@"monkey-waiting@2x"]];
-        else
-            [sprite setTexture:[SKTexture textureWithImageNamed:@"monkey-waiting-coconut@2x"]];
-        
-        oldAcceleration = 0;
+
         [sprite removeAllActions];
+        if (weapon == nil) {
+            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopFrames timePerFrame:0.1]]];
+        }
+        else {
+            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopCocoframes timePerFrame:0.1]]];
+        }
+        oldAcceleration = 0;
         return ;
     }
     else if (acceleration < 0) {
         if (oldAcceleration >= 0) {
             [sprite removeActionForKey:@"runactionwalk"];
-            if (weapon == nil)
-                [sprite runAction:[SKAction
-                                   repeatActionForever:[SKAction
-                                                        animateWithTextures:walkingFrames timePerFrame:0.1]] withKey:@"runactionwalk"];
-            else
-                [sprite runAction:[SKAction
-                                   repeatActionForever:[SKAction
-                                                        animateWithTextures:walkingCoconutFrames timePerFrame:0.1]] withKey:@"runactionwalk"];
+            [self moveActionWalking];
         }
         oldAcceleration = -1;
         sprite.xScale = -1.0;
@@ -90,21 +97,20 @@
     else if (acceleration > 0) {
         if (oldAcceleration <= 0) {
             [sprite removeActionForKey:@"runactionwalk"];
-
-            if (weapon == nil)
-                [sprite runAction:[SKAction
-                                   repeatActionForever:[SKAction
-                                                        animateWithTextures:walkingFrames timePerFrame:0.1]] withKey:@"runactionwalk"];
-            else
-                [sprite runAction:[SKAction
-                                   repeatActionForever:[SKAction
-                                                        animateWithTextures:walkingCoconutFrames timePerFrame:0.1]] withKey:@"runactionwalk"];
+            [self moveActionWalking];
         }
         oldAcceleration = 1;
         sprite.xScale = 1.0;
     }
     [self moveMonkey:acceleration];
     oldAcceleration = acceleration;
+}
+
+#pragma mark - Load texture
+
+- (void) loadWaitframes {
+    stopFrames = @[[SKTexture textureWithImageNamed:@"monkey-waiting"], [SKTexture textureWithImageNamed:@"monkey-waiting"]];
+    stopCocoframes = @[[SKTexture textureWithImageNamed:@"monkey-waiting-coconut"], [SKTexture textureWithImageNamed:@"monkey-waiting-coconut"]];
 }
 
 -(void)loadWalkingSprites {

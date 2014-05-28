@@ -25,6 +25,8 @@
     NSArray *walkingCoconutFrames;
     NSArray *deadFrames;
     NSArray *launchFrames;
+    NSArray *stopFrames;
+    NSArray *stopCocoframes;
     Direction direction;
 }
 
