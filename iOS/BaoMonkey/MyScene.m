@@ -181,7 +181,7 @@
     oncePause = 0;
     oncePlay = -1;
     
-    pauseScene = [[PauseScene alloc] initWithSize:self.size andScene:self];
+    menuTransition = [SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.5];
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -196,40 +196,29 @@
 }
 
 - (void) gameCountDown {
-    static int countDown = 3;
+    static BOOL resumeGame = NO;
     
-    if (countDown > 0)
-    {
-        if (countDown == 3) {
-            SKLabelNode *countDownNode = [self countDownNode];
-            [self addChild:countDownNode];
-        }
-        else {
-            SKNode *countDownNode = [self childNodeWithName:COUNTDOWN_NODE_NAME];
-            ((SKLabelNode*)countDownNode).text = [NSString stringWithFormat:@"%d", countDown];
-        }
-        --countDown;
-        [self performSelector:@selector(gameCountDown) withObject:nil afterDelay:1.0];
-    }
-    else {
-        SKNode *countDownNode = [self childNodeWithName:COUNTDOWN_NODE_NAME];
-        [countDownNode removeFromParent];
+    if (resumeGame){
+        resumeGame = NO;
         [GameData resumeGame];
-        countDown = 3;
-        
+
         // Reactive speed & physics
         self.speed = 1.0;
         [self addChild:[BaoButton pause]];
-        
+
         for (Item *item in _wave) {
             [item resumeTimer];
             if (item.isTaken == NO)
                 item.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:item.node.frame.size.width / 2];
         }
-        
+
         [self enumerateChildNodesWithName:WEAPON_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
             node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:node.frame.size.width / 2];
         }];
+    }
+    else {
+        resumeGame = YES;
+        [self performSelector:@selector(gameCountDown) withObject:nil afterDelay:1.0];
     }
 }
 
@@ -250,8 +239,10 @@
 
     [GameData pauseGame];
     
-    SKTransition *pauseTransition = [SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.5];
-    [self.view presentScene:pauseScene transition:pauseTransition];
+    // Present pause scene
+    
+    PauseScene *pauseScene = [[PauseScene alloc] initWithSize:self.size andScene:self];
+    [self.view presentScene:pauseScene transition:menuTransition];
 }
 
 //-(void)removePauseView{

@@ -11,7 +11,7 @@
 #import "GameController.h"
 #import "Tank.h"
 #import "GameData.h"
-#import "LeafTransition.h"
+#import "GameOverScene.h"
 
 @interface TankScene ()
 @property (nonatomic, strong) Monkey *monkey;
@@ -109,8 +109,8 @@
         
         if ([node intersectsNode:monkeyNode]) {
             [self pauseGame];
-            LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
-            [transitionGameOver runGameOverTransition];
+            GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size andScene:self];
+            [self.view presentScene:gameOverScene];
             [GameData gameOver];
         }
         if (node.position.y >= [UIScreen mainScreen].bounds.size.height)
@@ -121,8 +121,8 @@
         
         if ([node intersectsNode:monkeyNode]) {
             [self pauseGame];
-            LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
-            [transitionGameOver runGameOverTransition];
+            GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size andScene:self];
+            [self.view presentScene:gameOverScene];
             [GameData gameOver];
         }
     }];

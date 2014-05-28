@@ -14,7 +14,7 @@
 #import "LamberJackMachine.h"
 #import "CocoNuts.h"
 #import "Define.h"
-#import "LeafTransition.h"
+#import "GameOverScene.h"
 #import "GameData.h"
 
 #define NAME_NODE_TREEBRANCH    @"name_node_treebranch"
@@ -276,8 +276,8 @@
     
     [self enumerateChildNodesWithName:@"monkey_node_name" usingBlock:^(SKNode *node, BOOL *stop) {
         if (node.position.y < [UIScreen mainScreen].bounds.size.height / 2) {
-            LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
-            [transitionGameOver runGameOverTransition];
+            GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size andScene:self];
+            [self.view presentScene:gameOverScene];
             [GameData gameOver];
         }
     }];
