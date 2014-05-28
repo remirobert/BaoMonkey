@@ -38,12 +38,21 @@
 #pragma mark - Update Sprite Functions
 
 -(void)updateMonkeyPosition:(float)acceleration {
+    
+    if (acceleration > 0)
+        direction = 1.0;
+    if (acceleration < 0)
+        direction = -1.0;
+    
+    
     CGPoint position;
-    float multiplierForDirection = 0;
+//    float multiplierForDirection = 0;
     float maxX = [UIScreen mainScreen].bounds.size.width + (sprite.size.width / 2);
     float minX = -(sprite.size.width / 2);
-    
-    if (sprite.position.x > maxX) {
+//    
+//    //NSLog(@"acceleration = %f", acceleration);
+//    
+   if (sprite.position.x > maxX) {
         position = CGPointMake(minX, sprite.position.y);
     } else if (sprite.position.x < minX) {
         position = CGPointMake(maxX, sprite.position.y);
@@ -51,29 +60,49 @@
     } else {
         position = CGPointMake(sprite.position.x + acceleration, sprite.position.y);
     }
-    
+//    
     sprite.position = position;
     weapon.node.position = position;
-    
-    if (acceleration < 0) {
-        direction = LEFT;
-        multiplierForDirection = -1;
-    } else if (acceleration > 0) {
-        direction = RIGHT;
-        multiplierForDirection = 1;
-    } else {
-        direction = FRONT;
-        multiplierForDirection = 0;
-    }
-    
-    if (multiplierForDirection != 0) {
+//    
+//    
+//    
+//    if (acceleration < 0) {
+//        direction = LEFT;
+//        multiplierForDirection = -1;
+//    } else if (acceleration > 0) {
+//        direction = RIGHT;
+//        multiplierForDirection = 1;
+//    } else {
+//        direction = FRONT;
+//        multiplierForDirection = 0;
+//    }
+//    
+    if (acceleration != 0) {
         /*if (direction == LEFT) {
             sprite.xScale = -1;
         } else if (direction == RIGHT) {
             sprite.xScale = 1;
         }*/
-        sprite.xScale = fabs(sprite.xScale) * multiplierForDirection;
-        [self startWalking];
+//        multiplierForDirection = direction;
+//        
+//        if (direction == 0)
+//            multiplierForDirection = -1.0;
+        
+        [sprite removeAllActions];
+        
+        [sprite runAction:[SKAction animateWithTextures:walkingCoconutFrames
+                                           timePerFrame:0.1f] withKey:SKACTION_MONKEY_WALKING];
+        
+        
+        if (acceleration > 0)
+            sprite.xScale = 1.0;
+        if (acceleration < 0)
+            sprite.xScale = -1.0;
+
+//        [self startWalking];
+        
+//        sprite.xScale = multiplierForDirection;
+
     } else {
         if (weapon != nil) {
             [self stopWalkingWithCoconut];
@@ -115,26 +144,42 @@
 
 -(void)startWalking {
     NSLog(@"orientation walking : %f", sprite.xScale);
-    /*if (direction == LEFT) {
+    
+    
+    [sprite removeActionForKey:SKACTION_MONKEY_WALKING];
+    
+    if (direction == LEFT) {
         sprite.xScale = -1;
     } else if (direction == RIGHT) {
         sprite.xScale = 1;
-    }*/
-    if (![sprite actionForKey:SKACTION_MONKEY_WALKING]) {
-        if (weapon != nil){
-            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingCoconutFrames
-                                                                             timePerFrame:0.1f
-                                                                                   resize:NO
-                                                                                  restore:NO]]
-                      withKey:SKACTION_MONKEY_WALKING];
-        } else {
-            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
-                                                                         timePerFrame:0.1f
-                                                                               resize:NO
-                                                                              restore:NO]]
-                      withKey:SKACTION_MONKEY_WALKING];
-        }
     }
+    
+    [sprite runAction:[SKAction animateWithTextures:walkingCoconutFrames
+                                       timePerFrame:0.1f] withKey:SKACTION_MONKEY_WALKING];
+    
+//    if (![sprite actionForKey:SKACTION_MONKEY_WALKING]) {
+//        if (weapon != nil){
+////            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingCoconutFrames
+////                                                                             timePerFrame:0.1f
+////                                                                                   resize:NO
+////                                                                                  restore:NO]]
+////                      withKey:SKACTION_MONKEY_WALKING];
+//            
+//            [sprite runAction:[SKAction animateWithTextures:walkingCoconutFrames
+//                                               timePerFrame:0.1f] withKey:SKACTION_MONKEY_WALKING];
+//            
+//        } else {
+////            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
+////                                                                         timePerFrame:0.1f
+////                                                                               resize:NO
+////                                                                              restore:NO]]
+////                      withKey:SKACTION_MONKEY_WALKING];
+//            
+//            [sprite runAction:[SKAction animateWithTextures:walkingFrames
+//                                               timePerFrame:0.1f] withKey:SKACTION_MONKEY_WALKING];
+//            
+//        }
+//    }
 }
 
 -(void)startWalkingWithCoconut {
@@ -230,6 +275,9 @@
 
 -(void)wait {
     //direction = FRONT;
+    
+    [sprite removeAllActions];
+    
     [sprite setSize:[BaoSize monkey]];
     if (weapon != nil) {
         [sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING_COCONUT]];
