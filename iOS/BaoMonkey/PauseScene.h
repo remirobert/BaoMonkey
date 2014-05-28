@@ -10,6 +10,10 @@
 
 @interface PauseScene : SKScene {
     SKSpriteNode *panel;
+    SKSpriteNode *resumeNode;
+    SKSpriteNode *replayNode;
+    SKSpriteNode *homeNode;
+    SKSpriteNode *settingsNode;
     SKScene *fromScene;
 }
 
