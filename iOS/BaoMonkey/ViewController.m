@@ -14,7 +14,6 @@
 #import "GameCenter.h"
 #import "MainMenu.h"
 #import "Settings.h"
-#import "SettingsViewController.h"
 #import "GameController.h"
 #import "MyScene.h"
 

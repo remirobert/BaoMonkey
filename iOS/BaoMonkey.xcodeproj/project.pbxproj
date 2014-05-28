@@ -88,7 +88,6 @@
 		3F47F9C9192D50F900C36A39 /* hunter-waiting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9C6192D50F900C36A39 /* hunter-waiting@2x.png */; };
 		3F47F9CA192D50F900C36A39 /* HunterDead.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9C7192D50F900C36A39 /* HunterDead.atlas */; };
 		3F47F9CB192D50F900C36A39 /* HunterWalking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3F47F9C8192D50F900C36A39 /* HunterWalking.atlas */; };
-		3F5959DC191C1D5B006EE846 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5959DB191C1D5B006EE846 /* HomeViewController.m */; };
 		3F64F75B191A8EB400102094 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F75A191A8EB400102094 /* GameData.m */; };
 		3F64F766191A9DD900102094 /* ProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F765191A9DD900102094 /* ProgressBar.m */; };
 		3F7D436C191A3BC800DF30D6 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D436B191A3BC800DF30D6 /* GameController.m */; };
@@ -111,7 +110,6 @@
 		3FD47F03192F4EBB0074B256 /* monkey-waiting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EFD192F4EBB0074B256 /* monkey-waiting@2x.png */; };
 		3FD47F06192F52B70074B256 /* MonkeyWalking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47F05192F52B70074B256 /* MonkeyWalking.atlas */; };
 		3FE2405419338B410017C470 /* MonkeyLaunch.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2405319338B410017C470 /* MonkeyLaunch.atlas */; };
-		3FF111231926078C005C9DD1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF111221926078C005C9DD1 /* SettingsViewController.m */; };
 		A5731ABC19275AF300023346 /* Achievement.m in Sources */ = {isa = PBXBuildFile; fileRef = A5731ABB19275AF300023346 /* Achievement.m */; };
 /* End PBXBuildFile section */
 
@@ -247,8 +245,6 @@
 		3F47F9C6192D50F900C36A39 /* hunter-waiting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hunter-waiting@2x.png"; sourceTree = "<group>"; };
 		3F47F9C7192D50F900C36A39 /* HunterDead.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HunterDead.atlas; sourceTree = "<group>"; };
 		3F47F9C8192D50F900C36A39 /* HunterWalking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HunterWalking.atlas; sourceTree = "<group>"; };
-		3F5959DA191C1D5B006EE846 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		3F5959DB191C1D5B006EE846 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		3F64F759191A8EB400102094 /* GameData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameData.h; sourceTree = "<group>"; };
 		3F64F75A191A8EB400102094 /* GameData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameData.m; sourceTree = "<group>"; };
 		3F64F764191A9DD900102094 /* ProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBar.h; sourceTree = "<group>"; };
@@ -277,8 +273,6 @@
 		3FD47EFD192F4EBB0074B256 /* monkey-waiting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monkey-waiting@2x.png"; sourceTree = "<group>"; };
 		3FD47F05192F52B70074B256 /* MonkeyWalking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyWalking.atlas; sourceTree = "<group>"; };
 		3FE2405319338B410017C470 /* MonkeyLaunch.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyLaunch.atlas; sourceTree = "<group>"; };
-		3FF111211926078C005C9DD1 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		3FF111221926078C005C9DD1 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A5731ABA19275AF300023346 /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achievement.h; sourceTree = "<group>"; };
 		A5731ABB19275AF300023346 /* Achievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Achievement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -652,10 +646,6 @@
 			children = (
 				10C59A071919492200907493 /* ViewController.h */,
 				10C59A081919492200907493 /* ViewController.m */,
-				3F5959DA191C1D5B006EE846 /* HomeViewController.h */,
-				3F5959DB191C1D5B006EE846 /* HomeViewController.m */,
-				3FF111211926078C005C9DD1 /* SettingsViewController.h */,
-				3FF111221926078C005C9DD1 /* SettingsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1035,7 +1025,6 @@
 				10AB3472192CC74E00661301 /* TankScene.m in Sources */,
 				10C59A1C19194BF000907493 /* Banana.m in Sources */,
 				10F65E6B1935E0EF00ED0DA8 /* HelicopterScene.m in Sources */,
-				3F5959DC191C1D5B006EE846 /* HomeViewController.m in Sources */,
 				10A7E66F192E2F6300D37183 /* LamberJackMachine.m in Sources */,
 				10A495E0192B419D005299D8 /* GameCenter.m in Sources */,
 				10F65E6D1935E0EF00ED0DA8 /* MyScene+LoadBoss.m in Sources */,
@@ -1057,7 +1046,6 @@
 				10F65E6E1935E0EF00ED0DA8 /* PauseScene.m in Sources */,
 				10C59A021919490900907493 /* MyScene.m in Sources */,
 				10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */,
-				3FF111231926078C005C9DD1 /* SettingsViewController.m in Sources */,
 				10AB3476192CD1B200661301 /* Tank.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
