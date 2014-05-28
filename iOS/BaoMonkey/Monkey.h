@@ -19,15 +19,7 @@
 # define kSpeed 10
 # define kSpriteImageName @"monkey.png"
 
-@interface Monkey : NSObject {
-    SKSpriteNode *sprite;
-    NSArray *walkingFrames;
-    NSArray *walkingCoconutFrames;
-    NSArray *deadFrames;
-    NSArray *launchFrames;
-    NSArray *stopFrames;
-    NSArray *stopCocoframes;
-}
+@interface Monkey : NSObject
 
 @property (nonatomic, strong) SKSpriteNode *sprite;
 @property (nonatomic, strong) Item *weapon;

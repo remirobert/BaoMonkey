@@ -10,7 +10,14 @@
 #import "PreloadData.h"
 #import "BaoSize.h"
 
-@implementation Monkey
+@implementation Monkey {
+    NSArray *walkingFrames;
+    NSArray *walkingCoconutFrames;
+    NSArray *deadFrames;
+    NSArray *launchFrames;
+    NSArray *stopFrames;
+    NSArray *stopCocoframes;
+}
 
 @synthesize sprite;
 @synthesize weapon;
