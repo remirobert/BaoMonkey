@@ -58,7 +58,6 @@
 - (void) moveActionWalking {
     if ([sprite actionForKey:@"lanchAction"] != nil ||
         [sprite actionForKey:@"deadMonkey"] != nil) {
-        NSLog(@"launch not finish");
         return ;
     }
     
@@ -77,7 +76,6 @@
 - (void) waitMonkey {
     if ([sprite actionForKey:@"lanchAction"] != nil ||
         [sprite actionForKey:@"deadMonkey"] != nil) {
-        NSLog(@"lanch not finish");
         return ;
     }
 

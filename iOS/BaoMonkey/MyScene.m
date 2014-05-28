@@ -298,8 +298,10 @@
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
-            [leafTransition runGameOverTransition];
+            //[leafTransition runGameOverTransition];
             [monkey deadMonkey];
+            GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size andScene:self];
+            [self.view presentScene:gameOverScene transition:menuTransition];
             [GameData pauseGame];
             [GameData gameOver];
             return ;
