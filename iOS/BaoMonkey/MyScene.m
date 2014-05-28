@@ -10,7 +10,6 @@
 #import "MyScene+GeneratorWave.h"
 #import "MyScene+Climber.h"
 #import "UserData.h"
-#import "LeafTransition.h"
 #import "TankScene.h"
 #import "Define.h"
 #import "BaoButton.h"
@@ -177,7 +176,6 @@
     ** Pause control timer
     */
     
-    leafTransition = [[LeafTransition alloc] initWithScene:self];
     pauseTime = 0;
     lastTime = 0;
     oncePause = 0;
@@ -252,7 +250,7 @@
 
     [GameData pauseGame];
     
-    SKTransition *pauseTransition = [SKTransition pushWithDirection:SKTransitionDirectionRight duration:1.0];
+    SKTransition *pauseTransition = [SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.5];
     [self.view presentScene:pauseScene transition:pauseTransition];
 }
 

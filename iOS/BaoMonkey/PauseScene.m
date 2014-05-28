@@ -38,7 +38,17 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:RESUME_NODE_NAME]) {
-        SKTransition *resumeTransition = [SKTransition doorwayWithDuration:1.0];
+        
+    }
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:location];
+    
+    if ([node.name isEqualToString:RESUME_NODE_NAME]) {
+        SKTransition *resumeTransition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
         [self.view presentScene:fromScene transition:resumeTransition];
         [(MyScene*)fromScene resumeGame];
     }
