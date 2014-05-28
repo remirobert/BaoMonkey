@@ -43,7 +43,10 @@
     
     spaceDistance = lamberSize.width + lamberSize.width / 8;
     for (int i = 0; i < 3 ; i++) {
-        NSMutableDictionary *tmp = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT", [[NSNumber alloc] initWithFloat:(spaceDistance /2 + (spaceDistance * i))], @"posX", nil];
+        NSMutableDictionary *tmp = [[NSMutableDictionary alloc]
+                                    initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT",
+                                    [[NSNumber alloc]
+                                     initWithFloat:(spaceDistance /2 + (spaceDistance * i))], @"posX", nil];
         [choppingSlots addObject:tmp];
     }
 }
@@ -135,12 +138,15 @@
                 numberHunter += 1;
             }
         }
-        if ([GameData getLevel] % 4 == 0) {
-            numberClimber += 1;
+
+        if ([GameData getLevel] > 2) {
+            if ([GameData getLevel] / 2 % 2 == 0)
+                numberClimber = (int)[GameData getLevel] / 2;
         }
         
+        
         if ([self countOfEnemyType:EnemyTypeClimber] < numberClimber && ((timeForAddClimber <= currentTime) || (timeForAddClimber == 0))){
-            float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY + 2 - MIN_NEXT_ENEMY))));
+            float randomFloat = (8.5 + ((float)arc4random() / (0x100000000 / (3.0 + 2 - 2.5))));
             [self addClimber];
             timeForAddClimber = currentTime + randomFloat;
         }
@@ -217,7 +223,7 @@
     
     positions = [[NSMutableArray alloc] init];
     for (int i = 0 ; i < MAX_FLOOR ; i++) {
-        CGFloat posY = MIN_POSY_FLOOR + (SPACE_BETWEEN * i);
+        CGFloat posY = MIN_POSY_FLOOR + (SPACE_BETWEEN * i) - 22;
         [positions addObject:[NSNumber numberWithDouble:posY]];
     }
     floorsPosition = [[NSArray alloc] initWithArray:positions];

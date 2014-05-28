@@ -12,6 +12,8 @@
 #import "UserData.h"
 #import "Achievement.h"
 #import "GameCenter.h"
+#import "MainMenu.h"
+#import "Settings.h"
 
 @interface ViewController ()
 @property (nonatomic) MyScene *scene;
@@ -24,7 +26,7 @@
     _scene = [MyScene sceneWithSize:_skView.bounds.size];
     _scene.scaleMode = SKSceneScaleModeAspectFill;
     
-    [_skView presentScene:_scene];
+    [_skView presentScene:_scene transition:[SKTransition moveInWithDirection:SKTransitionDirectionRight duration:1.0]];
 }
 
 - (void)viewDidLoad
@@ -56,7 +58,7 @@
                                                object:nil];
     
     srand(time(NULL));
-    [self initGame];
+    [self goToHome];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -102,12 +104,13 @@
 }
 
 -(void)goToHome {
-    [self.navigationController popViewControllerAnimated:NO];
+    [_skView presentScene:[[MainMenu alloc] initWithSize:_skView.frame.size]
+               transition:[SKTransition moveInWithDirection:SKTransitionDirectionLeft duration:1.0]];
 }
 
 -(void)goToSettings {
-    SettingsViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:STORYBOARD_IDENTIFIER_SETTINGS];
-    [self.navigationController pushViewController:controller animated:NO];
+    [_skView presentScene:[[Settings alloc] initWithSize:_skView.frame.size]
+               transition:[SKTransition moveInWithDirection:SKTransitionDirectionRight duration:1.0]];
 }
 
 - (NSUInteger)supportedInterfaceOrientations

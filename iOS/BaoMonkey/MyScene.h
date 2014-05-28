@@ -26,6 +26,7 @@
 #import "Define.h"
 #import "Resume.h"
 #import "LeafTransition.h"
+#import "PauseScene.h"
 
 @interface MyScene : SKScene {
     CFTimeInterval pauseTime;
@@ -38,10 +39,13 @@
     dispatch_once_t oncePause;
     dispatch_once_t oncePlay;
     LeafTransition *leafTransition;
+    PauseScene *pauseScene;
 }
 
 @property (nonatomic) int sizeBlock;
 @property (nonatomic) TreeBranch *treeBranch;
 @property (nonatomic) NSMutableArray *wave;
+
+- (void) resumeGame;
 
 @end

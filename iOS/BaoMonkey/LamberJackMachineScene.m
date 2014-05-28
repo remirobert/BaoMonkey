@@ -6,12 +6,16 @@
 //  Copyright (c) 2014 BaoMonkey. All rights reserved.
 //
 
+#import <AudioToolbox/AudioToolbox.h>
 #import "LamberJackMachineScene.h"
 #import "GameController.h"
 #import "TreeBranch.h"
 #import "Monkey.h"
 #import "LamberJackMachine.h"
 #import "CocoNuts.h"
+#import "Define.h"
+#import "LeafTransition.h"
+#import "GameData.h"
 
 #define NAME_NODE_TREEBRANCH    @"name_node_treebranch"
 
@@ -19,11 +23,15 @@
 @property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, assign) NSTimeInterval timer;
 @property (nonatomic, assign) NSTimeInterval timerMove;
-@property (nonatomic, assign) NSInteger pushforce;
+@property (nonatomic, assign) CGFloat pushforce;
 @property (nonatomic, strong) Monkey *monkey;
 @property (nonatomic, strong) SKSpriteNode *treeBranch;
 @property (nonatomic, strong) LamberJackMachine *lamber;
 @property (nonatomic, assign) NSInteger sens;
+@property (nonatomic, assign) BOOL lanchMove;
+
+@property (nonatomic, strong) SKSpriteNode *background;
+@property (nonatomic, strong) SKSpriteNode *tree;
 @end
 
 @implementation LamberJackMachineScene
@@ -35,43 +43,44 @@
     _monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_monkey.sprite.size];
     _monkey.sprite.physicsBody.affectedByGravity = YES;
     _monkey.sprite.physicsBody.mass = 50;
+    _monkey.sprite.name = @"monkey_node_name";
+    
     [self addChild:_monkey.sprite];
 }
 
-- (void) updatePhysicBody {
-    self.physicsBody = [SKPhysicsBody
-                        bodyWithEdgeLoopFromRect:CGRectMake(_treeBranch.frame.origin.x,
-                                                            _treeBranch.frame.origin.y -
-                                                            (_treeBranch.frame.size.height / 2) +
-                                                            (_treeBranch.frame.size.height / 2),
-                                                            _treeBranch.frame.size.width,
-                                                            _treeBranch.frame.size.height / 2)];
-}
-
 - (void) initScene {
-    self.backgroundColor = [SKColor colorWithRed:52/255.0f
-                                           green:152/255.0f
-                                            blue:219/255.0f
-                                           alpha:1];
-    
-    _treeBranch = [[SKSpriteNode alloc] initWithColor:[SKColor brownColor]
-                                                 size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2 + 60, 35)];
+    _treeBranch = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"branch-boss-machine"]]];
     
     _treeBranch.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
                                        [UIScreen mainScreen].bounds.size.height - 180);
-    
+
+    _treeBranch.size = CGSizeMake(_treeBranch.size.width / 2, _treeBranch.size.height / 2);
     _treeBranch.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_treeBranch.size];
-    _treeBranch.physicsBody.mass = 1000000;
+    _treeBranch.physicsBody.mass = 100;
+    _treeBranch.physicsBody.resting = YES;
     _treeBranch.physicsBody.affectedByGravity = NO;
     _treeBranch.physicsBody.dynamic = NO;
     _treeBranch.physicsBody.allowsRotation = NO;
-    
     _treeBranch.name = NAME_NODE_TREEBRANCH;
-
-    [self updatePhysicBody];
     
     [GameController initAccelerometer];
+    
+    _background = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bgboss-machine"]]];
+    _background.zPosition = 0;
+    _background.size = self.size;
+    _background.position = CGPointMake(self.size.width / 2, self.size.height / 2);
+    
+    _tree = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"tree-boss-machine"]]];
+    _tree.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+                                 [UIScreen mainScreen].bounds.size.height / 2);
+    //_tree.size = CGSizeMake(_tree.size.width / 2, _tree.size.height / 2);
+    
+    [self addChild:_background];
+    [self addChild:_tree];
     [self addChild:_treeBranch];
+    
+    _monkey.sprite.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+                                          _treeBranch.position.y + (_treeBranch.size.height / 2));
 }
 
 - (instancetype) initWithSize:(CGSize)size parent:(SKScene *)parentScene {
@@ -87,10 +96,12 @@
 
         self.physicsWorld.gravity = CGVectorMake(0, -10);
 
-        _pushforce = 3;
-        _sens = 0;
+        _lanchMove = NO;
+        _pushforce = 2;
+        _sens = rand() % 2;
         _timer = 0;
         _parentScene = parentScene;
+        [self updateAngleTree];
     }
     return (self);
 }
@@ -101,10 +112,11 @@
     for (int index = 0; index <= nbCocoNuts; index ++) {
         CocoNuts *coco = [[CocoNuts alloc]
                           initWithPosition:CGPointMake((rand() %
-                                                        (int)(_treeBranch.size.width / 2)) +
-                                                       _treeBranch.position.x,
+                                                        (int)(_treeBranch.size.width)) +
+                                                       (_treeBranch.position.x - (_treeBranch.size.width / 2)),
                                                        [UIScreen mainScreen].bounds.size.height + 35)];
-        coco.node.name = @"toto";
+        coco.node.name = @"invalid_coco";
+        coco.node.physicsBody.mass = 20.0;
         [coco.timerHide invalidate];
         [self addChild:coco.node];
         SKPhysicsBody *tmpBody = coco.node.physicsBody;
@@ -126,7 +138,8 @@
     }
     if (currentTime >= time) {
         [self performSelector:@selector(popCocoNuts)];
-        
+
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
                                                             _treeBranch.position.y) duration:timerStress] completion:^{
             
@@ -163,33 +176,76 @@
     }
 }
 
+- (void) updateAngleTree {
+    if (_sens == 0 && _treeBranch.position.x > [UIScreen mainScreen].bounds.size.width / 2) {
+        [_treeBranch runAction:[SKAction rotateToAngle:0.2 duration:0.5]];
+    }
+    else if (_sens == 1 && _treeBranch.position.x < [UIScreen mainScreen].bounds.size.width / 2){
+        [_treeBranch runAction:[SKAction rotateToAngle:-0.2 duration:0.5]];
+    }
+}
+
 - (void) moveTreeBranch {
+    
     if (_sens == 1) {
         if (_treeBranch.position.x < [UIScreen mainScreen].bounds.size.width)
             _treeBranch.position = CGPointMake(_treeBranch.position.x + _pushforce,
                                                _treeBranch.position.y);
-        else
+        else {
             _sens = 0;
+        }
     }
     else if (_sens == 0) {
         if (_treeBranch.position.x > 0)
             _treeBranch.position = CGPointMake(_treeBranch.position.x - _pushforce,
                                                _treeBranch.position.y);
-        else
+        else {
             _sens = 1;
+        }
     }
+    [self updateAngleTree];
 }
 
-- (void) toreBranch {
-    /*
-     Rotation branch
-     */
+- (void) updateTreePosition {
+    _tree.position = CGPointMake(_treeBranch.position.x, _tree.position.y);
+    _tree.zRotation = _treeBranch.zRotation;
+}
+
+- (void) toreBranch:(NSTimeInterval)currentTime {
+    static NSTimeInterval time = 0;
+    
+    if (time == 0) {
+        time = currentTime + rand() % 3 + 2;
+    }
+    
+    if (currentTime < time)
+        return ;
+
+    time = currentTime + rand() % 5 + 3;
+
+    CGFloat angleStress = 1.0;
+    
+    if (_sens == 0)
+        angleStress = -1.0;
+
+    [_treeBranch runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
+        [_treeBranch runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
+            [_treeBranch runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
+                [_treeBranch runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
+                    
+                    [self updateAngleTree];
+                }];
+            }];
+        }];
+    }];
 }
 
 - (void) update:(NSTimeInterval)currentTime {
+    
     if (_timer == 0) {
         _timer = currentTime + 30;
         _timerMove = currentTime + 5;
+        _lanchMove = YES;
     }
 
     if (currentTime >= _timer) {
@@ -199,20 +255,32 @@
     
     if (currentTime >= _timerMove) {
         _timerMove = currentTime + 5;
-        _pushforce += 1;
+        _pushforce += 0.75;
     }
     
     [GameController updateAccelerometerAcceleration];
     [_monkey updateMonkeyPosition:[GameController getAcceleration]];
 
-    [self moveTreeBranch];
-    [self stressTree:currentTime];
-    [self updatePhysicBody];
+    [self updateTreePosition];
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self toreBranch];
-    });
+    if (_lanchMove == YES) {
+        [self moveTreeBranch];
+        [self stressTree:currentTime];
+        //[self toreBranch:currentTime];
+    }
+    
+    [self enumerateChildNodesWithName:@"invalid_coco" usingBlock:^(SKNode *node, BOOL *stop) {
+        if (node.position.y < 0)
+            [node removeFromParent];
+    }];
+    
+    [self enumerateChildNodesWithName:@"monkey_node_name" usingBlock:^(SKNode *node, BOOL *stop) {
+        if (node.position.y < [UIScreen mainScreen].bounds.size.height / 2) {
+            LeafTransition *transitionGameOver = [[LeafTransition alloc] initWithScene:self];
+            [transitionGameOver runGameOverTransition];
+            [GameData gameOver];
+        }
+    }];
 }
 
 @end

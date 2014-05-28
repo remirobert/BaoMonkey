@@ -24,7 +24,7 @@
     if (self) {
         self.direction = _direction;
         self.type = EnemyTypeLamberJack;
-        self.node.zPosition = 1;
+        self.node.zPosition = 10;
         self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_LAMBERJACK_WAITING] size:[BaoSize lamberJack]];
         if (self.direction == LEFT)
         {
@@ -173,9 +173,9 @@
     for (NSMutableDictionary *slot in choppingSlots) {
         if ([[slot objectForKey:directionKey] isEqualToString:@"FREE"]) {
             if ((MAX_LUMBERJACK / 4) == i)
-                self.node.zPosition = 2;
+                self.node.zPosition = 20;
             else
-                self.node.zPosition = 1;
+                self.node.zPosition = 10;
             return i;
         }
         i++;
