@@ -227,7 +227,7 @@
 - (void) deadMonkey {
     [sprite removeAllActions];
 
-    [sprite runAction:[SKAction animateWithTextures:deadFrames timePerFrame:0.1] withKey:@"deadMonkey"];
+    [sprite runAction:[SKAction animateWithTextures:deadFrames timePerFrame:0.1 resize:YES restore:NO] withKey:@"deadMonkey"];
 }
 
 @end
