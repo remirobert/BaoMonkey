@@ -24,8 +24,8 @@
 #import "ProgressBar.h"
 #import "Define.h"
 #import "Resume.h"
-#import "LeafTransition.h"
 #import "PauseScene.h"
+#import "GameOverScene.h"
 
 @interface MyScene : SKScene {
     CFTimeInterval pauseTime;
@@ -37,8 +37,7 @@
     SKLabelNode *score;
     dispatch_once_t oncePause;
     dispatch_once_t oncePlay;
-    LeafTransition *leafTransition;
-    PauseScene *pauseScene;
+    SKTransition *menuTransition;
 }
 
 @property (nonatomic) int sizeBlock;
