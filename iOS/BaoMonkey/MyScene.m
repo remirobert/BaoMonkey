@@ -275,8 +275,6 @@
             lastTime = currentTime;
             NSLog(@"lastTime : %f", lastTime);
         });
-        
-        [monkey stopAnimation];
         return;
     }
     

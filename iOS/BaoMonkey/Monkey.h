@@ -37,8 +37,6 @@
 
 -(void)catchItem:(id)item;
 
--(void)stopAnimation;
-
 -(void)launchWeapon;
 
 @end
