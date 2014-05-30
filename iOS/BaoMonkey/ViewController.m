@@ -76,6 +76,10 @@
         [PreloadData loadDataWithKey:[PreloadData playSoundFileNamed:@"splash.mp3" atVolume:0.5 waitForCompletion:NO] key:DATA_SPLASH_SOUND];
         [PreloadData loadDataWithKey:[PreloadData playSoundFileNamed:@"coconut.mp3" atVolume:0.5 waitForCompletion:NO] key:DATA_COCONUT_SOUND];
     }
+    
+    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"grosse_tache"]] key:DATA_SPLASH_PLUMS1];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"petite_tache"]] key:DATA_SPLASH_PLUMS2];
+    
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"splash-prune"]] key:DATA_SPLASH_TEXTURE];
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"banana"]] key:DATA_BANANA_TEXTURE];
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"coconut"]] key:DATA_COCONUT_TEXTURE];

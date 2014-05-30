@@ -40,25 +40,32 @@
 }
 
 - (void) initScene {
-    self.backgroundColor = [SKColor colorWithRed:52/255.0f
-                                           green:152/255.0f
-                                            blue:219/255.0f
-                                           alpha:1];
+
+    SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
+    bg.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
+    [self addChild:bg];
     
-    _treeBranch = [[TreeBranch alloc] init];
+    
+    SKSpriteNode *frontLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"leafs-foreground"];
+    frontLeaf.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (frontLeaf.size.height / 2)));
+    frontLeaf.zPosition = 50;
+    [self addChild:frontLeaf];
+    
+    TreeBranch *treeBranch = [[TreeBranch alloc] init];
     
     self.physicsBody = [SKPhysicsBody
-                        bodyWithEdgeLoopFromRect:CGRectMake(_treeBranch.node.frame.origin.x,
-                                                            _treeBranch.node.frame.origin.y -
-                                                            (_treeBranch.node.frame.size.height / 2) +
-                                                            (_treeBranch.node.frame.size.height / 2),
-                                                            _treeBranch.node.frame.size.width,
-                                                            _treeBranch.node.frame.size.height / 2)];
+                        bodyWithEdgeLoopFromRect:CGRectMake(treeBranch.node.frame.origin.x,
+                                                            treeBranch.node.frame.origin.y -
+                                                            (treeBranch.node.frame.size.height / 2) +
+                                                            (treeBranch.node.frame.size.height / 2),
+                                                            treeBranch.node.frame.size.width,
+                                                            treeBranch.node.frame.size.height / 2)];
     
-    [self addChild:_treeBranch.node];
+    [self addChild:treeBranch.node];
+    
     
     _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2,
-                                                           _treeBranch.node.position.y + 20)];
+                                                           treeBranch.node.position.y + 40)];
     [self addChild:_monkey.sprite];
     [GameController initAccelerometer];
 }

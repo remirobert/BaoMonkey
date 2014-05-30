@@ -10,7 +10,14 @@
 #import "PreloadData.h"
 #import "BaoSize.h"
 
-@implementation Monkey
+@implementation Monkey {
+    NSArray *walkingFrames;
+    NSArray *walkingCoconutFrames;
+    NSArray *deadFrames;
+    NSArray *launchFrames;
+    NSArray *stopFrames;
+    NSArray *stopCocoframes;
+}
 
 @synthesize sprite;
 @synthesize weapon;
@@ -19,68 +26,113 @@
     self = [super init];
     if (self) {
         // Init the sprites of the Monkey
-        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING] size:[BaoSize monkey]];
+        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING]
+                                                size:[BaoSize monkey]];
         sprite.position = position;
         
-        direction = FRONT;
-
         [self loadWalkingSprites];
         [self loadWalkingCoconutSprites];
         [self loadLaunchSprites];
         [self loadDeadSprites];
-
-        // Init the notification for dropping the weapon
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(launchWeapon) name:NOTIFICATION_DROP_MONKEY_ITEM object:nil];
+        [self loadWaitframes];
+        
+        [self waitMonkey];
     }
     return self;
 }
 
 #pragma mark - Update Sprite Functions
 
--(void)updateMonkeyPosition:(float)acceleration {
+- (void) moveMonkey:(CGFloat)acceleration {
     CGPoint position;
-    float multiplierForDirection = 0;
     float maxX = [UIScreen mainScreen].bounds.size.width + (sprite.size.width / 2);
     float minX = -(sprite.size.width / 2);
     
     if (sprite.position.x > maxX) {
         position = CGPointMake(minX, sprite.position.y);
+        sprite.position = position;
     } else if (sprite.position.x < minX) {
         position = CGPointMake(maxX, sprite.position.y);
         sprite.position = CGPointMake(maxX, sprite.position.y);
     } else {
         position = CGPointMake(sprite.position.x + acceleration, sprite.position.y);
+        sprite.position = position;
     }
-    
-    sprite.position = position;
     weapon.node.position = position;
-    
-    if (acceleration < 0) {
-        direction = LEFT;
-        multiplierForDirection = -1;
-    } else if (acceleration > 0) {
-        direction = RIGHT;
-        multiplierForDirection = 1;
-    } else {
-        direction = FRONT;
-        multiplierForDirection = 0;
+}
+
+#pragma mark - Action animation monkey
+
+- (void) moveActionWalking {
+    if ([sprite actionForKey:@"lanchAction"] != nil ||
+        [sprite actionForKey:@"deadMonkey"] != nil) {
+        return ;
     }
     
-    if (multiplierForDirection != 0) {
-        /*if (direction == LEFT) {
-            sprite.xScale = -1;
-        } else if (direction == RIGHT) {
-            sprite.xScale = 1;
-        }*/
-        sprite.xScale = fabs(sprite.xScale) * multiplierForDirection;
-        [self startWalking];
-    } else {
-        if (weapon != nil) {
-            [self stopWalkingWithCoconut];
-        } else {
-            [self stopWalking];
+    NSArray *framesWalking;
+    
+    if (weapon == nil)
+        framesWalking = walkingFrames;
+    else
+        framesWalking = walkingCoconutFrames;
+    
+    [sprite runAction:[SKAction
+                       repeatActionForever:[SKAction
+                                            animateWithTextures:framesWalking timePerFrame:0.1]] withKey:@"runactionwalk"];
+}
+
+- (void) waitMonkey {
+    if ([sprite actionForKey:@"lanchAction"] != nil ||
+        [sprite actionForKey:@"deadMonkey"] != nil) {
+        return ;
+    }
+
+    [sprite removeAllActions];
+    if (weapon == nil) {
+        [sprite runAction:[SKAction
+                           repeatActionForever:[SKAction animateWithTextures:stopFrames
+                                                                         timePerFrame:0.1 resize:YES restore:NO]]];
+    }
+    else {
+        [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopCocoframes timePerFrame:0.1 resize:YES restore:NO]]];
+    }
+}
+
+#pragma mark - Update monkey position
+
+-(void)updateMonkeyPosition:(float)acceleration {
+    static CGFloat oldAcceleration = 0;
+
+    if (acceleration == 0) {
+        if (oldAcceleration == 0)
+            return;
+        [self waitMonkey];
+        oldAcceleration = 0;
+        return ;
+    }
+    else if (acceleration < 0) {
+        if (oldAcceleration >= 0) {
+            [self moveActionWalking];
         }
+        oldAcceleration = -1;
+        sprite.xScale = -1.0;
     }
+    else if (acceleration > 0) {
+        if (oldAcceleration <= 0) {
+            [self moveActionWalking];
+        }
+        oldAcceleration = 1;
+        sprite.xScale = 1.0;
+    }
+    [self moveMonkey:acceleration];
+    oldAcceleration = acceleration;
+}
+
+#pragma mark - Load texture
+
+- (void) loadWaitframes {
+    stopFrames = @[[SKTexture textureWithImageNamed:@"monkey-waiting"], [SKTexture textureWithImageNamed:@"monkey-waiting"]];
+    stopCocoframes = @[[SKTexture textureWithImageNamed:@"monkey-waiting-coconut"], [SKTexture textureWithImageNamed:@"monkey-waiting-coconut"]];
 }
 
 -(void)loadWalkingSprites {
@@ -94,8 +146,7 @@
         [frames addObject:tmp];
     }
 
-    walkingFrames = [[NSArray alloc] init];
-    walkingFrames = frames;
+    walkingFrames = [[NSArray alloc] initWithArray:frames];
 }
 
 -(void)loadWalkingCoconutSprites {
@@ -113,54 +164,6 @@
     walkingCoconutFrames = frames;
 }
 
--(void)startWalking {
-    NSLog(@"orientation walking : %f", sprite.xScale);
-    /*if (direction == LEFT) {
-        sprite.xScale = -1;
-    } else if (direction == RIGHT) {
-        sprite.xScale = 1;
-    }*/
-    if (![sprite actionForKey:SKACTION_MONKEY_WALKING]) {
-        if (weapon != nil){
-            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingCoconutFrames
-                                                                             timePerFrame:0.1f
-                                                                                   resize:NO
-                                                                                  restore:NO]]
-                      withKey:SKACTION_MONKEY_WALKING];
-        } else {
-            [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
-                                                                         timePerFrame:0.1f
-                                                                               resize:NO
-                                                                              restore:NO]]
-                      withKey:SKACTION_MONKEY_WALKING];
-        }
-    }
-}
-
--(void)startWalkingWithCoconut {
-    [self stopWalking];
-    if (![sprite actionForKey:SKACTION_MONKEY_WALKING_COCONUT]) {
-        [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingCoconutFrames
-                                                                         timePerFrame:0.1f
-                                                                               resize:NO
-                                                                              restore:NO]]
-                  withKey:SKACTION_MONKEY_WALKING_COCONUT];
-    }
-}
-
--(void)stopWalking {
-    [sprite removeActionForKey:SKACTION_MONKEY_WALKING];
-    [self wait];
-}
-
--(void)stopWalkingWithCoconut {
-    [sprite removeActionForKey:SKACTION_MONKEY_WALKING_COCONUT];
-    [self wait];
-}
-
--(void)stopAnimation {
-    [sprite removeAllActions];
-}
 
 -(void)loadLaunchSprites {
     NSMutableArray *frames = [[NSMutableArray alloc] init];
@@ -175,22 +178,6 @@
     
     launchFrames = [[NSArray alloc] init];
     launchFrames = frames;
-}
-
--(void)startLaunch {
-    //direction = FRONT;
-    if (![sprite actionForKey:SKACTION_MONKEY_LAUNCH]) {
-        [sprite runAction:[SKAction repeatAction:[SKAction animateWithTextures:launchFrames
-                                                                  timePerFrame:0.1f
-                                                                        resize:NO
-                                                                       restore:NO]
-                                           count:1]
-                  withKey:SKACTION_MONKEY_LAUNCH];
-    }
-}
-
--(void)stopLaunch {
-    [sprite removeActionForKey:SKACTION_MONKEY_LAUNCH];
 }
 
 -(void)loadDeadSprites {
@@ -208,54 +195,18 @@
     deadFrames = frames;
 }
 
--(void)startDead {
-    /*if (direction == LEFT) {
-        sprite.xScale = -1;
-    } else if (direction == RIGHT) {
-        sprite.xScale = 1;
-    }*/
-    if (![sprite actionForKey:SKACTION_MONKEY_DEAD]) {
-        [sprite runAction:[SKAction repeatAction:[SKAction animateWithTextures:deadFrames
-                                                                  timePerFrame:0.1f
-                                                                        resize:NO
-                                                                       restore:NO]
-                                           count:1]
-                  withKey:SKACTION_MONKEY_DEAD];
-    }
-}
-
--(void)stopDead {
-    [sprite removeActionForKey:SKACTION_MONKEY_DEAD];
-}
-
--(void)wait {
-    //direction = FRONT;
-    [sprite setSize:[BaoSize monkey]];
-    if (weapon != nil) {
-        [sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING_COCONUT]];
-    } else {
-        [sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING]];
-    }
-}
-
 #pragma mark - Checking the item receive
 
 -(void)catchItem:(id)item{
     if ([item isKindOfClass:[Weapon class]]){
         if (weapon == nil) {
-            //[sprite setSize:[BaoSize monkey]];
-            //[sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING_COCONUT]];
             weapon = [[Item alloc] init];
             weapon = item;
             [weapon.node removeAllActions];
             weapon.isTaken = YES;
             weapon.node.hidden = YES;
             [(Item *)item launchAction];
-            if (direction == LEFT || direction == RIGHT) {
-                [self startWalkingWithCoconut];
-            } else {
-                [sprite setTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING_COCONUT]];
-            }
+            [self waitMonkey];
         }
         else
             return ;
@@ -266,20 +217,28 @@
 
 #pragma mark - Launch a weapon
 
--(void)launchWeapon{
-    [self stopWalking];
-    [self startLaunch];
+-(void)launchWeapon {
     if (weapon != nil && ![GameData isPause]) {
         weapon.node.hidden = FALSE;
         weapon.node.position = CGPointMake(sprite.position.x, weapon.node.position.y);
         [Action dropWeapon:weapon];
+
+        [sprite removeAllActions];
+        SKAction *actionLaunch = [SKAction animateWithTextures:launchFrames
+                                                  timePerFrame:0.1 resize:YES restore:NO];
+        [sprite runAction:actionLaunch withKey:@"lanchAction"];
     }
     weapon = nil;
-    if (direction == LEFT || direction == RIGHT) {
-        [self startWalking];
-    } else {
-        [self wait];
-    }
+}
+
+#pragma mark - Launch a weapon
+
+- (void) deadMonkey {
+    [sprite removeAllActions];
+
+    [sprite runAction:[SKAction animateWithTextures:deadFrames
+                                       timePerFrame:0.1 resize:YES restore:NO]
+              withKey:@"deadMonkey"];
 }
 
 @end

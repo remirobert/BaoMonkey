@@ -12,6 +12,8 @@
 
 @interface Prune : Malus
 
+@property (nonatomic, strong) SKScene *parentScene;
+
 - (instancetype) initWithPosition:(CGPoint)position;
 
 @end
