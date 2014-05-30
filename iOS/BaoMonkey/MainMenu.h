@@ -8,7 +8,17 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface MainMenu : SKScene
+@interface MainMenu : SKScene {
+    SKSpriteNode *background;
+    SKSpriteNode *panel;
+    SKSpriteNode *playNode;
+    SKSpriteNode *settingsNode;
+    SKSpriteNode *gameCenterNode;
+    SKSpriteNode *shareNode;
+    SKSpriteNode *infosNode;
+    SKSpriteNode *monkey;
+    NSArray *monkeyFrames;
+}
 
 - (instancetype) initWithSize:(CGSize)size;
 

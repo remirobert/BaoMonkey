@@ -29,7 +29,7 @@
     _scene = [MyScene sceneWithSize:_skView.bounds.size];
     _scene.scaleMode = SKSceneScaleModeAspectFill;
     
-    [_skView presentScene:_scene transition:[SKTransition moveInWithDirection:SKTransitionDirectionRight duration:1.0]];
+    [_skView presentScene:_scene transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5]];
 }
 
 - (void)viewDidLoad
@@ -101,6 +101,8 @@
     [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"HunterWalking"] key:DATA_HUNTER_WALKING_ATLAS];
     [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"HunterDead"] key:DATA_HUNTER_DEAD_ATLAS];
     
+    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyMenu"] key:DATA_MONKEY_MENU_ATLAS];
+    
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"plateform"]] key:DATA_PLATEFORM];
     
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"button-play"] key:DATA_BUTTON_PLAY];
@@ -112,12 +114,12 @@
 
 -(void)goToHome {
     [_skView presentScene:[[MainMenu alloc] initWithSize:_skView.frame.size]
-               transition:[SKTransition moveInWithDirection:SKTransitionDirectionLeft duration:1.0]];
+               transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5]];
 }
 
 -(void)goToSettings {
     [_skView presentScene:[[Settings alloc] initWithSize:_skView.frame.size]
-               transition:[SKTransition moveInWithDirection:SKTransitionDirectionRight duration:1.0]];
+               transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5]];
 }
 
 - (NSUInteger)supportedInterfaceOrientations

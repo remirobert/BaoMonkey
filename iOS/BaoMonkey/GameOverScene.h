@@ -12,6 +12,8 @@
     SKSpriteNode *panel;
     SKSpriteNode *replayNode;
     SKSpriteNode *homeNode;
+    SKSpriteNode *gameCenterNode;
+    SKSpriteNode *shareNode;
     SKSpriteNode *settingsNode;
     SKScene *fromScene;
 }

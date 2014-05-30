@@ -204,7 +204,6 @@
 
         // Reactive speed & physics
         self.speed = 1.0;
-        [self addChild:[BaoButton pause]];
 
         for (Item *item in _wave) {
             [item resumeTimer];
@@ -222,10 +221,28 @@
     }
 }
 
+-(void)displayGameOverMenu {
+    GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size andScene:self];
+    [self.view presentScene:gameOverScene transition:menuTransition];
+}
+
+- (void) gameOverCountDown {
+    static BOOL gameOver = NO;
+    
+    if (gameOver) {
+        gameOver = NO;
+        [GameData pauseGame];
+        [GameData gameOver];
+        [self performSelector:@selector(displayGameOverMenu) withObject:nil afterDelay:2.0];
+    }
+    else {
+        gameOver = YES;
+        [self performSelector:@selector(gameOverCountDown) withObject:nil afterDelay:1.0];
+    }
+}
+
 - (void) pauseGame {
     //[self launchPauseView];
-    SKNode *pauseNode = [self childNodeWithName:PAUSE_BUTTON_NODE_NAME];
-    [(SKSpriteNode*)pauseNode removeFromParent];
     
     self.speed = 0;
     for (Item *item in _wave) {
@@ -300,10 +317,7 @@
         if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
             //[leafTransition runGameOverTransition];
             [monkey deadMonkey];
-            GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size andScene:self];
-            [self.view presentScene:gameOverScene transition:menuTransition];
-            [GameData pauseGame];
-            [GameData gameOver];
+            [self gameOverCountDown];
             return ;
         }
     }];

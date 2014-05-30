@@ -30,8 +30,6 @@
 		10C599C3191948A300907493 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10C599C1191948A300907493 /* InfoPlist.strings */; };
 		10C599C5191948A300907493 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C599C4191948A300907493 /* main.m */; };
 		10C599C9191948A300907493 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C599C8191948A300907493 /* AppDelegate.m */; };
-		10C599CC191948A300907493 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C599CA191948A300907493 /* Main_iPhone.storyboard */; };
-		10C599CF191948A300907493 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C599CD191948A300907493 /* Main_iPad.storyboard */; };
 		10C599D9191948A300907493 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C599D8191948A300907493 /* Images.xcassets */; };
 		10C599E0191948A300907493 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599DF191948A300907493 /* XCTest.framework */; };
 		10C599E1191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
@@ -88,6 +86,9 @@
 		29A3D4C41936531B003A71DC /* button-infos@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29A3D4C21936531B003A71DC /* button-infos@2x.png */; };
 		29A3D4C7193653C2003A71DC /* background-panel-3buttons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29A3D4C5193653C2003A71DC /* background-panel-3buttons@2x.png */; };
 		29A3D4C8193653C2003A71DC /* background-panel-4buttons@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29A3D4C6193653C2003A71DC /* background-panel-4buttons@2x.png */; };
+		29A3D4CA1938AFBC003A71DC /* background-menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29A3D4C91938AFBC003A71DC /* background-menu@2x.png */; };
+		29A3D4CC1938B2CE003A71DC /* splash-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 29A3D4CB1938B2CE003A71DC /* splash-screen.png */; };
+		29A3D4CE1938B380003A71DC /* MonkeyMenu.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 29A3D4CD1938B380003A71DC /* MonkeyMenu.atlas */; };
 		29CE19001926008600513925 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CE18FF1926008600513925 /* GameKit.framework */; };
 		29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BA9191A87440046F9B2 /* EnemiesController.m */; };
 		29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BAC191A874A0046F9B2 /* Enemy.m */; };
@@ -256,6 +257,9 @@
 		29A3D4C21936531B003A71DC /* button-infos@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-infos@2x.png"; path = "Buttons/button-infos@2x.png"; sourceTree = "<group>"; };
 		29A3D4C5193653C2003A71DC /* background-panel-3buttons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-panel-3buttons@2x.png"; path = "Background/background-panel-3buttons@2x.png"; sourceTree = "<group>"; };
 		29A3D4C6193653C2003A71DC /* background-panel-4buttons@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-panel-4buttons@2x.png"; path = "Background/background-panel-4buttons@2x.png"; sourceTree = "<group>"; };
+		29A3D4C91938AFBC003A71DC /* background-menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-menu@2x.png"; path = "Background/background-menu@2x.png"; sourceTree = "<group>"; };
+		29A3D4CB1938B2CE003A71DC /* splash-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash-screen.png"; path = "../Images.xcassets/LaunchImage.launchimage/splash-screen.png"; sourceTree = "<group>"; };
+		29A3D4CD1938B380003A71DC /* MonkeyMenu.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyMenu.atlas; sourceTree = "<group>"; };
 		29CE18FF1926008600513925 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		29E98BA8191A87440046F9B2 /* EnemiesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemiesController.h; sourceTree = "<group>"; };
 		29E98BA9191A87440046F9B2 /* EnemiesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemiesController.m; sourceTree = "<group>"; };
@@ -459,6 +463,7 @@
 		10C59A0D1919492C00907493 /* Monkey */ = {
 			isa = PBXGroup;
 			children = (
+				29A3D4CD1938B380003A71DC /* MonkeyMenu.atlas */,
 				3FD47EFB192F4EBB0074B256 /* MonkeyWalkingWithCoconut.atlas */,
 				3FE2405319338B410017C470 /* MonkeyLaunch.atlas */,
 				3FD47F05192F52B70074B256 /* MonkeyWalking.atlas */,
@@ -486,8 +491,6 @@
 		10F65E711935E12600ED0DA8 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				10F65E681935E0EF00ED0DA8 /* SpriteKitCursor.h */,
-				10F65E691935E0EF00ED0DA8 /* SpriteKitCursor.m */,
 				10F65E601935E0EF00ED0DA8 /* MainMenu.h */,
 				10F65E611935E0EF00ED0DA8 /* MainMenu.m */,
 				10F65E641935E0EF00ED0DA8 /* PauseScene.h */,
@@ -496,6 +499,8 @@
 				29A3D4B719361436003A71DC /* GameOverScene.m */,
 				10F65E661935E0EF00ED0DA8 /* Settings.h */,
 				10F65E671935E0EF00ED0DA8 /* Settings.m */,
+				10F65E681935E0EF00ED0DA8 /* SpriteKitCursor.h */,
+				10F65E691935E0EF00ED0DA8 /* SpriteKitCursor.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -525,7 +530,9 @@
 		2919C644192E2CB900A2F2D1 /* Background */ = {
 			isa = PBXGroup;
 			children = (
+				29A3D4CB1938B2CE003A71DC /* splash-screen.png */,
 				2919C645192E2CFC00A2F2D1 /* background@2x.png */,
+				29A3D4C91938AFBC003A71DC /* background-menu@2x.png */,
 				2919C646192E2CFC00A2F2D1 /* branch@2x.png */,
 				2919C647192E2CFC00A2F2D1 /* leafs-foreground@2x.png */,
 				29A3D4C5193653C2003A71DC /* background-panel-3buttons@2x.png */,
@@ -770,6 +777,7 @@
 		3F50F12E19194FA400A37F85 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				10F65E711935E12600ED0DA8 /* Menu */,
 				10C59A1919194A0D00907493 /* MyScene.h */,
 				10C599FE1919490900907493 /* MyScene.m */,
 				10C59A2119194D1500907493 /* MyScene+GeneratorWave.h */,
@@ -786,7 +794,6 @@
 				10AB3471192CC74E00661301 /* TankScene.m */,
 				10BCACE5192E02CA00A846F1 /* LamberJackMachineScene.h */,
 				10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */,
-				10F65E711935E12600ED0DA8 /* Menu */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -972,6 +979,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29A3D4CC1938B2CE003A71DC /* splash-screen.png in Resources */,
 				10C59A161919492C00907493 /* front-leaf@2x.png in Resources */,
 				29A3D4B31935DA12003A71DC /* button-play@2x.png in Resources */,
 				2919C63C192DEE1F00A2F2D1 /* button-home-selected@2x.png in Resources */,
@@ -1007,14 +1015,15 @@
 				3F0CD895191D423E0079A5EB /* baomonkey.m4a in Resources */,
 				296AFB94191CE06B009D5B75 /* cloud@2x.png in Resources */,
 				10C599D9191948A300907493 /* Images.xcassets in Resources */,
-				10C599CF191948A300907493 /* Main_iPad.storyboard in Resources */,
 				296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */,
 				3F47F9C2192D41E200C36A39 /* LamberJackCutting.atlas in Resources */,
+				29A3D4CA1938AFBC003A71DC /* background-menu@2x.png in Resources */,
 				2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */,
 				102D554D1936430800D7072D /* grosse_tache@2x.png in Resources */,
 				2919C649192E2CFC00A2F2D1 /* branch@2x.png in Resources */,
 				102D554E1936430800D7072D /* petite_tache@2x.png in Resources */,
 				3FB7C492192E866B00801643 /* plateform@2x.png in Resources */,
+				29A3D4CE1938B380003A71DC /* MonkeyMenu.atlas in Resources */,
 				2919C640192DEE1F00A2F2D1 /* button-settings-selected@2x.png in Resources */,
 				29A3D4BF19365300003A71DC /* button-share-selected@2x.png in Resources */,
 				29A3D4C41936531B003A71DC /* button-infos@2x.png in Resources */,
@@ -1031,7 +1040,6 @@
 				3F47F9C3192D41E200C36A39 /* LamberJackDead.atlas in Resources */,
 				10C59A181919492C00907493 /* trunk@2x.png in Resources */,
 				29A3D4BD19365300003A71DC /* button-gamecenter-selected@2x.png in Resources */,
-				10C599CC191948A300907493 /* Main_iPhone.storyboard in Resources */,
 				3FB2A494191B79900027B2C7 /* coconut@2x.png in Resources */,
 				2919C63F192DEE1F00A2F2D1 /* button-replay-selected@2x.png in Resources */,
 				2919C63E192DEE1F00A2F2D1 /* button-play-selected@2x.png in Resources */,

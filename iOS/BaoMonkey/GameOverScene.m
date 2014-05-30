@@ -19,22 +19,32 @@
         background.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
         [self addChild:background];
         fromScene = scene;
-        panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background-button"] size:CGSizeMake(306, 375)];
+        panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background-panel-4buttons"] size:CGSizeMake(307, 421)];
         panel.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2));
         [self addChild:panel];
         
-        replayNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-replay"] size:CGSizeMake(52, 52)];
-        replayNode.position = CGPointMake(224, 380);
+        replayNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-replay"] size:CGSizeMake(80, 80)];
+        replayNode.position = CGPointMake(163, 302);
         replayNode.name = RETRY_NODE_NAME;
         [self addChild:replayNode];
         
         homeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-home"] size:CGSizeMake(52, 52)];
-        homeNode.position = CGPointMake(102, 270);
+        homeNode.position = CGPointMake(65, 192);
         homeNode.name = HOME_NODE_NAME;
         [self addChild:homeNode];
         
+        gameCenterNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-gamecenter"] size:CGSizeMake(52, 52)];
+        gameCenterNode.position = CGPointMake(135, 192);
+        gameCenterNode.name = GAMECENTER_NODE_NAME;
+        [self addChild:gameCenterNode];
+        
+        shareNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-share"] size:CGSizeMake(52, 52)];
+        shareNode.position = CGPointMake(204, 192);
+        shareNode.name = SHARE_NODE_NAME;
+        [self addChild:shareNode];
+        
         settingsNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-settings"] size:CGSizeMake(52, 52)];
-        settingsNode.position = CGPointMake(224, 270);
+        settingsNode.position = CGPointMake(272, 192);
         settingsNode.name = SETTINGS_NODE_NAME;
         [self addChild:settingsNode];
     }
@@ -49,23 +59,35 @@
     
     if ([node.name isEqualToString:RETRY_NODE_NAME]) {
         [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay-selected"]];
-        [replayNode setSize:CGSizeMake(66, 66)];
+        [replayNode setSize:CGSizeMake(97, 97)];
     }
     else if ([node.name isEqualToString:HOME_NODE_NAME]) {
         [homeNode setTexture:[SKTexture textureWithImageNamed:@"button-home-selected"]];
-        [homeNode setSize:CGSizeMake(66, 66)];
+        [homeNode setSize:CGSizeMake(61, 61)];
     }
     else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
         [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings-selected"]];
-        [settingsNode setSize:CGSizeMake(66, 66)];
+        [settingsNode setSize:CGSizeMake(61, 61)];
+    }
+    else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
+        [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-gamecenter-selected"]];
+        [gameCenterNode setSize:CGSizeMake(61, 61)];
+    }
+    else if ([node.name isEqualToString:SHARE_NODE_NAME]) {
+        [shareNode setTexture:[SKTexture textureWithImageNamed:@"button-share-selected"]];
+        [shareNode setSize:CGSizeMake(61, 61)];
     }
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay"]];
-    [replayNode setSize:CGSizeMake(52, 52)];
+    [replayNode setSize:CGSizeMake(80, 80)];
     [homeNode setTexture:[SKTexture textureWithImageNamed:@"button-home"]];
     [homeNode setSize:CGSizeMake(52, 52)];
+    [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-gamecenter"]];
+    [gameCenterNode setSize:CGSizeMake(52, 52)];
+    [shareNode setTexture:[SKTexture textureWithImageNamed:@"button-share"]];
+    [shareNode setSize:CGSizeMake(52, 52)];
     [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
     [settingsNode setSize:CGSizeMake(52, 52)];
 }
@@ -78,7 +100,7 @@
    if ([node.name isEqualToString:RETRY_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
         [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay"]];
-        [replayNode setSize:CGSizeMake(52, 52)];
+        [replayNode setSize:CGSizeMake(80, 80)];
     }
     else if ([node.name isEqualToString:HOME_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
@@ -89,6 +111,12 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_SETTINGS object:nil];
         [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
         [settingsNode setSize:CGSizeMake(52, 52)];
+    }
+    else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
+        // Call GameCenter
+    }
+    else if ([node.name isEqualToString:SHARE_NODE_NAME]) {
+        // Call Sharing
     }
 }
 
