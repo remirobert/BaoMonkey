@@ -16,6 +16,7 @@
 @interface Tank : NSObject
 
 @property (nonatomic, strong) SKSpriteNode *tankSprite;
+@property (nonatomic, strong) SKSpriteNode *tower;
 @property (nonatomic, assign) Direction sens;
 @property (nonatomic, assign) NSInteger currentStrat;
 

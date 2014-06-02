@@ -21,9 +21,20 @@
 @property (nonatomic, assign) NSInteger currentShootTime;
 @property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, assign) BOOL isPaused;
+@property (nonatomic, strong) SKEmitterNode *smoke;
 @end
 
 @implementation TankScene
+
+- (void) initSmoke {
+    NSString *burstPath =
+    [[NSBundle mainBundle] pathForResource:@"smokeTank" ofType:@"sks"];
+    
+    _smoke = [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
+    
+    _smoke.zPosition = 50;
+    [self addChild:_smoke];
+}
 
 - (void) initTank {
     _tank = [[Tank alloc] init];
@@ -36,7 +47,9 @@
         _tank.tankSprite.position = CGPointMake([UIScreen mainScreen].bounds.size.width -
                                                 (_tank.tankSprite.size.width / 2),
                                                 _tank.tankSprite.size.height / 2);
+    [self initSmoke];
     [self addChild:_tank.tankSprite];
+    [self addChild:_tank.tower];
 }
 
 - (void) initScene {
@@ -142,8 +155,9 @@
 }
 
 - (void) update:(NSTimeInterval)currentTime {
-    
     [self checkCollisionMonkey];
+    
+    _smoke.position = CGPointMake(_tank.tankSprite.position.x - _tank.tankSprite.size.width / 2, _tank.tankSprite.position.y + _tank.tankSprite.size.height / 2);
         
     if (_isPaused == NO) {
         [GameController updateAccelerometerAcceleration];

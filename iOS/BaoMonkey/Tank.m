@@ -18,8 +18,15 @@
 @implementation Tank
 
 - (void) initSpriteTank {
-    _tankSprite = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor]
-                                               size:CGSizeMake(80, 40)];
+    _tankSprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"chassis"]]];
+    _tankSprite.size = CGSizeMake(_tankSprite.size.width / 10, _tankSprite.size.height / 10);
+    
+    _tower = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"tourelle"]]];
+    
+    _tower.size = CGSizeMake(_tower.size.width / 10, _tower.size.height / 10);
+    _tower.zPosition = 45;
+
+    _tankSprite.zPosition = 50;
 }
 
 - (instancetype) init {
@@ -42,6 +49,7 @@
             _sens = LEFT;
             return ;
         }
+        _tower.xScale = 1.0;
         _tankSprite.position = CGPointMake(_tankSprite.position.x + 1,
                                                _tankSprite.position.y);
     }
@@ -50,10 +58,11 @@
             _sens = RIGHT;
             return ;
         }
-
+        _tower.xScale = -1.0;
         self.tankSprite.position = CGPointMake(_tankSprite.position.x - 1,
                                                _tankSprite.position.y);
     }
+    _tower.position = CGPointMake(_tankSprite.position.x - 20, _tankSprite.position.y + 40);
 }
 
 - (void) lowStrat:(CGPoint)positionMonkey :(SKScene *)scene {

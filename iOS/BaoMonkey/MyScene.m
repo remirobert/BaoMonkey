@@ -277,6 +277,11 @@
 
     NSInteger oldLevel = [GameData getLevel];
     
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self loadTankScene];
+    });
+    
     if ([[GameData singleton] isPause]) {
         
         dispatch_once(&oncePause, ^{
@@ -374,7 +379,7 @@
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
     
     if (oldLevel != [GameData getLevel]) {
-        if (oldLevel == 3) {
+        if (oldLevel == STEP_TANK_BOSS) {
             [self loadTankScene];
         }
     }

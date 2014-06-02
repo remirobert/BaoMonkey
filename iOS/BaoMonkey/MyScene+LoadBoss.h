@@ -8,7 +8,7 @@
 
 #import "MyScene.h"
 
-# define STEP_TANK_BOSS     3
+# define STEP_TANK_BOSS     1
 
 @interface MyScene (LoadBoss)
 
