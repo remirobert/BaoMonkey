@@ -28,7 +28,13 @@
         self.type = EnemyTypeHunter;
         self.node.zPosition = 10;
         self.floor = (int)nbFloor;
-        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_HUNTER_WAITING] size:CGSizeMake(30, 48)];
+        
+        self.node = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"hunter-waiting"]]];
+        
+        self.node.size = CGSizeMake(self.node.size.width / 2, self.node.size.height / 2);
+        
+        
+//        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_HUNTER_WAITING] size:CGSizeMake(30, 48)];
         
         _slot = slotFloor -1;
         _timeAction = 0.0;
