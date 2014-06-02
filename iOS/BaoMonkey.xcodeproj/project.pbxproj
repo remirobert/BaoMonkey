@@ -59,7 +59,7 @@
 		10F65E701935E0EF00ED0DA8 /* SpriteKitCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F65E691935E0EF00ED0DA8 /* SpriteKitCursor.m */; };
 		2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */; };
 		2919C63C192DEE1F00A2F2D1 /* button-home-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C637192DEE1F00A2F2D1 /* button-home-selected@2x.png */; };
-		2919C63D192DEE1F00A2F2D1 /* button-pause-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C638192DEE1F00A2F2D1 /* button-pause-selected@2x.png */; };
+		2919C63D192DEE1F00A2F2D1 /* button-pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C638192DEE1F00A2F2D1 /* button-pause@2x.png */; };
 		2919C63E192DEE1F00A2F2D1 /* button-play-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C639192DEE1F00A2F2D1 /* button-play-selected@2x.png */; };
 		2919C63F192DEE1F00A2F2D1 /* button-replay-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C63A192DEE1F00A2F2D1 /* button-replay-selected@2x.png */; };
 		2919C640192DEE1F00A2F2D1 /* button-settings-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C63B192DEE1F00A2F2D1 /* button-settings-selected@2x.png */; };
@@ -229,7 +229,7 @@
 		10F65E691935E0EF00ED0DA8 /* SpriteKitCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteKitCursor.m; sourceTree = "<group>"; };
 		2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BaoMonkey.mp3; sourceTree = "<group>"; };
 		2919C637192DEE1F00A2F2D1 /* button-home-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-home-selected@2x.png"; path = "Buttons/button-home-selected@2x.png"; sourceTree = "<group>"; };
-		2919C638192DEE1F00A2F2D1 /* button-pause-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pause-selected@2x.png"; path = "Buttons/button-pause-selected@2x.png"; sourceTree = "<group>"; };
+		2919C638192DEE1F00A2F2D1 /* button-pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-pause@2x.png"; path = "Buttons/button-pause@2x.png"; sourceTree = "<group>"; };
 		2919C639192DEE1F00A2F2D1 /* button-play-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-play-selected@2x.png"; path = "Buttons/button-play-selected@2x.png"; sourceTree = "<group>"; };
 		2919C63A192DEE1F00A2F2D1 /* button-replay-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-replay-selected@2x.png"; path = "Buttons/button-replay-selected@2x.png"; sourceTree = "<group>"; };
 		2919C63B192DEE1F00A2F2D1 /* button-settings-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "button-settings-selected@2x.png"; path = "Buttons/button-settings-selected@2x.png"; sourceTree = "<group>"; };
@@ -511,7 +511,7 @@
 			isa = PBXGroup;
 			children = (
 				2919C637192DEE1F00A2F2D1 /* button-home-selected@2x.png */,
-				2919C638192DEE1F00A2F2D1 /* button-pause-selected@2x.png */,
+				2919C638192DEE1F00A2F2D1 /* button-pause@2x.png */,
 				2919C639192DEE1F00A2F2D1 /* button-play-selected@2x.png */,
 				2919C63A192DEE1F00A2F2D1 /* button-replay-selected@2x.png */,
 				2919C63B192DEE1F00A2F2D1 /* button-settings-selected@2x.png */,
@@ -988,7 +988,7 @@
 				29A3D4B31935DA12003A71DC /* button-play@2x.png in Resources */,
 				2919C63C192DEE1F00A2F2D1 /* button-home-selected@2x.png in Resources */,
 				10C59A141919492C00907493 /* monkey@2x.png in Resources */,
-				2919C63D192DEE1F00A2F2D1 /* button-pause-selected@2x.png in Resources */,
+				2919C63D192DEE1F00A2F2D1 /* button-pause@2x.png in Resources */,
 				3FB7C490192E823D00801643 /* selector-slider@2x.png in Resources */,
 				3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */,
 				3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */,
