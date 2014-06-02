@@ -89,6 +89,8 @@
 		29A3D4CA1938AFBC003A71DC /* background-menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29A3D4C91938AFBC003A71DC /* background-menu@2x.png */; };
 		29A3D4CC1938B2CE003A71DC /* splash-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 29A3D4CB1938B2CE003A71DC /* splash-screen.png */; };
 		29A3D4CE1938B380003A71DC /* MonkeyMenu.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 29A3D4CD1938B380003A71DC /* MonkeyMenu.atlas */; };
+		29A3D4CF193C66F5003A71DC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C599CA191948A300907493 /* Main_iPhone.storyboard */; };
+		29A3D4D0193C66F5003A71DC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C599CD191948A300907493 /* Main_iPad.storyboard */; };
 		29CE19001926008600513925 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CE18FF1926008600513925 /* GameKit.framework */; };
 		29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BA9191A87440046F9B2 /* EnemiesController.m */; };
 		29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BAC191A874A0046F9B2 /* Enemy.m */; };
@@ -979,6 +981,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29A3D4CF193C66F5003A71DC /* Main_iPhone.storyboard in Resources */,
+				29A3D4D0193C66F5003A71DC /* Main_iPad.storyboard in Resources */,
 				29A3D4CC1938B2CE003A71DC /* splash-screen.png in Resources */,
 				10C59A161919492C00907493 /* front-leaf@2x.png in Resources */,
 				29A3D4B31935DA12003A71DC /* button-play@2x.png in Resources */,
