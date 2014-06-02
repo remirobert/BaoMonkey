@@ -303,7 +303,7 @@
     
     for (id item in _wave) {
         if (((Item *)item).isTaken == NO) {
-            if (CGRectIntersectsRect(((Item *)item).node.frame, monkey.sprite.frame)) {
+            if (CGRectIntersectsRect(((Item *)item).node.frame, monkey.collisionMask.frame)) {
                 [monkey catchItem:item];
                 if ([((Item *)item) isKindOfClass:[Banana class]]) {
                     [Item deleteItemAfterTimer:(Item *)item];
@@ -315,7 +315,7 @@
     }
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-        if (CGRectIntersectsRect(node.frame, monkey.sprite.frame)) {
+        if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
             //[leafTransition runGameOverTransition];
             [monkey deadMonkey];
             [self gameOverCountDown];
@@ -357,7 +357,7 @@
             }
         }
         else if (enemy.type == EnemyTypeHunter && ((Hunter *)enemy).isMoving == NO) {
-            SKSpriteNode *tmp = [((Hunter *)enemy) shootMonkey:currentTime :monkey.sprite.position];
+            SKSpriteNode *tmp = [((Hunter *)enemy) shootMonkey:currentTime :monkey.collisionMask.position];
             if (tmp != nil)
                 [self addChild:tmp];
         }
