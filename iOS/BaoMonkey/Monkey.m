@@ -22,6 +22,15 @@
 @synthesize sprite;
 @synthesize weapon;
 
+- (void) updateCollisionMask {
+    _collisionMask.position = CGPointMake(sprite.position.x - 5, sprite.position.y - 10);
+}
+
+- (void) initCollisionMask {
+    _collisionMask = [[SKSpriteNode alloc] initWithColor:[SKColor redColor] size:CGSizeMake(sprite.size.width / 2, sprite.size.height - 10)];
+    [self updateCollisionMask];
+}
+
 -(id)initWithPosition:(CGPoint)position {
     self = [super init];
     if (self) {
@@ -35,6 +44,7 @@
         [self loadLaunchSprites];
         [self loadDeadSprites];
         [self loadWaitframes];
+        [self initCollisionMask];
         
         [self waitMonkey];
     }
@@ -59,11 +69,13 @@
         sprite.position = position;
     }
     weapon.node.position = position;
+    [self updateCollisionMask];
 }
 
 #pragma mark - Action animation monkey
 
 - (void) moveActionWalking {
+    NSLog(@"update move");
     if ([sprite actionForKey:@"lanchAction"] != nil ||
         [sprite actionForKey:@"deadMonkey"] != nil) {
         return ;
@@ -102,7 +114,17 @@
 
 -(void)updateMonkeyPosition:(float)acceleration {
     static CGFloat oldAcceleration = 0;
+    static BOOL isAction = NO;
 
+    if ([sprite actionForKey:@"lanchAction"] != nil) {
+        isAction = YES;
+    }
+
+    if (isAction == YES && [sprite actionForKey:@"lanchAction"] != nil) {
+        oldAcceleration = 0;
+        isAction = NO;
+    }
+    
     if (acceleration == 0) {
         if (oldAcceleration == 0)
             return;

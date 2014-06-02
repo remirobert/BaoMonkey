@@ -144,6 +144,7 @@
     
     monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, _treeBranch.node.position.y + 40)];
     [self addChild:monkey.sprite];
+    [self addChild:monkey.collisionMask];
     
     // Init enemies controller
     enemiesController = [[EnemiesController alloc] initWithScene:self];

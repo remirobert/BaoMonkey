@@ -110,11 +110,11 @@
 }
 
 - (void) checkCollisionMonkey {
-    SKNode *monkeyNode = [self.scene nodeAtPoint:_monkey.sprite.position];
+    SKNode *monkeyNode = [self.scene nodeAtPoint:_monkey.collisionMask.position];
     
     [self enumerateChildNodesWithName:NAME_SPRITE_SHOOT_TANK usingBlock:^(SKNode *node, BOOL *stop) {
         
-        if ([node intersectsNode:monkeyNode]) {
+        if ([node intersectsNode:_monkey.sprite]) {
             [self pauseGame];
             GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size andScene:self];
             [self.view presentScene:gameOverScene];

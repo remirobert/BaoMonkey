@@ -22,6 +22,7 @@
 @interface Monkey : NSObject
 
 @property (nonatomic, strong) SKSpriteNode *sprite;
+@property (nonatomic, strong) SKSpriteNode *collisionMask;
 @property (nonatomic, strong) Item *weapon;
 
 -(id)initWithPosition:(CGPoint)position;
