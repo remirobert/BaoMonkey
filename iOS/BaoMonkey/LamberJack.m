@@ -25,7 +25,12 @@
         self.direction = _direction;
         self.type = EnemyTypeLamberJack;
         self.node.zPosition = 10;
-        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_LAMBERJACK_WAITING] size:[BaoSize lamberJack]];
+        
+        self.node = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"lamber-jack-waiting"]]];
+        
+        self.node.size = CGSizeMake(self.node.size.width / 3, self.node.size.height / 3);
+        
+//        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_LAMBERJACK_WAITING] size:[BaoSize lamberJack]];
         if (self.direction == LEFT)
         {
             node.xScale = -1;
@@ -154,7 +159,7 @@
         if (![node actionForKey:SKACTION_LAMBERJACK_DEAD]) {
             [node runAction:[SKAction repeatAction:[SKAction animateWithTextures:deadFrames
                                                                     timePerFrame:0.1f
-                                                                          resize:YES
+                                                                          resize:NO
                                                                          restore:NO]
                                              count:1]
              withKey:SKACTION_LAMBERJACK_DEAD];
