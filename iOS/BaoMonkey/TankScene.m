@@ -67,6 +67,7 @@
     _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2,
                                                            treeBranch.node.position.y + 40)];
     [self addChild:_monkey.sprite];
+    [self addChild:_monkey.collisionMask];
     [GameController initAccelerometer];
 }
 
