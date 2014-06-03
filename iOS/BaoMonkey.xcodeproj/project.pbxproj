@@ -815,7 +815,6 @@
 				10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */,
 				10BCACE2192DFA5600A846F1 /* MyScene+Climber.h */,
 				10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */,
-				10F65E5C1935E0EF00ED0DA8 /* Helicopter.h */,
 				10F65E5D1935E0EF00ED0DA8 /* Helicopter.m */,
 				10F65E5E1935E0EF00ED0DA8 /* HelicopterScene.h */,
 				10F65E5F1935E0EF00ED0DA8 /* HelicopterScene.m */,
@@ -917,6 +916,7 @@
 		3FF6376E191CD50E000721A2 /* Resume */ = {
 			isa = PBXGroup;
 			children = (
+				10F65E5C1935E0EF00ED0DA8 /* Helicopter.h */,
 				3FB67CD9192B4FF600381BDC /* Resume.h */,
 				3FB67CDA192B4FF600381BDC /* Resume.m */,
 			);

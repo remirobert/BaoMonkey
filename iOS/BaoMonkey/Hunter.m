@@ -40,7 +40,8 @@
         {
             node.xScale = -1;
             position.x = screen.size.width + (node.size.width / 2);
-            actionMove = [SKAction moveToX:[UIScreen mainScreen].bounds.size.width - ((FLOOR_WIDTH) / 4 * slotFloor - (self.node.size.width / 2)) duration:2.0];
+            actionMove = [SKAction moveToX:[UIScreen mainScreen].bounds.size.width -
+                          ((FLOOR_WIDTH) / 4 * slotFloor - (self.node.size.width / 2)) duration:2.0];
         }
         else
         {

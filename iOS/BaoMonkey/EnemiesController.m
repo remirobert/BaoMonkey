@@ -170,7 +170,6 @@
     SKAction *sound = [PreloadData getDataWithKey:DATA_COCONUT_SOUND];
     
     [enemy.node runAction: [SKAction sequence:@[fadeIn, sound]]completion:^{
-        [enemy.node removeFromParent];
     }];
     
     if (enemy.type == EnemyTypeLamberJack) {
@@ -180,14 +179,20 @@
         [lamber freeTheSlot:choppingSlots];
         [lamber startDead];
         [GameData addPointToScore:10];
+        [enemies removeObject:enemy];
     }
     else if (enemy.type == EnemyTypeHunter) {
         Hunter *hunter = (Hunter *)enemy;
         self->slotFloor[hunter.floor - 1] -= 1 << hunter.slot;
         [hunter startDead];
         [GameData addPointToScore:20];
+        [enemies removeObject:enemy];
     }
-    [enemies removeObject:enemy];
+    else if (enemy.type == EnemyTypeClimber) {
+        Climber *climb = (Climber *)enemy;
+        [Climber startDead:climb :enemies];
+        [GameData addPointToScore: 30];
+    }
 }
 
 #pragma mark - Floor Controller
