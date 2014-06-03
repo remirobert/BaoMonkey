@@ -8,6 +8,8 @@
 
 #import "Tank.h"
 
+#define SK_DEGREES_TO_RADIANS(__ANGLE__) ((__ANGLE__) * 0.01745329252f)
+
 @interface Tank ()
 @property (nonatomic, assign) CGPoint positionMediumStrat;
 @property (nonatomic, assign) BOOL isShoot;
@@ -26,6 +28,12 @@
     _tower.size = CGSizeMake(_tower.size.width / 10, _tower.size.height / 10);
     _tower.zPosition = 45;
 
+    _canon = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"canon"]]];
+    _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2 - 5);
+    _canon.size = CGSizeMake(_canon.size.width / 10, _canon.size.height / 10);
+    _canon.zPosition = 20;
+        
+    
     _tankSprite.zPosition = 50;
 }
 
@@ -37,7 +45,8 @@
         
         _isHardStrat = _isMediumStrat = NO;
         
-        _positionMediumStrat = CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width / 2)+ ([UIScreen mainScreen].bounds.size.width / 2), [UIScreen mainScreen].bounds.size.height);
+        _positionMediumStrat = CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width / 2) +
+                                           ([UIScreen mainScreen].bounds.size.width / 2), [UIScreen mainScreen].bounds.size.height);
     }
     return (self);
 }
@@ -63,6 +72,7 @@
                                                _tankSprite.position.y);
     }
     _tower.position = CGPointMake(_tankSprite.position.x - 20, _tankSprite.position.y + 40);
+    _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2 + 10);
 }
 
 - (void) lowStrat:(CGPoint)positionMonkey :(SKScene *)scene {
@@ -76,9 +86,11 @@
     SKAction *wait = [SKAction waitForDuration:1.0 withRange:1.0];
     [scene addChild:nodeShoot];
     
-    SKAction *sequenceAction = [SKAction sequence:@[wait, shoot]];
-    
-    [nodeShoot runAction:sequenceAction];
+    [nodeShoot runAction:wait completion:^{
+        float angle = atan2f(positionMonkey.y, positionMonkey.x);
+        _canon.zRotation = angle;
+        [nodeShoot runAction:shoot];
+    }];
 }
 
 - (void) shootFireBomb:(CGPoint)positionMonkey :(SKScene *)scene {
@@ -129,7 +141,6 @@
 }
 
 - (void) shootTank:(CGPoint)positionMonkey scene:(SKScene *)scene {
-    
     if (_currentStrat == 0)
         [self lowStrat:positionMonkey :scene];
     else if (_currentStrat == 1)
