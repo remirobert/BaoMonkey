@@ -116,6 +116,7 @@
 		3F64F75B191A8EB400102094 /* GameData.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F75A191A8EB400102094 /* GameData.m */; };
 		3F64F766191A9DD900102094 /* ProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F64F765191A9DD900102094 /* ProgressBar.m */; };
 		3F7D436C191A3BC800DF30D6 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D436B191A3BC800DF30D6 /* GameController.m */; };
+		3F99D506193DF4500054AC9B /* Shield.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F99D505193DF4500054AC9B /* Shield.m */; };
 		3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A491191B79900027B2C7 /* banana@2x.png */; };
 		3FB2A494191B79900027B2C7 /* coconut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A492191B79900027B2C7 /* coconut@2x.png */; };
 		3FB2A496191B7C580027B2C7 /* prune@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A495191B7C580027B2C7 /* prune@2x.png */; };
@@ -302,6 +303,8 @@
 		3F7D436A191A3BC800DF30D6 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
 		3F7D436B191A3BC800DF30D6 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		3F7D436D191A3E3F00DF30D6 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		3F99D505193DF4500054AC9B /* Shield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shield.m; sourceTree = "<group>"; };
+		3F99D507193DF45D0054AC9B /* Shield.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shield.h; sourceTree = "<group>"; };
 		3FB2A491191B79900027B2C7 /* banana@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banana@2x.png"; sourceTree = "<group>"; };
 		3FB2A492191B79900027B2C7 /* coconut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coconut@2x.png"; sourceTree = "<group>"; };
 		3FB2A495191B7C580027B2C7 /* prune@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prune@2x.png"; sourceTree = "<group>"; };
@@ -728,7 +731,6 @@
 			children = (
 				3FB7C480192DE4BE00801643 /* Size */,
 				299400F9192CD0FD00F0CC97 /* BaoButton */,
-				299400F9192CD0FD00F0CC97 /* BaoButton */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -743,6 +745,7 @@
 		3F50F12819194F3200A37F85 /* Item */ = {
 			isa = PBXGroup;
 			children = (
+				3F99D504193DF4350054AC9B /* Shield */,
 				10C59A2419194D5D00907493 /* Item.h */,
 				10C59A2519194D5D00907493 /* Item.m */,
 				101234081919512500B035D9 /* Weapon.h */,
@@ -860,6 +863,15 @@
 				3F7D436B191A3BC800DF30D6 /* GameController.m */,
 			);
 			name = GameController;
+			sourceTree = "<group>";
+		};
+		3F99D504193DF4350054AC9B /* Shield */ = {
+			isa = PBXGroup;
+			children = (
+				3F99D507193DF45D0054AC9B /* Shield.h */,
+				3F99D505193DF4500054AC9B /* Shield.m */,
+			);
+			name = Shield;
 			sourceTree = "<group>";
 		};
 		3FB2A490191B79900027B2C7 /* Items */ = {
@@ -1108,6 +1120,7 @@
 				29E98BB0191A875D0046F9B2 /* LamberJack.m in Sources */,
 				10F65E6F1935E0EF00ED0DA8 /* Settings.m in Sources */,
 				3F64F75B191A8EB400102094 /* GameData.m in Sources */,
+				3F99D506193DF4500054AC9B /* Shield.m in Sources */,
 				3FB67CDB192B4FF700381BDC /* Resume.m in Sources */,
 				1010BD5519261655003F8436 /* PreloadData.m in Sources */,
 				3F47F9B5192CCF9D00C36A39 /* Music.m in Sources */,

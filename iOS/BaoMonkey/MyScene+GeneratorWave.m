@@ -9,7 +9,9 @@
 #import "MyScene+GeneratorWave.h"
 
 @interface MyScene ()
+
 @property (nonatomic) CGFloat timeWeapon;
+
 @end
 
 @implementation MyScene (GeneratorWave)
@@ -60,6 +62,27 @@
     CocoNuts *coco = [[CocoNuts alloc] initWithPosition:position];
 
     [self addItem:coco];
+}
+
+-(void)addBonus:(CFTimeInterval)currentTime{
+    static CGFloat timeNext = 0.0;
+    
+    if (currentTime < timeNext) {
+        return ;
+    }
+    
+    int ratio = rand() % 11 + 30;
+    
+    timeNext = currentTime + ratio;
+    
+    CGPoint position = CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width -
+                                                  ([UIScreen mainScreen].bounds.size.width / 10)) +
+                                        ([UIScreen mainScreen].bounds.size.width / 10),
+                                        [UIScreen mainScreen].bounds.size.height + self.sizeBlock);
+    
+    Shield *shield = [[Shield alloc] initWithPosition:position];
+        
+    [self addItem:shield];
 }
 
 - (void) addNewWave:(CFTimeInterval)currentTime {

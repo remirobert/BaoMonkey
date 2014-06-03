@@ -21,6 +21,7 @@
 
         background = [SKSpriteNode node];
         background.position = position;
+        background.zPosition = 3000;
         background.color = [UIColor blackColor];
         
         NSLog(@"toto");

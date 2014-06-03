@@ -21,6 +21,7 @@
 
 @synthesize sprite;
 @synthesize weapon;
+@synthesize isShield;
 
 - (void) updateCollisionMask {
     _collisionMask.position = CGPointMake(sprite.position.x - 5, sprite.position.y - 10);
@@ -38,6 +39,7 @@
         sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING]
                                                 size:[BaoSize monkey]];
         sprite.position = position;
+        isShield = FALSE;
         
         [self loadWalkingSprites];
         [self loadWalkingCoconutSprites];
@@ -232,6 +234,9 @@
         }
         else
             return ;
+    } else if ([item isKindOfClass:[Shield class]]) {
+        ((Item *)item).node.hidden = YES;
+        isShield = TRUE;
     }
     if (((Item *)item).isTaken == NO)
         [(Item *)item launchAction];

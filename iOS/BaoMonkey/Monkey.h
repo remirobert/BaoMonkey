@@ -15,6 +15,7 @@
 #import "Weapon.h"
 #import "Define.h"
 #import "Action.h"
+#import "Shield.h"
 
 # define kSpeed 10
 # define kSpriteImageName @"monkey.png"
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) SKSpriteNode *sprite;
 @property (nonatomic, strong) SKSpriteNode *collisionMask;
 @property (nonatomic, strong) Item *weapon;
+@property (nonatomic, strong) BOOL isShield;
 
 -(id)initWithPosition:(CGPoint)position;
 -(void)updateMonkeyPosition:(float)acceleration;

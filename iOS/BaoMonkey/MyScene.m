@@ -297,6 +297,7 @@
     currentTime -= pauseTime;
     [self addNewWeapon:currentTime];
     [self addNewWave:currentTime];
+    [self addBonus:currentTime];
     
     [GameController updateAccelerometerAcceleration];
     [monkey updateMonkeyPosition:[GameController getAcceleration]];
