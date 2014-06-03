@@ -21,16 +21,16 @@
 
 - (void) initSpriteTank {
     _tankSprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"chassis"]]];
-    _tankSprite.size = CGSizeMake(_tankSprite.size.width / 10, _tankSprite.size.height / 10);
+    _tankSprite.size = CGSizeMake(_tankSprite.size.width / 9, _tankSprite.size.height / 9);
     
     _tower = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"tourelle"]]];
     
-    _tower.size = CGSizeMake(_tower.size.width / 10, _tower.size.height / 10);
+    _tower.size = CGSizeMake(_tower.size.width / 9, _tower.size.height / 9);
     _tower.zPosition = 45;
 
     _canon = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"canon"]]];
     _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2 - 5);
-    _canon.size = CGSizeMake(_canon.size.width / 10, _canon.size.height / 10);
+    _canon.size = CGSizeMake(_canon.size.width / 9, _canon.size.height / 9);
     _canon.zPosition = 20;
         
     
@@ -46,7 +46,8 @@
         _isHardStrat = _isMediumStrat = NO;
         
         _positionMediumStrat = CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width / 2) +
-                                           ([UIScreen mainScreen].bounds.size.width / 2), [UIScreen mainScreen].bounds.size.height);
+                                           ([UIScreen mainScreen].bounds.size.width / 2),
+                                           [UIScreen mainScreen].bounds.size.height);
     }
     return (self);
 }
@@ -81,7 +82,8 @@
     nodeShoot.position = _tankSprite.position;
     nodeShoot.name = NAME_SPRITE_SHOOT_TANK;
     
-    SKAction *shoot = [SKAction moveTo:CGPointMake(rand() % 80 + (positionMonkey.x - 40), [UIScreen mainScreen].bounds.size.height) duration:1.5];
+    SKAction *shoot = [SKAction moveTo:CGPointMake(rand() % 80 + (positionMonkey.x - 40),
+                                                   [UIScreen mainScreen].bounds.size.height) duration:1.5];
     
     SKAction *wait = [SKAction waitForDuration:1.0 withRange:1.0];
     [scene addChild:nodeShoot];
@@ -103,9 +105,10 @@
     [scene addChild:nodeShoot];
     
     nodeShoot.position = _tankSprite.position;
-    SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width), positionMonkey.y - 15) duration:2.0];
+    SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width),
+                                                       positionMonkey.y) duration:2.0];
     
-    SKAction *fireAction = [SKAction resizeToWidth:rand() % 20 + 20 duration:1.5];
+    SKAction *fireAction = [SKAction resizeToWidth:rand() % 20 duration:1.5];
     
     [nodeShoot runAction:moveShoot completion:^{
         
@@ -116,7 +119,7 @@
         [[NSBundle mainBundle] pathForResource:@"fire" ofType:@"sks"];
         
         SKEmitterNode *fire = [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
-        fire.position = nodeShoot.position;
+        fire.position = CGPointMake(nodeShoot.position.x, nodeShoot.position.y - 30);
         fire.name = NAME_SPRITE_FIRE_TANK;
         fire.zPosition = 1;
         [scene addChild:fire];
