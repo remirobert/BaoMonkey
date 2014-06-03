@@ -50,6 +50,7 @@
     [self initSmoke];
     [self addChild:_tank.tankSprite];
     [self addChild:_tank.tower];
+    [self addChild:_tank.canon];
 }
 
 - (void) initScene {
@@ -157,7 +158,8 @@
 - (void) update:(NSTimeInterval)currentTime {
     [self checkCollisionMonkey];
     
-    _smoke.position = CGPointMake(_tank.tankSprite.position.x - _tank.tankSprite.size.width / 2, _tank.tankSprite.position.y + _tank.tankSprite.size.height / 2);
+    _smoke.position = CGPointMake(_tank.tankSprite.position.x - _tank.tankSprite.size.width / 2,
+                                  _tank.tankSprite.position.y + _tank.tankSprite.size.height / 2);
         
     if (_isPaused == NO) {
         [GameController updateAccelerometerAcceleration];
