@@ -265,10 +265,10 @@
 
     NSInteger oldLevel = [GameData getLevel];
     
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        [self loadTankScene];
-//    });
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self loadTankScene];
+    });
     
     if ([[GameData singleton] isPause]) {
         
@@ -306,7 +306,7 @@
             }
         }
     }
-    
+
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
             //[leafTransition runGameOverTransition];

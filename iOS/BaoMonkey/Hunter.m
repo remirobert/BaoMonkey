@@ -40,7 +40,8 @@
         {
             node.xScale = -1;
             position.x = screen.size.width + (node.size.width / 2);
-            actionMove = [SKAction moveToX:[UIScreen mainScreen].bounds.size.width - ((FLOOR_WIDTH) / 4 * slotFloor - (self.node.size.width / 2)) duration:2.0];
+            actionMove = [SKAction moveToX:[UIScreen mainScreen].bounds.size.width -
+                          ((FLOOR_WIDTH) / 4 * slotFloor - (self.node.size.width / 2)) duration:2.0];
         }
         else
         {
@@ -50,7 +51,7 @@
         }
 
         node.name = ENEMY_NODE_NAME;
-        position.y = MIN_POSY_FLOOR + (SPACE_BETWEEN * (nbFloor - 1)) + [BaoSize plateform].height;
+        position.y = MIN_POSY_FLOOR + (SPACE_BETWEEN * (nbFloor - 1)) + [BaoSize plateform].height - 20;
         [node setPosition:position];
         _isMoving = YES;
         
@@ -82,7 +83,9 @@
         positionX = (rand() % (int)positionMonkey.x - 50) + positionMonkey.x - 50;
     
     
-    SKSpriteNode *shoot = [[SKSpriteNode alloc] initWithColor:[SKColor blackColor] size:CGSizeMake(10, 10)];
+    //SKSpriteNode *shoot = [[SKSpriteNode alloc] initWithColor:[SKColor blackColor] size:CGSizeMake(10, 10)];
+    SKSpriteNode *shoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munition-explosive"]];
+    shoot.size = CGSizeMake(shoot.size.width / 3, shoot.size.height / 3);
     
     moveShoot = [SKAction moveTo:CGPointMake(positionX, [UIScreen mainScreen].bounds.size.height)
                         duration:2.0 - (float)([GameData getLevel] / 10.0)];
@@ -112,7 +115,10 @@
         [node  runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"chasseur-4"],
                                                                                        [SKTexture textureWithImageNamed:@"chasseur-5"]] timePerFrame:0.1]
                  completion:^{
-                     [node removeFromParent];
+                     [node removeAllActions];
+                     [node runAction:[SKAction waitForDuration:0.5] completion:^{
+                         [node removeFromParent];
+                     }];
                  }];
     }
 }
