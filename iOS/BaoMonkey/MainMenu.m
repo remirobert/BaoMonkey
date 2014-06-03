@@ -34,7 +34,7 @@
 }
 
 -(void)initMainMenu {
-    [background setTexture:[SKTexture textureWithImageNamed:@"background-menu"]];
+    [background setTexture:[SKTexture textureWithImageNamed:@"background-left"]];
     
     panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background-panel-4buttons"] size:CGSizeMake(307, 421)];
     panel.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2));

@@ -99,6 +99,9 @@
 		29A3D4CF193C66F5003A71DC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C599CA191948A300907493 /* Main_iPhone.storyboard */; };
 		29A3D4D0193C66F5003A71DC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C599CD191948A300907493 /* Main_iPad.storyboard */; };
 		29CE19001926008600513925 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CE18FF1926008600513925 /* GameKit.framework */; };
+		29D8FF87193E6802001E3056 /* background-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D8FF84193E6802001E3056 /* background-left@2x.png */; };
+		29D8FF88193E6802001E3056 /* background-middle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D8FF85193E6802001E3056 /* background-middle@2x.png */; };
+		29D8FF89193E6802001E3056 /* background-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D8FF86193E6802001E3056 /* background-right@2x.png */; };
 		29E98BAA191A87440046F9B2 /* EnemiesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BA9191A87440046F9B2 /* EnemiesController.m */; };
 		29E98BAD191A874A0046F9B2 /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BAC191A874A0046F9B2 /* Enemy.m */; };
 		29E98BB0191A875D0046F9B2 /* LamberJack.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E98BAF191A875D0046F9B2 /* LamberJack.m */; };
@@ -277,6 +280,9 @@
 		29A3D4CB1938B2CE003A71DC /* splash-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash-screen.png"; path = "../Images.xcassets/LaunchImage.launchimage/splash-screen.png"; sourceTree = "<group>"; };
 		29A3D4CD1938B380003A71DC /* MonkeyMenu.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyMenu.atlas; sourceTree = "<group>"; };
 		29CE18FF1926008600513925 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		29D8FF84193E6802001E3056 /* background-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-left@2x.png"; path = "Background/background-left@2x.png"; sourceTree = "<group>"; };
+		29D8FF85193E6802001E3056 /* background-middle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-middle@2x.png"; path = "Background/background-middle@2x.png"; sourceTree = "<group>"; };
+		29D8FF86193E6802001E3056 /* background-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background-right@2x.png"; path = "Background/background-right@2x.png"; sourceTree = "<group>"; };
 		29E98BA8191A87440046F9B2 /* EnemiesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemiesController.h; sourceTree = "<group>"; };
 		29E98BA9191A87440046F9B2 /* EnemiesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemiesController.m; sourceTree = "<group>"; };
 		29E98BAB191A874A0046F9B2 /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
@@ -568,6 +574,9 @@
 				2919C647192E2CFC00A2F2D1 /* leafs-foreground@2x.png */,
 				29A3D4C5193653C2003A71DC /* background-panel-3buttons@2x.png */,
 				29A3D4C6193653C2003A71DC /* background-panel-4buttons@2x.png */,
+				29D8FF84193E6802001E3056 /* background-left@2x.png */,
+				29D8FF85193E6802001E3056 /* background-middle@2x.png */,
+				29D8FF86193E6802001E3056 /* background-right@2x.png */,
 			);
 			name = Background;
 			sourceTree = "<group>";
@@ -1019,6 +1028,7 @@
 				29A3D4B31935DA12003A71DC /* button-play@2x.png in Resources */,
 				2919C63C192DEE1F00A2F2D1 /* button-home-selected@2x.png in Resources */,
 				10C59A141919492C00907493 /* monkey@2x.png in Resources */,
+				29D8FF89193E6802001E3056 /* background-right@2x.png in Resources */,
 				2919C63D192DEE1F00A2F2D1 /* button-pause@2x.png in Resources */,
 				3FB7C490192E823D00801643 /* selector-slider@2x.png in Resources */,
 				3FB2A498191B7DA80027B2C7 /* splash-prune@2x.png in Resources */,
@@ -1038,6 +1048,7 @@
 				29A3D4B51935DA12003A71DC /* button-settings@2x.png in Resources */,
 				3FE2405419338B410017C470 /* MonkeyLaunch.atlas in Resources */,
 				10A9E1521936312900E3E7A0 /* MonkeyWait.atlas in Resources */,
+				29D8FF87193E6802001E3056 /* background-left@2x.png in Resources */,
 				108C7E43193CD4E000ADCB85 /* tourelle@2x.png in Resources */,
 				10C59A151919492C00907493 /* back-leaf@2x.png in Resources */,
 				3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */,
@@ -1055,6 +1066,7 @@
 				10C599D9191948A300907493 /* Images.xcassets in Resources */,
 				296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */,
 				3F47F9C2192D41E200C36A39 /* LamberJackCutting.atlas in Resources */,
+				29D8FF88193E6802001E3056 /* background-middle@2x.png in Resources */,
 				29A3D4CA1938AFBC003A71DC /* background-menu@2x.png in Resources */,
 				2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */,
 				102D554D1936430800D7072D /* grosse_tache@2x.png in Resources */,
