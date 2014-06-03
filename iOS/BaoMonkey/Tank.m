@@ -90,7 +90,7 @@
     
     [nodeShoot runAction:wait completion:^{
         float angle = atan2f(positionMonkey.y, positionMonkey.x);
-        _canon.zRotation = angle;
+        _canon.zRotation = angle * 2;
         [nodeShoot runAction:shoot];
     }];
 }

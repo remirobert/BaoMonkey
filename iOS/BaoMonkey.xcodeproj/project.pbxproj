@@ -20,13 +20,13 @@
 		108C7E42193CD4E000ADCB85 /* rouemodulaire@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E3E193CD4E000ADCB85 /* rouemodulaire@2x.png */; };
 		108C7E43193CD4E000ADCB85 /* tourelle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E3F193CD4E000ADCB85 /* tourelle@2x.png */; };
 		109E9307191A60EF00DD5623 /* Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 109E9306191A60EF00DD5623 /* Action.m */; };
-		10A12F0D191CD02700AA86BE /* Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A12F0C191CD02700AA86BE /* Climber.m */; };
 		10A495E0192B419D005299D8 /* GameCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A495DF192B419D005299D8 /* GameCenter.m */; };
 		10A7E66F192E2F6300D37183 /* LamberJackMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7E66E192E2F6300D37183 /* LamberJackMachine.m */; };
 		10A9E1521936312900E3E7A0 /* MonkeyWait.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 10A9E1511936312900E3E7A0 /* MonkeyWait.atlas */; };
 		10AB3472192CC74E00661301 /* TankScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AB3471192CC74E00661301 /* TankScene.m */; };
 		10AB3476192CD1B200661301 /* Tank.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AB3475192CD1B200661301 /* Tank.m */; };
 		10B2E580193DC7EE00DDEF3A /* fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 10B2E57F193DC7EE00DDEF3A /* fire.sks */; };
+		10B2E593193DEFE000DDEF3A /* Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B2E592193DEFE000DDEF3A /* Climber.m */; };
 		10B4196419260681005D4EDC /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10B4196319260681005D4EDC /* UserData.m */; };
 		10BCACE4192DFA5600A846F1 /* MyScene+Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BCACE3192DFA5600A846F1 /* MyScene+Climber.m */; };
 		10BCACE7192E02CA00A846F1 /* LamberJackMachineScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10BCACE6192E02CA00A846F1 /* LamberJackMachineScene.m */; };
@@ -167,8 +167,6 @@
 		108C7E3F193CD4E000ADCB85 /* tourelle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tourelle@2x.png"; sourceTree = "<group>"; };
 		109E9305191A60EF00DD5623 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		109E9306191A60EF00DD5623 /* Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Action.m; sourceTree = "<group>"; };
-		10A12F0B191CD02700AA86BE /* Climber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Climber.h; sourceTree = "<group>"; };
-		10A12F0C191CD02700AA86BE /* Climber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Climber.m; sourceTree = "<group>"; };
 		10A495DE192B419D005299D8 /* GameCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenter.h; sourceTree = "<group>"; };
 		10A495DF192B419D005299D8 /* GameCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenter.m; sourceTree = "<group>"; };
 		10A7E66D192E2F6300D37183 /* LamberJackMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamberJackMachine.h; sourceTree = "<group>"; };
@@ -179,6 +177,8 @@
 		10AB3474192CD1B200661301 /* Tank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tank.h; sourceTree = "<group>"; };
 		10AB3475192CD1B200661301 /* Tank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tank.m; sourceTree = "<group>"; };
 		10B2E57F193DC7EE00DDEF3A /* fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire.sks; sourceTree = "<group>"; };
+		10B2E591193DEFE000DDEF3A /* Climber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Climber.h; sourceTree = "<group>"; };
+		10B2E592193DEFE000DDEF3A /* Climber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Climber.m; sourceTree = "<group>"; };
 		10B4196219260681005D4EDC /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
 		10B4196319260681005D4EDC /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 		10BCACE2192DFA5600A846F1 /* MyScene+Climber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Climber.h"; sourceTree = "<group>"; };
@@ -367,8 +367,8 @@
 		10A12F0A191CCFF400AA86BE /* Climber */ = {
 			isa = PBXGroup;
 			children = (
-				10A12F0B191CD02700AA86BE /* Climber.h */,
-				10A12F0C191CD02700AA86BE /* Climber.m */,
+				10B2E591193DEFE000DDEF3A /* Climber.h */,
+				10B2E592193DEFE000DDEF3A /* Climber.m */,
 			);
 			name = Climber;
 			sourceTree = "<group>";
@@ -1110,6 +1110,7 @@
 				3F64F75B191A8EB400102094 /* GameData.m in Sources */,
 				3FB67CDB192B4FF700381BDC /* Resume.m in Sources */,
 				1010BD5519261655003F8436 /* PreloadData.m in Sources */,
+				10B2E593193DEFE000DDEF3A /* Climber.m in Sources */,
 				3F47F9B5192CCF9D00C36A39 /* Music.m in Sources */,
 				10F65E6A1935E0EF00ED0DA8 /* Helicopter.m in Sources */,
 				10BCACE4192DFA5600A846F1 /* MyScene+Climber.m in Sources */,
@@ -1130,7 +1131,6 @@
 				10A7E66F192E2F6300D37183 /* LamberJackMachine.m in Sources */,
 				10A495E0192B419D005299D8 /* GameCenter.m in Sources */,
 				10F65E6D1935E0EF00ED0DA8 /* MyScene+LoadBoss.m in Sources */,
-				10A12F0D191CD02700AA86BE /* Climber.m in Sources */,
 				10C59A1D19194BF000907493 /* CocoNuts.m in Sources */,
 				3FB7C483192DE4CA00801643 /* BaoSize.m in Sources */,
 				10C59A091919492200907493 /* ViewController.m in Sources */,

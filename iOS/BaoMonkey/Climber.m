@@ -23,16 +23,17 @@
         self.direction = _direction;
         self.type = EnemyTypeClimber;
         self.node.zPosition = 10;
+        node = [SKSpriteNode spriteNodeWithImageNamed:@"gorille-1"];
+        node.size = CGSizeMake(node.size.width / 3, node.size.height / 3);
         
         if (self.direction == LEFT)
         {
-            node = [SKSpriteNode spriteNodeWithImageNamed:@"hunter-right"];
             position.x = 0;
             _climbPositionX = ([UIScreen mainScreen].bounds.size.width / 2) - 40;
         }
         else
         {
-            node = [SKSpriteNode spriteNodeWithImageNamed:@"hunter-left"];
+            node.xScale = -1.0;
             position.x = [UIScreen mainScreen].bounds.size.width + (node.size.width / 2);
             _climbPositionX = ([UIScreen mainScreen].bounds.size.width / 2) + 40;
         }
@@ -62,22 +63,6 @@
         _isOnPlateform = YES;
         node.name = SHOOT_NODE_NAME;
     }];
-}
-
--(void)loadBadMonkeyWalkingSprites {
-    
-}
-
--(void)loadSpecialForceWalkingSprites {
-    
-}
-
--(void)loadBadMonkeyClumbingSprites {
-    
-}
-
--(void)loadSpecialForceClumbingSprites {
-    
 }
 
 @end

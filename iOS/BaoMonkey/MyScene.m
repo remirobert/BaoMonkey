@@ -51,13 +51,6 @@
     return node;
 }
 
-//-(SKSpriteNode *)backLeafNode {
-//    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"back-leaf"];
-//    node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - 124));
-//    node.name = BACK_LEAF_NODE_NAME;
-//    return node;
-//}
-
 -(SKSpriteNode *)frontLeafNode {
     SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"leafs-foreground"];
     node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (node.size.height / 2)));
@@ -128,7 +121,6 @@
     
     SKSpriteNode *trunk = [self backgroundNode];
     [self addChild:trunk];
-    //[self addChild:[self backLeafNode]];
     _sizeBlock = (self.frame.size.width - (self.frame.size.width / 10)) / 10;
     _treeBranch = [[TreeBranch alloc] init];
     
@@ -263,10 +255,6 @@
     [self.view presentScene:pauseScene transition:menuTransition];
 }
 
-//-(void)removePauseView{
-//    [self removeChildrenInArray:pauseView];
-//}
-
 - (void) resumeGame {
     //[self removePauseView];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RESUME_GAME object:nil];
@@ -277,10 +265,10 @@
 
     NSInteger oldLevel = [GameData getLevel];
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self loadTankScene];
-    });
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        [self loadTankScene];
+//    });
     
     if ([[GameData singleton] isPause]) {
         

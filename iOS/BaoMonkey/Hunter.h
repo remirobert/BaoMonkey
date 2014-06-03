@@ -21,6 +21,5 @@
 - (SKSpriteNode *) shootMonkey :(CFTimeInterval)currentTime :(CGPoint)positionMonkey;
 
 -(void)startDead;
--(void)stopDead;
 
 @end

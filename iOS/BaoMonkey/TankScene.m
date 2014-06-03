@@ -117,7 +117,8 @@
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
     
-    if (([GameData isGameOver] && [node.name isEqualToString:RETRY_NODE_NAME]) || [node.name isEqualToString:RETRY_NODE_NAME]) {
+    if (([GameData isGameOver] && [node.name isEqualToString:RETRY_NODE_NAME]) ||
+        [node.name isEqualToString:RETRY_NODE_NAME]) {
         [GameData resetGameData];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
         return ;
@@ -188,7 +189,6 @@
         }
         _currentShootTime = currentTime + 1.0;
     }
-    
     [self performPositionShoot];
 }
 

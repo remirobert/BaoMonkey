@@ -26,9 +26,9 @@
         self.type = EnemyTypeLamberJack;
         self.node.zPosition = 10;
         
-        self.node = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"lamber-jack-waiting"]]];
+        self.node = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:@"bucheron-1"]];
         
-        self.node.size = CGSizeMake(self.node.size.width / 3, self.node.size.height / 3);
+        self.node.size = CGSizeMake(self.node.size.width / 4, self.node.size.height / 4);
         
 //        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_LAMBERJACK_WAITING] size:[BaoSize lamberJack]];
         if (self.direction == LEFT)
@@ -44,9 +44,6 @@
         node.name = ENEMY_NODE_NAME;
         position.y = node.size.height / 2 + FLOOR_HEIGHT;
         [node setPosition:position];
-        [self loadWalkingSprites];
-        [self loadCuttingSprites];
-        [self loadDeadSprites];
     }
     return self;
 }
@@ -69,55 +66,12 @@
     }
 }
 
--(void)loadWalkingSprites {
-    NSMutableArray *frames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *lamberJackWalkingAtlas = [PreloadData getDataWithKey:DATA_LAMBERJACK_WALKING_ATLAS];
-    NSUInteger numberOfFrames = lamberJackWalkingAtlas.textureNames.count;
-    
-    for (int i = 1; i <= numberOfFrames; i++) {
-        NSString *textureName = [NSString stringWithFormat:@"lamber-jack-walking-%d", i];
-        SKTexture *tmp = [lamberJackWalkingAtlas textureNamed:textureName];
-        [frames addObject:tmp];
-    }
-    
-    walkingFrames = [[NSArray alloc] init];
-    walkingFrames = frames;
-}
-
--(void)loadCuttingSprites {
-    NSMutableArray *frames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *lamberJackCuttingAtlas = [PreloadData getDataWithKey:DATA_LAMBERJACK_CUTTING_ATLAS];
-    NSUInteger numberOfFrames = lamberJackCuttingAtlas.textureNames.count;
-    
-    for (int i = 1; i <= numberOfFrames; i++) {
-        NSString *textureName = [NSString stringWithFormat:@"lamber-jack-cutting-%d", i];
-        SKTexture *tmp = [lamberJackCuttingAtlas textureNamed:textureName];
-        [frames addObject:tmp];
-    }
-    
-    cuttingFrames = [[NSArray alloc] init];
-    cuttingFrames = frames;
-}
-
--(void)loadDeadSprites {
-    NSMutableArray *frames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *lamberJackDeadAtlas = [PreloadData getDataWithKey:DATA_LAMBERJACK_DEAD_ATLAS];
-    NSUInteger numberOfFrames = lamberJackDeadAtlas.textureNames.count;
-    
-    for (int i = 1; i <= numberOfFrames; i++) {
-        NSString *textureName = [NSString stringWithFormat:@"lamber-jack-dead-%d", i];
-        SKTexture *tmp = [lamberJackDeadAtlas textureNamed:textureName];
-        [frames addObject:tmp];
-    }
-    
-    deadFrames = [[NSArray alloc] init];
-    deadFrames = frames;
-}
-
 -(void)startWalking {
     if (![node actionForKey:SKACTION_LAMBERJACK_WALKING]) {
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
-                                                                         timePerFrame:0.1f
+        
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"bucheron-2"],
+                                                                                      [SKTexture textureWithImageNamed:@"bucheron-3"]]
+                                                                            timePerFrame:0.1f
                                                                                resize:NO
                                                                               restore:NO]]
                   withKey:SKACTION_LAMBERJACK_WALKING];
@@ -136,7 +90,9 @@
 -(void)startChopping {
     isChooping = TRUE;
     if (![node actionForKey:SKACTION_LAMBERJACK_CUTTING]) {
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:cuttingFrames
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"bucheron-4"],
+                                                                                      [SKTexture textureWithImageNamed:@"bucheron-5"],
+                                                                                      [SKTexture textureWithImageNamed:@"bucheron-6"]]
                                                                        timePerFrame:0.1f
                                                                              resize:NO
                                                                             restore:NO]]
@@ -157,18 +113,15 @@
 -(void)startDead {
     if (!isChooping) {
         if (![node actionForKey:SKACTION_LAMBERJACK_DEAD]) {
-            [node runAction:[SKAction repeatAction:[SKAction animateWithTextures:deadFrames
+            [node runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"bucheron-7"],
+                                                                                   [SKTexture textureWithImageNamed:@"bucheron-8"]]
                                                                     timePerFrame:0.1f
                                                                           resize:NO
-                                                                         restore:NO]
-                                             count:1]
-             withKey:SKACTION_LAMBERJACK_DEAD];
+                                                                         restore:NO] completion:^{
+                [node removeFromParent];
+            }];
         }
     }
-}
-
--(void)stopDead {
-    [node removeActionForKey:SKACTION_LAMBERJACK_DEAD];
 }
 
 -(int)findFreeSlot:(NSArray*)choppingSlots {

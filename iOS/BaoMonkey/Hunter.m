@@ -29,12 +29,9 @@
         self.node.zPosition = 10;
         self.floor = (int)nbFloor;
         
-        self.node = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"hunter-waiting"]]];
+        self.node = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:@"chasseur-1"]];
         
-        self.node.size = CGSizeMake(self.node.size.width / 2, self.node.size.height / 2);
-        
-        
-//        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_HUNTER_WAITING] size:CGSizeMake(30, 48)];
+        self.node.size = CGSizeMake(self.node.size.width / 4, self.node.size.height / 4);
         
         _slot = slotFloor -1;
         _timeAction = 0.0;
@@ -51,10 +48,7 @@
             position.x = - (node.size.width / 2);
             actionMove = [SKAction moveToX:(FLOOR_WIDTH) / 4 * slotFloor - (self.node.size.width / 2) duration:2.0];
         }
-        
-        [self loadWalkingSprites];
-        [self loadDeadSprites];
-        
+
         node.name = ENEMY_NODE_NAME;
         position.y = MIN_POSY_FLOOR + (SPACE_BETWEEN * (nbFloor - 1)) + [BaoSize plateform].height;
         [node setPosition:position];
@@ -101,68 +95,26 @@
     return (shoot);
 }
 
--(void)loadWalkingSprites {
-    NSMutableArray *frames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *hunterWalkingAtlas = [PreloadData getDataWithKey:DATA_HUNTER_WALKING_ATLAS];
-    NSUInteger numberOfFrames = hunterWalkingAtlas.textureNames.count;
-    
-    for (int i = 1; i <= numberOfFrames; i++) {
-        NSString *textureName = [NSString stringWithFormat:@"hunter-walking-%d", i];
-        SKTexture *tmp = [hunterWalkingAtlas textureNamed:textureName];
-        [frames addObject:tmp];
-    }
-    
-    walkingFrames = [[NSArray alloc] init];
-    walkingFrames = frames;
-}
-
--(void)loadDeadSprites {
-    NSMutableArray *frames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *hunterDeadAtlas = [PreloadData getDataWithKey:DATA_HUNTER_DEAD_ATLAS];
-    NSUInteger numberOfFrames = hunterDeadAtlas.textureNames.count;
-    
-    for (int i = 1; i <= numberOfFrames; i++) {
-        NSString *textureName = [NSString stringWithFormat:@"hunter-dead-%d", i];
-        SKTexture *tmp = [hunterDeadAtlas textureNamed:textureName];
-        [frames addObject:tmp];
-    }
-    
-    deadFrames = [[NSArray alloc] init];
-    deadFrames = frames;
-}
-
 -(void)startWalking {
-    if (![node actionForKey:SKACTION_HUNTER_WALKING]) {
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:walkingFrames
-                                                                       timePerFrame:0.1f
-                                                                             resize:NO
-                                                                            restore:NO]]
-                withKey:SKACTION_HUNTER_WALKING];
-    }
+    
+    
+    [node  runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"chasseur-2"],
+                                                                                   [SKTexture textureWithImageNamed:@"chasseur-3"]] timePerFrame:0.2]]
+             withKey:SKACTION_HUNTER_WALKING];
 }
 
 -(void)stopWalking {
     [node removeActionForKey:SKACTION_HUNTER_WALKING];
-//    if (self.direction == RIGHT) {
-//        node.xScale = -1;
-//    } else {
-//        node.xScale = 1;
-//    }
 }
 
 -(void)startDead {
     if (![node actionForKey:SKACTION_HUNTER_DEAD]) {
-        [node runAction:[SKAction repeatAction:[SKAction animateWithTextures:deadFrames
-                                                                timePerFrame:0.1f
-                                                                      resize:NO
-                                                                     restore:NO]
-                                         count:1]
-         withKey:SKACTION_HUNTER_DEAD];
+        [node  runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"chasseur-4"],
+                                                                                       [SKTexture textureWithImageNamed:@"chasseur-5"]] timePerFrame:0.1]
+                 completion:^{
+                     [node removeFromParent];
+                 }];
     }
-}
-
--(void)stopDead {
-    [node removeActionForKey:SKACTION_HUNTER_DEAD];
 }
 
 @end

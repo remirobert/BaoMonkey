@@ -177,8 +177,8 @@
         LamberJack *lamber;
         lamber = (LamberJack*)enemy;
         [lamber stopChopping];
-        [lamber startDead];
         [lamber freeTheSlot:choppingSlots];
+        [lamber startDead];
         [GameData addPointToScore:10];
     }
     else if (enemy.type == EnemyTypeHunter) {
