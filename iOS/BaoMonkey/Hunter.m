@@ -83,7 +83,9 @@
         positionX = (rand() % (int)positionMonkey.x - 50) + positionMonkey.x - 50;
     
     
-    SKSpriteNode *shoot = [[SKSpriteNode alloc] initWithColor:[SKColor blackColor] size:CGSizeMake(10, 10)];
+    //SKSpriteNode *shoot = [[SKSpriteNode alloc] initWithColor:[SKColor blackColor] size:CGSizeMake(10, 10)];
+    SKSpriteNode *shoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munition-explosive"]];
+    shoot.size = CGSizeMake(shoot.size.width / 3, shoot.size.height / 3);
     
     moveShoot = [SKAction moveTo:CGPointMake(positionX, [UIScreen mainScreen].bounds.size.height)
                         duration:2.0 - (float)([GameData getLevel] / 10.0)];
