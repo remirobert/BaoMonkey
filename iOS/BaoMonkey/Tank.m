@@ -96,18 +96,31 @@
 - (void) shootFireBomb:(CGPoint)positionMonkey :(SKScene *)scene {
     SKSpriteNode *nodeShoot;
     
+    
     nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(20, 20)];
     
     nodeShoot.name = NAME_SPRITE_FIRE_TANK;
     [scene addChild:nodeShoot];
     
     nodeShoot.position = _tankSprite.position;
-    SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width), positionMonkey.y) duration:2.0];
+    SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width), positionMonkey.y - 15) duration:2.0];
     
-    SKAction *fireAction = [SKAction resizeToWidth:rand() % 20 + 40 duration:1.5];
+    SKAction *fireAction = [SKAction resizeToWidth:rand() % 20 + 20 duration:1.5];
     
     [nodeShoot runAction:moveShoot completion:^{
+        
+        nodeShoot.color = [SKColor colorWithRed:0 green:0 blue:0 alpha:0];
+        
         [nodeShoot runAction:fireAction];
+        NSString *burstPath =
+        [[NSBundle mainBundle] pathForResource:@"fire" ofType:@"sks"];
+        
+        SKEmitterNode *fire = [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
+        fire.position = nodeShoot.position;
+        fire.name = NAME_SPRITE_FIRE_TANK;
+        fire.zPosition = 1;
+        [scene addChild:fire];
+
         _isShoot = YES;
     }];
 }
