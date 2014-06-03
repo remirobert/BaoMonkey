@@ -115,7 +115,10 @@
         [node  runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"chasseur-4"],
                                                                                        [SKTexture textureWithImageNamed:@"chasseur-5"]] timePerFrame:0.1]
                  completion:^{
-                     [node removeFromParent];
+                     [node removeAllActions];
+                     [node runAction:[SKAction waitForDuration:0.5] completion:^{
+                         [node removeFromParent];
+                     }];
                  }];
     }
 }

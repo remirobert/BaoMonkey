@@ -117,7 +117,10 @@
                                                                     timePerFrame:0.1f
                                                                           resize:NO
                                                                          restore:NO] completion:^{
-                [node removeFromParent];
+                [node removeAllActions];
+                [node runAction:[SKAction waitForDuration:0.5] completion:^{
+                    [node removeFromParent];
+                }];
             }];
         }
     }
