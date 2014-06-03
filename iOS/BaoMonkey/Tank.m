@@ -32,9 +32,17 @@
     _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2 - 5);
     _canon.size = CGSizeMake(_canon.size.width / 9, _canon.size.height / 9);
     _canon.zPosition = 20;
-        
     
     _tankSprite.zPosition = 50;
+
+    _wheel = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"rouages-1"]]];
+    _wheel.size = CGSizeMake(_wheel.size.width / 9, _wheel.size.height / 9);
+    _wheel.zPosition = 50;
+    
+    [_wheel runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImage:[UIImage imageNamed:@"rouages-1"]],
+                                                                                    [SKTexture textureWithImage:[UIImage imageNamed:@"rouages-2"]],
+                                                                                    [SKTexture textureWithImage:[UIImage imageNamed:@"rouages-3"]],
+                                                                                    [SKTexture textureWithImage:[UIImage imageNamed:@"rouages-4"]]] timePerFrame:0.1]]];
 }
 
 - (instancetype) init {
@@ -74,6 +82,7 @@
     }
     _tower.position = CGPointMake(_tankSprite.position.x - 20, _tankSprite.position.y + 40);
     _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2 + 10);
+    _wheel.position = CGPointMake(_tankSprite.position.x - 26, _tankSprite.position.y - 25);
 }
 
 - (void) lowStrat:(CGPoint)positionMonkey :(SKScene *)scene {

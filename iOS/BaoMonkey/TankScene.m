@@ -51,6 +51,7 @@
     [self addChild:_tank.tankSprite];
     [self addChild:_tank.tower];
     [self addChild:_tank.canon];
+    [self addChild:_tank.wheel];
 }
 
 - (void) initScene {
