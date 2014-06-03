@@ -10,7 +10,7 @@
 #import "Define.h"
 #import "BaoSize.h"
 
-# define FLOOR_HEIGHT 24
+# define FLOOR_HEIGHT 22
 
 @implementation LamberJack
 
@@ -30,7 +30,6 @@
         
         self.node.size = CGSizeMake(self.node.size.width / 4, self.node.size.height / 4);
         
-//        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_LAMBERJACK_WAITING] size:[BaoSize lamberJack]];
         if (self.direction == LEFT)
         {
             node.xScale = -1;

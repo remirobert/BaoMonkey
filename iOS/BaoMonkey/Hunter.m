@@ -51,7 +51,7 @@
         }
 
         node.name = ENEMY_NODE_NAME;
-        position.y = MIN_POSY_FLOOR + (SPACE_BETWEEN * (nbFloor - 1)) + [BaoSize plateform].height;
+        position.y = MIN_POSY_FLOOR + (SPACE_BETWEEN * (nbFloor - 1)) + [BaoSize plateform].height - 20;
         [node setPosition:position];
         _isMoving = YES;
         

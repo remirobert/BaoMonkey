@@ -29,7 +29,7 @@
         
         if (self.kind == MONKEY) {
             node = [SKSpriteNode spriteNodeWithImageNamed:@"gorille-1"];
-            decalPosition = 40;
+            decalPosition = 35;
         }
         else {
             node = [SKSpriteNode spriteNodeWithImageNamed:@"commando-1"];
@@ -51,7 +51,7 @@
         }
         
         node.name = ENEMY_NODE_NAME;
-        position.y = node.size.height / 2;
+        position.y = node.size.height / 2 + 22;
         [node setPosition:position];
         _isClimb = NO;
         _isOnPlateform = NO;
