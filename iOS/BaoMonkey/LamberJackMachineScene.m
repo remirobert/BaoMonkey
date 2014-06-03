@@ -142,25 +142,18 @@
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
                                                             _treeBranch.position.y) duration:timerStress] completion:^{
-            
             [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
                                                                 _treeBranch.position.y + 10) duration:0.05] completion:^{
-            
                 [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x + (rand() % 10 + pushStress),
                                                                     _treeBranch.position.y) duration:timerStress] completion:^{
-                    
                     [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
                                                                         _treeBranch.position.y - 10) duration:timerStress] completion:^{
-
                         [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
                                                                             _treeBranch.position.y) duration:0.05] completion:^{
-                            
                             [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
                                                                                 _treeBranch.position.y + 10) duration:0.05] completion:^{
-
                                 [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x + (rand() % 10 + pushStress),
                                                                                     _treeBranch.position.y) duration:timerStress] completion:^{
-                                    
                                     [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
                                                                                         _treeBranch.position.y - 10) duration:0.05] completion:^{
                                     }];
@@ -171,7 +164,6 @@
                 }];
             }];
         }];
-        
         time = currentTime + rand() % 5 + 2;
     }
 }
@@ -232,7 +224,6 @@
         [_treeBranch runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
             [_treeBranch runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
                 [_treeBranch runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
-                    
                     [self updateAngleTree];
                 }];
             }];
