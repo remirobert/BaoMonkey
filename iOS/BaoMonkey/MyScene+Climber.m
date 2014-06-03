@@ -26,14 +26,33 @@
     }
 }
 
+- (void) animeMoveClimber :(Climber *)climber {
+    NSArray *textures;
+
+    if ([climber.node actionForKey:@"keyMove"] != nil)
+        return ;
+    if (climber.kind == MONKEY) {
+        textures = @[[SKTexture textureWithImageNamed:@"gorille-1"],
+                     [SKTexture textureWithImageNamed:@"gorille-2"]];
+    }
+    else {
+        textures = @[[SKTexture textureWithImageNamed:@"commando-1"],
+                     [SKTexture textureWithImageNamed:@"commando-2"]];
+    }
+    [climber.node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:textures timePerFrame:0.4]] withKey:@"keyMove"];
+}
+
 - (void) moveOnPlateform:(Climber *)climber {
     CGPoint newPositionClimber;
-    
+
+    [self animeMoveClimber:climber];
     if (self->monkey.sprite.position.x > climber.node.position.x) {
+        climber.node.xScale = 1.0;
         newPositionClimber = CGPointMake(climber.node.position.x + 1,
                                          climber.node.position.y);
     }
     else {
+        climber.node.xScale = -1.0;
         newPositionClimber = CGPointMake(climber.node.position.x - 1,
                                          climber.node.position.y);
     }

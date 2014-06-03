@@ -27,14 +27,15 @@
     SKAction *move = [SKAction moveTo:CGPointMake(self.node.position.x, 200) duration:0];
     SKAction *sound = (SKAction *)[PreloadData getDataWithKey:DATA_SPLASH_SOUND];
     
-    SKAction *action = [SKAction resizeToWidth:640 height:512 duration:0.2];
     SKAction *wait = [SKAction waitForDuration:1.0];
     
-    SKSpriteNode *secondSplash = [[SKSpriteNode alloc] initWithTexture:[PreloadData getDataWithKey:DATA_SPLASH_PLUMS2]];
+    SKSpriteNode *secondSplash = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"petite"]];
     secondSplash.position = CGPointMake(rand() % (int)[UIScreen mainScreen].bounds.size.width, rand() % (int)[UIScreen mainScreen].bounds.size.height);
+    secondSplash.size = CGSizeMake(secondSplash.size.width, secondSplash.size.height);
 
-    SKSpriteNode *firstSplash = [[SKSpriteNode alloc] initWithTexture:[PreloadData getDataWithKey:DATA_SPLASH_PLUMS1]];
+    SKSpriteNode *firstSplash = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"grosse"]];;
     firstSplash.position = CGPointMake(self.node.position.x, [UIScreen mainScreen].bounds.size.height / 2);
+    firstSplash.size = CGSizeMake(firstSplash.size.width, firstSplash.size.height);
 
     
     [self.node removeAllActions];
@@ -47,7 +48,7 @@
     self.node.physicsBody = nil;
     [self.node removeFromParent];
     
-    SKAction *actionPrune = [SKAction group:@[move, sound, action, wait]];
+    SKAction *actionPrune = [SKAction group:@[move, sound, wait]];
     
     
     if (_parentScene != nil) {

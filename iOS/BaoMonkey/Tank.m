@@ -77,7 +77,12 @@
 }
 
 - (void) lowStrat:(CGPoint)positionMonkey :(SKScene *)scene {
-    SKSpriteNode *nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(15, 15)];
+    //SKSpriteNode *nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(15, 15)];
+    SKSpriteNode *nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munition-explosive"]];
+    nodeShoot.size = CGSizeMake(nodeShoot.size.width / 2, nodeShoot.size.height / 2);
+    
+    float angle = atan2f(positionMonkey.y, positionMonkey.x);
+    nodeShoot.zRotation = angle;
     
     nodeShoot.position = _tankSprite.position;
     nodeShoot.name = NAME_SPRITE_SHOOT_TANK;
@@ -90,7 +95,7 @@
     
     [nodeShoot runAction:wait completion:^{
         float angle = atan2f(positionMonkey.y, positionMonkey.x);
-        _canon.zRotation = angle * 2;
+        _canon.zRotation = angle;
         [nodeShoot runAction:shoot];
     }];
 }
@@ -98,8 +103,11 @@
 - (void) shootFireBomb:(CGPoint)positionMonkey :(SKScene *)scene {
     SKSpriteNode *nodeShoot;
     
+    nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munitions-incendiaire"]];
+    nodeShoot.size = CGSizeMake(nodeShoot.size.width / 3, nodeShoot.size.height / 3);
     
-    nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(20, 20)];
+    float angle = atan2f(positionMonkey.y, positionMonkey.x);
+    nodeShoot.zRotation = angle;
     
     nodeShoot.name = NAME_SPRITE_FIRE_TANK;
     [scene addChild:nodeShoot];

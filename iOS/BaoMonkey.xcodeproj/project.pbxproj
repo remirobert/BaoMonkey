@@ -37,7 +37,6 @@
 		10C599C3191948A300907493 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10C599C1191948A300907493 /* InfoPlist.strings */; };
 		10C599C5191948A300907493 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C599C4191948A300907493 /* main.m */; };
 		10C599C9191948A300907493 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C599C8191948A300907493 /* AppDelegate.m */; };
-		10C599D9191948A300907493 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10C599D8191948A300907493 /* Images.xcassets */; };
 		10C599E0191948A300907493 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599DF191948A300907493 /* XCTest.framework */; };
 		10C599E1191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
 		10C599E2191948A300907493 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599BA191948A300907493 /* UIKit.framework */; };
@@ -57,6 +56,7 @@
 		10C59A1F19194C7400907493 /* Prune.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A1E19194C7400907493 /* Prune.m */; };
 		10C59A2319194D1500907493 /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */; };
 		10C59A2619194D5D00907493 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C59A2519194D5D00907493 /* Item.m */; };
+		10F24A4D193E27890091972B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F24A4C193E27890091972B /* Images.xcassets */; };
 		10F65E6A1935E0EF00ED0DA8 /* Helicopter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F65E5D1935E0EF00ED0DA8 /* Helicopter.m */; };
 		10F65E6B1935E0EF00ED0DA8 /* HelicopterScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F65E5F1935E0EF00ED0DA8 /* HelicopterScene.m */; };
 		10F65E6C1935E0EF00ED0DA8 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 10F65E611935E0EF00ED0DA8 /* MainMenu.m */; };
@@ -198,7 +198,6 @@
 		10C599C8191948A300907493 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		10C599CB191948A300907493 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		10C599CE191948A300907493 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		10C599D8191948A300907493 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		10C599DE191948A300907493 /* BaoMonkeyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaoMonkeyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C599DF191948A300907493 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		10C599E7191948A400907493 /* BaoMonkeyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BaoMonkeyTests-Info.plist"; sourceTree = "<group>"; };
@@ -227,6 +226,7 @@
 		10C59A2219194D1500907493 /* MyScene+GeneratorWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+GeneratorWave.m"; sourceTree = "<group>"; };
 		10C59A2419194D5D00907493 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		10C59A2519194D5D00907493 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		10F24A4C193E27890091972B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		10F65E5C1935E0EF00ED0DA8 /* Helicopter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helicopter.h; sourceTree = "<group>"; };
 		10F65E5D1935E0EF00ED0DA8 /* Helicopter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helicopter.m; sourceTree = "<group>"; };
 		10F65E5E1935E0EF00ED0DA8 /* HelicopterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelicopterScene.h; sourceTree = "<group>"; };
@@ -427,11 +427,11 @@
 			isa = PBXGroup;
 			children = (
 				10C599C7191948A300907493 /* AppDelegate.h */,
+				10F24A4C193E27890091972B /* Images.xcassets */,
 				10C599C8191948A300907493 /* AppDelegate.m */,
 				3F7D436D191A3E3F00DF30D6 /* Define.h */,
 				10C599CA191948A300907493 /* Main_iPhone.storyboard */,
 				10C599CD191948A300907493 /* Main_iPad.storyboard */,
-				10C599D8191948A300907493 /* Images.xcassets */,
 				3F50F12119194EB200A37F85 /* Classes */,
 				3F50F12719194EFD00A37F85 /* Librairies */,
 				10C59A0C1919492C00907493 /* Resources */,
@@ -1052,7 +1052,6 @@
 				3F0CD895191D423E0079A5EB /* baomonkey.m4a in Resources */,
 				296AFB94191CE06B009D5B75 /* cloud@2x.png in Resources */,
 				108C7E39193CCBE200ADCB85 /* smokeTank.sks in Resources */,
-				10C599D9191948A300907493 /* Images.xcassets in Resources */,
 				296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */,
 				3F47F9C2192D41E200C36A39 /* LamberJackCutting.atlas in Resources */,
 				29A3D4CA1938AFBC003A71DC /* background-menu@2x.png in Resources */,
@@ -1064,6 +1063,7 @@
 				29A3D4CE1938B380003A71DC /* MonkeyMenu.atlas in Resources */,
 				2919C640192DEE1F00A2F2D1 /* button-settings-selected@2x.png in Resources */,
 				29A3D4BF19365300003A71DC /* button-share-selected@2x.png in Resources */,
+				10F24A4D193E27890091972B /* Images.xcassets in Resources */,
 				29A3D4C41936531B003A71DC /* button-infos@2x.png in Resources */,
 				29A3D4B21935DA12003A71DC /* button-home@2x.png in Resources */,
 				3FD47F06192F52B70074B256 /* MonkeyWalking.atlas in Resources */,
