@@ -42,11 +42,11 @@
     _tank.sens = rand() % 2;
     if (_tank.sens == LEFT)
         _tank.tankSprite.position = CGPointMake(_tank.tankSprite.size.width / 2,
-                                                _tank.tankSprite.size.height / 2);
+                                                _tank.tankSprite.size.height / 2 + 22);
     else
         _tank.tankSprite.position = CGPointMake([UIScreen mainScreen].bounds.size.width -
                                                 (_tank.tankSprite.size.width / 2),
-                                                _tank.tankSprite.size.height / 2);
+                                                _tank.tankSprite.size.height / 2 + 22);
     [self initSmoke];
     [self addChild:_tank.tankSprite];
     [self addChild:_tank.tower];
