@@ -18,6 +18,16 @@
     if (self) {
         position = CGPointMake(p.x, p.y);
         size = CGSizeMake(s.width, s.height);
+
+        background = [SKSpriteNode node];
+        background.position = position;
+        background.color = [UIColor blackColor];
+        
+        NSLog(@"toto");
+        
+        front = [SKSpriteNode node];
+        front.anchorPoint = CGPointMake(0, 0.5);
+        front.position = CGPointMake(background.position.x - (background.size.width + 2) + 2.5, position.y);
     }
     return self;
 }

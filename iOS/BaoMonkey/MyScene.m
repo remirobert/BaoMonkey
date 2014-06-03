@@ -153,13 +153,9 @@
     
     trunkProgressLife = [[ProgressBar alloc] initWithPosition:CGPointMake(trunk.position.x, trunk.position.y / 2)
                                                       andSize:CGSizeMake(50, 10)];
-    [trunkProgressLife createBackground];
-    //[trunkProgressLife createFront];
     trunkProgressLife.background.name = BACKGROUND_PROGRESS_BAR_NODE_NAME;
-    //trunkProgressLife.front.name = FRONT_PROGRESS_BAR_NODE_NAME;
     [trunkProgressLife updateProgression:100.0f];
     [self addChild:trunkProgressLife.background];
-    //[self addChild:trunkProgressLife.front];
     
     [self scoreNode];
     [self addChild:score];
