@@ -223,38 +223,29 @@
 -(void)manageShield:(CFTimeInterval)currentTime {
     static CGFloat timeNext = 0.0;
     
+    if (isShield != FALSE)
+        return ;
+    
     if (currentTime < timeNext) {
-        [sprite removeAllChildren];
-        isShield = FALSE;
-        NSLog(@"!isShield");
         return ;
     }
     
-    int ratio = rand() % 150;
-    
-    timeNext = currentTime + ratio;
-    
-    NSLog(@"isShield");
-    
-    if (isShield){
-        NSLog(@"%d", [sprite children].count);
-        if ([sprite children].count == 0) {
-            NSLog(@"titi");
-            SKSpriteNode *node = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:sprite.size];
-            node.position = sprite.position;
-            node.zPosition = 150;
-            node.name = @"NODE_SHIELD";
-            [sprite addChild:node];
-        }
-    } else {
-        NSLog(@"REMOVE SHIELD");
-        [sprite removeAllChildren];
-    }
+    timeNext = currentTime + 3.0;
+    isShield = FALSE;
+}
+
+- (void) addShield:(SKScene *)scene {
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:sprite.size];
+    node.position = sprite.position;
+    node.zPosition = 150;
+    node.name = @"NODE_SHIELD";
+    isShield = TRUE;
+    [scene addChild:node];
 }
 
 #pragma mark - Checking the item receive
 
--(void)catchItem:(id)item{
+-(void)catchItem:(id)item :(SKScene *)scene {
     if ([item isKindOfClass:[Weapon class]]){
         if (weapon == nil) {
             weapon = [[Item alloc] init];
@@ -269,7 +260,8 @@
             return ;
     } else if ([item isKindOfClass:[Shield class]]) {
         ((Item *)item).node.hidden = YES;
-        isShield = TRUE;
+        if (isShield == FALSE)
+            [self addShield:scene];
     }
     if (((Item *)item).isTaken == NO)
         [(Item *)item launchAction];

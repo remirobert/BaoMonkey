@@ -29,9 +29,8 @@
 
 -(id)initWithPosition:(CGPoint)position;
 -(void)updateMonkeyPosition:(float)acceleration;
--(void
-  )manageShield:(CFTimeInterval)currentTime;
--(void)catchItem:(id)item;
+-(void)manageShield:(CFTimeInterval)currentTime;
+-(void)catchItem:(id)item :(SKScene *)scene;
 -(void)launchWeapon;
 -(void)deadMonkey;
 

@@ -282,6 +282,8 @@
         NSLog(@"pauseTime : %f", pauseTime);
     });
     
+    [monkey manageShield:currentTime];
+    
     currentTime -= pauseTime;
     [self addNewWeapon:currentTime];
     [self addNewWave:currentTime];
@@ -294,7 +296,7 @@
     for (id item in _wave) {
         if (((Item *)item).isTaken == NO) {
             if (CGRectIntersectsRect(((Item *)item).node.frame, monkey.collisionMask.frame)) {
-                [monkey catchItem:item];
+                [monkey catchItem:item :self];
                 if ([((Item *)item) isKindOfClass:[Banana class]]) {
                     [Item deleteItemAfterTimer:(Item *)item];
                     [_wave removeObject:item];
@@ -303,8 +305,6 @@
             }
         }
     }
-
-    [monkey manageShield:currentTime];
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
@@ -318,7 +318,6 @@
             return ;
         }
     }];
-
     
     for (Item *item in _wave) {
         if (item.isOver == YES) {
