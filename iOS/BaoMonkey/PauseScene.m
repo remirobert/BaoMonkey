@@ -15,7 +15,7 @@
 -(id)initWithSize:(CGSize)size andScene:(SKScene*)scene{
     self = [super initWithSize:size];
     if (self) {
-        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background-menu"];
+        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background-right"];
         background.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
         [self addChild:background];
         fromScene = scene;
@@ -87,7 +87,7 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:RESUME_NODE_NAME]) {
-        SKTransition *resumeTransition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
+        SKTransition *resumeTransition = [SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.5];
         [self.view presentScene:fromScene transition:resumeTransition];
         [(MyScene*)fromScene resumeGame];
         [resumeNode setTexture:[SKTexture textureWithImageNamed:@"button-play"]];

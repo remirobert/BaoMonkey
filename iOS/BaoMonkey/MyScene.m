@@ -45,7 +45,7 @@
 }
 
 -(SKSpriteNode *)backgroundNode {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"background-middle"];
     node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
     node.name = TRUNK_NODE_NAME;
     return node;
@@ -170,7 +170,7 @@
     oncePause = 0;
     oncePlay = -1;
     
-    menuTransition = [SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.5];
+    menuTransition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
 }
 
 -(id)initWithSize:(CGSize)size {
