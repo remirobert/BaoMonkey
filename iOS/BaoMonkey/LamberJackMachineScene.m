@@ -25,20 +25,17 @@
 @property (nonatomic, assign) NSTimeInterval timerMove;
 @property (nonatomic, assign) CGFloat pushforce;
 @property (nonatomic, strong) Monkey *monkey;
-@property (nonatomic, strong) SKSpriteNode *treeBranch;
+@property (nonatomic, strong) TreeBranch *treeBranch;
 @property (nonatomic, strong) LamberJackMachine *lamber;
 @property (nonatomic, assign) NSInteger sens;
 @property (nonatomic, assign) BOOL lanchMove;
-
-@property (nonatomic, strong) SKSpriteNode *background;
-@property (nonatomic, strong) SKSpriteNode *tree;
 @end
 
 @implementation LamberJackMachineScene
 
 - (void) initMonkey {
     _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2,
-                                                           _treeBranch.position.y + 20)];
+                                                           _treeBranch.node.position.y + 20)];
 
     _monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_monkey.sprite.size];
     _monkey.sprite.physicsBody.affectedByGravity = YES;
@@ -49,38 +46,39 @@
 }
 
 - (void) initScene {
-    _treeBranch = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"branch-boss-machine"]]];
     
-    _treeBranch.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-                                       [UIScreen mainScreen].bounds.size.height - 180);
-
-    _treeBranch.size = CGSizeMake(_treeBranch.size.width / 2, _treeBranch.size.height / 2);
-    _treeBranch.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_treeBranch.size];
-    _treeBranch.physicsBody.mass = 100;
-    _treeBranch.physicsBody.resting = YES;
-    _treeBranch.physicsBody.affectedByGravity = NO;
-    _treeBranch.physicsBody.dynamic = NO;
-    _treeBranch.physicsBody.allowsRotation = NO;
-    _treeBranch.name = NAME_NODE_TREEBRANCH;
+    SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
+    bg.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
+    [self addChild:bg];
+    
+    
+    SKSpriteNode *frontLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"leafs-foreground"];
+    frontLeaf.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (frontLeaf.size.height / 2)));
+    frontLeaf.zPosition = 50;
+    [self addChild:frontLeaf];
+    
+    
+    _treeBranch = [[TreeBranch alloc] init];
+    
+//    _treeBranch.node.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+//                                       [UIScreen mainScreen].bounds.size.height - 180);
+//
+    _treeBranch.node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_treeBranch.node.size];
+    _treeBranch.node.physicsBody.mass = 100;
+    _treeBranch.node.physicsBody.resting = YES;
+    _treeBranch.node.physicsBody.affectedByGravity = NO;
+    _treeBranch.node.physicsBody.dynamic = NO;
+    _treeBranch.node.physicsBody.allowsRotation = NO;
+    _treeBranch.node.name = NAME_NODE_TREEBRANCH;
     
     [GameController initAccelerometer];
     
-    _background = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"bgboss-machine"]]];
-    _background.zPosition = 0;
-    _background.size = self.size;
-    _background.position = CGPointMake(self.size.width / 2, self.size.height / 2);
-    
-    _tree = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"tree-boss-machine"]]];
-    _tree.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-                                 [UIScreen mainScreen].bounds.size.height / 2);
     //_tree.size = CGSizeMake(_tree.size.width / 2, _tree.size.height / 2);
     
-    [self addChild:_background];
-    [self addChild:_tree];
-    [self addChild:_treeBranch];
+    [self addChild:_treeBranch.node];
     
     _monkey.sprite.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-                                          _treeBranch.position.y + (_treeBranch.size.height / 2));
+                                          _treeBranch.node.position.y + (_treeBranch.node.size.height / 2));
 }
 
 - (instancetype) initWithSize:(CGSize)size parent:(SKScene *)parentScene {
@@ -112,8 +110,8 @@
     for (int index = 0; index <= nbCocoNuts; index ++) {
         CocoNuts *coco = [[CocoNuts alloc]
                           initWithPosition:CGPointMake((rand() %
-                                                        (int)(_treeBranch.size.width)) +
-                                                       (_treeBranch.position.x - (_treeBranch.size.width / 2)),
+                                                        (int)(_treeBranch.node.size.width)) +
+                                                       (_treeBranch.node.position.x - (_treeBranch.node.size.width / 2)),
                                                        [UIScreen mainScreen].bounds.size.height + 35)];
         coco.node.name = @"invalid_coco";
         coco.node.physicsBody.mass = 20.0;
@@ -140,22 +138,22 @@
         [self performSelector:@selector(popCocoNuts)];
 
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-        [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
-                                                            _treeBranch.position.y) duration:timerStress] completion:^{
-            [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
-                                                                _treeBranch.position.y + 10) duration:0.05] completion:^{
-                [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x + (rand() % 10 + pushStress),
-                                                                    _treeBranch.position.y) duration:timerStress] completion:^{
-                    [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
-                                                                        _treeBranch.position.y - 10) duration:timerStress] completion:^{
-                        [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x - (rand() % 10 + pushStress),
-                                                                            _treeBranch.position.y) duration:0.05] completion:^{
-                            [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
-                                                                                _treeBranch.position.y + 10) duration:0.05] completion:^{
-                                [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x + (rand() % 10 + pushStress),
-                                                                                    _treeBranch.position.y) duration:timerStress] completion:^{
-                                    [_treeBranch runAction:[SKAction moveTo:CGPointMake(_treeBranch.position.x,
-                                                                                        _treeBranch.position.y - 10) duration:0.05] completion:^{
+        [_treeBranch.node runAction:[SKAction moveTo:CGPointMake(_treeBranch.node.position.x - (rand() % 10 + pushStress),
+                                                            _treeBranch.node.position.y) duration:timerStress] completion:^{
+            [_treeBranch.node runAction:[SKAction moveTo:CGPointMake(_treeBranch.node.position.x,
+                                                                _treeBranch.node.position.y + 10) duration:0.05] completion:^{
+                [_treeBranch.node runAction:[SKAction moveTo:CGPointMake(_treeBranch.node.position.x + (rand() % 10 + pushStress),
+                                                                    _treeBranch.node.position.y) duration:timerStress] completion:^{
+                    [_treeBranch.node runAction:[SKAction moveTo:CGPointMake(_treeBranch.node.position.x,
+                                                                        _treeBranch.node.position.y - 10) duration:timerStress] completion:^{
+                        [_treeBranch.node runAction:[SKAction moveTo:CGPointMake(_treeBranch.node.position.x - (rand() % 10 + pushStress),
+                                                                            _treeBranch.node.position.y) duration:0.05] completion:^{
+                            [_treeBranch.node runAction:[SKAction moveTo:CGPointMake(_treeBranch.node.position.x,
+                                                                                _treeBranch.node.position.y + 10) duration:0.05] completion:^{
+                                [_treeBranch.node runAction:[SKAction moveTo:CGPointMake(_treeBranch.node.position.x + (rand() % 10 + pushStress),
+                                                                                    _treeBranch.node.position.y) duration:timerStress] completion:^{
+                                    [_treeBranch.node runAction:[SKAction moveTo:CGPointMake(_treeBranch.node.position.x,
+                                                                                        _treeBranch.node.position.y - 10) duration:0.05] completion:^{
                                     }];
                                 }];
                             }];
@@ -169,28 +167,28 @@
 }
 
 - (void) updateAngleTree {
-    if (_sens == 0 && _treeBranch.position.x > [UIScreen mainScreen].bounds.size.width / 2) {
-        [_treeBranch runAction:[SKAction rotateToAngle:0.2 duration:0.5]];
+    if (_sens == 0 && _treeBranch.node.position.x > [UIScreen mainScreen].bounds.size.width / 2) {
+        [_treeBranch.node runAction:[SKAction rotateToAngle:0.2 duration:0.5]];
     }
-    else if (_sens == 1 && _treeBranch.position.x < [UIScreen mainScreen].bounds.size.width / 2){
-        [_treeBranch runAction:[SKAction rotateToAngle:-0.2 duration:0.5]];
+    else if (_sens == 1 && _treeBranch.node.position.x < [UIScreen mainScreen].bounds.size.width / 2){
+        [_treeBranch.node runAction:[SKAction rotateToAngle:-0.2 duration:0.5]];
     }
 }
 
 - (void) moveTreeBranch {
     
     if (_sens == 1) {
-        if (_treeBranch.position.x < [UIScreen mainScreen].bounds.size.width)
-            _treeBranch.position = CGPointMake(_treeBranch.position.x + _pushforce,
-                                               _treeBranch.position.y);
+        if (_treeBranch.node.position.x < [UIScreen mainScreen].bounds.size.width)
+            _treeBranch.node.position = CGPointMake(_treeBranch.node.position.x + _pushforce,
+                                               _treeBranch.node.position.y);
         else {
             _sens = 0;
         }
     }
     else if (_sens == 0) {
-        if (_treeBranch.position.x > 0)
-            _treeBranch.position = CGPointMake(_treeBranch.position.x - _pushforce,
-                                               _treeBranch.position.y);
+        if (_treeBranch.node.position.x > 0)
+            _treeBranch.node.position = CGPointMake(_treeBranch.node.position.x - _pushforce,
+                                               _treeBranch.node.position.y);
         else {
             _sens = 1;
         }
@@ -199,8 +197,8 @@
 }
 
 - (void) updateTreePosition {
-    _tree.position = CGPointMake(_treeBranch.position.x, _tree.position.y);
-    _tree.zRotation = _treeBranch.zRotation;
+//    _tree.position = CGPointMake(_treeBranch.node.position.x, _tree.position.y);
+//    _tree.zRotation = _treeBranch.node.zRotation;
 }
 
 - (void) toreBranch:(NSTimeInterval)currentTime {
@@ -220,10 +218,10 @@
     if (_sens == 0)
         angleStress = -1.0;
 
-    [_treeBranch runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
-        [_treeBranch runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
-            [_treeBranch runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
-                [_treeBranch runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
+    [_treeBranch.node runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
+        [_treeBranch.node runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
+            [_treeBranch.node runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
+                [_treeBranch.node runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
                     [self updateAngleTree];
                 }];
             }];
