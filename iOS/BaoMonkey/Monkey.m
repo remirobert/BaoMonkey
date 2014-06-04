@@ -20,6 +20,7 @@
 }
 
 @synthesize sprite;
+@synthesize shield;
 @synthesize weapon;
 @synthesize isShield;
 
@@ -63,15 +64,16 @@
     
     if (sprite.position.x > maxX) {
         position = CGPointMake(minX, sprite.position.y);
-        sprite.position = position;
     } else if (sprite.position.x < minX) {
         position = CGPointMake(maxX, sprite.position.y);
-        sprite.position = CGPointMake(maxX, sprite.position.y);
     } else {
         position = CGPointMake(sprite.position.x + acceleration, sprite.position.y);
-        sprite.position = position;
     }
+    
+    sprite.position = position;
+    shield.position = position;
     weapon.node.position = position;
+    
     [self updateCollisionMask];
 }
 
@@ -199,27 +201,50 @@
 
 #pragma mark - Manage Shield
 
--(void)manageShield:(CFTimeInterval)currentTime {
+-(void)manageShield:(CFTimeInterval)currentTime andScene:(SKScene *)scene{
     static CGFloat timeNext = 0.0;
+    static BOOL isCarry = FALSE;
     
-    if (isShield != FALSE)
+    if (isShield == FALSE) {
+        isCarry = FALSE;
         return ;
+    }
+
+    if (timeNext == 0 || isCarry == FALSE) {
+        timeNext = currentTime + 3.0;
+    }
+    
+    isCarry = TRUE;
     
     if (currentTime < timeNext) {
         return ;
     }
     
-    timeNext = currentTime + 3.0;
+    [shield removeFromParent];
     isShield = FALSE;
 }
 
 - (void) addShield:(SKScene *)scene {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:sprite.size];
-    node.position = sprite.position;
-    node.zPosition = 150;
-    node.name = @"NODE_SHIELD";
+    SKCropNode *cropNode = [[SKCropNode alloc] init];
+    SKShapeNode *circleMask = [[SKShapeNode alloc ]init];
+    CGMutablePathRef circle = CGPathCreateMutable();
+    
+    CGPathAddArc(circle, NULL, CGRectGetMidX(sprite.frame), CGRectGetMidY(sprite.frame), 50, 0, M_PI*2, YES); // replace 50 with HALF the desired radius of the circle
+    
+    circleMask.path = circle;
+    circleMask.lineWidth = 100; // replace 100 with DOUBLE the desired radius of the circle
+    circleMask.strokeColor = [SKColor clearColor];
+    circleMask.name=@"circleMask";
+    
+    [cropNode setMaskNode:circleMask];
+    
+    shield = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithRed:163/255.0f green:226/255.0f blue:229/255.0f alpha:0.5f] size:sprite.size];
+    shield.position = sprite.position;
+    shield.zPosition = 150;
+    shield.name = @"NODE_SHIELD";
+    [shield addChild:cropNode];
     isShield = TRUE;
-    [scene addChild:node];
+    [scene addChild:shield];
 }
 
 #pragma mark - Checking the item receive
