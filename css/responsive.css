@@ -63,6 +63,10 @@
 	.wrapper {
 	  height: 1024px;
 	}
+	.background {
+	  left: -5%;
+	  top: -35%;
+	}
 	.ipad {
 	  left: 5%;
 	  top: -10%;
@@ -89,19 +93,7 @@
 
 /* iPad Mini */
 @media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 1){
- .wrapper {
-	  height: 2048px;
-	  position: absolute;
-	  overflow: hidden;
-	  display: table;
-	  height: 100%;
-	  width: 100%;
-	  left: 0;
-	  top: 0;
-	}
-	.iphone2 {
-	  background: green;
-	}
+
 }
 
 /***************************************************************************************************************
@@ -157,13 +149,28 @@
   	.background {
     	bottom: 96px;
   	}
-  	.iphone {
-    	margin: 0px -96px;
-    	background-size: 192px 336px;
-    	height: 336px;
-    	width: 192px;
-    	bottom: 128px;
-  	}	
+  	.wrapper {
+	  height: 568px;
+	}
+	.iphone2 {
+	  	left: 8%;
+  		top: -13%;
+	}
+	.bg3 {
+	  left: -5%;
+	  top: 25%;
+	}
+	.bg2 {
+	  left: -5%;
+	  top: 28%;
+	}
+	.foreground {
+	  left: -5%;
+	  top: -18%;
+	}
+	.ipad {
+	  background: none;
+	}	
 }
 
 /* iPhone 4 */
@@ -196,8 +203,8 @@
 
 }
 
-/******************/
-/* A trier */
+/******************
+/* A trier
 @media (width: 1136px) {
     #features .iphone-1 {
         margin-top: 45px;
@@ -342,3 +349,5 @@
         padding-left: 15px;
     }
 }
+
+*/

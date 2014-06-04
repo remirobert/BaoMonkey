@@ -9,6 +9,8 @@
 
 body {
     background-color: #74AC41;
+    margin: 0 auto;
+    padding: 0;
     font-family: 'Lato', sans-serif;
     color: #444;
       -webkit-transition:all 700ms cubic-bezier(.4,.1,.4,1) 200ms;

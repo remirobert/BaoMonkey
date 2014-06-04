@@ -2,12 +2,12 @@
 ============================== */
 .wrapper {
   height: 1080px;
+  width: 1920px;
   position: absolute;
   overflow: hidden;
   display: table;
-  height: 100%;
-  width: 100%;
   left: 0;
+  right: 0;
   top: 0;
 }
 
@@ -15,19 +15,19 @@
   display: block;
   height: 100%;
   width: 100%;
-  padding: 0;
-  margin: 0;
 }
 
 .scene {
-  min-height: 1080px;
+  height: 1080px;
+  width: 100%;
   position: relative;
   overflow: hidden;
 }
 
 .layer {
   position: absolute;
-}
+  top: 0; right: 0; left: 0;
+} 
 
 .center {
   max-width: 400px;
