@@ -36,10 +36,9 @@
 @implementation LamberJackMachineScene
 
 - (void) initMonkey {
-    _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2,
-                                                           _treeBranch.node.position.y + 20)];
+    _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, _treeBranch.node.position.y + 30)];
 
-    _monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_monkey.sprite.size];
+    _monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_monkey.collisionMask.size];
     _monkey.sprite.physicsBody.affectedByGravity = YES;
     _monkey.sprite.physicsBody.mass = 10;
     _monkey.sprite.name = @"monkey_node_name";
