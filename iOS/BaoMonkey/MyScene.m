@@ -282,7 +282,7 @@
         NSLog(@"pauseTime : %f", pauseTime);
     });
     
-    [monkey manageShield:currentTime];
+    [monkey manageShield:currentTime andScene:self];
     
     currentTime -= pauseTime;
     [self addNewWeapon:currentTime];
@@ -306,18 +306,18 @@
         }
     }
     
-    [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-        if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
-            //[leafTransition runGameOverTransition];
-            if (!monkey.isShield) {
+    if (!monkey.isShield) {
+        [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+            if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
+                //[leafTransition runGameOverTransition];
                 [monkey deadMonkey];
                 [self gameOverCountDown];
-            } else {
-                monkey.isShield = FALSE;
+                return ;
             }
-            return ;
-        }
-    }];
+        }];
+    } else {
+        monkey.isShield = FALSE;
+    }
     
     for (Item *item in _wave) {
         if (item.isOver == YES) {
