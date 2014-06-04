@@ -61,7 +61,7 @@
   background-size: cover;
   position: absolute;
   width: 110%;
-  height: 135%;
+  height: 125%;
   left: -5%;
   top: -35%;
 }
@@ -72,7 +72,7 @@
   width: 110%;
   height: 100%;
   left: 8%;
-  top: 0%;
+  top: -13%;
 }
 
 .monkey {
@@ -81,16 +81,7 @@
   width: 110%;
   height: 100%;
   left: -50%;
-  top: -1%;
-}
-
-.logo {
-  background: url(../assets/elements/logo.png) no-repeat 100% 100%;
-  position: absolute;
-  width: 110%;
-  height: 100%;
-  left: -50%;
-  top: -50%;
+  top: -13%;
 }
 
 .ipad {
@@ -99,7 +90,7 @@
   width: 110%;
   height: 100%;
   left: -5%;
-  top: -0%;
+  top: -11%;
 }
 
 .bg3 {
@@ -108,7 +99,7 @@
   width: 110%;
   height: 100%;
   left: -5%;
-  top: 30%;
+  top: 10%;
 }
 
 .bg2 {
@@ -117,7 +108,7 @@
   width: 110%;
   height: 100%;
   left: -5%;
-  top: 30%;
+  top: 14%;
 }
 
 .foreground {
@@ -126,7 +117,7 @@
   width: 110%;
   height: 100%;
   left: -5%;
-  top: 0%;
+  top: -11%;
 }
 
 a, button {
