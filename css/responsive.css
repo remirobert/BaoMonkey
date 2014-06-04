@@ -48,111 +48,39 @@
 
 /* iPads (landscape) */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-	.wrapper {
-	  height: 2048px;
-	  position: absolute;
-	  overflow: hidden;
-	  display: table;
-	  height: 100%;
-	  width: 100%;
-	  left: 0;
-	  top: 0;
-	}
-	.iphone2 {
-	  background: red;
-	}
 }
 
 /* iPads (portrait) */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-	.wrapper {
-	  height: 2048px;
-	  position: absolute;
-	  overflow: hidden;
-	  display: table;
-	  height: 100%;
-	  width: 100%;
-	  left: 0;
-	  top: 0;
-	}
-	.iphone2 {
-	  background: none;
-	}
 }
 
 /* ipad 2 (Landscape) */
 @media (max-device-width: 1024px) and (orientation: landscape) {
-	.wrapper {
-	  height: 2048px;
-	  position: absolute;
-	  overflow: hidden;
-	  display: table;
-	  height: 100%;
-	  width: 100%;
-	  left: 0;
-	  top: 0;
-	}
-	.iphone2 {
-	  background: none;
-	}
 }
 
-/* ipad2 (portait) */
+/* ipad2 (portait) (test sur ipad air pour le moment) */
 @media (max-device-width: 768px) and (orientation: portrait) {
 	.wrapper {
-	  height: 2048px;
-	  position: absolute;
-	  overflow: hidden;
-	  display: table;
-	  height: 100%;
-	  width: 100%;
-	  left: 0;
-	  top: 0;
-	}
-	.scene {
-		min-height: 2048px;
-		position: relative;
-  		overflow: hidden;
+	  height: 1024px;
 	}
 	.ipad {
-	  background: url(../assets/elements/ipad.png) no-repeat 100% 100%;
-	  position: absolute;
-	  width: 110%;
-	  height: 100%;
 	  left: 5%;
-	  top: -5%;
+	  top: -10%;
 	}
 	.monkey {
-	  background: url(../assets/elements/monkey.png) no-repeat 100% 100%;
-	  position: absolute;
-	  width: 110%;
-	  height: 100%;
-	  left: -50%;
-	  top: -8%;
+	  background: none;
 	}
 	.bg3 {
-	  background: url(../assets/background/bg3.png) repeat-x 100% 100%;
-	  position: absolute;
-	  width: 110%;
-	  height: 100%;
 	  left: -5%;
-	  top: 23%;
+	  top: 15%;
 	}
 	.bg2 {
-	  background: url(../assets/background/bg2.png) repeat-x 100% 100%;
-	  position: absolute;
-	  width: 110%;
-	  height: 100%;
 	  left: -5%;
-	  top: 25%;
+	  top: 18%;
 	}
 	.foreground {
-	  background: url(../assets/background/bg1.png) repeat-x 100% 100%;
-	  position: absolute;
-	  width: 110%;
-	  height: 100%;
 	  left: -5%;
-	  top: -5%;
+	  top: -9%;
 	}
 	.iphone2 {
 	  background: none;
