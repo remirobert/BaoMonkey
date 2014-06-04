@@ -206,17 +206,20 @@
     static BOOL isCarry = FALSE;
     
     if (isShield == FALSE) {
+        NSLog(@"isShield == FALSE");
         isCarry = FALSE;
         return ;
     }
 
     if (timeNext == 0 || isCarry == FALSE) {
+        NSLog(@"timeNext == 0 || isCarry == FALSE");
         timeNext = currentTime + 3.0;
     }
     
     isCarry = TRUE;
     
     if (currentTime < timeNext) {
+        NSLog(@"currentTime < timeNext");
         return ;
     }
     
@@ -225,7 +228,7 @@
 }
 
 - (void) addShield:(SKScene *)scene {
-    SKCropNode *cropNode = [[SKCropNode alloc] init];
+    /*SKCropNode *cropNode = [[SKCropNode alloc] init];
     SKShapeNode *circleMask = [[SKShapeNode alloc ]init];
     CGMutablePathRef circle = CGPathCreateMutable();
     
@@ -236,13 +239,13 @@
     circleMask.strokeColor = [SKColor clearColor];
     circleMask.name=@"circleMask";
     
-    [cropNode setMaskNode:circleMask];
+    [cropNode setMaskNode:circleMask];*/
     
     shield = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithRed:163/255.0f green:226/255.0f blue:229/255.0f alpha:0.5f] size:sprite.size];
     shield.position = sprite.position;
     shield.zPosition = 150;
     shield.name = @"NODE_SHIELD";
-    [shield addChild:cropNode];
+    //[shield addChild:cropNode];
     isShield = TRUE;
     [scene addChild:shield];
 }

@@ -306,18 +306,18 @@
         }
     }
     
-    if (!monkey.isShield) {
         [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
             if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
                 //[leafTransition runGameOverTransition];
-                [monkey deadMonkey];
-                [self gameOverCountDown];
+                if (!monkey.isShield) {
+                    [monkey deadMonkey];
+                    [self gameOverCountDown];
+                } else {
+                    monkey.isShield = FALSE;
+                }
                 return ;
             }
         }];
-    } else {
-        monkey.isShield = FALSE;
-    }
     
     for (Item *item in _wave) {
         if (item.isOver == YES) {
