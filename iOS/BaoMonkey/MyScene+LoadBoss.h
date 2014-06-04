@@ -13,5 +13,6 @@
 @interface MyScene (LoadBoss)
 
 - (void) loadTankScene;
+- (void) loadLamberJackGeantMachineScene;
 
 @end

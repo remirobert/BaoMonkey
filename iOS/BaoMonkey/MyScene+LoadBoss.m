@@ -9,6 +9,7 @@
 #import "MyScene+LoadBoss.h"
 #import "GameData.h"
 #import "TankScene.h"
+#import "LamberJackMachineScene.h"
 
 @implementation MyScene (LoadBoss)
 
@@ -17,6 +18,13 @@
 
     [self cleanEnemiesScene];
     [self.view presentScene:tankScene transition:[SKTransition fadeWithDuration:1.0]];
+}
+
+- (void) loadLamberJackGeantMachineScene {
+    LamberJackMachineScene *lamberJack = [[LamberJackMachineScene alloc] initWithSize:self.size parent:self];
+    
+    [self cleanEnemiesScene];
+    [self.view presentScene:lamberJack transition:[SKTransition fadeWithDuration:1.0]];
 }
 
 - (void) cleanEnemiesScene {

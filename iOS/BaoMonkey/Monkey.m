@@ -29,7 +29,8 @@
 }
 
 - (void) initCollisionMask {
-    _collisionMask = [[SKSpriteNode alloc] initWithColor:[SKColor colorWithRed:0 green:0 blue:0 alpha:0] size:CGSizeMake(sprite.size.width / 2, sprite.size.height - 10)];
+    _collisionMask = [[SKSpriteNode alloc] initWithColor:[SKColor colorWithRed:0 green:0 blue:0 alpha:0]
+                                                    size:CGSizeMake(sprite.size.width / 2, sprite.size.height - 10)];
     [self updateCollisionMask];
 }
 
@@ -37,8 +38,8 @@
     self = [super init];
     if (self) {
         // Init the sprites of the Monkey
-        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING]
-                                                size:[BaoSize monkey]];
+        sprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"stand"]];
+        sprite.size = CGSizeMake(sprite.size.width / 4, sprite.size.height / 4);
         sprite.position = position;
         isShield = FALSE;
         
@@ -91,9 +92,7 @@
     else
         framesWalking = walkingCoconutFrames;
     
-    [sprite runAction:[SKAction
-                       repeatActionForever:[SKAction
-                                            animateWithTextures:framesWalking timePerFrame:0.1]] withKey:@"runactionwalk"];
+    [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:framesWalking timePerFrame:0.1 resize:NO restore:NO]] withKey:@"runactionwalk"];
 }
 
 - (void) waitMonkey {
@@ -106,10 +105,10 @@
     if (weapon == nil) {
         [sprite runAction:[SKAction
                            repeatActionForever:[SKAction animateWithTextures:stopFrames
-                                                                         timePerFrame:0.1 resize:YES restore:NO]]];
+                                                                         timePerFrame:0.1 resize:NO restore:NO]]];
     }
     else {
-        [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopCocoframes timePerFrame:0.1 resize:YES restore:NO]]];
+        [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopCocoframes timePerFrame:0.1 resize:NO restore:NO]]];
     }
 }
 
@@ -122,15 +121,25 @@
     if ([sprite actionForKey:@"lanchAction"] != nil) {
         isAction = YES;
     }
-
-    if (isAction == YES && [sprite actionForKey:@"lanchAction"] != nil) {
-        oldAcceleration = 0;
+    
+    if (isAction == YES && [sprite actionForKey:@"lanchAction"] == nil) {
         isAction = NO;
+        [self moveActionWalking];
+        
+        if (acceleration < 0) {
+                [self moveActionWalking];
+            oldAcceleration = -1;
+            sprite.xScale = -1.0;
+        }
+        else if (acceleration > 0) {
+                [self moveActionWalking];
+            oldAcceleration = 1;
+            sprite.xScale = 1.0;
+        }
+        [self moveMonkey:acceleration];
     }
     
     if (acceleration == 0) {
-        if (oldAcceleration == 0)
-            return;
         [self waitMonkey];
         oldAcceleration = 0;
         return ;
@@ -150,74 +159,44 @@
         sprite.xScale = 1.0;
     }
     [self moveMonkey:acceleration];
-    oldAcceleration = acceleration;
 }
 
 #pragma mark - Load texture
 
 - (void) loadWaitframes {
-    stopFrames = @[[SKTexture textureWithImageNamed:@"monkey-waiting"], [SKTexture textureWithImageNamed:@"monkey-waiting"]];
-    stopCocoframes = @[[SKTexture textureWithImageNamed:@"monkey-waiting-coconut"], [SKTexture textureWithImageNamed:@"monkey-waiting-coconut"]];
+    stopFrames = @[[SKTexture textureWithImageNamed:@"stand"], [SKTexture textureWithImageNamed:@"stand"]];
+    stopCocoframes = @[[SKTexture textureWithImageNamed:@"stand2"], [SKTexture textureWithImageNamed:@"stand2"]];
 }
 
 -(void)loadWalkingSprites {
-    NSMutableArray *frames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *monkeyWalkingAtlas = [PreloadData getDataWithKey:DATA_MONKEY_WALKING_ATLAS];
-    NSUInteger numberOfFrames = monkeyWalkingAtlas.textureNames.count;
-    
-    for (int i = 1; i <= numberOfFrames; i++) {
-        NSString *textureName = [NSString stringWithFormat:@"monkey-walking-%d", i];
-        SKTexture *tmp = [monkeyWalkingAtlas textureNamed:textureName];
-        [frames addObject:tmp];
-    }
-
-    walkingFrames = [[NSArray alloc] initWithArray:frames];
+    walkingFrames = @[[SKTexture textureWithImageNamed:@"run1"],
+                      [SKTexture textureWithImageNamed:@"run2"],
+                      [SKTexture textureWithImageNamed:@"run3"],
+                      [SKTexture textureWithImageNamed:@"run4"],
+                      [SKTexture textureWithImageNamed:@"run5"],
+                      [SKTexture textureWithImageNamed:@"run6"]];
 }
 
 -(void)loadWalkingCoconutSprites {
-    NSMutableArray *frames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *monkeyWalkingCoconutAtlas = [PreloadData getDataWithKey:DATA_MONKEY_WALKING_COCONUT_ATLAS];
-    NSUInteger numberOfFrames = monkeyWalkingCoconutAtlas.textureNames.count;
-    
-    for (int i = 1; i <= numberOfFrames; i++) {
-        NSString *textureName = [NSString stringWithFormat:@"monkey-walking-coconut-%d", i];
-        SKTexture *tmp = [monkeyWalkingCoconutAtlas textureNamed:textureName];
-        [frames addObject:tmp];
-    }
-    
-    walkingCoconutFrames = [[NSArray alloc] init];
-    walkingCoconutFrames = frames;
+    walkingCoconutFrames = @[[SKTexture textureWithImageNamed:@"coco1"],
+                             [SKTexture textureWithImageNamed:@"coco2"],
+                             [SKTexture textureWithImageNamed:@"coco3"],
+                             [SKTexture textureWithImageNamed:@"coco4"],
+                             [SKTexture textureWithImageNamed:@"coco5"],
+                             [SKTexture textureWithImageNamed:@"coco6"]];
 }
 
 
 -(void)loadLaunchSprites {
-    NSMutableArray *frames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *atlas = [PreloadData getDataWithKey:DATA_MONKEY_LAUNCH_ATLAS];
-    NSUInteger numberOfFrames = atlas.textureNames.count;
-    
-    for (int i = 1; i <= numberOfFrames; i++) {
-        NSString *textureName = [NSString stringWithFormat:@"monkey-launch-%d", i];
-        SKTexture *tmp = [atlas textureNamed:textureName];
-        [frames addObject:tmp];
-    }
-    
-    launchFrames = [[NSArray alloc] init];
-    launchFrames = frames;
+    launchFrames = @[[SKTexture textureWithImageNamed:@"lance"],
+                     [SKTexture textureWithImageNamed:@"lance"],
+                     [SKTexture textureWithImageNamed:@"lance"]];
 }
 
 -(void)loadDeadSprites {
-    NSMutableArray *frames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *atlas = [PreloadData getDataWithKey:DATA_MONKEY_DEAD_ATLAS];
-    NSUInteger numberOfFrames = atlas.textureNames.count;
-    
-    for (int i = 1; i <= numberOfFrames; i++) {
-        NSString *textureName = [NSString stringWithFormat:@"monkey-dead-%d", i];
-        SKTexture *tmp = [atlas textureNamed:textureName];
-        [frames addObject:tmp];
-    }
-    
-    deadFrames = [[NSArray alloc] init];
-    deadFrames = frames;
+    deadFrames = @[[SKTexture textureWithImageNamed:@"KO1"],
+                   [SKTexture textureWithImageNamed:@"KO2"],
+                   [SKTexture textureWithImageNamed:@"KO3"]];
 }
 
 #pragma mark - Manage Shield
@@ -290,6 +269,7 @@
     }
     if (((Item *)item).isTaken == NO)
         [(Item *)item launchAction];
+    [self moveActionWalking];
 }
 
 #pragma mark - Launch a weapon
@@ -302,7 +282,7 @@
 
         [sprite removeAllActions];
         SKAction *actionLaunch = [SKAction animateWithTextures:launchFrames
-                                                  timePerFrame:0.1 resize:YES restore:NO];
+                                                  timePerFrame:0.1 resize:NO restore:NO];
         [sprite runAction:actionLaunch withKey:@"lanchAction"];
     }
     weapon = nil;
@@ -314,7 +294,7 @@
     [sprite removeAllActions];
 
     [sprite runAction:[SKAction animateWithTextures:deadFrames
-                                       timePerFrame:0.1 resize:YES restore:NO]
+                                       timePerFrame:0.1 resize:NO restore:NO]
               withKey:@"deadMonkey"];
 }
 

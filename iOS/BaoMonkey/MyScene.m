@@ -134,7 +134,7 @@
     
     [self addChild:_treeBranch.node];
     
-    monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, _treeBranch.node.position.y + 40)];
+    monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, _treeBranch.node.position.y + 30)];
     [self addChild:monkey.sprite];
     [self addChild:monkey.collisionMask];
     
@@ -263,7 +263,7 @@
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self loadTankScene];
+        [self loadLamberJackGeantMachineScene];
     });
     
     if ([[GameData singleton] isPause]) {
