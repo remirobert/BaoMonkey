@@ -12,7 +12,7 @@
 
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super initWithPosition:position]) != nil) {
-        self.node.color = [UIColor cyanColor];
+        [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"shield"]]];
         self.node.size = CGSizeMake(30, 30);
         self.node.position = position;
         self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 3];

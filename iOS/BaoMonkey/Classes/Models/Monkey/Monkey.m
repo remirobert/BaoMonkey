@@ -209,20 +209,17 @@
     static BOOL isCarry = FALSE;
     
     if (isShield == FALSE) {
-        NSLog(@"isShield == FALSE");
         isCarry = FALSE;
         return ;
     }
 
     if (timeNext == 0 || isCarry == FALSE) {
-        NSLog(@"timeNext == 0 || isCarry == FALSE");
         timeNext = currentTime + 3.0;
     }
     
     isCarry = TRUE;
     
     if (currentTime < timeNext) {
-        NSLog(@"currentTime < timeNext");
         return ;
     }
     
