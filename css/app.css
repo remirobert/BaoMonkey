@@ -42,7 +42,7 @@ header {
     position: relative;
     overflow: hidden;
     padding-top: 50px;
-    padding-bottom: 50px;
+    margin-bottom: 50px;
     color: #fff;
     min-height: 460px;
     height: 100%;
@@ -55,6 +55,7 @@ header {
     position: relative;
     overflow: hidden;
     color: #fff;
+    background-color: #74AC41;
 }
 
 #project .cadre {
@@ -486,6 +487,14 @@ hr.separator-alt {
 /*----------------------------------------
     MEDIA QUERIES
 ----------------------------------------*/
+
+/* Iphone 5 */
+@media (width: 1136px) {
+    #features .iphone-1 {
+        margin-top: 45px;
+    }
+}
+
 @media (width: 1024px) {
     #features .iphone-1 {
         margin-top: 45px;

@@ -1,0 +1,164 @@
+/***************************************************************************************************************
+** SMARTPHONES
+****************************************************************************************************************/
+/* Smartphones (portrait and landscape) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+}
+
+/* Smartphones (landscape) */
+@media only screen and (min-width : 321px) {
+
+}
+
+/* Smartphones (portrait) */
+@media only screen and (max-width : 320px) {
+
+}
+
+/***************************************************************************************************************
+** IPAD
+****************************************************************************************************************/
+/* iPads (portrait and landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+	html {
+    font-size: 15px;
+  }
+
+  .center {
+    max-width: 560px;
+  }
+
+  .title {
+    font-size: 3.46667em;
+  }
+
+  .background {
+    bottom: 160px;
+  }
+
+  .iphone {
+    margin: 0px -104px;
+    background-size: 208px 364px;
+    height: 364px;
+    width: 208px;
+    bottom: 128px;
+  }
+}
+
+/* iPads (landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+}
+
+/* iPads (portrait) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+}
+
+/* ipad 2 (Landscape) */
+@media (max-device-width: 1024px) and (orientation: landscape) {
+/* Styles pour cette Media Queries */
+}
+
+/* ipad2 (portait) */
+@media (max-device-width: 768px) and (orientation: portrait) {
+
+}
+
+/* iPad Mini */
+@media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 1){
+ 
+}
+
+/***************************************************************************************************************
+** DESKTOPS & LAPTOP
+****************************************************************************************************************/
+/* Desktops and laptops */
+@media only screen and (min-width : 1224px){
+	html {
+    font-size: 16px;
+  }
+
+  .center {
+    max-width: 620px;
+  }
+
+  .iphone {
+    margin: 0px -112px;
+    background-size: 224px 392px;
+    height: 392px;
+    width: 224px;
+  }
+}
+
+/* Large screens */
+@media only screen and (min-width : 1824px) {
+
+}
+
+/***************************************************************************************************************
+** IPHONES
+****************************************************************************************************************/
+/* Iphone 5 */
+@media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2){
+	html { 
+		font-size: 15px; 
+	}
+  	button {
+    		-webkit-border-radius: 28px;
+    		-moz-border-radius: 28px;
+		border-radius: 28px;
+    		-webkit-background-clip: padding-box;
+    		-moz-background-clip: padding-box;
+    	background-clip: padding-box;
+    	height: 56px;
+    	width: 56px;
+  	}
+  	.center {
+    	max-width: 440px;
+  	}
+  	.title {
+    	font-size: 3.46667em;
+  	}
+  	.background {
+    	bottom: 96px;
+  	}
+  	.iphone {
+    	margin: 0px -96px;
+    	background-size: 192px 336px;
+    	height: 336px;
+    	width: 192px;
+    	bottom: 128px;
+  	}	
+}
+
+/* iPhone 4 */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5){
+	html {
+    font-size: 12px;
+  }
+
+  .wrapper {
+    min-height: 360px;
+  }
+
+  .scene {
+    min-height: 360px;
+  }
+}
+
+/* iPhone 3G */
+@media screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1){
+
+}
+
+/* iPhone Paysage */
+@media screen and (max-device-width: 480px) {
+
+}
+
+/* iPhone portrait */
+@media screen and (max-device-width: 320px) {
+
+}

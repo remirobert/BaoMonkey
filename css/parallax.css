@@ -1,7 +1,7 @@
 /* DESKTOP NAVIGATION PARALLAX
 ============================== */
 .wrapper {
-  height: 460px;
+  height: 1080px;
   position: absolute;
   overflow: hidden;
   display: table;
@@ -20,7 +20,7 @@
 }
 
 .scene {
-  min-height: 460px;
+  min-height: 1080px;
   position: relative;
   overflow: hidden;
 }
@@ -57,13 +57,13 @@
 }
 
 .background {
-  background: url(../assets/background/bg.png) repeat-x 50% 100%;
+  background: url(../assets/background/bg.png) repeat-x 100% 100%;
   background-size: cover;
   position: absolute;
   width: 110%;
-  height: 100%;
+  height: 135%;
   left: -5%;
-  top: -5%;
+  top: -35%;
 }
 
 .iphone2 {
@@ -72,34 +72,52 @@
   width: 110%;
   height: 100%;
   left: 8%;
-  top: -7%;
+  top: 0%;
 }
 
 .monkey {
-  background: url(../assets/elements/monkey.png) no-repeat 50% 100%;
+  background: url(../assets/elements/monkey.png) no-repeat 100% 100%;
   position: absolute;
   width: 110%;
   height: 100%;
-  left: -15%;
-  top: -8%;
+  left: -50%;
+  top: -1%;
 }
 
 .logo {
-  background: url(../assets/elements/logo.png) no-repeat 50% 100%;
+  background: url(../assets/elements/logo.png) no-repeat 100% 100%;
   position: absolute;
   width: 110%;
   height: 100%;
-  left: -30%;
+  left: -50%;
   top: -50%;
 }
 
 .ipad {
-  background: url(../assets/elements/ipad.png) no-repeat 50% 100%;
+  background: url(../assets/elements/ipad.png) no-repeat 100% 100%;
   position: absolute;
   width: 110%;
   height: 100%;
   left: -5%;
-  top: -5%;
+  top: -0%;
+}
+
+.bg3 {
+  background: url(../assets/background/bg3.png) repeat-x 100% 100%;
+  position: absolute;
+  width: 110%;
+  height: 100%;
+  left: -5%;
+  top: 30%;
+}
+
+.bg2 {
+  background: url(../assets/background/bg2.png) repeat-x 100% 100%;
+  position: absolute;
+  width: 110%;
+  height: 100%;
+  left: -5%;
+  top: 30%;
 }
 
 .foreground {
@@ -108,109 +126,7 @@
   width: 110%;
   height: 100%;
   left: -5%;
-  top: -5%;
-}
-
-/* IPHONE 4 NAVIGATION
-============================== */
-@media all and (min-width: 400px) {
-  html {
-    font-size: 12px;
-  }
-
-  .wrapper {
-    min-height: 360px;
-  }
-
-  .scene {
-    min-height: 360px;
-  }
-}
-
-/* IPHONE 5 NAVIGATION
-============================== */
-@media all and (min-width: 600px) {
-  html {
-    font-size: 15px;
-  }
-
-  button {
-    -webkit-border-radius: 28px;
-    -moz-border-radius: 28px;
-    border-radius: 28px;
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding-box;
-    background-clip: padding-box;
-    height: 56px;
-    width: 56px;
-  }
-
-  .center {
-    max-width: 440px;
-  }
-
-  .title {
-    font-size: 3.46667em;
-  }
-
-  .background {
-    bottom: 96px;
-  }
-
-  .iphone {
-    margin: 0px -96px;
-    background-size: 192px 336px;
-    height: 336px;
-    width: 192px;
-    bottom: 128px;
-  }
-}
-
-/* IPAD NAVIGATION
-============================== */
-@media all and (min-width: 900px) {
-  html {
-    font-size: 15px;
-  }
-
-  .center {
-    max-width: 560px;
-  }
-
-  .title {
-    font-size: 3.46667em;
-  }
-
-  .background {
-    bottom: 160px;
-  }
-
-  .iphone {
-    margin: 0px -104px;
-    background-size: 208px 364px;
-    height: 364px;
-    width: 208px;
-    bottom: 128px;
-  }
-}
-
-/* MEDIUM DESKTOP NAVIGATION
-============================== */
-@media all and (min-width: 1200px) {
-  html {
-    font-size: 16px;
-  }
-
-  .center {
-    max-width: 620px;
-  }
-
-  .iphone {
-    margin: 0px -112px;
-    background-size: 224px 392px;
-    height: 392px;
-    width: 224px;
-  }
+  top: 0%;
 }
 
 a, button {
@@ -644,71 +560,4 @@ html.touch .toggle.tap .x, html.touch .toggle.tap .y {
 html.touch .links a.tap {
   background-color: #d92400;
   color: white;
-}
-
-#awwwards {
-  position: absolute;
-  z-index: 9999;
-  top: 40px;
-  left: 0;
-}
-#awwwards a {
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  text-indent: -999em;
-  overflow: hidden;
-  display: block;
-  height: 105px;
-  width: 70px;
-}
-#awwwards.left.black a {
-  background-image: url(../../graphics/awwwards_sotd_black_left.png);
-}
-#awwwards.right.black a {
-  background-image: url(../../graphics/awwwards_sotd_black_right.png);
-}
-#awwwards.left.white a {
-  background-image: url(../../graphics/awwwards_sotd_white_left.png);
-}
-#awwwards.right.white a {
-  background-image: url(../../graphics/awwwards_sotd_white_right.png);
-}
-#awwwards.left.green a {
-  background-image: url(../../graphics/awwwards_sotd_green_left.png);
-}
-#awwwards.right.green a {
-  background-image: url(../../graphics/awwwards_sotd_green_right.png);
-}
-
-@media (max-width: 767px) {
-  #awwwards {
-    display: none;
-  }
-}
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dppx) {
-  #awwwards a {
-    -webkit-background-size: 70px 105px;
-    -moz-background-size: 70px 105px;
-    -ie-background-size: 70px 105px;
-    -o-background-size: 70px 105px;
-    background-size: 70px 105px;
-  }
-  #awwwards a.left.black a {
-    background-image: url(../../graphics/awwwards_sotd_black_left2x.png);
-  }
-  #awwwards a.right.black a {
-    background-image: url(../../graphics/awwwards_sotd_black_right2x.png);
-  }
-  #awwwards a.left.white a {
-    background-image: url(../../graphics/awwwards_sotd_white_left2x.png);
-  }
-  #awwwards a.right.white a {
-    background-image: url(../../graphics/awwwards_sotd_white_right2x.png);
-  }
-  #awwwards a.left.green a {
-    background-image: url(../../graphics/awwwards_sotd_green_left2x.png);
-  }
-  #awwwards a.right.green a {
-    background-image: url(../../graphics/awwwards_sotd_green_right2x.png);
-  }
 }
