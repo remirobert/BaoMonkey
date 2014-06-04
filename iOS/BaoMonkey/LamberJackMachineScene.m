@@ -29,6 +29,8 @@
 @property (nonatomic, strong) LamberJackMachine *lamber;
 @property (nonatomic, assign) NSInteger sens;
 @property (nonatomic, assign) BOOL lanchMove;
+@property (nonatomic, strong) SKSpriteNode *tree;
+@property (nonatomic, strong) SKSpriteNode *frontLeaf;
 @end
 
 @implementation LamberJackMachineScene
@@ -47,22 +49,20 @@
 
 - (void) initScene {
     
-    SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
-    bg.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
-    [self addChild:bg];
+    _tree = [SKSpriteNode spriteNodeWithImageNamed:@"background-middle"];
+    _tree.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
+    [self addChild:_tree];
     
     
-    SKSpriteNode *frontLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"leafs-foreground"];
-    frontLeaf.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (frontLeaf.size.height / 2)));
-    frontLeaf.zPosition = 50;
-    [self addChild:frontLeaf];
+    _frontLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"leafs-foreground"];
+//    _frontLeaf.size = CGSizeMake(_frontLeaf.size.width / 3, _frontLeaf.size.height / 3);
+    _frontLeaf.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (_frontLeaf.size.height / 2)));
+    _frontLeaf.zPosition = 50;
+    [self addChild:_frontLeaf];
     
     
     _treeBranch = [[TreeBranch alloc] init];
     
-//    _treeBranch.node.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-//                                       [UIScreen mainScreen].bounds.size.height - 180);
-//
     _treeBranch.node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_treeBranch.node.size];
     _treeBranch.node.physicsBody.mass = 100;
     _treeBranch.node.physicsBody.resting = YES;
@@ -178,7 +178,7 @@
 - (void) moveTreeBranch {
     
     if (_sens == 1) {
-        if (_treeBranch.node.position.x < [UIScreen mainScreen].bounds.size.width)
+        if (_treeBranch.node.position.x < [UIScreen mainScreen].bounds.size.width - 100)
             _treeBranch.node.position = CGPointMake(_treeBranch.node.position.x + _pushforce,
                                                _treeBranch.node.position.y);
         else {
@@ -186,7 +186,7 @@
         }
     }
     else if (_sens == 0) {
-        if (_treeBranch.node.position.x > 0)
+        if (_treeBranch.node.position.x > 100)
             _treeBranch.node.position = CGPointMake(_treeBranch.node.position.x - _pushforce,
                                                _treeBranch.node.position.y);
         else {
@@ -197,8 +197,9 @@
 }
 
 - (void) updateTreePosition {
-//    _tree.position = CGPointMake(_treeBranch.node.position.x, _tree.position.y);
-//    _tree.zRotation = _treeBranch.node.zRotation;
+    //_tree.position = CGPointMake(_treeBranch.node.position.x, _tree.position.y);
+    _tree.zRotation = _treeBranch.node.zRotation;
+    _frontLeaf.zRotation = _treeBranch.node.zRotation;
 }
 
 - (void) toreBranch:(NSTimeInterval)currentTime {
@@ -255,7 +256,7 @@
     if (_lanchMove == YES) {
         [self moveTreeBranch];
         [self stressTree:currentTime];
-        //[self toreBranch:currentTime];
+        [self toreBranch:currentTime];
     }
     
     [self enumerateChildNodesWithName:@"invalid_coco" usingBlock:^(SKNode *node, BOOL *stop) {

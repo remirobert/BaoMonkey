@@ -13,6 +13,7 @@
 		10123410191951CF00B035D9 /* Malus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1012340F191951CF00B035D9 /* Malus.m */; };
 		102D554D1936430800D7072D /* grosse_tache@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 102D554B1936430800D7072D /* grosse_tache@2x.png */; };
 		102D554E1936430800D7072D /* petite_tache@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 102D554C1936430800D7072D /* petite_tache@2x.png */; };
+		10573343193F41A200E6FD75 /* feuillagecompletavant.png in Resources */ = {isa = PBXBuildFile; fileRef = 10573342193F41A200E6FD75 /* feuillagecompletavant.png */; };
 		108C7E39193CCBE200ADCB85 /* smokeTank.sks in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E37193CCBE200ADCB85 /* smokeTank.sks */; };
 		108C7E3A193CCBE200ADCB85 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E38193CCBE200ADCB85 /* spark.png */; };
 		108C7E40193CD4E000ADCB85 /* canon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E3C193CD4E000ADCB85 /* canon@2x.png */; };
@@ -163,6 +164,7 @@
 		1012340F191951CF00B035D9 /* Malus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Malus.m; sourceTree = "<group>"; };
 		102D554B1936430800D7072D /* grosse_tache@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grosse_tache@2x.png"; sourceTree = "<group>"; };
 		102D554C1936430800D7072D /* petite_tache@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petite_tache@2x.png"; sourceTree = "<group>"; };
+		10573342193F41A200E6FD75 /* feuillagecompletavant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feuillagecompletavant.png; sourceTree = "<group>"; };
 		108C7E37193CCBE200ADCB85 /* smokeTank.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smokeTank.sks; sourceTree = "<group>"; };
 		108C7E38193CCBE200ADCB85 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		108C7E3C193CD4E000ADCB85 /* canon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "canon@2x.png"; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 				29A3D4C91938AFBC003A71DC /* background-menu@2x.png */,
 				2919C646192E2CFC00A2F2D1 /* branch@2x.png */,
 				2919C647192E2CFC00A2F2D1 /* leafs-foreground@2x.png */,
+				10573342193F41A200E6FD75 /* feuillagecompletavant.png */,
 				29A3D4C5193653C2003A71DC /* background-panel-3buttons@2x.png */,
 				29A3D4C6193653C2003A71DC /* background-panel-4buttons@2x.png */,
 				29D8FF84193E6802001E3056 /* background-left@2x.png */,
@@ -1055,6 +1058,7 @@
 				3FD47F01192F4EBB0074B256 /* MonkeyWalkingWithCoconut.atlas in Resources */,
 				3F47F9C1192D41E200C36A39 /* lamber-jack-waiting@2x.png in Resources */,
 				29A3D4C019365300003A71DC /* button-share@2x.png in Resources */,
+				10573343193F41A200E6FD75 /* feuillagecompletavant.png in Resources */,
 				29A3D4C7193653C2003A71DC /* background-panel-3buttons@2x.png in Resources */,
 				29A3D4C8193653C2003A71DC /* background-panel-4buttons@2x.png in Resources */,
 				29A3D4B51935DA12003A71DC /* button-settings@2x.png in Resources */,
