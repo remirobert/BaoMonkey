@@ -19,7 +19,7 @@
     [_node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"machine1"],
                                                                                    [SKTexture textureWithImageNamed:@"machine2"],
                                                                                    [SKTexture textureWithImageNamed:@"machine3"],
-                                                                                   [SKTexture textureWithImageNamed:@"machine4"]] timePerFrame:0.1]]];
+                                                                                   [SKTexture textureWithImageNamed:@"machine4"]] timePerFrame:0.05]]];
 }
 
 - (instancetype) init {
