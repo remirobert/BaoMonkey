@@ -25,12 +25,14 @@
 @property (nonatomic, strong) SKSpriteNode *sprite;
 @property (nonatomic, strong) SKSpriteNode *collisionMask;
 @property (nonatomic, strong) Item *weapon;
-@property (nonatomic, strong) BOOL isShield;
+@property (nonatomic, assign) BOOL isShield;
 
 -(id)initWithPosition:(CGPoint)position;
 -(void)updateMonkeyPosition:(float)acceleration;
+-(void
+  )manageShield:(CFTimeInterval)currentTime;
 -(void)catchItem:(id)item;
 -(void)launchWeapon;
-- (void) deadMonkey;
+-(void)deadMonkey;
 
 @end

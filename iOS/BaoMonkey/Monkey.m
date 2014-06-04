@@ -77,7 +77,6 @@
 #pragma mark - Action animation monkey
 
 - (void) moveActionWalking {
-    NSLog(@"update move");
     if ([sprite actionForKey:@"lanchAction"] != nil ||
         [sprite actionForKey:@"deadMonkey"] != nil) {
         return ;
@@ -217,6 +216,40 @@
     
     deadFrames = [[NSArray alloc] init];
     deadFrames = frames;
+}
+
+#pragma mark - Manage Shield
+
+-(void)manageShield:(CFTimeInterval)currentTime {
+    static CGFloat timeNext = 0.0;
+    
+    if (currentTime < timeNext) {
+        [sprite removeAllChildren];
+        isShield = FALSE;
+        NSLog(@"!isShield");
+        return ;
+    }
+    
+    int ratio = rand() % 150;
+    
+    timeNext = currentTime + ratio;
+    
+    NSLog(@"isShield");
+    
+    if (isShield){
+        NSLog(@"%d", [sprite children].count);
+        if ([sprite children].count == 0) {
+            NSLog(@"titi");
+            SKSpriteNode *node = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:sprite.size];
+            node.position = sprite.position;
+            node.zPosition = 150;
+            node.name = @"NODE_SHIELD";
+            [sprite addChild:node];
+        }
+    } else {
+        NSLog(@"REMOVE SHIELD");
+        [sprite removeAllChildren];
+    }
 }
 
 #pragma mark - Checking the item receive
