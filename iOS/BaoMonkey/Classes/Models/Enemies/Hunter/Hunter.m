@@ -82,8 +82,6 @@
     else
         positionX = (rand() % (int)positionMonkey.x - 50) + positionMonkey.x - 50;
     
-    
-    //SKSpriteNode *shoot = [[SKSpriteNode alloc] initWithColor:[SKColor blackColor] size:CGSizeMake(10, 10)];
     SKSpriteNode *shoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munition-explosive"]];
     shoot.size = CGSizeMake(shoot.size.width / 3, shoot.size.height / 3);
     
@@ -101,8 +99,12 @@
 -(void)startWalking {
     
     
-    [node  runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"chasseur-2"],
-                                                                                   [SKTexture textureWithImageNamed:@"chasseur-3"]] timePerFrame:0.2]]
+    [node  runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"chasseur-0b"],
+                                                                                   [SKTexture textureWithImageNamed:@"chasseur-1b"],
+                                                                                   [SKTexture textureWithImageNamed:@"chasseur-2b"],
+                                                                                   [SKTexture textureWithImageNamed:@"chasseur-3b"],
+                                                                                   [SKTexture textureWithImageNamed:@"chasseur-4b"],
+                                                                                   [SKTexture textureWithImageNamed:@"chasseur-5b"]] timePerFrame:0.2]]
              withKey:SKACTION_HUNTER_WALKING];
 }
 

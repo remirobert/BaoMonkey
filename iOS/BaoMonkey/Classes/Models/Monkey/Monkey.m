@@ -9,6 +9,7 @@
 #import "Monkey.h"
 #import "PreloadData.h"
 #import "BaoSize.h"
+#import "GameData.h"
 
 @implementation Monkey {
     NSArray *walkingFrames;
@@ -80,7 +81,8 @@
 #pragma mark - Action animation monkey
 
 - (void) moveActionWalking {
-    if ([sprite actionForKey:@"lanchAction"] != nil ||
+    if ([GameData isGameOver] == YES ||
+        [sprite actionForKey:@"lanchAction"] != nil ||
         [sprite actionForKey:@"deadMonkey"] != nil) {
         return ;
     }
@@ -96,7 +98,8 @@
 }
 
 - (void) waitMonkey {
-    if ([sprite actionForKey:@"lanchAction"] != nil ||
+    if ([GameData isGameOver] == YES ||
+        [sprite actionForKey:@"lanchAction"] != nil ||
         [sprite actionForKey:@"deadMonkey"] != nil) {
         return ;
     }
@@ -232,7 +235,8 @@
     SKShapeNode *circleMask = [[SKShapeNode alloc ]init];
     CGMutablePathRef circle = CGPathCreateMutable();
     
-    CGPathAddArc(circle, NULL, CGRectGetMidX(sprite.frame), CGRectGetMidY(sprite.frame), 50, 0, M_PI*2, YES); // replace 50 with HALF the desired radius of the circle
+    CGPathAddArc(circle, NULL, CGRectGetMidX(sprite.frame),
+                 CGRectGetMidY(sprite.frame), 50, 0, M_PI*2, YES); // replace 50 with HALF the desired radius of the circle
     
     circleMask.path = circle;
     circleMask.lineWidth = 100; // replace 100 with DOUBLE the desired radius of the circle
@@ -241,7 +245,12 @@
     
     [cropNode setMaskNode:circleMask];*/
     
-    shield = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithRed:163/255.0f green:226/255.0f blue:229/255.0f alpha:0.5f] size:sprite.size];
+    shield = [SKSpriteNode spriteNodeWithColor:[UIColor
+                                                colorWithRed:163/255.0f
+                                                green:226/255.0f
+                                                blue:229/255.0f
+                                                alpha:0.5f]
+                                          size:sprite.size];
     shield.position = sprite.position;
     shield.zPosition = 150;
     shield.name = @"NODE_SHIELD";
@@ -298,7 +307,10 @@
 
     [sprite runAction:[SKAction animateWithTextures:deadFrames
                                        timePerFrame:0.1 resize:NO restore:NO]
-              withKey:@"deadMonkey"];
+              completion:^{
+                  [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"KO3"]]
+                                                                                   timePerFrame:0.1]]];
+              }];
 }
 
 @end
