@@ -48,27 +48,132 @@
 
 /* iPads (landscape) */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-
+	.wrapper {
+	  height: 2048px;
+	  position: absolute;
+	  overflow: hidden;
+	  display: table;
+	  height: 100%;
+	  width: 100%;
+	  left: 0;
+	  top: 0;
+	}
+	.iphone2 {
+	  background: red;
+	}
 }
 
 /* iPads (portrait) */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-
+	.wrapper {
+	  height: 2048px;
+	  position: absolute;
+	  overflow: hidden;
+	  display: table;
+	  height: 100%;
+	  width: 100%;
+	  left: 0;
+	  top: 0;
+	}
+	.iphone2 {
+	  background: none;
+	}
 }
 
 /* ipad 2 (Landscape) */
 @media (max-device-width: 1024px) and (orientation: landscape) {
-/* Styles pour cette Media Queries */
+	.wrapper {
+	  height: 2048px;
+	  position: absolute;
+	  overflow: hidden;
+	  display: table;
+	  height: 100%;
+	  width: 100%;
+	  left: 0;
+	  top: 0;
+	}
+	.iphone2 {
+	  background: none;
+	}
 }
 
 /* ipad2 (portait) */
 @media (max-device-width: 768px) and (orientation: portrait) {
-
+	.wrapper {
+	  height: 2048px;
+	  position: absolute;
+	  overflow: hidden;
+	  display: table;
+	  height: 100%;
+	  width: 100%;
+	  left: 0;
+	  top: 0;
+	}
+	.scene {
+		min-height: 2048px;
+		position: relative;
+  		overflow: hidden;
+	}
+	.ipad {
+	  background: url(../assets/elements/ipad.png) no-repeat 100% 100%;
+	  position: absolute;
+	  width: 110%;
+	  height: 100%;
+	  left: 5%;
+	  top: -5%;
+	}
+	.monkey {
+	  background: url(../assets/elements/monkey.png) no-repeat 100% 100%;
+	  position: absolute;
+	  width: 110%;
+	  height: 100%;
+	  left: -50%;
+	  top: -8%;
+	}
+	.bg3 {
+	  background: url(../assets/background/bg3.png) repeat-x 100% 100%;
+	  position: absolute;
+	  width: 110%;
+	  height: 100%;
+	  left: -5%;
+	  top: 23%;
+	}
+	.bg2 {
+	  background: url(../assets/background/bg2.png) repeat-x 100% 100%;
+	  position: absolute;
+	  width: 110%;
+	  height: 100%;
+	  left: -5%;
+	  top: 25%;
+	}
+	.foreground {
+	  background: url(../assets/background/bg1.png) repeat-x 100% 100%;
+	  position: absolute;
+	  width: 110%;
+	  height: 100%;
+	  left: -5%;
+	  top: -5%;
+	}
+	.iphone2 {
+	  background: none;
+	}
 }
 
 /* iPad Mini */
 @media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 1){
- 
+ .wrapper {
+	  height: 2048px;
+	  position: absolute;
+	  overflow: hidden;
+	  display: table;
+	  height: 100%;
+	  width: 100%;
+	  left: 0;
+	  top: 0;
+	}
+	.iphone2 {
+	  background: green;
+	}
 }
 
 /***************************************************************************************************************
