@@ -162,3 +162,150 @@
 @media screen and (max-device-width: 320px) {
 
 }
+
+/******************/
+/* A trier */
+@media (width: 1136px) {
+    #features .iphone-1 {
+        margin-top: 45px;
+    }
+}
+
+@media (width: 1024px) {
+    #features .iphone-1 {
+        margin-top: 45px;
+    }
+}
+@media (min-width: 768px) and (max-width: 980px) {
+    #hero img {
+        margin-top: 200px;
+    }
+    #features .iphone-1 {
+        margin-top: 175px;
+    }
+    .btn-wide {
+        padding: 15px 50px;
+    }
+    #image h1 {
+        font-size: 30px;
+    }
+    #image .lead {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+}
+@media (min-width: 320px) and (max-width: 360px) {
+    #hero {
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+    #hero .logo {
+        margin-bottom: 50px;
+    }
+    #hero h1, h1, .h1 {
+        font-size: 32px;
+    }
+    #hero img {
+        margin-top: 80px;
+    }
+    #features, #image, #about, #video, #testimonials, #purchase, #gallery, #social, #subscribe {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    #image .text, #testimonials .text {
+        text-align: center;
+    }
+    #owl-demo .item img {
+        height: 100%;
+    }
+    .social-icon {
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        background-color: #16a085;
+        color: #fff;
+        font-size: 14px;
+        height: 30px;
+        width: 30px;
+        padding: 5px;
+    }
+    .green-tooltip + .tooltip > .tooltip-inner {
+        padding: 5px;
+    }
+    .buttons {
+        padding-top: 0px;
+    }
+    .icon {
+        padding-right: 8px;
+    }
+    .btn-lg {
+        padding: 8px 13px;
+    }
+    .btn-wide {
+        padding: 15px 50px;
+    }
+}
+@media (width: 1024px) {
+    #hero img {
+        margin-top: 100px;
+    }
+    #owl-demo .item img {
+        height: 100%;
+    }
+}
+@media (width: 980px) {
+    #features .item h2 {
+        font-size: 26px;
+    }
+    #owl-demo .item img {
+        height: 100%;
+    }
+}
+@media (min-width: 768px) and (max-width: 900px) {
+    #features .item h2 {
+        font-size: 24px;
+    }
+    #owl-demo .item img {
+        height: 100%;
+    }
+}
+@media (min-width: 600px) and (max-width: 640px) {
+    #hero {
+        padding-top: 20px;
+    }
+    #hero h1 {
+        font-size: 42px;
+    }
+    #hero .lead {
+        font-size: 28px;
+    }
+    #hero .buttons {
+        margin-bottom: 50px;
+    }
+    #features img {
+        margin: 20px auto;
+    }
+    #image {
+        padding-bottom: 50px;
+    }
+    #image .text {
+        text-align: center;
+    }
+    #testimonials .text {
+        text-align: center;
+    }
+    #owl-demo .item img {
+        height: 100%;
+    }
+}
+@media (width: 480px) {
+    #image .text {
+        text-align: center;
+        padding-bottom: 25px;
+    }
+}
+@media (width: 360px) {
+    #gallery #owl-demo .item {
+        padding-left: 15px;
+    }
+}
