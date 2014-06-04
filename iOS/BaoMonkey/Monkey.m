@@ -28,7 +28,8 @@
 }
 
 - (void) initCollisionMask {
-    _collisionMask = [[SKSpriteNode alloc] initWithColor:[SKColor colorWithRed:0 green:0 blue:0 alpha:0] size:CGSizeMake(sprite.size.width / 2, sprite.size.height - 10)];
+    _collisionMask = [[SKSpriteNode alloc] initWithColor:[SKColor colorWithRed:0 green:0 blue:0 alpha:0]
+                                                    size:CGSizeMake(sprite.size.width / 2, sprite.size.height - 10)];
     [self updateCollisionMask];
 }
 
@@ -120,15 +121,25 @@
     if ([sprite actionForKey:@"lanchAction"] != nil) {
         isAction = YES;
     }
-
-    if (isAction == YES && [sprite actionForKey:@"lanchAction"] != nil) {
-        oldAcceleration = 0;
+    
+    if (isAction == YES && [sprite actionForKey:@"lanchAction"] == nil) {
         isAction = NO;
+        [self moveActionWalking];
+        
+        if (acceleration < 0) {
+                [self moveActionWalking];
+            oldAcceleration = -1;
+            sprite.xScale = -1.0;
+        }
+        else if (acceleration > 0) {
+                [self moveActionWalking];
+            oldAcceleration = 1;
+            sprite.xScale = 1.0;
+        }
+        [self moveMonkey:acceleration];
     }
     
     if (acceleration == 0) {
-        if (oldAcceleration == 0)
-            return;
         [self waitMonkey];
         oldAcceleration = 0;
         return ;
@@ -148,7 +159,6 @@
         sprite.xScale = 1.0;
     }
     [self moveMonkey:acceleration];
-    oldAcceleration = acceleration;
 }
 
 #pragma mark - Load texture
@@ -265,6 +275,7 @@
     }
     if (((Item *)item).isTaken == NO)
         [(Item *)item launchAction];
+    [self moveActionWalking];
 }
 
 #pragma mark - Launch a weapon
