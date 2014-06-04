@@ -68,8 +68,12 @@
 -(void)startWalking {
     if (![node actionForKey:SKACTION_LAMBERJACK_WALKING]) {
         
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"bucheron-2"],
-                                                                                      [SKTexture textureWithImageNamed:@"bucheron-3"]]
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"courseb1"],
+                                                                                      [SKTexture textureWithImageNamed:@"courseb2"],
+                                                                                      [SKTexture textureWithImageNamed:@"courseb3"],
+                                                                                      [SKTexture textureWithImageNamed:@"courseb4"],
+                                                                                      [SKTexture textureWithImageNamed:@"courseb5"],
+                                                                                      [SKTexture textureWithImageNamed:@"courseb6"]]
                                                                             timePerFrame:0.1f
                                                                                resize:NO
                                                                               restore:NO]]
