@@ -35,6 +35,18 @@
 
 @implementation LamberJackMachineScene
 
+- (void) initSmokeLamberJack {
+    NSString *burstPath =
+    [[NSBundle mainBundle] pathForResource:@"smokeLamberJack" ofType:@"sks"];
+    
+    SKEmitterNode *smoke = [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
+    
+    smoke.zPosition = 50;
+    smoke.position = CGPointMake(_lamber.node.position.x - _lamber.node.size.width / 2,
+                                 _lamber.node.position.y);
+    [self addChild:smoke];
+}
+
 - (void) initMonkey {
     _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, _treeBranch.node.position.y + 20)];
 
@@ -89,16 +101,18 @@
         [self initMonkey];
         
         _lamber = [[LamberJackMachine alloc] init];
+        _lamber.node.zPosition = 100;
         [self addChild:_lamber.node];
 
         self.physicsWorld.gravity = CGVectorMake(0, -10);
-
+        
         _lanchMove = NO;
         _pushforce = 2;
         _sens = rand() % 2;
         _timer = 0;
         _parentScene = parentScene;
         [self updateAngleTree];
+        [self initSmokeLamberJack];
     }
     return (self);
 }
@@ -252,9 +266,9 @@
     [self updateTreePosition];
     
     if (_lanchMove == YES) {
-        [self moveTreeBranch];
-        [self stressTree:currentTime];
-        [self toreBranch:currentTime];
+//        [self moveTreeBranch];
+//        [self stressTree:currentTime];
+//        [self toreBranch:currentTime];
     }
     
     [self enumerateChildNodesWithName:@"invalid_coco" usingBlock:^(SKNode *node, BOOL *stop) {
