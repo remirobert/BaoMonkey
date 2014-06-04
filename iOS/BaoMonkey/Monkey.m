@@ -39,6 +39,7 @@
         // Init the sprites of the Monkey
         sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_MONKEY_WAITING]
                                                 size:[BaoSize monkey]];
+        sprite.size = CGSizeMake(sprite.size.width / 4, sprite.size.height / 4);
         sprite.position = position;
         isShield = FALSE;
         
@@ -90,9 +91,7 @@
     else
         framesWalking = walkingCoconutFrames;
     
-    [sprite runAction:[SKAction
-                       repeatActionForever:[SKAction
-                                            animateWithTextures:framesWalking timePerFrame:0.1]] withKey:@"runactionwalk"];
+    [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:framesWalking timePerFrame:0.1]] withKey:@"runactionwalk"];
 }
 
 - (void) waitMonkey {
@@ -169,32 +168,21 @@
 }
 
 -(void)loadWalkingSprites {
-    NSMutableArray *frames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *monkeyWalkingAtlas = [PreloadData getDataWithKey:DATA_MONKEY_WALKING_ATLAS];
-    NSUInteger numberOfFrames = monkeyWalkingAtlas.textureNames.count;
-    
-    for (int i = 1; i <= numberOfFrames; i++) {
-        NSString *textureName = [NSString stringWithFormat:@"monkey-walking-%d", i];
-        SKTexture *tmp = [monkeyWalkingAtlas textureNamed:textureName];
-        [frames addObject:tmp];
-    }
-
-    walkingFrames = [[NSArray alloc] initWithArray:frames];
+    walkingFrames = @[[SKTexture textureWithImageNamed:@"run1"],
+                      [SKTexture textureWithImageNamed:@"run2"],
+                      [SKTexture textureWithImageNamed:@"run3"],
+                      [SKTexture textureWithImageNamed:@"run4"],
+                      [SKTexture textureWithImageNamed:@"run5"],
+                      [SKTexture textureWithImageNamed:@"run6"]];
 }
 
 -(void)loadWalkingCoconutSprites {
-    NSMutableArray *frames = [[NSMutableArray alloc] init];
-    SKTextureAtlas *monkeyWalkingCoconutAtlas = [PreloadData getDataWithKey:DATA_MONKEY_WALKING_COCONUT_ATLAS];
-    NSUInteger numberOfFrames = monkeyWalkingCoconutAtlas.textureNames.count;
-    
-    for (int i = 1; i <= numberOfFrames; i++) {
-        NSString *textureName = [NSString stringWithFormat:@"monkey-walking-coconut-%d", i];
-        SKTexture *tmp = [monkeyWalkingCoconutAtlas textureNamed:textureName];
-        [frames addObject:tmp];
-    }
-    
-    walkingCoconutFrames = [[NSArray alloc] init];
-    walkingCoconutFrames = frames;
+    walkingCoconutFrames = @[[SKTexture textureWithImageNamed:@"coco1"],
+                             [SKTexture textureWithImageNamed:@"coco2"],
+                             [SKTexture textureWithImageNamed:@"coco3"],
+                             [SKTexture textureWithImageNamed:@"coco4"],
+                             [SKTexture textureWithImageNamed:@"coco5"],
+                             [SKTexture textureWithImageNamed:@"coco6"]];
 }
 
 

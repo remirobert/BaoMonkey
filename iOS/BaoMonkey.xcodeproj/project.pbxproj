@@ -135,10 +135,8 @@
 		3FB7C492192E866B00801643 /* plateform@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB7C491192E866B00801643 /* plateform@2x.png */; };
 		3FD47EFF192F4EBB0074B256 /* monkey-launch-coconut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EF9192F4EBB0074B256 /* monkey-launch-coconut@2x.png */; };
 		3FD47F00192F4EBB0074B256 /* MonkeyDead.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EFA192F4EBB0074B256 /* MonkeyDead.atlas */; };
-		3FD47F01192F4EBB0074B256 /* MonkeyWalkingWithCoconut.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EFB192F4EBB0074B256 /* MonkeyWalkingWithCoconut.atlas */; };
 		3FD47F02192F4EBB0074B256 /* monkey-waiting-coconut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EFC192F4EBB0074B256 /* monkey-waiting-coconut@2x.png */; };
 		3FD47F03192F4EBB0074B256 /* monkey-waiting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EFD192F4EBB0074B256 /* monkey-waiting@2x.png */; };
-		3FD47F06192F52B70074B256 /* MonkeyWalking.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47F05192F52B70074B256 /* MonkeyWalking.atlas */; };
 		3FE2405419338B410017C470 /* MonkeyLaunch.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3FE2405319338B410017C470 /* MonkeyLaunch.atlas */; };
 		A5731ABC19275AF300023346 /* Achievement.m in Sources */ = {isa = PBXBuildFile; fileRef = A5731ABB19275AF300023346 /* Achievement.m */; };
 /* End PBXBuildFile section */
@@ -329,10 +327,8 @@
 		3FB7C491192E866B00801643 /* plateform@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plateform@2x.png"; path = "Enemy/plateform@2x.png"; sourceTree = "<group>"; };
 		3FD47EF9192F4EBB0074B256 /* monkey-launch-coconut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monkey-launch-coconut@2x.png"; sourceTree = "<group>"; };
 		3FD47EFA192F4EBB0074B256 /* MonkeyDead.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyDead.atlas; sourceTree = "<group>"; };
-		3FD47EFB192F4EBB0074B256 /* MonkeyWalkingWithCoconut.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyWalkingWithCoconut.atlas; sourceTree = "<group>"; };
 		3FD47EFC192F4EBB0074B256 /* monkey-waiting-coconut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monkey-waiting-coconut@2x.png"; sourceTree = "<group>"; };
 		3FD47EFD192F4EBB0074B256 /* monkey-waiting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monkey-waiting@2x.png"; sourceTree = "<group>"; };
-		3FD47F05192F52B70074B256 /* MonkeyWalking.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyWalking.atlas; sourceTree = "<group>"; };
 		3FE2405319338B410017C470 /* MonkeyLaunch.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyLaunch.atlas; sourceTree = "<group>"; };
 		A5731ABA19275AF300023346 /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achievement.h; sourceTree = "<group>"; };
 		A5731ABB19275AF300023346 /* Achievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Achievement.m; sourceTree = "<group>"; };
@@ -506,9 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				29A3D4CD1938B380003A71DC /* MonkeyMenu.atlas */,
-				3FD47EFB192F4EBB0074B256 /* MonkeyWalkingWithCoconut.atlas */,
 				3FE2405319338B410017C470 /* MonkeyLaunch.atlas */,
-				3FD47F05192F52B70074B256 /* MonkeyWalking.atlas */,
 				3FD47EF9192F4EBB0074B256 /* monkey-launch-coconut@2x.png */,
 				3FD47EFA192F4EBB0074B256 /* MonkeyDead.atlas */,
 				3FD47EFC192F4EBB0074B256 /* monkey-waiting-coconut@2x.png */,
@@ -1055,7 +1049,6 @@
 				10C59A171919492C00907493 /* tree-branch@2x.png in Resources */,
 				3F47F9CA192D50F900C36A39 /* HunterDead.atlas in Resources */,
 				3F47F9C9192D50F900C36A39 /* hunter-waiting@2x.png in Resources */,
-				3FD47F01192F4EBB0074B256 /* MonkeyWalkingWithCoconut.atlas in Resources */,
 				3F47F9C1192D41E200C36A39 /* lamber-jack-waiting@2x.png in Resources */,
 				29A3D4C019365300003A71DC /* button-share@2x.png in Resources */,
 				10573343193F41A200E6FD75 /* feuillagecompletavant.png in Resources */,
@@ -1094,7 +1087,6 @@
 				10F24A4D193E27890091972B /* Images.xcassets in Resources */,
 				29A3D4C41936531B003A71DC /* button-infos@2x.png in Resources */,
 				29A3D4B21935DA12003A71DC /* button-home@2x.png in Resources */,
-				3FD47F06192F52B70074B256 /* MonkeyWalking.atlas in Resources */,
 				3FD47F03192F4EBB0074B256 /* monkey-waiting@2x.png in Resources */,
 				2919C640192DEE1F00A2F2D1 /* button-settings-selected@2x.png in Resources */,
 				108C7E40193CD4E000ADCB85 /* canon@2x.png in Resources */,
