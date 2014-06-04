@@ -308,11 +308,12 @@
     
         [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
             if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
-                //[leafTransition runGameOverTransition];
+                [node removeFromParent];
                 if (!monkey.isShield) {
                     [monkey deadMonkey];
                     [self gameOverCountDown];
                 } else {
+                    [[monkey shield] removeFromParent];
                     monkey.isShield = FALSE;
                 }
                 return ;
