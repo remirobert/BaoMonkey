@@ -214,7 +214,7 @@
     }
 
     if (timeNext == 0 || isCarry == FALSE) {
-        timeNext = currentTime + 3.0;
+        timeNext = currentTime + 10.0;
     }
     
     isCarry = TRUE;
@@ -228,30 +228,18 @@
 }
 
 - (void) addShield:(SKScene *)scene {
-    /*SKCropNode *cropNode = [[SKCropNode alloc] init];
-    SKShapeNode *circleMask = [[SKShapeNode alloc ]init];
-    CGMutablePathRef circle = CGPathCreateMutable();
+    SKShapeNode* tile = [SKShapeNode node];
+    [tile setPath:CGPathCreateWithRoundedRect(CGRectMake(-sprite.size.width / 2, -sprite.size.height / 2, sprite.size.width, sprite.size.height),
+                                              sprite.size.width / 2,
+                                              sprite.size.height / 2,
+                                              nil)];
+    tile.strokeColor = tile.fillColor = [UIColor colorWithRed:163/255.0f green:226/255.0f blue:229/255.0f alpha:0.5f];
     
-    CGPathAddArc(circle, NULL, CGRectGetMidX(sprite.frame),
-                 CGRectGetMidY(sprite.frame), 50, 0, M_PI*2, YES); // replace 50 with HALF the desired radius of the circle
-    
-    circleMask.path = circle;
-    circleMask.lineWidth = 100; // replace 100 with DOUBLE the desired radius of the circle
-    circleMask.strokeColor = [SKColor clearColor];
-    circleMask.name=@"circleMask";
-    
-    [cropNode setMaskNode:circleMask];*/
-    
-    shield = [SKSpriteNode spriteNodeWithColor:[UIColor
-                                                colorWithRed:163/255.0f
-                                                green:226/255.0f
-                                                blue:229/255.0f
-                                                alpha:0.5f]
-                                          size:sprite.size];
+    shield = [SKSpriteNode node];
     shield.position = sprite.position;
     shield.zPosition = 150;
     shield.name = @"NODE_SHIELD";
-    //[shield addChild:cropNode];
+    [shield addChild:tile];
     isShield = TRUE;
     [scene addChild:shield];
 }
