@@ -18,6 +18,12 @@
 		108C7E41193CD4E000ADCB85 /* chassis@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E3D193CD4E000ADCB85 /* chassis@2x.png */; };
 		108C7E42193CD4E000ADCB85 /* rouemodulaire@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E3E193CD4E000ADCB85 /* rouemodulaire@2x.png */; };
 		108C7E43193CD4E000ADCB85 /* tourelle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E3F193CD4E000ADCB85 /* tourelle@2x.png */; };
+		10A7477119405D7D001BF4FC /* Helicopter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7476E19405D7D001BF4FC /* Helicopter.m */; };
+		10A7477219405D7D001BF4FC /* HelicopterScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477019405D7D001BF4FC /* HelicopterScene.m */; };
+		10A7477B19405D8C001BF4FC /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477419405D8C001BF4FC /* MyScene.m */; };
+		10A7477C19405D8C001BF4FC /* MyScene+Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477619405D8C001BF4FC /* MyScene+Climber.m */; };
+		10A7477D19405D8C001BF4FC /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477819405D8C001BF4FC /* MyScene+GeneratorWave.m */; };
+		10A7477E19405D8C001BF4FC /* MyScene+LoadBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477A19405D8C001BF4FC /* MyScene+LoadBoss.m */; };
 		10A9E1521936312900E3E7A0 /* MonkeyWait.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 10A9E1511936312900E3E7A0 /* MonkeyWait.atlas */; };
 		10B2E580193DC7EE00DDEF3A /* fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 10B2E57F193DC7EE00DDEF3A /* fire.sks */; };
 		10C599B7191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
@@ -124,14 +130,8 @@
 		3FB7C490192E823D00801643 /* selector-slider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB7C48D192E823D00801643 /* selector-slider@2x.png */; };
 		3FB7C492192E866B00801643 /* plateform@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB7C491192E866B00801643 /* plateform@2x.png */; };
 		3FC52F5B193FB54600DCDCB7 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F3A193FB54600DCDCB7 /* GameOverScene.m */; };
-		3FC52F5C193FB54600DCDCB7 /* Helicopter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F3D193FB54600DCDCB7 /* Helicopter.m */; };
-		3FC52F5D193FB54600DCDCB7 /* HelicopterScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F3F193FB54600DCDCB7 /* HelicopterScene.m */; };
 		3FC52F5E193FB54600DCDCB7 /* LamberJackMachineScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F42193FB54600DCDCB7 /* LamberJackMachineScene.m */; };
 		3FC52F5F193FB54600DCDCB7 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F45193FB54600DCDCB7 /* MainMenu.m */; };
-		3FC52F60193FB54600DCDCB7 /* MyScene+Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F49193FB54600DCDCB7 /* MyScene+Climber.m */; };
-		3FC52F61193FB54600DCDCB7 /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F4B193FB54600DCDCB7 /* MyScene+GeneratorWave.m */; };
-		3FC52F62193FB54600DCDCB7 /* MyScene+LoadBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F4D193FB54600DCDCB7 /* MyScene+LoadBoss.m */; };
-		3FC52F63193FB54600DCDCB7 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F4F193FB54600DCDCB7 /* MyScene.m */; };
 		3FC52F64193FB54600DCDCB7 /* PauseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F52193FB54600DCDCB7 /* PauseScene.m */; };
 		3FC52F65193FB54600DCDCB7 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F55193FB54600DCDCB7 /* Settings.m */; };
 		3FC52F66193FB54600DCDCB7 /* SpriteKitCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F57193FB54600DCDCB7 /* SpriteKitCursor.m */; };
@@ -166,6 +166,18 @@
 		108C7E3D193CD4E000ADCB85 /* chassis@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chassis@2x.png"; sourceTree = "<group>"; };
 		108C7E3E193CD4E000ADCB85 /* rouemodulaire@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rouemodulaire@2x.png"; sourceTree = "<group>"; };
 		108C7E3F193CD4E000ADCB85 /* tourelle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tourelle@2x.png"; sourceTree = "<group>"; };
+		10A7476D19405D7D001BF4FC /* Helicopter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helicopter.h; sourceTree = "<group>"; };
+		10A7476E19405D7D001BF4FC /* Helicopter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helicopter.m; sourceTree = "<group>"; };
+		10A7476F19405D7D001BF4FC /* HelicopterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelicopterScene.h; sourceTree = "<group>"; };
+		10A7477019405D7D001BF4FC /* HelicopterScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelicopterScene.m; sourceTree = "<group>"; };
+		10A7477319405D8C001BF4FC /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
+		10A7477419405D8C001BF4FC /* MyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
+		10A7477519405D8C001BF4FC /* MyScene+Climber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Climber.h"; sourceTree = "<group>"; };
+		10A7477619405D8C001BF4FC /* MyScene+Climber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Climber.m"; sourceTree = "<group>"; };
+		10A7477719405D8C001BF4FC /* MyScene+GeneratorWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+GeneratorWave.h"; sourceTree = "<group>"; };
+		10A7477819405D8C001BF4FC /* MyScene+GeneratorWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+GeneratorWave.m"; sourceTree = "<group>"; };
+		10A7477919405D8C001BF4FC /* MyScene+LoadBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+LoadBoss.h"; sourceTree = "<group>"; };
+		10A7477A19405D8C001BF4FC /* MyScene+LoadBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+LoadBoss.m"; sourceTree = "<group>"; };
 		10A9E1511936312900E3E7A0 /* MonkeyWait.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyWait.atlas; sourceTree = "<group>"; };
 		10B2E57F193DC7EE00DDEF3A /* fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire.sks; sourceTree = "<group>"; };
 		10C599B3191948A300907493 /* BaoMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,22 +319,10 @@
 		3FB7C491192E866B00801643 /* plateform@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plateform@2x.png"; path = "Enemy/plateform@2x.png"; sourceTree = "<group>"; };
 		3FC52F39193FB54600DCDCB7 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
 		3FC52F3A193FB54600DCDCB7 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
-		3FC52F3C193FB54600DCDCB7 /* Helicopter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helicopter.h; sourceTree = "<group>"; };
-		3FC52F3D193FB54600DCDCB7 /* Helicopter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helicopter.m; sourceTree = "<group>"; };
-		3FC52F3E193FB54600DCDCB7 /* HelicopterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelicopterScene.h; sourceTree = "<group>"; };
-		3FC52F3F193FB54600DCDCB7 /* HelicopterScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelicopterScene.m; sourceTree = "<group>"; };
 		3FC52F41193FB54600DCDCB7 /* LamberJackMachineScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamberJackMachineScene.h; sourceTree = "<group>"; };
 		3FC52F42193FB54600DCDCB7 /* LamberJackMachineScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LamberJackMachineScene.m; sourceTree = "<group>"; };
 		3FC52F44193FB54600DCDCB7 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		3FC52F45193FB54600DCDCB7 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
-		3FC52F48193FB54600DCDCB7 /* MyScene+Climber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Climber.h"; sourceTree = "<group>"; };
-		3FC52F49193FB54600DCDCB7 /* MyScene+Climber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Climber.m"; sourceTree = "<group>"; };
-		3FC52F4A193FB54600DCDCB7 /* MyScene+GeneratorWave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+GeneratorWave.h"; sourceTree = "<group>"; };
-		3FC52F4B193FB54600DCDCB7 /* MyScene+GeneratorWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+GeneratorWave.m"; sourceTree = "<group>"; };
-		3FC52F4C193FB54600DCDCB7 /* MyScene+LoadBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+LoadBoss.h"; sourceTree = "<group>"; };
-		3FC52F4D193FB54600DCDCB7 /* MyScene+LoadBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+LoadBoss.m"; sourceTree = "<group>"; };
-		3FC52F4E193FB54600DCDCB7 /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
-		3FC52F4F193FB54600DCDCB7 /* MyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
 		3FC52F51193FB54600DCDCB7 /* PauseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseScene.h; sourceTree = "<group>"; };
 		3FC52F52193FB54600DCDCB7 /* PauseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseScene.m; sourceTree = "<group>"; };
 		3FC52F54193FB54600DCDCB7 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -1039,10 +1039,10 @@
 		3FC52F3B193FB54600DCDCB7 /* HelicopterScene */ = {
 			isa = PBXGroup;
 			children = (
-				3FC52F3C193FB54600DCDCB7 /* Helicopter.h */,
-				3FC52F3D193FB54600DCDCB7 /* Helicopter.m */,
-				3FC52F3E193FB54600DCDCB7 /* HelicopterScene.h */,
-				3FC52F3F193FB54600DCDCB7 /* HelicopterScene.m */,
+				10A7476D19405D7D001BF4FC /* Helicopter.h */,
+				10A7476E19405D7D001BF4FC /* Helicopter.m */,
+				10A7476F19405D7D001BF4FC /* HelicopterScene.h */,
+				10A7477019405D7D001BF4FC /* HelicopterScene.m */,
 			);
 			name = HelicopterScene;
 			path = Classes/Scenes/HelicopterScene;
@@ -1079,14 +1079,14 @@
 		3FC52F47193FB54600DCDCB7 /* MyScene */ = {
 			isa = PBXGroup;
 			children = (
-				3FC52F48193FB54600DCDCB7 /* MyScene+Climber.h */,
-				3FC52F49193FB54600DCDCB7 /* MyScene+Climber.m */,
-				3FC52F4A193FB54600DCDCB7 /* MyScene+GeneratorWave.h */,
-				3FC52F4B193FB54600DCDCB7 /* MyScene+GeneratorWave.m */,
-				3FC52F4C193FB54600DCDCB7 /* MyScene+LoadBoss.h */,
-				3FC52F4D193FB54600DCDCB7 /* MyScene+LoadBoss.m */,
-				3FC52F4E193FB54600DCDCB7 /* MyScene.h */,
-				3FC52F4F193FB54600DCDCB7 /* MyScene.m */,
+				10A7477319405D8C001BF4FC /* MyScene.h */,
+				10A7477419405D8C001BF4FC /* MyScene.m */,
+				10A7477519405D8C001BF4FC /* MyScene+Climber.h */,
+				10A7477619405D8C001BF4FC /* MyScene+Climber.m */,
+				10A7477719405D8C001BF4FC /* MyScene+GeneratorWave.h */,
+				10A7477819405D8C001BF4FC /* MyScene+GeneratorWave.m */,
+				10A7477919405D8C001BF4FC /* MyScene+LoadBoss.h */,
+				10A7477A19405D8C001BF4FC /* MyScene+LoadBoss.m */,
 			);
 			name = MyScene;
 			path = Classes/Scenes/MyScene;
@@ -1329,39 +1329,39 @@
 				3F595E9F193FB64400150ED8 /* EnemiesController.m in Sources */,
 				3F36C4B0193FB807009D371D /* Achievement.m in Sources */,
 				3F36C4C1193FB807009D371D /* Resume.m in Sources */,
+				10A7477D19405D8C001BF4FC /* MyScene+GeneratorWave.m in Sources */,
 				3FC52F5E193FB54600DCDCB7 /* LamberJackMachineScene.m in Sources */,
 				3F36C4B5193FB807009D371D /* Bonus.m in Sources */,
 				3F36C4C3193FB807009D371D /* UserData.m in Sources */,
 				3F36C4BE193FB807009D371D /* Music.m in Sources */,
 				3FC52F64193FB54600DCDCB7 /* PauseScene.m in Sources */,
-				3FC52F62193FB54600DCDCB7 /* MyScene+LoadBoss.m in Sources */,
+				10A7477219405D7D001BF4FC /* HelicopterScene.m in Sources */,
 				3FC52F65193FB54600DCDCB7 /* Settings.m in Sources */,
 				3FC52F67193FB54600DCDCB7 /* TankScene.m in Sources */,
 				3FC52F66193FB54600DCDCB7 /* SpriteKitCursor.m in Sources */,
+				10A7477C19405D8C001BF4FC /* MyScene+Climber.m in Sources */,
 				3F595EA3193FB64400150ED8 /* LamberJackMachine.m in Sources */,
 				3FC52F5B193FB54600DCDCB7 /* GameOverScene.m in Sources */,
 				3F36C4B9193FB807009D371D /* Malus.m in Sources */,
 				3F36C4B7193FB807009D371D /* Item.m in Sources */,
-				3FC52F5C193FB54600DCDCB7 /* Helicopter.m in Sources */,
 				3F36C4BC193FB807009D371D /* Weapon.m in Sources */,
 				3F595E9E193FB64400150ED8 /* Climber.m in Sources */,
-				3FC52F5D193FB54600DCDCB7 /* HelicopterScene.m in Sources */,
 				3F36C4BD193FB807009D371D /* Monkey.m in Sources */,
-				3FC52F61193FB54600DCDCB7 /* MyScene+GeneratorWave.m in Sources */,
 				3F36C4C2193FB807009D371D /* TreeBranch.m in Sources */,
 				3F36C4BA193FB807009D371D /* Prune.m in Sources */,
 				3F595EA4193FB64400150ED8 /* Tank.m in Sources */,
 				3F36C4B8193FB807009D371D /* Banana.m in Sources */,
 				10C599C9191948A300907493 /* AppDelegate.m in Sources */,
-				3FC52F60193FB54600DCDCB7 /* MyScene+Climber.m in Sources */,
 				3F36C4BB193FB807009D371D /* CocoNuts.m in Sources */,
-				3FC52F63193FB54600DCDCB7 /* MyScene.m in Sources */,
+				10A7477E19405D8C001BF4FC /* MyScene+LoadBoss.m in Sources */,
 				10C599C5191948A300907493 /* main.m in Sources */,
+				10A7477B19405D8C001BF4FC /* MyScene.m in Sources */,
 				3F36C4B2193FB807009D371D /* GameController.m in Sources */,
 				3F36C4B6193FB807009D371D /* Shield.m in Sources */,
 				3F36C4B4193FB807009D371D /* Action.m in Sources */,
 				3FC52F5F193FB54600DCDCB7 /* MainMenu.m in Sources */,
 				3F36C4BF193FB807009D371D /* PreloadData.m in Sources */,
+				10A7477119405D7D001BF4FC /* Helicopter.m in Sources */,
 				3F36C4B1193FB807009D371D /* GameCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
