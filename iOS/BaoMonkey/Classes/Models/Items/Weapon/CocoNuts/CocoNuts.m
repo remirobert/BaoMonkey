@@ -14,6 +14,7 @@
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super initWithPosition:position]) != nil) {
         [self.node setTexture:[PreloadData getDataWithKey:DATA_COCONUT_TEXTURE]];
+        self.node.size = CGSizeMake(self.node.size.width / 2, self.node.size.height / 2);
         self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 3];
         self.node.physicsBody.mass = 100;
     }

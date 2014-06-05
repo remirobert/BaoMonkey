@@ -18,4 +18,8 @@
     return IPAD ? CGPointMake(SCREEN_WIDTH / 2, ([BaoPosition treeBranch]).y + 60) : CGPointMake(SCREEN_WIDTH / 2, ([BaoPosition treeBranch].y + 30));
 }
 
++(NSInteger)dropAction{
+    return IPAD ? (SCREEN_HEIGHT - 340) : (SCREEN_HEIGHT - 200);
+}
+
 @end

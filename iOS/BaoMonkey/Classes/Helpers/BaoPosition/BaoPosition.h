@@ -13,5 +13,6 @@
 
 +(CGPoint)treeBranch;
 +(CGPoint)monkey;
++(NSInteger)dropAction;
 
 @end

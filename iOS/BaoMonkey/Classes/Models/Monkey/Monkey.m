@@ -38,8 +38,7 @@
     self = [super init];
     if (self) {
         // Init the sprites of the Monkey
-        sprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"stand"]];
-        sprite.size = CGSizeMake(sprite.size.width / 2, sprite.size.height / 2);
+        sprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"waiting"]];
         sprite.position = position;
         isShield = FALSE;
         
@@ -168,26 +167,26 @@
 #pragma mark - Load texture
 
 - (void) loadWaitframes {
-    stopFrames = @[[PreloadData getDataWithKey:@"stand"], [PreloadData getDataWithKey:@"stand"]];
-    stopCocoframes = @[[PreloadData getDataWithKey:@"stand2"], [PreloadData getDataWithKey:@"stand2"]];
+    stopFrames = @[[PreloadData getDataWithKey:@"waiting"], [PreloadData getDataWithKey:@"waiting"]];
+    stopCocoframes = @[[PreloadData getDataWithKey:@"waiting-coconut"], [PreloadData getDataWithKey:@"waiting-coconut"]];
 }
 
 -(void)loadWalkingSprites {
-    walkingFrames = @[[PreloadData getDataWithKey:@"run1"],
-                      [PreloadData getDataWithKey:@"run2"],
-                      [PreloadData getDataWithKey:@"run3"],
-                      [PreloadData getDataWithKey:@"run4"],
-                      [PreloadData getDataWithKey:@"run5"],
-                      [PreloadData getDataWithKey:@"run6"]];
+    walkingFrames = @[[PreloadData getDataWithKey:@"walking-1"],
+                      [PreloadData getDataWithKey:@"walking-2"],
+                      [PreloadData getDataWithKey:@"walking-3"],
+                      [PreloadData getDataWithKey:@"walking-4"],
+                      [PreloadData getDataWithKey:@"walking-5"],
+                      [PreloadData getDataWithKey:@"walking-6"]];
 }
 
 -(void)loadWalkingCoconutSprites {
-    walkingCoconutFrames = @[[PreloadData getDataWithKey:@"coco1"],
-                             [PreloadData getDataWithKey:@"coco2"],
-                             [PreloadData getDataWithKey:@"coco3"],
-                             [PreloadData getDataWithKey:@"coco4"],
-                             [PreloadData getDataWithKey:@"coco5"],
-                             [PreloadData getDataWithKey:@"coco6"]];
+    walkingCoconutFrames = @[[PreloadData getDataWithKey:@"walking-coconut-1"],
+                             [PreloadData getDataWithKey:@"walking-coconut-2"],
+                             [PreloadData getDataWithKey:@"walking-coconut-3"],
+                             [PreloadData getDataWithKey:@"walking-coconut-4"],
+                             [PreloadData getDataWithKey:@"walking-coconut-5"],
+                             [PreloadData getDataWithKey:@"walking-coconut-6"]];
 }
 
 

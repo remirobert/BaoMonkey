@@ -11,6 +11,7 @@
 #import "GameController.h"
 #import "Item.h"
 #import "GameData.h"
+#import "BaoPosition.h"
 
 @interface Action : NSObject
 
