@@ -45,14 +45,14 @@
 }
 
 -(SKSpriteNode *)backgroundNode {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"background-middle"];
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"background-center"];
     node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
     node.name = TRUNK_NODE_NAME;
     return node;
 }
 
 -(SKSpriteNode *)frontLeafNode {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"leafs-foreground"];
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"leafs"];
     node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (node.size.height / 2)));
     node.name = FRONT_LEAF_NODE_NAME;
     node.zPosition = 50;
@@ -316,7 +316,8 @@
             } else {
                 monkey.isShield = FALSE;
             }
-        }];
+        }
+    }];
     
     for (Item *item in _wave) {
         if (item.isOver == YES) {
