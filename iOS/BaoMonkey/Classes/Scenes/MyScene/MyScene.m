@@ -374,7 +374,6 @@
             [self loadTankScene];
         }
     }
-    
 }
 
 @end

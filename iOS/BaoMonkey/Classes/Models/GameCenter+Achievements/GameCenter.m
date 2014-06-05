@@ -94,10 +94,9 @@
 + (void) reportScore {
     GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"baoMonkeyLeaderboard"];
     scoreReport.value = [GameData getScore];
+    scoreReport.context = 0;
     
-    NSArray *tabScore = [NSArray arrayWithObjects:scoreReport, nil];
-    
-    [GKScore reportScores:tabScore withCompletionHandler:nil];
+    [GKScore reportScores:@[scoreReport] withCompletionHandler:nil];
 }
 
 + (void) getBestScorePlayer {
@@ -105,12 +104,10 @@
     leaderboardRequest.identifier = [[GameCenter defaultGameCenter] leaderboardIdentifier];
     
     [leaderboardRequest loadScoresWithCompletionHandler:^(NSArray *scores, NSError *error) {
-        
         if (scores) {
-            
             if ([GameData getScore] > (int)leaderboardRequest.localPlayerScore.value) {
                 [self reportScore];
-            }                
+            }
         }
         return ;
     }];
