@@ -39,16 +39,21 @@
     if (self) {
         // Init the sprites of the Monkey
         sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"stand"]];
-        sprite.size = CGSizeMake(sprite.size.width / 4, sprite.size.height / 4);
+        
         sprite.position = position;
         isShield = FALSE;
         
+        NSLog(@"load1");
         [self loadWalkingSprites];
+        NSLog(@"load2");
         [self loadWalkingCoconutSprites];
+        NSLog(@"load3");
         [self loadLaunchSprites];
+        NSLog(@"load4");
         [self loadWaitframes];
+        NSLog(@"load5");
         [self initCollisionMask];
-        
+        NSLog(@"load6");
         [self waitMonkey];
     }
     return self;
@@ -285,12 +290,13 @@
 - (void) deadMonkey {
     [sprite removeAllActions];
 
-    [sprite runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"monkeyd1"],
-                                                      [SKTexture textureWithImageNamed:@"monkeyd2"],
-                                                      [SKTexture textureWithImageNamed:@"monkeyd3"]]
+    [sprite runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"singe_K1"],
+                                                      [SKTexture textureWithImageNamed:@"singe_K2"],
+                                                      [SKTexture textureWithImageNamed:@"singe_K3"],
+                                                      [SKTexture textureWithImageNamed:@"singe_K4"]]
                                        timePerFrame:0.1 resize:NO restore:NO]
               completion:^{
-                  [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"monkeyd3"]]
+                  [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"singe_K4"]]
                                                                                    timePerFrame:0.1]]];
               }];
 }

@@ -121,6 +121,8 @@
     
     SKSpriteNode *trunk = [self backgroundNode];
     [self addChild:trunk];
+    
+    
     _sizeBlock = (self.frame.size.width - (self.frame.size.width / 10)) / 10;
     _treeBranch = [[TreeBranch alloc] init];
     
@@ -316,7 +318,8 @@
             } else {
                 monkey.isShield = FALSE;
             }
-        }];
+        }}
+     ];
     
     for (Item *item in _wave) {
         if (item.isOver == YES) {

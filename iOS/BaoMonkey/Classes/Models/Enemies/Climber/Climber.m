@@ -37,8 +37,6 @@
             decalPosition = 20;
         }
         
-        node.size = CGSizeMake(node.size.width / 4, node.size.height / 4);
-        
         if (self.direction == LEFT)
         {
             position.x = 0;
