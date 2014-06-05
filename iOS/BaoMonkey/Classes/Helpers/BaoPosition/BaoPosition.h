@@ -12,5 +12,6 @@
 @interface BaoPosition : NSObject
 
 +(CGPoint)treeBranch;
++(CGPoint)monkey;
 
 @end
