@@ -318,8 +318,8 @@
             } else {
                 monkey.isShield = FALSE;
             }
-        }}
-     ];
+        }
+    }];
     
     for (Item *item in _wave) {
         if (item.isOver == YES) {

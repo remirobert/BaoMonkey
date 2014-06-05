@@ -288,13 +288,15 @@
 #pragma mark - Launch a weapon
 
 - (void) deadMonkey {
+    if ([GameData isGameOver])
+        return ;
     [sprite removeAllActions];
 
     [sprite runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"singe_K1"],
                                                       [SKTexture textureWithImageNamed:@"singe_K2"],
                                                       [SKTexture textureWithImageNamed:@"singe_K3"],
                                                       [SKTexture textureWithImageNamed:@"singe_K4"]]
-                                       timePerFrame:0.1 resize:NO restore:NO]
+                                       timePerFrame:0.05 resize:NO restore:NO]
               completion:^{
                   [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"singe_K4"]]
                                                                                    timePerFrame:0.1]]];

@@ -64,7 +64,11 @@
                                                                                       [PreloadData getDataWithKey:@"gorille-2"]] timePerFrame:0.2]]];
     else
         [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"commando-1"],
-                                                                                      [PreloadData getDataWithKey:@"commando-2"]] timePerFrame:0.2]]];
+                                                                                      [PreloadData getDataWithKey:@"commando-2"],
+                                                                                      [PreloadData getDataWithKey:@"commando-3"],
+                                                                                      [PreloadData getDataWithKey:@"commando-4"],
+                                                                                      [PreloadData getDataWithKey:@"commando-5"],
+                                                                                      [PreloadData getDataWithKey:@"commando-6"]] timePerFrame:0.2]]];
 }
 
 - (void) moveTrunk {
@@ -74,12 +78,12 @@
         else
             self.node.xScale = -1.0;
 
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"gorille-arbre-1"],
-                                                                                      [PreloadData getDataWithKey:@"gorille-arbre-2"]] timePerFrame:0.2]]];
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"gorille-tree-1"],
+                                                                                      [PreloadData getDataWithKey:@"gorille-tree-2"]] timePerFrame:0.2]]];
     }
     else
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"commando-arbre1"],
-                                                                                      [PreloadData getDataWithKey:@"commando-arbre2"]] timePerFrame:0.2]]];
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"commando-climb1"],
+                                                                                      [PreloadData getDataWithKey:@"commando-climb2"]] timePerFrame:0.2]]];
 }
 
 - (void) actionClimber:(NSInteger)positionclimb {
@@ -115,12 +119,12 @@
         NSArray *texturesTree;
         
         if (climber.kind == MONKEY) {
-            texturesTree = @[[PreloadData getDataWithKey:@"gorille-arbre-3"],
-                             [PreloadData getDataWithKey:@"gorille-arbre-4"]];
+            texturesTree = @[[PreloadData getDataWithKey:@"gorille-tree-3"],
+                             [PreloadData getDataWithKey:@"gorille-tree-4"]];
         }
         else {
-            texturesTree = @[[PreloadData getDataWithKey:@"commando-arbre3"],
-                             [PreloadData getDataWithKey:@"commando-arbre4"]];
+            texturesTree = @[[PreloadData getDataWithKey:@"commando-fall1"],
+                             [PreloadData getDataWithKey:@"commando-fall2"]];
         }
 
         
@@ -139,8 +143,8 @@
                               [PreloadData getDataWithKey:@"gorille-4"]];
         }
         else {
-            texturesGrass = @[[PreloadData getDataWithKey:@"commando-3"],
-                              [PreloadData getDataWithKey:@"commando-4"]];
+            texturesGrass = @[[PreloadData getDataWithKey:@"commando_fall_ground1"],
+                              [PreloadData getDataWithKey:@"commando_fall_ground2"]];
         }
         
         [climber.node runAction:[SKAction animateWithTextures:texturesGrass timePerFrame:0.2] completion:^{

@@ -101,24 +101,32 @@
     
     
     //load gorille
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-sol-1"] key:@"gorille-1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-sol-2"] key:@"gorille-2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-sol-3"] key:@"gorille-3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-sol-4"] key:@"gorille-4"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-arbre-1"] key:@"gorille-arbre-1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-arbre-2"] key:@"gorille-arbre-2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-arbre-3"] key:@"gorille-arbre-3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-arbre-4"] key:@"gorille-arbre-4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-ground-1"] key:@"gorille-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-ground-2"] key:@"gorille-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-ground-3"] key:@"gorille-3"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-ground-4"] key:@"gorille-4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-tree-1"] key:@"gorille-tree-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-tree-2"] key:@"gorille-tree-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-tree-3"] key:@"gorille-tree-3"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-tree-4"] key:@"gorille-tree-4"];
 
     //load commando
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-1"] key:@"commando-1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-2"] key:@"commando-2"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-3"] key:@"commando-3"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-4"] key:@"commando-4"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-arbre1"] key:@"commando-arbre1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-arbre2"] key:@"commando-arbre2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-arbre3"] key:@"commando-arbre3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-arbre4"] key:@"commando-arbre4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-5"] key:@"commando-5"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-6"] key:@"commando-6"];
+
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climb1"] key:@"commando-climb1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climb1"] key:@"commando-climb2"];
+    
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_fall_ground1"] key:@"commando_fall_ground1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_fall_ground2"] key:@"commando_fall_ground2"];
+    
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-fall1"] key:@"commando-fall1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-fall2"] key:@"commando-fall2"];
+    
     
     //load lamberJack
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"bucheron-1"] key:@"bucheron-1"];
@@ -135,14 +143,14 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"courseb6"] key:@"courseb6"];
     
     //load hunter
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"chasseur-1"] key:@"chasseur-1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"chasseur-2"] key:@"chasseur-2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"chasseur-3"] key:@"chasseur-3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"chasseur-4"] key:@"chasseur-4"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"chasseur-5"] key:@"chasseur-5"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"chasseur-6"] key:@"chasseur-6"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"chasseur-7"] key:@"chasseur-7"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"chasseur-8"] key:@"chasseur-8"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-1"] key:@"hunter-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-2"] key:@"hunter-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-3"] key:@"hunter-3"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-4"] key:@"hunter-4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-5"] key:@"hunter-5"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-6"] key:@"hunter-6"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-7"] key:@"hunter-7"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-8"] key:@"hunter-8"];
 
 
 
