@@ -15,7 +15,7 @@
 -(id)initWithSize:(CGSize)size andScene:(SKScene*)scene{
     self = [super initWithSize:size];
     if (self) {
-        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background-left"];
+        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background-right"];
         background.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
         [self addChild:background];
         fromScene = scene;

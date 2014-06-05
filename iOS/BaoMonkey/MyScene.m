@@ -221,12 +221,12 @@
     if (gameOver) {
         gameOver = NO;
         [GameData pauseGame];
-        [GameData gameOver];
-        [self performSelector:@selector(displayGameOverMenu) withObject:nil afterDelay:2.0];
+        [self displayGameOverMenu];
     }
     else {
+        [GameData gameOver];
         gameOver = YES;
-        [self performSelector:@selector(gameOverCountDown) withObject:nil afterDelay:1.0];
+        [self performSelector:@selector(gameOverCountDown) withObject:nil afterDelay:2.0];
     }
 }
 
@@ -311,7 +311,8 @@
             //[leafTransition runGameOverTransition];
             if (!monkey.isShield) {
                 [monkey deadMonkey];
-                [self gameOverCountDown];
+                if (![GameData isGameOver])
+                    [self gameOverCountDown];
             } else {
                 monkey.isShield = FALSE;
             }
