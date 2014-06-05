@@ -118,7 +118,7 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-6"] key:@"commando-6"];
 
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climb1"] key:@"commando-climb1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climb1"] key:@"commando-climb2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climb2"] key:@"commando-climb2"];
     
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_fall_ground1"] key:@"commando_fall_ground1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_fall_ground2"] key:@"commando_fall_ground2"];
