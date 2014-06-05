@@ -9,6 +9,7 @@
 #import "GameCenter.h"
 #import "UserData.h"
 #import "Define.h"
+#import "GameData.h"
 
 @implementation GameCenter
 
@@ -92,7 +93,7 @@
 
 + (void) reportScore {
     GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"baoMonkeyLeaderboard"];
-    scoreReport.value = [[UserData defaultUser] score];
+    scoreReport.value = [GameData getScore];
     
     NSArray *tabScore = [NSArray arrayWithObjects:scoreReport, nil];
     
@@ -106,8 +107,10 @@
     [leaderboardRequest loadScoresWithCompletionHandler:^(NSArray *scores, NSError *error) {
         
         if (scores) {
-            [UserData defaultUser].score = (int)leaderboardRequest.localPlayerScore.value;
-            [UserData saveUserData];
+            
+            if ([GameData getScore] > (int)leaderboardRequest.localPlayerScore.value) {
+                [self reportScore];
+            }                
         }
         return ;
     }];
