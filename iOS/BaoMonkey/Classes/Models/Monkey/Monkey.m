@@ -40,7 +40,7 @@
     if (self) {
         // Init the sprites of the Monkey
         sprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"stand"]];
-        sprite.size = CGSizeMake(sprite.size.width / 4, sprite.size.height / 4);
+        sprite.size = CGSizeMake(sprite.size.width / 2, sprite.size.height / 2);
         sprite.position = position;
         isShield = FALSE;
         

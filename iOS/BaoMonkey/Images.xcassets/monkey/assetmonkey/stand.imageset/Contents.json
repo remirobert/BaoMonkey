@@ -1,14 +1,14 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "idiom" : "ipad",
       "scale" : "1x",
-      "filename" : "stand.png"
+      "filename" : "stand-1.png"
     },
     {
-      "idiom" : "universal",
+      "idiom" : "ipad",
       "scale" : "2x",
-      "filename" : "stand-1.png"
+      "filename" : "stand.png"
     }
   ],
   "info" : {
