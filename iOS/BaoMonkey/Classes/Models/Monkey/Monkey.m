@@ -14,7 +14,6 @@
 @implementation Monkey {
     NSArray *walkingFrames;
     NSArray *walkingCoconutFrames;
-    NSArray *deadFrames;
     NSArray *launchFrames;
     NSArray *stopFrames;
     NSArray *stopCocoframes;
@@ -47,7 +46,6 @@
         [self loadWalkingSprites];
         [self loadWalkingCoconutSprites];
         [self loadLaunchSprites];
-        [self loadDeadSprites];
         [self loadWaitframes];
         [self initCollisionMask];
         
@@ -120,7 +118,10 @@
 -(void)updateMonkeyPosition:(float)acceleration {
     static CGFloat oldAcceleration = 0;
     static BOOL isAction = NO;
-
+    
+    if ([GameData isGameOver] == YES)
+        return ;
+    
     if ([sprite actionForKey:@"lanchAction"] != nil) {
         isAction = YES;
     }
@@ -194,14 +195,6 @@
     launchFrames = @[[PreloadData getDataWithKey:@"lance"],
                      [PreloadData getDataWithKey:@"lance"],
                      [PreloadData getDataWithKey:@"lance"]];
-}
-
--(void)loadDeadSprites {
-    NSLog(@"dead loaded");
-    
-    deadFrames = @[[PreloadData getDataWithKey:@"KO1"],
-                   [PreloadData getDataWithKey:@"KO2"],
-                   [PreloadData getDataWithKey:@"KO3"]];
 }
 
 #pragma mark - Manage Shield
@@ -292,15 +285,12 @@
 - (void) deadMonkey {
     [sprite removeAllActions];
 
-    NSLog(@"dead call");
-    
-
-    [sprite runAction:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"KO1"],
-                                                      [PreloadData getDataWithKey:@"KO2"],
-                                                      [PreloadData getDataWithKey:@"KO3"]]
+    [sprite runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"monkeyd1"],
+                                                      [SKTexture textureWithImageNamed:@"monkeyd2"],
+                                                      [SKTexture textureWithImageNamed:@"monkeyd3"]]
                                        timePerFrame:0.1 resize:NO restore:NO]
               completion:^{
-                  [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:[PreloadData getDataWithKey:@"KO3"]
+                  [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"monkeyd3"]]
                                                                                    timePerFrame:0.1]]];
               }];
 }

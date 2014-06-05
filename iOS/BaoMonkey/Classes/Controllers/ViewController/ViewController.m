@@ -77,29 +77,10 @@
         [PreloadData loadDataWithKey:[PreloadData playSoundFileNamed:@"coconut.mp3" atVolume:0.5 waitForCompletion:NO] key:DATA_COCONUT_SOUND];
     }
     
-    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"grosse_tache"]] key:DATA_SPLASH_PLUMS1];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"petite_tache"]] key:DATA_SPLASH_PLUMS2];
-    
-    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"splash-prune"]] key:DATA_SPLASH_TEXTURE];
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"banana"]] key:DATA_BANANA_TEXTURE];
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"coconut"]] key:DATA_COCONUT_TEXTURE];
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"prune"]] key:DATA_PRUNE_TEXTURE];
     
-    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"monkey-waiting"]] key:DATA_MONKEY_WAITING];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"monkey-waiting-coconut"]] key:DATA_MONKEY_WAITING_COCONUT];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyLaunch"] key:DATA_MONKEY_LAUNCH_ATLAS];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyWalking"] key:DATA_MONKEY_WALKING_ATLAS];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyWalkingWithCoconut"] key:DATA_MONKEY_WALKING_COCONUT_ATLAS];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyDead"] key:DATA_MONKEY_DEAD_ATLAS];
-    
-    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"lamber-jack-waiting"]] key:DATA_LAMBERJACK_WAITING];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"LamberJackWalking"] key:DATA_LAMBERJACK_WALKING_ATLAS];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"LamberJackCutting"] key:DATA_LAMBERJACK_CUTTING_ATLAS];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"LamberJackDead"] key:DATA_LAMBERJACK_DEAD_ATLAS];
-    
-    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"hunter-waiting"]] key:DATA_HUNTER_WAITING];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"HunterWalking"] key:DATA_HUNTER_WALKING_ATLAS];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"HunterDead"] key:DATA_HUNTER_DEAD_ATLAS];
     
     [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyMenu"] key:DATA_MONKEY_MENU_ATLAS];
     
@@ -112,22 +93,27 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"button-settings"] key:DATA_BUTTON_SETTINGS];
     
     
-    //new load
+    //load gorille
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-1"] key:@"gorille-1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-1"] key:@"commando-1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-2"] key:@"gorille-2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-2"] key:@"commando-2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-arbre-1"] key:@"gorille-arbre-1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-arbre1"] key:@"commando-arbre1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-arbre3"] key:@"gorille-arbre3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-arbre4"] key:@"gorille-arbre4"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-arbre3"] key:@"commando-arbre3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-arbre4"] key:@"commando-arbre4"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-3"] key:@"gorille-3"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-4"] key:@"gorille-4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-arbre-1"] key:@"gorille-arbre-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-arbre-2"] key:@"gorille-arbre-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-arbre-3"] key:@"gorille-arbre-3"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-arbre-4"] key:@"gorille-arbre-4"];
+
+    //load commando
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-1"] key:@"commando-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-2"] key:@"commando-2"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-3"] key:@"commando-3"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-4"] key:@"commando-4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-arbre1"] key:@"commando-arbre1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-arbre2"] key:@"commando-arbre2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-arbre3"] key:@"commando-arbre3"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-arbre4"] key:@"commando-arbre4"];
     
+    //load lamberJack
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"bucheron-1"] key:@"bucheron-1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"bucheron-4"] key:@"bucheron-4"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"bucheron-5"] key:@"bucheron-5"];
@@ -141,6 +127,7 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"courseb5"] key:@"courseb5"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"courseb6"] key:@"courseb6"];
     
+    //load hunter
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"chasseur-1"] key:@"chasseur-1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"chasseur-4"] key:@"chasseur-4"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"chasseur-5"] key:@"chasseur-5"];
@@ -152,6 +139,7 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"chasseur-5b"] key:@"chasseur-5b"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"munition-explosive"] key:@"munition-explosive"];
     
+    //load monkey
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"stand"] key:@"stand"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"stand2"] key:@"stand2"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"run1"] key:@"run1"];
@@ -160,19 +148,17 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"run4"] key:@"run4"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"run5"] key:@"run5"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"run6"] key:@"run6"];
-
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"coco1"] key:@"coco1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"coco2"] key:@"coco2"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"coco3"] key:@"coco3"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"coco4"] key:@"coco4"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"coco5"] key:@"coco5"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"coco6"] key:@"coco6"];
-    
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lance"] key:@"lance"];
     
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"KO1"] key:@"KO1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"KO2"] key:@"KO2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"KO3"] key:@"KO3"];
+    //load plums
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"grosse"] key:@"grosse"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"petite"] key:@"petite"];
 }
 
 -(void)goToHome {
