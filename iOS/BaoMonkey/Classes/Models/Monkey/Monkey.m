@@ -14,7 +14,6 @@
 @implementation Monkey {
     NSArray *walkingFrames;
     NSArray *walkingCoconutFrames;
-    NSArray *deadFrames;
     NSArray *launchFrames;
     NSArray *stopFrames;
     NSArray *stopCocoframes;
@@ -47,7 +46,6 @@
         [self loadWalkingSprites];
         [self loadWalkingCoconutSprites];
         [self loadLaunchSprites];
-        [self loadDeadSprites];
         [self loadWaitframes];
         [self initCollisionMask];
         
@@ -120,7 +118,10 @@
 -(void)updateMonkeyPosition:(float)acceleration {
     static CGFloat oldAcceleration = 0;
     static BOOL isAction = NO;
-
+    
+    if ([GameData isGameOver] == YES)
+        return ;
+    
     if ([sprite actionForKey:@"lanchAction"] != nil) {
         isAction = YES;
     }
@@ -167,39 +168,33 @@
 #pragma mark - Load texture
 
 - (void) loadWaitframes {
-    stopFrames = @[[SKTexture textureWithImageNamed:@"stand"], [SKTexture textureWithImageNamed:@"stand"]];
-    stopCocoframes = @[[SKTexture textureWithImageNamed:@"stand2"], [SKTexture textureWithImageNamed:@"stand2"]];
+    stopFrames = @[[PreloadData getDataWithKey:@"stand"], [PreloadData getDataWithKey:@"stand"]];
+    stopCocoframes = @[[PreloadData getDataWithKey:@"stand2"], [PreloadData getDataWithKey:@"stand2"]];
 }
 
 -(void)loadWalkingSprites {
-    walkingFrames = @[[SKTexture textureWithImageNamed:@"run1"],
-                      [SKTexture textureWithImageNamed:@"run2"],
-                      [SKTexture textureWithImageNamed:@"run3"],
-                      [SKTexture textureWithImageNamed:@"run4"],
-                      [SKTexture textureWithImageNamed:@"run5"],
-                      [SKTexture textureWithImageNamed:@"run6"]];
+    walkingFrames = @[[PreloadData getDataWithKey:@"run1"],
+                      [PreloadData getDataWithKey:@"run2"],
+                      [PreloadData getDataWithKey:@"run3"],
+                      [PreloadData getDataWithKey:@"run4"],
+                      [PreloadData getDataWithKey:@"run5"],
+                      [PreloadData getDataWithKey:@"run6"]];
 }
 
 -(void)loadWalkingCoconutSprites {
-    walkingCoconutFrames = @[[SKTexture textureWithImageNamed:@"coco1"],
-                             [SKTexture textureWithImageNamed:@"coco2"],
-                             [SKTexture textureWithImageNamed:@"coco3"],
-                             [SKTexture textureWithImageNamed:@"coco4"],
-                             [SKTexture textureWithImageNamed:@"coco5"],
-                             [SKTexture textureWithImageNamed:@"coco6"]];
+    walkingCoconutFrames = @[[PreloadData getDataWithKey:@"coco1"],
+                             [PreloadData getDataWithKey:@"coco2"],
+                             [PreloadData getDataWithKey:@"coco3"],
+                             [PreloadData getDataWithKey:@"coco4"],
+                             [PreloadData getDataWithKey:@"coco5"],
+                             [PreloadData getDataWithKey:@"coco6"]];
 }
 
 
 -(void)loadLaunchSprites {
-    launchFrames = @[[SKTexture textureWithImageNamed:@"lance"],
-                     [SKTexture textureWithImageNamed:@"lance"],
-                     [SKTexture textureWithImageNamed:@"lance"]];
-}
-
--(void)loadDeadSprites {
-    deadFrames = @[[SKTexture textureWithImageNamed:@"KO1"],
-                   [SKTexture textureWithImageNamed:@"KO2"],
-                   [SKTexture textureWithImageNamed:@"KO3"]];
+    launchFrames = @[[PreloadData getDataWithKey:@"lance"],
+                     [PreloadData getDataWithKey:@"lance"],
+                     [PreloadData getDataWithKey:@"lance"]];
 }
 
 #pragma mark - Manage Shield
@@ -290,10 +285,12 @@
 - (void) deadMonkey {
     [sprite removeAllActions];
 
-    [sprite runAction:[SKAction animateWithTextures:deadFrames
+    [sprite runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"monkeyd1"],
+                                                      [SKTexture textureWithImageNamed:@"monkeyd2"],
+                                                      [SKTexture textureWithImageNamed:@"monkeyd3"]]
                                        timePerFrame:0.1 resize:NO restore:NO]
               completion:^{
-                  [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"KO3"]]
+                  [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"monkeyd3"]]
                                                                                    timePerFrame:0.1]]];
               }];
 }

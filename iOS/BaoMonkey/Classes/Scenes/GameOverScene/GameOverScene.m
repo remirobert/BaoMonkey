@@ -15,11 +15,11 @@
 -(id)initWithSize:(CGSize)size andScene:(SKScene*)scene{
     self = [super initWithSize:size];
     if (self) {
-        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background-left"];
+        SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background-right"];
         background.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
         [self addChild:background];
         fromScene = scene;
-        panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background-panel-4buttons"] size:CGSizeMake(307, 421)];
+        panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"panel-4buttons"] size:CGSizeMake(307, 421)];
         panel.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2));
         [self addChild:panel];
         

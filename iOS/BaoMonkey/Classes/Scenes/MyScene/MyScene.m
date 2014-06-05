@@ -45,14 +45,14 @@
 }
 
 -(SKSpriteNode *)backgroundNode {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"background-middle"];
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"background-center"];
     node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
     node.name = TRUNK_NODE_NAME;
     return node;
 }
 
 -(SKSpriteNode *)frontLeafNode {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"leafs-foreground"];
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"leafs"];
     node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (node.size.height / 2)));
     node.name = FRONT_LEAF_NODE_NAME;
     node.zPosition = 50;
@@ -221,12 +221,12 @@
     if (gameOver) {
         gameOver = NO;
         [GameData pauseGame];
-        [GameData gameOver];
-        [self performSelector:@selector(displayGameOverMenu) withObject:nil afterDelay:2.0];
+        [self displayGameOverMenu];
     }
     else {
+        [GameData gameOver];
         gameOver = YES;
-        [self performSelector:@selector(gameOverCountDown) withObject:nil afterDelay:1.0];
+        [self performSelector:@selector(gameOverCountDown) withObject:nil afterDelay:2.0];
     }
 }
 
@@ -306,19 +306,18 @@
         }
     }
     
-        [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-            if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
-                [node removeFromParent];
-                if (!monkey.isShield) {
-                    [monkey deadMonkey];
+    [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+        if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
+            //[leafTransition runGameOverTransition];
+            if (!monkey.isShield) {
+                [monkey deadMonkey];
+                if (![GameData isGameOver])
                     [self gameOverCountDown];
-                } else {
-                    [[monkey shield] removeFromParent];
-                    monkey.isShield = FALSE;
-                }
-                return ;
+            } else {
+                monkey.isShield = FALSE;
             }
-        }];
+        }
+    }];
     
     for (Item *item in _wave) {
         if (item.isOver == YES) {
