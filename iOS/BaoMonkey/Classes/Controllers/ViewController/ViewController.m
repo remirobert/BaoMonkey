@@ -129,18 +129,20 @@
     
     
     //load lamberJack
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"bucheron-1"] key:@"bucheron-1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"bucheron-4"] key:@"bucheron-4"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"bucheron-5"] key:@"bucheron-5"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"bucheron-6"] key:@"bucheron-6"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"bucheron-7"] key:@"bucheron-7"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"bucheron-8"] key:@"bucheron-8"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"courseb1"] key:@"courseb1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"courseb2"] key:@"courseb2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"courseb3"] key:@"courseb3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"courseb4"] key:@"courseb4"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"courseb5"] key:@"courseb5"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"courseb6"] key:@"courseb6"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_1"] key:@"lamber_jack_1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_2"] key:@"lamber_jack_2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_3"] key:@"lamber_jack_3"];
+
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_K1"] key:@"lamber_jack_K1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_K2"] key:@"lamber_jack_K2"];
+
+    
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking1"] key:@"lamber_jack_walking1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking2"] key:@"lamber_jack_walking2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking3"] key:@"lamber_jack_walking3"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking4"] key:@"lamber_jack_walking4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking5"] key:@"lamber_jack_walking5"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking6"] key:@"lamber_jack_walking6"];
     
     //load hunter
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-1"] key:@"hunter-1"];
