@@ -32,6 +32,13 @@
     [_skView presentScene:_scene transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5]];
 }
 
+- (void) relaunchGame {
+    _scene = [MyScene sceneWithSize:_skView.bounds.size];
+    _scene.scaleMode = SKSceneScaleModeAspectFill;
+    
+    [_skView presentScene:_scene transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.5]];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -46,7 +53,7 @@
     [GameController initOneTapOnView:_skView];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(initGame)
+                                             selector:@selector(relaunchGame)
                                                  name:NOTIFICATION_RETRY_GAME
                                                object:nil];
     
@@ -162,8 +169,7 @@
 }
 
 -(void)goToHome {
-    [_skView presentScene:[[MainMenu alloc] initWithSize:_skView.frame.size]
-               transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5]];
+    [_skView presentScene:[[MainMenu alloc] initWithSize:_skView.frame.size]];
 }
 
 -(void)goToSettings {

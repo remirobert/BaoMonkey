@@ -7,6 +7,7 @@
 //
 
 #import "GameController.h"
+#import "GameData.h"
 
 @implementation GameController
 
@@ -76,7 +77,7 @@ static GameController *singleton;
 }
 
 +(float)getAcceleration {
-    return [[GameController singleton] getAcceleration];
+    return [GameData isGameOver] ? 0.0 : [[GameController singleton] getAcceleration];
 }
 
 -(float)getAcceleration {
