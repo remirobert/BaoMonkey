@@ -99,7 +99,6 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"button-home"] key:DATA_BUTTON_HOME];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"button-settings"] key:DATA_BUTTON_SETTINGS];
     
-    
     //load gorille
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-ground-1"] key:@"gorille-1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-ground-2"] key:@"gorille-2"];
@@ -127,7 +126,6 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-fall1"] key:@"commando-fall1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-fall2"] key:@"commando-fall2"];
     
-    
     //load lamberJack
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_1"] key:@"lamber_jack_1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_2"] key:@"lamber_jack_2"];
@@ -136,7 +134,6 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_K1"] key:@"lamber_jack_K1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_K2"] key:@"lamber_jack_K2"];
 
-    
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking1"] key:@"lamber_jack_walking1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking2"] key:@"lamber_jack_walking2"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking3"] key:@"lamber_jack_walking3"];
@@ -153,8 +150,6 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-6"] key:@"hunter-6"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-7"] key:@"hunter-7"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-8"] key:@"hunter-8"];
-
-
 
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"munition-explosive"] key:@"munition-explosive"];
     
@@ -177,7 +172,6 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_stand2"] key:@"stand2"];
 
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_lance"] key:@"lance"];
-
     
     //load plums
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"grosse"] key:@"grosse"];

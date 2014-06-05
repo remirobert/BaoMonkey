@@ -163,10 +163,6 @@
                                                  name:NOTIFICATION_PAUSE_GAME object:nil];
     
     
-    /*
-    ** Pause control timer
-    */
-    
     pauseTime = 0;
     lastTime = 0;
     oncePause = 0;

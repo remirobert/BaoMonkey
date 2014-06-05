@@ -37,23 +37,16 @@
 -(id)initWithPosition:(CGPoint)position {
     self = [super init];
     if (self) {
-        // Init the sprites of the Monkey
         sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"stand"]];
         
         sprite.position = position;
         isShield = FALSE;
         
-        NSLog(@"load1");
         [self loadWalkingSprites];
-        NSLog(@"load2");
         [self loadWalkingCoconutSprites];
-        NSLog(@"load3");
         [self loadLaunchSprites];
-        NSLog(@"load4");
         [self loadWaitframes];
-        NSLog(@"load5");
         [self initCollisionMask];
-        NSLog(@"load6");
         [self waitMonkey];
     }
     return self;
