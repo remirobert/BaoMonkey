@@ -8,6 +8,7 @@
 
 #import "Climber.h"
 #import "Define.h"
+#import "PreloadData.h"
 
 @interface Climber ()
 @property (nonatomic, assign) NSInteger climbPositionX;
@@ -28,11 +29,11 @@
         self.kind = rand() % 2;
         
         if (self.kind == MONKEY) {
-            node = [SKSpriteNode spriteNodeWithImageNamed:@"gorille-1"];
+            node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"gorille-1"]];
             decalPosition = 35;
         }
         else {
-            node = [SKSpriteNode spriteNodeWithImageNamed:@"commando-1"];
+            node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"commando-1"]];
             decalPosition = 20;
         }
         
@@ -61,11 +62,11 @@
 
 - (void) moveAnimation {
     if (self.kind == MONKEY)
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"gorille-1"],
-                                                                                      [SKTexture textureWithImageNamed:@"gorille-2"]] timePerFrame:0.2]]];
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"gorille-1"],
+                                                                                      [PreloadData getDataWithKey:@"gorille-2"]] timePerFrame:0.2]]];
     else
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"commando-1"],
-                                                                                      [SKTexture textureWithImageNamed:@"commando-2"]] timePerFrame:0.2]]];
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"commando-1"],
+                                                                                      [PreloadData getDataWithKey:@"commando-2"]] timePerFrame:0.2]]];
 }
 
 - (void) moveTrunk {
@@ -75,12 +76,12 @@
         else
             self.node.xScale = -1.0;
 
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"gorille-arbre-1"],
-                                                                                      [SKTexture textureWithImageNamed:@"gorille-arbre-2"]] timePerFrame:0.2]]];
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"gorille-arbre-1"],
+                                                                                      [PreloadData getDataWithKey:@"gorille-arbre-2"]] timePerFrame:0.2]]];
     }
     else
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"commando-arbre1"],
-                                                                                      [SKTexture textureWithImageNamed:@"commando-arbre2"]] timePerFrame:0.2]]];
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"commando-arbre1"],
+                                                                                      [PreloadData getDataWithKey:@"commando-arbre2"]] timePerFrame:0.2]]];
 }
 
 - (void) actionClimber:(NSInteger)positionclimb {
@@ -116,12 +117,12 @@
         NSArray *texturesTree;
         
         if (climber.kind == MONKEY) {
-            texturesTree = @[[SKTexture textureWithImageNamed:@"gorille-arbre-3"],
-                         [SKTexture textureWithImageNamed:@"gorille-arbre-4"]];
+            texturesTree = @[[PreloadData getDataWithKey:@"gorille-arbre-3"],
+                             [PreloadData getDataWithKey:@"gorille-arbre-4"]];
         }
         else {
-            texturesTree = @[[SKTexture textureWithImageNamed:@"commando-arbre3"],
-                         [SKTexture textureWithImageNamed:@"commando-arbre4"]];
+            texturesTree = @[[PreloadData getDataWithKey:@"commando-arbre3"],
+                             [PreloadData getDataWithKey:@"commando-arbre4"]];
         }
 
         
@@ -136,12 +137,12 @@
         NSArray *texturesGrass;
         
         if (climber.kind == MONKEY) {
-            texturesGrass = @[[SKTexture textureWithImageNamed:@"gorille-3"],
-                             [SKTexture textureWithImageNamed:@"gorille-4"]];
+            texturesGrass = @[[PreloadData getDataWithKey:@"gorille-3"],
+                              [PreloadData getDataWithKey:@"gorille-4"]];
         }
         else {
-            texturesGrass = @[[SKTexture textureWithImageNamed:@"commando-3"],
-                             [SKTexture textureWithImageNamed:@"commando-4"]];
+            texturesGrass = @[[PreloadData getDataWithKey:@"commando-3"],
+                              [PreloadData getDataWithKey:@"commando-4"]];
         }
         
         [climber.node runAction:[SKAction animateWithTextures:texturesGrass timePerFrame:0.2] completion:^{

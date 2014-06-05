@@ -10,6 +10,7 @@
 #import "Define.h"
 #import "GameData.h"
 #import "BaoSize.h"
+#import "PreloadData.h"
 
 @interface Hunter ()
 @property (nonatomic) CGFloat timeAction;
@@ -29,7 +30,7 @@
         self.node.zPosition = 10;
         self.floor = (int)nbFloor;
         
-        self.node = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:@"chasseur-1"]];
+        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"chasseur-1"]];
         
         self.node.size = CGSizeMake(self.node.size.width / 4, self.node.size.height / 4);
         
@@ -82,7 +83,7 @@
     else
         positionX = (rand() % (int)positionMonkey.x - 50) + positionMonkey.x - 50;
     
-    SKSpriteNode *shoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munition-explosive"]];
+    SKSpriteNode *shoot = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"munition-explosive"]];
     shoot.size = CGSizeMake(shoot.size.width / 3, shoot.size.height / 3);
     
     moveShoot = [SKAction moveTo:CGPointMake(positionX, [UIScreen mainScreen].bounds.size.height)
@@ -99,12 +100,12 @@
 -(void)startWalking {
     
     
-    [node  runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"chasseur-0b"],
-                                                                                   [SKTexture textureWithImageNamed:@"chasseur-1b"],
-                                                                                   [SKTexture textureWithImageNamed:@"chasseur-2b"],
-                                                                                   [SKTexture textureWithImageNamed:@"chasseur-3b"],
-                                                                                   [SKTexture textureWithImageNamed:@"chasseur-4b"],
-                                                                                   [SKTexture textureWithImageNamed:@"chasseur-5b"]] timePerFrame:0.2]]
+    [node  runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"chasseur-0b"],
+                                                                                   [PreloadData getDataWithKey:@"chasseur-1b"],
+                                                                                   [PreloadData getDataWithKey:@"chasseur-2b"],
+                                                                                   [PreloadData getDataWithKey:@"chasseur-3b"],
+                                                                                   [PreloadData getDataWithKey:@"chasseur-4b"],
+                                                                                   [PreloadData getDataWithKey:@"chasseur-5b"]] timePerFrame:0.2]]
              withKey:SKACTION_HUNTER_WALKING];
 }
 
@@ -114,8 +115,8 @@
 
 -(void)startDead {
     if (![node actionForKey:SKACTION_HUNTER_DEAD]) {
-        [node  runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"chasseur-4"],
-                                                                                       [SKTexture textureWithImageNamed:@"chasseur-5"]] timePerFrame:0.1]
+        [node  runAction:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"chasseur-4"],
+                                                         [PreloadData getDataWithKey:@"chasseur-5"]] timePerFrame:0.1]
                  completion:^{
                      [node removeAllActions];
                      [node runAction:[SKAction waitForDuration:0.5] completion:^{

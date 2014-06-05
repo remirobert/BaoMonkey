@@ -9,6 +9,7 @@
 #import "LamberJack.h"
 #import "Define.h"
 #import "BaoSize.h"
+#import "PreloadData.h"
 
 # define FLOOR_HEIGHT 22
 
@@ -26,7 +27,7 @@
         self.type = EnemyTypeLamberJack;
         self.node.zPosition = 10;
         
-        self.node = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImageNamed:@"bucheron-1"]];
+        self.node = [[SKSpriteNode alloc] initWithTexture:[PreloadData getDataWithKey:@"bucheron-1"]];
         
         self.node.size = CGSizeMake(self.node.size.width / 4, self.node.size.height / 4);
         
@@ -68,12 +69,12 @@
 -(void)startWalking {
     if (![node actionForKey:SKACTION_LAMBERJACK_WALKING]) {
         
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"courseb1"],
-                                                                                      [SKTexture textureWithImageNamed:@"courseb2"],
-                                                                                      [SKTexture textureWithImageNamed:@"courseb3"],
-                                                                                      [SKTexture textureWithImageNamed:@"courseb4"],
-                                                                                      [SKTexture textureWithImageNamed:@"courseb5"],
-                                                                                      [SKTexture textureWithImageNamed:@"courseb6"]]
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"courseb1"],
+                                                                                      [PreloadData getDataWithKey:@"courseb2"],
+                                                                                      [PreloadData getDataWithKey:@"courseb3"],
+                                                                                      [PreloadData getDataWithKey:@"courseb4"],
+                                                                                      [PreloadData getDataWithKey:@"courseb5"],
+                                                                                      [PreloadData getDataWithKey:@"courseb6"]]
                                                                             timePerFrame:0.1f
                                                                                resize:NO
                                                                               restore:NO]]
@@ -93,9 +94,9 @@
 -(void)startChopping {
     isChooping = TRUE;
     if (![node actionForKey:SKACTION_LAMBERJACK_CUTTING]) {
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"bucheron-4"],
-                                                                                      [SKTexture textureWithImageNamed:@"bucheron-5"],
-                                                                                      [SKTexture textureWithImageNamed:@"bucheron-6"]]
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"bucheron-4"],
+                                                                                      [PreloadData getDataWithKey:@"bucheron-5"],
+                                                                                      [PreloadData getDataWithKey:@"bucheron-6"]]
                                                                        timePerFrame:0.1f
                                                                              resize:NO
                                                                             restore:NO]]
@@ -116,8 +117,8 @@
 -(void)startDead {
     if (!isChooping) {
         if (![node actionForKey:SKACTION_LAMBERJACK_DEAD]) {
-            [node runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"bucheron-7"],
-                                                                                   [SKTexture textureWithImageNamed:@"bucheron-8"]]
+            [node runAction:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"bucheron-7"],
+                                                            [PreloadData getDataWithKey:@"bucheron-8"]]
                                                                     timePerFrame:0.1f
                                                                           resize:NO
                                                                          restore:NO] completion:^{
