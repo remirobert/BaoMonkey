@@ -58,7 +58,7 @@
 
 - (void) moveMonkey:(CGFloat)acceleration {
     CGPoint position;
-    float maxX = [UIScreen mainScreen].bounds.size.width + (sprite.size.width / 2);
+    float maxX = SCREEN_WIDTH + (sprite.size.width / 2);
     float minX = -(sprite.size.width / 2);
     
     if (sprite.position.x > maxX) {
