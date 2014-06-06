@@ -6,18 +6,16 @@
     },
     {
       "idiom" : "iphone",
-      "scale" : "2x",
-      "filename" : "walking-coconut-iphone@2x.png"
+      "scale" : "2x"
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x",
-      "filename" : "walking-coconut-ipad-5.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "ipad",
       "scale" : "2x",
-      "filename" : "walking-coconut-ipad-5@2x.png"
+      "filename" : "button-gamecenter-selected-ipad@2x.png"
     }
   ],
   "info" : {

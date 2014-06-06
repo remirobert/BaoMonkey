@@ -6,18 +6,17 @@
     },
     {
       "idiom" : "iphone",
-      "scale" : "2x",
-      "filename" : "walking-coconut-iphone@2x.png"
+      "scale" : "2x"
     },
     {
       "idiom" : "ipad",
       "scale" : "1x",
-      "filename" : "walking-coconut-ipad-5.png"
+      "filename" : "button-home-ipad.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "2x",
-      "filename" : "walking-coconut-ipad-5@2x.png"
+      "filename" : "button-home-ipad@2x.png"
     }
   ],
   "info" : {
