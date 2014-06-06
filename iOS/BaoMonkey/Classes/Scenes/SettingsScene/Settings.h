@@ -10,6 +10,6 @@
 
 @interface Settings : SKScene
 
-- (instancetype) initWithSize:(CGSize)size;
+- (instancetype) initWithSize:(CGSize)size withParentScene:(SKScene *)parentScene;
 
 @end

@@ -19,6 +19,7 @@
 #import "HelicopterScene.h"
 #import "MyScene+LoadBoss.h"
 #import "GameCenter.h"
+#import "Settings.h"
 
 @implementation MyScene
 
@@ -113,7 +114,7 @@
     }
     
     if ([node.name isEqualToString:SETTINGS_NODE_NAME]){
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_SETTINGS object:nil];
+        [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self] transition:[SKTransition fadeWithDuration:1.0]];
     }
 }
 
@@ -309,8 +310,10 @@
                 if (![GameData isGameOver])
                     [self gameOverCountDown];
             } else {
+                [monkey.shield removeFromParent];
                 monkey.isShield = FALSE;
             }
+            [node removeFromParent];
         }
     }];
     

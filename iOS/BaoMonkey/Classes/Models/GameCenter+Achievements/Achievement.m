@@ -97,6 +97,7 @@
             ((GKAchievement *)[ach.achievementPlums
                                objectAtIndex:indexAchievement]).percentComplete = percent;
         indexAchievement++;
+        
     }
 }
 

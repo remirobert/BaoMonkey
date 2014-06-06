@@ -123,7 +123,7 @@
                              [PreloadData getDataWithKey:@"gorilla-climbing-dead-2"]];
         }
         else {
-            texturesTree = @[[PreloadData getDataWithKey:@"commando-climing-dead-1"],
+            texturesTree = @[[PreloadData getDataWithKey:@"commando-climbing-dead-1"],
                              [PreloadData getDataWithKey:@"commando-climbing-dead-2"]];
         }
 

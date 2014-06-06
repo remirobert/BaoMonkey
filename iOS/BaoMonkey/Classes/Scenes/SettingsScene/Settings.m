@@ -19,6 +19,7 @@
 @property (nonatomic, strong) SpriteKitCursor *cursorVolumeMusic;
 @property (nonatomic, strong) SpriteKitCursor *cursorAccelerometer;
 @property (nonatomic, strong) id currentCursorClicked;
+@property (nonatomic, strong) SKScene *parentScene;
 @end
 
 @implementation Settings
@@ -58,7 +59,18 @@
     [_cursorAccelerometer setCurrentValue:[UserData getAccelerometerUserSpeed]];
 }
 
-- (instancetype) initWithSize:(CGSize)size {
+- (void) initButton {
+    SKLabelNode * homeButton = [[SKLabelNode alloc] init];
+    
+    homeButton.text = @"back";
+    homeButton.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+                                      [UIScreen mainScreen].bounds.size.height / 2 - 200);
+    homeButton.name = @"back";
+    
+    [self addChild:homeButton];
+}
+
+- (instancetype) initWithSize:(CGSize)size withParentScene:(SKScene *)parentScene {
     self = [super initWithSize:size];
     
     if (self != nil) {
@@ -70,16 +82,8 @@
         [_cursorVolumeMusic addChild:self];
         [_cursorVolumeSound addChild:self];
         
-        
-        
-        SKLabelNode * homeButton = [[SKLabelNode alloc] init];
-        
-        homeButton.text = @"home";
-        homeButton.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-                                          [UIScreen mainScreen].bounds.size.height / 2 - 200);
-        homeButton.name = @"home";
-        
-        [self addChild:homeButton];
+        _parentScene = parentScene;
+        [self initButton];
     }
     return (self);
 }
@@ -90,11 +94,11 @@
     SKNode *node = [self nodeAtPoint:location];
 
     
-    if ([node.name isEqualToString:@"home"]) {
+    if ([node.name isEqualToString:@"back"]) {
         [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue];
         [self updateMusicUserVolume];
         [self updateSoundEffectsUserVolume];
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
+        [self.view presentScene:_parentScene transition:[SKTransition fadeWithDuration:1]];
 
     }
     if ([_cursorAccelerometer checkCursorClickWithNode:node] == YES)
