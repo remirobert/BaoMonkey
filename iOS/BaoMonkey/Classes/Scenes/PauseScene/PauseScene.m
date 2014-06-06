@@ -24,22 +24,22 @@
         [self addChild:panel];
         
         resumeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-play"] size:CGSizeMake(80, 80)];
-        resumeNode.position = CGPointMake(163, 302);
+        resumeNode.position = CGPointMake(164, 306);
         resumeNode.name = RESUME_NODE_NAME;
         [self addChild:resumeNode];
         
         replayNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-replay"] size:CGSizeMake(52, 52)];
-        replayNode.position = CGPointMake(65, 191);
+        replayNode.position = CGPointMake(69, 200);
         replayNode.name = RETRY_NODE_NAME;
         [self addChild:replayNode];
         
         homeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-home"] size:CGSizeMake(52, 52)];
-        homeNode.position = CGPointMake(166, 191);
+        homeNode.position = CGPointMake(167, 200);
         homeNode.name = HOME_NODE_NAME;
         [self addChild:homeNode];
         
         settingsNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-settings"] size:CGSizeMake(52, 52)];
-        settingsNode.position = CGPointMake(272, 191);
+        settingsNode.position = CGPointMake(269, 200);
         settingsNode.name = SETTINGS_NODE_NAME;
         [self addChild:settingsNode];
     }
