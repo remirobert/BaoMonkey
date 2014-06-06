@@ -91,9 +91,9 @@
 
     
     if ([node.name isEqualToString:@"home"]) {
-        NSLog(@"accelometor : %f", _cursorAccelerometer.currentValue);
-        NSLog(@"sound : %f", _cursorVolumeSound.currentValue);
-        NSLog(@"music : %f", _cursorVolumeMusic.currentValue);
+        [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue];
+        [self updateMusicUserVolume];
+        [self updateSoundEffectsUserVolume];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
 
     }
@@ -126,8 +126,12 @@
     [PreloadData removeDataWithKey:DATA_SPLASH_SOUND];
     [PreloadData removeDataWithKey:DATA_COCONUT_SOUND];
     [UserData setSoundEffectsUserVolume:_cursorVolumeSound.currentValue / 100.0];
-    [PreloadData loadDataWithKey:[PreloadData playSoundFileNamed:@"splash.mp3" atVolume:_cursorVolumeSound.currentValue / 100.0 waitForCompletion:NO] key:DATA_SPLASH_SOUND];
-    [PreloadData loadDataWithKey:[PreloadData playSoundFileNamed:@"coconut.mp3" atVolume:_cursorVolumeSound.currentValue / 100.0 waitForCompletion:NO] key:DATA_COCONUT_SOUND];
+    [PreloadData loadDataWithKey:[PreloadData playSoundFileNamed:@"splash.mp3"
+                                                        atVolume:_cursorVolumeSound.currentValue / 100.0
+                                               waitForCompletion:NO] key:DATA_SPLASH_SOUND];
+    [PreloadData loadDataWithKey:[PreloadData playSoundFileNamed:@"coconut.mp3"
+                                                        atVolume:_cursorVolumeSound.currentValue / 100.0
+                                               waitForCompletion:NO] key:DATA_COCONUT_SOUND];
 }
 
 - (void) updateAccelerometerUserSpeed {
@@ -136,11 +140,6 @@
 
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (_cursorAccelerometer != nil) {
-        UITouch *touch = [touches anyObject];
-        CGPoint location = [touch locationInNode:self];
-        SKNode *node = [self nodeAtPoint:location];
-    }
     _currentCursorClicked = nil;
 }
 
