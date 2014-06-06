@@ -19,6 +19,7 @@
 @property (nonatomic, strong) SpriteKitCursor *cursorVolumeMusic;
 @property (nonatomic, strong) SpriteKitCursor *cursorAccelerometer;
 @property (nonatomic, strong) id currentCursorClicked;
+@property (nonatomic, strong) SKScene *parentScene;
 @end
 
 @implementation Settings
@@ -58,7 +59,7 @@
     [_cursorAccelerometer setCurrentValue:[UserData getAccelerometerUserSpeed]];
 }
 
-- (instancetype) initWithSize:(CGSize)size {
+- (instancetype) initWithSize:(CGSize)size withParentScene:(SKScene *)parentScene {
     self = [super initWithSize:size];
     
     if (self != nil) {
