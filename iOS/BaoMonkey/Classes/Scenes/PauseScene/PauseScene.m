@@ -10,6 +10,7 @@
 #import "Define.h"
 #import "MyScene.h"
 #import "Settings.h"
+#import "BaoPosition.h"
 
 @implementation PauseScene
 
@@ -20,27 +21,27 @@
         background.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
         [self addChild:background];
         fromScene = scene;
-        panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"panel-3buttons"]];
+        panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"panel-3-buttons"]];
         panel.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2));
         [self addChild:panel];
         
-        resumeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-play"] size:CGSizeMake(80, 80)];
-        resumeNode.position = CGPointMake(164, 306);
+        resumeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"big-button-play"]];
+        resumeNode.position = [BaoPosition bigButtonPlay];
         resumeNode.name = RESUME_NODE_NAME;
         [self addChild:resumeNode];
         
-        replayNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-replay"] size:CGSizeMake(52, 52)];
-        replayNode.position = CGPointMake(69, 200);
+        replayNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-replay"]];
+        replayNode.position = [BaoPosition buttonReplayPause];
         replayNode.name = RETRY_NODE_NAME;
         [self addChild:replayNode];
         
-        homeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-home"] size:CGSizeMake(52, 52)];
-        homeNode.position = CGPointMake(167, 200);
+        homeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-home"]];
+        homeNode.position = [BaoPosition buttonHomePause];
         homeNode.name = HOME_NODE_NAME;
         [self addChild:homeNode];
         
-        settingsNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-settings"] size:CGSizeMake(52, 52)];
-        settingsNode.position = CGPointMake(269, 200);
+        settingsNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
+        settingsNode.position = [BaoPosition buttonSettingsPause];
         settingsNode.name = SETTINGS_NODE_NAME;
         [self addChild:settingsNode];
     }
@@ -54,32 +55,24 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:RESUME_NODE_NAME]) {
-        [resumeNode setTexture:[SKTexture textureWithImageNamed:@"button-play-selected"]];
-        [resumeNode setSize:CGSizeMake(97, 97)];
+        [resumeNode setTexture:[SKTexture textureWithImageNamed:@"big-button-play-selected"]];
     }
     else if ([node.name isEqualToString:RETRY_NODE_NAME]) {
         [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay-selected"]];
-        [replayNode setSize:CGSizeMake(61, 61)];
     }
     else if ([node.name isEqualToString:HOME_NODE_NAME]) {
         [homeNode setTexture:[SKTexture textureWithImageNamed:@"button-home-selected"]];
-        [homeNode setSize:CGSizeMake(61, 61)];
     }
     else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
         [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings-selected"]];
-        [settingsNode setSize:CGSizeMake(61, 61)];
     }
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    [resumeNode setTexture:[SKTexture textureWithImageNamed:@"button-play"]];
-    [resumeNode setSize:CGSizeMake(80, 80)];
+    [resumeNode setTexture:[SKTexture textureWithImageNamed:@"big-button-play"]];
     [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay"]];
-    [replayNode setSize:CGSizeMake(52, 52)];
     [homeNode setTexture:[SKTexture textureWithImageNamed:@"button-home"]];
-    [homeNode setSize:CGSizeMake(52, 52)];
     [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
-    [settingsNode setSize:CGSizeMake(52, 52)];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {

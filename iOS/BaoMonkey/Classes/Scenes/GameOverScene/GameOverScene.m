@@ -20,32 +20,32 @@
         background.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
         [self addChild:background];
         fromScene = scene;
-        panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"panel-4buttons"]];
+        panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"panel-4-buttons"]];
         panel.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2));
         [self addChild:panel];
         
-        replayNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-replay"] size:CGSizeMake(80, 80)];
-        replayNode.position = CGPointMake(164, 306);
+        replayNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"big-button-replay"]];
+        replayNode.position = [BaoPosition bigButtonReplay];
         replayNode.name = RETRY_NODE_NAME;
         [self addChild:replayNode];
         
-        homeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-home"] size:CGSizeMake(52, 52)];
-        homeNode.position = CGPointMake(69.5, 200);
+        homeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-home"]];
+        homeNode.position = [BaoPosition buttonHomeGameOver];
         homeNode.name = HOME_NODE_NAME;
         [self addChild:homeNode];
         
-        gameCenterNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-gamecenter"] size:CGSizeMake(52, 52)];
-        gameCenterNode.position = CGPointMake(137, 200);
+        gameCenterNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-game-center"]];
+        gameCenterNode.position = [BaoPosition buttonGameCenterGameOver];
         gameCenterNode.name = GAMECENTER_NODE_NAME;
         [self addChild:gameCenterNode];
         
-        shareNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-share"] size:CGSizeMake(52, 52)];
-        shareNode.position = CGPointMake(204, 200);
+        shareNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-share"]];
+        shareNode.position = [BaoPosition buttonShareGameOver];
         shareNode.name = SHARE_NODE_NAME;
         [self addChild:shareNode];
         
-        settingsNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-settings"] size:CGSizeMake(52, 52)];
-        settingsNode.position = CGPointMake(269.5, 200);
+        settingsNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
+        settingsNode.position = [BaoPosition buttonSettingsGameOver];
         settingsNode.name = SETTINGS_NODE_NAME;
         [self addChild:settingsNode];
     }
@@ -59,38 +59,28 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:RETRY_NODE_NAME]) {
-        [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay-selected"]];
-        [replayNode setSize:CGSizeMake(97, 97)];
+        [replayNode setTexture:[SKTexture textureWithImageNamed:@"big-button-replay-selected"]];
     }
     else if ([node.name isEqualToString:HOME_NODE_NAME]) {
         [homeNode setTexture:[SKTexture textureWithImageNamed:@"button-home-selected"]];
-        [homeNode setSize:CGSizeMake(61, 61)];
     }
     else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
         [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings-selected"]];
-        [settingsNode setSize:CGSizeMake(61, 61)];
     }
     else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
-        [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-gamecenter-selected"]];
-        [gameCenterNode setSize:CGSizeMake(61, 61)];
+        [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-game-center-selected"]];
     }
     else if ([node.name isEqualToString:SHARE_NODE_NAME]) {
         [shareNode setTexture:[SKTexture textureWithImageNamed:@"button-share-selected"]];
-        [shareNode setSize:CGSizeMake(61, 61)];
     }
 }
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay"]];
-    [replayNode setSize:CGSizeMake(80, 80)];
+    [replayNode setTexture:[SKTexture textureWithImageNamed:@"big-button-replay"]];
     [homeNode setTexture:[SKTexture textureWithImageNamed:@"button-home"]];
-    [homeNode setSize:CGSizeMake(52, 52)];
-    [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-gamecenter"]];
-    [gameCenterNode setSize:CGSizeMake(52, 52)];
+    [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-game-center"]];
     [shareNode setTexture:[SKTexture textureWithImageNamed:@"button-share"]];
-    [shareNode setSize:CGSizeMake(52, 52)];
     [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
-    [settingsNode setSize:CGSizeMake(52, 52)];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
