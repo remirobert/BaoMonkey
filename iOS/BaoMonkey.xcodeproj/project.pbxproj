@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		102D554D1936430800D7072D /* grosse_tache@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 102D554B1936430800D7072D /* grosse_tache@2x.png */; };
 		102D554E1936430800D7072D /* petite_tache@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 102D554C1936430800D7072D /* petite_tache@2x.png */; };
+		103A59261942260C00794E98 /* fire_ipad.sks in Resources */ = {isa = PBXBuildFile; fileRef = 103A59251942260C00794E98 /* fire_ipad.sks */; };
 		104838A8193F887F005D7F8C /* smokeLamberJack.sks in Resources */ = {isa = PBXBuildFile; fileRef = 104838A6193F887F005D7F8C /* smokeLamberJack.sks */; };
 		104838A9193F887F005D7F8C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 104838A7193F887F005D7F8C /* spark.png */; };
 		10573343193F41A200E6FD75 /* feuillagecompletavant.png in Resources */ = {isa = PBXBuildFile; fileRef = 10573342193F41A200E6FD75 /* feuillagecompletavant.png */; };
@@ -150,6 +151,7 @@
 /* Begin PBXFileReference section */
 		102D554B1936430800D7072D /* grosse_tache@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grosse_tache@2x.png"; sourceTree = "<group>"; };
 		102D554C1936430800D7072D /* petite_tache@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petite_tache@2x.png"; sourceTree = "<group>"; };
+		103A59251942260C00794E98 /* fire_ipad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire_ipad.sks; sourceTree = "<group>"; };
 		104838A6193F887F005D7F8C /* smokeLamberJack.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smokeLamberJack.sks; sourceTree = "<group>"; };
 		104838A7193F887F005D7F8C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		10573342193F41A200E6FD75 /* feuillagecompletavant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feuillagecompletavant.png; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 				10C59A0D1919492C00907493 /* Monkey */,
 				10C59A0F1919492C00907493 /* Tree */,
 				10B2E57F193DC7EE00DDEF3A /* fire.sks */,
+				103A59251942260C00794E98 /* fire_ipad.sks */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1209,6 +1212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				108C7E42193CD4E000ADCB85 /* rouemodulaire@2x.png in Resources */,
+				103A59261942260C00794E98 /* fire_ipad.sks in Resources */,
 				29A3D4CF193C66F5003A71DC /* Main_iPhone.storyboard in Resources */,
 				108C7E3A193CCBE200ADCB85 /* spark.png in Resources */,
 				29A3D4D0193C66F5003A71DC /* Main_iPad.storyboard in Resources */,
