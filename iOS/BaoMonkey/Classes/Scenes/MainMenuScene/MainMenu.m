@@ -139,7 +139,7 @@
     } else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
         // Launch GameCenter
     } else if ([node.name isEqualToString:SHARE_NODE_NAME]) {
-        // Launch Sharing
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_share" object:nil];
     } else if ([node.name isEqualToString:INFOS_NODE_NAME]) {
         // Launch Infos
     }

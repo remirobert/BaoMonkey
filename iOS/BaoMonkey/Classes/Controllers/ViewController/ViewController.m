@@ -72,6 +72,16 @@
                                                  name:NOTIFICATION_GO_TO_SETTINGS
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(share)
+                                                 name:@"notification_share"
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(shareScore)
+                                                 name:@"notification_share_score"
+                                               object:nil];
+    
     srand(time(NULL));
     [self goToHome];
 }
@@ -201,6 +211,26 @@
 -(void)goToSettings {
     [_skView presentScene:[[Settings alloc] initWithSize:_skView.frame.size]
                transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5]];
+}
+
+-(void)share{
+    NSMutableArray *activityItems = [[NSMutableArray alloc] init];
+    NSString *string = @"BaoMonkey, the new crazy iOS game! More informations on http://www.baomonkey.com";
+    NSURL *url = [NSURL URLWithString:@"http://www.baomonkey.com"];
+    [activityItems addObject:string];
+    [activityItems addObject:url];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    [self presentViewController:activityViewController animated:YES completion:nil];
+}
+
+-(void)shareScore{
+    NSMutableArray *activityItems = [[NSMutableArray alloc] init];
+    NSString *string = [NSString stringWithFormat:@"I get %ld on BaoMonkey! Can you do better ? More information on http://www.baomonkey.com", (long)[GameData getScore]];
+    NSURL *url = [NSURL URLWithString:@"http://www.baomonkey.com"];
+    [activityItems addObject:string];
+    [activityItems addObject:url];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 - (NSUInteger)supportedInterfaceOrientations

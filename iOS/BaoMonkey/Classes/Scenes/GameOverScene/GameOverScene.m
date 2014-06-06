@@ -107,7 +107,7 @@
         // Call GameCenter
     }
     else if ([node.name isEqualToString:SHARE_NODE_NAME]) {
-        // Call Sharing
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_share_score" object:nil];
     }
 }
 
