@@ -7,6 +7,7 @@
 //
 
 #import "Tank.h"
+#import "BaoPosition.h"
 
 #define SK_DEGREES_TO_RADIANS(__ANGLE__) ((__ANGLE__) * 0.01745329252f)
 
@@ -113,7 +114,7 @@
 - (void) shootFireBomb:(CGPoint)positionMonkey :(SKScene *)scene {
     SKSpriteNode *nodeShoot;
     
-    nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munitions-incendiaire"]];
+    nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background-progress-bar"]];
     nodeShoot.size = CGSizeMake(nodeShoot.size.width / 3, nodeShoot.size.height / 3);
     
     float angle = atan2f(positionMonkey.y, positionMonkey.x);
@@ -133,8 +134,8 @@
         nodeShoot.color = [SKColor colorWithRed:0 green:0 blue:0 alpha:0];
         
         [nodeShoot runAction:fireAction];
-        NSString *burstPath =
-        [[NSBundle mainBundle] pathForResource:@"fire" ofType:@"sks"];
+        NSString *burstPath = [BaoPosition pathFireTank];
+//        [[NSBundle mainBundle] pathForResource:[BaoPosition pathFireTank] ofType:@"sks"];
         
         SKEmitterNode *fire = [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
         fire.position = CGPointMake(nodeShoot.position.x, nodeShoot.position.y - 30);

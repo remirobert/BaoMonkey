@@ -26,4 +26,9 @@
     return IPAD ? 120.0 : 60.0;
 }
 
++ (NSString *) pathFireTank {
+    return IPAD ? [[NSBundle mainBundle] pathForResource:@"fire_ipad" ofType:@"sks"] :
+    [[NSBundle mainBundle] pathForResource:@"fire" ofType:@"sks"];
+}
+
 @end
