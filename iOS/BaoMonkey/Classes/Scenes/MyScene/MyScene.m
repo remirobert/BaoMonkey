@@ -352,7 +352,6 @@
             if (tmp != nil)
                 [self addChild:tmp];
         }
-            
     }
     
     [self actionClimber];

@@ -89,6 +89,14 @@
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
 
+    
+    if ([node.name isEqualToString:@"home"]) {
+        NSLog(@"accelometor : %f", _cursorAccelerometer.currentValue);
+        NSLog(@"sound : %f", _cursorVolumeSound.currentValue);
+        NSLog(@"music : %f", _cursorVolumeMusic.currentValue);
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
+
+    }
     if ([_cursorAccelerometer checkCursorClickWithNode:node] == YES)
         _currentCursorClicked = _cursorAccelerometer;
     else if ([_cursorVolumeMusic checkCursorClickWithNode:node] == YES)
@@ -132,15 +140,7 @@
         UITouch *touch = [touches anyObject];
         CGPoint location = [touch locationInNode:self];
         SKNode *node = [self nodeAtPoint:location];
-        
-        if ([node.name isEqualToString:@"home"]) {
-            
-//            [self updateAccelerometerUserSpeed];
-//            [self updateMusicUserVolume];
-//            [self updateSoundEffectsUserVolume];
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
-        }
-   }
+    }
     _currentCursorClicked = nil;
 }
 
