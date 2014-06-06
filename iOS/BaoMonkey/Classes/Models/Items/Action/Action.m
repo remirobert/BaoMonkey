@@ -16,7 +16,7 @@
     item.node.physicsBody.affectedByGravity = YES;
     item.node.name = WEAPON_NODE_NAME;
     item.node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:item.node.size];
-    item.node.position = CGPointMake(item.node.position.x, [UIScreen mainScreen].bounds.size.height - 200);
+    item.node.position = CGPointMake(item.node.position.x, [BaoPosition dropAction]);
 }
 
 + (void) decreaseMove {

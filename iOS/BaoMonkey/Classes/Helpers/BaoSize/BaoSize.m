@@ -12,7 +12,8 @@
 @implementation BaoSize
 
 +(CGSize)monkey {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(60, 70);
+    IPAD ? NSLog(@"IPAD") : NSLog(@"IPHONE");
+    return IPAD ? CGSizeMake(120, 140) : CGSizeMake(60, 70);
 }
 
 +(CGSize)lamberJack {

@@ -12,8 +12,7 @@
 
 - (instancetype) initWithPosition:(CGPoint)position {
     if ((self = [super initWithPosition:position]) != nil) {
-        [self.node setTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"shield"]]];
-        self.node.size = CGSizeMake(30, 30);
+        [self.node setTexture:[SKTexture textureWithImageNamed:@"shield"]];
         self.node.position = position;
         self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 3];
         self.node.physicsBody.mass = 200;

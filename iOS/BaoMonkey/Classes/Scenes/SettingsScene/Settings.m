@@ -53,9 +53,9 @@
     [self customCursor];
     
     
-    [_cursorVolumeMusic setCurrentValue:50];
-    [_cursorVolumeSound setCurrentValue:50];
-    [_cursorAccelerometer setCurrentValue:50];
+    [_cursorVolumeMusic setCurrentValue:[UserData getMusicUserVolume] * 100];
+    [_cursorVolumeSound setCurrentValue:[UserData getSoundEffectsUserVolume] * 100];
+    [_cursorAccelerometer setCurrentValue:[UserData getAccelerometerUserSpeed]];
 }
 
 - (instancetype) initWithSize:(CGSize)size {
@@ -89,6 +89,14 @@
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
 
+    
+    if ([node.name isEqualToString:@"home"]) {
+        [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue];
+        [self updateMusicUserVolume];
+        [self updateSoundEffectsUserVolume];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
+
+    }
     if ([_cursorAccelerometer checkCursorClickWithNode:node] == YES)
         _currentCursorClicked = _cursorAccelerometer;
     else if ([_cursorVolumeMusic checkCursorClickWithNode:node] == YES)
@@ -118,8 +126,12 @@
     [PreloadData removeDataWithKey:DATA_SPLASH_SOUND];
     [PreloadData removeDataWithKey:DATA_COCONUT_SOUND];
     [UserData setSoundEffectsUserVolume:_cursorVolumeSound.currentValue / 100.0];
-    [PreloadData loadDataWithKey:[PreloadData playSoundFileNamed:@"splash.mp3" atVolume:_cursorVolumeSound.currentValue / 100.0 waitForCompletion:NO] key:DATA_SPLASH_SOUND];
-    [PreloadData loadDataWithKey:[PreloadData playSoundFileNamed:@"coconut.mp3" atVolume:_cursorVolumeSound.currentValue / 100.0 waitForCompletion:NO] key:DATA_COCONUT_SOUND];
+    [PreloadData loadDataWithKey:[PreloadData playSoundFileNamed:@"splash.mp3"
+                                                        atVolume:_cursorVolumeSound.currentValue / 100.0
+                                               waitForCompletion:NO] key:DATA_SPLASH_SOUND];
+    [PreloadData loadDataWithKey:[PreloadData playSoundFileNamed:@"coconut.mp3"
+                                                        atVolume:_cursorVolumeSound.currentValue / 100.0
+                                               waitForCompletion:NO] key:DATA_COCONUT_SOUND];
 }
 
 - (void) updateAccelerometerUserSpeed {
@@ -128,19 +140,6 @@
 
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (_cursorAccelerometer != nil) {
-        UITouch *touch = [touches anyObject];
-        CGPoint location = [touch locationInNode:self];
-        SKNode *node = [self nodeAtPoint:location];
-        
-        if ([node.name isEqualToString:@"home"]) {
-            
-//            [self updateAccelerometerUserSpeed];
-//            [self updateMusicUserVolume];
-//            [self updateSoundEffectsUserVolume];
-            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
-        }
-   }
     _currentCursorClicked = nil;
 }
 

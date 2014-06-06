@@ -137,7 +137,7 @@
     
     [self addChild:_treeBranch.node];
     
-    monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, _treeBranch.node.position.y + 30)];
+    monkey = [[Monkey alloc] initWithPosition:[BaoPosition monkey]];
     [self addChild:monkey.sprite];
     [self addChild:monkey.collisionMask];
     
@@ -259,7 +259,7 @@
 -(void)update:(CFTimeInterval)currentTime {
 
     NSInteger oldLevel = [GameData getLevel];
-    
+
     if ([[GameData singleton] isPause]) {
         
         dispatch_once(&oncePause, ^{
@@ -352,7 +352,6 @@
             if (tmp != nil)
                 [self addChild:tmp];
         }
-            
     }
     
     [self actionClimber];

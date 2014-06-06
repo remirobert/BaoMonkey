@@ -37,8 +37,8 @@
 -(id)initWithPosition:(CGPoint)position {
     self = [super init];
     if (self) {
-        sprite = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"stand"]];
-        
+        // Init the sprites of the Monkey
+        sprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"waiting"]];
         sprite.position = position;
         isShield = FALSE;
         
@@ -56,7 +56,7 @@
 
 - (void) moveMonkey:(CGFloat)acceleration {
     CGPoint position;
-    float maxX = [UIScreen mainScreen].bounds.size.width + (sprite.size.width / 2);
+    float maxX = SCREEN_WIDTH + (sprite.size.width / 2);
     float minX = -(sprite.size.width / 2);
     
     if (sprite.position.x > maxX) {
@@ -166,33 +166,33 @@
 #pragma mark - Load texture
 
 - (void) loadWaitframes {
-    stopFrames = @[[PreloadData getDataWithKey:@"stand"], [PreloadData getDataWithKey:@"stand"]];
-    stopCocoframes = @[[PreloadData getDataWithKey:@"stand2"], [PreloadData getDataWithKey:@"stand2"]];
+    stopFrames = @[[PreloadData getDataWithKey:@"monkey-waiting"], [PreloadData getDataWithKey:@"monkey-waiting"]];
+    stopCocoframes = @[[PreloadData getDataWithKey:@"monkey-waiting-coconut"], [PreloadData getDataWithKey:@"monkey-waiting-coconut"]];
 }
 
 -(void)loadWalkingSprites {
-    walkingFrames = @[[PreloadData getDataWithKey:@"run1"],
-                      [PreloadData getDataWithKey:@"run2"],
-                      [PreloadData getDataWithKey:@"run3"],
-                      [PreloadData getDataWithKey:@"run4"],
-                      [PreloadData getDataWithKey:@"run5"],
-                      [PreloadData getDataWithKey:@"run6"]];
+    walkingFrames = @[[PreloadData getDataWithKey:@"monkey-walking-1"],
+                      [PreloadData getDataWithKey:@"monkey-walking-2"],
+                      [PreloadData getDataWithKey:@"monkey-walking-3"],
+                      [PreloadData getDataWithKey:@"monkey-walking-4"],
+                      [PreloadData getDataWithKey:@"monkey-walking-5"],
+                      [PreloadData getDataWithKey:@"monkey-walking-6"]];
 }
 
 -(void)loadWalkingCoconutSprites {
-    walkingCoconutFrames = @[[PreloadData getDataWithKey:@"coco1"],
-                             [PreloadData getDataWithKey:@"coco2"],
-                             [PreloadData getDataWithKey:@"coco3"],
-                             [PreloadData getDataWithKey:@"coco4"],
-                             [PreloadData getDataWithKey:@"coco5"],
-                             [PreloadData getDataWithKey:@"coco6"]];
+    walkingCoconutFrames = @[[PreloadData getDataWithKey:@"monkey-walking-coconut-1"],
+                             [PreloadData getDataWithKey:@"monkey-walking-coconut-2"],
+                             [PreloadData getDataWithKey:@"monkey-walking-coconut-3"],
+                             [PreloadData getDataWithKey:@"monkey-walking-coconut-4"],
+                             [PreloadData getDataWithKey:@"monkey-walking-coconut-5"],
+                             [PreloadData getDataWithKey:@"monkey-walking-coconut-6"]];
 }
 
 
 -(void)loadLaunchSprites {
-    launchFrames = @[[PreloadData getDataWithKey:@"lance"],
-                     [PreloadData getDataWithKey:@"lance"],
-                     [PreloadData getDataWithKey:@"lance"]];
+    launchFrames = @[[PreloadData getDataWithKey:@"monkey-launch"],
+                     [PreloadData getDataWithKey:@"monkey-launch"],
+                     [PreloadData getDataWithKey:@"monkey-launch"]];
 }
 
 #pragma mark - Manage Shield
@@ -285,13 +285,13 @@
         return ;
     [sprite removeAllActions];
 
-    [sprite runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"singe_K1"],
-                                                      [SKTexture textureWithImageNamed:@"singe_K2"],
-                                                      [SKTexture textureWithImageNamed:@"singe_K3"],
-                                                      [SKTexture textureWithImageNamed:@"singe_K4"]]
+    [sprite runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"monkey-dead-1"],
+                                                      [SKTexture textureWithImageNamed:@"monkey-dead-2"],
+                                                      [SKTexture textureWithImageNamed:@"monkey-dead-3"],
+                                                      [SKTexture textureWithImageNamed:@"monkey-dead-4"]]
                                        timePerFrame:0.05 resize:NO restore:NO]
               completion:^{
-                  [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"singe_K4"]]
+                  [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"monkey-dead-4"]]
                                                                                    timePerFrame:0.1]]];
               }];
 }

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#import "BaoPosition.h"
 
 @interface TreeBranch : NSObject
 

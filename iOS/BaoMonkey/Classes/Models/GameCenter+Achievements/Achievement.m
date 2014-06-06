@@ -21,6 +21,9 @@
 @implementation Achievement
 
 + (void) updateScore {
+    if ([GameCenter defaultGameCenter].gameCenterEnabled == NO)
+        return ;
+    
     Achievement *ach = [Achievement defaultAchievement];
     NSInteger currentScore = [[UserData defaultUser] score];
     int indexAchievement = 0;
@@ -44,6 +47,9 @@
 }
 
 + (void) updateEnemy {
+    if ([GameCenter defaultGameCenter].gameCenterEnabled == NO)
+        return ;
+
     Achievement *ach = [Achievement defaultAchievement];
     NSInteger currentEnemy = [[UserData defaultUser] enemy_score];
     
@@ -68,6 +74,9 @@
 }
 
 + (void) updatePlums {
+    if ([GameCenter defaultGameCenter].gameCenterEnabled == NO)
+        return ;
+
     Achievement *ach = [Achievement defaultAchievement];
     NSInteger currentPrune = [[UserData defaultUser] prune_score];
     
@@ -94,6 +103,9 @@
 + (void) updateAchievement {
     Achievement *ach = [Achievement defaultAchievement];
 
+    if ([GameCenter defaultGameCenter].gameCenterEnabled == NO)
+        return ;
+    
     [Achievement updateEnemy];
     [Achievement updateScore];
     [Achievement updatePlums];
@@ -116,7 +128,7 @@
 
 + (instancetype) defaultAchievement {
     static Achievement *ach;
-    
+
     if (ach == nil) {
         ach = [[Achievement alloc] init];
         
