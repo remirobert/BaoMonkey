@@ -90,7 +90,10 @@
     else
         framesWalking = walkingCoconutFrames;
     
-    [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:framesWalking timePerFrame:0.1 resize:NO restore:NO]] withKey:@"runactionwalk"];
+    [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:framesWalking
+                                                                     timePerFrame:0.1
+                                                                           resize:NO
+                                                                          restore:NO]] withKey:@"runactionwalk"];
 }
 
 - (void) waitMonkey {
@@ -240,6 +243,9 @@
 #pragma mark - Checking the item receive
 
 -(void)catchItem:(id)item :(SKScene *)scene {
+    if ([GameData isGameOver] == YES)
+        return ;
+    
     if ([item isKindOfClass:[Weapon class]]){
         if (weapon == nil) {
             weapon = [[Item alloc] init];
@@ -265,6 +271,9 @@
 #pragma mark - Launch a weapon
 
 -(void)launchWeapon {
+    if ([GameData isGameOver] == YES)
+        return ;
+    
     if (weapon != nil && ![GameData isPause]) {
         weapon.node.hidden = FALSE;
         weapon.node.position = CGPointMake(sprite.position.x, weapon.node.position.y);
