@@ -310,8 +310,10 @@
                 if (![GameData isGameOver])
                     [self gameOverCountDown];
             } else {
+                [monkey.shield removeFromParent];
                 monkey.isShield = FALSE;
             }
+            [node removeFromParent];
         }
     }];
     

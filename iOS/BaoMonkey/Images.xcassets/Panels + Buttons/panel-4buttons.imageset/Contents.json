@@ -15,7 +15,8 @@
     },
     {
       "idiom" : "ipad",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "panneau4spots.png"
     }
   ],
   "info" : {
