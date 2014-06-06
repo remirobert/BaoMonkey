@@ -77,9 +77,7 @@
 }
 
 - (CGFloat) currentValue {
-    return (100 * ([UIScreen mainScreen].bounds.size.width -
-                   _foreground.size.width) / ((([UIScreen mainScreen].bounds.size.width -
-                                                _foreground.size.width) / 2) - (_cursor.size.width / 2)));
+    return (100 * (_background.size.width + _cursor.size.width / 2) / _foreground.size.width);
 }
 
 #pragma mark - Custom slider
