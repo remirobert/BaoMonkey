@@ -51,12 +51,10 @@
                                                         position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
                                                                              [UIScreen mainScreen].bounds.size.height / 2 - 100)];
     
-    [self customCursor];
-    
-    
     [_cursorVolumeMusic setCurrentValue:[UserData getMusicUserVolume] * 100];
     [_cursorVolumeSound setCurrentValue:[UserData getSoundEffectsUserVolume] * 100];
     [_cursorAccelerometer setCurrentValue:[UserData getAccelerometerUserSpeed]];
+    [self customCursor];
 }
 
 - (void) initButton {
@@ -144,6 +142,11 @@
 
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (_currentCursorClicked != nil) {
+        [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue];
+        [self updateMusicUserVolume];
+        [self updateSoundEffectsUserVolume];
+    }
     _currentCursorClicked = nil;
 }
 
