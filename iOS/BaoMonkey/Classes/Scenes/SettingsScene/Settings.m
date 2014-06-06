@@ -59,6 +59,17 @@
     [_cursorAccelerometer setCurrentValue:[UserData getAccelerometerUserSpeed]];
 }
 
+- (void) initButton {
+    SKLabelNode * homeButton = [[SKLabelNode alloc] init];
+    
+    homeButton.text = @"back";
+    homeButton.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+                                      [UIScreen mainScreen].bounds.size.height / 2 - 200);
+    homeButton.name = @"back";
+    
+    [self addChild:homeButton];
+}
+
 - (instancetype) initWithSize:(CGSize)size withParentScene:(SKScene *)parentScene {
     self = [super initWithSize:size];
     
@@ -71,16 +82,8 @@
         [_cursorVolumeMusic addChild:self];
         [_cursorVolumeSound addChild:self];
         
-        
-        
-        SKLabelNode * homeButton = [[SKLabelNode alloc] init];
-        
-        homeButton.text = @"home";
-        homeButton.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-                                          [UIScreen mainScreen].bounds.size.height / 2 - 200);
-        homeButton.name = @"home";
-        
-        [self addChild:homeButton];
+        _parentScene = parentScene;
+        [self initButton];
     }
     return (self);
 }
@@ -91,11 +94,11 @@
     SKNode *node = [self nodeAtPoint:location];
 
     
-    if ([node.name isEqualToString:@"home"]) {
+    if ([node.name isEqualToString:@"back"]) {
         [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue];
         [self updateMusicUserVolume];
         [self updateSoundEffectsUserVolume];
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
+        [self.view presentScene:_parentScene transition:[SKTransition fadeWithDuration:1]];
 
     }
     if ([_cursorAccelerometer checkCursorClickWithNode:node] == YES)

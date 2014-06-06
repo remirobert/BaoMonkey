@@ -9,6 +9,7 @@
 #import "PauseScene.h"
 #import "Define.h"
 #import "MyScene.h"
+#import "Settings.h"
 
 @implementation PauseScene
 
@@ -104,9 +105,10 @@
         [homeNode setSize:CGSizeMake(52, 52)];
     }
     else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_SETTINGS object:nil];
         [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
         [settingsNode setSize:CGSizeMake(52, 52)];
+        [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self] transition:[SKTransition fadeWithDuration:1.0]];
+
     }
 }
 
