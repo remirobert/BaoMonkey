@@ -21,18 +21,6 @@
 
     NSString *playerId = [[GameCenter defaultGameCenter] localPlayer].playerID;
     
-    if ([[UserData defaultUser] isFirstRun] ||
-        ![playerId isEqualToString:[[UserData defaultUser] playerId]]) {
-
-        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-            while (![[GameCenter defaultGameCenter] gameCenterEnabled]) {
-                [GameCenter getBestScorePlayer];
-                usleep(5000);
-            }
-            [GameCenter initUserDataProgress];
-        });
-    }
-    
     [UserData launch];
     [GameData initGameData];
     [UserData initUserData];

@@ -18,6 +18,7 @@
 #import "PauseScene.h"
 #import "HelicopterScene.h"
 #import "MyScene+LoadBoss.h"
+#import "GameCenter.h"
 
 @implementation MyScene
 
@@ -258,12 +259,7 @@
 -(void)update:(CFTimeInterval)currentTime {
 
     NSInteger oldLevel = [GameData getLevel];
-    
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        [self loadLamberJackGeantMachineScene];
-//    });
-    
+
     if ([[GameData singleton] isPause]) {
         
         dispatch_once(&oncePause, ^{
@@ -308,6 +304,7 @@
         if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
             //[leafTransition runGameOverTransition];
             if (!monkey.isShield) {
+                [GameCenter getBestScorePlayer];
                 [monkey deadMonkey];
                 if (![GameData isGameOver])
                     [self gameOverCountDown];
@@ -355,7 +352,6 @@
             if (tmp != nil)
                 [self addChild:tmp];
         }
-            
     }
     
     [self actionClimber];
@@ -372,7 +368,6 @@
             [self loadTankScene];
         }
     }
-    
 }
 
 @end
