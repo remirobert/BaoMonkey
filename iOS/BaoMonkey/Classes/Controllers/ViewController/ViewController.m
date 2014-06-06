@@ -85,9 +85,24 @@
     }
     
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"banana"]] key:DATA_BANANA_TEXTURE];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"coconut"]] key:DATA_COCONUT_TEXTURE];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"coconut"] key:DATA_COCONUT_TEXTURE];
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"prune"]] key:DATA_PRUNE_TEXTURE];
     
+    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"monkey-waiting"]] key:DATA_MONKEY_WAITING];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"monkey-waiting-coconut"]] key:DATA_MONKEY_WAITING_COCONUT];
+    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyLaunch"] key:DATA_MONKEY_LAUNCH_ATLAS];
+//    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyWalking"] key:DATA_MONKEY_WALKING_ATLAS];
+//    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyWalkingWithCoconut"] key:DATA_MONKEY_WALKING_COCONUT_ATLAS];
+    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyDead"] key:DATA_MONKEY_DEAD_ATLAS];
+    
+    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"lamber-jack-waiting"]] key:DATA_LAMBERJACK_WAITING];
+    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"LamberJackWalking"] key:DATA_LAMBERJACK_WALKING_ATLAS];
+    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"LamberJackCutting"] key:DATA_LAMBERJACK_CUTTING_ATLAS];
+    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"LamberJackDead"] key:DATA_LAMBERJACK_DEAD_ATLAS];
+    
+    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"hunter-waiting"]] key:DATA_HUNTER_WAITING];
+    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"HunterWalking"] key:DATA_HUNTER_WALKING_ATLAS];
+    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"HunterDead"] key:DATA_HUNTER_DEAD_ATLAS];
     
     [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyMenu"] key:DATA_MONKEY_MENU_ATLAS];
     
@@ -100,82 +115,78 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"button-settings"] key:DATA_BUTTON_SETTINGS];
     
     //load gorille
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-ground-1"] key:@"gorille-1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-ground-2"] key:@"gorille-2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-ground-3"] key:@"gorille-3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-ground-4"] key:@"gorille-4"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-tree-1"] key:@"gorille-tree-1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-tree-2"] key:@"gorille-tree-2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-tree-3"] key:@"gorille-tree-3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorille-tree-4"] key:@"gorille-tree-4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorilla-walking-1"] key:@"gorilla-walking-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorilla-walking-2"] key:@"gorilla-walking-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorilla-walking-dead-1"] key:@"gorilla-walking-dead-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorilla-walking-dead-2"] key:@"gorilla-walking-dead-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorilla-climbing-1"] key:@"gorilla-climbing-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorilla-climbing-2"] key:@"gorilla-climbing-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorilla-climbing-dead-1"] key:@"gorilla-climbing-dead-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"gorilla-climbing-dead-2"] key:@"gorilla-climbing-dead-2"];
 
     //load commando
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-1"] key:@"commando-1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-2"] key:@"commando-2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-3"] key:@"commando-3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-4"] key:@"commando-4"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-5"] key:@"commando-5"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-6"] key:@"commando-6"];
-
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climb1"] key:@"commando-climb1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climb2"] key:@"commando-climb2"];
-    
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_fall_ground1"] key:@"commando_fall_ground1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_fall_ground2"] key:@"commando_fall_ground2"];
-    
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-fall1"] key:@"commando-fall1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-fall2"] key:@"commando-fall2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-walking-1"] key:@"commando-walking-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-walking-2"] key:@"commando-walking-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-walking-3"] key:@"commando-walking-3"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-walking-4"] key:@"commando-walking-4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-walking-5"] key:@"commando-walking-5"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-walking-6"] key:@"commando-walking-6"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climbing-1"] key:@"commando-climbing-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climbing-2"] key:@"commando-climbing-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_walking-dead-1"] key:@"commando_walking-dead-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_walking-dead-2"] key:@"commando_walking-dead-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climbing-dead-1"] key:@"commando-climbing-dead-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climbing-dead-2"] key:@"commando-climbing-dead-2"];
     
     //load lamberJack
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_1"] key:@"lamber_jack_1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_2"] key:@"lamber_jack_2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_3"] key:@"lamber_jack_3"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber-jack-chopping-1"] key:@"lamber-jack-chopping-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber-jack-chopping-2"] key:@"lamber-jack-chopping-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber-jack-chopping-3"] key:@"lamber-jack-chopping-3"];
 
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_K1"] key:@"lamber_jack_K1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_K2"] key:@"lamber_jack_K2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber-jack-dead-1"] key:@"lamber-jack-dead-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber-jack-dead-2"] key:@"lamber-jack-dead-2"];
 
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking1"] key:@"lamber_jack_walking1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking2"] key:@"lamber_jack_walking2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking3"] key:@"lamber_jack_walking3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking4"] key:@"lamber_jack_walking4"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking5"] key:@"lamber_jack_walking5"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber_jack_walking6"] key:@"lamber_jack_walking6"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber-jack-walking-1"] key:@"lamber-jack-walking-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber-jack-walking-2"] key:@"lamber-jack-walking-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber-jack-walking-3"] key:@"lamber-jack-walking-3"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber-jack-walking-4"] key:@"lamber-jack-walking-4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber-jack-walking-5"] key:@"lamber-jack-walking-5"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"lamber-jack-walking-6"] key:@"lamber-jack-walking-6"];
     
     //load hunter
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-1"] key:@"hunter-1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-2"] key:@"hunter-2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-3"] key:@"hunter-3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-4"] key:@"hunter-4"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-5"] key:@"hunter-5"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-6"] key:@"hunter-6"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-7"] key:@"hunter-7"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-8"] key:@"hunter-8"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-walking-1"] key:@"hunter-walking-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-walking-2"] key:@"hunter-walking-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-walking-3"] key:@"hunter-walking-3"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-walking-4"] key:@"hunter-walking-4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-walking-5"] key:@"hunter-walking-5"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-walking-6"] key:@"hunter-walking-6"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-dead-1"] key:@"hunter-dead-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"hunter-dead-2"] key:@"hunter-dead-2"];
 
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"munition-explosive"] key:@"munition-explosive"];
     
     //load monkey
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"course_simple1"] key:@"run1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_course_simple2"] key:@"run2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_course_simple3"] key:@"run3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_course_simple4"] key:@"run4"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_course_simple5"] key:@"run5"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_course_simple6"] key:@"run6"];
-    
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_course1"] key:@"coco1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_course2"] key:@"coco2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_course3"] key:@"coco3"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_course4"] key:@"coco4"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_course5"] key:@"coco5"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_course6"] key:@"coco6"];
-
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_stand1"] key:@"stand"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_stand2"] key:@"stand2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-waiting"] key:@"monkey-waiting"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-waiting-coconut"] key:@"monkey-waiting-coconut"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-1"] key:@"monkey-walking-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-2"] key:@"monkey-walking-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-3"] key:@"monkey-walking-3"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-4"] key:@"monkey-walking-4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-5"] key:@"monkey-walking-5"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-6"] key:@"monkey-walking-6"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-coconut-1"] key:@"monkey-walking-coconut-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-coconut-2"] key:@"monkey-walking-coconut-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-coconut-3"] key:@"monkey-walking-coconut-3"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-coconut-4"] key:@"monkey-walking-coconut-4"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-coconut-5"] key:@"monkey-walking-coconut-5"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-coconut-6"] key:@"monkey-walking-coconut-6"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-launch"] key:@"monkey-launch"];
 
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_lance"] key:@"lance"];
     
     //load plums
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"grosse"] key:@"grosse"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"petite"] key:@"petite"];
+//    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"grosse"] key:@"grosse"];
+//    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"petite"] key:@"petite"];
 }
 
 -(void)goToHome {

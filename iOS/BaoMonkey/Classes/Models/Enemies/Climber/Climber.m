@@ -29,11 +29,11 @@
         self.kind = rand() % 2;
         
         if (self.kind == MONKEY) {
-            node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"gorille-1"]];
+            node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"gorilla-walking-1"]];
             decalPosition = 35;
         }
         else {
-            node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"commando-1"]];
+            node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"commando-walking-1"]];
             decalPosition = 20;
         }
         
@@ -60,15 +60,15 @@
 
 - (void) moveAnimation {
     if (self.kind == MONKEY)
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"gorille-1"],
-                                                                                      [PreloadData getDataWithKey:@"gorille-2"]] timePerFrame:0.2]]];
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"gorilla-walking-1"],
+                                                                                      [PreloadData getDataWithKey:@"gorilla-walking-2"]] timePerFrame:0.2]]];
     else
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"commando-1"],
-                                                                                      [PreloadData getDataWithKey:@"commando-2"],
-                                                                                      [PreloadData getDataWithKey:@"commando-3"],
-                                                                                      [PreloadData getDataWithKey:@"commando-4"],
-                                                                                      [PreloadData getDataWithKey:@"commando-5"],
-                                                                                      [PreloadData getDataWithKey:@"commando-6"]] timePerFrame:0.2]]];
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"commando-walking-1"],
+                                                                                      [PreloadData getDataWithKey:@"commando-walking-2"],
+                                                                                      [PreloadData getDataWithKey:@"commando-walking-3"],
+                                                                                      [PreloadData getDataWithKey:@"commando-walking-4"],
+                                                                                      [PreloadData getDataWithKey:@"commando-walking-5"],
+                                                                                      [PreloadData getDataWithKey:@"commando-walking-6"]] timePerFrame:0.2]]];
 }
 
 - (void) moveTrunk {
@@ -78,12 +78,12 @@
         else
             self.node.xScale = -1.0;
 
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"gorille-tree-1"],
-                                                                                      [PreloadData getDataWithKey:@"gorille-tree-2"]] timePerFrame:0.2]]];
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"gorilla-climbing-1"],
+                                                                                      [PreloadData getDataWithKey:@"gorilla-climbing-2"]] timePerFrame:0.2]]];
     }
     else
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"commando-climb1"],
-                                                                                      [PreloadData getDataWithKey:@"commando-climb2"]] timePerFrame:0.2]]];
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"commando-climbing-1"],
+                                                                                      [PreloadData getDataWithKey:@"commando-climbing-2"]] timePerFrame:0.2]]];
 }
 
 - (void) actionClimber:(NSInteger)positionclimb {
@@ -119,12 +119,12 @@
         NSArray *texturesTree;
         
         if (climber.kind == MONKEY) {
-            texturesTree = @[[PreloadData getDataWithKey:@"gorille-tree-3"],
-                             [PreloadData getDataWithKey:@"gorille-tree-4"]];
+            texturesTree = @[[PreloadData getDataWithKey:@"gorilla-climbing-dead-1"],
+                             [PreloadData getDataWithKey:@"gorilla-climbing-dead-2"]];
         }
         else {
-            texturesTree = @[[PreloadData getDataWithKey:@"commando-fall1"],
-                             [PreloadData getDataWithKey:@"commando-fall2"]];
+            texturesTree = @[[PreloadData getDataWithKey:@"commando-climing-dead-1"],
+                             [PreloadData getDataWithKey:@"commando-climbing-dead-2"]];
         }
 
         
@@ -139,12 +139,12 @@
         NSArray *texturesGrass;
         
         if (climber.kind == MONKEY) {
-            texturesGrass = @[[PreloadData getDataWithKey:@"gorille-3"],
-                              [PreloadData getDataWithKey:@"gorille-4"]];
+            texturesGrass = @[[PreloadData getDataWithKey:@"gorilla-walking-dead-1"],
+                              [PreloadData getDataWithKey:@"gorilla-walking-dead-2"]];
         }
         else {
-            texturesGrass = @[[PreloadData getDataWithKey:@"commando_fall_ground1"],
-                              [PreloadData getDataWithKey:@"commando_fall_ground2"]];
+            texturesGrass = @[[PreloadData getDataWithKey:@"commando-walking-dead-1"],
+                              [PreloadData getDataWithKey:@"commando-walking-dead-2"]];
         }
         
         [climber.node runAction:[SKAction animateWithTextures:texturesGrass timePerFrame:0.2] completion:^{

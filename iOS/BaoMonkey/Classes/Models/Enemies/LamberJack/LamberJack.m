@@ -27,7 +27,7 @@
         self.type = EnemyTypeLamberJack;
         self.node.zPosition = 10;
         
-        self.node = [[SKSpriteNode alloc] initWithTexture:[PreloadData getDataWithKey:@"lamber_jack_walking1"]];
+        self.node = [[SKSpriteNode alloc] initWithTexture:[PreloadData getDataWithKey:@"lamber-jack-walking-1"]];
                 
         if (self.direction == LEFT)
         {
@@ -67,12 +67,12 @@
 -(void)startWalking {
     if (![node actionForKey:SKACTION_LAMBERJACK_WALKING]) {
         
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"lamber_jack_walking1"],
-                                                                                      [PreloadData getDataWithKey:@"lamber_jack_walking2"],
-                                                                                      [PreloadData getDataWithKey:@"lamber_jack_walking3"],
-                                                                                      [PreloadData getDataWithKey:@"lamber_jack_walking4"],
-                                                                                      [PreloadData getDataWithKey:@"lamber_jack_walking5"],
-                                                                                      [PreloadData getDataWithKey:@"lamber_jack_walking6"]]
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"lamber-jack-walking-1"],
+                                                                                      [PreloadData getDataWithKey:@"lamber-jack-walking-2"],
+                                                                                      [PreloadData getDataWithKey:@"lamber-jack-walking-3"],
+                                                                                      [PreloadData getDataWithKey:@"lamber-jack-walking-4"],
+                                                                                      [PreloadData getDataWithKey:@"lamber-jack-walking-5"],
+                                                                                      [PreloadData getDataWithKey:@"lamber-jack-walking-6"]]
                                                                             timePerFrame:0.1f
                                                                                resize:NO
                                                                               restore:NO]]
@@ -92,9 +92,9 @@
 -(void)startChopping {
     isChooping = TRUE;
     if (![node actionForKey:SKACTION_LAMBERJACK_CUTTING]) {
-        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"lamber_jack_1"],
-                                                                                      [PreloadData getDataWithKey:@"lamber_jack_2"],
-                                                                                      [PreloadData getDataWithKey:@"lamber_jack_3"]]
+        [node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"lamber-jack-chopping-1"],
+                                                                                      [PreloadData getDataWithKey:@"lamber-jack-chopping-2"],
+                                                                                      [PreloadData getDataWithKey:@"lamber-jack-chopping-3"]]
                                                                        timePerFrame:0.1f
                                                                              resize:NO
                                                                             restore:NO]]
@@ -115,8 +115,8 @@
 -(void)startDead {
     if (!isChooping) {
         if (![node actionForKey:SKACTION_LAMBERJACK_DEAD]) {
-            [node runAction:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"lamber_jack_K1"],
-                                                            [PreloadData getDataWithKey:@"lamber_jack_K2"]]
+            [node runAction:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"lamber-jack-dead-1"],
+                                                            [PreloadData getDataWithKey:@"lamber-jack-dead-2"]]
                                                                     timePerFrame:0.1f
                                                                           resize:NO
                                                                          restore:NO] completion:^{
