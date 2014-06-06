@@ -6,13 +6,8 @@
     },
     {
       "idiom" : "iphone",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "iphone",
-      "filename" : "splash-screen.png",
-      "subtype" : "retina4",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "pannel-3buttons-iphone.png"
     },
     {
       "idiom" : "ipad",

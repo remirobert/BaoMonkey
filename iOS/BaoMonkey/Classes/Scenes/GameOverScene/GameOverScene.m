@@ -19,32 +19,32 @@
         background.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
         [self addChild:background];
         fromScene = scene;
-        panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"panel-4buttons"] size:CGSizeMake(307, 421)];
+        panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"panel-4buttons"]];
         panel.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2));
         [self addChild:panel];
         
         replayNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-replay"] size:CGSizeMake(80, 80)];
-        replayNode.position = CGPointMake(163, 302);
+        replayNode.position = CGPointMake(164, 306);
         replayNode.name = RETRY_NODE_NAME;
         [self addChild:replayNode];
         
         homeNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-home"] size:CGSizeMake(52, 52)];
-        homeNode.position = CGPointMake(65, 192);
+        homeNode.position = CGPointMake(69.5, 200);
         homeNode.name = HOME_NODE_NAME;
         [self addChild:homeNode];
         
         gameCenterNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-gamecenter"] size:CGSizeMake(52, 52)];
-        gameCenterNode.position = CGPointMake(135, 192);
+        gameCenterNode.position = CGPointMake(137, 200);
         gameCenterNode.name = GAMECENTER_NODE_NAME;
         [self addChild:gameCenterNode];
         
         shareNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-share"] size:CGSizeMake(52, 52)];
-        shareNode.position = CGPointMake(204, 192);
+        shareNode.position = CGPointMake(204, 200);
         shareNode.name = SHARE_NODE_NAME;
         [self addChild:shareNode];
         
         settingsNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-settings"] size:CGSizeMake(52, 52)];
-        settingsNode.position = CGPointMake(272, 192);
+        settingsNode.position = CGPointMake(269.5, 200);
         settingsNode.name = SETTINGS_NODE_NAME;
         [self addChild:settingsNode];
     }
