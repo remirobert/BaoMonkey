@@ -20,48 +20,60 @@
     
     if (self != nil) {
         self.backgroundColor = [SKColor redColor];
-        [self displayLoadingScreen];
+        
+        static bool onceToken = TRUE;
+        if (onceToken) {
+            [self displayLoadingScreen];
+            [self performSelector:@selector(initMainMenu) withObject:nil afterDelay:2.0];
+            onceToken = FALSE;
+        }
+        else {
+            [self initMainMenu];
+        }
+
     }
     return (self);
 }
 
 - (void)displayLoadingScreen {
-    background = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"splash-screen"] size:CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT)];
-    
-    background.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-    [self addChild:background];
-    [self performSelector:@selector(initMainMenu) withObject:nil afterDelay:2.0];
+    SKSpriteNode *splashScreenNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"LaunchImage-700-568h"]];
+    splashScreenNode.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+    [self addChild:splashScreenNode];
 }
 
 -(void)initMainMenu {
-    [background setTexture:[SKTexture textureWithImageNamed:@"background-left"]];
+    [self removeAllChildren];
     
-    panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"panel-4buttons"] size:CGSizeMake(307, 421)];
+    background = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background-left"]];
+    background.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+    [self addChild:background];
+    
+    panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"panel-4buttons"]];
     panel.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2));
     [self addChild:panel];
     
     playNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-play"] size:CGSizeMake(80, 80)];
-    playNode.position = CGPointMake(163, 302);
+    playNode.position = CGPointMake(164, 306);
     playNode.name = RESUME_NODE_NAME;
     [self addChild:playNode];
     
     settingsNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-settings"] size:CGSizeMake(52, 52)];
-    settingsNode.position = CGPointMake(65, 192);
+    settingsNode.position = CGPointMake(69.5, 200);
     settingsNode.name = SETTINGS_NODE_NAME;
     [self addChild:settingsNode];
     
     gameCenterNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-gamecenter"] size:CGSizeMake(52, 52)];
-    gameCenterNode.position = CGPointMake(135, 192);
+    gameCenterNode.position = CGPointMake(137, 200);
     gameCenterNode.name = GAMECENTER_NODE_NAME;
     [self addChild:gameCenterNode];
     
     shareNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-share"] size:CGSizeMake(52, 52)];
-    shareNode.position = CGPointMake(204, 192);
+    shareNode.position = CGPointMake(204, 200);
     shareNode.name = SHARE_NODE_NAME;
     [self addChild:shareNode];
     
     infosNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"button-infos"] size:CGSizeMake(52, 52)];
-    infosNode.position = CGPointMake(272, 192);
+    infosNode.position = CGPointMake(269.5, 200);
     infosNode.name = INFOS_NODE_NAME;
     [self addChild:infosNode];
     
@@ -133,7 +145,7 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:RESUME_NODE_NAME]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_START_GAME object:nil];
     }
     else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_SETTINGS object:nil];
