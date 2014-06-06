@@ -47,7 +47,6 @@
         [self loadLaunchSprites];
         [self loadWaitframes];
         [self initCollisionMask];
-        
         [self waitMonkey];
     }
     return self;
@@ -167,33 +166,33 @@
 #pragma mark - Load texture
 
 - (void) loadWaitframes {
-    stopFrames = @[[PreloadData getDataWithKey:@"waiting"], [PreloadData getDataWithKey:@"waiting"]];
-    stopCocoframes = @[[PreloadData getDataWithKey:@"waiting-coconut"], [PreloadData getDataWithKey:@"waiting-coconut"]];
+    stopFrames = @[[PreloadData getDataWithKey:@"monkey-waiting"], [PreloadData getDataWithKey:@"monkey-waiting"]];
+    stopCocoframes = @[[PreloadData getDataWithKey:@"monkey-waiting-coconut"], [PreloadData getDataWithKey:@"monkey-waiting-coconut"]];
 }
 
 -(void)loadWalkingSprites {
-    walkingFrames = @[[PreloadData getDataWithKey:@"walking-1"],
-                      [PreloadData getDataWithKey:@"walking-2"],
-                      [PreloadData getDataWithKey:@"walking-3"],
-                      [PreloadData getDataWithKey:@"walking-4"],
-                      [PreloadData getDataWithKey:@"walking-5"],
-                      [PreloadData getDataWithKey:@"walking-6"]];
+    walkingFrames = @[[PreloadData getDataWithKey:@"monkey-walking-1"],
+                      [PreloadData getDataWithKey:@"monkey-walking-2"],
+                      [PreloadData getDataWithKey:@"monkey-walking-3"],
+                      [PreloadData getDataWithKey:@"monkey-walking-4"],
+                      [PreloadData getDataWithKey:@"monkey-walking-5"],
+                      [PreloadData getDataWithKey:@"monkey-walking-6"]];
 }
 
 -(void)loadWalkingCoconutSprites {
-    walkingCoconutFrames = @[[PreloadData getDataWithKey:@"walking-coconut-1"],
-                             [PreloadData getDataWithKey:@"walking-coconut-2"],
-                             [PreloadData getDataWithKey:@"walking-coconut-3"],
-                             [PreloadData getDataWithKey:@"walking-coconut-4"],
-                             [PreloadData getDataWithKey:@"walking-coconut-5"],
-                             [PreloadData getDataWithKey:@"walking-coconut-6"]];
+    walkingCoconutFrames = @[[PreloadData getDataWithKey:@"monkey-walking-coconut-1"],
+                             [PreloadData getDataWithKey:@"monkey-walking-coconut-2"],
+                             [PreloadData getDataWithKey:@"monkey-walking-coconut-3"],
+                             [PreloadData getDataWithKey:@"monkey-walking-coconut-4"],
+                             [PreloadData getDataWithKey:@"monkey-walking-coconut-5"],
+                             [PreloadData getDataWithKey:@"monkey-walking-coconut-6"]];
 }
 
 
 -(void)loadLaunchSprites {
-    launchFrames = @[[PreloadData getDataWithKey:@"lance"],
-                     [PreloadData getDataWithKey:@"lance"],
-                     [PreloadData getDataWithKey:@"lance"]];
+    launchFrames = @[[PreloadData getDataWithKey:@"monkey-launch"],
+                     [PreloadData getDataWithKey:@"monkey-launch"],
+                     [PreloadData getDataWithKey:@"monkey-launch"]];
 }
 
 #pragma mark - Manage Shield
@@ -282,14 +281,17 @@
 #pragma mark - Launch a weapon
 
 - (void) deadMonkey {
+    if ([GameData isGameOver])
+        return ;
     [sprite removeAllActions];
 
-    [sprite runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"monkeyd1"],
-                                                      [SKTexture textureWithImageNamed:@"monkeyd2"],
-                                                      [SKTexture textureWithImageNamed:@"monkeyd3"]]
-                                       timePerFrame:0.1 resize:NO restore:NO]
+    [sprite runAction:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"monkey-dead-1"],
+                                                      [SKTexture textureWithImageNamed:@"monkey-dead-2"],
+                                                      [SKTexture textureWithImageNamed:@"monkey-dead-3"],
+                                                      [SKTexture textureWithImageNamed:@"monkey-dead-4"]]
+                                       timePerFrame:0.05 resize:NO restore:NO]
               completion:^{
-                  [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"monkeyd3"]]
+                  [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImageNamed:@"monkey-dead-4"]]
                                                                                    timePerFrame:0.1]]];
               }];
 }

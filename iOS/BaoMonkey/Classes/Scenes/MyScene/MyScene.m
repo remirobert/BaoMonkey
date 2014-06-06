@@ -121,6 +121,8 @@
     
     SKSpriteNode *trunk = [self backgroundNode];
     [self addChild:trunk];
+    
+    
     _sizeBlock = (self.frame.size.width - (self.frame.size.width / 10)) / 10;
     _treeBranch = [[TreeBranch alloc] init];
     
@@ -160,10 +162,6 @@
                                              selector:@selector(pauseGame)
                                                  name:NOTIFICATION_PAUSE_GAME object:nil];
     
-    
-    /*
-    ** Pause control timer
-    */
     
     pauseTime = 0;
     lastTime = 0;

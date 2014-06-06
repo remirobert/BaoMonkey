@@ -30,9 +30,7 @@
         self.node.zPosition = 10;
         self.floor = (int)nbFloor;
         
-        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"chasseur-1"]];
-        
-        self.node.size = CGSizeMake(self.node.size.width / 4, self.node.size.height / 4);
+        self.node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"hunter-walking-1"]];
         
         _slot = slotFloor -1;
         _timeAction = 0.0;
@@ -100,12 +98,12 @@
 -(void)startWalking {
     
     
-    [node  runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"chasseur-0b"],
-                                                                                   [PreloadData getDataWithKey:@"chasseur-1b"],
-                                                                                   [PreloadData getDataWithKey:@"chasseur-2b"],
-                                                                                   [PreloadData getDataWithKey:@"chasseur-3b"],
-                                                                                   [PreloadData getDataWithKey:@"chasseur-4b"],
-                                                                                   [PreloadData getDataWithKey:@"chasseur-5b"]] timePerFrame:0.2]]
+    [node  runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"hunter-walking-1"],
+                                                                                   [PreloadData getDataWithKey:@"hunter-walking-2"],
+                                                                                   [PreloadData getDataWithKey:@"hunter-walking-3"],
+                                                                                   [PreloadData getDataWithKey:@"hunter-walking-4"],
+                                                                                   [PreloadData getDataWithKey:@"hunter-walking-5"],
+                                                                                   [PreloadData getDataWithKey:@"hunter-walking-6"]] timePerFrame:0.2]]
              withKey:SKACTION_HUNTER_WALKING];
 }
 
@@ -115,8 +113,8 @@
 
 -(void)startDead {
     if (![node actionForKey:SKACTION_HUNTER_DEAD]) {
-        [node  runAction:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"chasseur-4"],
-                                                         [PreloadData getDataWithKey:@"chasseur-5"]] timePerFrame:0.1]
+        [node  runAction:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"hunter-dead-1"],
+                                                         [PreloadData getDataWithKey:@"hunter-dead-2"]] timePerFrame:0.1]
                  completion:^{
                      [node removeAllActions];
                      [node runAction:[SKAction waitForDuration:0.5] completion:^{
