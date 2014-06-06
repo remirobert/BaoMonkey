@@ -14,5 +14,6 @@
 +(CGPoint)treeBranch;
 +(CGPoint)monkey;
 +(NSInteger)dropAction;
++ (CGFloat) getBetweenPlateforme;
 
 @end

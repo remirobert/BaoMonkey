@@ -23,9 +23,14 @@
     _tankSprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"chassis"]]];
     _tankSprite.size = CGSizeMake(_tankSprite.size.width / 9, _tankSprite.size.height / 9);
     
+    NSLog(@"tank : %f / %f", _tankSprite.size.width, _tankSprite.size.height);
+    
     _tower = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"tourelle"]]];
     
     _tower.size = CGSizeMake(_tower.size.width / 9, _tower.size.height / 9);
+    
+    NSLog(@"tower : %f / %f", _tower.size.width, _tower.size.height);
+    
     _tower.zPosition = 45;
 
     _canon = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"canon"]]];
@@ -33,11 +38,15 @@
     _canon.size = CGSizeMake(_canon.size.width / 9, _canon.size.height / 9);
     _canon.zPosition = 20;
     
+    NSLog(@"canon : %f / %f", _canon.size.width, _canon.size.height);
+    
     _tankSprite.zPosition = 50;
 
     _wheel = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"rouages-1"]]];
     _wheel.size = CGSizeMake(_wheel.size.width / 9, _wheel.size.height / 9);
     _wheel.zPosition = 50;
+    
+    NSLog(@"whell : %f / %f", _wheel.size.width, _wheel.size.height);
     
     [_wheel runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImage:[UIImage imageNamed:@"rouages-1"]],
                                                                                     [SKTexture textureWithImage:[UIImage imageNamed:@"rouages-2"]],

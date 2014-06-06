@@ -22,4 +22,8 @@
     return IPAD ? (SCREEN_HEIGHT - 340) : (SCREEN_HEIGHT - 200);
 }
 
++ (CGFloat) getBetweenPlateforme {
+    return IPAD ? 120.0 : 60.0;
+}
+
 @end

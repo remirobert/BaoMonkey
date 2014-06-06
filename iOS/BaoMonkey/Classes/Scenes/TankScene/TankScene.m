@@ -56,12 +56,12 @@
 
 - (void) initScene {
 
-    SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
+    SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"background-center"];
     bg.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
     [self addChild:bg];
     
     
-    SKSpriteNode *frontLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"leafs-foreground"];
+    SKSpriteNode *frontLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"leafs"];
     frontLeaf.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (frontLeaf.size.height / 2)));
     frontLeaf.zPosition = 50;
     [self addChild:frontLeaf];
