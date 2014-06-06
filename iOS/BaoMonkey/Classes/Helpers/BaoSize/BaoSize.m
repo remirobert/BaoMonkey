@@ -29,7 +29,7 @@
 }
 
 +(CGSize)plateform {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(150, 58);
+    return IPAD ? CGSizeMake(300, 116) : CGSizeMake(150, 58);
 }
 
 +(CGSize)climber {

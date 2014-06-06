@@ -14,6 +14,7 @@
 #import "Define.h"
 #import "PreloadData.h"
 #import "BaoSize.h"
+#import "BaoPosition.h"
 
 @implementation EnemiesController
 
@@ -228,7 +229,10 @@
     
     positions = [[NSMutableArray alloc] init];
     for (int i = 0 ; i < MAX_FLOOR ; i++) {
-        CGFloat posY = MIN_POSY_FLOOR + (SPACE_BETWEEN * i) - 22;
+        
+        NSLog(@"%f", [BaoPosition getBetweenPlateforme]);
+        
+        CGFloat posY = MIN_POSY_FLOOR + ([BaoPosition getBetweenPlateforme] * i) - 22;
         [positions addObject:[NSNumber numberWithDouble:posY]];
     }
     floorsPosition = [[NSArray alloc] initWithArray:positions];

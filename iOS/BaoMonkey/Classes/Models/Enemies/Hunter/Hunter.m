@@ -11,6 +11,7 @@
 #import "GameData.h"
 #import "BaoSize.h"
 #import "PreloadData.h"
+#import "BaoPosition.h"
 
 @interface Hunter ()
 @property (nonatomic) CGFloat timeAction;
@@ -50,7 +51,7 @@
         }
 
         node.name = ENEMY_NODE_NAME;
-        position.y = MIN_POSY_FLOOR + (SPACE_BETWEEN * (nbFloor - 1)) + [BaoSize plateform].height - 20;
+        position.y = MIN_POSY_FLOOR + ([BaoPosition getBetweenPlateforme] * (nbFloor - 1)) + [BaoSize plateform].height - 20;
         [node setPosition:position];
         _isMoving = YES;
         

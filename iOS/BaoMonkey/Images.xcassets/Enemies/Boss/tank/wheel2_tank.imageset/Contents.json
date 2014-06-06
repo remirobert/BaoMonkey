@@ -2,12 +2,13 @@
   "images" : [
     {
       "idiom" : "iphone",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "roue2_iphone-1.png"
     },
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "pannel-4buttons-iphone.png"
+      "filename" : "roue2_iphone.png"
     },
     {
       "idiom" : "ipad",
@@ -16,7 +17,7 @@
     {
       "idiom" : "ipad",
       "scale" : "2x",
-      "filename" : "panneau4spots.png"
+      "filename" : "wheel2_ipad.png"
     }
   ],
   "info" : {

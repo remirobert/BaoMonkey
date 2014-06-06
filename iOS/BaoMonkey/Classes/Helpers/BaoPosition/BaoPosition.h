@@ -14,5 +14,7 @@
 +(CGPoint)treeBranch;
 +(CGPoint)monkey;
 +(NSInteger)dropAction;
++ (CGFloat) getBetweenPlateforme;
++ (NSString *) pathFireTank;
 
 @end

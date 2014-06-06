@@ -261,6 +261,12 @@
 
     NSInteger oldLevel = [GameData getLevel];
 
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self loadTankScene];
+    });
+    
     if ([[GameData singleton] isPause]) {
         
         dispatch_once(&oncePause, ^{
@@ -310,8 +316,10 @@
                 if (![GameData isGameOver])
                     [self gameOverCountDown];
             } else {
+                [monkey.shield removeFromParent];
                 monkey.isShield = FALSE;
             }
+            [node removeFromParent];
         }
     }];
     
