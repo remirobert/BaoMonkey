@@ -51,6 +51,11 @@
     _skView.showsNodeCount = YES;
     [GameController initAccelerometer];
     [GameController initOneTapOnView:_skView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(initGame)
+                                                 name:NOTIFICATION_START_GAME
+                                               object:nil];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(relaunchGame)
@@ -179,7 +184,7 @@
 }
 
 -(void)goToHome {
-    [_skView presentScene:[[MainMenu alloc] initWithSize:_skView.frame.size]];
+    [_skView presentScene:[[MainMenu alloc] initWithSize:_skView.frame.size] transition:[SKTransition flipVerticalWithDuration:0.5]];
 }
 
 -(void)goToSettings {
