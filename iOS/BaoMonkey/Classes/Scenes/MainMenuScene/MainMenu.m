@@ -49,7 +49,7 @@
     background.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
     [self addChild:background];
     
-    panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"panel-4buttons"]];
+    panel = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"panel-4-buttons"]];
     panel.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2));
     [self addChild:panel];
     

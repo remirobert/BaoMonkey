@@ -6,11 +6,13 @@
     },
     {
       "idiom" : "iphone",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "panel-virgin-iphone@2x.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "panel-virgin-ipad.png"
     },
     {
       "idiom" : "ipad",
