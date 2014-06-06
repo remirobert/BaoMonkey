@@ -53,9 +53,9 @@
     [self customCursor];
     
     
-    [_cursorVolumeMusic setCurrentValue:50];
-    [_cursorVolumeSound setCurrentValue:50];
-    [_cursorAccelerometer setCurrentValue:50];
+    [_cursorVolumeMusic setCurrentValue:[UserData getMusicUserVolume] * 100];
+    [_cursorVolumeSound setCurrentValue:[UserData getSoundEffectsUserVolume] * 100];
+    [_cursorAccelerometer setCurrentValue:[UserData getAccelerometerUserSpeed]];
 }
 
 - (instancetype) initWithSize:(CGSize)size {

@@ -51,9 +51,7 @@
         currentValue = 0.0;
     if (currentValue > 100.0)
         currentValue = 100.0;
-    
     CGFloat positionX = ((currentValue * _foreground.size.width) / 100);
-    
     [self updatePositionCursorWithLocation:CGPointMake(positionX +
                                                        (_foreground.position.x -
                                                         _foreground.size.width / 2), 0)];
