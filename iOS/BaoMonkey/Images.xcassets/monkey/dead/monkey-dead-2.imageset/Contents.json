@@ -7,17 +7,15 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "walking-iphone-3@2x.png"
+      "filename" : "monkey-dead-iphone-2@2x.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x",
-      "filename" : "walking-ipad-3.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "ipad",
-      "scale" : "2x",
-      "filename" : "walking-ipad-3@2x.png"
+      "scale" : "2x"
     }
   ],
   "info" : {
