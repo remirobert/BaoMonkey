@@ -48,6 +48,15 @@
         settingsNode.position = CGPointMake(269.5, 200);
         settingsNode.name = SETTINGS_NODE_NAME;
         [self addChild:settingsNode];
+        
+        SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Ravie"];
+        scoreLabel.fontColor = [SKColor whiteColor];
+        scoreLabel.fontSize = 28;
+        scoreLabel.text = [NSString stringWithFormat:@"SCORE : %d", (int)[GameData getScore]];
+        scoreNode = [[SKSpriteNode alloc] init];
+        [scoreNode addChild:scoreLabel];
+        scoreNode.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2.1));
+        [self addChild:scoreNode];
     }
     return self;
 }

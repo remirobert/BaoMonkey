@@ -147,9 +147,13 @@
     
     if ([node.name isEqualToString:RESUME_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_START_GAME object:nil];
+        [playNode setTexture:[SKTexture textureWithImageNamed:@"button-play"]];
+        [playNode setSize:CGSizeMake(80, 80)];
     }
     else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
         [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self] transition:[SKTransition fadeWithDuration:1.0]];
+        [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
+        [settingsNode setSize:CGSizeMake(52, 52)];
     }
     else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
         // Launch GameCenter
