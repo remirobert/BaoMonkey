@@ -7,6 +7,7 @@
 //
 
 #import "Tank.h"
+#import "BaoPosition.h"
 
 #define SK_DEGREES_TO_RADIANS(__ANGLE__) ((__ANGLE__) * 0.01745329252f)
 
@@ -20,29 +21,31 @@
 @implementation Tank
 
 - (void) initSpriteTank {
-    _tankSprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"chassis"]]];
-    _tankSprite.size = CGSizeMake(_tankSprite.size.width / 9, _tankSprite.size.height / 9);
+    _tankSprite = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"chassis_tank"]]];
+    _tankSprite.size = CGSizeMake(_tankSprite.size.width / 2, _tankSprite.size.height / 2);
     
-    _tower = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"tourelle"]]];
+    _tower = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"tower_tank"]]];
+    _tower.size = CGSizeMake(_tower.size.width / 2, _tower.size.height / 2);
     
-    _tower.size = CGSizeMake(_tower.size.width / 9, _tower.size.height / 9);
     _tower.zPosition = 45;
 
-    _canon = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"canon"]]];
-    _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2 - 5);
-    _canon.size = CGSizeMake(_canon.size.width / 9, _canon.size.height / 9);
+    _canon = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"canon_tank"]]];
+    _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2);
     _canon.zPosition = 20;
+    
+    _canon.size = CGSizeMake(_canon.size.width / 2, _canon.size.height / 2);
     
     _tankSprite.zPosition = 50;
 
-    _wheel = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"rouages-1"]]];
-    _wheel.size = CGSizeMake(_wheel.size.width / 9, _wheel.size.height / 9);
+    _wheel = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"wheel1_tank"]]];
     _wheel.zPosition = 50;
     
-    [_wheel runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImage:[UIImage imageNamed:@"rouages-1"]],
-                                                                                    [SKTexture textureWithImage:[UIImage imageNamed:@"rouages-2"]],
-                                                                                    [SKTexture textureWithImage:[UIImage imageNamed:@"rouages-3"]],
-                                                                                    [SKTexture textureWithImage:[UIImage imageNamed:@"rouages-4"]]] timePerFrame:0.1]]];
+    _wheel.size = CGSizeMake(_wheel.size.width / 2, _wheel.size.height / 2);
+    
+    [_wheel runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImage:[UIImage imageNamed:@"wheel1_tank"]],
+                                                                                    [SKTexture textureWithImage:[UIImage imageNamed:@"wheel2_tank"]],
+                                                                                    [SKTexture textureWithImage:[UIImage imageNamed:@"wheel3_tank"]],
+                                                                                    [SKTexture textureWithImage:[UIImage imageNamed:@"wheel4_tank"]]] timePerFrame:0.1]]];
 }
 
 - (instancetype) init {
@@ -80,13 +83,12 @@
         self.tankSprite.position = CGPointMake(_tankSprite.position.x - 1,
                                                _tankSprite.position.y);
     }
-    _tower.position = CGPointMake(_tankSprite.position.x - 20, _tankSprite.position.y + 40);
-    _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2 + 10);
-    _wheel.position = CGPointMake(_tankSprite.position.x - 26, _tankSprite.position.y - 25);
+    _tower.position = CGPointMake(_tankSprite.position.x - 20, _tankSprite.position.y + _tankSprite.size.height / 2);
+    _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2);
+    _wheel.position = CGPointMake(_tankSprite.position.x - 35, _wheel.size.height);
 }
 
 - (void) lowStrat:(CGPoint)positionMonkey :(SKScene *)scene {
-    //SKSpriteNode *nodeShoot = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeMake(15, 15)];
     SKSpriteNode *nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munition-explosive"]];
     nodeShoot.size = CGSizeMake(nodeShoot.size.width / 2, nodeShoot.size.height / 2);
     
@@ -112,7 +114,7 @@
 - (void) shootFireBomb:(CGPoint)positionMonkey :(SKScene *)scene {
     SKSpriteNode *nodeShoot;
     
-    nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munitions-incendiaire"]];
+    nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background-progress-bar"]];
     nodeShoot.size = CGSizeMake(nodeShoot.size.width / 3, nodeShoot.size.height / 3);
     
     float angle = atan2f(positionMonkey.y, positionMonkey.x);
@@ -132,8 +134,8 @@
         nodeShoot.color = [SKColor colorWithRed:0 green:0 blue:0 alpha:0];
         
         [nodeShoot runAction:fireAction];
-        NSString *burstPath =
-        [[NSBundle mainBundle] pathForResource:@"fire" ofType:@"sks"];
+        NSString *burstPath = [BaoPosition pathFireTank];
+//        [[NSBundle mainBundle] pathForResource:[BaoPosition pathFireTank] ofType:@"sks"];
         
         SKEmitterNode *fire = [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
         fire.position = CGPointMake(nodeShoot.position.x, nodeShoot.position.y - 30);

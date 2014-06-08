@@ -261,6 +261,12 @@
 
     NSInteger oldLevel = [GameData getLevel];
 
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self loadTankScene];
+    });
+    
     if ([[GameData singleton] isPause]) {
         
         dispatch_once(&oncePause, ^{
