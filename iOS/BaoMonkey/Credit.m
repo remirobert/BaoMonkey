@@ -39,18 +39,36 @@
 
 - (void) popBubble:(NSTimeInterval)currentTime {
     static NSTimeInterval timer = 0;
+    NSArray *tabImage = @[@"big-bubble", @"medium-bubble", @"small-bubble"];
     
     if (timer == 0) {
         timer = rand() % 2 + 1 + currentTime;
     }
     
     if (currentTime >= timer) {
-        timer = rand() % 2 + 1 + currentTime;
+        SKSpriteNode *bubble = [SKSpriteNode spriteNodeWithImageNamed:[tabImage objectAtIndex:rand() % 3]];
+        
+        bubble.position = CGPointMake(rand() % 250 + (bubble.size.width / 2), 0);
+        if (rand() % 2 == 0)
+            bubble.zPosition = 25;
+        else
+            bubble.zPosition = 100;
+        
+        [self addChild:bubble];
+        if (bubble.position.x <= [UIScreen mainScreen].bounds.size.width / 2) {
+            [bubble runAction:[SKAction moveToY:200 duration:2.0]];
+            [bubble runAction:[SKAction fadeOutWithDuration:2.0]];
+        }
+        else {
+            [bubble runAction:[SKAction moveToY:150 duration:1.5]];
+            [bubble runAction:[SKAction fadeOutWithDuration:1.5]];
+        }
+        timer = 1 + currentTime;
     }
 }
 
 - (void) update:(NSTimeInterval)currentTime {
-    
+    [self popBubble:currentTime];
 }
 
 @end
