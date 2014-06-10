@@ -18,11 +18,23 @@
     [self addChild:bg];
 }
 
+- (void) createName:(NSString *)name :(NSInteger)positionY {
+    SKLabelNode *nameNode = [[SKLabelNode alloc] init];
+    nameNode.text = @"name 1";
+    nameNode.fontSize = 10.0;
+    nameNode.zPosition = 50;
+    nameNode.position = CGPointMake(50, positionY);
+}
+
 - (void) initLabel {
+    NSArray *name = @[@"Brieuc Delafouchardiere", @"Remi "]
+    
     SKLabelNode *title = [[SKLabelNode alloc] init];
-    title.text = @"Developer";
+    title.text = @"Developer :";
     title.fontSize = 10.0;
+    title.zPosition = 50;
     title.position = CGPointMake(50, 100);
+    
     
     [self addChild:title];
 }
