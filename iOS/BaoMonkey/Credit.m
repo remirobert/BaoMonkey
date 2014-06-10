@@ -20,22 +20,40 @@
 
 - (void) createName:(NSString *)name :(NSInteger)positionY {
     SKLabelNode *nameNode = [[SKLabelNode alloc] init];
-    nameNode.text = @"name 1";
-    nameNode.fontSize = 10.0;
+    nameNode.text = name;
+    nameNode.fontSize = 11.0;
     nameNode.zPosition = 50;
-    nameNode.position = CGPointMake(50, positionY);
+    nameNode.position = CGPointMake(100, positionY);
+    nameNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+    [self addChild:nameNode];
 }
 
 - (void) initLabel {
-    NSArray *name = @[@"Brieuc Delafouchardiere", @"Remi "]
+    NSArray *name = @[@"Brieuc Delafouchardiere", @"Remi Hillairet",
+                      @"Remi Robert", @"Jeremy Peltier", @"Romain Combe"];
     
     SKLabelNode *title = [[SKLabelNode alloc] init];
     title.text = @"Developer :";
-    title.fontSize = 10.0;
+    title.fontSize = 12.0;
     title.zPosition = 50;
-    title.position = CGPointMake(50, 100);
+    title.position = CGPointMake(100, 250);
+    title.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+
+    NSInteger positionY = 220;
+    for (NSString *currentName in name) {
+        [self createName:currentName :positionY];
+        positionY -= 20;
+    }
     
+    SKLabelNode *title2 = [[SKLabelNode alloc] init];
+    title2.text = @"Graphism :";
+    title2.fontSize = 12.0;
+    title2.zPosition = 50;
+    title2.position = CGPointMake(100, 90);
+    title2.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
+
     
+    [self addChild:title2];
     [self addChild:title];
 }
 
