@@ -219,10 +219,13 @@
     [activityItems addObject:string];
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     activityViewController.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypePostToFlickr, UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo, UIActivityTypePostToWeibo];
+    [activityViewController.navigationController.navigationBar setHidden:YES];
+    [activityViewController performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
     [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 -(void)shareScore{
+    [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
     NSMutableArray *activityItems = [[NSMutableArray alloc] init];
     NSString *string = [NSString stringWithFormat:@"I get %ld on BaoMonkey! Can you do better ? More information on http://www.baomonkey.com", (long)[GameData getScore]];
     [activityItems addObject:string];
