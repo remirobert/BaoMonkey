@@ -21,7 +21,7 @@
 - (void) createName:(NSString *)name :(NSInteger)positionY {
     SKLabelNode *nameNode = [[SKLabelNode alloc] init];
     nameNode.text = name;
-    nameNode.fontSize = 11.0;
+    nameNode.fontSize = 12.0;
     nameNode.zPosition = 50;
     nameNode.position = CGPointMake(100, positionY);
     nameNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
@@ -34,12 +34,12 @@
     
     SKLabelNode *title = [[SKLabelNode alloc] init];
     title.text = @"Developer :";
-    title.fontSize = 12.0;
+    title.fontSize = 11.0;
     title.zPosition = 50;
-    title.position = CGPointMake(100, 250);
+    title.position = CGPointMake(100, 200);
     title.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
 
-    NSInteger positionY = 220;
+    NSInteger positionY = 180;
     for (NSString *currentName in name) {
         [self createName:currentName :positionY];
         positionY -= 20;
@@ -49,10 +49,10 @@
     title2.text = @"Graphism :";
     title2.fontSize = 12.0;
     title2.zPosition = 50;
-    title2.position = CGPointMake(100, 90);
+    title2.position = CGPointMake(100, 50);
     title2.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
 
-    [self createName:@"Alexandre Quintin" :60];
+    [self createName:@"Alexandre Quintin" :30];
     
     [self addChild:title2];
     [self addChild:title];
