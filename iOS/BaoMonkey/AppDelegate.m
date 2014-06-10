@@ -17,7 +17,6 @@
 {
     // Override point for customization after application launch.
     [GameCenter authenticateLocalPlayer];
-    
 
     NSString *playerId = [[GameCenter defaultGameCenter] localPlayer].playerID;
     
@@ -25,7 +24,6 @@
     [GameData initGameData];
     [UserData initUserData];
     [[UserData defaultUser] setPlayerId:playerId];
-
     [Music initAndPlayBackgroundMusic];
     
     return YES;

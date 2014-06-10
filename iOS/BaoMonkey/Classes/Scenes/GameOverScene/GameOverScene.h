@@ -15,6 +15,7 @@
     SKSpriteNode *gameCenterNode;
     SKSpriteNode *shareNode;
     SKSpriteNode *settingsNode;
+    SKNode *scoreNode;
     SKScene *fromScene;
 }
 

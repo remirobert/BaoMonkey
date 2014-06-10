@@ -50,6 +50,7 @@
 		2919C648192E2CFC00A2F2D1 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C645192E2CFC00A2F2D1 /* background@2x.png */; };
 		2950D282192B8DBC00C12A52 /* bottom-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */; };
 		2950D283192B8DBC00C12A52 /* up-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2950D281192B8DBC00C12A52 /* up-leaf@2x.png */; };
+		295373E51941FFDA00611212 /* Ravie.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 295373E41941FFDA00611212 /* Ravie.ttf */; };
 		296AFB90191BE197009D5B75 /* hunter-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB8E191BE197009D5B75 /* hunter-left@2x.png */; };
 		296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB8F191BE197009D5B75 /* hunter-right@2x.png */; };
 		296AFB94191CE06B009D5B75 /* cloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB93191CE06B009D5B75 /* cloud@2x.png */; };
@@ -191,6 +192,7 @@
 		2919C645192E2CFC00A2F2D1 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "Background/background@2x.png"; sourceTree = "<group>"; };
 		2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-leaf@2x.png"; path = "Leaf/bottom-leaf@2x.png"; sourceTree = "<group>"; };
 		2950D281192B8DBC00C12A52 /* up-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "up-leaf@2x.png"; path = "Leaf/up-leaf@2x.png"; sourceTree = "<group>"; };
+		295373E41941FFDA00611212 /* Ravie.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ravie.ttf; path = Fonts/Ravie.ttf; sourceTree = "<group>"; };
 		296AFB8E191BE197009D5B75 /* hunter-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hunter-left@2x.png"; path = "Enemy/hunter-left@2x.png"; sourceTree = "<group>"; };
 		296AFB8F191BE197009D5B75 /* hunter-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hunter-right@2x.png"; path = "Enemy/hunter-right@2x.png"; sourceTree = "<group>"; };
 		296AFB93191CE06B009D5B75 /* cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloud@2x.png"; path = "Cloud/cloud@2x.png"; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 		10C59A0C1919492C00907493 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				294D1AD21941FCAE00EAEB67 /* Fonts */,
 				108C7E3B193CD4B600ADCB85 /* tank */,
 				108C7E37193CCBE200ADCB85 /* smokeTank.sks */,
 				108C7E38193CCBE200ADCB85 /* spark.png */,
@@ -475,6 +478,14 @@
 				10573342193F41A200E6FD75 /* feuillagecompletavant.png */,
 			);
 			name = Background;
+			sourceTree = "<group>";
+		};
+		294D1AD21941FCAE00EAEB67 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				295373E41941FFDA00611212 /* Ravie.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		2950D27F192B8DB500C12A52 /* Leaf */ = {
@@ -1204,6 +1215,7 @@
 				296AFB94191CE06B009D5B75 /* cloud@2x.png in Resources */,
 				108C7E39193CCBE200ADCB85 /* smokeTank.sks in Resources */,
 				104838A9193F887F005D7F8C /* spark.png in Resources */,
+				295373E51941FFDA00611212 /* Ravie.ttf in Resources */,
 				296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */,
 				3F36C4C5193FB8ED009D371D /* shield@2x.png in Resources */,
 				3F47F9C2192D41E200C36A39 /* LamberJackCutting.atlas in Resources */,
