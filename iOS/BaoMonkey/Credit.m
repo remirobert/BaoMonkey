@@ -52,6 +52,7 @@
     title2.position = CGPointMake(100, 90);
     title2.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
 
+    [self createName:@"Alexandre Quintin" :60];
     
     [self addChild:title2];
     [self addChild:title];
