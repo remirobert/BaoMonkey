@@ -11,6 +11,7 @@
 #import "PreloadData.h"
 #import "Settings.h"
 #import "BaoPosition.h"
+#import "Credit.h"
 
 @interface MainMenu ()
 @end
@@ -141,6 +142,7 @@
     } else if ([node.name isEqualToString:SHARE_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_share" object:nil];
     } else if ([node.name isEqualToString:INFOS_NODE_NAME]) {
+        [self.view presentScene:[[Credit alloc] initWithSize:self.size andParentScene:self] transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:2.0]];
         // Launch Infos
     }
 }
