@@ -166,19 +166,14 @@
     }
 }
 
--(void)deleteEnemy:(Enemy*)enemy {
-    SKAction *fadeIn = [SKAction fadeAlphaTo:1.0 duration:0.25];
-    SKAction *sound = [PreloadData getDataWithKey:DATA_COCONUT_SOUND];
-    
-    [enemy.node runAction: [SKAction sequence:@[fadeIn, sound]]completion:^{
-    }];
-    
+-(void)deleteEnemy:(Enemy*)enemy {    
     if (enemy.type == EnemyTypeLamberJack) {
         LamberJack *lamber;
         lamber = (LamberJack*)enemy;
         [lamber stopChopping];
         [lamber freeTheSlot:choppingSlots];
         [lamber startDead];
+        [lamber.node runAction:[PreloadData getDataWithKey:DATA_COCONUT_SOUND]];
         [GameData addPointToScore:10];
         [enemies removeObject:enemy];
     }
@@ -186,12 +181,14 @@
         Hunter *hunter = (Hunter *)enemy;
         self->slotFloor[hunter.floor - 1] -= 1 << hunter.slot;
         [hunter startDead];
+        [hunter.node runAction:[PreloadData getDataWithKey:DATA_COCONUT_SOUND]];
         [GameData addPointToScore:20];
         [enemies removeObject:enemy];
     }
     else if (enemy.type == EnemyTypeClimber) {
         Climber *climb = (Climber *)enemy;
         [Climber startDead:climb :enemies];
+        [climb.node runAction:[PreloadData getDataWithKey:DATA_COCONUT_SOUND]];
         [GameData addPointToScore: 30];
     }
 }

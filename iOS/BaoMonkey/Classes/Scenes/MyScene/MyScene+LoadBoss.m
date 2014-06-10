@@ -17,14 +17,14 @@
     TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
 
     [self cleanEnemiesScene];
-    [self.view presentScene:tankScene transition:[SKTransition fadeWithDuration:1.0]];
+    [self.view presentScene:tankScene transition:[SKTransition fadeWithDuration:2.0]];
 }
 
 - (void) loadLamberJackGeantMachineScene {
     LamberJackMachineScene *lamberJack = [[LamberJackMachineScene alloc] initWithSize:self.size parent:self];
     
     [self cleanEnemiesScene];
-    [self.view presentScene:lamberJack transition:[SKTransition fadeWithDuration:1.0]];
+    [self.view presentScene:lamberJack transition:[SKTransition fadeWithDuration:2.0]];
 }
 
 - (void) cleanEnemiesScene {
