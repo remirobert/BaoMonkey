@@ -23,19 +23,22 @@
     [self addChild:_backButton];
 }
 
-- (instancetype) initWithSize:(CGSize)size :(SKScene *)parentScene{
+- (instancetype) initWithSize:(CGSize)size :(SKScene *)parentScene {
     self = [super initWithSize:size];
     
     if (self != nil) {
+        [self initButton];
         _parentScene = parentScene;
     }
     return (self);
 }
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    SKNode *node = [self nodeAtPoint:[[touches anyObject] position]];
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:location];
     
-    if ([node.name isEqualToString:@"back"]) {
+    if (node != nil || [node.name isEqualToString:@"back"]) {
         [self.view presentScene:_parentScene transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:2.0]];
     }
 }

@@ -10,4 +10,6 @@
 
 @interface Multiplayer : SKScene
 
+- (instancetype) initWithSize:(CGSize)size :(SKScene *)parentScene;
+
 @end
