@@ -45,6 +45,7 @@
     [self.navigationController setNavigationBarHidden:YES];
     [self loadAssets];
     [UserData initUserData];
+    [GameData pauseGame];
     
     _skView = (SKView *)self.view;
     _skView.showsFPS = NO;
