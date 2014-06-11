@@ -49,19 +49,17 @@
 
 - (void) initMonkey {
     _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, [UIScreen mainScreen].bounds.size.height)];
-
+    
     _monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(_monkey.collisionMask.size.width,
                                                                                    _monkey.collisionMask.size.height / 2)];
     _monkey.sprite.physicsBody.affectedByGravity = YES;
     _monkey.sprite.physicsBody.mass = 10;
     _monkey.sprite.physicsBody.allowsRotation = NO;
     _monkey.sprite.name = @"monkey_node_name";
-    
     [self addChild:_monkey.sprite];
 }
 
 - (void) initScene {
-    
     _tree = [SKSpriteNode spriteNodeWithImageNamed:@"background-center"];
     _tree.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
     [self addChild:_tree];
