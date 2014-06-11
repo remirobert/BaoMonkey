@@ -51,11 +51,12 @@
     _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, [UIScreen mainScreen].bounds.size.height)];
     
     _monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:CGSizeMake(_monkey.collisionMask.size.width,
-                                                                                   _monkey.collisionMask.size.height / 2)];
+                                                                                   _monkey.collisionMask.size.height)];
     _monkey.sprite.physicsBody.affectedByGravity = YES;
     _monkey.sprite.physicsBody.mass = 10;
     _monkey.sprite.physicsBody.allowsRotation = NO;
     _monkey.sprite.name = @"monkey_node_name";
+    
     [self addChild:_monkey.sprite];
 }
 
@@ -126,14 +127,16 @@
                                                         (int)(_treeBranch.node.size.width)) +
                                                        (_treeBranch.node.position.x - (_treeBranch.node.size.width / 2)),
                                                        [UIScreen mainScreen].bounds.size.height + 35)];
+        
+        coco.node.size = CGSizeMake(coco.node.size.width * 2, coco.node.size.height * 2);
         coco.node.name = @"invalid_coco";
-        coco.node.physicsBody.mass = 50.0;
         [coco.timerHide invalidate];
         [self addChild:coco.node];
-        SKPhysicsBody *tmpBody = coco.node.physicsBody;
         coco.node.physicsBody = nil;
         [coco.node runAction:[SKAction waitForDuration:(float)arc4random() / 0x100000000] completion:^{
-            coco.node.physicsBody = tmpBody;
+            NSLog(@"physic");
+            coco.node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:coco.node.size];
+            coco.node.physicsBody.mass = 40.0;
         }];
     }
 }
@@ -268,7 +271,7 @@
     if (_lanchMove == YES) {
         [self moveTreeBranch];
         [self stressTree:currentTime];
-        [self toreBranch:currentTime];
+        //[self toreBranch:currentTime];
     }
     
     [self enumerateChildNodesWithName:@"invalid_coco" usingBlock:^(SKNode *node, BOOL *stop) {
