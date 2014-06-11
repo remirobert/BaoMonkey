@@ -107,7 +107,7 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:RESUME_NODE_NAME]) {
-        [playNode setTexture:[SKTexture textureWithImageNamed:@"button-play-selected"]];
+        [playNode setTexture:[SKTexture textureWithImageNamed:@"big-button-play-selected"]];
     } else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
         [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings-selected"]];
     } else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
@@ -115,16 +115,16 @@
     } else if ([node.name isEqualToString:SHARE_NODE_NAME]) {
         [shareNode setTexture:[SKTexture textureWithImageNamed:@"button-share-selected"]];
     } else if ([node.name isEqualToString:INFOS_NODE_NAME]) {
-        [infosNode setTexture:[SKTexture textureWithImageNamed:@"button-infos-selected"]];
+        [infosNode setTexture:[SKTexture textureWithImageNamed:@"button-informations-selected"]];
     }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    [playNode setTexture:[SKTexture textureWithImageNamed:@"button-play"]];
+    [playNode setTexture:[SKTexture textureWithImageNamed:@"big-button-play"]];
     [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
     [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-game-center"]];
     [shareNode setTexture:[SKTexture textureWithImageNamed:@"button-share"]];
-    [infosNode setTexture:[SKTexture textureWithImageNamed:@"button-infos"]];
+    [infosNode setTexture:[SKTexture textureWithImageNamed:@"button-informations"]];
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
