@@ -25,6 +25,7 @@
     request.minPlayers = 2;
     request.maxPlayers = 2;
     
+    NSLog(@"multi call");
     GKMatchmakerViewController *mmvc = [[GKMatchmakerViewController alloc] initWithMatchRequest:request];
     mmvc.matchmakerDelegate = self;
     
