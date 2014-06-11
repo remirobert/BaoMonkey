@@ -7,7 +7,6 @@
 //
 
 #import "MyScene+LoadBoss.h"
-#import "GameData.h"
 #import "TankScene.h"
 #import "LamberJackMachineScene.h"
 

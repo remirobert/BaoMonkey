@@ -9,14 +9,7 @@
 #import "MyScene.h"
 #import "MyScene+GeneratorWave.h"
 #import "MyScene+Climber.h"
-#import "UserData.h"
-#import "TankScene.h"
-#import "Define.h"
 #import "BaoButton.h"
-#import "LamberJackMachineScene.h"
-#import "BaoButton.h"
-#import "PauseScene.h"
-#import "HelicopterScene.h"
 #import "MyScene+LoadBoss.h"
 #import "GameCenter.h"
 #import "Settings.h"
@@ -264,7 +257,7 @@
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self loadTankScene];
+        [self loadLamberJackGeantMachineScene];
     });
     
     if ([[GameData singleton] isPause]) {

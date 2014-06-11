@@ -7,17 +7,17 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "button-replay-iphone@2x.png"
+      "filename" : "credits-background-iphone.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "1x",
-      "filename" : "button-replay-ipad.png"
+      "filename" : "underground-background-ipad.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "2x",
-      "filename" : "button-replay-ipad@2x.png"
+      "filename" : "underground-background-ipad@2x.png"
     }
   ],
   "info" : {

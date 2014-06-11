@@ -11,6 +11,7 @@
 #import "PreloadData.h"
 #import "Settings.h"
 #import "BaoPosition.h"
+#import "Credit.h"
 
 @interface MainMenu ()
 @end
@@ -128,7 +129,11 @@
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self deselectButtons];
+    [playNode setTexture:[SKTexture textureWithImageNamed:@"big-button-play"]];
+    [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
+    [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-game-center"]];
+    [shareNode setTexture:[SKTexture textureWithImageNamed:@"button-share"]];
+    [infosNode setTexture:[SKTexture textureWithImageNamed:@"button-informations"]];
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -147,6 +152,7 @@
     } else if ([node.name isEqualToString:SHARE_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_share" object:nil];
     } else if ([node.name isEqualToString:INFOS_NODE_NAME]) {
+        [self.view presentScene:[[Credit alloc] initWithSize:self.size andParentScene:self] transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:2.0]];
         // Launch Infos
     }
     [self deselectButtons];

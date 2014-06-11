@@ -7,7 +7,7 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "pannel-4buttons-iphone.png"
+      "filename" : "grande_bulle_iphone.png"
     },
     {
       "idiom" : "ipad",
@@ -15,8 +15,7 @@
     },
     {
       "idiom" : "ipad",
-      "scale" : "2x",
-      "filename" : "panneau4spots.png"
+      "scale" : "2x"
     }
   ],
   "info" : {

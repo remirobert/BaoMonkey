@@ -10,7 +10,6 @@
 #import "Define.h"
 #import "MyScene.h"
 #import "Settings.h"
-#import "BaoPosition.h"
 
 @implementation PauseScene
 

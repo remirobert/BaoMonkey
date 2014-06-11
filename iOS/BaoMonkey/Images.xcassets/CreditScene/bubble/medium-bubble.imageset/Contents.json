@@ -7,17 +7,15 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "button-replay-iphone@2x.png"
+      "filename" : "moyenne_bulle_iphone.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x",
-      "filename" : "button-replay-ipad.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "ipad",
-      "scale" : "2x",
-      "filename" : "button-replay-ipad@2x.png"
+      "scale" : "2x"
     }
   ],
   "info" : {
