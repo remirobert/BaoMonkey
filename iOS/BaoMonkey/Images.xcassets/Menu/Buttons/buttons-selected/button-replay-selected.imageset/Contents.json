@@ -11,7 +11,8 @@
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "button-replay-selected-ipad.png"
     },
     {
       "idiom" : "ipad",
