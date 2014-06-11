@@ -86,6 +86,10 @@
     monkey.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (monkey.size.height / 2));
     [self addChild:monkey];
     
+    multiPlayer = [SKSpriteNode spriteNodeWithColor:[SKColor purpleColor] size:CGSizeMake(50, 50)];
+    multiPlayer.position = CGPointMake([BaoPosition bigButtonPlay].x + 100, [BaoPosition bigButtonPlay].y);
+    [self addChild:multiPlayer];
+    
     //[monkey runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:monkeyFrames timePerFrame:0.5f resize:NO restore:NxO]]];
 }
 
