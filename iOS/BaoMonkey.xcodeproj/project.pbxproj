@@ -27,6 +27,9 @@
 		10A7477D19405D8C001BF4FC /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477819405D8C001BF4FC /* MyScene+GeneratorWave.m */; };
 		10A7477E19405D8C001BF4FC /* MyScene+LoadBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477A19405D8C001BF4FC /* MyScene+LoadBoss.m */; };
 		10A9E1521936312900E3E7A0 /* MonkeyWait.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 10A9E1511936312900E3E7A0 /* MonkeyWait.atlas */; };
+		10AE0B2119487CA700D93926 /* Multiplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B2019487CA700D93926 /* Multiplayer.m */; };
+		10AE0B241948812A00D93926 /* ViewController+Multiplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */; };
+		10AE0B27194886D100D93926 /* MultiplayerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B26194886D100D93926 /* MultiplayerData.m */; };
 		10B2E580193DC7EE00DDEF3A /* fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 10B2E57F193DC7EE00DDEF3A /* fire.sks */; };
 		10C599B7191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
 		10C599B9191948A300907493 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B8191948A300907493 /* CoreGraphics.framework */; };
@@ -163,6 +166,12 @@
 		10A7477919405D8C001BF4FC /* MyScene+LoadBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+LoadBoss.h"; sourceTree = "<group>"; };
 		10A7477A19405D8C001BF4FC /* MyScene+LoadBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+LoadBoss.m"; sourceTree = "<group>"; };
 		10A9E1511936312900E3E7A0 /* MonkeyWait.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyWait.atlas; sourceTree = "<group>"; };
+		10AE0B1F19487CA700D93926 /* Multiplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Multiplayer.h; sourceTree = "<group>"; };
+		10AE0B2019487CA700D93926 /* Multiplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Multiplayer.m; sourceTree = "<group>"; };
+		10AE0B221948812A00D93926 /* ViewController+Multiplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+Multiplayer.h"; sourceTree = "<group>"; };
+		10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+Multiplayer.m"; sourceTree = "<group>"; };
+		10AE0B25194886D100D93926 /* MultiplayerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerData.h; sourceTree = "<group>"; };
+		10AE0B26194886D100D93926 /* MultiplayerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerData.m; sourceTree = "<group>"; };
 		10B2E57F193DC7EE00DDEF3A /* fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire.sks; sourceTree = "<group>"; };
 		10C599B3191948A300907493 /* BaoMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C599B6191948A300907493 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -339,6 +348,17 @@
 				108C7E3F193CD4E000ADCB85 /* tourelle@2x.png */,
 			);
 			name = tank;
+			sourceTree = "<group>";
+		};
+		10AE0B1E19487C6E00D93926 /* Multiplayer */ = {
+			isa = PBXGroup;
+			children = (
+				10AE0B1F19487CA700D93926 /* Multiplayer.h */,
+				10AE0B2019487CA700D93926 /* Multiplayer.m */,
+				10AE0B25194886D100D93926 /* MultiplayerData.h */,
+				10AE0B26194886D100D93926 /* MultiplayerData.m */,
+			);
+			name = Multiplayer;
 			sourceTree = "<group>";
 		};
 		10C599AA191948A300907493 = {
@@ -821,6 +841,7 @@
 		3F50F12E19194FA400A37F85 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				10AE0B1E19487C6E00D93926 /* Multiplayer */,
 				3FC52F38193FB54600DCDCB7 /* GameOverScene */,
 				3FC52F3B193FB54600DCDCB7 /* HelicopterScene */,
 				3FC52F40193FB54600DCDCB7 /* LamberJackMachineScene */,
@@ -1081,6 +1102,8 @@
 			children = (
 				3FD8D6CE193FB3AB00E24ADE /* ViewController.h */,
 				3FD8D6CF193FB3AB00E24ADE /* ViewController.m */,
+				10AE0B221948812A00D93926 /* ViewController+Multiplayer.h */,
+				10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */,
 			);
 			name = ViewController;
 			path = Classes/Controllers/ViewController;
@@ -1275,6 +1298,7 @@
 				3F36C4B5193FB807009D371D /* Bonus.m in Sources */,
 				3F36C4C3193FB807009D371D /* UserData.m in Sources */,
 				3F36C4BE193FB807009D371D /* Music.m in Sources */,
+				10AE0B2119487CA700D93926 /* Multiplayer.m in Sources */,
 				3FC52F64193FB54600DCDCB7 /* PauseScene.m in Sources */,
 				10A7477219405D7D001BF4FC /* HelicopterScene.m in Sources */,
 				3FC52F65193FB54600DCDCB7 /* Settings.m in Sources */,
@@ -1285,6 +1309,7 @@
 				3FC52F5B193FB54600DCDCB7 /* GameOverScene.m in Sources */,
 				3F36C4B9193FB807009D371D /* Malus.m in Sources */,
 				3F36C4B7193FB807009D371D /* Item.m in Sources */,
+				10AE0B241948812A00D93926 /* ViewController+Multiplayer.m in Sources */,
 				3F36C4BC193FB807009D371D /* Weapon.m in Sources */,
 				3F595E9E193FB64400150ED8 /* Climber.m in Sources */,
 				3F36C4BD193FB807009D371D /* Monkey.m in Sources */,
@@ -1301,6 +1326,7 @@
 				10A7477B19405D8C001BF4FC /* MyScene.m in Sources */,
 				3F36C4B2193FB807009D371D /* GameController.m in Sources */,
 				3F36C4B6193FB807009D371D /* Shield.m in Sources */,
+				10AE0B27194886D100D93926 /* MultiplayerData.m in Sources */,
 				3F36C4B4193FB807009D371D /* Action.m in Sources */,
 				3FC52F5F193FB54600DCDCB7 /* MainMenu.m in Sources */,
 				3F36C4BF193FB807009D371D /* PreloadData.m in Sources */,

@@ -12,6 +12,7 @@
 #import "Settings.h"
 #import "BaoPosition.h"
 #import "Credit.h"
+#import "Multiplayer.h"
 
 @interface MainMenu ()
 @end
@@ -86,6 +87,11 @@
     monkey.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (monkey.size.height / 2));
     [self addChild:monkey];
     
+    multiPlayer = [SKSpriteNode spriteNodeWithColor:[SKColor purpleColor] size:CGSizeMake(50, 50)];
+    multiPlayer.position = CGPointMake([BaoPosition bigButtonPlay].x + 100, [BaoPosition bigButtonPlay].y);
+    multiPlayer.name = @"multiplayer";
+    [self addChild:multiPlayer];
+    
     //[monkey runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:monkeyFrames timePerFrame:0.5f resize:NO restore:NxO]]];
 }
 
@@ -125,6 +131,8 @@
         [shareNode setTexture:[SKTexture textureWithImageNamed:@"button-share-selected"]];
     } else if ([node.name isEqualToString:INFOS_NODE_NAME]) {
         [infosNode setTexture:[SKTexture textureWithImageNamed:@"button-informations-selected"]];
+    } else if ([node.name isEqualToString:@"multiplayer"]) {
+        [self.view presentScene:[[Multiplayer alloc] initWithSize:self.size :self] transition:[SKTransition pushWithDirection:SKTransitionDirectionDown duration:2.0]];
     }
 }
 

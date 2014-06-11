@@ -16,6 +16,7 @@
 #import "Settings.h"
 #import "GameController.h"
 #import "MyScene.h"
+#import "ViewController+Multiplayer.h"
 
 
 @interface ViewController ()
@@ -82,6 +83,12 @@
                                              selector:@selector(shareScore)
                                                  name:@"notification_share_score"
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(findPlayerMatchMaking)
+                                                 name:@"find_player"
+                                               object:nil];
+
     srand(time(NULL));
     [self goToHome];
 }
