@@ -10,6 +10,12 @@
 
 @implementation ViewController (Multiplayer)
 
+- (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFindMatch:(GKMatch *)match NS_AVAILABLE_IOS(4_1) {
+    NSLog(@"Match found go multi !!!");
+    [self dismissViewControllerAnimated:YES completion:nil];
+     // Use a retaining property to retain the match.
+}
+
 - (void)matchmakerViewControllerWasCancelled:(GKMatchmakerViewController *)viewController
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -25,7 +31,6 @@
     request.minPlayers = 2;
     request.maxPlayers = 2;
     
-    NSLog(@"multi call");
     GKMatchmakerViewController *mmvc = [[GKMatchmakerViewController alloc] initWithMatchRequest:request];
     mmvc.matchmakerDelegate = self;
     
