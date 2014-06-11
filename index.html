@@ -16,8 +16,6 @@
         ============================== -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/app.css">
-        <link rel="stylesheet" href="css/parallax.css">
-        <link rel="stylesheet" href="css/flexslider.css">
         <link rel="stylesheet" href="css/responsive.css">
         
         <!-- FONTS
@@ -42,79 +40,13 @@
         ============================== -->
         <body cz-shortcut-listen="true">
             
-            <!-- MENU
-        	============================== -->
-            <a id="menu-toggle" href="#" class="btn btn-links btn-lg toggle"><i class="fa fa-bars fa-lg"></i></a>
-            <div id="sidebar-wrapper" class="">
-                <div>
-                    <a id="menu-close" href="#" class="btn btn-links btn-lg toggle"><i class="fa fa-times fa-lg"></i></a>
-                </div>
-                <ul class="sidebar-nav">
-                    <li class="spacer-25px"></li>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#project">The project</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#about">Team</a></li>
-                </ul>
-            </div>
-            
             <!-- MAIN SECTION
         	============================== -->
             <section id="hero">
-                <div id="container" class="wrapper">
-                    <ul id="scene" class="scene unselectable" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="5" data-scalar-y="0" data-mode="cursor">
-                        <li class="layer" data-depth="0.00"></li>
-                        <li class="layer" data-depth="0.10"><div class="background"></div></li>
-                        <li class="layer" data-depth="0.50"><div class="bg3"></div></li>
-                        <li class="layer" data-depth="0.20"><div class="ipad"></div></li>
-                        <li class="layer" data-depth="0.1"><div class="iphone2"></div></li>
-                        <li class="layer" data-depth="0.40"><div class="bg2"></div></li>
-                        <li class="layer" data-depth="0.19"><div class="monkey"></div></li>
-                        <li class="layer" data-depth="0.10"><div class="foreground"></div></li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- PROJECT INFO
-            ============================== -->
-            <section id="project">
-                <div class="container">
-                    <div class="row">
-                        <div class="overview_project">
-                            <h1>Why this project ?</h1>
-                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ABOUT Gallery
-            ============================== -->
-           <section id="gallery">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="overview">
-                                <h1>The Gallery</h1>
-                                <p class="lead"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 col-sm-6 text-center">
-                            <div class="flexslider">
-                              <ul class="slides">
-                                <li><img src="assets/gallery/slider.png"/></li>
-                                <li><img src="assets/gallery/slider.png"/></li>
-                                <li><img src="assets/gallery/slider.png"/></li>
-                                <li><img src="assets/gallery/slider.png"/></li>
-                              </ul>
-                            </div>
+                            <img class="logo" src="assets/logo.png" alt="logo">
                         </div>
                     </div>
                 </div>
@@ -122,7 +54,7 @@
             
             <!-- ABOUT TEAM
         	============================== -->
-            <section id="about">
+<!--             <section id="about">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -322,55 +254,27 @@
                     </div>
                 </div>
             </section>
-            <!-- End About -->
+ -->            <!-- End About -->
 
             <!-- Footer -->
-            <footer>
+            <!-- <footer>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center" style="margin-top: 65px;">
                             <div class="footer-note">
                                 <p>© 2014 Baomonkey</p>
                             </div>
-                            <ul class="social-icons list-unstyled list-inline">
-                                <li>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook" class="green-tooltip">
-                                        <div class="social-icon text-center"><i class="fa fa-facebook"></i></div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter" class="green-tooltip">
-                                        <div class="social-icon text-center"><i class="fa fa-twitter"></i></div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="mailto:author@company.com" data-toggle="tooltip" data-placement="top" title="" data-original-title="brieuc.dlf@icloud.com" class="green-tooltip">
-                                        <div class="social-icon text-center"><i class="fa fa-envelope"></i></div>
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
-            </footer>
+            </footer> -->
             <!-- End footer -->
             
             <!-- JavaScripts -->
             <script src="js/jquery-1.10.2.js"></script>
             <script src="js/bootstrap.min.js"></script>
-            <script src="js/jquery.flexslider.js"></script>
             <script src="js/jquery.easing.min.js"></script>
             <script src="js/app.js"></script>
-
-            <!-- Parallax -->
-            <script src="js/parallax.js"></script>
-            <script type="text/javascript">
-                var scene = document.getElementById('scene');
-                var parallax = new Parallax(scene);
-            </script>
-
-            <!-- FlexSlider -->
-            <script src="js/jquery.flexslider.js"></script>
         
     </body>
 </html>
