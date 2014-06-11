@@ -29,6 +29,7 @@
 		10A9E1521936312900E3E7A0 /* MonkeyWait.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 10A9E1511936312900E3E7A0 /* MonkeyWait.atlas */; };
 		10AE0B2119487CA700D93926 /* Multiplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B2019487CA700D93926 /* Multiplayer.m */; };
 		10AE0B241948812A00D93926 /* ViewController+Multiplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */; };
+		10AE0B27194886D100D93926 /* MultiplayerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B26194886D100D93926 /* MultiplayerData.m */; };
 		10B2E580193DC7EE00DDEF3A /* fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 10B2E57F193DC7EE00DDEF3A /* fire.sks */; };
 		10C599B7191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
 		10C599B9191948A300907493 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B8191948A300907493 /* CoreGraphics.framework */; };
@@ -169,6 +170,8 @@
 		10AE0B2019487CA700D93926 /* Multiplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Multiplayer.m; sourceTree = "<group>"; };
 		10AE0B221948812A00D93926 /* ViewController+Multiplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+Multiplayer.h"; sourceTree = "<group>"; };
 		10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+Multiplayer.m"; sourceTree = "<group>"; };
+		10AE0B25194886D100D93926 /* MultiplayerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerData.h; sourceTree = "<group>"; };
+		10AE0B26194886D100D93926 /* MultiplayerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerData.m; sourceTree = "<group>"; };
 		10B2E57F193DC7EE00DDEF3A /* fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire.sks; sourceTree = "<group>"; };
 		10C599B3191948A300907493 /* BaoMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C599B6191948A300907493 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -352,6 +355,8 @@
 			children = (
 				10AE0B1F19487CA700D93926 /* Multiplayer.h */,
 				10AE0B2019487CA700D93926 /* Multiplayer.m */,
+				10AE0B25194886D100D93926 /* MultiplayerData.h */,
+				10AE0B26194886D100D93926 /* MultiplayerData.m */,
 			);
 			name = Multiplayer;
 			sourceTree = "<group>";
@@ -1321,6 +1326,7 @@
 				10A7477B19405D8C001BF4FC /* MyScene.m in Sources */,
 				3F36C4B2193FB807009D371D /* GameController.m in Sources */,
 				3F36C4B6193FB807009D371D /* Shield.m in Sources */,
+				10AE0B27194886D100D93926 /* MultiplayerData.m in Sources */,
 				3F36C4B4193FB807009D371D /* Action.m in Sources */,
 				3FC52F5F193FB54600DCDCB7 /* MainMenu.m in Sources */,
 				3F36C4BF193FB807009D371D /* PreloadData.m in Sources */,

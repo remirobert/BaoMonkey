@@ -6,14 +6,16 @@
 //  Copyright (c) 2014 BaoMonkey. All rights reserved.
 //
 
+#import "MultiplayerData.h"
 #import "ViewController+Multiplayer.h"
 
 @implementation ViewController (Multiplayer)
 
-- (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFindMatch:(GKMatch *)match NS_AVAILABLE_IOS(4_1) {
+- (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFindMatch:(GKMatch *)match {
     NSLog(@"Match found go multi !!!");
     [self dismissViewControllerAnimated:YES completion:nil];
-     // Use a retaining property to retain the match.
+    
+    [MultiplayerData data].match = match;
 }
 
 - (void)matchmakerViewControllerWasCancelled:(GKMatchmakerViewController *)viewController
