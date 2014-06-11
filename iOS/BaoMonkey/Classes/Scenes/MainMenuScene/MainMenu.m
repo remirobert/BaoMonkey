@@ -129,7 +129,11 @@
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self deselectButtons];
+    [playNode setTexture:[SKTexture textureWithImageNamed:@"big-button-play"]];
+    [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
+    [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-game-center"]];
+    [shareNode setTexture:[SKTexture textureWithImageNamed:@"button-share"]];
+    [infosNode setTexture:[SKTexture textureWithImageNamed:@"button-informations"]];
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {

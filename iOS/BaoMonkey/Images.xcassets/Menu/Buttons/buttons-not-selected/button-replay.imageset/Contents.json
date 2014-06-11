@@ -6,15 +6,18 @@
     },
     {
       "idiom" : "iphone",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "button-replay-iphone@2x.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "button-replay-ipad.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "button-replay-ipad@2x.png"
     }
   ],
   "info" : {
