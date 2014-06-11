@@ -11,7 +11,8 @@
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "button-home-selected-ipad.png"
     },
     {
       "idiom" : "ipad",
