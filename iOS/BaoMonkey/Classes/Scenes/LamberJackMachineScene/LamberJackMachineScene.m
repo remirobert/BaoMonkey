@@ -53,6 +53,7 @@
     _monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_monkey.collisionMask.size];
     _monkey.sprite.physicsBody.affectedByGravity = YES;
     _monkey.sprite.physicsBody.mass = 10;
+    _monkey.sprite.physicsBody.allowsRotation = NO;
     _monkey.sprite.name = @"monkey_node_name";
     
     [self addChild:_monkey.sprite];
@@ -127,7 +128,7 @@
                                                        (_treeBranch.node.position.x - (_treeBranch.node.size.width / 2)),
                                                        [UIScreen mainScreen].bounds.size.height + 35)];
         coco.node.name = @"invalid_coco";
-        coco.node.physicsBody.mass = 80.0;
+        coco.node.physicsBody.mass = 50.0;
         [coco.timerHide invalidate];
         [self addChild:coco.node];
         SKPhysicsBody *tmpBody = coco.node.physicsBody;
@@ -226,10 +227,10 @@
 
     time = currentTime + rand() % 2 + 1;
 
-    CGFloat angleStress = 1.5;
+    CGFloat angleStress = 0.75;
     
     if (_sens == 0)
-        angleStress = -1.5;
+        angleStress = -0.75;
 
     [_treeBranch.node runAction:[SKAction rotateByAngle: angleStress duration:0.1] completion:^{
         [_treeBranch.node runAction:[SKAction rotateByAngle: angleStress * -1 duration:0.1] completion:^{
@@ -266,9 +267,9 @@
     [self updateTreePosition];
     
     if (_lanchMove == YES) {
-//        [self moveTreeBranch];
-//        [self stressTree:currentTime];
-//        [self toreBranch:currentTime];
+        [self moveTreeBranch];
+        [self stressTree:currentTime];
+        [self toreBranch:currentTime];
     }
     
     [self enumerateChildNodesWithName:@"invalid_coco" usingBlock:^(SKNode *node, BOOL *stop) {
