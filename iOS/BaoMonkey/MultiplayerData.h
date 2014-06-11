@@ -12,6 +12,7 @@
 @interface MultiplayerData : NSObject
 
 @property (nonatomic, strong) GKMatch *match;
+@property (nonatomic, assign) BOOL isConnected;
 
 + (instancetype) data;
 

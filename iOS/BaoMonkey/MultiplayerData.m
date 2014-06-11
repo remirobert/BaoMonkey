@@ -15,6 +15,7 @@
     
     if (multiplayer != nil) {
         multiplayer = [[MultiplayerData alloc] init];
+        multiplayer.isConnected = YES;
     }
     
     return (multiplayer);

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController (Multiplayer) <GKMatchmakerViewControllerDelegate>
+@interface ViewController (Multiplayer) <GKMatchmakerViewControllerDelegate, GKMatchDelegate>
 
 - (void) findPlayerMatchMaking;
 

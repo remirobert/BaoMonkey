@@ -11,11 +11,34 @@
 
 @implementation ViewController (Multiplayer)
 
+- (void)match:(GKMatch *)match didReceiveData:(NSData *)data fromPlayer:(NSString *)playerID {
+    NSString *str = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    
+    NSLog(@"msg receive = %@", str);
+}
+
+- (void) handleDataMultiPlayer {
+    while ([MultiplayerData data].isConnected == YES) {
+        
+    }
+}
+
+- (void)match:(GKMatch *)match player:(NSString *)playerID didChangeState:(GKPlayerConnectionState)state {
+    if (state != GKPlayerStateConnected) {
+        [MultiplayerData data].isConnected = NO;
+    }
+}
+
 - (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFindMatch:(GKMatch *)match {
-    NSLog(@"Match found go multi !!!");
     [self dismissViewControllerAnimated:YES completion:nil];
     
     [MultiplayerData data].match = match;
+    [MultiplayerData data].match.delegate = self;
+    [MultiplayerData data].isConnected = YES;
+    
+    NSThread *th = [[NSThread alloc] initWithTarget:self selector:@selector(handleDataMultiPlayer) object:nil];
+    
+    [th start];
 }
 
 - (void)matchmakerViewControllerWasCancelled:(GKMatchmakerViewController *)viewController
