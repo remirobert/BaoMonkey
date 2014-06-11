@@ -48,6 +48,15 @@
         settingsNode.position = [BaoPosition buttonSettingsGameOver];
         settingsNode.name = SETTINGS_NODE_NAME;
         [self addChild:settingsNode];
+        
+        SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Ravie"];
+        scoreLabel.fontColor = [SKColor whiteColor];
+        scoreLabel.fontSize = 23;
+        scoreLabel.text = [NSString stringWithFormat:@"SCORE : %d", (int)[GameData getScore]];
+        scoreNode = [[SKSpriteNode alloc] init];
+        [scoreNode addChild:scoreLabel];
+        scoreNode.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2));
+        [self addChild:scoreNode];
     }
     return self;
 }

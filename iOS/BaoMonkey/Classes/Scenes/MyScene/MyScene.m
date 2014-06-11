@@ -9,14 +9,7 @@
 #import "MyScene.h"
 #import "MyScene+GeneratorWave.h"
 #import "MyScene+Climber.h"
-#import "UserData.h"
-#import "TankScene.h"
-#import "Define.h"
 #import "BaoButton.h"
-#import "LamberJackMachineScene.h"
-#import "BaoButton.h"
-#import "PauseScene.h"
-#import "HelicopterScene.h"
 #import "MyScene+LoadBoss.h"
 #import "GameCenter.h"
 #import "Settings.h"
@@ -33,7 +26,7 @@
 }
 
 -(SKLabelNode *)pauseNode {
-    SKLabelNode *node = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    SKLabelNode *node = [SKLabelNode labelNodeWithFontNamed:@"Ravie"];
     node.text = [NSString stringWithFormat:@"Pause"];
     node.fontSize = 25;
     node.position = CGPointMake([UIScreen mainScreen].bounds.size.width - 50, [UIScreen mainScreen].bounds.size.height - 30);
@@ -62,7 +55,7 @@
 }
 
 -(void)scoreNode {
-    score = [SKLabelNode labelNodeWithFontNamed:@"ChalkboardSE-Regular"];
+    score = [SKLabelNode labelNodeWithFontNamed:@"Ravie"];
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
     score.fontSize = 25;
     score.position = CGPointMake(20, SCREEN_HEIGHT - 30);

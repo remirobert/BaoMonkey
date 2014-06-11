@@ -19,6 +19,7 @@
 		108C7E41193CD4E000ADCB85 /* chassis@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E3D193CD4E000ADCB85 /* chassis@2x.png */; };
 		108C7E42193CD4E000ADCB85 /* rouemodulaire@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E3E193CD4E000ADCB85 /* rouemodulaire@2x.png */; };
 		108C7E43193CD4E000ADCB85 /* tourelle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E3F193CD4E000ADCB85 /* tourelle@2x.png */; };
+		10962973194755D300AF2E30 /* Credit.m in Sources */ = {isa = PBXBuildFile; fileRef = 10962972194755D300AF2E30 /* Credit.m */; };
 		10A7477119405D7D001BF4FC /* Helicopter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7476E19405D7D001BF4FC /* Helicopter.m */; };
 		10A7477219405D7D001BF4FC /* HelicopterScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477019405D7D001BF4FC /* HelicopterScene.m */; };
 		10A7477B19405D8C001BF4FC /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477419405D8C001BF4FC /* MyScene.m */; };
@@ -49,6 +50,7 @@
 		2919C648192E2CFC00A2F2D1 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C645192E2CFC00A2F2D1 /* background@2x.png */; };
 		2950D282192B8DBC00C12A52 /* bottom-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */; };
 		2950D283192B8DBC00C12A52 /* up-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2950D281192B8DBC00C12A52 /* up-leaf@2x.png */; };
+		295373E51941FFDA00611212 /* Ravie.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 295373E41941FFDA00611212 /* Ravie.ttf */; };
 		296AFB90191BE197009D5B75 /* hunter-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB8E191BE197009D5B75 /* hunter-left@2x.png */; };
 		296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB8F191BE197009D5B75 /* hunter-right@2x.png */; };
 		296AFB94191CE06B009D5B75 /* cloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 296AFB93191CE06B009D5B75 /* cloud@2x.png */; };
@@ -146,6 +148,8 @@
 		108C7E3D193CD4E000ADCB85 /* chassis@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chassis@2x.png"; sourceTree = "<group>"; };
 		108C7E3E193CD4E000ADCB85 /* rouemodulaire@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rouemodulaire@2x.png"; sourceTree = "<group>"; };
 		108C7E3F193CD4E000ADCB85 /* tourelle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tourelle@2x.png"; sourceTree = "<group>"; };
+		10962971194755D300AF2E30 /* Credit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credit.h; sourceTree = "<group>"; };
+		10962972194755D300AF2E30 /* Credit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credit.m; sourceTree = "<group>"; };
 		10A7476D19405D7D001BF4FC /* Helicopter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helicopter.h; sourceTree = "<group>"; };
 		10A7476E19405D7D001BF4FC /* Helicopter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helicopter.m; sourceTree = "<group>"; };
 		10A7476F19405D7D001BF4FC /* HelicopterScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelicopterScene.h; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 		2919C645192E2CFC00A2F2D1 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "Background/background@2x.png"; sourceTree = "<group>"; };
 		2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-leaf@2x.png"; path = "Leaf/bottom-leaf@2x.png"; sourceTree = "<group>"; };
 		2950D281192B8DBC00C12A52 /* up-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "up-leaf@2x.png"; path = "Leaf/up-leaf@2x.png"; sourceTree = "<group>"; };
+		295373E41941FFDA00611212 /* Ravie.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ravie.ttf; path = Fonts/Ravie.ttf; sourceTree = "<group>"; };
 		296AFB8E191BE197009D5B75 /* hunter-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hunter-left@2x.png"; path = "Enemy/hunter-left@2x.png"; sourceTree = "<group>"; };
 		296AFB8F191BE197009D5B75 /* hunter-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "hunter-right@2x.png"; path = "Enemy/hunter-right@2x.png"; sourceTree = "<group>"; };
 		296AFB93191CE06B009D5B75 /* cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cloud@2x.png"; path = "Cloud/cloud@2x.png"; sourceTree = "<group>"; };
@@ -417,6 +422,7 @@
 		10C59A0C1919492C00907493 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				294D1AD21941FCAE00EAEB67 /* Fonts */,
 				108C7E3B193CD4B600ADCB85 /* tank */,
 				108C7E37193CCBE200ADCB85 /* smokeTank.sks */,
 				108C7E38193CCBE200ADCB85 /* spark.png */,
@@ -472,6 +478,14 @@
 				10573342193F41A200E6FD75 /* feuillagecompletavant.png */,
 			);
 			name = Background;
+			sourceTree = "<group>";
+		};
+		294D1AD21941FCAE00EAEB67 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				295373E41941FFDA00611212 /* Ravie.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		2950D27F192B8DB500C12A52 /* Leaf */ = {
@@ -818,6 +832,7 @@
 				3FC52F56193FB54600DCDCB7 /* SpriteKitCursor.h */,
 				3FC52F57193FB54600DCDCB7 /* SpriteKitCursor.m */,
 				3FC52F58193FB54600DCDCB7 /* TankScene */,
+				5FC3F3E7DB27C9039F924F72 /* CreditMenu */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1071,6 +1086,15 @@
 			path = Classes/Controllers/ViewController;
 			sourceTree = "<group>";
 		};
+		5FC3F3E7DB27C9039F924F72 /* CreditMenu */ = {
+			isa = PBXGroup;
+			children = (
+				10962971194755D300AF2E30 /* Credit.h */,
+				10962972194755D300AF2E30 /* Credit.m */,
+			);
+			name = CreditMenu;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1191,6 +1215,7 @@
 				296AFB94191CE06B009D5B75 /* cloud@2x.png in Resources */,
 				108C7E39193CCBE200ADCB85 /* smokeTank.sks in Resources */,
 				104838A9193F887F005D7F8C /* spark.png in Resources */,
+				295373E51941FFDA00611212 /* Ravie.ttf in Resources */,
 				296AFB91191BE197009D5B75 /* hunter-right@2x.png in Resources */,
 				3F36C4C5193FB8ED009D371D /* shield@2x.png in Resources */,
 				3F47F9C2192D41E200C36A39 /* LamberJackCutting.atlas in Resources */,
@@ -1271,6 +1296,7 @@
 				10C599C9191948A300907493 /* AppDelegate.m in Sources */,
 				3F36C4BB193FB807009D371D /* CocoNuts.m in Sources */,
 				10A7477E19405D8C001BF4FC /* MyScene+LoadBoss.m in Sources */,
+				10962973194755D300AF2E30 /* Credit.m in Sources */,
 				10C599C5191948A300907493 /* main.m in Sources */,
 				10A7477B19405D8C001BF4FC /* MyScene.m in Sources */,
 				3F36C4B2193FB807009D371D /* GameController.m in Sources */,

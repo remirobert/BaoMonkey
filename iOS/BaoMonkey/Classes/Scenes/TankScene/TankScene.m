@@ -179,7 +179,7 @@
         _currentStrat += 1;
         _currentShootTime = currentTime + 1;
         if (_currentStrat == 3) {
-            [self.view presentScene:_parentScene transition:[SKTransition fadeWithDuration:1.0]];
+            [self.view presentScene:_parentScene transition:[SKTransition fadeWithDuration:2.0]];
         }
     }
     
