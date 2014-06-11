@@ -50,13 +50,17 @@
 - (void) initMonkey {
     _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, _treeBranch.node.position.y + 20)];
 
-    _monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_monkey.collisionMask.size];
-    _monkey.sprite.physicsBody.affectedByGravity = YES;
-    _monkey.sprite.physicsBody.mass = 10;
-    _monkey.sprite.physicsBody.allowsRotation = NO;
-    _monkey.sprite.name = @"monkey_node_name";
+    _monkey.collisionMask.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_monkey.collisionMask.size];
+    _monkey.collisionMask.physicsBody.affectedByGravity = YES;
+    _monkey.collisionMask.physicsBody.mass = 10;
+    _monkey.collisionMask.physicsBody.allowsRotation = NO;
+    _monkey.collisionMask.name = _monkey.sprite.name = @"monkey_node_name";
+    
+    _monkey.collisionMask.color = [UIColor redColor];
+    _monkey.collisionMask.zPosition = 200.0;
     
     [self addChild:_monkey.sprite];
+    [self addChild:_monkey.collisionMask];
 }
 
 - (void) initScene {
@@ -263,7 +267,9 @@
     
     [GameController updateAccelerometerAcceleration];
     [_monkey updateMonkeyPosition:[GameController getAcceleration]];
-
+    _monkey.collisionMask.position = _monkey.sprite.position;
+    
+    
     [self updateTreePosition];
     
     if (_lanchMove == YES) {
