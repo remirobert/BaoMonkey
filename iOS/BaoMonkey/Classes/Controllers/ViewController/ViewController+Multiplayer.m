@@ -17,13 +17,8 @@
     NSLog(@"msg receive = %@", str);
 }
 
-- (void) handleDataMultiPlayer {
-    while ([MultiplayerData data].isConnected == YES) {
-        
-    }
-}
-
 - (void)match:(GKMatch *)match player:(NSString *)playerID didChangeState:(GKPlayerConnectionState)state {
+    NSLog(@"Change statt");
     if (state != GKPlayerStateConnected) {
         [MultiplayerData data].isConnected = NO;
     }
@@ -32,13 +27,16 @@
 - (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFindMatch:(GKMatch *)match {
     [self dismissViewControllerAnimated:YES completion:nil];
     
+    NSLog(@"%@", match.playerIDs);
     [MultiplayerData data].match = match;
     [MultiplayerData data].match.delegate = self;
     [MultiplayerData data].isConnected = YES;
-    
-    NSThread *th = [[NSThread alloc] initWithTarget:self selector:@selector(handleDataMultiPlayer) object:nil];
-    
-    [th start];
+
+    while ([MultiplayerData data].isConnected == YES) {
+        NSData *packet = [NSData dataWithData:[@"salut" dataUsingEncoding:NSASCIIStringEncoding]];
+        
+        [[MultiplayerData data].match sendDataToAllPlayers:packet withDataMode:GKMatchSendDataUnreliable error:nil];
+    }
 }
 
 - (void)matchmakerViewControllerWasCancelled:(GKMatchmakerViewController *)viewController
