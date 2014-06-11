@@ -257,7 +257,7 @@
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [self loadTankScene];
+        [self loadLamberJackGeantMachineScene];
     });
     
     if ([[GameData singleton] isPause]) {

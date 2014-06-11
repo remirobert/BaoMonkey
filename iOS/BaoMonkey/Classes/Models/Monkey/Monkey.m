@@ -29,8 +29,8 @@
 }
 
 - (void) initCollisionMask {
-    _collisionMask = [[SKSpriteNode alloc] initWithColor:[SKColor colorWithRed:0 green:0 blue:0 alpha:0]
-                                                    size:CGSizeMake(sprite.size.width / 2, sprite.size.height - 10)];
+    _collisionMask = [[SKSpriteNode alloc] initWithColor:[SKColor colorWithWhite:0 alpha:0]
+                                                    size:CGSizeMake(sprite.size.width / 2, sprite.size.height - 25)];
     [self updateCollisionMask];
 }
 
