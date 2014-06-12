@@ -12,7 +12,7 @@
 @implementation ViewController (Multiplayer)
 
 - (void)match:(GKMatch *)match didReceiveData:(NSData *)data fromPlayer:(NSString *)playerID {
-    NSString *str = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
     NSLog(@"msg receive = %@", str);
 }
@@ -25,16 +25,27 @@
 }
 
 - (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFindMatch:(GKMatch *)match {
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
-    NSLog(@"%@", match.playerIDs);
+    NSLog(@"players =  %@", match.playerIDs);
     [MultiplayerData data].match = match;
     [MultiplayerData data].match.delegate = self;
     [MultiplayerData data].isConnected = YES;
     
     if ([MultiplayerData data].match.expectedPlayerCount == 0) {
-        NSLog(@"ready for play");
+        
+        NSError *err;
+        
+        if (match.playerIDs != nil)
+            if ([[MultiplayerData data].match sendData:[@"salut" dataUsingEncoding:NSUTF8StringEncoding] toPlayers:[MultiplayerData data].match.playerIDs withDataMode:GKMatchSendDataUnreliable error:&err] == NO)
+                NSLog(@"error send message = %@", err);
+        
+        NSLog(@"ready to play");
     }
+}
+
+- (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFindPlayers:(NSArray *)playerIDs {
+    NSLog(@"didfind player");
 }
 
 - (void)matchmakerViewControllerWasCancelled:(GKMatchmakerViewController *)viewController

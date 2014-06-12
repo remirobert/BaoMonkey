@@ -7,11 +7,13 @@
 //
 
 #import "Multiplayer.h"
+#import "MultiplayerData.h"
 
 @interface Multiplayer ()
 @property (nonatomic, strong) SKScene *parentScene;
 @property (nonatomic, strong) SKLabelNode *backButton;
 @property (nonatomic, strong) SKLabelNode *findPlayer;
+@property (nonatomic, strong) SKLabelNode *connect;
 @end
 
 @implementation Multiplayer
@@ -37,6 +39,10 @@
     if (self != nil) {
         [self initButton];
         _parentScene = parentScene;
+        
+        _connect = [[SKLabelNode alloc] init];
+        _connect.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, 0);
+        [self addChild:_connect];
     }
     return (self);
 }
@@ -52,6 +58,18 @@
     else if ([node.name isEqualToString:@"find"]) {
         NSLog(@"call match makiing");
         [[NSNotificationCenter defaultCenter] postNotificationName:@"find_player" object:nil];
+    }
+}
+
+- (void) update:(NSTimeInterval)currentTime {
+    if ([MultiplayerData data].isConnected == YES) {
+            if ([MultiplayerData data].match != nil)
+                _connect.text = [[MultiplayerData data].match.playerIDs objectAtIndex:0];
+            else
+                _connect.text= @"Error text";
+    }
+    else {
+        _connect.text= @"Not conected";
     }
 }
 
