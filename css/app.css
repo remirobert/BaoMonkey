@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .lead {
     HOME PAGE
 ----------------------------------------*/
 #hero {
-    background: url(../assets/background/bg.jpg) no-repeat center fixed;
+    background: url(../assets/background/bg.png) no-repeat center fixed;
         -webkit-background-size: cover; /* pour Chrome et Safari */
         -moz-background-size: cover; /* pour Firefox */
         -o-background-size: cover; /* pour Opera */
@@ -49,7 +49,53 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .lead {
     right: -150px;
     margin-top: 20px;
     width: 100%;
-    max-width: 760px;
+    max-width: 500px;
+}
+
+/*
+** Footer
+**/
+footer {
+    position: absolute;
+    color: #fff;
+    bottom: 0; left: 0; right: 0;
+    background-color: #000;
+    opacity: 0.7
+}
+
+.copyright a {
+    color: #FEBC11;
+    text-decoration: none;
+}
+
+footer p {
+    padding: 15px;
+    font-size: 18px;
+}
+
+footer ul li {
+    position: relative;
+    float: right;
+    padding: 15px;
+    font-size: 18px;
+}
+
+ul li a {
+    opacity: 1;
+    color: #FEBC11;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: #9F5A26;
+}
+
+/* Tools */
+.list-inline li {
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 /*----------------------------------------
