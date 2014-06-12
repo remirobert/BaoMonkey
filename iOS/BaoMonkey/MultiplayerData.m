@@ -13,7 +13,7 @@
 + (instancetype) data {
     static MultiplayerData *multiplayer;
     
-    if (multiplayer != nil) {
+    if (multiplayer == nil) {
         multiplayer = [[MultiplayerData alloc] init];
         multiplayer.isConnected = YES;
     }
