@@ -43,7 +43,9 @@
         NSError *err;
         
         if (match.playerIDs != nil)
-            if ([[MultiplayerData data].match sendData:[@"salut" dataUsingEncoding:NSUTF8StringEncoding] toPlayers:[MultiplayerData data].match.playerIDs withDataMode:GKMatchSendDataUnreliable error:&err] == NO)
+            if ([[MultiplayerData data].match sendData:[@"salut" dataUsingEncoding:NSUTF8StringEncoding]
+                                             toPlayers:[MultiplayerData data].match.playerIDs
+                                          withDataMode:GKMatchSendDataUnreliable error:&err] == NO)
                 NSLog(@"error send message = %@", err);
         
         NSLog(@"ready to play");
