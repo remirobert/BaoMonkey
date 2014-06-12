@@ -25,17 +25,15 @@
 }
 
 - (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFindMatch:(GKMatch *)match {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
     
     NSLog(@"%@", match.playerIDs);
     [MultiplayerData data].match = match;
     [MultiplayerData data].match.delegate = self;
     [MultiplayerData data].isConnected = YES;
-
-    while ([MultiplayerData data].isConnected == YES) {
-        NSData *packet = [NSData dataWithData:[@"salut" dataUsingEncoding:NSASCIIStringEncoding]];
-        
-        [[MultiplayerData data].match sendDataToAllPlayers:packet withDataMode:GKMatchSendDataUnreliable error:nil];
+    
+    if ([MultiplayerData data].match.expectedPlayerCount == 0) {
+        NSLog(@"ready for play");
     }
 }
 
