@@ -18,16 +18,14 @@
 }
 
 - (void)match:(GKMatch *)match player:(NSString *)playerID didChangeState:(GKPlayerConnectionState)state {
-    NSLog(@"Change statt");
-//    if (state != GKPlayerStateConnected) {
-//        [MultiplayerData data].isConnected = NO;
-//    }
+    if (state != GKPlayerStateConnected) {
+        [MultiplayerData data].isConnected = NO;
+    }
 }
 
 - (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFindMatch:(GKMatch *)match {
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    NSLog(@"players =  %@", match.playerIDs);
     [MultiplayerData data].match = match;
     [MultiplayerData data].match.delegate = self;
     [MultiplayerData data].isConnected = YES;
@@ -37,8 +35,12 @@
         NSLog(@"connected ok ");
     else
         NSLog(@"fail connection");
-    
+        
     if ([MultiplayerData data].match.expectedPlayerCount == 0) {
+
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+        });
         
         NSError *err;
         

@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import <CoreMotion/CoreMotion.h>
+#import <GameKit/GameKit.h>
 #import "TreeBranch.h"
 #import "ProgressBar.h"
 #import "GameData.h"
@@ -27,7 +28,7 @@
 #import "PauseScene.h"
 #import "GameOverScene.h"
 
-@interface MyScene : SKScene {
+@interface MyScene : SKScene <GKMatchDelegate> {
     CFTimeInterval pauseTime;
     CFTimeInterval lastTime;
     Monkey *monkey;

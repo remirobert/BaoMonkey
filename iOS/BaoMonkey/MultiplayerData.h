@@ -9,10 +9,17 @@
 #import <Foundation/Foundation.h>
 #import <GameKit/GameKit.h>
 
+typedef enum : NSUInteger {
+    HOST,
+    GUEST,
+    NONE
+} MultiplayerStatus;
+
 @interface MultiplayerData : NSObject
 
 @property (nonatomic, strong) GKMatch *match;
 @property (nonatomic, assign) BOOL isConnected;
+@property (nonatomic, assign) MultiplayerStatus status;
 
 + (instancetype) data;
 
