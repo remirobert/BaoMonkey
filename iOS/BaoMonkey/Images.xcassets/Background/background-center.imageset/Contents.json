@@ -7,11 +7,11 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "background-center-iphone-3.5@2x.png"
+      "filename" : "background-center-iphone-iphone-3.5@2x.png"
     },
     {
       "idiom" : "iphone",
-      "filename" : "background-middle@2x.png",
+      "filename" : "background-center-iphone@2x.png",
       "subtype" : "retina4",
       "scale" : "2x"
     },
