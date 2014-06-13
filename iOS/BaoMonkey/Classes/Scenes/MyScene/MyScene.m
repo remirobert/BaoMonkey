@@ -13,6 +13,7 @@
 #import "MyScene+LoadBoss.h"
 #import "GameCenter.h"
 #import "Settings.h"
+#import "MultiplayerData.h"
 
 @implementation MyScene
 
@@ -254,12 +255,12 @@
 
     NSInteger oldLevel = [GameData getLevel];
 
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self loadLamberJackGeantMachineScene];
-    });
-    
+    if ([MultiplayerData data].isMultiplayer == YES)
+        NSLog(@"game multiplayer");
+    else
+        NSLog(@"game solo");
+        
+        
     if ([[GameData singleton] isPause]) {
         
         dispatch_once(&oncePause, ^{
