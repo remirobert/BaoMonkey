@@ -53,7 +53,7 @@
         int randStatus = rand() % 2;
         NSInteger typeDevice = IPAD ? 0 : 1;
                 
-        NSString *message = [NSString stringWithFormat:@"%d %ld", rand() % 2, (long)typeDevice];
+        NSString *message = [NSString stringWithFormat:@"%d %ld", randStatus, (long)typeDevice];
         
         
         NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[message

@@ -121,6 +121,10 @@
                 }
             }
             
+            if ([message isEqualToString:@"floor"]) {
+                [enemiesController addFloor];
+            }
+            
             break;
         }
             
@@ -130,6 +134,9 @@
         }
             
         case MESSAGE_NEW_ENEMY: {
+            
+            NSLog(@"new Ennemy");
+            
             NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
             unichar enemyType = 0;
             Direction direction = LEFT;
@@ -153,19 +160,24 @@
                 floor = [[NSNumber numberWithUnsignedChar:[message characterAtIndex:1]] integerValue];
                 slot = [[NSNumber numberWithUnsignedChar:[message characterAtIndex:2]] integerValue];
             }
+
+            NSLog(@"message = %@", message);
             
             if (enemyType == 'L') {
                 // LamberJack
                 newEnemy= [[LamberJack alloc] initWithDirection:direction];
             }
-            else if (enemyType =='H' && [message length] == 3) {
+            else if (enemyType =='H') {
                 // Hunter
+                NSLog(@"add hunter");
                 newEnemy = [[Hunter alloc] initWithFloor:floor slot:slot];
+                NSLog(@"%f %f", newEnemy.node.position.x, newEnemy.node.position.y);
             }
             else if (enemyType == 'C') {
                 // Climber
                 newEnemy = [[Climber alloc] initWithDirection:direction];
             }
+            [enemiesController.enemies addObject:newEnemy];
             [[MultiplayerData data].gameScene addChild:newEnemy.node];
         }
             
