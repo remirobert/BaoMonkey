@@ -17,6 +17,11 @@
 +(CGFloat)getBetweenPlateforme;
 +(NSString *)pathFireTank;
 
+#pragma mark - TRUNK, FRONT LEAFS, BACK LEAFS
+
++(CGPoint)frontLeafs:(CGSize)size;
++(CGPoint)backLeafs:(CGSize)size;
+
 #pragma mark - BIG BUTTON
 
 +(CGPoint)bigButtonPlay;

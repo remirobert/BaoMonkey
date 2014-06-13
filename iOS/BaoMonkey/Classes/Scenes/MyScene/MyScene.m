@@ -39,6 +39,43 @@
     [self addChild:[BaoButton pause]];
 }
 
+-(void)updateTrunkTexture{
+    NSInteger trunkLife = [GameData getTrunkLife];
+    static NSInteger step = 0;
+    
+    if ((trunkLife > 90 && trunkLife <= 100) && step != 0) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-0"]];
+        step = 0;
+    } else if ((trunkLife > 80 && trunkLife <= 90) && step != 1) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-1"]];
+        step = 1;
+    } else if ((trunkLife > 70 && trunkLife <= 80) && step != 2) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-2"]];
+        step = 2;
+    } else if ((trunkLife > 60 && trunkLife <= 70) && step != 3) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-3"]];
+        step = 3;
+    } else if ((trunkLife > 50 && trunkLife <= 60) && step != 4){
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-4"]];
+        step = 4;
+    } else if ((trunkLife > 40 && trunkLife <= 50) && step != 5) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-5"]];
+        step = 5;
+    } else if ((trunkLife > 30 && trunkLife <= 40) && step != 6) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-6"]];
+        step = 6;
+    } else if ((trunkLife > 20 && trunkLife <= 30) && step != 7) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-7"]];
+        step = 7;
+    } else if ((trunkLife > 10 && trunkLife <= 20) && step != 8) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-8"]];
+        step = 8;
+    } else if ((trunkLife > 0 && trunkLife <= 10) && step != 9){
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-9"]];
+        step = 9;
+    }
+}
+
 -(SKSpriteNode *)backgroundNode {
     SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"background-center"];
     node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
@@ -46,11 +83,25 @@
     return node;
 }
 
+-(SKSpriteNode *)trunkNode{
+    trunk = [SKSpriteNode spriteNodeWithImageNamed:@"trunk-step-1"];
+    trunk.position = CGPointMake((SCREEN_WIDTH / 2), 200);
+    trunk.name = TRUNK_NODE_NAME;
+    return trunk;
+}
+
 -(SKSpriteNode *)frontLeafNode {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"leafs"];
-    node.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (node.size.height / 2)));
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"front-leafs"];
+    node.position = [BaoPosition frontLeafs:node.size];
     node.name = FRONT_LEAF_NODE_NAME;
     node.zPosition = 50;
+    return node;
+}
+
+-(SKSpriteNode *)backLeafNode {
+    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"back-leafs"];
+    node.position = [BaoPosition backLeafs:node.size];
+    node.name = BACK_LEAF_NODE_NAME;
     return node;
 }
 
@@ -113,10 +164,12 @@
 
 - (void) initScene {
     self.backgroundColor = [SKColor colorWithRed:52/255.0f green:152/255.0f blue:219/255.0f alpha:1];
+
+    [self addChild:[self backgroundNode]];
     
-    SKSpriteNode *trunk = [self backgroundNode];
-    [self addChild:trunk];
-    
+    [self addChild:[self backLeafNode]];
+
+    [self addChild:[self trunkNode]];
     
     _sizeBlock = (self.frame.size.width - (self.frame.size.width / 10)) / 10;
     _treeBranch = [[TreeBranch alloc] init];
@@ -139,12 +192,6 @@
     enemiesController = [[EnemiesController alloc] initWithScene:self];
     
     [self addChild:[self frontLeafNode]];
-    
-    trunkProgressLife = [[ProgressBar alloc] initWithPosition:CGPointMake(trunk.position.x, trunk.position.y / 2)
-                                                      andSize:CGSizeMake(50, 10)];
-    trunkProgressLife.background.name = BACKGROUND_PROGRESS_BAR_NODE_NAME;
-    [trunkProgressLife updateProgression:100.0f];
-    [self addChild:trunkProgressLife.background];
     
     [self scoreNode];
     [self addChild:score];
@@ -239,7 +286,6 @@
     [GameData pauseGame];
     
     // Present pause scene
-    
     PauseScene *pauseScene = [[PauseScene alloc] initWithSize:self.size andScene:self];
     [self.view presentScene:pauseScene transition:menuTransition];
 }
@@ -341,7 +387,7 @@
         }
     }];
     
-    [[GameData singleton] regenerateTrunkLife];
+    [GameData regenerateTrunkLife];
     
     for (Enemy *enemy in self->enemiesController.enemies) {
         if (enemy.type == EnemyTypeLamberJack) {
@@ -361,7 +407,7 @@
     if ([GameData getTrunkLife] < 0) {
         // Call the GameOver view when the trunk is dead
     } else{
-        [trunkProgressLife updateProgression:[GameData getTrunkLife]];
+        [self updateTrunkTexture];
     }
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
     
