@@ -53,4 +53,11 @@
 +(CGPoint)buttonShareGameOver;
 +(CGPoint)buttonSettingsGameOver;
 
+#pragma mark - MENU SETTINGS
+
++(CGPoint)buttonBackSettings;
++(CGPoint)cursorMusicSettings;
++(CGPoint)cursorSoundEffectsSettings;
++(CGPoint)cursorAccelerometerSettings;
+
 @end

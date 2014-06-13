@@ -11,11 +11,13 @@
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "accelerometer-icon-ipad.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "accelerometer-icon-ipad@2x.png"
     }
   ],
   "info" : {

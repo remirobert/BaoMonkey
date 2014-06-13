@@ -7,11 +7,12 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "moyenne_bulle_iphone.png"
+      "filename" : "big-bubble-iphone@2x.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "big-bubble-ipad.png"
     },
     {
       "idiom" : "ipad",

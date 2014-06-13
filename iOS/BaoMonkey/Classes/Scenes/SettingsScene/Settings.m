@@ -9,6 +9,7 @@
 #import "Settings.h"
 #import "Define.h"
 #import "BaoPosition.h"
+#import "BaoSize.h"
 #import "SpriteKitCursor.h"
 #import "GameData.h"
 #import "UserData.h"
@@ -37,14 +38,14 @@
 }
 
 - (void) initCursor {
-    _cursorVolumeSound = [[SpriteKitCursor alloc] initWithSize:CGSizeMake(180, 22.5f)
-                                                      position:CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 168.5f)];
+    _cursorVolumeSound = [[SpriteKitCursor alloc] initWithSize:[BaoSize cursorSettings]
+                                                      position:[BaoPosition cursorSoundEffectsSettings]];
     
-    _cursorVolumeMusic = [[SpriteKitCursor alloc] initWithSize:CGSizeMake(180, 22.5f)
-                                                      position:CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 234.5f)];
+    _cursorVolumeMusic = [[SpriteKitCursor alloc] initWithSize:[BaoSize cursorSettings]
+                                                      position:[BaoPosition cursorMusicSettings]];
     
-    _cursorAccelerometer = [[SpriteKitCursor alloc] initWithSize:CGSizeMake(180, 22.5f)
-                                                        position:CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 300)];
+    _cursorAccelerometer = [[SpriteKitCursor alloc] initWithSize:[BaoSize cursorSettings]
+                                                        position:[BaoPosition cursorAccelerometerSettings]];
     
     [_cursorVolumeMusic setCurrentValue:[UserData getMusicUserVolume] * 100];
     [_cursorVolumeSound setCurrentValue:[UserData getSoundEffectsUserVolume] * 100];
@@ -54,7 +55,7 @@
 
 - (void) initButton {
     SKSpriteNode *backButton = [[SKSpriteNode alloc] initWithImageNamed:@"back-button-settings"];
-    backButton.position = CGPointMake(SCREEN_WIDTH - 150, SCREEN_HEIGHT - 440);
+    backButton.position = [BaoPosition buttonBackSettings];
     backButton.name = @"back";
     [self addChild:backButton];
 }
@@ -149,6 +150,38 @@
         [self updateSoundEffectsUserVolume];
     }
     _currentCursorClicked = nil;
+}
+
+- (void) popBubble:(NSTimeInterval)currentTime {
+    static NSTimeInterval timer = 0;
+    NSArray *tabImage = @[@"big-bubble", @"medium-bubble", @"small-bubble"];
+    
+    if (timer == 0) {
+        timer = rand() % 2 + 1 + currentTime;
+    }
+    
+    if (currentTime >= timer) {
+        SKSpriteNode *bubble = [SKSpriteNode spriteNodeWithImageNamed:[tabImage objectAtIndex:rand() % 3]];
+        
+        bubble.position = CGPointMake(((rand() % 10) + (SCREEN_WIDTH / 2 - 120)), ((SCREEN_HEIGHT / 2) - 37));
+        bubble.zPosition = 100;
+        
+        [self addChild:bubble];
+        
+        if (bubble.position.x <= SCREEN_WIDTH / 2) {
+            [bubble runAction:[SKAction moveToY:SCREEN_HEIGHT / 2 + 303 duration:2.0]];
+            [bubble runAction:[SKAction fadeOutWithDuration:2.0]];
+        }
+        else {
+            [bubble runAction:[SKAction moveToY:SCREEN_HEIGHT / 2 + 203 duration:1.5]];
+            [bubble runAction:[SKAction fadeOutWithDuration:1.5]];
+        }
+        timer = 1.75f + currentTime;
+    }
+}
+
+- (void) update:(NSTimeInterval)currentTime {
+    [self popBubble:currentTime];
 }
 
 @end
