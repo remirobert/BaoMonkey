@@ -13,6 +13,17 @@
 
 @implementation MyScene (Multiplayer)
 
+- (void)match:(GKMatch *)match player:(NSString *)playerID didChangeState:(GKPlayerConnectionState)state {
+    NSLog(@"change status");
+    if (state != GKPlayerStateConnected) {
+        NSLog(@"change status unknow");
+    }
+}
+
+- (void)match:(GKMatch *)match didFailWithError:(NSError *)error {
+    NSLog(@"Error match");
+}
+
 - (void) monkeyAnimationMultiplayer:(NetworkMessage *)msg {
     static CGFloat previousXscale = 0.0;
     

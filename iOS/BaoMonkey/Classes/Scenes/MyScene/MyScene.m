@@ -38,7 +38,8 @@
 }
 
 -(void)createButtons {
-    [self addChild:[BaoButton pause]];
+    if ([MultiplayerData data].isMultiplayer == NO)
+        [self addChild:[BaoButton pause]];
 }
 
 -(void)updateTrunkTexture{
