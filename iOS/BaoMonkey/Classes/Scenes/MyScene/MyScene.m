@@ -316,6 +316,7 @@
                 [GameCenter getBestScorePlayer];
                 [monkey deadMonkey];
                 if (![GameData isGameOver])
+                    [self sendGameOverGame];
                     [self gameOverCountDown];
             } else {
                 [monkey.shield removeFromParent];

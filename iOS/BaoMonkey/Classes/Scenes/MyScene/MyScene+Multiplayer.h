@@ -13,5 +13,6 @@
 
 - (void) sendPositionMonkey;
 - (void) handleMultiplayer;
+- (void) sendGameOverGame;
 
 @end

@@ -15,23 +15,55 @@
 - (void)match:(GKMatch *)match didReceiveData:(NSData *)data fromPlayer:(NSString *)playerID {
      NetworkMessage *msg = (NetworkMessage *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
 
-    if (msg.type == MESSAGE_POSITION_MONKEY) {
-        NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
+    switch (msg.type) {
+        case MESSAGE_POSITION_MONKEY: {
+            NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
+            
+            if (IPAD && [MultiplayerData data].typeDevice == IPHONE_TYPE) {
+                monkeyMultiplayer.sprite.position = CGPointMake([message floatValue] * 2,
+                                                                monkey.sprite.position.y);
+            }
+            else if (!IPAD && [MultiplayerData data].typeDevice == IPAD_TYPE) {
+                monkeyMultiplayer.sprite.position = CGPointMake([message floatValue] / 2,
+                                                                monkey.sprite.position.y);
+            }
+            else {
+                monkeyMultiplayer.sprite.position = CGPointMake([message floatValue],
+                                                                monkey.sprite.position.y);
+            }
+            break;
+        }
         
-        if (IPAD && [MultiplayerData data].typeDevice == IPHONE_TYPE) {
-            monkeyMultiplayer.sprite.position = CGPointMake([message floatValue] * 2,
-                                                            monkey.sprite.position.y);
+        case MESSAGE_COMMAND: {
+            NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
+            
+            if ([message isEqualToString:@"gameOver"] && [GameData isGameOver] == FALSE) {
+                [monkey deadMonkey];
+                [self gameOverCountDown];
+            }
+            break;
         }
-        else if (!IPAD && [MultiplayerData data].typeDevice == IPAD_TYPE) {
-            monkeyMultiplayer.sprite.position = CGPointMake([message floatValue] / 2,
-                                                            monkey.sprite.position.y);
-        }
-        else {
-            monkeyMultiplayer.sprite.position = CGPointMake([message floatValue],
-                                                            monkey.sprite.position.y);
-        }
+            
+        default:
+            break;
+    }
+    
+    if (msg.type == MESSAGE_POSITION_MONKEY) {
         NSLog(@"receive data");
     }
+}
+
+- (void) sendGameOverGame {
+    if ([MultiplayerData data].isConnected == NO || [MultiplayerData data].isMultiplayer == NO)
+        return ;
+    
+    NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[@"gameOver" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    messageNetwork.type = MESSAGE_COMMAND;
+    
+    [[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:messageNetwork]
+                                 toPlayers:[MultiplayerData data].match.playerIDs
+                              withDataMode:GKMatchSendDataUnreliable error:nil];
 }
 
 - (void) sendPositionMonkey {

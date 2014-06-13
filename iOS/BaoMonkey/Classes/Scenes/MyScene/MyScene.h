@@ -47,5 +47,6 @@
 @property (nonatomic) NSMutableArray *wave;
 
 - (void) resumeGame;
+- (void) gameOverCountDown;
 
 @end
