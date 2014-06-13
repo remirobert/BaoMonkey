@@ -149,6 +149,7 @@
     
     if (isAction == YES && [sprite actionForKey:@"lanchAction"] == nil) {
         isAction = NO;
+        [self sendAnimationMultiplayer:@"wait" :MESSAGE_MONKEY_ANIMATION];
         [self moveActionWalking];
         
         if (acceleration < 0) {

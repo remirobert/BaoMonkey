@@ -74,7 +74,20 @@
             }
             
             if ([message isEqualToString:@"launch"]) {
-                [monkeyMultiplayer launchWeapon];
+                if (monkeyMultiplayer.weapon == nil)
+                    break ;
+                monkeyMultiplayer.weapon.node.hidden = FALSE;
+                monkeyMultiplayer.weapon.node.position = CGPointMake(monkeyMultiplayer.sprite.position.x,
+                                                                    monkeyMultiplayer.weapon.node.position.y);
+                [Action dropWeapon:monkeyMultiplayer.weapon];
+                monkeyMultiplayer.weapon = nil;
+                
+                [monkeyMultiplayer.sprite runAction:[SKAction animateWithTextures:@[[PreloadData getDataWithKey:@"monkey-launch"],
+                                                                                    [PreloadData getDataWithKey:@"monkey-launch"],
+                                                                                    [PreloadData getDataWithKey:@"monkey-launch"]]
+                                                                     timePerFrame:0.5] completion:^{
+                    [monkeyMultiplayer waitMonkey];
+                }];
             }
             
             break;
