@@ -20,12 +20,15 @@
             NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
             
             if (IPAD && [MultiplayerData data].typeDevice == IPHONE_TYPE) {
-                monkeyMultiplayer.sprite.position = CGPointMake([message floatValue] * 2,
+                monkeyMultiplayer.sprite.position = CGPointMake([message floatValue] * 2.4,
                                                                 monkey.sprite.position.y);
+                NSLog(@"value %f", [message floatValue] * 1.2);
             }
             else if (!IPAD && [MultiplayerData data].typeDevice == IPAD_TYPE) {
-                monkeyMultiplayer.sprite.position = CGPointMake([message floatValue] / 2,
+                monkeyMultiplayer.sprite.position = CGPointMake([message floatValue] * 0.416,
                                                                 monkey.sprite.position.y);
+                NSLog(@"value %f", [message floatValue] * 0.83);
+
             }
             else {
                 monkeyMultiplayer.sprite.position = CGPointMake([message floatValue],
@@ -46,10 +49,6 @@
             
         default:
             break;
-    }
-    
-    if (msg.type == MESSAGE_POSITION_MONKEY) {
-        NSLog(@"receive data");
     }
 }
 
@@ -80,7 +79,6 @@
                                      toPlayers:[MultiplayerData data].match.playerIDs
                                   withDataMode:GKMatchSendDataUnreliable error:nil];
         previousPosition = CGPointMake(monkey.sprite.position.x, monkey.sprite.position.y);
-        NSLog(@"send data");
     }
 }
 
