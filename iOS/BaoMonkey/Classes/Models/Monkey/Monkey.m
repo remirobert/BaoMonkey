@@ -309,6 +309,8 @@
         weapon.node.position = CGPointMake(sprite.position.x, weapon.node.position.y);
         [Action dropWeapon:weapon];
 
+        [self sendAnimationMultiplayer:@"launch" :MESSAGE_COMMAND];
+        
         [sprite removeAllActions];
         SKAction *actionLaunch = [SKAction animateWithTextures:launchFrames
                                                   timePerFrame:0.1 resize:NO restore:NO];

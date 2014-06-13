@@ -72,6 +72,10 @@
                 }
             }
             
+            if ([message isEqualToString:@"launch"]) {
+                [monkeyMultiplayer launchWeapon];
+            }
+            
             break;
         }
             
