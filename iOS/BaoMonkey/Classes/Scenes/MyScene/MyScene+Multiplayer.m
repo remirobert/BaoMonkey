@@ -15,12 +15,11 @@
 - (void)match:(GKMatch *)match didReceiveData:(NSData *)data fromPlayer:(NSString *)playerID {
      NetworkMessage *msg = (NetworkMessage *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
 
-    NSLog(@"reveive data");
     if (msg.type == MESSAGE_POSITION_MONKEY) {
         NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
         
-        NSArray *position = [message componentsSeparatedByString:@" "];
-        monkeyMultiplayer.sprite.position = CGPointMake([[position objectAtIndex:0] floatValue], [[position objectAtIndex:1] floatValue]);
+        monkeyMultiplayer.sprite.position = CGPointMake([message floatValue],
+                                                        monkey.sprite.position.y);
         NSLog(@"receive data");
     }
 }
@@ -30,7 +29,8 @@
 
     if (previousPosition.x != monkey.sprite.position.x) {
         
-        NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[[NSString stringWithFormat:@"%f %f", monkey.sprite.position.x, monkey.sprite.position.y]
+        NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[[NSString stringWithFormat:@"%f",
+                                                                                monkey.sprite.position.x]
                                                                                dataUsingEncoding:NSUTF8StringEncoding]];
         messageNetwork.type = MESSAGE_POSITION_MONKEY;
         

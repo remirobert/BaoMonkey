@@ -39,7 +39,9 @@
         textures = @[[SKTexture textureWithImageNamed:@"commando-1"],
                      [SKTexture textureWithImageNamed:@"commando-2"]];
     }
-    [climber.node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:textures timePerFrame:0.4]] withKey:@"keyMove"];
+    [climber.node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:textures
+                                                                           timePerFrame:0.4]]
+                    withKey:@"keyMove"];
 }
 
 - (void) moveOnPlateform:(Climber *)climber {

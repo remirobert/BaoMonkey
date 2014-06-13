@@ -9,6 +9,7 @@
 #import "MultiplayerData.h"
 #import "ViewController+Multiplayer.h"
 #import "NetworkMessage.h"
+#import "define.h"
 
 @implementation ViewController (Multiplayer)
 
@@ -18,7 +19,10 @@
     if ([MultiplayerData data].status == NONE) {
         NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
         
-        [MultiplayerData data].status = [message integerValue];
+        NSArray *tabMsg = [message componentsSeparatedByString:@" "];
+        
+        [MultiplayerData data].status = [[tabMsg objectAtIndex:0] integerValue];
+        [MultiplayerData data].typeDevice = [[tabMsg objectAtIndex:1] integerValue];
     }
     else if ([[[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding] integerValue] == [MultiplayerData data].status) {
         if ([MultiplayerData data].status == HOST)
@@ -44,8 +48,11 @@
     if ([MultiplayerData data].match.expectedPlayerCount == 0) {
 
         NSInteger randStatus = rand() % 2;
-
-        NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[[NSString stringWithFormat:@"%ld", (long)randStatus]
+        NSInteger typeDevice = IPAD ? 0 : 1;
+        NSString *message = [NSString stringWithFormat:@"%ld %d", (long)randStatus, typeDevice];
+        
+        
+        NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[message
                                                                                dataUsingEncoding:NSUTF8StringEncoding]];
     
         NSError *err;
