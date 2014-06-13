@@ -149,6 +149,7 @@
 }
 
 -(void)updateEnemies:(CFTimeInterval)currentTime {
+
     if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == GUEST) {
         return ;
     }

@@ -126,6 +126,7 @@
             
         case MESSAGE_MONKEY_ANIMATION: {
             [self monkeyAnimationMultiplayer:(msg)];
+            break ;
         }
             
         case MESSAGE_NEW_ENEMY: {

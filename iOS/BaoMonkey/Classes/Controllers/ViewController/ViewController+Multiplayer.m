@@ -18,11 +18,14 @@
 
     NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
     NSArray *tabMsg = [message componentsSeparatedByString:@" "];
-
+    
+    if (msg.type != MESSAGE_RANDOM)
+        return ;
+    
     if ([MultiplayerData data].status == NONE) {
         [MultiplayerData data].status = [[tabMsg objectAtIndex:0] integerValue];
     }
-    else if ([[[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding] integerValue] == [MultiplayerData data].status) {
+    if ([[tabMsg objectAtIndex:0] integerValue] == [MultiplayerData data].status) {
         if ([MultiplayerData data].status == HOST)
             [MultiplayerData data].status = GUEST;
         else
@@ -46,10 +49,11 @@
     [MultiplayerData data].isConnected = YES;
     
     if ([MultiplayerData data].match.expectedPlayerCount == 0) {
-
-        NSInteger randStatus = rand() % 2;
+        
+        int randStatus = rand() % 2;
         NSInteger typeDevice = IPAD ? 0 : 1;
-        NSString *message = [NSString stringWithFormat:@"%ld %ld", (long)randStatus, (long)typeDevice];
+                
+        NSString *message = [NSString stringWithFormat:@"%d %ld", rand() % 2, (long)typeDevice];
         
         
         NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[message
