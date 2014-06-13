@@ -261,7 +261,7 @@
     
     shield = [SKSpriteNode node];
     shield.position = sprite.position;
-    shield.zPosition = 150;
+    shield.zPosition = 49;
     shield.name = @"NODE_SHIELD";
     [shield addChild:tile];
     isShield = TRUE;
