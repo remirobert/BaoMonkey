@@ -8,6 +8,7 @@
 
 #import "Multiplayer.h"
 #import "MultiplayerData.h"
+#import "MyScene.h"
 
 @interface Multiplayer ()
 @property (nonatomic, strong) SKScene *parentScene;
@@ -70,6 +71,8 @@
             }
             else
                 _connect.text= @"Error text";
+        [MultiplayerData data].isMultiplayer = YES;
+        [self.view presentScene:[[MyScene alloc] initWithSize:self.size] transition:[SKTransition fadeWithDuration:0.0]];
     }
     else {
         _connect.text= @"Not conected";

@@ -13,6 +13,8 @@
 #import "MyScene+LoadBoss.h"
 #import "GameCenter.h"
 #import "Settings.h"
+#import "MultiplayerData.h"
+#import "MyScene+Multiplayer.h"
 
 @implementation MyScene
 
@@ -162,6 +164,18 @@
     }
 }
 
+- (void) initMonkey {
+    monkey = [[Monkey alloc] initWithPosition:[BaoPosition monkey]];
+    [self addChild:monkey.sprite];
+    [self addChild:monkey.collisionMask];
+
+    if ([MultiplayerData data].isMultiplayer == YES) {
+        monkeyMultiplayer = [[Monkey alloc] initWithPosition:[BaoPosition monkey]];
+        [self addChild:monkeyMultiplayer.sprite];
+        [self addChild:monkeyMultiplayer.collisionMask];
+    }
+}
+
 - (void) initScene {
     self.backgroundColor = [SKColor colorWithRed:52/255.0f green:152/255.0f blue:219/255.0f alpha:1];
 
@@ -184,9 +198,7 @@
     
     [self addChild:_treeBranch.node];
     
-    monkey = [[Monkey alloc] initWithPosition:[BaoPosition monkey]];
-    [self addChild:monkey.sprite];
-    [self addChild:monkey.collisionMask];
+    [self initMonkey];
     
     // Init enemies controller
     enemiesController = [[EnemiesController alloc] initWithScene:self];
@@ -210,7 +222,7 @@
     oncePause = 0;
     oncePlay = -1;
     
-    menuTransition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
+    menuTransition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];    
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -298,14 +310,8 @@
 
 -(void)update:(CFTimeInterval)currentTime {
 
-    NSInteger oldLevel = [GameData getLevel];
-
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self loadLamberJackGeantMachineScene];
-    });
-    
+    NSInteger oldLevel = [GameData getLevel];        
+        
     if ([[GameData singleton] isPause]) {
         
         dispatch_once(&oncePause, ^{
@@ -330,7 +336,10 @@
     [self addBonus:currentTime];
     
     [GameController updateAccelerometerAcceleration];
-    [monkey updateMonkeyPosition:[GameController getAcceleration]];
+    [monkey updateMonkeyPosition:[GameController getAcceleration]];    
+    
+    [self handleMultiplayer];
+    
     [enemiesController updateEnemies:currentTime];
     
     for (id item in _wave) {
@@ -353,6 +362,7 @@
                 [GameCenter getBestScorePlayer];
                 [monkey deadMonkey];
                 if (![GameData isGameOver])
+                    [self sendGameOverGame];
                     [self gameOverCountDown];
             } else {
                 [monkey.shield removeFromParent];

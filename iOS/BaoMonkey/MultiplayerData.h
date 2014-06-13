@@ -15,11 +15,20 @@ typedef enum : NSUInteger {
     NONE
 } MultiplayerStatus;
 
+typedef enum : NSUInteger {
+    IPAD_TYPE,
+    IPHONE_TYPE,
+    NONE_TYPE
+} DeviceType;
+
 @interface MultiplayerData : NSObject
 
 @property (nonatomic, strong) GKMatch *match;
-@property (nonatomic, assign) BOOL isConnected;
 @property (nonatomic, assign) MultiplayerStatus status;
+@property (nonatomic, assign) DeviceType typeDevice;
+
+@property (nonatomic, assign) BOOL isConnected;
+@property (nonatomic, assign) BOOL isMultiplayer;
 
 + (instancetype) data;
 
