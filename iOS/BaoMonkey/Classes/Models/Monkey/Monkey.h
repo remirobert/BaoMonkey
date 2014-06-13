@@ -37,5 +37,6 @@
 
 - (void) moveActionWalking;
 - (void) waitMonkey;
+- (void) addShield:(SKScene *)scene;
 
 @end

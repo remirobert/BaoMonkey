@@ -17,6 +17,17 @@
 
 @implementation MyScene (Multiplayer)
 
+- (void)match:(GKMatch *)match player:(NSString *)playerID didChangeState:(GKPlayerConnectionState)state {
+    NSLog(@"change status");
+    if (state != GKPlayerStateConnected) {
+        NSLog(@"change status unknow");
+    }
+}
+
+- (void)match:(GKMatch *)match didFailWithError:(NSError *)error {
+    NSLog(@"Error match");
+}
+
 - (void) monkeyAnimationMultiplayer:(NetworkMessage *)msg {
     static CGFloat previousXscale = 0.0;
     
@@ -56,6 +67,7 @@
                 monkeyMultiplayer.sprite.position = CGPointMake([message floatValue],
                                                                 monkey.sprite.position.y);
             }
+            monkeyMultiplayer.shield.position = monkeyMultiplayer.sprite.position;
             break;
         }
         
@@ -93,6 +105,20 @@
                                                                      timePerFrame:0.5] completion:^{
                     [monkeyMultiplayer waitMonkey];
                 }];
+            }
+            
+            if ([message isEqualToString:@"shield"]) {
+                if (monkeyMultiplayer.isShield == NO) {
+                    [monkeyMultiplayer addShield:[MultiplayerData data].gameScene];
+                }
+            }
+
+            if ([message isEqualToString:@"removeShield"]) {
+                if (monkeyMultiplayer. isShield == YES) {
+                    [monkeyMultiplayer.shield removeFromParent];
+                    monkeyMultiplayer.shield = nil;
+                    monkeyMultiplayer.isShield = NO;
+                }
             }
             
             break;

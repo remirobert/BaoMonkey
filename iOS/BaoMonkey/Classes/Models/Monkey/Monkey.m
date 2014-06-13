@@ -247,6 +247,8 @@
     
     [shield removeFromParent];
     isShield = FALSE;
+    [self sendAnimationMultiplayer:@"removeShield" :MESSAGE_COMMAND];
+    
 }
 
 - (void) addShield:(SKScene *)scene {
@@ -263,6 +265,7 @@
     shield.name = @"NODE_SHIELD";
     [shield addChild:tile];
     isShield = TRUE;
+    [self sendAnimationMultiplayer:@"catch" :MESSAGE_COMMAND];
     [scene addChild:shield];
 }
 
@@ -291,8 +294,10 @@
             return ;
     } else if ([item isKindOfClass:[Shield class]]) {
         ((Item *)item).node.hidden = YES;
-        if (isShield == FALSE)
+        if (isShield == FALSE) {
+            [self sendAnimationMultiplayer:@"shield" :MESSAGE_COMMAND];
             [self addShield:scene];
+        }
     }
     if (((Item *)item).isTaken == NO)
         [(Item *)item launchAction];

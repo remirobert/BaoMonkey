@@ -38,7 +38,8 @@
 }
 
 -(void)createButtons {
-    [self addChild:[BaoButton pause]];
+    if ([MultiplayerData data].isMultiplayer == NO)
+        [self addChild:[BaoButton pause]];
 }
 
 -(void)updateTrunkTexture{
@@ -340,7 +341,6 @@
     [monkey updateMonkeyPosition:[GameController getAcceleration]];    
     
     [self handleMultiplayer];
-    
     [enemiesController updateEnemies:currentTime];
     
     for (id item in _wave) {
@@ -358,7 +358,6 @@
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
-            //[leafTransition runGameOverTransition];
             if (!monkey.isShield) {
                 [GameCenter getBestScorePlayer];
                 [monkey deadMonkey];
