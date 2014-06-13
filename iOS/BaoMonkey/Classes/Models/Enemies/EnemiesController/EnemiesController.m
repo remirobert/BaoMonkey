@@ -31,46 +31,25 @@
         numberOfFloors = 0;
         numberHunter = 0;
         numberClimber = 0;
-        [self initChoppingSlots];
         [self initFloorsPosition];
     }
     return self;
 }
 
--(void)initChoppingSlots {
-    choppingSlots = [[NSMutableArray alloc] init];
-    CGFloat spaceDistance;
-    CGSize lamberSize = [BaoSize lamberJack];
-    
-    spaceDistance = lamberSize.width;
-    for (int i = 0; i < 3 ; i++) {
-        NSMutableDictionary *tmp = [[NSMutableDictionary alloc]
-                                    initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT",
-                                    [[NSNumber alloc]
-                                     initWithFloat:(spaceDistance + (spaceDistance * i))], @"posX", nil];
-        [choppingSlots addObject:tmp];
-    }
-}
-
 #pragma mark - Enemy Controller
 
 -(Direction)chooseDirection {
-    NSUInteger numberLeft = 0;
-    NSUInteger numberRight = 0;
-    
     for (Enemy *enemy in enemies) {
         if (enemy.type == EnemyTypeLamberJack) {
-            if (enemy.direction == LEFT)
-                numberLeft++;
-            else if (enemy.direction == RIGHT)
-                numberRight++;
+            if (enemy.direction == LEFT) {
+                return RIGHT;
+            }
+            else if (enemy.direction == RIGHT) {
+                return LEFT;
+            }
         }
     }
-    if (numberRight == numberLeft)
-        return arc4random() % 2 ? LEFT : RIGHT;
-    else if (numberRight < numberLeft)
-        return RIGHT;
-    return LEFT;
+    return arc4random() % 2 ? LEFT : RIGHT;
 }
 
 -(void)addLamberJack {
@@ -159,11 +138,6 @@
             timeForAddHunter = currentTime + randomFloat;
         }
     }
-    
-    for (Enemy *enemy in enemies) {
-        if (enemy.type == EnemyTypeLamberJack)
-            [(LamberJack*)enemy updatePosition:choppingSlots];
-    }
 }
 
 -(void)deleteEnemy:(Enemy*)enemy {    
@@ -171,7 +145,6 @@
         LamberJack *lamber;
         lamber = (LamberJack*)enemy;
         [lamber stopChopping];
-        [lamber freeTheSlot:choppingSlots];
         [lamber startDead];
         [lamber.node runAction:[PreloadData getDataWithKey:DATA_COCONUT_SOUND]];
         [GameData addPointToScore:10];
