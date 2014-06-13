@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10154D41194A1A7600BAAA81 /* NetworkMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 10154D40194A1A7600BAAA81 /* NetworkMessage.m */; };
 		102D554D1936430800D7072D /* grosse_tache@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 102D554B1936430800D7072D /* grosse_tache@2x.png */; };
 		102D554E1936430800D7072D /* petite_tache@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 102D554C1936430800D7072D /* petite_tache@2x.png */; };
 		103A59261942260C00794E98 /* fire_ipad.sks in Resources */ = {isa = PBXBuildFile; fileRef = 103A59251942260C00794E98 /* fire_ipad.sks */; };
@@ -139,6 +140,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10154D3F194A1A7600BAAA81 /* NetworkMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkMessage.h; sourceTree = "<group>"; };
+		10154D40194A1A7600BAAA81 /* NetworkMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkMessage.m; sourceTree = "<group>"; };
 		102D554B1936430800D7072D /* grosse_tache@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grosse_tache@2x.png"; sourceTree = "<group>"; };
 		102D554C1936430800D7072D /* petite_tache@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petite_tache@2x.png"; sourceTree = "<group>"; };
 		103A59251942260C00794E98 /* fire_ipad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire_ipad.sks; sourceTree = "<group>"; };
@@ -357,6 +360,8 @@
 				10AE0B2019487CA700D93926 /* Multiplayer.m */,
 				10AE0B25194886D100D93926 /* MultiplayerData.h */,
 				10AE0B26194886D100D93926 /* MultiplayerData.m */,
+				10154D3F194A1A7600BAAA81 /* NetworkMessage.h */,
+				10154D40194A1A7600BAAA81 /* NetworkMessage.m */,
 			);
 			name = Multiplayer;
 			sourceTree = "<group>";
@@ -1303,6 +1308,7 @@
 				10A7477219405D7D001BF4FC /* HelicopterScene.m in Sources */,
 				3FC52F65193FB54600DCDCB7 /* Settings.m in Sources */,
 				3FC52F67193FB54600DCDCB7 /* TankScene.m in Sources */,
+				10154D41194A1A7600BAAA81 /* NetworkMessage.m in Sources */,
 				3FC52F66193FB54600DCDCB7 /* SpriteKitCursor.m in Sources */,
 				10A7477C19405D8C001BF4FC /* MyScene+Climber.m in Sources */,
 				3F595EA3193FB64400150ED8 /* LamberJackMachine.m in Sources */,
