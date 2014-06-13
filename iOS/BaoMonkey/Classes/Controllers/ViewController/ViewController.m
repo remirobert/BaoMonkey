@@ -88,6 +88,11 @@
                                              selector:@selector(findPlayerMatchMaking)
                                                  name:@"find_player"
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showGameCenter)
+                                                 name:NOTIFICATION_SHOW_GAME_CENTER
+                                               object:nil];
 
     srand(time(NULL));
     [self goToHome];
@@ -237,6 +242,10 @@
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
     activityViewController.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, UIActivityTypeAddToReadingList, UIActivityTypeAirDrop, UIActivityTypePostToFlickr, UIActivityTypePostToVimeo, UIActivityTypePostToTencentWeibo, UIActivityTypePostToWeibo];
     [self presentViewController:activityViewController animated:YES completion:nil];
+}
+
+-(void)showGameCenter {
+    [GameCenter showLeaderboardAndAchievements:YES withViewController:self];
 }
 
 - (NSUInteger)supportedInterfaceOrientations

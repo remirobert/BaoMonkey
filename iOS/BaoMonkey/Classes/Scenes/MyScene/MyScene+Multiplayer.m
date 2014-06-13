@@ -10,6 +10,10 @@
 #import "NetworkMessage.h"
 #import "MultiplayerData.h"
 #import "CocoNuts.h"
+#import "Enemy.h"
+#import "LamberJack.h"
+#import "Hunter.h"
+#import "Climber.h"
 
 @implementation MyScene (Multiplayer)
 
@@ -122,6 +126,46 @@
             
         case MESSAGE_MONKEY_ANIMATION: {
             [self monkeyAnimationMultiplayer:(msg)];
+        }
+            
+        case MESSAGE_NEW_ENEMY: {
+            NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
+            unichar enemyType = 0;
+            Direction direction = LEFT;
+            NSInteger floor = 0;
+            NSInteger slot = 0;
+            Enemy *newEnemy;
+            
+            if (message == nil || [message length] < 2)
+                return ;
+            if ([message length] >= 2) {
+                enemyType = [message characterAtIndex:0];
+                unichar directionTmp = [message characterAtIndex:1];
+                if (directionTmp == 'L') {
+                    direction = LEFT;
+                }
+                else if (directionTmp == 'R') {
+                    direction = RIGHT;
+                }
+            }
+            if ([message length] == 3) {
+                floor = [[NSNumber numberWithUnsignedChar:[message characterAtIndex:1]] integerValue];
+                slot = [[NSNumber numberWithUnsignedChar:[message characterAtIndex:2]] integerValue];
+            }
+            
+            if (enemyType == 'L') {
+                // LamberJack
+                newEnemy= [[LamberJack alloc] initWithDirection:direction];
+            }
+            else if (enemyType =='H' && [message length] == 3) {
+                // Hunter
+                newEnemy = [[Hunter alloc] initWithFloor:floor slot:slot];
+            }
+            else if (enemyType == 'C') {
+                // Climber
+                newEnemy = [[Climber alloc] initWithDirection:direction];
+            }
+            [[MultiplayerData data].gameScene addChild:newEnemy.node];
         }
             
         default:
