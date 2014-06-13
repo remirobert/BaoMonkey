@@ -13,6 +13,7 @@ typedef enum : NSUInteger {
     MESSAGE_POSITION_MONKEY,
     MESSAGE_COMMAND,
     MESSAGE_MONKEY_ANIMATION,
+    MESSAGE_NEW_ENEMY,
     NONE_MESSAGE
 } NetworkMessageType;
 

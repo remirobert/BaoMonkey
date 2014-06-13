@@ -98,6 +98,10 @@
             [self monkeyAnimationMultiplayer:(msg)];
         }
             
+        case MESSAGE_NEW_ENEMY: {
+            
+        }
+            
         default:
             break;
     }

@@ -100,16 +100,13 @@
    if ([node.name isEqualToString:RETRY_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
         [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay"]];
-        [replayNode setSize:CGSizeMake(80, 80)];
     }
     else if ([node.name isEqualToString:HOME_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
         [homeNode setTexture:[SKTexture textureWithImageNamed:@"button-home"]];
-        [homeNode setSize:CGSizeMake(52, 52)];
     }
     else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
         [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
-        [settingsNode setSize:CGSizeMake(52, 52)];
         [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self] transition:[SKTransition fadeWithDuration:1.0]];
     }
     else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
