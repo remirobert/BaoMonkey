@@ -28,10 +28,11 @@
 #import "PauseScene.h"
 #import "GameOverScene.h"
 
-@interface MyScene : SKScene <GKMatchDelegate> {
+@interface MyScene : SKScene {
     CFTimeInterval pauseTime;
     CFTimeInterval lastTime;
     Monkey *monkey;
+    Monkey *monkeyMultiplayer;
     EnemiesController *enemiesController;
     GameController *gc;
     ProgressBar *trunkProgressLife;
