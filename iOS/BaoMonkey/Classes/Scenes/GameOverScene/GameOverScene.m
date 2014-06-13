@@ -110,7 +110,8 @@
         [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self] transition:[SKTransition fadeWithDuration:1.0]];
     }
     else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
-        // Call GameCenter
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SHOW_GAME_CENTER object:nil];
+        [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-game-center"]];
     }
     else if ([node.name isEqualToString:SHARE_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_share_score" object:nil];
