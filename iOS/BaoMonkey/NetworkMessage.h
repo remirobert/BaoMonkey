@@ -11,12 +11,13 @@
 typedef enum : NSUInteger {
     MESSAGE_RANDOM,
     MESSAGE_DATA,
-    NONE
+    NONE_MESSAGE
 } NetworkMessageType;
 
-@interface NetworkMessage : NSObject
+@interface NetworkMessage : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSData *data;
-@property (nonatomic, assign) NetworkMessageType type;
+
+- (instancetype) initWithData:(NSData *)data;
 
 @end

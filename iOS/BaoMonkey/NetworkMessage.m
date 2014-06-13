@@ -10,14 +10,26 @@
 
 @implementation NetworkMessage
 
-- (instancetype) initWithData:(NSData *)data :(NetworkMessageType)type{
+- (instancetype) initWithData:(NSData *)data {
     self = [super init];
     
     if (self != nil) {
         _data = data;
-        _type = type;
     }
     return (self);
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    self = [super init];
+
+    if (self != nil) {
+        self.data = [decoder decodeObjectForKey:@"data"];
+    }
+    return (self);
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.data forKey:@"data"];
 }
 
 @end

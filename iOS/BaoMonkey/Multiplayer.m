@@ -56,15 +56,18 @@
         [self.view presentScene:_parentScene transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:2.0]];
     }
     else if ([node.name isEqualToString:@"find"]) {
-        NSLog(@"call match makiing");
         [[NSNotificationCenter defaultCenter] postNotificationName:@"find_player" object:nil];
     }
 }
 
 - (void) update:(NSTimeInterval)currentTime {
     if ([MultiplayerData data].isConnected == YES) {
-            if ([MultiplayerData data].match != nil)
-                _connect.text = [[MultiplayerData data].match.playerIDs objectAtIndex:0];
+            if ([MultiplayerData data].match != nil) {
+                if ([MultiplayerData data].status == HOST)
+                    _connect.text = @"HOST";
+                else
+                    _connect.text = @"GUEST";
+            }
             else
                 _connect.text= @"Error text";
     }

@@ -8,13 +8,24 @@
 
 #import "MultiplayerData.h"
 #import "ViewController+Multiplayer.h"
+#import "NetworkMessage.h"
 
 @implementation ViewController (Multiplayer)
 
 - (void)match:(GKMatch *)match didReceiveData:(NSData *)data fromPlayer:(NSString *)playerID {
-    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    
-    NSLog(@"msg receive = %@", str);
+    NetworkMessage *msg = (NetworkMessage *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+
+    if ([MultiplayerData data].status == NONE) {
+        NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
+        
+        [MultiplayerData data].status = [message integerValue];
+    }
+    else if ([[[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding] integerValue] == [MultiplayerData data].status) {
+        if ([MultiplayerData data].status == HOST)
+            [MultiplayerData data].status = GUEST;
+        else
+            [MultiplayerData data].status = HOST;
+    }
 }
 
 - (void)match:(GKMatch *)match player:(NSString *)playerID didChangeState:(GKPlayerConnectionState)state {
@@ -30,32 +41,22 @@
     [MultiplayerData data].match.delegate = self;
     [MultiplayerData data].isConnected = YES;
     
-    
-    if ([MultiplayerData data].isConnected == YES)
-        NSLog(@"connected ok ");
-    else
-        NSLog(@"fail connection");
-        
     if ([MultiplayerData data].match.expectedPlayerCount == 0) {
 
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            
-        });
-        
+        NSInteger randStatus = rand() % 2;
+
+        NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[[NSString stringWithFormat:@"%ld", (long)randStatus]
+                                                                               dataUsingEncoding:NSUTF8StringEncoding]];
+    
         NSError *err;
         
-        if (match.playerIDs != nil)
-            if ([[MultiplayerData data].match sendData:[@"salut" dataUsingEncoding:NSUTF8StringEncoding]
+        if ([[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:messageNetwork]
                                              toPlayers:[MultiplayerData data].match.playerIDs
                                           withDataMode:GKMatchSendDataUnreliable error:&err] == NO)
                 NSLog(@"error send message = %@", err);
         
-        NSLog(@"ready to play");
+        [MultiplayerData data].status = randStatus;
     }
-}
-
-- (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFindPlayers:(NSArray *)playerIDs {
-    NSLog(@"didfind player");
 }
 
 - (void)matchmakerViewControllerWasCancelled:(GKMatchmakerViewController *)viewController
