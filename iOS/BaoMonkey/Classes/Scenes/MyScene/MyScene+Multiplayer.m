@@ -52,6 +52,7 @@
                 monkeyMultiplayer.sprite.position = CGPointMake([message floatValue],
                                                                 monkey.sprite.position.y);
             }
+            monkeyMultiplayer.shield.position = monkeyMultiplayer.sprite.position;
             break;
         }
         
@@ -89,6 +90,20 @@
                                                                      timePerFrame:0.5] completion:^{
                     [monkeyMultiplayer waitMonkey];
                 }];
+            }
+            
+            if ([message isEqualToString:@"shield"]) {
+                if (monkeyMultiplayer.isShield == NO) {
+                    [monkeyMultiplayer addShield:[MultiplayerData data].gameScene];
+                }
+            }
+
+            if ([message isEqualToString:@"removeShield"]) {
+                if (monkeyMultiplayer. isShield == YES) {
+                    [monkeyMultiplayer.shield removeFromParent];
+                    monkeyMultiplayer.shield = nil;
+                    monkeyMultiplayer.isShield = NO;
+                }
             }
             
             break;
