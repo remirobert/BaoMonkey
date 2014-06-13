@@ -422,9 +422,11 @@
     }
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
     
-    if (oldLevel != [GameData getLevel]) {
-        if (oldLevel == STEP_TANK_BOSS) {
-            [self loadTankScene];
+    if ([MultiplayerData data].isMultiplayer == NO) {
+        if (oldLevel != [GameData getLevel]) {
+            if (oldLevel == STEP_TANK_BOSS) {
+                [self loadTankScene];
+            }
         }
     }
 }
