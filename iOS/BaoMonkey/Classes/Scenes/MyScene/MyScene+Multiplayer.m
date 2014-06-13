@@ -60,6 +60,7 @@
             
             if ([message isEqualToString:@"gameOver"] && [GameData isGameOver] == FALSE) {
                 [monkey deadMonkey];
+                [monkeyMultiplayer deadMonkey];
                 [self gameOverCountDown];
             }
 
