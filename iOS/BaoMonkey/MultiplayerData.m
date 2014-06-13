@@ -18,6 +18,7 @@
         multiplayer.isConnected = NO;
         multiplayer.status = NONE;
         multiplayer.isMultiplayer = NO;
+        multiplayer.typeDevice = NONE_TYPE;
     }
     
     return (multiplayer);

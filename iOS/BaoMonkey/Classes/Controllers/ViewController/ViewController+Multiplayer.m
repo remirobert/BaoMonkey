@@ -16,13 +16,11 @@
 - (void)match:(GKMatch *)match didReceiveData:(NSData *)data fromPlayer:(NSString *)playerID {
     NetworkMessage *msg = (NetworkMessage *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
 
+    NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
+    NSArray *tabMsg = [message componentsSeparatedByString:@" "];
+
     if ([MultiplayerData data].status == NONE) {
-        NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
-        
-        NSArray *tabMsg = [message componentsSeparatedByString:@" "];
-        
         [MultiplayerData data].status = [[tabMsg objectAtIndex:0] integerValue];
-        [MultiplayerData data].typeDevice = [[tabMsg objectAtIndex:1] integerValue];
     }
     else if ([[[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding] integerValue] == [MultiplayerData data].status) {
         if ([MultiplayerData data].status == HOST)
@@ -30,6 +28,8 @@
         else
             [MultiplayerData data].status = HOST;
     }
+    if (msg.type == MESSAGE_RANDOM)
+        [MultiplayerData data].typeDevice = [[tabMsg objectAtIndex:1] integerValue];
 }
 
 - (void)match:(GKMatch *)match player:(NSString *)playerID didChangeState:(GKPlayerConnectionState)state {
@@ -49,11 +49,12 @@
 
         NSInteger randStatus = rand() % 2;
         NSInteger typeDevice = IPAD ? 0 : 1;
-        NSString *message = [NSString stringWithFormat:@"%ld %d", (long)randStatus, typeDevice];
+        NSString *message = [NSString stringWithFormat:@"%ld %ld", (long)randStatus, (long)typeDevice];
         
         
         NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[message
                                                                                dataUsingEncoding:NSUTF8StringEncoding]];
+        messageNetwork.type = MESSAGE_RANDOM;
     
         NSError *err;
         

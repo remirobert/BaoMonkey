@@ -16,8 +16,9 @@ typedef enum : NSUInteger {
 } MultiplayerStatus;
 
 typedef enum : NSUInteger {
-    IPHONE,
-    IPAD
+    IPAD_TYPE,
+    IPHONE_TYPE,
+    NONE_TYPE
 } DeviceType;
 
 @interface MultiplayerData : NSObject

@@ -18,8 +18,18 @@
     if (msg.type == MESSAGE_POSITION_MONKEY) {
         NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
         
-        monkeyMultiplayer.sprite.position = CGPointMake([message floatValue],
-                                                        monkey.sprite.position.y);
+        if (IPAD && [MultiplayerData data].typeDevice == IPHONE_TYPE) {
+            monkeyMultiplayer.sprite.position = CGPointMake([message floatValue] * 2,
+                                                            monkey.sprite.position.y);
+        }
+        else if (!IPAD && [MultiplayerData data].typeDevice == IPAD_TYPE) {
+            monkeyMultiplayer.sprite.position = CGPointMake([message floatValue] / 2,
+                                                            monkey.sprite.position.y);
+        }
+        else {
+            monkeyMultiplayer.sprite.position = CGPointMake([message floatValue],
+                                                            monkey.sprite.position.y);
+        }
         NSLog(@"receive data");
     }
 }
