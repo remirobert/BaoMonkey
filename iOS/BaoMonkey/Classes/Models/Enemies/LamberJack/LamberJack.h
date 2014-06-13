@@ -25,9 +25,5 @@
 -(void)startChopping;
 -(void)stopChopping;
 -(void)startDead;
--(void)updatePosition:(NSArray*)choppingSlots;
--(int)findFreeSlot:(NSArray*)choppingSlots;
--(void)freeTheSlot:(NSArray*)choppingSlots;
--(BOOL)reachedTheMiddle:(NSArray*)choppingSlots;
 
 @end

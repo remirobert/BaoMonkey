@@ -38,7 +38,8 @@
 }
 
 -(void)createButtons {
-    [self addChild:[BaoButton pause]];
+    if ([MultiplayerData data].isMultiplayer == NO)
+        [self addChild:[BaoButton pause]];
 }
 
 -(void)updateTrunkTexture{
@@ -173,6 +174,7 @@
         monkeyMultiplayer = [[Monkey alloc] initWithPosition:[BaoPosition monkey]];
         [self addChild:monkeyMultiplayer.sprite];
         [self addChild:monkeyMultiplayer.collisionMask];
+        [MultiplayerData data].gameScene = self;
     }
 }
 
@@ -339,7 +341,6 @@
     [monkey updateMonkeyPosition:[GameController getAcceleration]];    
     
     [self handleMultiplayer];
-    
     [enemiesController updateEnemies:currentTime];
     
     for (id item in _wave) {
@@ -357,10 +358,10 @@
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
-            //[leafTransition runGameOverTransition];
             if (!monkey.isShield) {
                 [GameCenter getBestScorePlayer];
                 [monkey deadMonkey];
+                [monkeyMultiplayer deadMonkey];
                 if (![GameData isGameOver])
                     [self sendGameOverGame];
                     [self gameOverCountDown];
@@ -421,9 +422,11 @@
     }
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
     
-    if (oldLevel != [GameData getLevel]) {
-        if (oldLevel == STEP_TANK_BOSS) {
-            [self loadTankScene];
+    if ([MultiplayerData data].isMultiplayer == NO) {
+        if (oldLevel != [GameData getLevel]) {
+            if (oldLevel == STEP_TANK_BOSS) {
+                [self loadTankScene];
+            }
         }
     }
 }

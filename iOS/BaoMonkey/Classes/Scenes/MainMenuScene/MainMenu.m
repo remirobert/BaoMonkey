@@ -25,25 +25,9 @@
     
     if (self != nil) {
         self.backgroundColor = [SKColor redColor];
-        
-        static bool onceToken = TRUE;
-        if (onceToken) {
-            [self displayLoadingScreen];
-            [self performSelector:@selector(initMainMenu) withObject:nil afterDelay:2.0];
-            onceToken = FALSE;
-        }
-        else {
-            [self initMainMenu];
-        }
-
+        [self initMainMenu];
     }
     return (self);
-}
-
-- (void)displayLoadingScreen {
-    SKSpriteNode *splashScreenNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"LaunchImage-700-568h"]];
-    splashScreenNode.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-    [self addChild:splashScreenNode];
 }
 
 -(void)initMainMenu {
@@ -154,12 +138,14 @@
         [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self] transition:[SKTransition fadeWithDuration:1.0]];
     }
     else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
-        // Launch GameCenter
-    } else if ([node.name isEqualToString:SHARE_NODE_NAME]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SHOW_GAME_CENTER object:nil];
+        [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-game-center"]];
+    }
+    else if ([node.name isEqualToString:SHARE_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_share" object:nil];
-    } else if ([node.name isEqualToString:INFOS_NODE_NAME]) {
+    }
+    else if ([node.name isEqualToString:INFOS_NODE_NAME]) {
         [self.view presentScene:[[Credit alloc] initWithSize:self.size andParentScene:self] transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:2.0]];
-        // Launch Infos
     }
     [self deselectButtons];
 }

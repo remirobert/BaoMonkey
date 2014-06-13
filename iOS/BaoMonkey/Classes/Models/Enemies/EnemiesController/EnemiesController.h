@@ -31,8 +31,8 @@
 @property (nonatomic, strong) NSMutableArray *enemies;
 
 -(id)initWithScene:(SKScene*)_scene;
--(void)initChoppingSlots;
 -(void)updateEnemies:(CFTimeInterval)currentTime;
 -(void)deleteEnemy:(Enemy*)enemy;
+-(void)addFloor;
 
 @end

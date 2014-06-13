@@ -15,6 +15,8 @@
 #import "PreloadData.h"
 #import "BaoSize.h"
 #import "BaoPosition.h"
+#import "MultiplayerData.h"
+#import "NetworkMessage.h"
 
 @implementation EnemiesController
 
@@ -31,46 +33,25 @@
         numberOfFloors = 0;
         numberHunter = 0;
         numberClimber = 0;
-        [self initChoppingSlots];
         [self initFloorsPosition];
     }
     return self;
 }
 
--(void)initChoppingSlots {
-    choppingSlots = [[NSMutableArray alloc] init];
-    CGFloat spaceDistance;
-    CGSize lamberSize = [BaoSize lamberJack];
-    
-    spaceDistance = lamberSize.width;
-    for (int i = 0; i < 3 ; i++) {
-        NSMutableDictionary *tmp = [[NSMutableDictionary alloc]
-                                    initWithObjectsAndKeys:@"FREE", @"LEFT", @"FREE", @"RIGHT",
-                                    [[NSNumber alloc]
-                                     initWithFloat:(spaceDistance + (spaceDistance * i))], @"posX", nil];
-        [choppingSlots addObject:tmp];
-    }
-}
-
 #pragma mark - Enemy Controller
 
 -(Direction)chooseDirection {
-    NSUInteger numberLeft = 0;
-    NSUInteger numberRight = 0;
-    
     for (Enemy *enemy in enemies) {
         if (enemy.type == EnemyTypeLamberJack) {
-            if (enemy.direction == LEFT)
-                numberLeft++;
-            else if (enemy.direction == RIGHT)
-                numberRight++;
+            if (enemy.direction == LEFT) {
+                return RIGHT;
+            }
+            else if (enemy.direction == RIGHT) {
+                return LEFT;
+            }
         }
     }
-    if (numberRight == numberLeft)
-        return arc4random() % 2 ? LEFT : RIGHT;
-    else if (numberRight < numberLeft)
-        return RIGHT;
-    return LEFT;
+    return arc4random() % 2 ? LEFT : RIGHT;
 }
 
 -(void)addLamberJack {
@@ -80,6 +61,22 @@
 
     [enemies addObject:newLamberJack];
     [scene addChild:newLamberJack.node];
+    
+    if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == HOST) {
+        NSString *messageStr;
+        
+        if (newLamberJack.direction == LEFT)
+            messageStr = @"LL";
+        else if (newLamberJack.direction == RIGHT)
+            messageStr = @"LR";
+        NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        messageNetwork.type = MESSAGE_NEW_ENEMY;
+        
+        [[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:messageNetwork]
+                                     toPlayers:[MultiplayerData data].match.playerIDs
+                                  withDataMode:GKMatchSendDataUnreliable error:nil];
+    }
 }
 
 -(void)addClimber {
@@ -92,6 +89,21 @@
     
     [enemies addObject:newClimber];
     [scene addChild:newClimber.node];
+    if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == HOST) {
+        NSString *messageStr;
+        
+        if (newClimber.direction == LEFT)
+            messageStr = @"CL";
+        else if (newClimber.direction == RIGHT)
+            messageStr = @"CR";
+        NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        messageNetwork.type = MESSAGE_NEW_ENEMY;
+        
+        [[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:messageNetwork]
+                                     toPlayers:[MultiplayerData data].match.playerIDs
+                                  withDataMode:GKMatchSendDataUnreliable error:nil];
+    }
 }
 
 -(void)addHunter {
@@ -111,6 +123,18 @@
     
     [enemies addObject:newHunter];
     [scene addChild:newHunter.node];
+    if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == HOST) {
+        NSString *messageStr;
+        
+        messageStr = [NSString stringWithFormat:@"H%d%d", hunterFloor, positionHunterInSlot];
+        NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        messageNetwork.type = MESSAGE_NEW_ENEMY;
+        
+        [[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:messageNetwork]
+                                     toPlayers:[MultiplayerData data].match.playerIDs
+                                  withDataMode:GKMatchSendDataUnreliable error:nil];
+    }
 }
 
 -(NSUInteger)countOfEnemyType:(EnemyType)_type
@@ -125,6 +149,11 @@
 }
 
 -(void)updateEnemies:(CFTimeInterval)currentTime {
+
+    if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == GUEST) {
+        return ;
+    }
+    
     if ([self countOfEnemyType:EnemyTypeLamberJack] < MAX_LUMBERJACK && ((timeForAddLamberJack <= currentTime) || (timeForAddLamberJack == 0))) {
         float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
         [self addLamberJack];
@@ -135,8 +164,18 @@
     {
         if ([GameData getLevel] % 2 == 0) {
             if ((numberOfFloors == 0 || numberOfFloors * 2 < [GameData getLevel])) {
+                
+                NSString *messageStr = [NSString stringWithFormat:@"floor"];
+                
+                NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
+                
+                messageNetwork.type = MESSAGE_COMMAND;
+                
+                [[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:messageNetwork]
+                                             toPlayers:[MultiplayerData data].match.playerIDs
+                                          withDataMode:GKMatchSendDataUnreliable error:nil];
+                
                 [self addFloor];
-                numberHunter += 1;
             }
         }
 
@@ -144,7 +183,6 @@
             if ([GameData getLevel] / 2 % 2 == 0)
                 numberClimber = (int)[GameData getLevel] / 2;
         }
-        
         
         if ([self countOfEnemyType:EnemyTypeClimber] < numberClimber && ((timeForAddClimber <= currentTime) || (timeForAddClimber == 0))){
             float randomFloat = (8.5 + ((float)arc4random() / (0x100000000 / (3.0 + 2 - 2.5))));
@@ -159,19 +197,13 @@
             timeForAddHunter = currentTime + randomFloat;
         }
     }
-    
-    for (Enemy *enemy in enemies) {
-        if (enemy.type == EnemyTypeLamberJack)
-            [(LamberJack*)enemy updatePosition:choppingSlots];
-    }
 }
 
--(void)deleteEnemy:(Enemy*)enemy {    
+-(void)deleteEnemy:(Enemy*)enemy {
     if (enemy.type == EnemyTypeLamberJack) {
         LamberJack *lamber;
         lamber = (LamberJack*)enemy;
         [lamber stopChopping];
-        [lamber freeTheSlot:choppingSlots];
         [lamber startDead];
         [lamber.node runAction:[PreloadData getDataWithKey:DATA_COCONUT_SOUND]];
         [GameData addPointToScore:10];
@@ -201,6 +233,7 @@
     
     if (numberOfFloors >= MAX_FLOOR)
         return ;
+     numberHunter += 1;
     numberOfFloors++;
     SKSpriteNode *floor = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_PLATEFORM] size:[BaoSize plateform]];
     if (numberOfFloors % 2 != 0)
@@ -215,6 +248,7 @@
         floor.position = CGPointMake(screen.size.width + (FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
         slide = [SKAction moveToX:(screen.size.width - (floor.size.width / 2)) duration:0.5];
     }
+    
     [scene addChild:floor];
     [floor runAction:slide];
 }

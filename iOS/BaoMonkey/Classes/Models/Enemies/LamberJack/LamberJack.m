@@ -11,17 +11,16 @@
 #import "BaoSize.h"
 #import "PreloadData.h"
 
-# define FLOOR_HEIGHT 22
-
 @implementation LamberJack
 
 @synthesize isChooping;
 
 -(id)initWithDirection:(Direction)_direction {
+    self = [super init];
     CGRect screen = [UIScreen mainScreen].bounds;
     CGPoint position;
-    
-    self = [super init];
+    CGFloat middleScreen;
+
     if (self) {
         self.direction = _direction;
         self.type = EnemyTypeLamberJack;
@@ -33,35 +32,25 @@
         {
             node.xScale = -1;
             position.x = screen.size.width + (node.size.width / 2);
+            middleScreen = (SCREEN_WIDTH / 2) + (node.size.width / 2);
         }
         else
         {
             node.xScale = 1;
             position.x = -(node.size.width / 2);
+            middleScreen = (SCREEN_WIDTH / 2) - (node.size.width / 2);
         }
         node.name = ENEMY_NODE_NAME;
         position.y = node.size.height / 2 + FLOOR_HEIGHT;
-        [node setPosition:position];
+        node.position = position;
+        [self startWalking];
+        SKAction *walking = [SKAction moveToX:middleScreen duration:4.0];
+        [node runAction:walking completion:^{
+            [self startChopping];
+            [self stopWalking];
+        }];
     }
     return self;
-}
-
--(void)updatePosition:(NSArray*)choppingSlots{
-    if (!isChooping && [self reachedTheMiddle:choppingSlots]) {
-        [self startChopping];
-        [self stopWalking];
-    }
-    if (!isChooping){
-        if (self.direction == LEFT)
-        {
-            [node setPosition:CGPointMake(node.position.x - speed, node.position.y)];
-        }
-        else if (self.direction == RIGHT)
-        {
-            [node setPosition:CGPointMake(node.position.x + speed, node.position.y)];
-        }
-        [self startWalking];
-    }
 }
 
 -(void)startWalking {
@@ -127,48 +116,6 @@
             }];
         }
     }
-}
-
--(int)findFreeSlot:(NSArray*)choppingSlots {
-    int i = 0;
-    NSString *directionKey = [self directionKey];
-    
-    for (NSMutableDictionary *slot in choppingSlots) {
-        if ([[slot objectForKey:directionKey] isEqualToString:@"FREE"]) {
-            if ((MAX_LUMBERJACK / 4) == i)
-                self.node.zPosition = 20;
-            else
-                self.node.zPosition = 10;
-            return i;
-        }
-        i++;
-    }
-    return -1;
-}
-
--(void)freeTheSlot:(NSArray*)choppingSlots {
-    NSString *directionKey = [self directionKey];
-    
-    [[choppingSlots objectAtIndex:self.slotTaken] setObject:@"FREE" forKey:directionKey];
-}
-
--(BOOL)reachedTheMiddle:(NSArray*)choppingSlots {
-    NSString *directionKey = [self directionKey];
-    CGRect screen = [UIScreen mainScreen].bounds;
-    int freeSlot = 0;
-    float spaceSlot = 0;
-    
-    freeSlot = [self findFreeSlot:choppingSlots];
-    if (freeSlot != -1)
-        spaceSlot = [[[choppingSlots objectAtIndex:freeSlot] objectForKey:@"posX"] floatValue];
-    
-    if (self.direction == LEFT && ((self.node.position.x - spaceSlot) > (screen.size.width / 2)))
-        return FALSE;
-    else if (self.direction == RIGHT && ((self.node.position.x + spaceSlot) < (screen.size.width / 2)))
-        return FALSE;
-    [[choppingSlots objectAtIndex:freeSlot] setObject:@"TAKEN" forKey:directionKey];
-    self.slotTaken = freeSlot;
-    return TRUE;
 }
 
 @end
