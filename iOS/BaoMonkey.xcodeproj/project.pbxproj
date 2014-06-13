@@ -101,6 +101,7 @@
 		3F595EA2193FB64400150ED8 /* LamberJack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F595E97193FB64400150ED8 /* LamberJack.m */; };
 		3F595EA3193FB64400150ED8 /* LamberJackMachine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F595E9A193FB64400150ED8 /* LamberJackMachine.m */; };
 		3F595EA4193FB64400150ED8 /* Tank.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F595E9D193FB64400150ED8 /* Tank.m */; };
+		3F7F3AF5194BA4B200EA7D91 /* BaoFontSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7F3AF4194BA4B200EA7D91 /* BaoFontSize.m */; };
 		3F99D50F193FB2F40054AC9B /* BaoButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F99D50B193FB2F40054AC9B /* BaoButton.m */; };
 		3F99D510193FB2F40054AC9B /* BaoSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F99D50E193FB2F40054AC9B /* BaoSize.m */; };
 		3FB2A493191B79900027B2C7 /* banana@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A491191B79900027B2C7 /* banana@2x.png */; };
@@ -279,6 +280,8 @@
 		3F595E9C193FB64400150ED8 /* Tank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tank.h; sourceTree = "<group>"; };
 		3F595E9D193FB64400150ED8 /* Tank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tank.m; sourceTree = "<group>"; };
 		3F7D436D191A3E3F00DF30D6 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		3F7F3AF3194BA4B200EA7D91 /* BaoFontSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaoFontSize.h; path = Classes/Helpers/BaoFontSize/BaoFontSize.h; sourceTree = "<group>"; };
+		3F7F3AF4194BA4B200EA7D91 /* BaoFontSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaoFontSize.m; path = Classes/Helpers/BaoFontSize/BaoFontSize.m; sourceTree = "<group>"; };
 		3F99D50A193FB2F40054AC9B /* BaoButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaoButton.h; sourceTree = "<group>"; };
 		3F99D50B193FB2F40054AC9B /* BaoButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoButton.m; sourceTree = "<group>"; };
 		3F99D50D193FB2F40054AC9B /* BaoSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaoSize.h; sourceTree = "<group>"; };
@@ -832,6 +835,7 @@
 		3F50F12519194EE000A37F85 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3F7F3AF2194BA49700EA7D91 /* BaoFontSize */,
 				3FD4B6551940A7E600455FBE /* BaoPosition */,
 				3F99D509193FB2F40054AC9B /* BaoButton */,
 				3F99D50C193FB2F40054AC9B /* BaoSize */,
@@ -934,6 +938,15 @@
 			);
 			name = Tank;
 			path = Classes/Models/Enemies/Tank;
+			sourceTree = "<group>";
+		};
+		3F7F3AF2194BA49700EA7D91 /* BaoFontSize */ = {
+			isa = PBXGroup;
+			children = (
+				3F7F3AF3194BA4B200EA7D91 /* BaoFontSize.h */,
+				3F7F3AF4194BA4B200EA7D91 /* BaoFontSize.m */,
+			);
+			name = BaoFontSize;
 			sourceTree = "<group>";
 		};
 		3F99D509193FB2F40054AC9B /* BaoButton */ = {
@@ -1339,6 +1352,7 @@
 				3F36C4B2193FB807009D371D /* GameController.m in Sources */,
 				3F36C4B6193FB807009D371D /* Shield.m in Sources */,
 				10AE0B27194886D100D93926 /* MultiplayerData.m in Sources */,
+				3F7F3AF5194BA4B200EA7D91 /* BaoFontSize.m in Sources */,
 				3F36C4B4193FB807009D371D /* Action.m in Sources */,
 				3FC52F5F193FB54600DCDCB7 /* MainMenu.m in Sources */,
 				3F36C4BF193FB807009D371D /* PreloadData.m in Sources */,
