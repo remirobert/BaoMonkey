@@ -122,6 +122,7 @@
         monkeyMultiplayer = [[Monkey alloc] initWithPosition:[BaoPosition monkey]];
         [self addChild:monkeyMultiplayer.sprite];
         [self addChild:monkeyMultiplayer.collisionMask];
+        [MultiplayerData data].gameScene = self;
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 #import <GameKit/GameKit.h>
 
 typedef enum : NSUInteger {
@@ -26,6 +27,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) GKMatch *match;
 @property (nonatomic, assign) MultiplayerStatus status;
 @property (nonatomic, assign) DeviceType typeDevice;
+@property (nonatomic, strong) SKScene *gameScene;
 
 @property (nonatomic, assign) BOOL isConnected;
 @property (nonatomic, assign) BOOL isMultiplayer;

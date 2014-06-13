@@ -19,6 +19,7 @@
         multiplayer.status = NONE;
         multiplayer.isMultiplayer = NO;
         multiplayer.typeDevice = NONE_TYPE;
+        multiplayer.gameScene = nil;
     }
     
     return (multiplayer);

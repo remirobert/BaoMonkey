@@ -66,6 +66,7 @@
             if ([message isEqualToString:@"catch"]) {
                 if (monkeyMultiplayer.weapon == nil) {
                     CocoNuts *coco = [[CocoNuts alloc] initWithPosition:monkeyMultiplayer.sprite.position];
+                    [[MultiplayerData data].gameScene addChild:coco.node];
                     coco.isTaken = YES;
                     coco.node.hidden = YES;
                     monkeyMultiplayer.weapon = coco;
