@@ -362,6 +362,7 @@
             if (!monkey.isShield) {
                 [GameCenter getBestScorePlayer];
                 [monkey deadMonkey];
+                [monkeyMultiplayer deadMonkey];
                 if (![GameData isGameOver])
                     [self sendGameOverGame];
                     [self gameOverCountDown];
