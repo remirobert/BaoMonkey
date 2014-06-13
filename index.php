@@ -18,7 +18,7 @@
                     <ul class="list-inline">
                         <li><a href="team.php">Team</a></li>
                         <li><a href="press.php">PressKit</a></li>
-                        <li><a href="terms.php">Terms of use</a></li>
+                        <li><a href="conditions.php">Terms of use</a></li>
                         <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </div>

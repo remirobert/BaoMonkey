@@ -1,7 +1,4 @@
-/*
- * Globals
- */
-
+/* Globals */
 * {
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -15,24 +12,10 @@ a:hover {
   color: #fff;
 }
 
-/* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
-}
-
-
-/*
- * Base structure
- */
-
+/* Base structure */
 html,
 body {
-  background: url(../assets/background/bg.png) no-repeat left fixed;
+    background: url(../assets/background/bg.png) no-repeat left fixed;
         -webkit-background-size: cover; /* pour Chrome et Safari */
         -moz-background-size: cover; /* pour Firefox */
         -o-background-size: cover; /* pour Opera */
@@ -40,11 +23,12 @@ body {
     position: relative;
     overflow: hidden;
     height: 100%;
-  -webkit-transition:all 700ms cubic-bezier(.4,.1,.4,1) 200ms;
-      -moz-transition:all 700ms cubic-bezier(.4,.1,.4,1) 200ms;
-      -o-transition:all 700ms cubic-bezier(.4,.1,.4,1) 200ms;
+        -webkit-transition:all 700ms cubic-bezier(.4,.1,.4,1) 200ms;
+        -moz-transition:all 700ms cubic-bezier(.4,.1,.4,1) 200ms;
+        -o-transition:all 700ms cubic-bezier(.4,.1,.4,1) 200ms;
     transition:all 700ms cubic-bezier(.4,.1,.4,1) 200ms
 }
+
 body {
   color: #fff;
   text-align: center;
@@ -73,10 +57,7 @@ body {
   padding: 30px;
 }
 
-
-/*
- * Header
- */
+/** Header */
 .masthead-brand {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -119,10 +100,7 @@ body {
 }
 
 
-/*
- * Cover
- */
-
+/* Cover */
 .cover {
   padding: 0 20px;
 }
@@ -131,11 +109,7 @@ body {
   font-weight: bold;
 }
 
-
-/*
- * Footer
- */
-
+/* Footer */
 .mastfoot {
   color: #999; /* IE8 proofing */
   color: rgba(255,255,255,.5);
@@ -145,11 +119,9 @@ body {
   padding-top: 5px;
   opacity: 0.7 
 }
-
 .mastfoot ul li a {
     text-decoration: none;
 }
-
 
 /*
  * Affix and center
