@@ -7,23 +7,17 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "background-center-iphone-iphone-3.5@2x.png"
-    },
-    {
-      "idiom" : "iphone",
-      "filename" : "background-center-iphone@2x.png",
-      "subtype" : "retina4",
-      "scale" : "2x"
+      "filename" : "back-leaf-iphone@2x.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "1x",
-      "filename" : "background-center-ipad.png"
+      "filename" : "back-leaf-ipad.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "2x",
-      "filename" : "background-center-ipad@2x.png"
+      "filename" : "back-leaf-ipad@2x.png"
     }
   ],
   "info" : {

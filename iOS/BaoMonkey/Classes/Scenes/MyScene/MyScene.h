@@ -35,11 +35,11 @@
     Monkey *monkeyMultiplayer;
     EnemiesController *enemiesController;
     GameController *gc;
-    ProgressBar *trunkProgressLife;
     SKLabelNode *score;
     dispatch_once_t oncePause;
     dispatch_once_t oncePlay;
     SKTransition *menuTransition;
+    SKSpriteNode *trunk;
 }
 
 @property (nonatomic) int sizeBlock;

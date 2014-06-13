@@ -31,6 +31,30 @@
     [[NSBundle mainBundle] pathForResource:@"fire" ofType:@"sks"];
 }
 
+#pragma mark - POSITION WITH SCREEN
+
++(CGPoint)middleScreen {
+    return CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
+}
+
++(CGPoint)leftCenter{
+    return CGPointMake(0, (SCREEN_HEIGHT / 2));
+}
+
++(CGPoint)rightCenter{
+    return CGPointMake(SCREEN_WIDTH, (SCREEN_HEIGHT / 2));
+}
+
+#pragma mark - TRUNK, FRONT LEAFS, BACK LEAFS
+
++(CGPoint)frontLeafs:(CGSize)size{
+    return CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (size.height / 2)));
+}
+
++(CGPoint)backLeafs:(CGSize)size{
+    return CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (size.height / 2)));
+}
+
 #pragma mark - BIG BUTTON
 
 +(CGPoint)bigButtonPlay{
