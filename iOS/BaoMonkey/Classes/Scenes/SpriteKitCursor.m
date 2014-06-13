@@ -13,7 +13,7 @@
 @synthesize currentValue = _currentValue;
 
 - (void) initSprite:(CGSize)size position:(CGPoint)position {
-    _background = [[SKSpriteNode alloc] initWithColor:[SKColor redColor] size:size];
+    _background = [[SKSpriteNode alloc] initWithColor:[SKColor clearColor] size:size];
     _background.position = position;
     _background.zPosition = 50;
     
@@ -68,8 +68,7 @@
         _cursor.position = CGPointMake(_background.position.x + (_background.size.width / 2) - (_cursor.frame.size.width / 2), _cursor.position.y);
 
     _foreground.size = CGSizeMake((_cursor.position.x - (_background.position.x -
-                                                  _background.size.width / 2) -
-                           (_cursor.size.width / 2)), _foreground.size.height);
+                                                  _background.size.width / 2)), _foreground.size.height);
 
     _foreground.position = CGPointMake((_foreground.size.width  / 2) + (_background.position.x - _background.size.width / 2), _foreground.position.y);
 }

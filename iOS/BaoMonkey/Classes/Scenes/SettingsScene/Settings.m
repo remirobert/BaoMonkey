@@ -8,6 +8,7 @@
 
 #import "Settings.h"
 #import "Define.h"
+#import "BaoPosition.h"
 #import "SpriteKitCursor.h"
 #import "GameData.h"
 #import "UserData.h"
@@ -20,36 +21,30 @@
 @property (nonatomic, strong) SpriteKitCursor *cursorAccelerometer;
 @property (nonatomic, strong) id currentCursorClicked;
 @property (nonatomic, strong) SKScene *parentScene;
+@property (nonatomic, assign) CGPoint prevLocationCursor;
 @end
 
 @implementation Settings
 
 - (void) customCursor {
-    [_cursorAccelerometer setCursorTexture:[UIImage imageNamed:@"selector-slider@2x"] withSize:CGSizeMake(25, 25)];
-    [_cursorVolumeMusic setCursorTexture:[UIImage imageNamed:@"selector-slider@2x"] withSize:CGSizeMake(25, 25)];
-    [_cursorVolumeSound setCursorTexture:[UIImage imageNamed:@"selector-slider@2x"] withSize:CGSizeMake(25, 25)];
+    [_cursorAccelerometer setCursorTexture:[UIImage imageNamed:@"cursor-settings"]];
+    [_cursorVolumeMusic setCursorTexture:[UIImage imageNamed:@"cursor-settings"]];
+    [_cursorVolumeSound setCursorTexture:[UIImage imageNamed:@"cursor-settings"]];
     
-    [_cursorAccelerometer setBackgroundTexture:[UIImage imageNamed:@"front-slider@2x"]];
-    [_cursorVolumeSound setBackgroundTexture:[UIImage imageNamed:@"front-slider@2x"]];
-    [_cursorVolumeMusic setBackgroundTexture:[UIImage imageNamed:@"front-slider@2x"]];
-    
-    [_cursorAccelerometer setForegroundTexture:[UIImage imageNamed:@"back-slider@2x"]];
-    [_cursorVolumeMusic setForegroundTexture:[UIImage imageNamed:@"back-slider@2x"]];
-    [_cursorVolumeSound setForegroundTexture:[UIImage imageNamed:@"back-slider@2x"]];
+    [_cursorAccelerometer setBackgroundTexture:[UIImage imageNamed:@"progress-settings"]];
+    [_cursorVolumeSound setBackgroundTexture:[UIImage imageNamed:@"progress-settings"]];
+    [_cursorVolumeMusic setBackgroundTexture:[UIImage imageNamed:@"progress-settings"]];
 }
 
 - (void) initCursor {
-    _cursorVolumeSound = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, 25)
-                                                      position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-                                                                           [UIScreen mainScreen].bounds.size.height / 2 + 100)];
+    _cursorVolumeSound = [[SpriteKitCursor alloc] initWithSize:CGSizeMake(180, 22.5f)
+                                                      position:CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 168.5f)];
     
-    _cursorVolumeMusic = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, 25)
-                                                      position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-                                                                           [UIScreen mainScreen].bounds.size.height / 2)];
+    _cursorVolumeMusic = [[SpriteKitCursor alloc] initWithSize:CGSizeMake(180, 22.5f)
+                                                      position:CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 234.5f)];
     
-    _cursorAccelerometer = [[SpriteKitCursor alloc] initWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width / 2, 25)
-                                                        position:CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-                                                                             [UIScreen mainScreen].bounds.size.height / 2 - 100)];
+    _cursorAccelerometer = [[SpriteKitCursor alloc] initWithSize:CGSizeMake(180, 22.5f)
+                                                        position:CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 300)];
     
     [_cursorVolumeMusic setCurrentValue:[UserData getMusicUserVolume] * 100];
     [_cursorVolumeSound setCurrentValue:[UserData getSoundEffectsUserVolume] * 100];
@@ -58,21 +53,20 @@
 }
 
 - (void) initButton {
-    SKLabelNode * homeButton = [[SKLabelNode alloc] init];
-    
-    homeButton.text = @"back";
-    homeButton.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-                                      [UIScreen mainScreen].bounds.size.height / 2 - 200);
-    homeButton.name = @"back";
-    
-    [self addChild:homeButton];
+    SKSpriteNode *backButton = [[SKSpriteNode alloc] initWithImageNamed:@"back-button-settings"];
+    backButton.position = CGPointMake(SCREEN_WIDTH - 150, SCREEN_HEIGHT - 440);
+    backButton.name = @"back";
+    [self addChild:backButton];
 }
 
 - (instancetype) initWithSize:(CGSize)size withParentScene:(SKScene *)parentScene {
     self = [super initWithSize:size];
     
     if (self != nil) {
-        self.backgroundColor = [SKColor blueColor];
+        
+        SKSpriteNode *background = [[SKSpriteNode alloc] initWithImageNamed:@"background-settings"];
+        background.position = [BaoPosition middleScreen];
+        [self addChild:background];
         
         [self initCursor];
         
@@ -108,6 +102,7 @@
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    _prevLocationCursor = ((SpriteKitCursor *)_currentCursorClicked).cursor.position;
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];
 
@@ -117,6 +112,12 @@
         [_cursorVolumeMusic updatePositionCursorWithLocation:location];
     else if ([_currentCursorClicked isEqual:_cursorVolumeSound])
         [_cursorVolumeSound updatePositionCursorWithLocation:location];
+    
+    if (location.x - _prevLocationCursor.x > 0) {
+        [((SpriteKitCursor *)_currentCursorClicked).cursor runAction:[SKAction rotateByAngle:-0.1f duration:0.1f]];
+    } else if (location.x - _prevLocationCursor.x < 0) {
+        [((SpriteKitCursor *)_currentCursorClicked).cursor runAction:[SKAction rotateByAngle:0.1f duration:0.1f]];
+    }
 }
 
 - (void) updateMusicUserVolume {

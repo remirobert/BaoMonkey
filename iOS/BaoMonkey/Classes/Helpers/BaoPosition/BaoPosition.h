@@ -17,6 +17,12 @@
 +(CGFloat)getBetweenPlateforme;
 +(NSString *)pathFireTank;
 
+#pragma mark - POSITION WITH SCREEN
+
++(CGPoint)middleScreen;
++(CGPoint)leftCenter;
++(CGPoint)rightCenter;
+
 #pragma mark - TRUNK, FRONT LEAFS, BACK LEAFS
 
 +(CGPoint)frontLeafs:(CGSize)size;
