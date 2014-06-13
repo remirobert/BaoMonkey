@@ -9,6 +9,7 @@
 #import "MyScene+Multiplayer.h"
 #import "NetworkMessage.h"
 #import "MultiplayerData.h"
+#import "CocoNuts.h"
 
 @implementation MyScene (Multiplayer)
 
@@ -61,6 +62,16 @@
                 [monkey deadMonkey];
                 [self gameOverCountDown];
             }
+
+            if ([message isEqualToString:@"catch"]) {
+                if (monkeyMultiplayer.weapon == nil) {
+                    CocoNuts *coco = [[CocoNuts alloc] initWithPosition:monkeyMultiplayer.sprite.position];
+                    coco.isTaken = YES;
+                    coco.node.hidden = YES;
+                    monkeyMultiplayer.weapon = coco;
+                }
+            }
+            
             break;
         }
             

@@ -26,13 +26,13 @@
 @synthesize weapon;
 @synthesize isShield;
 
-- (void) sendAnimationMultiplayer:(NSString *)animation {
+- (void) sendAnimationMultiplayer:(NSString *)animation :(NetworkMessageType)type{
     
     if ([MultiplayerData data].isConnected == NO || [MultiplayerData data].isMultiplayer == NO)
         return ;
     
     NetworkMessage *message = [[NetworkMessage alloc] initWithData:[animation dataUsingEncoding:NSUTF8StringEncoding]];
-    message.type = MESSAGE_MONKEY_ANIMATION;
+    message.type = type;
     
     [[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:message]
                                  toPlayers:[MultiplayerData data].match.playerIDs
@@ -123,13 +123,13 @@
     
     [sprite removeAllActions];
     if (weapon == nil) {
-        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"stopFrames"]];
+        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"stopFrames"] :MESSAGE_MONKEY_ANIMATION];
         [sprite runAction:[SKAction
                            repeatActionForever:[SKAction animateWithTextures:stopFrames
                                                                          timePerFrame:0.1 resize:NO restore:NO]]];
     }
     else {
-        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"stopCocoFrames"]];
+        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"stopCocoFrames"] :MESSAGE_MONKEY_ANIMATION];
         [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopCocoframes timePerFrame:0.1 resize:NO restore:NO]]];
     }
 }
@@ -152,13 +152,13 @@
         [self moveActionWalking];
         
         if (acceleration < 0) {
-            [self sendAnimationMultiplayer:[NSString stringWithFormat:@"walking %f", -1.0]];
+            [self sendAnimationMultiplayer:[NSString stringWithFormat:@"walking %f", -1.0] :MESSAGE_MONKEY_ANIMATION];
                 [self moveActionWalking];
             oldAcceleration = -1;
             sprite.xScale = -1.0;
         }
         else if (acceleration > 0) {
-                [self sendAnimationMultiplayer:[NSString stringWithFormat:@"walking %f", 1.0]];
+                [self sendAnimationMultiplayer:[NSString stringWithFormat:@"walking %f", 1.0] :MESSAGE_MONKEY_ANIMATION];
                 [self moveActionWalking];
             oldAcceleration = 1;
             sprite.xScale = 1.0;
@@ -167,13 +167,13 @@
     }
     
     if (acceleration == 0) {
-        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"wait"]];
+        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"wait"] :MESSAGE_MONKEY_ANIMATION];
         [self waitMonkey];
         oldAcceleration = 0;
         return ;
     }
     else if (acceleration < 0) {
-        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"walking %f", -1.0]];
+        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"walking %f", -1.0] :MESSAGE_MONKEY_ANIMATION];
         if (oldAcceleration >= 0) {
             [self moveActionWalking];
         }
@@ -181,7 +181,7 @@
         sprite.xScale = -1.0;
     }
     else if (acceleration > 0) {
-        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"walking %f", 1.0]];
+        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"walking %f", 1.0] :MESSAGE_MONKEY_ANIMATION];
         if (oldAcceleration <= 0) {
             [self moveActionWalking];
         }
@@ -283,6 +283,7 @@
             weapon.isTaken = YES;
             weapon.node.hidden = YES;
             [(Item *)item launchAction];
+            [self sendAnimationMultiplayer:@"catch" :MESSAGE_COMMAND];
             [self waitMonkey];
         }
         else
