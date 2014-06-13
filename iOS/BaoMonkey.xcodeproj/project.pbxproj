@@ -49,7 +49,6 @@
 		10C59A161919492C00907493 /* front-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10C59A111919492C00907493 /* front-leaf@2x.png */; };
 		10C59A171919492C00907493 /* tree-branch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10C59A121919492C00907493 /* tree-branch@2x.png */; };
 		10C59A181919492C00907493 /* trunk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10C59A131919492C00907493 /* trunk@2x.png */; };
-		10F24A4D193E27890091972B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F24A4C193E27890091972B /* Images.xcassets */; };
 		2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */; };
 		2919C648192E2CFC00A2F2D1 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2919C645192E2CFC00A2F2D1 /* background@2x.png */; };
 		2950D282192B8DBC00C12A52 /* bottom-leaf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */; };
@@ -120,6 +119,7 @@
 		3FC52F65193FB54600DCDCB7 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F55193FB54600DCDCB7 /* Settings.m */; };
 		3FC52F66193FB54600DCDCB7 /* SpriteKitCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F57193FB54600DCDCB7 /* SpriteKitCursor.m */; };
 		3FC52F67193FB54600DCDCB7 /* TankScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F5A193FB54600DCDCB7 /* TankScene.m */; };
+		3FCEC1C0194AFD0B00C01F40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCEC1BF194AFD0B00C01F40 /* Images.xcassets */; };
 		3FD47EFF192F4EBB0074B256 /* monkey-launch-coconut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EF9192F4EBB0074B256 /* monkey-launch-coconut@2x.png */; };
 		3FD47F00192F4EBB0074B256 /* MonkeyDead.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EFA192F4EBB0074B256 /* MonkeyDead.atlas */; };
 		3FD47F02192F4EBB0074B256 /* monkey-waiting-coconut@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD47EFC192F4EBB0074B256 /* monkey-waiting-coconut@2x.png */; };
@@ -199,7 +199,6 @@
 		10C59A111919492C00907493 /* front-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "front-leaf@2x.png"; sourceTree = "<group>"; };
 		10C59A121919492C00907493 /* tree-branch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tree-branch@2x.png"; sourceTree = "<group>"; };
 		10C59A131919492C00907493 /* trunk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trunk@2x.png"; sourceTree = "<group>"; };
-		10F24A4C193E27890091972B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BaoMonkey.mp3; sourceTree = "<group>"; };
 		2919C645192E2CFC00A2F2D1 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "Background/background@2x.png"; sourceTree = "<group>"; };
 		2950D280192B8DBC00C12A52 /* bottom-leaf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bottom-leaf@2x.png"; path = "Leaf/bottom-leaf@2x.png"; sourceTree = "<group>"; };
@@ -305,6 +304,7 @@
 		3FC52F57193FB54600DCDCB7 /* SpriteKitCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpriteKitCursor.m; path = Classes/Scenes/SpriteKitCursor.m; sourceTree = "<group>"; };
 		3FC52F59193FB54600DCDCB7 /* TankScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TankScene.h; sourceTree = "<group>"; };
 		3FC52F5A193FB54600DCDCB7 /* TankScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TankScene.m; sourceTree = "<group>"; };
+		3FCEC1BF194AFD0B00C01F40 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3FD47EF9192F4EBB0074B256 /* monkey-launch-coconut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monkey-launch-coconut@2x.png"; sourceTree = "<group>"; };
 		3FD47EFA192F4EBB0074B256 /* MonkeyDead.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = MonkeyDead.atlas; sourceTree = "<group>"; };
 		3FD47EFC192F4EBB0074B256 /* monkey-waiting-coconut@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "monkey-waiting-coconut@2x.png"; sourceTree = "<group>"; };
@@ -402,9 +402,9 @@
 			isa = PBXGroup;
 			children = (
 				10C599C7191948A300907493 /* AppDelegate.h */,
-				10F24A4C193E27890091972B /* Images.xcassets */,
 				10C599C8191948A300907493 /* AppDelegate.m */,
 				3F7D436D191A3E3F00DF30D6 /* Define.h */,
+				3FCEC1BF194AFD0B00C01F40 /* Images.xcassets */,
 				10C599CA191948A300907493 /* Main_iPhone.storyboard */,
 				10C599CD191948A300907493 /* Main_iPad.storyboard */,
 				3F50F12119194EB200A37F85 /* Classes */,
@@ -1225,6 +1225,7 @@
 				2950D282192B8DBC00C12A52 /* bottom-leaf@2x.png in Resources */,
 				10C59A171919492C00907493 /* tree-branch@2x.png in Resources */,
 				3F47F9CA192D50F900C36A39 /* HunterDead.atlas in Resources */,
+				3FCEC1C0194AFD0B00C01F40 /* Images.xcassets in Resources */,
 				3F47F9C9192D50F900C36A39 /* hunter-waiting@2x.png in Resources */,
 				104838A8193F887F005D7F8C /* smokeLamberJack.sks in Resources */,
 				3F47F9C1192D41E200C36A39 /* lamber-jack-waiting@2x.png in Resources */,
@@ -1253,7 +1254,6 @@
 				102D554E1936430800D7072D /* petite_tache@2x.png in Resources */,
 				3FB7C492192E866B00801643 /* plateform@2x.png in Resources */,
 				29A3D4CE1938B380003A71DC /* MonkeyMenu.atlas in Resources */,
-				10F24A4D193E27890091972B /* Images.xcassets in Resources */,
 				3FD47F03192F4EBB0074B256 /* monkey-waiting@2x.png in Resources */,
 				108C7E40193CD4E000ADCB85 /* canon@2x.png in Resources */,
 				3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */,
