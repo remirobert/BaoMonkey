@@ -59,5 +59,6 @@
 +(CGPoint)cursorMusicSettings;
 +(CGPoint)cursorSoundEffectsSettings;
 +(CGPoint)cursorAccelerometerSettings;
++(CGPoint)bubblePositionSettings;
 
 @end

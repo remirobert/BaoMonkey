@@ -91,7 +91,7 @@
         [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue];
         [self updateMusicUserVolume];
         [self updateSoundEffectsUserVolume];
-        [self.view presentScene:_parentScene transition:[SKTransition fadeWithDuration:1]];
+        [self.view presentScene:_parentScene transition:[SKTransition pushWithDirection:SKTransitionDirectionDown duration:2.0f]];
 
     }
     if ([_cursorAccelerometer checkCursorClickWithNode:node] == YES)
@@ -163,17 +163,17 @@
     if (currentTime >= timer) {
         SKSpriteNode *bubble = [SKSpriteNode spriteNodeWithImageNamed:[tabImage objectAtIndex:rand() % 3]];
         
-        bubble.position = CGPointMake(((rand() % 10) + (SCREEN_WIDTH / 2 - 120)), ((SCREEN_HEIGHT / 2) - 37));
+        bubble.position = [BaoPosition bubblePositionSettings];
         bubble.zPosition = 100;
         
         [self addChild:bubble];
         
         if (bubble.position.x <= SCREEN_WIDTH / 2) {
-            [bubble runAction:[SKAction moveToY:SCREEN_HEIGHT / 2 + 303 duration:2.0]];
+            [bubble runAction:[SKAction moveToY:(IPAD ? SCREEN_HEIGHT / 2 + 303 : SCREEN_HEIGHT / 2 + 150) duration:2.0]];
             [bubble runAction:[SKAction fadeOutWithDuration:2.0]];
         }
         else {
-            [bubble runAction:[SKAction moveToY:SCREEN_HEIGHT / 2 + 203 duration:1.5]];
+            [bubble runAction:[SKAction moveToY:(IPAD ? SCREEN_HEIGHT / 2 + 203 : SCREEN_HEIGHT / 2 + 100) duration:1.5]];
             [bubble runAction:[SKAction fadeOutWithDuration:1.5]];
         }
         timer = 1.75f + currentTime;

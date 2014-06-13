@@ -133,4 +133,8 @@
     return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 64, SCREEN_HEIGHT / 2 - 37) : CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 300);
 }
 
++(CGPoint)bubblePositionSettings{
+    return IPAD ? CGPointMake(((rand() % 10) + (SCREEN_WIDTH / 2 - 120)), ((SCREEN_HEIGHT / 2) - 37)) : CGPointMake(((rand() % 5) + (SCREEN_WIDTH / 2 - 70)), ((SCREEN_HEIGHT / 2) - 15));
+}
+
 @end
