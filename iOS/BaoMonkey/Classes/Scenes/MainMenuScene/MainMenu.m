@@ -25,25 +25,9 @@
     
     if (self != nil) {
         self.backgroundColor = [SKColor redColor];
-        
-        static bool onceToken = TRUE;
-        if (onceToken) {
-            [self displayLoadingScreen];
-            [self performSelector:@selector(initMainMenu) withObject:nil afterDelay:2.0];
-            onceToken = FALSE;
-        }
-        else {
-            [self initMainMenu];
-        }
-
+        [self initMainMenu];
     }
     return (self);
-}
-
-- (void)displayLoadingScreen {
-    SKSpriteNode *splashScreenNode = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"LaunchImage-700-568h"]];
-    splashScreenNode.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-    [self addChild:splashScreenNode];
 }
 
 -(void)initMainMenu {
