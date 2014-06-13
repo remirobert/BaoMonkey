@@ -35,4 +35,7 @@
 -(void)launchWeapon;
 -(void)deadMonkey;
 
+- (void) moveActionWalking;
+- (void) waitMonkey;
+
 @end

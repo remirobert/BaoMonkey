@@ -12,6 +12,7 @@ typedef enum : NSUInteger {
     MESSAGE_RANDOM,
     MESSAGE_POSITION_MONKEY,
     MESSAGE_COMMAND,
+    MESSAGE_MONKEY_ANIMATION,
     NONE_MESSAGE
 } NetworkMessageType;
 

@@ -10,6 +10,8 @@
 #import "PreloadData.h"
 #import "BaoSize.h"
 #import "GameData.h"
+#import "NetworkMessage.h"
+#import "MultiplayerData.h"
 
 @implementation Monkey {
     NSArray *walkingFrames;
@@ -23,6 +25,19 @@
 @synthesize shield;
 @synthesize weapon;
 @synthesize isShield;
+
+- (void) sendAnimationMultiplayer:(NSString *)animation {
+    
+    if ([MultiplayerData data].isConnected == NO || [MultiplayerData data].isMultiplayer == NO)
+        return ;
+    
+    NetworkMessage *message = [[NetworkMessage alloc] initWithData:[animation dataUsingEncoding:NSUTF8StringEncoding]];
+    message.type = MESSAGE_MONKEY_ANIMATION;
+    
+    [[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:message]
+                                 toPlayers:[MultiplayerData data].match.playerIDs
+                              withDataMode:GKMatchSendDataUnreliable error:nil];
+}
 
 - (void) updateCollisionMask {
     _collisionMask.position = CGPointMake(sprite.position.x - 5, sprite.position.y - 10);
@@ -85,10 +100,13 @@
     
     NSArray *framesWalking;
     
-    if (weapon == nil)
+    [sprite removeAllActions];
+    if (weapon == nil) {
         framesWalking = walkingFrames;
-    else
+    }
+    else {
         framesWalking = walkingCoconutFrames;
+    }
     
     [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:framesWalking
                                                                      timePerFrame:0.1
@@ -102,14 +120,16 @@
         [sprite actionForKey:@"deadMonkey"] != nil) {
         return ;
     }
-
+    
     [sprite removeAllActions];
     if (weapon == nil) {
+        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"stopFrames"]];
         [sprite runAction:[SKAction
                            repeatActionForever:[SKAction animateWithTextures:stopFrames
                                                                          timePerFrame:0.1 resize:NO restore:NO]]];
     }
     else {
+        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"stopCocoFrames"]];
         [sprite runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:stopCocoframes timePerFrame:0.1 resize:NO restore:NO]]];
     }
 }
@@ -132,11 +152,13 @@
         [self moveActionWalking];
         
         if (acceleration < 0) {
+            [self sendAnimationMultiplayer:[NSString stringWithFormat:@"walking %f", -1.0]];
                 [self moveActionWalking];
             oldAcceleration = -1;
             sprite.xScale = -1.0;
         }
         else if (acceleration > 0) {
+                [self sendAnimationMultiplayer:[NSString stringWithFormat:@"walking %f", 1.0]];
                 [self moveActionWalking];
             oldAcceleration = 1;
             sprite.xScale = 1.0;
@@ -145,11 +167,13 @@
     }
     
     if (acceleration == 0) {
+        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"wait"]];
         [self waitMonkey];
         oldAcceleration = 0;
         return ;
     }
     else if (acceleration < 0) {
+        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"walking %f", -1.0]];
         if (oldAcceleration >= 0) {
             [self moveActionWalking];
         }
@@ -157,6 +181,7 @@
         sprite.xScale = -1.0;
     }
     else if (acceleration > 0) {
+        [self sendAnimationMultiplayer:[NSString stringWithFormat:@"walking %f", 1.0]];
         if (oldAcceleration <= 0) {
             [self moveActionWalking];
         }
@@ -241,6 +266,10 @@
 }
 
 #pragma mark - Checking the item receive
+
+- (void) sendCatchWeaponMultiplayer {
+    
+}
 
 -(void)catchItem:(id)item :(SKScene *)scene {
     if ([GameData isGameOver] == YES)

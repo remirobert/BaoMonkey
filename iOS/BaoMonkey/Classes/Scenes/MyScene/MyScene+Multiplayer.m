@@ -12,6 +12,26 @@
 
 @implementation MyScene (Multiplayer)
 
+- (void) monkeyAnimationMultiplayer:(NetworkMessage *)msg {
+    static CGFloat previousXscale = 0.0;
+    
+    NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
+    NSArray *tabMsg = [message componentsSeparatedByString:@" "];
+    
+    if ([message isEqualToString:@"wait"]) {
+        if (previousXscale != 0)
+            [monkeyMultiplayer waitMonkey];
+        previousXscale = 0.0;
+    }
+    else if ([[tabMsg objectAtIndex:0] isEqualToString:@"walking"]) {
+        if ([[tabMsg objectAtIndex:1] floatValue] != previousXscale) {
+            monkeyMultiplayer.sprite.xScale = [[tabMsg objectAtIndex:1] floatValue];
+            [monkeyMultiplayer moveActionWalking];
+        }
+        previousXscale = [[tabMsg objectAtIndex:1] floatValue];
+    }
+}
+
 - (void)match:(GKMatch *)match didReceiveData:(NSData *)data fromPlayer:(NSString *)playerID {
      NetworkMessage *msg = (NetworkMessage *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
 
@@ -22,13 +42,10 @@
             if (IPAD && [MultiplayerData data].typeDevice == IPHONE_TYPE) {
                 monkeyMultiplayer.sprite.position = CGPointMake([message floatValue] * 2.4,
                                                                 monkey.sprite.position.y);
-                NSLog(@"value %f", [message floatValue] * 1.2);
             }
             else if (!IPAD && [MultiplayerData data].typeDevice == IPAD_TYPE) {
                 monkeyMultiplayer.sprite.position = CGPointMake([message floatValue] * 0.416,
                                                                 monkey.sprite.position.y);
-                NSLog(@"value %f", [message floatValue] * 0.83);
-
             }
             else {
                 monkeyMultiplayer.sprite.position = CGPointMake([message floatValue],
@@ -45,6 +62,10 @@
                 [self gameOverCountDown];
             }
             break;
+        }
+            
+        case MESSAGE_MONKEY_ANIMATION: {
+            [self monkeyAnimationMultiplayer:(msg)];
         }
             
         default:
