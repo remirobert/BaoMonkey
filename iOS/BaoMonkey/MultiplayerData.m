@@ -17,6 +17,7 @@
         multiplayer = [[MultiplayerData alloc] init];
         multiplayer.isConnected = YES;
         multiplayer.status = NONE;
+        multiplayer.isMultiplayer = NO;
     }
     
     return (multiplayer);

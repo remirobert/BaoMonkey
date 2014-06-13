@@ -70,6 +70,7 @@
             }
             else
                 _connect.text= @"Error text";
+        [MultiplayerData data].isMultiplayer = YES;
     }
     else {
         _connect.text= @"Not conected";

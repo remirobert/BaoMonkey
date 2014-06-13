@@ -18,8 +18,10 @@ typedef enum : NSUInteger {
 @interface MultiplayerData : NSObject
 
 @property (nonatomic, strong) GKMatch *match;
-@property (nonatomic, assign) BOOL isConnected;
 @property (nonatomic, assign) MultiplayerStatus status;
+
+@property (nonatomic, assign) BOOL isConnected;
+@property (nonatomic, assign) BOOL isMultiplayer;
 
 + (instancetype) data;
 
