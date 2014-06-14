@@ -12,12 +12,12 @@
     {
       "idiom" : "ipad",
       "scale" : "1x",
-      "filename" : "button-information-ipad.png"
+      "filename" : "button-informations-ipad.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "2x",
-      "filename" : "button-information-ipad@2x.png"
+      "filename" : "button-informations-ipad@2x.png"
     }
   ],
   "info" : {
