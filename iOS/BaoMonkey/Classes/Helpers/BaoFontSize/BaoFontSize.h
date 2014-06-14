@@ -10,4 +10,12 @@
 
 @interface BaoFontSize : NSObject
 
+#pragma mark - SCORE
+
++(NSInteger)scoreFontSize;
+
+#pragma mark - CREDITS
+
++(NSInteger)creditsFontSize;
+
 @end

@@ -141,4 +141,14 @@
     return IPAD ? CGPointMake(((rand() % 10) + (SCREEN_WIDTH / 2 - 120)), ((SCREEN_HEIGHT / 2) - 37)) : CGPointMake(((rand() % 5) + (SCREEN_WIDTH / 2 - 70)), ((SCREEN_HEIGHT / 2) - 15));
 }
 
+#pragma mark - CREDITS
+
++(CGPoint)creditsNameDevelopersPosition{
+    return IPAD ? CGPointMake(300, 400) : CGPointMake(107, 200);
+}
+
++(CGPoint)creditsNameGraphismPosition{
+    return IPAD ? CGPointMake(300, 100) : CGPointMake(107, 50);
+}
+
 @end

@@ -7,7 +7,20 @@
 //
 
 #import "BaoFontSize.h"
+#import "Define.h"
 
 @implementation BaoFontSize
+
+#pragma mark - SCORE
+
++(NSInteger)scoreFontSize{
+    return IPAD ? 46.0 : 23.0;
+}
+
+#pragma mark - CREDITS
+
++(NSInteger)creditsFontSize{
+    return IPAD ? 22.0 : 11.0;
+}
 
 @end

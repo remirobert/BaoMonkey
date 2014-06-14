@@ -62,4 +62,9 @@
 +(CGPoint)cursorAccelerometerSettings;
 +(CGPoint)bubblePositionSettings;
 
+#pragma mark - CREDITS
+
++(CGPoint)creditsNameDevelopersPosition;
++(CGPoint)creditsNameGraphismPosition;
+
 @end
