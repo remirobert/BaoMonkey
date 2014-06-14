@@ -25,6 +25,7 @@
 
 #pragma mark - TRUNK, FRONT LEAFS, BACK LEAFS
 
++(CGPoint)trunk;
 +(CGPoint)frontLeafs:(CGSize)size;
 +(CGPoint)backLeafs:(CGSize)size;
 

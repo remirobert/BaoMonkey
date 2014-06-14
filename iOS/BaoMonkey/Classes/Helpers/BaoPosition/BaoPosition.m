@@ -47,6 +47,10 @@
 
 #pragma mark - TRUNK, FRONT LEAFS, BACK LEAFS
 
++(CGPoint)trunk{
+    return IPAD ? CGPointMake((SCREEN_WIDTH / 2), 350) : CGPointMake((SCREEN_WIDTH / 2), 200);
+}
+
 +(CGPoint)frontLeafs:(CGSize)size{
     return CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (size.height / 2)));
 }

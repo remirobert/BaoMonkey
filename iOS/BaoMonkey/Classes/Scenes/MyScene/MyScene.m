@@ -88,7 +88,7 @@
 
 -(SKSpriteNode *)trunkNode{
     trunk = [SKSpriteNode spriteNodeWithImageNamed:@"trunk-step-1"];
-    trunk.position = CGPointMake((SCREEN_WIDTH / 2), 200);
+    trunk.position = [BaoPosition trunk];
     trunk.name = TRUNK_NODE_NAME;
     return trunk;
 }
