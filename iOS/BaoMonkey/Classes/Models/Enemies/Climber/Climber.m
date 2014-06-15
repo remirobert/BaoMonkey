@@ -27,6 +27,15 @@
     }
 }
 
+-(id)initWithDirection:(Direction)_direction andKind:(Kind)kind {
+    self = [self initWithDirection:direction];
+    
+    if (self != nil) {
+        [self setKind:kind];
+    }
+    return (self);
+}
+
 -(id)initWithDirection:(Direction)_direction {
     self = [super init];
     

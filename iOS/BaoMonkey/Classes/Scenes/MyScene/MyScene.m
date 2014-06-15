@@ -175,7 +175,7 @@
         [self addChild:monkeyMultiplayer.sprite];
         [self addChild:monkeyMultiplayer.collisionMask];
         [MultiplayerData data].gameScene = self;
-    }    
+    }
 }
 
 - (void) initScene {
@@ -356,22 +356,22 @@
         }
     }
     
-    [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-        if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
-            if (!monkey.isShield) {
-                [GameCenter getBestScorePlayer];
-                [monkey deadMonkey];
-                [monkeyMultiplayer deadMonkey];
-                if (![GameData isGameOver])
-                    [self sendGameOverGame];
-                    [self gameOverCountDown];
-            } else {
-                [monkey.shield removeFromParent];
-                monkey.isShield = FALSE;
-            }
-            [node removeFromParent];
-        }
-    }];
+//    [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+//        if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
+//            if (!monkey.isShield) {
+//                [GameCenter getBestScorePlayer];
+//                [monkey deadMonkey];
+//                [monkeyMultiplayer deadMonkey];
+//                if (![GameData isGameOver])
+//                    [self sendGameOverGame];
+//                    [self gameOverCountDown];
+//            } else {
+//                [monkey.shield removeFromParent];
+//                monkey.isShield = FALSE;
+//            }
+//            [node removeFromParent];
+//        }
+//    }];
     
     for (Item *item in _wave) {
         if (item.isOver == YES) {

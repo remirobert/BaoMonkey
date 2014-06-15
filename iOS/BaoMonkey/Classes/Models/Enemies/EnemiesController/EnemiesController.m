@@ -92,10 +92,19 @@
     if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == HOST) {
         NSString *messageStr;
         
-        if (newClimber.direction == LEFT)
-            messageStr = @"C L";
-        else if (newClimber.direction == RIGHT)
-            messageStr = @"C R";
+        if (newClimber.direction == LEFT) {
+            if (newClimber.kind == MONKEY)
+                messageStr = @"C L 0";
+            else
+                messageStr = @"C L 1";
+        }
+        else if (newClimber.direction == RIGHT) {
+            if (newClimber.kind == MONKEY)
+                messageStr = @"C R 0";
+            else
+                messageStr = @"C R 1";
+        }
+
         NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
         
         messageNetwork.type = MESSAGE_NEW_ENEMY;

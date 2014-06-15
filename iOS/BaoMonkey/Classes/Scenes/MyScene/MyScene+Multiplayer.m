@@ -150,13 +150,13 @@
             else if ([tabMessage count] == 3 && [[tabMessage objectAtIndex:0] isEqualToString:@"H"]) {
                 newEnemy = [[Hunter alloc] initWithFloor:[[tabMessage objectAtIndex:1] intValue] slot:[[tabMessage objectAtIndex:2] intValue]];
             }
-            else if ([tabMessage count] == 2 && [[tabMessage objectAtIndex:0] isEqualToString:@"C"]) {
+            else if ([tabMessage count] == 3 && [[tabMessage objectAtIndex:0] isEqualToString:@"C"]) {
                 Direction sens = RIGHT;
                 
                 if ([[tabMessage objectAtIndex:1] isEqualToString:@"L"])
                     sens = LEFT;
                 
-                newEnemy = [[Climber alloc] initWithDirection:sens];
+                newEnemy = [[Climber alloc] initWithDirection:sens andKind:[[tabMessage objectAtIndex:2] integerValue]];
             }
             [enemiesController.enemies addObject:newEnemy];
             [[MultiplayerData data].gameScene addChild:newEnemy.node];

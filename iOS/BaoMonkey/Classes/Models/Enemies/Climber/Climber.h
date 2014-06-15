@@ -21,6 +21,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) Kind kind;
 
 -(id)initWithDirection:(Direction)_direction;
+-(id)initWithDirection:(Direction)_direction andKind:(Kind)kind;
 - (void) actionClimber:(NSInteger)positionclimb;
 
 + (void) startDead:(Climber *)climber :(NSMutableArray *)enemiesTab;
