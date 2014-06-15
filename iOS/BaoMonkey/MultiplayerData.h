@@ -31,6 +31,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, assign) BOOL isConnected;
 @property (nonatomic, assign) BOOL isMultiplayer;
+@property (nonatomic, assign) BOOL isInit;
 
 + (instancetype) data;
 

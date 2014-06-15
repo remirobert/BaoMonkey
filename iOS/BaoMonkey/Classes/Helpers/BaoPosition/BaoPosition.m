@@ -47,6 +47,10 @@
 
 #pragma mark - TRUNK, FRONT LEAFS, BACK LEAFS
 
++(CGPoint)trunk{
+    return IPAD ? CGPointMake((SCREEN_WIDTH / 2), 350) : CGPointMake((SCREEN_WIDTH / 2), 200);
+}
+
 +(CGPoint)frontLeafs:(CGSize)size{
     return CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (size.height / 2)));
 }
@@ -113,6 +117,38 @@
 
 +(CGPoint)buttonSettingsGameOver{
     return IPAD ? CGPointMake(603, 285) : CGPointMake(269.5, 200);
+}
+
+#pragma mark - MENU SETTINGS
+
++(CGPoint)buttonBackSettings{
+    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 22.5f, SCREEN_HEIGHT / 2 - 295) : CGPointMake(SCREEN_WIDTH - 150, SCREEN_HEIGHT - 440);
+}
+
++(CGPoint)cursorMusicSettings{
+    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 64, SCREEN_HEIGHT / 2 + 203) : CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 168.5f);
+}
+
++(CGPoint)cursorSoundEffectsSettings{
+    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 64, SCREEN_HEIGHT / 2 + 83) : CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 234.5f);
+}
+
++(CGPoint)cursorAccelerometerSettings{
+    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 64, SCREEN_HEIGHT / 2 - 37) : CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 300);
+}
+
++(CGPoint)bubblePositionSettings{
+    return IPAD ? CGPointMake(((rand() % 10) + (SCREEN_WIDTH / 2 - 120)), ((SCREEN_HEIGHT / 2) - 37)) : CGPointMake(((rand() % 5) + (SCREEN_WIDTH / 2 - 70)), ((SCREEN_HEIGHT / 2) - 15));
+}
+
+#pragma mark - CREDITS
+
++(CGPoint)creditsNameDevelopersPosition{
+    return IPAD ? CGPointMake(300, 400) : CGPointMake(107, 200);
+}
+
++(CGPoint)creditsNameGraphismPosition{
+    return IPAD ? CGPointMake(300, 100) : CGPointMake(107, 50);
 }
 
 @end

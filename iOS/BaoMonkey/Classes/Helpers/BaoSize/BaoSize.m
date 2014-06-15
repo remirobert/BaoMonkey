@@ -11,85 +11,16 @@
 
 @implementation BaoSize
 
-+(CGSize)monkey {
-    IPAD ? NSLog(@"IPAD") : NSLog(@"IPHONE");
-    return IPAD ? CGSizeMake(120, 140) : CGSizeMake(60, 70);
-}
+#pragma mark - PLATEFORM
 
-+(CGSize)lamberJack {
-    return IPAD ? CGSizeMake(50, 96) : CGSizeMake(25, 48);
-}
-
-+(CGSize)hunter {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)ball {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)plateform {
++(CGSize)plateform{
     return IPAD ? CGSizeMake(300, 116) : CGSizeMake(150, 58);
 }
 
-+(CGSize)climber {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
+#pragma mark - MENU SETTINGS
 
-+(CGSize)trunk {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)treeBranch {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)backLeaf {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)frontLeaf {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)upLeaf {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)bottomLeaf {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)banana {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)coconut {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)plum {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)play {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)pause {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)retry {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)home {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
-}
-
-+(CGSize)settings {
-    return IPAD ? CGSizeMake(0, 0) : CGSizeMake(0, 0);
++(CGSize)cursorSettings{
+    return IPAD ? CGSizeMake(330, 41.5f) : CGSizeMake(180, 22.5f);
 }
 
 @end

@@ -121,6 +121,10 @@
                 }
             }
             
+            if ([message isEqualToString:@"floor"]) {
+                [enemiesController addFloor];
+            }
+            
             break;
         }
             
@@ -130,41 +134,29 @@
         }
             
         case MESSAGE_NEW_ENEMY: {
+
             NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
-            unichar enemyType = 0;
-            Direction direction = LEFT;
-            NSInteger floor = 0;
-            NSInteger slot = 0;
+            NSArray *tabMessage = [message componentsSeparatedByString:@" "];
             Enemy *newEnemy;
             
-            if (message == nil || [message length] < 2)
-                return ;
-            if ([message length] >= 2) {
-                enemyType = [message characterAtIndex:0];
-                unichar directionTmp = [message characterAtIndex:1];
-                if (directionTmp == 'L') {
-                    direction = LEFT;
-                }
-                else if (directionTmp == 'R') {
-                    direction = RIGHT;
-                }
+            if ([tabMessage count] == 2 && [[tabMessage objectAtIndex:0] isEqualToString:@"L"]) {
+                Direction sens = RIGHT;
+                
+                if ([[tabMessage objectAtIndex:1] isEqualToString:@"L"])
+                    sens = LEFT;
+
+                newEnemy= [[LamberJack alloc] initWithDirection:sens];
             }
-            if ([message length] == 3) {
-                floor = [[NSNumber numberWithUnsignedChar:[message characterAtIndex:1]] integerValue];
-                slot = [[NSNumber numberWithUnsignedChar:[message characterAtIndex:2]] integerValue];
+            else if ([tabMessage count] == 3 && [[tabMessage objectAtIndex:0] isEqualToString:@"H"]) {
+                newEnemy = [[Hunter alloc] initWithFloor:[[tabMessage objectAtIndex:1] intValue] slot:[[tabMessage objectAtIndex:2] intValue]];
             }
-            
-            if (enemyType == 'L') {
-                // LamberJack
-                newEnemy= [[LamberJack alloc] initWithDirection:direction];
-            }
-            else if (enemyType =='H' && [message length] == 3) {
-                // Hunter
-                newEnemy = [[Hunter alloc] initWithFloor:floor slot:slot];
-            }
-            else if (enemyType == 'C') {
-                // Climber
-                newEnemy = [[Climber alloc] initWithDirection:direction];
+            else if ([tabMessage count] == 3 && [[tabMessage objectAtIndex:0] isEqualToString:@"C"]) {
+                Direction sens = RIGHT;
+                
+                if ([[tabMessage objectAtIndex:1] isEqualToString:@"L"])
+                    sens = LEFT;
+                
+                newEnemy = [[Climber alloc] initWithDirection:sens andKind:[[tabMessage objectAtIndex:2] integerValue]];
             }
             if (newEnemy != nil)
                 [enemiesController.enemies addObject:newEnemy];

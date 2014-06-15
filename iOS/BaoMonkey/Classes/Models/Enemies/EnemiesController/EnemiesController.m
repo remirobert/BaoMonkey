@@ -66,9 +66,9 @@
         NSString *messageStr;
         
         if (newLamberJack.direction == LEFT)
-            messageStr = @"LL";
+            messageStr = @"L L";
         else if (newLamberJack.direction == RIGHT)
-            messageStr = @"LR";
+            messageStr = @"L R";
         NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
         
         messageNetwork.type = MESSAGE_NEW_ENEMY;
@@ -92,10 +92,19 @@
     if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == HOST) {
         NSString *messageStr;
         
-        if (newClimber.direction == LEFT)
-            messageStr = @"CL";
-        else if (newClimber.direction == RIGHT)
-            messageStr = @"CR";
+        if (newClimber.direction == LEFT) {
+            if (newClimber.kind == MONKEY)
+                messageStr = @"C L 0";
+            else
+                messageStr = @"C L 1";
+        }
+        else if (newClimber.direction == RIGHT) {
+            if (newClimber.kind == MONKEY)
+                messageStr = @"C R 0";
+            else
+                messageStr = @"C R 1";
+        }
+
         NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
         
         messageNetwork.type = MESSAGE_NEW_ENEMY;
@@ -123,10 +132,11 @@
     
     [enemies addObject:newHunter];
     [scene addChild:newHunter.node];
+        
     if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == HOST) {
         NSString *messageStr;
         
-        messageStr = [NSString stringWithFormat:@"H%d%d", hunterFloor, positionHunterInSlot];
+        messageStr = [NSString stringWithFormat:@"H %d %d", hunterFloor, positionHunterInSlot];
         NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
         
         messageNetwork.type = MESSAGE_NEW_ENEMY;
@@ -149,6 +159,7 @@
 }
 
 -(void)updateEnemies:(CFTimeInterval)currentTime {
+
     if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == GUEST) {
         return ;
     }
@@ -163,8 +174,18 @@
     {
         if ([GameData getLevel] % 2 == 0) {
             if ((numberOfFloors == 0 || numberOfFloors * 2 < [GameData getLevel])) {
+                
+                NSString *messageStr = [NSString stringWithFormat:@"floor"];
+                
+                NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
+                
+                messageNetwork.type = MESSAGE_COMMAND;
+                
+                [[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:messageNetwork]
+                                             toPlayers:[MultiplayerData data].match.playerIDs
+                                          withDataMode:GKMatchSendDataUnreliable error:nil];
+                
                 [self addFloor];
-                numberHunter += 1;
             }
         }
 
@@ -172,7 +193,6 @@
             if ([GameData getLevel] / 2 % 2 == 0)
                 numberClimber = (int)[GameData getLevel] / 2;
         }
-        
         
         if ([self countOfEnemyType:EnemyTypeClimber] < numberClimber && ((timeForAddClimber <= currentTime) || (timeForAddClimber == 0))){
             float randomFloat = (8.5 + ((float)arc4random() / (0x100000000 / (3.0 + 2 - 2.5))));
@@ -189,7 +209,7 @@
     }
 }
 
--(void)deleteEnemy:(Enemy*)enemy {    
+-(void)deleteEnemy:(Enemy*)enemy {
     if (enemy.type == EnemyTypeLamberJack) {
         LamberJack *lamber;
         lamber = (LamberJack*)enemy;
@@ -223,8 +243,10 @@
     
     if (numberOfFloors >= MAX_FLOOR)
         return ;
+     numberHunter += 1;
     numberOfFloors++;
-    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_PLATEFORM] size:[BaoSize plateform]];
+//    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_PLATEFORM] size:[BaoSize plateform]];
+    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:[BaoSize plateform]];
     if (numberOfFloors % 2 != 0)
     {
         floor.xScale = -1;
@@ -237,6 +259,7 @@
         floor.position = CGPointMake(screen.size.width + (FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
         slide = [SKAction moveToX:(screen.size.width - (floor.size.width / 2)) duration:0.5];
     }
+    
     [scene addChild:floor];
     [floor runAction:slide];
 }

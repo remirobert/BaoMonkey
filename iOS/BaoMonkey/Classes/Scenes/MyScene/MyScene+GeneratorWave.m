@@ -21,7 +21,6 @@
 }
 
 - (NSObject *) createItem:(CGPoint)position {
-    
     NSObject *object;
     int ratio = rand() % 3;
     
@@ -86,6 +85,7 @@
 }
 
 - (void) addNewWave:(CFTimeInterval)currentTime {
+    return ;
     static CGFloat timeNext = 0.0;
     
     if (currentTime < timeNext) {

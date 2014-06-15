@@ -7,6 +7,8 @@
 //
 
 #import "Credit.h"
+#import "BaoPosition.h"
+#import "BaoFontSize.h"
 
 @implementation Credit
 
@@ -18,41 +20,50 @@
     [self addChild:bg];
 }
 
-- (void) createName:(NSString *)name :(NSInteger)positionY {
+- (void) createName:(NSString *)name withPosition:(CGPoint)pos {
     SKLabelNode *nameNode = [[SKLabelNode alloc] init];
     nameNode.text = name;
-    nameNode.fontSize = 12.0;
+    nameNode.fontSize = [BaoFontSize creditsFontSize];
     nameNode.zPosition = 50;
-    nameNode.position = CGPointMake(100, positionY);
+    nameNode.position = pos;
     nameNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
     [self addChild:nameNode];
 }
 
 - (void) initLabel {
-    NSArray *name = @[@"Brieuc Delafouchardiere", @"Remi Hillairet",
-                      @"Remi Robert", @"Jeremy Peltier", @"Romain Combe"];
+    NSArray *name = @[@"Brieuc de La Fouchardière", @"Rémi Hillairet",
+                      @"Rémi Robert", @"Jérémy Peltier", @"Romain Combe"];
     
     SKLabelNode *title = [[SKLabelNode alloc] init];
-    title.text = @"Developer :";
-    title.fontSize = 11.0;
+    title.text = @"Developers :";
+    title.fontSize = [BaoFontSize creditsFontSize];
     title.zPosition = 50;
-    title.position = CGPointMake(100, 200);
+    title.position = [BaoPosition creditsNameDevelopersPosition];
     title.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
 
-    NSInteger positionY = 180;
+    NSInteger positionY = 0;
+    if (IPAD) {
+        positionY = 350;
+    } else {
+        positionY = 180;
+    }
     for (NSString *currentName in name) {
-        [self createName:currentName :positionY];
-        positionY -= 20;
+        [self createName:currentName withPosition:CGPointMake(title.position.x, positionY)];
+        if (IPAD) {
+            positionY -= 40;
+        } else {
+            positionY -= 20;
+        }
     }
     
     SKLabelNode *title2 = [[SKLabelNode alloc] init];
     title2.text = @"Graphism :";
-    title2.fontSize = 12.0;
+    title2.fontSize = [BaoFontSize creditsFontSize];
     title2.zPosition = 50;
-    title2.position = CGPointMake(100, 50);
+    title2.position = [BaoPosition creditsNameGraphismPosition];
     title2.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
 
-    [self createName:@"Alexandre Quintin" :30];
+    [self createName:@"Alexandre Quintin" withPosition:CGPointMake(title2.position.x, IPAD ? 55 : 30)];
     
     [self addChild:title2];
     [self addChild:title];
@@ -79,7 +90,7 @@
     if (currentTime >= timer) {
         SKSpriteNode *bubble = [SKSpriteNode spriteNodeWithImageNamed:[tabImage objectAtIndex:rand() % 3]];
         
-        bubble.position = CGPointMake(rand() % 250 + (bubble.size.width / 2), 0);
+        bubble.position = CGPointMake(rand() % (IPAD ? 600 : 250) + (bubble.size.width / 2), 0);
         if (rand() % 2 == 0)
             bubble.zPosition = 25;
         else

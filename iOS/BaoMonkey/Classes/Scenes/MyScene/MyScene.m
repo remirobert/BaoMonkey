@@ -88,7 +88,7 @@
 
 -(SKSpriteNode *)trunkNode{
     trunk = [SKSpriteNode spriteNodeWithImageNamed:@"trunk-step-1"];
-    trunk.position = CGPointMake((SCREEN_WIDTH / 2), 200);
+    trunk.position = [BaoPosition trunk];
     trunk.name = TRUNK_NODE_NAME;
     return trunk;
 }
@@ -323,7 +323,7 @@
         });
         return;
     }
-    
+        
     dispatch_once(&oncePlay, ^{
         oncePause = 0;
         pauseTime += currentTime - lastTime;
@@ -422,9 +422,11 @@
     }
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
     
-    if (oldLevel != [GameData getLevel]) {
-        if (oldLevel == STEP_TANK_BOSS) {
-            [self loadTankScene];
+    if ([MultiplayerData data].isMultiplayer == NO) {
+        if (oldLevel != [GameData getLevel]) {
+            if (oldLevel == STEP_TANK_BOSS) {
+                [self loadTankScene];
+            }
         }
     }
 }

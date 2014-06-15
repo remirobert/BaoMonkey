@@ -10,25 +10,12 @@
 
 @interface BaoSize : NSObject
 
-+(CGSize)monkey;
-+(CGSize)lamberJack;
-+(CGSize)hunter;
-+(CGSize)ball;
+#pragma mark - PLATEFORM
+
 +(CGSize)plateform;
-+(CGSize)climber;
-+(CGSize)trunk;
-+(CGSize)treeBranch;
-+(CGSize)backLeaf;
-+(CGSize)frontLeaf;
-+(CGSize)upLeaf;
-+(CGSize)bottomLeaf;
-+(CGSize)banana;
-+(CGSize)coconut;
-+(CGSize)plum;
-+(CGSize)play;
-+(CGSize)pause;
-+(CGSize)retry;
-+(CGSize)home;
-+(CGSize)settings;
+
+#pragma mark - MENU SETTINGS
+
++(CGSize)cursorSettings;
 
 @end

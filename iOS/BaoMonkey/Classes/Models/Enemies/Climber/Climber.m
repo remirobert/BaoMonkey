@@ -16,6 +16,26 @@
 
 @implementation Climber
 
+- (void) setKind:(Kind)kind {
+    _kind = kind;
+    
+    if (self.kind == MONKEY) {
+        node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"gorilla-walking-1"]];
+    }
+    else {
+        node = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"commando-walking-1"]];
+    }
+}
+
+-(id)initWithDirection:(Direction)_direction andKind:(Kind)kind {
+    self = [self initWithDirection:direction];
+    
+    if (self != nil) {
+        [self setKind:kind];
+    }
+    return (self);
+}
+
 -(id)initWithDirection:(Direction)_direction {
     self = [super init];
     

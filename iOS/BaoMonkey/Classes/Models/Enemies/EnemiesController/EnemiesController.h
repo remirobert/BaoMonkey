@@ -33,5 +33,6 @@
 -(id)initWithScene:(SKScene*)_scene;
 -(void)updateEnemies:(CFTimeInterval)currentTime;
 -(void)deleteEnemy:(Enemy*)enemy;
+-(void)addFloor;
 
 @end

@@ -195,8 +195,8 @@
 #pragma mark - Load texture
 
 - (void) loadWaitframes {
-    stopFrames = @[[PreloadData getDataWithKey:@"monkey-waiting"], [PreloadData getDataWithKey:@"monkey-waiting"]];
-    stopCocoframes = @[[PreloadData getDataWithKey:@"monkey-waiting-coconut"], [PreloadData getDataWithKey:@"monkey-waiting-coconut"]];
+    stopFrames = @[[PreloadData getDataWithKey:@"waiting"], [PreloadData getDataWithKey:@"waiting"]];
+    stopCocoframes = @[[PreloadData getDataWithKey:@"waiting-coconut"], [PreloadData getDataWithKey:@"waiting-coconut"]];
 }
 
 -(void)loadWalkingSprites {
@@ -261,7 +261,7 @@
     
     shield = [SKSpriteNode node];
     shield.position = sprite.position;
-    shield.zPosition = 150;
+    shield.zPosition = 49;
     shield.name = @"NODE_SHIELD";
     [shield addChild:tile];
     isShield = TRUE;

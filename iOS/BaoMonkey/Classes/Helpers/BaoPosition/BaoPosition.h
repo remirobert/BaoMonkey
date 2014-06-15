@@ -17,8 +17,15 @@
 +(CGFloat)getBetweenPlateforme;
 +(NSString *)pathFireTank;
 
+#pragma mark - POSITION WITH SCREEN
+
++(CGPoint)middleScreen;
++(CGPoint)leftCenter;
++(CGPoint)rightCenter;
+
 #pragma mark - TRUNK, FRONT LEAFS, BACK LEAFS
 
++(CGPoint)trunk;
 +(CGPoint)frontLeafs:(CGSize)size;
 +(CGPoint)backLeafs:(CGSize)size;
 
@@ -46,5 +53,18 @@
 +(CGPoint)buttonGameCenterGameOver;
 +(CGPoint)buttonShareGameOver;
 +(CGPoint)buttonSettingsGameOver;
+
+#pragma mark - MENU SETTINGS
+
++(CGPoint)buttonBackSettings;
++(CGPoint)cursorMusicSettings;
++(CGPoint)cursorSoundEffectsSettings;
++(CGPoint)cursorAccelerometerSettings;
++(CGPoint)bubblePositionSettings;
+
+#pragma mark - CREDITS
+
++(CGPoint)creditsNameDevelopersPosition;
++(CGPoint)creditsNameGraphismPosition;
 
 @end
