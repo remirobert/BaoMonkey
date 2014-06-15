@@ -134,51 +134,33 @@
         }
             
         case MESSAGE_NEW_ENEMY: {
-            
-            NSLog(@"new Ennemy");
-            
+
             NSString *message = [[NSString alloc] initWithData:msg.data encoding:NSUTF8StringEncoding];
-            unichar enemyType = 0;
-            Direction direction = LEFT;
-            NSInteger floor = 0;
-            NSInteger slot = 0;
+            NSArray *tabMessage = [message componentsSeparatedByString:@" "];
             Enemy *newEnemy;
             
-            if (message == nil || [message length] < 2)
-                return ;
-            if ([message length] >= 2) {
-                enemyType = [message characterAtIndex:0];
-                unichar directionTmp = [message characterAtIndex:1];
-                if (directionTmp == 'L') {
-                    direction = LEFT;
-                }
-                else if (directionTmp == 'R') {
-                    direction = RIGHT;
-                }
-            }
-            if ([message length] == 3) {
-                floor = [[NSNumber numberWithUnsignedChar:[message characterAtIndex:1]] integerValue];
-                slot = [[NSNumber numberWithUnsignedChar:[message characterAtIndex:2]] integerValue];
-            }
+            if ([tabMessage count] == 2 && [[tabMessage objectAtIndex:0] isEqualToString:@"L"]) {
+                Direction sens = RIGHT;
+                
+                if ([[tabMessage objectAtIndex:1] isEqualToString:@"L"])
+                    sens = LEFT;
 
-            NSLog(@"message = %@", message);
-            
-            if (enemyType == 'L') {
-                // LamberJack
-                newEnemy= [[LamberJack alloc] initWithDirection:direction];
+                newEnemy= [[LamberJack alloc] initWithDirection:sens];
             }
-            else if (enemyType =='H') {
-                // Hunter
-                NSLog(@"add hunter");
-                newEnemy = [[Hunter alloc] initWithFloor:floor slot:slot];
-                NSLog(@"%f %f", newEnemy.node.position.x, newEnemy.node.position.y);
+            else if ([tabMessage count] == 3 && [[tabMessage objectAtIndex:0] isEqualToString:@"H"]) {
+                newEnemy = [[Hunter alloc] initWithFloor:[[tabMessage objectAtIndex:1] intValue] slot:[[tabMessage objectAtIndex:2] intValue]];
             }
-            else if (enemyType == 'C') {
-                // Climber
-                newEnemy = [[Climber alloc] initWithDirection:direction];
+            else if ([tabMessage count] == 2 && [[tabMessage objectAtIndex:0] isEqualToString:@"C"]) {
+                Direction sens = RIGHT;
+                
+                if ([[tabMessage objectAtIndex:1] isEqualToString:@"L"])
+                    sens = LEFT;
+                
+                newEnemy = [[Climber alloc] initWithDirection:sens];
             }
             [enemiesController.enemies addObject:newEnemy];
             [[MultiplayerData data].gameScene addChild:newEnemy.node];
+            break;
         }
             
         default:

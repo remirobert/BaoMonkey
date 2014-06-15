@@ -117,19 +117,19 @@
     
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"monkey-waiting"]] key:DATA_MONKEY_WAITING];
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"monkey-waiting-coconut"]] key:DATA_MONKEY_WAITING_COCONUT];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyLaunch"] key:DATA_MONKEY_LAUNCH_ATLAS];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyDead"] key:DATA_MONKEY_DEAD_ATLAS];
+    //[PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyLaunch"] key:DATA_MONKEY_LAUNCH_ATLAS];
+    //[PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyDead"] key:DATA_MONKEY_DEAD_ATLAS];
     
-    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"lamber-jack-waiting"]] key:DATA_LAMBERJACK_WAITING];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"LamberJackWalking"] key:DATA_LAMBERJACK_WALKING_ATLAS];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"LamberJackCutting"] key:DATA_LAMBERJACK_CUTTING_ATLAS];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"LamberJackDead"] key:DATA_LAMBERJACK_DEAD_ATLAS];
+//    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"lamber-jack-waiting"]] key:DATA_LAMBERJACK_WAITING];
+//    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"LamberJackWalking"] key:DATA_LAMBERJACK_WALKING_ATLAS];
+//    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"LamberJackCutting"] key:DATA_LAMBERJACK_CUTTING_ATLAS];
+//    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"LamberJackDead"] key:DATA_LAMBERJACK_DEAD_ATLAS];
+//    
+//    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"hunter-waiting"]] key:DATA_HUNTER_WAITING];
+//    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"HunterWalking"] key:DATA_HUNTER_WALKING_ATLAS];
+//    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"HunterDead"] key:DATA_HUNTER_DEAD_ATLAS];
     
-    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"hunter-waiting"]] key:DATA_HUNTER_WAITING];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"HunterWalking"] key:DATA_HUNTER_WALKING_ATLAS];
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"HunterDead"] key:DATA_HUNTER_DEAD_ATLAS];
-    
-    [PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyMenu"] key:DATA_MONKEY_MENU_ATLAS];
+    //[PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyMenu"] key:DATA_MONKEY_MENU_ATLAS];
     
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"plateform"]] key:DATA_PLATEFORM];
     
@@ -191,8 +191,8 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"munition-explosive"] key:@"munition-explosive"];
     
     //load monkey
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-waiting"] key:@"monkey-waiting"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-waiting-coconut"] key:@"monkey-waiting-coconut"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"waiting"] key:@"waiting"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"waiting-coconut"] key:@"waiting-coconut"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-1"] key:@"monkey-walking-1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-2"] key:@"monkey-walking-2"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"monkey-walking-3"] key:@"monkey-walking-3"];

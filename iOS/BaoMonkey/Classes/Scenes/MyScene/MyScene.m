@@ -176,6 +176,21 @@
         [self addChild:monkeyMultiplayer.collisionMask];
         [MultiplayerData data].gameScene = self;
     }
+    
+
+    // DEbug
+    if ([MultiplayerData data].isMultiplayer == YES) {
+        SKLabelNode *nodeMulti = [[SKLabelNode alloc] init];
+        
+        if ([MultiplayerData data].status == GUEST)
+            nodeMulti.text = @"guest";
+        else
+            nodeMulti.text = @"host";
+        nodeMulti.position = CGPointMake(100, 400);
+        nodeMulti.zPosition = 300;
+        [self addChild:nodeMulti];
+    }
+
 }
 
 - (void) initScene {
@@ -323,7 +338,7 @@
         });
         return;
     }
-    
+        
     dispatch_once(&oncePlay, ^{
         oncePause = 0;
         pauseTime += currentTime - lastTime;

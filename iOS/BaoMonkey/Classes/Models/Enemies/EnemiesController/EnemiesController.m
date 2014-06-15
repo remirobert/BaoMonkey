@@ -66,9 +66,9 @@
         NSString *messageStr;
         
         if (newLamberJack.direction == LEFT)
-            messageStr = @"LL";
+            messageStr = @"L L";
         else if (newLamberJack.direction == RIGHT)
-            messageStr = @"LR";
+            messageStr = @"L R";
         NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
         
         messageNetwork.type = MESSAGE_NEW_ENEMY;
@@ -93,9 +93,9 @@
         NSString *messageStr;
         
         if (newClimber.direction == LEFT)
-            messageStr = @"CL";
+            messageStr = @"C L";
         else if (newClimber.direction == RIGHT)
-            messageStr = @"CR";
+            messageStr = @"C R";
         NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
         
         messageNetwork.type = MESSAGE_NEW_ENEMY;
@@ -123,10 +123,11 @@
     
     [enemies addObject:newHunter];
     [scene addChild:newHunter.node];
+        
     if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == HOST) {
         NSString *messageStr;
         
-        messageStr = [NSString stringWithFormat:@"H%d%d", hunterFloor, positionHunterInSlot];
+        messageStr = [NSString stringWithFormat:@"H %d %d", hunterFloor, positionHunterInSlot];
         NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
         
         messageNetwork.type = MESSAGE_NEW_ENEMY;
@@ -235,7 +236,8 @@
         return ;
      numberHunter += 1;
     numberOfFloors++;
-    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_PLATEFORM] size:[BaoSize plateform]];
+//    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_PLATEFORM] size:[BaoSize plateform]];
+    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:[BaoSize plateform]];
     if (numberOfFloors % 2 != 0)
     {
         floor.xScale = -1;
