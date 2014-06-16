@@ -40,14 +40,15 @@
         {
             node.xScale = -1;
             position.x = screen.size.width + (node.size.width / 2);
+            
             actionMove = [SKAction moveToX:[UIScreen mainScreen].bounds.size.width -
-                          ((FLOOR_WIDTH) / 4 * slotFloor - (self.node.size.width / 2)) duration:2.0];
+                          (([BaoSize plateform].width) / 4 * slotFloor - (self.node.size.width / 2)) duration:2.0];
         }
         else
         {
             node.xScale = 1;
             position.x = - (node.size.width / 2);
-            actionMove = [SKAction moveToX:(FLOOR_WIDTH) / 4 * slotFloor - (self.node.size.width / 2) duration:2.0];
+            actionMove = [SKAction moveToX:([BaoSize plateform].width) / 4 * slotFloor - (self.node.size.width / 2) duration:2.0];
         }
 
         node.name = ENEMY_NODE_NAME;

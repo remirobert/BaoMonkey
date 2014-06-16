@@ -71,8 +71,10 @@
             }
             else
                 _connect.text= @"Error text";
-        [MultiplayerData data].isMultiplayer = YES;
-        [self.view presentScene:[[MyScene alloc] initWithSize:self.size] transition:[SKTransition fadeWithDuration:0.0]];
+//        if ([MultiplayerData data].isInit == YES) {
+            [MultiplayerData data].isMultiplayer = YES;
+            [self.view presentScene:[[MyScene alloc] initWithSize:self.size] transition:[SKTransition fadeWithDuration:0.0]];
+//        }
     }
     else {
         _connect.text= @"Not conected";
