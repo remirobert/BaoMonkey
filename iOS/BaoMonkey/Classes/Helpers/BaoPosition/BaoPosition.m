@@ -15,7 +15,7 @@
 }
 
 +(CGPoint)monkey{
-    return IPAD ? CGPointMake(SCREEN_WIDTH / 2, ([BaoPosition treeBranch]).y + 60) : CGPointMake(SCREEN_WIDTH / 2, ([BaoPosition treeBranch].y + 30));
+    return IPAD ? CGPointMake(SCREEN_WIDTH / 2, ([BaoPosition treeBranch]).y + 70) : CGPointMake(SCREEN_WIDTH / 2, ([BaoPosition treeBranch].y + 35));
 }
 
 +(NSInteger)dropAction{
