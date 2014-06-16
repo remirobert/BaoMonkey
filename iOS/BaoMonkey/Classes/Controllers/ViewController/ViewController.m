@@ -158,8 +158,8 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-walking-6"] key:@"commando-walking-6"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climbing-1"] key:@"commando-climbing-1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climbing-2"] key:@"commando-climbing-2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_walking-dead-1"] key:@"commando_walking-dead-1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_walking-dead-2"] key:@"commando_walking-dead-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_walking-dead-1"] key:@"commando-walking-dead-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_walking-dead-2"] key:@"commando-walking-dead-2"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climbing-dead-1"] key:@"commando-climbing-dead-1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climbing-dead-2"] key:@"commando-climbing-dead-2"];
     
