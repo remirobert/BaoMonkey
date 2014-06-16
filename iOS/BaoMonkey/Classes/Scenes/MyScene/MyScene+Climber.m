@@ -32,12 +32,16 @@
     if ([climber.node actionForKey:@"keyMove"] != nil)
         return ;
     if (climber.kind == MONKEY) {
-        textures = @[[SKTexture textureWithImageNamed:@"gorille-1"],
-                     [SKTexture textureWithImageNamed:@"gorille-2"]];
+        textures = @[[SKTexture textureWithImageNamed:@"gorilla-walking-1"],
+                     [SKTexture textureWithImageNamed:@"gorilla-walking-2"]];
     }
     else {
-        textures = @[[SKTexture textureWithImageNamed:@"commando-1"],
-                     [SKTexture textureWithImageNamed:@"commando-2"]];
+        textures = @[[SKTexture textureWithImageNamed:@"commando-walking-1"],
+                     [SKTexture textureWithImageNamed:@"commando-walking-2"],
+                     [SKTexture textureWithImageNamed:@"commando-walking-3"],
+                     [SKTexture textureWithImageNamed:@"commando-walking-4"],
+                     [SKTexture textureWithImageNamed:@"commando-walking-5"],
+                     [SKTexture textureWithImageNamed:@"commando-walking-6"]];
     }
     [climber.node runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:textures
                                                                            timePerFrame:0.4]]

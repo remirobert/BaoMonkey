@@ -248,7 +248,6 @@
     [shield removeFromParent];
     isShield = FALSE;
     [self sendAnimationMultiplayer:@"removeShield" :MESSAGE_COMMAND];
-    
 }
 
 - (void) addShield:(SKScene *)scene {
