@@ -210,8 +210,8 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_lance"] key:@"lance"];
     
     //load plums
-//    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"grosse"] key:@"grosse"];
-//    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"petite"] key:@"petite"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"small-splash"] key:@"big-splash-plums"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"big-splash"] key:@"small-splash-plums"];
 }
 
 -(void)goToHome {

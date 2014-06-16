@@ -270,10 +270,6 @@
 
 #pragma mark - Checking the item receive
 
-- (void) sendCatchWeaponMultiplayer {
-    
-}
-
 -(void)catchItem:(id)item :(SKScene *)scene {
     if ([GameData isGameOver] == YES)
         return ;
