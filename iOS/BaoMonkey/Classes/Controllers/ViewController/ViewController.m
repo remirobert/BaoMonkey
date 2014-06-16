@@ -131,7 +131,7 @@
     
     //[PreloadData loadDataWithKey:[SKTextureAtlas atlasNamed:@"MonkeyMenu"] key:DATA_MONKEY_MENU_ATLAS];
     
-    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"plateform"]] key:DATA_PLATEFORM];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"platform"]] key:DATA_PLATEFORM];
     
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"button-play"] key:DATA_BUTTON_PLAY];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"button-pause"] key:DATA_BUTTON_PAUSE];
@@ -158,8 +158,8 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-walking-6"] key:@"commando-walking-6"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climbing-1"] key:@"commando-climbing-1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climbing-2"] key:@"commando-climbing-2"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_walking-dead-1"] key:@"commando_walking-dead-1"];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_walking-dead-2"] key:@"commando_walking-dead-2"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_walking-dead-1"] key:@"commando-walking-dead-1"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando_walking-dead-2"] key:@"commando-walking-dead-2"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climbing-dead-1"] key:@"commando-climbing-dead-1"];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"commando-climbing-dead-2"] key:@"commando-climbing-dead-2"];
     
@@ -210,8 +210,8 @@
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"singe_lance"] key:@"lance"];
     
     //load plums
-//    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"grosse"] key:@"grosse"];
-//    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"petite"] key:@"petite"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"small-splash"] key:@"big-splash-plums"];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"big-splash"] key:@"small-splash-plums"];
 }
 
 -(void)goToHome {

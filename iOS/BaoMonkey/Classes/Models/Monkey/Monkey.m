@@ -248,7 +248,6 @@
     [shield removeFromParent];
     isShield = FALSE;
     [self sendAnimationMultiplayer:@"removeShield" :MESSAGE_COMMAND];
-    
 }
 
 - (void) addShield:(SKScene *)scene {
@@ -271,10 +270,6 @@
 
 #pragma mark - Checking the item receive
 
-- (void) sendCatchWeaponMultiplayer {
-    
-}
-
 -(void)catchItem:(id)item :(SKScene *)scene {
     if ([GameData isGameOver] == YES)
         return ;
@@ -289,6 +284,7 @@
             [(Item *)item launchAction];
             [self sendAnimationMultiplayer:@"catch" :MESSAGE_COMMAND];
             [self waitMonkey];
+            [self moveActionWalking];
         }
         else
             return ;
@@ -301,7 +297,6 @@
     }
     if (((Item *)item).isTaken == NO)
         [(Item *)item launchAction];
-    [self moveActionWalking];
 }
 
 #pragma mark - Launch a weapon

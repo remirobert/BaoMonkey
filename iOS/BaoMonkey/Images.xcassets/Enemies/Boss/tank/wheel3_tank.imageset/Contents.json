@@ -2,8 +2,7 @@
   "images" : [
     {
       "idiom" : "iphone",
-      "scale" : "1x",
-      "filename" : "roue3_iphone-1.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "iphone",
