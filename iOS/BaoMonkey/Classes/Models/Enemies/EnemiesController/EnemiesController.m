@@ -245,8 +245,7 @@
         return ;
      numberHunter += 1;
     numberOfFloors++;
-//    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_PLATEFORM] size:[BaoSize plateform]];
-    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:[BaoSize plateform]];
+    SKSpriteNode *floor = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:DATA_PLATEFORM] size:[BaoSize plateform]];
     if (numberOfFloors % 2 != 0)
     {
         floor.xScale = -1;
