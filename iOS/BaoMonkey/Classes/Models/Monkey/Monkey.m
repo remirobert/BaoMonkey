@@ -248,7 +248,6 @@
     [shield removeFromParent];
     isShield = FALSE;
     [self sendAnimationMultiplayer:@"removeShield" :MESSAGE_COMMAND];
-    
 }
 
 - (void) addShield:(SKScene *)scene {
@@ -270,10 +269,6 @@
 }
 
 #pragma mark - Checking the item receive
-
-- (void) sendCatchWeaponMultiplayer {
-    
-}
 
 -(void)catchItem:(id)item :(SKScene *)scene {
     if ([GameData isGameOver] == YES)

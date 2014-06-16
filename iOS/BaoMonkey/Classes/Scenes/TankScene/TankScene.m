@@ -54,6 +54,48 @@
     [self addChild:_tank.wheel];
 }
 
+- (void) initTrunk {
+    SKSpriteNode *trunk = [SKSpriteNode spriteNodeWithImageNamed:@"trunk-step-1"];
+    trunk.position = [BaoPosition trunk];
+    trunk.name = TRUNK_NODE_NAME;
+    
+    NSInteger trunkLife = [GameData getTrunkLife];
+    static NSInteger step = 0;
+    
+    if ((trunkLife > 90 && trunkLife <= 100) && step != 0) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-0"]];
+        step = 0;
+    } else if ((trunkLife > 80 && trunkLife <= 90) && step != 1) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-1"]];
+        step = 1;
+    } else if ((trunkLife > 70 && trunkLife <= 80) && step != 2) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-2"]];
+        step = 2;
+    } else if ((trunkLife > 60 && trunkLife <= 70) && step != 3) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-3"]];
+        step = 3;
+    } else if ((trunkLife > 50 && trunkLife <= 60) && step != 4){
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-4"]];
+        step = 4;
+    } else if ((trunkLife > 40 && trunkLife <= 50) && step != 5) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-5"]];
+        step = 5;
+    } else if ((trunkLife > 30 && trunkLife <= 40) && step != 6) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-6"]];
+        step = 6;
+    } else if ((trunkLife > 20 && trunkLife <= 30) && step != 7) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-7"]];
+        step = 7;
+    } else if ((trunkLife > 10 && trunkLife <= 20) && step != 8) {
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-8"]];
+        step = 8;
+    } else if ((trunkLife > 0 && trunkLife <= 10) && step != 9){
+        [trunk setTexture:[SKTexture textureWithImageNamed:@"trunk-step-9"]];
+        step = 9;
+    }
+    [self addChild:trunk];
+}
+
 - (void) initScene {
 
     SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"background-center"];
@@ -65,6 +107,12 @@
     frontLeaf.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (frontLeaf.size.height / 2)));
     frontLeaf.zPosition = 50;
     [self addChild:frontLeaf];
+    
+    SKSpriteNode *backLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"back-leafs"];
+    backLeaf.position = [BaoPosition backLeafs:backLeaf.size];
+    backLeaf.name = BACK_LEAF_NODE_NAME;
+    [self addChild:backLeaf];
+    
     
     TreeBranch *treeBranch = [[TreeBranch alloc] init];
     
@@ -83,6 +131,7 @@
     [self addChild:_monkey.sprite];
     [self addChild:_monkey.collisionMask];
     [GameController initAccelerometer];
+    [self initTrunk];
 }
 
 - (void) pauseGame {
