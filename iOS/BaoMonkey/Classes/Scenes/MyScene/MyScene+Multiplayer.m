@@ -158,9 +158,10 @@
                 
                 newEnemy = [[Climber alloc] initWithDirection:sens andKind:[[tabMessage objectAtIndex:2] integerValue]];
             }
-            if (newEnemy != nil)
+            if (newEnemy != nil) {
                 [enemiesController.enemies addObject:newEnemy];
                 [[MultiplayerData data].gameScene addChild:newEnemy.node];
+            }
         }
             
         default:
