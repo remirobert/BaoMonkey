@@ -10,6 +10,11 @@
 #import "BaoPosition.h"
 #import "BaoFontSize.h"
 
+@interface Credit ()
+@property (nonatomic, strong) SKSpriteNode *backButton;
+@property (nonatomic, strong) SKScene *parentScene;
+@end
+
 @implementation Credit
 
 - (void) initBackground {
@@ -28,6 +33,13 @@
     nameNode.position = pos;
     nameNode.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
     [self addChild:nameNode];
+}
+
+- (void) initButton {
+    _backButton = [[SKSpriteNode alloc] initWithImageNamed:@"back-button-settings"];
+    _backButton.position = CGPointMake(50, [UIScreen mainScreen].bounds.size.height - 100);
+    _backButton.name = @"back";
+    [self addChild:_backButton];
 }
 
 - (void) initLabel {
@@ -75,6 +87,8 @@
     if (self != nil) {
         [self initBackground];
         [self initLabel];
+        [self initButton];
+        _parentScene = parentScene;
     }
     return (self);
 }
@@ -111,6 +125,28 @@
 
 - (void) update:(NSTimeInterval)currentTime {
     [self popBubble:currentTime];
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:location];
+    
+    if ([node.name isEqualToString:@"back"])
+        [_backButton runAction:[SKAction animateWithTextures:@[[SKTexture
+                                                                textureWithImageNamed:@"back-button-settings-selected"]] timePerFrame:0]];
+}
+
+- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:location];
+    
+    if ([node.name isEqualToString:@"back"]) {
+        [_backButton runAction:[SKAction animateWithTextures:@[[SKTexture
+                                                                textureWithImageNamed:@"back-button-settings"]] timePerFrame:0]];
+        [self.view presentScene:_parentScene transition:[SKTransition pushWithDirection:SKTransitionDirectionDown duration:2.0]];
+    }
 }
 
 @end
