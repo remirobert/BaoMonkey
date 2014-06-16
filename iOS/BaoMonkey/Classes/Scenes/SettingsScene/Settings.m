@@ -88,11 +88,7 @@
 
     
     if ([node.name isEqualToString:@"back"]) {
-        [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue];
-        [self updateMusicUserVolume];
-        [self updateSoundEffectsUserVolume];
-        [self.view presentScene:_parentScene transition:[SKTransition pushWithDirection:SKTransitionDirectionDown duration:2.0f]];
-
+        [(SKSpriteNode*)node setTexture:[SKTexture textureWithImageNamed:@"back-button-settings-selected"]];
     }
     if ([_cursorAccelerometer checkCursorClickWithNode:node] == YES)
         _currentCursorClicked = _cursorAccelerometer;
@@ -119,6 +115,28 @@
     } else if (location.x - _prevLocationCursor.x < 0) {
         [((SpriteKitCursor *)_currentCursorClicked).cursor runAction:[SKAction rotateByAngle:0.1f duration:0.1f]];
     }
+    SKSpriteNode *node = (SKSpriteNode*)[self childNodeWithName:@"back"];
+    [node setTexture:[SKTexture textureWithImageNamed:@"back-button-settings"]];
+}
+
+- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:location];
+    
+    if ([node.name isEqualToString:@"back"]) {
+        [(SKSpriteNode*)node setTexture:[SKTexture textureWithImageNamed:@"back-button-settings"]];
+        [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue];
+        [self updateMusicUserVolume];
+        [self updateSoundEffectsUserVolume];
+        [self.view presentScene:_parentScene transition:[SKTransition pushWithDirection:SKTransitionDirectionDown duration:2.0f]];
+    }
+    if (_currentCursorClicked != nil) {
+        [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue];
+        [self updateMusicUserVolume];
+        [self updateSoundEffectsUserVolume];
+    }
+    _currentCursorClicked = nil;
 }
 
 - (void) updateMusicUserVolume {
@@ -140,16 +158,6 @@
 
 - (void) updateAccelerometerUserSpeed {
     [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue + 1.0];
-}
-
-
-- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (_currentCursorClicked != nil) {
-        [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue];
-        [self updateMusicUserVolume];
-        [self updateSoundEffectsUserVolume];
-    }
-    _currentCursorClicked = nil;
 }
 
 - (void) popBubble:(NSTimeInterval)currentTime {
