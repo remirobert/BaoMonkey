@@ -130,7 +130,7 @@
             
         case MESSAGE_MONKEY_ANIMATION: {
             [self monkeyAnimationMultiplayer:(msg)];
-            break ;
+            break;
         }
             
         case MESSAGE_NEW_ENEMY: {
@@ -158,9 +158,10 @@
                 
                 newEnemy = [[Climber alloc] initWithDirection:sens andKind:[[tabMessage objectAtIndex:2] integerValue]];
             }
-            [enemiesController.enemies addObject:newEnemy];
-            [[MultiplayerData data].gameScene addChild:newEnemy.node];
-            break;
+            if (newEnemy != nil) {
+                [enemiesController.enemies addObject:newEnemy];
+                [[MultiplayerData data].gameScene addChild:newEnemy.node];
+            }
         }
             
         default:
