@@ -19,7 +19,6 @@
 		10A7477D19405D8C001BF4FC /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477819405D8C001BF4FC /* MyScene+GeneratorWave.m */; };
 		10A7477E19405D8C001BF4FC /* MyScene+LoadBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477A19405D8C001BF4FC /* MyScene+LoadBoss.m */; };
 		10AA9262194AE61400F0D538 /* MyScene+Multiplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AA9261194AE61400F0D538 /* MyScene+Multiplayer.m */; };
-		10AE0B2119487CA700D93926 /* Multiplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B2019487CA700D93926 /* Multiplayer.m */; };
 		10AE0B241948812A00D93926 /* ViewController+Multiplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */; };
 		10AE0B27194886D100D93926 /* MultiplayerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B26194886D100D93926 /* MultiplayerData.m */; };
 		10B2E580193DC7EE00DDEF3A /* fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 10B2E57F193DC7EE00DDEF3A /* fire.sks */; };
@@ -117,8 +116,6 @@
 		10A7477A19405D8C001BF4FC /* MyScene+LoadBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+LoadBoss.m"; sourceTree = "<group>"; };
 		10AA9260194AE61400F0D538 /* MyScene+Multiplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Multiplayer.h"; sourceTree = "<group>"; };
 		10AA9261194AE61400F0D538 /* MyScene+Multiplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Multiplayer.m"; sourceTree = "<group>"; };
-		10AE0B1F19487CA700D93926 /* Multiplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Multiplayer.h; sourceTree = "<group>"; };
-		10AE0B2019487CA700D93926 /* Multiplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Multiplayer.m; sourceTree = "<group>"; };
 		10AE0B221948812A00D93926 /* ViewController+Multiplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+Multiplayer.h"; sourceTree = "<group>"; };
 		10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+Multiplayer.m"; sourceTree = "<group>"; };
 		10AE0B25194886D100D93926 /* MultiplayerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerData.h; sourceTree = "<group>"; };
@@ -259,8 +256,6 @@
 		10AE0B1E19487C6E00D93926 /* Multiplayer */ = {
 			isa = PBXGroup;
 			children = (
-				10AE0B1F19487CA700D93926 /* Multiplayer.h */,
-				10AE0B2019487CA700D93926 /* Multiplayer.m */,
 				10AE0B25194886D100D93926 /* MultiplayerData.h */,
 				10AE0B26194886D100D93926 /* MultiplayerData.m */,
 				10154D3F194A1A7600BAAA81 /* NetworkMessage.h */,
@@ -1038,7 +1033,6 @@
 				3F36C4B5193FB807009D371D /* Bonus.m in Sources */,
 				3F36C4C3193FB807009D371D /* UserData.m in Sources */,
 				3F36C4BE193FB807009D371D /* Music.m in Sources */,
-				10AE0B2119487CA700D93926 /* Multiplayer.m in Sources */,
 				3FC52F64193FB54600DCDCB7 /* PauseScene.m in Sources */,
 				10A7477219405D7D001BF4FC /* HelicopterScene.m in Sources */,
 				3FC52F65193FB54600DCDCB7 /* Settings.m in Sources */,

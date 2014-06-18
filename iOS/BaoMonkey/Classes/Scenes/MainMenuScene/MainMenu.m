@@ -12,7 +12,6 @@
 #import "Settings.h"
 #import "BaoPosition.h"
 #import "Credit.h"
-#import "Multiplayer.h"
 #import "MultiplayerData.h"
 
 @interface MainMenu ()
@@ -117,7 +116,7 @@
     } else if ([node.name isEqualToString:INFOS_NODE_NAME]) {
         [infosNode setTexture:[SKTexture textureWithImageNamed:@"button-informations-selected"]];
     } else if ([node.name isEqualToString:@"multiplayer"]) {
-        [self.view presentScene:[[Multiplayer alloc] initWithSize:self.size :self] transition:[SKTransition pushWithDirection:SKTransitionDirectionDown duration:2.0]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"find_player" object:nil];
     }
 }
 
