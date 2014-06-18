@@ -7,11 +7,11 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "credits-background-iphone.png"
+      "filename" : "crédits_background_640x960.png"
     },
     {
       "idiom" : "iphone",
-      "filename" : "crédits_background_640x960.png",
+      "filename" : "credits-background-iphone.png",
       "subtype" : "retina4",
       "scale" : "2x"
     },

@@ -115,6 +115,7 @@
     }
     else if ([node.name isEqualToString:SHARE_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_share_score" object:nil];
+        [shareNode setTexture:[SKTexture textureWithImageNamed:@"button-share"]];
     }
 }
 
