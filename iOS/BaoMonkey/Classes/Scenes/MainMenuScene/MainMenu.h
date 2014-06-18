@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import <GameKit/GameKit.h>
 
 @interface MainMenu : SKScene {
     SKSpriteNode *background;
