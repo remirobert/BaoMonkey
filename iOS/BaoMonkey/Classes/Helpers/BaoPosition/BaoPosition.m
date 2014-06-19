@@ -11,7 +11,7 @@
 @implementation BaoPosition
 
 +(CGPoint)treeBranch{
-    return IPAD ? CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 320) : CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 180);
+    return IPAD ? CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 320) : IPHONE_4 ? CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 180 + 88) : CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 180);
 }
 
 +(CGPoint)monkey{
@@ -25,7 +25,7 @@
 + (CGFloat) getBetweenPlateforme {
     return IPAD ? 120.0 : 60.0;
 }
-
+//88
 + (NSString *) pathFireTank {
     return IPAD ? [[NSBundle mainBundle] pathForResource:@"fire_ipad" ofType:@"sks"] :
     [[NSBundle mainBundle] pathForResource:@"fire" ofType:@"sks"];
@@ -52,11 +52,12 @@
 }
 
 +(CGPoint)frontLeafs:(CGSize)size{
-    return CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (size.height / 2)));
+    return IPHONE_4 ? CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (size.height / 2) + 88)) : CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (size.height / 2)));
 }
 
 +(CGPoint)backLeafs:(CGSize)size{
-    return CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (size.height / 2)));
+    
+    return IPHONE_4 ? CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (size.height / 2) + 88)) : CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (size.height / 2)));
 }
 
 #pragma mark - BIG BUTTON

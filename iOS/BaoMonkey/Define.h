@@ -14,6 +14,7 @@
 */
 
 # define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+# define IPHONE_4 ([UIScreen mainScreen].bounds.size.height == 480)
 
 /*
 ** GENERAL
