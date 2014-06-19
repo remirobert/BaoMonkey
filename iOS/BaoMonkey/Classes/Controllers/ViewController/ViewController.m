@@ -12,8 +12,6 @@
 #import "UserData.h"
 #import "Achievement.h"
 #import "GameCenter.h"
-#import "MainMenu.h"
-#import "Settings.h"
 #import "GameController.h"
 #import "MyScene.h"
 #import "ViewController+Multiplayer.h"
@@ -95,6 +93,8 @@
                                                object:nil];
 
     srand(time(NULL));
+    mainMenu = [[MainMenu alloc] initWithSize:_skView.frame.size];
+    settingsMenu = [[Settings alloc] initWithSize:_skView.frame.size];
     [self goToHome];
 }
 
@@ -215,11 +215,11 @@
 }
 
 -(void)goToHome {
-    [_skView presentScene:[[MainMenu alloc] initWithSize:_skView.frame.size] transition:[SKTransition flipVerticalWithDuration:0.5]];
+    [_skView presentScene:mainMenu transition:[SKTransition flipVerticalWithDuration:0.5]];
 }
 
 -(void)goToSettings {
-    [_skView presentScene:[[Settings alloc] initWithSize:_skView.frame.size]
+    [_skView presentScene:settingsMenu
                transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5]];
 }
 

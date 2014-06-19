@@ -87,7 +87,7 @@
 }
 
 -(SKSpriteNode *)trunkNode{
-    trunk = [SKSpriteNode spriteNodeWithImageNamed:@"trunk-step-1"];
+    trunk = [SKSpriteNode spriteNodeWithImageNamed:@"trunk-step-0"];
     trunk.position = [BaoPosition trunk];
     trunk.name = TRUNK_NODE_NAME;
     return trunk;
