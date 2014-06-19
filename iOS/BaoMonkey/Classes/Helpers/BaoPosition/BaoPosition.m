@@ -123,7 +123,7 @@
 #pragma mark - MENU SETTINGS
 
 +(CGPoint)buttonBackSettings{
-    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 22.5f, SCREEN_HEIGHT / 2 - 295) : CGPointMake(SCREEN_WIDTH - 150, SCREEN_HEIGHT - 440);
+    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 22.5f, SCREEN_HEIGHT / 2 - 295) : CGPointMake(SCREEN_WIDTH - 151, SCREEN_HEIGHT - 442);
 }
 
 +(CGPoint)cursorMusicSettings{
