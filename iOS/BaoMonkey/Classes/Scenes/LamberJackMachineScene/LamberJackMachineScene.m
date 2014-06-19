@@ -33,6 +33,12 @@
 @property (nonatomic, strong) SKSpriteNode *trunk;
 @property (nonatomic, strong) SKSpriteNode *backLeaf;
 @property (nonatomic, strong) SKSpriteNode *frontLeaf;
+@property (nonatomic, strong) SKSpriteNode *mecanicArm;
+@property (nonatomic, strong) SKSpriteNode *mecanicHand;
+
+@property (nonatomic, assign) CGPoint positionMecanicArm;
+@property (nonatomic, assign) CGPoint positionLamber;
+@property (nonatomic, assign) CGPoint positionMecanicHand;
 @end
 
 @implementation LamberJackMachineScene
@@ -112,7 +118,8 @@
 }
 
 - (void) initMonkey {
-    _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2, [UIScreen mainScreen].bounds.size.height)];
+    _monkey = [[Monkey alloc] initWithPosition:CGPointMake(self.frame.size.width/2,
+                                                           [UIScreen mainScreen].bounds.size.height)];
 
     [self initMonkeyPhysic];
     
@@ -130,14 +137,16 @@
     [self addChild:_bg];
 
     
-    _backLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"back-leafs"];
-    _backLeaf.position = [BaoPosition backLeafs:_backLeaf.size];
+    _backLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"back-leaf-boss"];
+//    _backLeaf.size = CGSizeMake(_frontLeaf.size.width - 100, _frontLeaf.size.height - 100);
+//    _backLeaf.position = [BaoPosition backLeafs:_backLeaf.size];
+    _backLeaf.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT) - 100);
     _backLeaf.name = BACK_LEAF_NODE_NAME;
     [self addChild:_backLeaf];
 
-    _frontLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"leafs"];
-//    _frontLeaf.size = CGSizeMake(_frontLeaf.size.width / 3, _frontLeaf.size.height / 3);
-    _frontLeaf.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT - (_frontLeaf.size.height / 2)));
+    _frontLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"front-leaf-boss"];
+    _frontLeaf.size = CGSizeMake(_frontLeaf.size.width - 100, _frontLeaf.size.height - 100);
+    _frontLeaf.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT) - 50);
     _frontLeaf.zPosition = 50;
     [self addChild:_frontLeaf];
     
@@ -184,6 +193,23 @@
         _parentScene = parentScene;
         [self updateAngleTree];
         [self initSmokeLamberJack];
+
+        _mecanicArm = [[SKSpriteNode alloc] initWithImageNamed:@"arm"];
+        _mecanicArm.size = CGSizeMake(_mecanicArm.size.width / 5, _mecanicArm.size.height / 5);
+        _mecanicArm.position = CGPointMake(_lamber.node.position.x + _lamber.node.size.width - 25,
+                                           _lamber.node.position.y + _lamber.node.size.height / 2);
+        
+        _positionLamber = _lamber.node.position;
+        _positionMecanicArm = _mecanicArm.position;
+        
+        _mecanicHand = [SKSpriteNode spriteNodeWithImageNamed:@"hand"];
+        _mecanicHand.size = CGSizeMake(_mecanicHand.size.width / 5, _mecanicHand.size.height / 5);
+        _mecanicHand.position = CGPointMake(_mecanicArm.position.x + _mecanicArm.size.width / 2 + _mecanicHand.size.width,
+                                            _mecanicArm.position.y - _mecanicArm.size.height / 2);
+        _positionMecanicHand = _mecanicArm.position;
+        
+        [self addChild:_mecanicHand];
+        [self addChild:_mecanicArm];
     }
     return (self);
 }
@@ -287,6 +313,9 @@
     _backLeaf.zRotation = _treeBranch.node.zRotation;
     _trunk.zRotation = _treeBranch.node.zRotation;
     _frontLeaf.zRotation = _treeBranch.node.zRotation;
+    [_mecanicArm runAction:[SKAction moveToX:_positionMecanicArm.x + _treeBranch.node.zRotation * 100 duration:0.1]];
+    [_lamber.node runAction:[SKAction moveToX:_positionLamber.x + _treeBranch.node.zRotation * 100 duration:0.1]];
+    [_mecanicHand runAction:[SKAction moveToX:_positionMecanicHand.x + _treeBranch.node.zRotation * 100 duration:0.1]];
 }
 
 - (void) toreBranch:(NSTimeInterval)currentTime {
