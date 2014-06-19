@@ -6,15 +6,18 @@
     },
     {
       "idiom" : "iphone",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "trunk-0-iphone@2x.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "trunk-0-ipad.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "trunk-0-ipad@2x.png"
     }
   ],
   "info" : {

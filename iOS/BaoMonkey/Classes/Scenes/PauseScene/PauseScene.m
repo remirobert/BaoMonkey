@@ -80,18 +80,18 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:RESUME_NODE_NAME]) {
+        [resumeNode setTexture:[SKTexture textureWithImageNamed:@"big-button-play"]];
         SKTransition *resumeTransition = [SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.5];
         [self.view presentScene:fromScene transition:resumeTransition];
         [(MyScene*)fromScene resumeGame];
-        [resumeNode setTexture:[SKTexture textureWithImageNamed:@"big-button-play"]];
     }
     else if ([node.name isEqualToString:RETRY_NODE_NAME]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
         [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay"]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
     }
     else if ([node.name isEqualToString:HOME_NODE_NAME]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
         [homeNode setTexture:[SKTexture textureWithImageNamed:@"button-home"]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
     }
     else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
         [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
