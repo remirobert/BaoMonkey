@@ -88,7 +88,8 @@
 
 - (void) lowStrat:(CGPoint)positionMonkey :(SKScene *)scene {
     SKSpriteNode *nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munition-explosive"]];
-    nodeShoot.size = CGSizeMake(nodeShoot.size.width / 2, nodeShoot.size.height / 2);
+    if (!IPAD)
+        nodeShoot.size = CGSizeMake(nodeShoot.size.width / 2, nodeShoot.size.height / 2);
     
     float angle = atan2f(positionMonkey.y, positionMonkey.x);
     nodeShoot.zRotation = angle;
@@ -112,7 +113,7 @@
 - (void) shootFireBomb:(CGPoint)positionMonkey :(SKScene *)scene {
     SKSpriteNode *nodeShoot;
     
-    nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background-progress-bar"]];
+    nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munition-fire"]];
     nodeShoot.size = CGSizeMake(nodeShoot.size.width / 3, nodeShoot.size.height / 3);
     
     float angle = atan2f(positionMonkey.y, positionMonkey.x);
