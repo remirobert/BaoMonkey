@@ -32,14 +32,12 @@
     _canon = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"canon_tank"]]];
     _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2);
     _canon.zPosition = 20;
-    
     _canon.size = CGSizeMake(_canon.size.width / 2, _canon.size.height / 2);
     
     _tankSprite.zPosition = 50;
 
     _wheel = [[SKSpriteNode alloc] initWithTexture:[SKTexture textureWithImage:[UIImage imageNamed:@"wheel1_tank"]]];
     _wheel.zPosition = 50;
-    
     _wheel.size = CGSizeMake(_wheel.size.width / 2, _wheel.size.height / 2);
     
     [_wheel runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:@[[SKTexture textureWithImage:[UIImage imageNamed:@"wheel1_tank"]],
@@ -85,7 +83,7 @@
     }
     _tower.position = CGPointMake(_tankSprite.position.x - 20, _tankSprite.position.y + _tankSprite.size.height / 2);
     _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2);
-    _wheel.position = CGPointMake(_tankSprite.position.x - 35, _wheel.size.height);
+    _wheel.position = CGPointMake(_tankSprite.position.x - 28, _wheel.size.height + 13);
 }
 
 - (void) lowStrat:(CGPoint)positionMonkey :(SKScene *)scene {

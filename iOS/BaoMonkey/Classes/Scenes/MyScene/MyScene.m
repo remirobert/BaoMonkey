@@ -312,8 +312,8 @@
 
 -(void)update:(CFTimeInterval)currentTime {
 
-    NSInteger oldLevel = [GameData getLevel];        
-        
+    NSInteger oldLevel = [GameData getLevel];            
+    
     if ([[GameData singleton] isPause]) {
         
         dispatch_once(&oncePause, ^{
@@ -327,7 +327,6 @@
     dispatch_once(&oncePlay, ^{
         oncePause = 0;
         pauseTime += currentTime - lastTime;
-        NSLog(@"pauseTime : %f", pauseTime);
     });
     
     [monkey manageShield:currentTime andScene:self];

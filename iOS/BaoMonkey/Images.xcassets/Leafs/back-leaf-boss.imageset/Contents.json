@@ -7,17 +7,17 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "coconut-1.png"
+      "filename" : "frontleaf-iphone.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "1x",
-      "filename" : "coconut.png"
+      "filename" : "frontleaf-iphone-1.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "2x",
-      "filename" : "coconut_ipad.png"
+      "filename" : "backleaf-ipad.png"
     }
   ],
   "info" : {

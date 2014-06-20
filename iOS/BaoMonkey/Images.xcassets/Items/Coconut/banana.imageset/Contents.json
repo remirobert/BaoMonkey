@@ -7,17 +7,17 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "coconut-1.png"
+      "filename" : "banana.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "1x",
-      "filename" : "coconut.png"
+      "filename" : "banana-1.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "2x",
-      "filename" : "coconut_ipad.png"
+      "filename" : "banana_ipad.png"
     }
   ],
   "info" : {
