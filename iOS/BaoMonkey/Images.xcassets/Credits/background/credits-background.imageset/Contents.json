@@ -18,12 +18,12 @@
     {
       "idiom" : "ipad",
       "scale" : "1x",
-      "filename" : "underground-background-ipad.png"
+      "filename" : "credits-background-ipad.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "2x",
-      "filename" : "underground-background-ipad@2x.png"
+      "filename" : "credits-background-ipad@2x.png"
     }
   ],
   "info" : {

@@ -11,11 +11,13 @@
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "Ko1.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "Ko1-1.png"
     }
   ],
   "info" : {

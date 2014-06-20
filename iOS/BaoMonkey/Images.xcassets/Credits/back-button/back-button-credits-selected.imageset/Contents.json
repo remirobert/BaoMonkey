@@ -11,11 +11,13 @@
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "button-back-credits-iphone-selected@2x.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "button-back-credits-ipad-selected@2x.png"
     }
   ],
   "info" : {
