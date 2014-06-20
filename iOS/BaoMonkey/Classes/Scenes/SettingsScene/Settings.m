@@ -75,6 +75,22 @@
         [_cursorVolumeMusic addChild:self];
         [_cursorVolumeSound addChild:self];
         
+        SKSpriteNode *musicIcon = [[SKSpriteNode alloc] initWithImageNamed:@"music-icon-settings"];
+        musicIcon.position = [BaoPosition cursorMusicSettings];
+        musicIcon.zPosition = 100;
+        
+        SKSpriteNode *soundEffectsIcon = [[SKSpriteNode alloc] initWithImageNamed:@"sound-effects-icon-settings"];
+        soundEffectsIcon.position = [BaoPosition cursorSoundEffectsSettings];
+        soundEffectsIcon.zPosition = 100;
+        
+        SKSpriteNode *accelerometerIcon = [[SKSpriteNode alloc] initWithImageNamed:@"accelerometer-icon-settings"];
+        accelerometerIcon.position = [BaoPosition cursorAccelerometerSettings];
+        accelerometerIcon.zPosition = 100;
+        
+        [self addChild:musicIcon];
+        [self addChild:soundEffectsIcon];
+        [self addChild:accelerometerIcon];
+        
         _parentScene = parentScene;
         [self initButton];
     }
@@ -85,38 +101,54 @@
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
-
     
     if ([node.name isEqualToString:@"back"]) {
         [(SKSpriteNode*)node setTexture:[SKTexture textureWithImageNamed:@"back-button-settings-selected"]];
+    
     }
-    if ([_cursorAccelerometer checkCursorClickWithNode:node] == YES)
-        _currentCursorClicked = _cursorAccelerometer;
-    else if ([_cursorVolumeMusic checkCursorClickWithNode:node] == YES)
-        _currentCursorClicked = _cursorVolumeMusic;
-    else if ([_cursorVolumeSound checkCursorClickWithNode:node] == YES)
-        _currentCursorClicked = _cursorVolumeSound;
+    
+    NSArray *array = [touches allObjects];
+    
+    for (UITouch *touch in array) {
+        CGPoint location = [touch locationInNode:self];
+        SKNode *node = [self nodeAtPoint:location];
+        if ([node.name isEqualToString:@"cursor"]) {
+            if ([_cursorAccelerometer checkCursorClickWithNode:node] == YES)
+                _currentCursorClicked = _cursorAccelerometer;
+            else if ([_cursorVolumeMusic checkCursorClickWithNode:node] == YES)
+                _currentCursorClicked = _cursorVolumeMusic;
+            else if ([_cursorVolumeSound checkCursorClickWithNode:node] == YES)
+                _currentCursorClicked = _cursorVolumeSound;
+            return;
+        }
+    }
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     _prevLocationCursor = ((SpriteKitCursor *)_currentCursorClicked).cursor.position;
-    UITouch *touch = [touches anyObject];
-    CGPoint location = [touch locationInNode:self];
-
-    if ([_currentCursorClicked isEqual:_cursorAccelerometer])
-        [_cursorAccelerometer updatePositionCursorWithLocation:location];
-    else if ([_currentCursorClicked isEqual:_cursorVolumeMusic])
-        [_cursorVolumeMusic updatePositionCursorWithLocation:location];
-    else if ([_currentCursorClicked isEqual:_cursorVolumeSound])
-        [_cursorVolumeSound updatePositionCursorWithLocation:location];
     
-    if (location.x - _prevLocationCursor.x > 0) {
-        [((SpriteKitCursor *)_currentCursorClicked).cursor runAction:[SKAction rotateByAngle:-0.1f duration:0.1f]];
-    } else if (location.x - _prevLocationCursor.x < 0) {
-        [((SpriteKitCursor *)_currentCursorClicked).cursor runAction:[SKAction rotateByAngle:0.1f duration:0.1f]];
-    }
-    SKSpriteNode *node = (SKSpriteNode*)[self childNodeWithName:@"back"];
+    SKSpriteNode *node = (SKSpriteNode *)[self childNodeWithName:@"back"];
     [node setTexture:[SKTexture textureWithImageNamed:@"back-button-settings"]];
+
+    NSArray *array = [touches allObjects];
+    
+    for (UITouch *touch in array) {
+        CGPoint location = [touch locationInNode:self];
+        if ([_currentCursorClicked isEqual:_cursorAccelerometer])
+            [_cursorAccelerometer updatePositionCursorWithLocation:location];
+        else if ([_currentCursorClicked isEqual:_cursorVolumeMusic])
+            [_cursorVolumeMusic updatePositionCursorWithLocation:location];
+        else if ([_currentCursorClicked isEqual:_cursorVolumeSound])
+            [_cursorVolumeSound updatePositionCursorWithLocation:location];
+        
+        if (location.x - _prevLocationCursor.x > 0) {
+            [((SpriteKitCursor *)_currentCursorClicked).cursor runAction:[SKAction rotateByAngle:-0.1f duration:0.1f]];
+        } else if (location.x - _prevLocationCursor.x < 0) {
+            [((SpriteKitCursor *)_currentCursorClicked).cursor runAction:[SKAction rotateByAngle:0.1f duration:0.1f]];
+        }
+        
+        return ;
+    }
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {

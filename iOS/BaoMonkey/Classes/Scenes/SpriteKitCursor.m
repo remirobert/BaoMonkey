@@ -24,6 +24,7 @@
     _cursor = [[SKSpriteNode alloc] initWithColor:[SKColor greenColor] size:CGSizeMake(size.height, size.height)];
     _cursor.position = CGPointMake(_background.position.x - _background.size.width / 2 + _background.size.height / 2, position.y);
     _cursor.zPosition = 75;
+    _cursor.name = @"cursor";
 }
 
 - (instancetype) initWithSize:(CGSize)size position:(CGPoint)position {
