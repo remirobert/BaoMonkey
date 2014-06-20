@@ -64,6 +64,7 @@
 
 #pragma mark - CREDITS
 
++(CGPoint)buttonBackCredits;
 +(CGPoint)creditsNameDevelopersPosition;
 +(CGPoint)creditsNameGraphismPosition;
 

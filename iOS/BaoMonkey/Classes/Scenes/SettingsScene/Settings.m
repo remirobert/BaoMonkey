@@ -129,7 +129,7 @@
         [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue];
         [self updateMusicUserVolume];
         [self updateSoundEffectsUserVolume];
-        [self.view presentScene:_parentScene transition:[SKTransition pushWithDirection:SKTransitionDirectionDown duration:2.0f]];
+        [self.view presentScene:_parentScene transition:[SKTransition pushWithDirection:SKTransitionDirectionDown duration:1.0f]];
     }
     if (_currentCursorClicked != nil) {
         [UserData setAccelerometerUserSpeed:_cursorAccelerometer.currentValue];

@@ -20,7 +20,7 @@
 #pragma mark - CREDITS
 
 +(NSInteger)creditsFontSize{
-    return IPAD ? 22.0 : 11.0;
+    return IPAD ? 22.0 : 12.0;
 }
 
 @end

@@ -144,6 +144,10 @@
 
 #pragma mark - CREDITS
 
++(CGPoint)buttonBackCredits{
+    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 22.5f, SCREEN_HEIGHT / 2 - 295) : CGPointMake(47.5, SCREEN_HEIGHT - 75);
+}
+
 +(CGPoint)creditsNameDevelopersPosition{
     return IPAD ? CGPointMake(300, 400) : CGPointMake(107, 200);
 }
