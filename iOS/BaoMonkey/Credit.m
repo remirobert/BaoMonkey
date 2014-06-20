@@ -36,19 +36,32 @@
 }
 
 - (void) initButton {
-    _backButton = [[SKSpriteNode alloc] initWithImageNamed:@"back-button-settings"];
-    _backButton.position = CGPointMake(50, [UIScreen mainScreen].bounds.size.height - 100);
+    _backButton = [[SKSpriteNode alloc] initWithImageNamed:@"back-button-credits"];
+    _backButton.position = [BaoPosition buttonBackCredits];
     _backButton.name = @"back";
     [self addChild:_backButton];
 }
 
+- (NSMutableArray*)shuffleLabels:(NSMutableArray*)labels{
+    NSUInteger count = [labels count];
+    
+    for (NSUInteger i = 0 ; i < count ; ++i) {
+        NSUInteger nElements = count - i;
+        unsigned long n = (arc4random() % nElements) + i;
+        [labels exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+    return labels;
+}
+
 - (void) initLabel {
-    NSArray *name = @[@"Brieuc de La Fouchardière", @"Rémi Hillairet",
-                      @"Rémi Robert", @"Jérémy Peltier", @"Romain Combe"];
+    NSMutableArray *name = [[NSMutableArray alloc] initWithArray:@[@"Brieuc de La Fouchardière", @"Rémi Hillairet",
+                      @"Rémi Robert", @"Jérémy Peltier", @"Romain Combe"]];
+    
+    name = [self shuffleLabels:name];
     
     SKLabelNode *title = [[SKLabelNode alloc] init];
-    title.text = @"Developers :";
-    title.fontSize = [BaoFontSize creditsFontSize];
+    title.text = @"Developers";
+    title.fontSize = [BaoFontSize creditsFontSize] + 5;
     title.zPosition = 50;
     title.position = [BaoPosition creditsNameDevelopersPosition];
     title.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
@@ -69,8 +82,8 @@
     }
     
     SKLabelNode *title2 = [[SKLabelNode alloc] init];
-    title2.text = @"Graphism :";
-    title2.fontSize = [BaoFontSize creditsFontSize];
+    title2.text = @"Graphic Designer";
+    title2.fontSize = [BaoFontSize creditsFontSize] + 5;
     title2.zPosition = 50;
     title2.position = [BaoPosition creditsNameGraphismPosition];
     title2.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
@@ -133,8 +146,16 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:@"back"])
-        [_backButton runAction:[SKAction animateWithTextures:@[[SKTexture
-                                                                textureWithImageNamed:@"back-button-settings-selected"]] timePerFrame:0]];
+        [_backButton setTexture:[SKTexture textureWithImageNamed:@"back-button-credits-selected"]];
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
+    SKNode *node = [self nodeAtPoint:location];
+    
+    if (![node.name isEqualToString:@"back"])
+        [_backButton setTexture:[SKTexture textureWithImageNamed:@"back-button-credits"]];
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -143,9 +164,8 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:@"back"]) {
-        [_backButton runAction:[SKAction animateWithTextures:@[[SKTexture
-                                                                textureWithImageNamed:@"back-button-settings"]] timePerFrame:0]];
-        [self.view presentScene:_parentScene transition:[SKTransition pushWithDirection:SKTransitionDirectionDown duration:2.0]];
+        [_backButton setTexture:[SKTexture textureWithImageNamed:@"back-button-credits"]];
+        [self.view presentScene:_parentScene transition:[SKTransition pushWithDirection:SKTransitionDirectionDown duration:1.0]];
     }
 }
 
