@@ -7,17 +7,15 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "trunk_iphone.png"
+      "filename" : "button-back-credits-iphone@2x.png"
     },
     {
       "idiom" : "ipad",
-      "scale" : "1x",
-      "filename" : "trunk_ipad.png"
+      "scale" : "1x"
     },
     {
       "idiom" : "ipad",
-      "scale" : "2x",
-      "filename" : "trunk_ipad@2x.png"
+      "scale" : "2x"
     }
   ],
   "info" : {
