@@ -16,6 +16,7 @@
         [self.node setTexture:[PreloadData getDataWithKey:DATA_BANANA_TEXTURE]];
         self.action = @selector(actionBanana);
         self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 3];
+        self.node.size = CGSizeMake(self.node.size.width / 2, self.node.size.height / 2);
         self.node.physicsBody.mass = 10;
     }
     return (self);

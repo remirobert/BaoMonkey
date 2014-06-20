@@ -113,7 +113,7 @@
     
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"banana"]] key:DATA_BANANA_TEXTURE];
     [PreloadData loadDataWithKey:[SKTexture textureWithImageNamed:@"coconut"] key:DATA_COCONUT_TEXTURE];
-    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"prune"]] key:DATA_PRUNE_TEXTURE];
+    [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"plum"]] key:DATA_PRUNE_TEXTURE];
     
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"monkey-waiting"]] key:DATA_MONKEY_WAITING];
     [PreloadData loadDataWithKey:[SKTexture textureWithImage:[UIImage imageNamed:@"monkey-waiting-coconut"]] key:DATA_MONKEY_WAITING_COCONUT];
