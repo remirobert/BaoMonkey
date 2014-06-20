@@ -83,12 +83,16 @@
     }
     _tower.position = CGPointMake(_tankSprite.position.x - 20, _tankSprite.position.y + _tankSprite.size.height / 2);
     _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2);
-    _wheel.position = CGPointMake(_tankSprite.position.x - 28, _wheel.size.height + 13);
+    if (!IPAD)
+        _wheel.position = CGPointMake(_tankSprite.position.x - 28, _wheel.size.height + 13);
+    else
+        _wheel.position = CGPointMake(_tankSprite.position.x - 50, _wheel.size.height - 3);
 }
 
 - (void) lowStrat:(CGPoint)positionMonkey :(SKScene *)scene {
     SKSpriteNode *nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munition-explosive"]];
-    nodeShoot.size = CGSizeMake(nodeShoot.size.width / 2, nodeShoot.size.height / 2);
+    if (!IPAD)
+        nodeShoot.size = CGSizeMake(nodeShoot.size.width / 2, nodeShoot.size.height / 2);
     
     float angle = atan2f(positionMonkey.y, positionMonkey.x);
     nodeShoot.zRotation = angle;
@@ -112,7 +116,7 @@
 - (void) shootFireBomb:(CGPoint)positionMonkey :(SKScene *)scene {
     SKSpriteNode *nodeShoot;
     
-    nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"background-progress-bar"]];
+    nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munition-fire"]];
     nodeShoot.size = CGSizeMake(nodeShoot.size.width / 3, nodeShoot.size.height / 3);
     
     float angle = atan2f(positionMonkey.y, positionMonkey.x);
