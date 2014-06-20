@@ -65,8 +65,6 @@
     infosNode.name = INFOS_NODE_NAME;
     [self addChild:infosNode];
     
-    [self loadMonkeyAnimation];
-    
     monkey = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"monkey-menu"]];
     monkey.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (monkey.size.height / 2));
     [self addChild:monkey];
