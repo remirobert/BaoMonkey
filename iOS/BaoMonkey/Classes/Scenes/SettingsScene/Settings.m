@@ -126,28 +126,23 @@
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     _prevLocationCursor = ((SpriteKitCursor *)_currentCursorClicked).cursor.position;
+    UITouch *touch = [touches anyObject];
+    CGPoint location = [touch locationInNode:self];
     
     SKSpriteNode *node = (SKSpriteNode *)[self childNodeWithName:@"back"];
     [node setTexture:[SKTexture textureWithImageNamed:@"back-button-settings"]];
 
-    NSArray *array = [touches allObjects];
-    
-    for (UITouch *touch in array) {
-        CGPoint location = [touch locationInNode:self];
-        if ([_currentCursorClicked isEqual:_cursorAccelerometer])
-            [_cursorAccelerometer updatePositionCursorWithLocation:location];
-        else if ([_currentCursorClicked isEqual:_cursorVolumeMusic])
-            [_cursorVolumeMusic updatePositionCursorWithLocation:location];
-        else if ([_currentCursorClicked isEqual:_cursorVolumeSound])
-            [_cursorVolumeSound updatePositionCursorWithLocation:location];
+    if ([_currentCursorClicked isEqual:_cursorAccelerometer])
+        [_cursorAccelerometer updatePositionCursorWithLocation:location];
+    else if ([_currentCursorClicked isEqual:_cursorVolumeMusic])
+        [_cursorVolumeMusic updatePositionCursorWithLocation:location];
+    else if ([_currentCursorClicked isEqual:_cursorVolumeSound])
+        [_cursorVolumeSound updatePositionCursorWithLocation:location];
         
-        if (location.x - _prevLocationCursor.x > 0) {
-            [((SpriteKitCursor *)_currentCursorClicked).cursor runAction:[SKAction rotateByAngle:-0.1f duration:0.1f]];
-        } else if (location.x - _prevLocationCursor.x < 0) {
-            [((SpriteKitCursor *)_currentCursorClicked).cursor runAction:[SKAction rotateByAngle:0.1f duration:0.1f]];
-        }
-        
-        return ;
+    if (location.x - _prevLocationCursor.x > 0) {
+        [((SpriteKitCursor *)_currentCursorClicked).cursor runAction:[SKAction rotateByAngle:-0.1f duration:0.1f]];
+    } else if (location.x - _prevLocationCursor.x < 0) {
+        [((SpriteKitCursor *)_currentCursorClicked).cursor runAction:[SKAction rotateByAngle:0.1f duration:0.1f]];
     }
 }
 
