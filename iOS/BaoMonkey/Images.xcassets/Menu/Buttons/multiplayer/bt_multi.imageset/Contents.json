@@ -7,17 +7,17 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "petite_tâche_iphone-1.png"
+      "filename" : "bt_multi.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "1x",
-      "filename" : "petite_tâche_iphone.png"
+      "filename" : "bt_multi-1.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "2x",
-      "filename" : "petite_tâche_ipad.png"
+      "filename" : "bt_multi_ipad.png"
     }
   ],
   "info" : {

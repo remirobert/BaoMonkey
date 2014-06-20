@@ -312,14 +312,7 @@
 
 -(void)update:(CFTimeInterval)currentTime {
 
-    NSInteger oldLevel = [GameData getLevel];        
-
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        //[self loadLamberJackGeantMachineScene];
-        [self loadTankScene];
-    });
-    
+    NSInteger oldLevel = [GameData getLevel];            
     
     if ([[GameData singleton] isPause]) {
         
@@ -334,7 +327,6 @@
     dispatch_once(&oncePlay, ^{
         oncePause = 0;
         pauseTime += currentTime - lastTime;
-        NSLog(@"pauseTime : %f", pauseTime);
     });
     
     [monkey manageShield:currentTime andScene:self];

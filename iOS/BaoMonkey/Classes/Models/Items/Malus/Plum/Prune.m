@@ -32,11 +32,9 @@
     
     SKSpriteNode *secondSplash = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"small-splash-plums"]];
     secondSplash.position = CGPointMake(rand() % (int)[UIScreen mainScreen].bounds.size.width, rand() % (int)[UIScreen mainScreen].bounds.size.height);
-    secondSplash.size = CGSizeMake(secondSplash.size.width, secondSplash.size.height);
 
     SKSpriteNode *firstSplash = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"big-splash-plums"]];
     firstSplash.position = CGPointMake(self.node.position.x, [UIScreen mainScreen].bounds.size.height / 2);
-    firstSplash.size = CGSizeMake(firstSplash.size.width, firstSplash.size.height);
 
     
     [self.node removeAllActions];
