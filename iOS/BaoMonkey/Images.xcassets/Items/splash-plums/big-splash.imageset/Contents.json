@@ -7,17 +7,17 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "gros-splash-iphone.png"
+      "filename" : "grosse_tâche_iphone-1.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "1x",
-      "filename" : "gros-splash-iphone-1.png"
+      "filename" : "grosse_tâche_iphone.png"
     },
     {
       "idiom" : "ipad",
       "scale" : "2x",
-      "filename" : "gros-splash-ipad.png"
+      "filename" : "grosse_tâche_ipad.png"
     }
   ],
   "info" : {

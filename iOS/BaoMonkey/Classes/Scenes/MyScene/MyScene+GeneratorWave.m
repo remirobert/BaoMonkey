@@ -85,7 +85,6 @@
 }
 
 - (void) addNewWave:(CFTimeInterval)currentTime {
-    return ;
     static CGFloat timeNext = 0.0;
     
     if (currentTime < timeNext) {

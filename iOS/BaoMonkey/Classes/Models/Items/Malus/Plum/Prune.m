@@ -19,6 +19,7 @@
         self.action = @selector(actionPrune);
         self.node.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:self.node.size.width / 3];
         self.node.physicsBody.mass = 10.0;
+        self.node.size = CGSizeMake(self.node.size.width / 2, self.node.size.height / 2);
     }
     return (self);
 }
@@ -31,11 +32,9 @@
     
     SKSpriteNode *secondSplash = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"small-splash-plums"]];
     secondSplash.position = CGPointMake(rand() % (int)[UIScreen mainScreen].bounds.size.width, rand() % (int)[UIScreen mainScreen].bounds.size.height);
-    secondSplash.size = CGSizeMake(secondSplash.size.width, secondSplash.size.height);
 
     SKSpriteNode *firstSplash = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"big-splash-plums"]];
     firstSplash.position = CGPointMake(self.node.position.x, [UIScreen mainScreen].bounds.size.height / 2);
-    firstSplash.size = CGSizeMake(firstSplash.size.width, firstSplash.size.height);
 
     
     [self.node removeAllActions];
