@@ -84,7 +84,10 @@
         positionX = (rand() % (int)positionMonkey.x - 50) + positionMonkey.x - 50;
     
     SKSpriteNode *shoot = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"munition-explosive"]];
-    shoot.size = CGSizeMake(shoot.size.width / 3, shoot.size.height / 3);
+    if (!IPAD)
+        shoot.size = CGSizeMake(shoot.size.width / 3, shoot.size.height / 3);
+    else
+        shoot.size = CGSizeMake(shoot.size.width / 2, shoot.size.height / 2);
     
     moveShoot = [SKAction moveTo:CGPointMake(positionX, [UIScreen mainScreen].bounds.size.height)
                         duration:2.0 - (float)([GameData getLevel] / 10.0)];

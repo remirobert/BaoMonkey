@@ -83,7 +83,10 @@
     }
     _tower.position = CGPointMake(_tankSprite.position.x - 20, _tankSprite.position.y + _tankSprite.size.height / 2);
     _canon.position = CGPointMake(_tankSprite.position.x, _tankSprite.position.y + _tankSprite.size.height / 2);
-    _wheel.position = CGPointMake(_tankSprite.position.x - 28, _wheel.size.height + 13);
+    if (!IPAD)
+        _wheel.position = CGPointMake(_tankSprite.position.x - 28, _wheel.size.height + 13);
+    else
+        _wheel.position = CGPointMake(_tankSprite.position.x - 50, _wheel.size.height - 3);
 }
 
 - (void) lowStrat:(CGPoint)positionMonkey :(SKScene *)scene {
