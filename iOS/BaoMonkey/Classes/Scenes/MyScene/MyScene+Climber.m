@@ -17,7 +17,7 @@
     for (Enemy *currrentEnemy in self->enemiesController.enemies) {
         if ([currrentEnemy isKindOfClass:[Climber class]]) {
             if (((Climber *)currrentEnemy).isClimb == NO) {
-                [((Climber *)currrentEnemy) actionClimber:self.treeBranch.node.position.y + 20];
+                [((Climber *)currrentEnemy) actionClimber:monkey.sprite.position.y];
             }
             if (((Climber *)currrentEnemy).isOnPlateform == YES) {
                 [self moveOnPlateform:(Climber *)currrentEnemy];

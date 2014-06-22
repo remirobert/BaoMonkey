@@ -189,7 +189,9 @@
             }
         }
 
-        if ([GameData getLevel] > 2) {
+        numberClimber = 2;
+        
+        if ([GameData getLevel] > 0) {
             if ([GameData getLevel] / 2 % 2 == 0)
                 numberClimber = (int)[GameData getLevel] / 2;
         }
