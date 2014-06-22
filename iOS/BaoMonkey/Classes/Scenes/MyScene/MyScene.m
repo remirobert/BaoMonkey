@@ -314,12 +314,6 @@
 
     NSInteger oldLevel = [GameData getLevel];            
     
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self loadTankScene];
-    });
-    
     if ([[GameData singleton] isPause]) {
         
         dispatch_once(&oncePause, ^{
@@ -431,6 +425,9 @@
         if (oldLevel != [GameData getLevel]) {
             if (oldLevel == STEP_TANK_BOSS) {
                 [self loadTankScene];
+            }
+            else if (oldLevel == STEP_LAMBER_JACK_MACHINE_BOSS) {
+                [self loadLamberJackGeantMachineScene];
             }
         }
     }
