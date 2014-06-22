@@ -31,7 +31,8 @@
     SKLabelNode *node = [SKLabelNode labelNodeWithFontNamed:@"Ravie"];
     node.text = [NSString stringWithFormat:@"Pause"];
     node.fontSize = 25;
-    node.position = CGPointMake([UIScreen mainScreen].bounds.size.width - 50, [UIScreen mainScreen].bounds.size.height - 30);
+    node.position = CGPointMake([UIScreen mainScreen].bounds.size.width - 50,
+                                [UIScreen mainScreen].bounds.size.height - 30);
     node.name = PAUSE_BUTTON_NODE_NAME;
     node.zPosition = 55;
     return node;
@@ -133,7 +134,8 @@
     CGPoint location = [touch locationInNode:self];
     SKNode *node = [self nodeAtPoint:location];
     
-    if (([GameData isGameOver] && [node.name isEqualToString:RETRY_NODE_NAME]) || [node.name isEqualToString:RETRY_NODE_NAME]) {
+    if (([GameData isGameOver] && [node.name isEqualToString:RETRY_NODE_NAME]) ||
+        [node.name isEqualToString:RETRY_NODE_NAME]) {
         [GameData resetGameData];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
         return ;
@@ -160,7 +162,8 @@
     }
     
     if ([node.name isEqualToString:SETTINGS_NODE_NAME]){
-        [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self] transition:[SKTransition fadeWithDuration:1.0]];
+        [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self]
+                     transition:[SKTransition fadeWithDuration:1.0]];
     }
 }
 
@@ -406,7 +409,8 @@
             }
         }
         else if (enemy.type == EnemyTypeHunter && ((Hunter *)enemy).isMoving == NO) {
-            SKSpriteNode *tmp = [((Hunter *)enemy) shootMonkey:currentTime :monkey.collisionMask.position];
+            SKSpriteNode *tmp = [((Hunter *)enemy) shootMonkey:currentTime
+                                                              :monkey.collisionMask.position];
             if (tmp != nil)
                 [self addChild:tmp];
         }

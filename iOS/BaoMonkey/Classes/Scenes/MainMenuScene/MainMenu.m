@@ -133,7 +133,8 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_START_GAME object:nil];
     }
     else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
-        [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self] transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:1.0]];
+        [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self]
+                     transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:1.0]];
     }
     else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SHOW_GAME_CENTER object:nil];
@@ -143,7 +144,8 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"notification_share" object:nil];
     }
     else if ([node.name isEqualToString:INFOS_NODE_NAME]) {
-        [self.view presentScene:[[Credit alloc] initWithSize:self.size andParentScene:self] transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:1.0]];
+        [self.view presentScene:[[Credit alloc] initWithSize:self.size andParentScene:self]
+                     transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:1.0]];
     }
     [self deselectButtons];
 }
