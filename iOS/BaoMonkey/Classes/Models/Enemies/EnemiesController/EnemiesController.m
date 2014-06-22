@@ -188,7 +188,7 @@
                 [self addFloor];
             }
         }
-
+        
         if ([GameData getLevel] > 2) {
             if ([GameData getLevel] / 2 % 2 == 0)
                 numberClimber = (int)[GameData getLevel] / 2;
@@ -270,9 +270,7 @@
     
     positions = [[NSMutableArray alloc] init];
     for (int i = 0 ; i < MAX_FLOOR ; i++) {
-        
-        NSLog(@"%f", [BaoPosition getBetweenPlateforme]);
-        
+                
         CGFloat posY = MIN_POSY_FLOOR + ([BaoPosition getBetweenPlateforme] * i) - 22;
         [positions addObject:[NSNumber numberWithDouble:posY]];
     }

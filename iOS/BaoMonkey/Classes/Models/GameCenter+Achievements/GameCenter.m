@@ -132,7 +132,6 @@
         for (GKAchievement *currentAchievement in achievements) {
             NSArray *tabParseIdentifer = [currentAchievement.identifier componentsSeparatedByString:@"0"];
             
-            NSLog(@"%@ = %f", currentAchievement.identifier, currentAchievement.percentComplete);
             if (currentAchievement.percentComplete != 100) {
                 if (indexPlums < [ACHIEVEMENT_PLUMS count] &&
                     [((NSString *)[tabParseIdentifer objectAtIndex:[tabParseIdentifer count] - 1]) isEqualToString:@"plums"]) {
