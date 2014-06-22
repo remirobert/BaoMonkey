@@ -415,6 +415,12 @@
     [self actionClimber];
     
     if ([GameData getTrunkLife] < 0) {
+        [GameCenter getBestScorePlayer];
+        [monkey deadMonkey];
+        [monkeyMultiplayer deadMonkey];
+        if (![GameData isGameOver])
+            [self sendGameOverGame];
+        [self gameOverCountDown];
         // Call the GameOver view when the trunk is dead
     } else{
         [self updateTrunkTexture];
