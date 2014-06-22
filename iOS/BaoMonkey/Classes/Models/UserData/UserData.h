@@ -22,6 +22,7 @@
 + (void) initUserData;
 + (void) saveUserData;
 + (void) resetUserData;
++ (void) setIsFirstRun:(BOOL)first;
 + (void) addEnemy;
 + (void) addPrune;
 + (void) updateScore:(NSInteger)score;

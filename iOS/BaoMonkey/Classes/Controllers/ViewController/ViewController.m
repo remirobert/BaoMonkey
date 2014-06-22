@@ -15,6 +15,7 @@
 #import "GameController.h"
 #import "MyScene.h"
 #import "ViewController+Multiplayer.h"
+#import "TutorialViewController.h"
 
 
 @interface ViewController ()
@@ -48,7 +49,7 @@
     
     _skView = (SKView *)self.view;
     _skView.showsFPS = NO;
-    _skView.showsNodeCount = YES;
+    _skView.showsNodeCount = NO;
     [GameController initAccelerometer];
     [GameController initOneTapOnView:_skView];
     
@@ -90,6 +91,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(showGameCenter)
                                                  name:NOTIFICATION_SHOW_GAME_CENTER
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(launchTutorial)
+                                                 name:NOTIFICATION_LAUNCH_TUTORIAL
                                                object:nil];
 
     srand(time(NULL));
@@ -233,6 +239,11 @@
 
 -(void)showGameCenter {
     [GameCenter showLeaderboardAndAchievements:YES withViewController:self];
+}
+
+-(void)launchTutorial {
+    TutorialViewController *controller = [[TutorialViewController alloc] init];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (NSUInteger)supportedInterfaceOrientations

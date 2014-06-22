@@ -81,6 +81,12 @@
     userData.soundEffectsVolume = [userData.user floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME];
     userData.accelerometerSpeed = [userData.user floatForKey:NSUSERDEFAULT_ACCELEROMETER_SPEED];
     
+    if ([userData.user boolForKey:@"firstRun"]) {
+        userData.isFirstRun = [userData.user boolForKey:@"firstRun"];
+    } else {
+        userData.isFirstRun = TRUE;
+    }
+    
     [UserData updateAchievementStatus];
 }
 
@@ -99,6 +105,7 @@
     [userData.user setInteger:userData.enemy_score forKey:ENEMY_KEY];
     [userData.user setInteger:userData.prune_score forKey:PRUNE_KEY];
     [userData.user setInteger:userData.score forKey:SCORE_KEY];
+    [userData.user setBool:FALSE forKey:@"firstRun"];
 }
 
 + (void) resetUserData {
@@ -106,6 +113,14 @@
     
     userData = [UserData defaultUser];
     userData.enemy_score = userData.prune_score = userData.score = 0;
+    [self saveUserData];
+}
+
++ (void) setIsFirstRun:(BOOL)first {
+    UserData *userData;
+    
+    userData = [UserData defaultUser];
+    userData.isFirstRun = false;
     [self saveUserData];
 }
 

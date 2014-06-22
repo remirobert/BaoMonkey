@@ -189,14 +189,14 @@
 
 - (void) popBubble:(NSTimeInterval)currentTime {
     static NSTimeInterval timer = 0;
-    NSArray *tabImage = @[@"big-bubble", @"medium-bubble", @"small-bubble"];
+    //NSArray *tabImage = @[@"water-bubble-1", @"water-bubble-2", @"water-bubble-3"];
     
     if (timer == 0) {
         timer = rand() % 2 + 1 + currentTime;
     }
     
     if (currentTime >= timer) {
-        SKSpriteNode *bubble = [SKSpriteNode spriteNodeWithImageNamed:[tabImage objectAtIndex:rand() % 3]];
+        SKSpriteNode *bubble = [SKSpriteNode spriteNodeWithImageNamed:@"water-bubble-2"];
         
         bubble.position = [BaoPosition bubblePositionSettings];
         bubble.zPosition = 100;

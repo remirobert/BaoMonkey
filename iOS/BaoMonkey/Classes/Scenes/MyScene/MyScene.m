@@ -226,7 +226,12 @@
     oncePause = 0;
     oncePlay = -1;
     
-    menuTransition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];    
+    menuTransition = [SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5];
+    
+    if ([[UserData defaultUser] isFirstRun] == TRUE) {
+        [GameData pauseGame];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_LAUNCH_TUTORIAL object:nil];
+    }
 }
 
 -(id)initWithSize:(CGSize)size {
