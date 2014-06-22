@@ -230,7 +230,6 @@
         [self addChild:coco.node];
         coco.node.physicsBody = nil;
         [coco.node runAction:[SKAction waitForDuration:(float)arc4random() / 0x100000000] completion:^{
-            NSLog(@"physic");
             coco.node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:coco.node.size];
             coco.node.physicsBody.mass = 25.0;
             coco.node.physicsBody.usesPreciseCollisionDetection = YES;

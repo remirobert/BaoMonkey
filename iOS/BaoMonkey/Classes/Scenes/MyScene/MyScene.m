@@ -156,7 +156,6 @@
     }
     
     if ([node.name isEqualToString:HOME_NODE_NAME]){
-        NSLog(@"HOME");
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
     }
     
@@ -319,7 +318,6 @@
         dispatch_once(&oncePause, ^{
             oncePlay = 0;
             lastTime = currentTime;
-            NSLog(@"lastTime : %f", lastTime);
         });
         return;
     }
@@ -355,22 +353,22 @@
         }
     }
     
-//    [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-//        if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
-//            if (!monkey.isShield) {
-//                [GameCenter getBestScorePlayer];
-//                [monkey deadMonkey];
-//                [monkeyMultiplayer deadMonkey];
-//                if (![GameData isGameOver])
-//                    [self sendGameOverGame];
-//                    [self gameOverCountDown];
-//            } else {
-//                [monkey.shield removeFromParent];
-//                monkey.isShield = FALSE;
-//            }
-//            [node removeFromParent];
-//        }
-//    }];
+    [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+        if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
+            if (!monkey.isShield) {
+                [GameCenter getBestScorePlayer];
+                [monkey deadMonkey];
+                [monkeyMultiplayer deadMonkey];
+                if (![GameData isGameOver])
+                    [self sendGameOverGame];
+                    [self gameOverCountDown];
+            } else {
+                [monkey.shield removeFromParent];
+                monkey.isShield = FALSE;
+            }
+            [node removeFromParent];
+        }
+    }];
 
     [UserData updateScore:10];
     

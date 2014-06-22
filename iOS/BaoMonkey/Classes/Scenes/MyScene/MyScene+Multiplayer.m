@@ -18,7 +18,6 @@
 @implementation MyScene (Multiplayer)
 
 - (void)match:(GKMatch *)match player:(NSString *)playerID didChangeState:(GKPlayerConnectionState)state {
-    NSLog(@"change status");
     if (state != GKPlayerStateConnected) {
         NSLog(@"change status unknow");
     }
