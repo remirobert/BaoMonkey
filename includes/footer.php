@@ -6,13 +6,13 @@
 		-->
 
 	 	<!-- Core JavaScript Files -->
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	    <script src="js/jquery-1.10.2.js"></script>
 	    <script src="js/bootstrap.min.js"></script>
-	    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	    <script src="js/jquery.easing.1.3.js"></script>
 
 
 	    <!-- Custom Theme JavaScript -->
-	    <script src="js/grayscale.js"></script>
+	    <script src="js/app.js"></script>
 
 	</body>
 </html>
