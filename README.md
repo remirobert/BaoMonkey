@@ -1,4 +1,0 @@
-iosGame
-=======
-
-iOS game.
