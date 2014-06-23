@@ -1,0 +1,75 @@
+/*
+
+BAOMONKEY
+Website 2014 - Version 1
+Responsive stylesheet
+
+*/
+
+/**********************************************************************/
+/*
+** ACTUAL IPHONES
+*/
+
+/* iPhone 5 in portrait & landscape */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) {
+
+	.hats { display: block;position: absolute;top: -120px;left: 76px; }
+
+}
+
+/* iPhone 5 in landscape */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : landscape) {
+
+	.hats { display: block;position: absolute;top: -120px;left: 156px; }
+
+}
+
+/* iPhone 5 in portrait */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 568px) 
+and (orientation : portrait) {
+
+	.hats { display: block;position: absolute;top: -120px;left: 76px; }
+
+}
+
+/************************************************************************/
+/*
+** OLD IPHONES
+*/
+
+/* iPhone 2G-4S in portrait & landscape */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+
+	.hats { display: block;position: absolute;top: -120px;left: 76px; }
+
+}
+
+/* iPhone 2G-4S in landscape */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) 
+and (orientation : landscape) {
+
+	.hats { display: block;position: absolute;top: -120px;left: 156px; }
+
+}
+
+/* iPhone 2G-4S in portrait */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) 
+and (orientation : portrait) {
+
+	.hats { display: block;position: absolute;top: -120px;left: 156px; }
+
+}
