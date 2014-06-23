@@ -26,10 +26,14 @@
 @implementation ViewController
 
 - (void) initGame {
-    _scene = [MyScene sceneWithSize:_skView.bounds.size];
-    _scene.scaleMode = SKSceneScaleModeAspectFill;
-    
-    [_skView presentScene:_scene transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5]];
+    if ([[UserData defaultUser] isFirstRun] == TRUE) {
+        [self launchTutorial];
+    }
+    else {
+        _scene = [MyScene sceneWithSize:_skView.bounds.size];
+        _scene.scaleMode = SKSceneScaleModeAspectFill;
+        [_skView presentScene:_scene transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5]];
+    }
 }
 
 - (void) relaunchGame {
@@ -91,11 +95,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(showGameCenter)
                                                  name:NOTIFICATION_SHOW_GAME_CENTER
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(launchTutorial)
-                                                 name:NOTIFICATION_LAUNCH_TUTORIAL
                                                object:nil];
 
     srand(time(NULL));

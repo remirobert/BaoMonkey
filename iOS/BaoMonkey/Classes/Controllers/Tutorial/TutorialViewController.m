@@ -40,7 +40,8 @@
 }
 
 -(void)introductionDidFinishWithType:(MYFinishType)finishType{
-
+    [UserData setIsFirstRun:FALSE];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_START_GAME object:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
