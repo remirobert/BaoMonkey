@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 #import <GameKit/GameKit.h>
-#import "MYIntroductionView.h"
 
-@interface TutorialViewController : UIViewController <MYIntroductionDelegate>
+@interface TutorialViewController : UIViewController <UIPageViewControllerDataSource>
+
+@property (strong, nonatomic) UIPageViewController *pageController;
 
 @end

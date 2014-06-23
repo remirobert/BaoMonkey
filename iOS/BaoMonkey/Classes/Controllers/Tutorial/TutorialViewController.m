@@ -9,9 +9,11 @@
 #import "TutorialViewController.h"
 #import "Define.h"
 #import "UserData.h"
+#import "PageTutorial.h"
 
 @interface TutorialViewController ()
-
+@property (nonatomic, strong) NSArray *images;
+@property (nonatomic, strong) NSArray *pageTutoriels;
 @end
 
 @implementation TutorialViewController
@@ -25,40 +27,79 @@
     return self;
 }
 
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController {
+    return (3);
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController {
+    return (0);
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+      viewControllerBeforeViewController:(UIViewController *)viewController {
+    NSUInteger index = [(PageTutorial *)viewController index];
+    
+     NSLog(@"index = %lu", (unsigned long)index);
+    
+    if (index == 0) {
+        return nil;
+    }
+    index--;
+
+    return ([PageTutorial newPage:index :[UIImage imageNamed:[_images objectAtIndex:index]]]);
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+       viewControllerAfterViewController:(UIViewController *)viewController {
+     NSUInteger index = [(PageTutorial *)viewController index];
+
+    NSLog(@"index = %lu", (unsigned long)index);
+
+    if (index >= 2) {
+        return nil;
+    }
+    index++;
+    return ([PageTutorial newPage:index :[UIImage imageNamed:[_images objectAtIndex:index]]]);
+}
+
+- (void) initPageController {
+    _pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
+                                                          navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    
+    _pageController.dataSource = self;
+    [[self.pageController view] setFrame:[[self view] bounds]];
+    
+    NSArray *viewControllers = [NSArray arrayWithObject:[_pageTutoriels objectAtIndex:0]];
+    
+    [_pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward
+                               animated:YES completion:nil];
+    
+    [self addChildViewController:_pageController];
+    [[self view] addSubview:[_pageController view]];
+    [self.pageController didMoveToParentViewController:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    MYIntroductionPanel *panel1 = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"tutorial-panel-1"] description:@"Tilt your device to move"];
-    MYIntroductionPanel *panel2 = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"tutorial-panel-2"] description:@"Catch coconuts and tap on screen to launch it on your enemies"];
-
-    MYIntroductionView *tutorial = [[MYIntroductionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) panels:@[panel1, panel2] languageDirection:MYLanguageDirectionLeftToRight];
-    tutorial.backgroundColor = [UIColor clearColor];
-    tutorial.delegate = self;
-    [tutorial showInView:self.view animateDuration:0.0f];
+    PageTutorial *page1 = [[PageTutorial alloc] init];
+    page1.index = 0;
+    page1.imageTuto = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tutorial-panel-1"]];
+    page1.imageTuto.frame = self.view.frame;
+    
+    PageTutorial *page2 = [[PageTutorial alloc] init];
+    page2.index = 0;
+    page2.imageTuto = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tutorial-panel-2"]];
+    page2.imageTuto.frame = self.view.frame;
+    
+    _pageTutoriels = @[page1, page2, page2];
+    _images = @[@"tutorial-panel-1", @"tutorial-panel-2", @"tutorial-panel-2"];
+    
+    self.view.backgroundColor = [UIColor blackColor];
+    
+    [self initPageController];
+    
 }
-
--(void)introductionDidFinishWithType:(MYFinishType)finishType{
-
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

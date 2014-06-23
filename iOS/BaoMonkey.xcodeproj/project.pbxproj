@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		10154D41194A1A7600BAAA81 /* NetworkMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 10154D40194A1A7600BAAA81 /* NetworkMessage.m */; };
+		10226D9D19584F0500FB329D /* PageTutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 10226D9C19584F0500FB329D /* PageTutorial.m */; };
 		103A59261942260C00794E98 /* fire_ipad.sks in Resources */ = {isa = PBXBuildFile; fileRef = 103A59251942260C00794E98 /* fire_ipad.sks */; };
 		108C7E39193CCBE200ADCB85 /* smokeTank.sks in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E37193CCBE200ADCB85 /* smokeTank.sks */; };
 		108C7E3A193CCBE200ADCB85 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E38193CCBE200ADCB85 /* spark.png */; };
@@ -101,6 +102,8 @@
 /* Begin PBXFileReference section */
 		10154D3F194A1A7600BAAA81 /* NetworkMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkMessage.h; sourceTree = "<group>"; };
 		10154D40194A1A7600BAAA81 /* NetworkMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkMessage.m; sourceTree = "<group>"; };
+		10226D9B19584F0500FB329D /* PageTutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTutorial.h; sourceTree = "<group>"; };
+		10226D9C19584F0500FB329D /* PageTutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTutorial.m; sourceTree = "<group>"; };
 		103A59251942260C00794E98 /* fire_ipad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire_ipad.sks; sourceTree = "<group>"; };
 		108C7E37193CCBE200ADCB85 /* smokeTank.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smokeTank.sks; sourceTree = "<group>"; };
 		108C7E38193CCBE200ADCB85 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
@@ -789,6 +792,8 @@
 			children = (
 				3FBDCC8219574958003D6F28 /* TutorialViewController.h */,
 				3FBDCC8319574958003D6F28 /* TutorialViewController.m */,
+				10226D9B19584F0500FB329D /* PageTutorial.h */,
+				10226D9C19584F0500FB329D /* PageTutorial.m */,
 			);
 			name = Tutorial;
 			sourceTree = "<group>";
@@ -1095,6 +1100,7 @@
 				10A7477E19405D8C001BF4FC /* MyScene+LoadBoss.m in Sources */,
 				10962973194755D300AF2E30 /* Credit.m in Sources */,
 				10C599C5191948A300907493 /* main.m in Sources */,
+				10226D9D19584F0500FB329D /* PageTutorial.m in Sources */,
 				10A7477B19405D8C001BF4FC /* MyScene.m in Sources */,
 				10AA9262194AE61400F0D538 /* MyScene+Multiplayer.m in Sources */,
 				3FBDCC8D1957499D003D6F28 /* MYIntroductionView.m in Sources */,
