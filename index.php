@@ -1,38 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- 
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+BAOMONKEY
+Website 2014 - Version 1
 
-    <title>BaoMonkey</title>
+ -->
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<?php
 
-    <!-- Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    include 'includes/header.php';
 
-    <!-- Custom Theme CSS -->
-    <link href="css/grayscale.css" rel="stylesheet">
+?>
 
-</head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 
+    <!-- NAVIGATION -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
-            <div class="navbar-header page-scroll">
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-header page-scroll"></div>
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
@@ -44,11 +31,11 @@
                     </li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
+    <!-- END NAVIGATION -->
 
+    <!-- HOMESCREEN -->
     <section id="home" class="intro">
         <div class="intro-body">
             <div id="logo">
@@ -74,7 +61,9 @@
             </div>
         </div>
     </section>
+    <!-- END HOMESCREEN -->
 
+    <!-- STAFF -->
     <section id="team" class="container text-center" style="margin-top:80px;">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-lg-12">
@@ -84,13 +73,7 @@
                         <div class="info">
                             <h3 class="title">About BaoMonkey</h3>
                             <p>
-                                Bao is a little monkey who live in a beautiful tree but some lamber jack, hunter, commando and many others want destroy it. 
-
-Help Bao to protect his home!
-
-Use the coconuts to stun your ennemies but do attentions bananas and plums. Sometimes, you can take a shield to protect you!
-
-BaoMonkey is a final project of 2nd year of French IT School, EPITECH.
+                                Bao is a little monkey who live in a beautiful tree but some lamber jack, hunter, commando and many others want destroy it. Help Bao to protect his home! se the coconuts to stun your ennemies but do attentions bananas and plums. Sometimes, you can take a shield to protect you! BaoMonkey is a final project of 2nd year of French IT School, EPITECH.
                             </p>
                         </div>
                     </div>
@@ -195,7 +178,9 @@ BaoMonkey is a final project of 2nd year of French IT School, EPITECH.
             </div>
         </div>
     </section>
+    <!-- END STAFF -->
 
+    <!-- CONTACT -->
     <section id="contact" class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-lg-12">
@@ -204,9 +189,7 @@ BaoMonkey is a final project of 2nd year of French IT School, EPITECH.
                             <div class="image"><img class="coco" src="img/coco.png"></div>
                             <div class="info">
                                 <h3 class="title">Contact us</h3>
-                                <p>
-                                    Be free to contact us !
-                                </p>
+                                <p>Be free to contact us !</p>
                             </div>
                         </div>
                         <div class="space"></div>
@@ -241,7 +224,10 @@ BaoMonkey is a final project of 2nd year of French IT School, EPITECH.
             </div>
         </div>
     </section>
+    <!-- END CONTACT -->
 
+
+    <!-- FOOTER -->
     <footer>
         <div class="container text-center" style="padding-top:50px;">
             <div class="row">
@@ -250,16 +236,10 @@ BaoMonkey is a final project of 2nd year of French IT School, EPITECH.
             </div>
         </div>
     </footer>
+    <!-- END FOOTER -->
 
-    <!-- Core JavaScript Files -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<?php
 
+    include 'includes/footer.php';
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/grayscale.js"></script>
-
-</body>
-
-</html>
+?>
