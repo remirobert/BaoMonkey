@@ -74,10 +74,6 @@ a:focus {
     font-weight: 400;
 }
 
-.hats {
-    display: block;position: absolute;top: -120px;left: 134px;
-}
-
 .navbar {
     margin-bottom: 0;
     border-bottom: 1px solid rgba(255,255,255,.3);
@@ -548,29 +544,33 @@ footer {
     box-shadow: inset 0 20px 20px -20px rgba(0,0,0,0.8);
 }
 
+
+/*.hats {
+    display: block;position: absolute;top: -120px;left: 134px;
+}*/
 /**********************************************************************/
 /*
 ** ACTUAL IPHONES
 */
 
 /* iPhone 5 in portrait & landscape */
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+@media only screen and(min-device-width : 320px) and (max-device-width : 568px) {
 
-    .hats { display: block;position: absolute;top: -120px;left: 76px; }
+    .hats { left: 76px; }
 
 }
 
 /* iPhone 5 in landscape */
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
 
-    .hats { display: block;position: absolute;top: -120px;left: 156px; }
+    .hats { left: 156px; }
 
 }
 
 /* iPhone 5 in portrait */
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
 
-    .hats { display: block;position: absolute;top: -120px;left: 76px; }
+    .hats { left: 76px; }
 
 }
 

@@ -8,7 +8,7 @@ Website 2014 - Version 1
 <?php
 
     include 'includes/header.php';
-
+ 
 ?>
 
 
@@ -197,30 +197,21 @@ Website 2014 - Version 1
                     </div> 
                 </div>
             <div class="col-md-12">
-                <form role="form">
+                <form role="form" method="post" action="form.php">
                     
                     <div class="required-field-block">
-                        <input type="text" placeholder="Name" class="form-control">
-                        <div class="required-icon">
-                            <div class="text">*</div>
-                        </div>
+                        <input name="name" type="text" placeholder="Name" class="form-control">
                     </div>
                     
                     <div class="required-field-block">
-                        <input type="text" placeholder="Email" class="form-control">
-                        <div class="required-icon">
-                            <div class="text">*</div>
-                        </div>
+                        <input name="email" type="text" placeholder="Email" class="form-control">
                     </div>
 
                     <div class="required-field-block">
-                        <textarea rows="3" class="form-control" placeholder="Message"></textarea>
-                        <div class="required-icon">
-                            <div class="text">*</div>
-                        </div>
+                        <textarea name="comment" rows="3" class="form-control" placeholder="Message"></textarea>
                     </div>
                     
-                    <p style="text-align: center;"><button class="btn btn-primary">Envoyer</button></p>
+                    <p style="text-align: center;"><input type="submit" value="Send"></p>
                 </form>
             </div>
         </div>
