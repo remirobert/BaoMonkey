@@ -16,7 +16,7 @@ Website 2014 - Version 1
 
     <!-- NAVIGATION -->
     <!-- La barre est hidden sur iphone et meme categorie -->
-    <nav class="navbar navbar-custom navbar-fixed-top hidden-xs hidden-sm hidden-md" role="navigation">
+    <nav class="navbar navbar-custom navbar-fixed-top hidden-xs hidden-sm hidden-md" role="navigation" style="opacity:0.9;">
         <div class="container">
             <div class="navbar-header page-scroll"></div>
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -85,7 +85,7 @@ Website 2014 - Version 1
         <div class="staff">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 member" style="margin-bottom: 50px;">
+                    <div class="col-md-4 member margin-bot">
                         <img class="hats" src="img/capuchon/blue.png">
                         <div>
                             <span>
@@ -100,7 +100,7 @@ Website 2014 - Version 1
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4 member" style="margin-bottom: 50px;">
+                    <div class="col-md-4 member margin-bot">
                     <img class="hats" src="img/capuchon/green.png">
                         <div>
                             <span>
@@ -115,7 +115,7 @@ Website 2014 - Version 1
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4 member" style="margin-bottom: 50px;">
+                    <div class="col-md-4 member margin-bot">
                     <img class="hats" src="img/capuchon/red.png">
                         <div>
                             <span>
@@ -130,7 +130,7 @@ Website 2014 - Version 1
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4 member">
+                    <div class="col-md-4 member margin-bot">
                     <img class="hats" src="img/capuchon/yellow.png">
                         <div>
                             <span>
@@ -145,7 +145,7 @@ Website 2014 - Version 1
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4 member">
+                    <div class="col-md-4 member margin-bot">
                     <img class="hats" src="img/capuchon/black.png">
                         <div>
                             <span>
@@ -160,7 +160,7 @@ Website 2014 - Version 1
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4 member">
+                    <div class="col-md-4 member margin-bot">
                     <img class="hats" src="img/capuchon/pink.png">
                         <div>
                             <span>
