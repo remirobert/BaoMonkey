@@ -20,7 +20,7 @@
     [GameCenter authenticateLocalPlayer];
 
     NSString *playerId = [[GameCenter defaultGameCenter] localPlayer].playerID;
-    
+        
     [UserData launch];
     [GameData initGameData];
     [UserData initUserData];

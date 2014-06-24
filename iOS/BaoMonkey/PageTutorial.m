@@ -8,10 +8,7 @@
 
 #import "PageTutorial.h"
 #import "Define.h"
-
-@interface PageTutorial ()
-
-@end
+#import "UserData.h"
 
 @implementation PageTutorial
 
@@ -24,14 +21,12 @@
 }
 
 - (void) startPlay {
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"play-game-after-tutoriel" object:nil];
 }
 
 - (void) initStartButton {
     if (_index != 2)
         return ;
-    NSLog(@"init button ok");
     UIButton *startbutton = [[UIButton alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height / 2,
                                                                        [UIScreen mainScreen].bounds.size.width, 100)];
     [startbutton setTitle:@"start play" forState:UIControlStateNormal];

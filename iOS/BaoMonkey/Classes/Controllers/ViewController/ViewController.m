@@ -26,21 +26,24 @@
 @implementation ViewController
 
 - (void) initGame {
-    if ([[UserData defaultUser] isFirstRun] == TRUE) {
-        [self launchTutorial];
-    }
-    else {
+//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstRun"] == TRUE) {
+//        [self launchTutorial];
+//        return ;
+//    }
+//    else {
         _scene = [MyScene sceneWithSize:_skView.bounds.size];
         _scene.scaleMode = SKSceneScaleModeAspectFill;
-        [_skView presentScene:_scene transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5]];
-    }
+        [_skView presentScene:_scene transition:[SKTransition
+                                                 pushWithDirection:SKTransitionDirectionLeft duration:0.5]];
+//    }
 }
 
 - (void) relaunchGame {
     _scene = [MyScene sceneWithSize:_skView.bounds.size];
     _scene.scaleMode = SKSceneScaleModeAspectFill;
     
-    [_skView presentScene:_scene transition:[SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.5]];
+    [_skView presentScene:_scene transition:[SKTransition
+                                             pushWithDirection:SKTransitionDirectionRight duration:0.5]];
 }
 
 - (void)viewDidLoad

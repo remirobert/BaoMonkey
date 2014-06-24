@@ -10,6 +10,7 @@
 #import "Define.h"
 #import "UserData.h"
 #import "PageTutorial.h"
+#import "MyScene.h"
 
 @interface TutorialViewController ()
 @property (nonatomic, strong) NSArray *images;
@@ -64,7 +65,8 @@
 
 - (void) initPageController {
     _pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
-                                                          navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+                                                          navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
+                                                                    options:nil];
     
     _pageController.dataSource = self;
     [[self.pageController view] setFrame:[[self view] bounds]];
@@ -79,9 +81,23 @@
     [self.pageController didMoveToParentViewController:self];
 }
 
+- (void) startPlay {
+    NSLog(@"clic");
+    
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstRun"];
+        
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_START_GAME object:nil];
+//    [self.pageController dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startPlay) name:@"play-game-after-tutoriel" object:nil];
     
     PageTutorial *page1 = [[PageTutorial alloc] init];
     page1.index = 0;
