@@ -26,7 +26,4 @@ Website 2014 - Version 1
     <!-- Custom Theme CSS -->
     <link href="css/app.css" rel="stylesheet" type="text/css">
 
-    <!-- Responsive stylesheet -->
-    <link href="css/responsive.css" rel="stylesheet" type="text/css">
-
 </head>
