@@ -315,7 +315,7 @@
 -(void)update:(CFTimeInterval)currentTime {
 
     NSInteger oldLevel = [GameData getLevel];            
-    
+        
     if ([[GameData singleton] isPause]) {
         
         dispatch_once(&oncePause, ^{

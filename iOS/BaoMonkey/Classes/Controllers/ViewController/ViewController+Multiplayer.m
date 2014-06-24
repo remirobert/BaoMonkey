@@ -61,12 +61,14 @@
                                   withDataMode:GKMatchSendDataUnreliable error:nil] == NO)
         NSLog(@"error send msg");
     
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_START_GAME object:nil];
 }
 
 - (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFindMatch:(GKMatch *)match {
     [self dismissViewControllerAnimated:YES completion:nil];
     
+    [MultiplayerData data].isMultiplayer = YES;
     [MultiplayerData data].match = match;
     [MultiplayerData data].match.delegate = self;
     [MultiplayerData data].isConnected = YES;
