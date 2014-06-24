@@ -243,27 +243,6 @@ input, textarea, button { margin-top:10px }
 }
 
 
-@media(min-width:767px) {
-    .navbar {
-        padding: 20px 0;
-        border-bottom: 0;
-        letter-spacing: 1px;
-        background: 0 0;
-        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
-        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
-        transition: background .5s ease-in-out,padding .5s ease-in-out;
-    }
-
-    .top-nav-collapse {
-        padding: 0;
-        background-color: #79C5EF;
-    }
-
-    .navbar-custom.top-nav-collapse {
-        border-bottom: 3px solid rgba(255,255,255,.3);
-    }
-}
-
 .intro {
     display: table;
     width: 100%;
@@ -301,21 +280,6 @@ right: 0;
 
 .intro-text {
     font-size: 18px;
-}
-
-@media(min-width:767px) {
-    .intro {
-        height: 100%;
-        padding: 0;
-    }
-
-    .brand-heading {
-        font-size: 100px;
-    }
-
-    .intro-text {
-        font-size: 25px;
-    }
 }
 
 .btn-circle {
@@ -409,21 +373,6 @@ right: 0;
     -o-background-size: cover;
 }
 
-@media(min-width:767px) {
-    .content-section {
-        padding-top: 250px;
-    }
-
-    .download-section {
-        padding: 100px 0;
-    }
-
-    #map {
-        height: 400px;
-        margin-top: 250px;
-    }
-}
-
 /**  STAFF BLOCK  **/
 
 .staff {
@@ -488,13 +437,6 @@ right: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
 }
-
-/*.staff .member div span a {
-    display: block;
-    height: 35px;
-    width: 35px;
-    z-index: 100;
-}*/
 
 .staff .member div span a:hover {
     -webkit-transform: rotate(360deg);
@@ -570,24 +512,6 @@ right: 0;
 
 .banner-social-buttons {
     margin-top: 0;
-}
-
-@media(max-width:1199px) {
-    ul.banner-social-buttons {
-        margin-top: 15px;
-    }
-}
-
-@media(max-width:767px) {
-    ul.banner-social-buttons>li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
-
-    ul.banner-social-buttons>li:last-child {
-        margin-bottom: 0;
-    }
 }
 
 ::-moz-selection {

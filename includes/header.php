@@ -10,7 +10,7 @@ Website 2014 - Version 1
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -24,7 +24,9 @@ Website 2014 - Version 1
     <link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
 
     <!-- Custom Theme CSS -->
-    <link href="css/app.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+
+    <!-- Responsive stylesheet -->
+    <link href="css/responsive.css" rel="stylesheet" type="text/css">
 
 </head>

@@ -16,7 +16,7 @@ Website 2014 - Version 1
 
     <!-- NAVIGATION -->
     <!-- La barre est hidden sur iphone et meme categorie -->
-    <nav class="navbar navbar-custom navbar-fixed-top hidden-xs hidden-sm" role="navigation">
+    <nav class="navbar navbar-custom navbar-fixed-top hidden-xs hidden-sm hidden-md" role="navigation">
         <div class="container">
             <div class="navbar-header page-scroll"></div>
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -39,10 +39,10 @@ Website 2014 - Version 1
     <!-- HOMESCREEN -->
     <section id="home" class="intro">
         <div class="intro-body">
-            <div id="logo" class="hidden-xs hidden-sm">
+            <div id="logo" class="hidden-xs hidden-sm visible-md, hidden-md">
                 <img class="logo" src="img/logo.png">
             </div>
-            <div id="iphone" class="hidden-xs hidden-sm">
+            <div id="iphone" class="hidden-xs hidden-sm visible-md, hidden-md">
                 <img class="iphone" src="img/iphone.png">
                 <video class="game_vid" width="312" height="661" autoplay loop>
                   <source src="vid/baomonkey.mp4" type="video/mp4" />
