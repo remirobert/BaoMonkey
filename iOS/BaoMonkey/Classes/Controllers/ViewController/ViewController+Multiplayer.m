@@ -60,6 +60,8 @@
                                      toPlayers:[MultiplayerData data].match.playerIDs
                                   withDataMode:GKMatchSendDataUnreliable error:nil] == NO)
         NSLog(@"error send msg");
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_START_GAME object:nil];
 }
 
 - (void)matchmakerViewController:(GKMatchmakerViewController *)viewController didFindMatch:(GKMatch *)match {
