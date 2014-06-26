@@ -313,7 +313,7 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-
+    
     NSInteger oldLevel = [GameData getLevel];            
         
     if ([[GameData singleton] isPause]) {
@@ -436,9 +436,9 @@
             if (oldLevel == STEP_TANK_BOSS) {
                 [self loadTankScene];
             }
-            else if (oldLevel == STEP_LAMBER_JACK_MACHINE_BOSS) {
-                [self loadLamberJackGeantMachineScene];
-            }
+//            else if (oldLevel == STEP_LAMBER_JACK_MACHINE_BOSS) {
+//                [self loadLamberJackGeantMachineScene];
+//            }
         }
     }
 }

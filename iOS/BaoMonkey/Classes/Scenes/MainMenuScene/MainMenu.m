@@ -69,11 +69,11 @@
     monkey.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (monkey.size.height / 2));
     [self addChild:monkey];
     
-    multiPlayer = [SKSpriteNode spriteNodeWithImageNamed:@"bt_multi"];
+    /*multiPlayer = [SKSpriteNode spriteNodeWithImageNamed:@"bt_multi"];
     multiPlayer.size = CGSizeMake(multiPlayer.size.width / 2, multiPlayer.size.height / 2);
     multiPlayer.position = CGPointMake([BaoPosition bigButtonPlay].x + playNode.size.width, [BaoPosition bigButtonPlay].y);
     multiPlayer.name = @"multiplayer";
-    [self addChild:multiPlayer];
+    [self addChild:multiPlayer];*/
     
     //[monkey runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:monkeyFrames timePerFrame:0.5f resize:NO restore:NxO]]];
 }
