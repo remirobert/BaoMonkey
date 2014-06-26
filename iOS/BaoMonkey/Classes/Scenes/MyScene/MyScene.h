@@ -32,7 +32,6 @@
     CFTimeInterval pauseTime;
     CFTimeInterval lastTime;
     Monkey *monkey;
-    Monkey *monkeyMultiplayer;
     EnemiesController *enemiesController;
     GameController *gc;
     SKLabelNode *score;

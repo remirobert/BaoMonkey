@@ -15,8 +15,6 @@
 #import "PreloadData.h"
 #import "BaoSize.h"
 #import "BaoPosition.h"
-#import "MultiplayerData.h"
-#import "NetworkMessage.h"
 
 @implementation EnemiesController
 
@@ -61,22 +59,6 @@
 
     [enemies addObject:newLamberJack];
     [scene addChild:newLamberJack.node];
-    
-    if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == HOST) {
-        NSString *messageStr;
-        
-        if (newLamberJack.direction == LEFT)
-            messageStr = @"L L";
-        else if (newLamberJack.direction == RIGHT)
-            messageStr = @"L R";
-        NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        messageNetwork.type = MESSAGE_NEW_ENEMY;
-        
-        [[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:messageNetwork]
-                                     toPlayers:[MultiplayerData data].match.playerIDs
-                                  withDataMode:GKMatchSendDataUnreliable error:nil];
-    }
 }
 
 -(void)addClimber {
@@ -89,30 +71,6 @@
     
     [enemies addObject:newClimber];
     [scene addChild:newClimber.node];
-    if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == HOST) {
-        NSString *messageStr;
-        
-        if (newClimber.direction == LEFT) {
-            if (newClimber.kind == MONKEY)
-                messageStr = @"C L 0";
-            else
-                messageStr = @"C L 1";
-        }
-        else if (newClimber.direction == RIGHT) {
-            if (newClimber.kind == MONKEY)
-                messageStr = @"C R 0";
-            else
-                messageStr = @"C R 1";
-        }
-
-        NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        messageNetwork.type = MESSAGE_NEW_ENEMY;
-        
-        [[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:messageNetwork]
-                                     toPlayers:[MultiplayerData data].match.playerIDs
-                                  withDataMode:GKMatchSendDataUnreliable error:nil];
-    }
 }
 
 -(void)addHunter {
@@ -132,19 +90,6 @@
     
     [enemies addObject:newHunter];
     [scene addChild:newHunter.node];
-        
-    if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == HOST) {
-        NSString *messageStr;
-        
-        messageStr = [NSString stringWithFormat:@"H %d %d", hunterFloor, positionHunterInSlot];
-        NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        messageNetwork.type = MESSAGE_NEW_ENEMY;
-        
-        [[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:messageNetwork]
-                                     toPlayers:[MultiplayerData data].match.playerIDs
-                                  withDataMode:GKMatchSendDataUnreliable error:nil];
-    }
 }
 
 -(NSUInteger)countOfEnemyType:(EnemyType)_type
@@ -159,10 +104,6 @@
 }
 
 -(void)updateEnemies:(CFTimeInterval)currentTime {
-
-    if ([MultiplayerData data].isConnected == YES && [MultiplayerData data].isMultiplayer == YES && [MultiplayerData data].status == GUEST) {
-        return ;
-    }
     
     if ([self countOfEnemyType:EnemyTypeLamberJack] < MAX_LUMBERJACK && ((timeForAddLamberJack <= currentTime) || (timeForAddLamberJack == 0))) {
         float randomFloat = (MIN_NEXT_ENEMY + ((float)arc4random() / (0x100000000 / (MAX_NEXT_ENEMY - MIN_NEXT_ENEMY))));
@@ -174,17 +115,6 @@
     {
         if ([GameData getLevel] % 2 == 0) {
             if ((numberOfFloors == 0 || numberOfFloors * 2 < [GameData getLevel])) {
-                
-                NSString *messageStr = [NSString stringWithFormat:@"floor"];
-                
-                NetworkMessage *messageNetwork = [[NetworkMessage alloc] initWithData:[messageStr dataUsingEncoding:NSUTF8StringEncoding]];
-                
-                messageNetwork.type = MESSAGE_COMMAND;
-                
-                [[MultiplayerData data].match sendData:[NSKeyedArchiver archivedDataWithRootObject:messageNetwork]
-                                             toPlayers:[MultiplayerData data].match.playerIDs
-                                          withDataMode:GKMatchSendDataUnreliable error:nil];
-                
                 [self addFloor];
             }
         }

@@ -14,7 +14,6 @@
 #import "GameCenter.h"
 #import "GameController.h"
 #import "MyScene.h"
-#import "ViewController+Multiplayer.h"
 #import "TutorialViewController.h"
 
 
