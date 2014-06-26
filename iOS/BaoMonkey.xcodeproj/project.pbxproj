@@ -987,7 +987,7 @@
 				ORGANIZATIONNAME = BaoMonkey;
 				TargetAttributes = {
 					10C599B2191948A300907493 = {
-						DevelopmentTeam = RFKH8ZM9YU;
+						DevelopmentTeam = 44Q2J6374R;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;

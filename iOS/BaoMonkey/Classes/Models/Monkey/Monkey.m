@@ -12,6 +12,13 @@
 #import "GameData.h"
 #import "NetworkMessage.h"
 #import "MultiplayerData.h"
+#import "Action.h"
+#import "Malus.h"
+#import "Bonus.h"
+#import "Weapon.h"
+#import "Define.h"
+#import "Action.h"
+#import "Shield.h"
 
 @implementation Monkey {
     NSArray *walkingFrames;
@@ -295,8 +302,12 @@
             [self addShield:scene];
         }
     }
-    if (((Item *)item).isTaken == NO)
-        [(Item *)item launchAction];
+    if (((Item *)item).isTaken == NO) {
+        if ([item isKindOfClass:[Banana class]])
+            [Action actionBanana:self];
+        else
+            [(Item *)item launchAction];
+    }
 }
 
 #pragma mark - Launch a weapon

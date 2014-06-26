@@ -39,6 +39,7 @@
 }
 
 - (void) relaunchGame {
+    _scene = nil;
     _scene = [MyScene sceneWithSize:_skView.bounds.size];
     _scene.scaleMode = SKSceneScaleModeAspectFill;
     

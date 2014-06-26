@@ -14,6 +14,7 @@
 #import "LamberJack.h"
 #import "Hunter.h"
 #import "Climber.h"
+#import "Action.h"
 
 @implementation MyScene (Multiplayer)
 

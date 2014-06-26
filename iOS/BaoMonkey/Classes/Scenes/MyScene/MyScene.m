@@ -15,6 +15,7 @@
 #import "Settings.h"
 #import "MultiplayerData.h"
 #import "MyScene+Multiplayer.h"
+#import "Banana.h"
 
 @implementation MyScene
 
