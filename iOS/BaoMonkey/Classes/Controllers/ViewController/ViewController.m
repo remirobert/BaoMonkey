@@ -14,7 +14,6 @@
 #import "GameCenter.h"
 #import "GameController.h"
 #import "MyScene.h"
-#import "TutorialViewController.h"
 
 
 @interface ViewController ()
@@ -99,7 +98,7 @@
                                                  name:NOTIFICATION_SHOW_GAME_CENTER
                                                object:nil];
 
-    srand(time(NULL));
+    srand((int)time(NULL));
     mainMenu = [[MainMenu alloc] initWithSize:_skView.frame.size];
     settingsMenu = [[Settings alloc] initWithSize:_skView.frame.size];
     [self goToHome];
@@ -240,11 +239,6 @@
 
 -(void)showGameCenter {
     [GameCenter showLeaderboardAndAchievements:YES withViewController:self];
-}
-
--(void)launchTutorial {
-    TutorialViewController *controller = [[TutorialViewController alloc] init];
-    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (NSUInteger)supportedInterfaceOrientations

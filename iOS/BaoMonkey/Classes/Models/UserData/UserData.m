@@ -77,9 +77,23 @@
     userData.prune_score = [userData.user integerForKey:PRUNE_KEY];
     userData.score = [userData.user integerForKey:SCORE_KEY];
     
-    userData.musicVolume = [userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME];
-    userData.soundEffectsVolume = [userData.user floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME];
-    userData.accelerometerSpeed = [userData.user floatForKey:NSUSERDEFAULT_ACCELEROMETER_SPEED];
+    if ([userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME]) {
+        userData.musicVolume = [userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME];
+    } else {
+        userData.musicVolume = 50;
+    }
+    
+    if ([userData.user floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME]) {
+        userData.soundEffectsVolume = [userData.user floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME];
+    } else {
+        userData.soundEffectsVolume = 50;
+    }
+    
+    if ([userData.user floatForKey:NSUSERDEFAULT_ACCELEROMETER_SPEED]) {
+        userData.accelerometerSpeed = [userData.user floatForKey:NSUSERDEFAULT_ACCELEROMETER_SPEED];
+    } else {
+        userData.accelerometerSpeed = 25;
+    }
     
     if ([userData.user boolForKey:@"firstRun"]) {
         userData.isFirstRun = [userData.user boolForKey:@"firstRun"];

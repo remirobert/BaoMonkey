@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10226D9D19584F0500FB329D /* PageTutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 10226D9C19584F0500FB329D /* PageTutorial.m */; };
 		103A59261942260C00794E98 /* fire_ipad.sks in Resources */ = {isa = PBXBuildFile; fileRef = 103A59251942260C00794E98 /* fire_ipad.sks */; };
 		108C7E39193CCBE200ADCB85 /* smokeTank.sks in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E37193CCBE200ADCB85 /* smokeTank.sks */; };
 		108C7E3A193CCBE200ADCB85 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E38193CCBE200ADCB85 /* spark.png */; };
@@ -69,10 +68,6 @@
 		3F99D510193FB2F40054AC9B /* BaoSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F99D50E193FB2F40054AC9B /* BaoSize.m */; };
 		3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49B191BB20C0027B2C7 /* splash.mp3 */; };
 		3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */; };
-		3FBDCC8419574958003D6F28 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBDCC8319574958003D6F28 /* TutorialViewController.m */; };
-		3FBDCC8B1957499D003D6F28 /* MYIntroductionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBDCC871957499D003D6F28 /* MYIntroductionPanel.m */; };
-		3FBDCC8C1957499D003D6F28 /* MYIntroductionView in Resources */ = {isa = PBXBuildFile; fileRef = 3FBDCC881957499D003D6F28 /* MYIntroductionView */; };
-		3FBDCC8D1957499D003D6F28 /* MYIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBDCC8A1957499D003D6F28 /* MYIntroductionView.m */; };
 		3FC52F5B193FB54600DCDCB7 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F3A193FB54600DCDCB7 /* GameOverScene.m */; };
 		3FC52F5E193FB54600DCDCB7 /* LamberJackMachineScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F42193FB54600DCDCB7 /* LamberJackMachineScene.m */; };
 		3FC52F5F193FB54600DCDCB7 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F45193FB54600DCDCB7 /* MainMenu.m */; };
@@ -96,8 +91,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10226D9B19584F0500FB329D /* PageTutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTutorial.h; sourceTree = "<group>"; };
-		10226D9C19584F0500FB329D /* PageTutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTutorial.m; sourceTree = "<group>"; };
 		103A59251942260C00794E98 /* fire_ipad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire_ipad.sks; sourceTree = "<group>"; };
 		108C7E37193CCBE200ADCB85 /* smokeTank.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smokeTank.sks; sourceTree = "<group>"; };
 		108C7E38193CCBE200ADCB85 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
@@ -201,13 +194,6 @@
 		3F99D50E193FB2F40054AC9B /* BaoSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoSize.m; sourceTree = "<group>"; };
 		3FB2A49B191BB20C0027B2C7 /* splash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = splash.mp3; sourceTree = "<group>"; };
 		3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coconut.mp3; sourceTree = "<group>"; };
-		3FBDCC8219574958003D6F28 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialViewController.h; path = Classes/Controllers/Tutorial/TutorialViewController.h; sourceTree = "<group>"; };
-		3FBDCC8319574958003D6F28 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialViewController.m; path = Classes/Controllers/Tutorial/TutorialViewController.m; sourceTree = "<group>"; };
-		3FBDCC861957499D003D6F28 /* MYIntroductionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYIntroductionPanel.h; sourceTree = "<group>"; };
-		3FBDCC871957499D003D6F28 /* MYIntroductionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYIntroductionPanel.m; sourceTree = "<group>"; };
-		3FBDCC881957499D003D6F28 /* MYIntroductionView */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MYIntroductionView; sourceTree = "<group>"; };
-		3FBDCC891957499D003D6F28 /* MYIntroductionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYIntroductionView.h; sourceTree = "<group>"; };
-		3FBDCC8A1957499D003D6F28 /* MYIntroductionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYIntroductionView.m; sourceTree = "<group>"; };
 		3FC52F39193FB54600DCDCB7 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
 		3FC52F3A193FB54600DCDCB7 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		3FC52F41193FB54600DCDCB7 /* LamberJackMachineScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamberJackMachineScene.h; sourceTree = "<group>"; };
@@ -601,7 +587,6 @@
 		3F50F12419194EC700A37F85 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3FBDCC8119574939003D6F28 /* Tutorial */,
 				3FD8D6CD193FB3AB00E24ADE /* ViewController */,
 			);
 			name = Controllers;
@@ -621,7 +606,6 @@
 		3F50F12719194EFD00A37F85 /* Librairies */ = {
 			isa = PBXGroup;
 			children = (
-				3FBDCC851957499D003D6F28 /* MYIntroductionView */,
 			);
 			name = Librairies;
 			sourceTree = "<group>";
@@ -761,30 +745,6 @@
 				3FB2A49B191BB20C0027B2C7 /* splash.mp3 */,
 			);
 			path = Items;
-			sourceTree = "<group>";
-		};
-		3FBDCC8119574939003D6F28 /* Tutorial */ = {
-			isa = PBXGroup;
-			children = (
-				3FBDCC8219574958003D6F28 /* TutorialViewController.h */,
-				3FBDCC8319574958003D6F28 /* TutorialViewController.m */,
-				10226D9B19584F0500FB329D /* PageTutorial.h */,
-				10226D9C19584F0500FB329D /* PageTutorial.m */,
-			);
-			name = Tutorial;
-			sourceTree = "<group>";
-		};
-		3FBDCC851957499D003D6F28 /* MYIntroductionView */ = {
-			isa = PBXGroup;
-			children = (
-				3FBDCC861957499D003D6F28 /* MYIntroductionPanel.h */,
-				3FBDCC871957499D003D6F28 /* MYIntroductionPanel.m */,
-				3FBDCC881957499D003D6F28 /* MYIntroductionView */,
-				3FBDCC891957499D003D6F28 /* MYIntroductionView.h */,
-				3FBDCC8A1957499D003D6F28 /* MYIntroductionView.m */,
-			);
-			name = MYIntroductionView;
-			path = Librairies/MYIntroductionView;
 			sourceTree = "<group>";
 		};
 		3FC52F38193FB54600DCDCB7 /* GameOverScene */ = {
@@ -999,7 +959,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				103A59261942260C00794E98 /* fire_ipad.sks in Resources */,
-				3FBDCC8C1957499D003D6F28 /* MYIntroductionView in Resources */,
 				29A3D4CF193C66F5003A71DC /* Main_iPhone.storyboard in Resources */,
 				108C7E3A193CCBE200ADCB85 /* spark.png in Resources */,
 				29A3D4D0193C66F5003A71DC /* Main_iPad.storyboard in Resources */,
@@ -1064,22 +1023,18 @@
 				3FD4B6581940A80300455FBE /* BaoPosition.m in Sources */,
 				3F595EA4193FB64400150ED8 /* Tank.m in Sources */,
 				3F36C4B8193FB807009D371D /* Banana.m in Sources */,
-				3FBDCC8B1957499D003D6F28 /* MYIntroductionPanel.m in Sources */,
 				10C599C9191948A300907493 /* AppDelegate.m in Sources */,
 				3F36C4BB193FB807009D371D /* CocoNuts.m in Sources */,
 				10A7477E19405D8C001BF4FC /* MyScene+LoadBoss.m in Sources */,
 				10962973194755D300AF2E30 /* Credit.m in Sources */,
 				10C599C5191948A300907493 /* main.m in Sources */,
-				10226D9D19584F0500FB329D /* PageTutorial.m in Sources */,
 				10A7477B19405D8C001BF4FC /* MyScene.m in Sources */,
-				3FBDCC8D1957499D003D6F28 /* MYIntroductionView.m in Sources */,
 				3F36C4B2193FB807009D371D /* GameController.m in Sources */,
 				3F36C4B6193FB807009D371D /* Shield.m in Sources */,
 				3F7F3AF5194BA4B200EA7D91 /* BaoFontSize.m in Sources */,
 				3F36C4B4193FB807009D371D /* Action.m in Sources */,
 				3FC52F5F193FB54600DCDCB7 /* MainMenu.m in Sources */,
 				3F36C4BF193FB807009D371D /* PreloadData.m in Sources */,
-				3FBDCC8419574958003D6F28 /* TutorialViewController.m in Sources */,
 				10A7477119405D7D001BF4FC /* Helicopter.m in Sources */,
 				3F36C4B1193FB807009D371D /* GameCenter.m in Sources */,
 			);

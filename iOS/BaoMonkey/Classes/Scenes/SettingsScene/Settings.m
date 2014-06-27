@@ -75,25 +75,6 @@
         [_cursorVolumeMusic addChild:self];
         [_cursorVolumeSound addChild:self];
         
-        SKSpriteNode *musicIcon = [[SKSpriteNode alloc] initWithImageNamed:@"music-icon-settings"];
-        musicIcon.position = CGPointMake([BaoPosition cursorMusicSettings].x - ([BaoSize cursorSettings].width / 4), [BaoPosition cursorMusicSettings].y + [BaoSize cursorSettings].height);
-        //musicIcon.position = [BaoPosition cursorMusicSettings];
-        musicIcon.zPosition = 100;
-        
-        SKSpriteNode *soundEffectsIcon = [[SKSpriteNode alloc] initWithImageNamed:@"sound-effects-icon-settings"];
-        soundEffectsIcon.position = CGPointMake([BaoPosition cursorSoundEffectsSettings].x - ([BaoSize cursorSettings].width / 4), [BaoPosition cursorSoundEffectsSettings].y + [BaoSize cursorSettings].height);
-        //soundEffectsIcon.position = [BaoPosition cursorSoundEffectsSettings];
-        soundEffectsIcon.zPosition = 100;
-        
-        SKSpriteNode *accelerometerIcon = [[SKSpriteNode alloc] initWithImageNamed:@"accelerometer-icon-settings"];
-        accelerometerIcon.position = CGPointMake([BaoPosition cursorAccelerometerSettings].x - ([BaoSize cursorSettings].width / 4), [BaoPosition cursorAccelerometerSettings].y + [BaoSize cursorSettings].height);
-        //accelerometerIcon.position = [BaoPosition cursorAccelerometerSettings];
-        accelerometerIcon.zPosition = 100;
-        
-        [self addChild:musicIcon];
-        [self addChild:soundEffectsIcon];
-        [self addChild:accelerometerIcon];
-        
         _parentScene = parentScene;
         [self initButton];
     }
