@@ -80,13 +80,13 @@
     if ([userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME]) {
         userData.musicVolume = [userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME];
     } else {
-        userData.musicVolume = 50;
+        userData.musicVolume = 0.5;
     }
     
     if ([userData.user floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME]) {
         userData.soundEffectsVolume = [userData.user floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME];
     } else {
-        userData.soundEffectsVolume = 50;
+        userData.soundEffectsVolume = 0.5;
     }
     
     if ([userData.user floatForKey:NSUSERDEFAULT_ACCELEROMETER_SPEED]) {
