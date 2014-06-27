@@ -25,11 +25,10 @@
 @implementation ViewController
 
 - (void) initGame {
-//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstRun"] == TRUE) {
+//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstRun"] == FALSE) {
 //        [self launchTutorial];
-//        return ;
-//    }
-//    else {
+//        //return ;
+//    } else {
         _scene = [MyScene sceneWithSize:_skView.bounds.size];
         _scene.scaleMode = SKSceneScaleModeAspectFill;
         [_skView presentScene:_scene transition:[SKTransition
