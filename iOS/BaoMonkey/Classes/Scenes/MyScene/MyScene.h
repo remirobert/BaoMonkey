@@ -39,9 +39,6 @@
     dispatch_once_t oncePlay;
     SKTransition *menuTransition;
     SKSpriteNode *trunk;
-    BOOL tutoStep;
-    NSInteger numTutoStep;
-    CFTimeInterval tutorialStepTime;
 }
 
 @property (nonatomic) int sizeBlock;
@@ -49,6 +46,7 @@
 @property (nonatomic) NSMutableArray *wave;
 
 - (void) resumeGame;
+- (void) pauseGameWithScene:(BOOL)show;
 - (void) gameOverCountDown;
 
 @end

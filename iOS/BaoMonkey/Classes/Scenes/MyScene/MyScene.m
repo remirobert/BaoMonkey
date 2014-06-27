@@ -14,6 +14,7 @@
 #import "GameCenter.h"
 #import "Settings.h"
 #import "Banana.h"
+#import "MyScene+Tutorial.h"
 
 @implementation MyScene
 
@@ -24,30 +25,6 @@
         name = [NSString stringWithFormat:@"iphone-%@", name];
     }
     return [SKSpriteNode spriteNodeWithImageNamed:name];
-}
-
--(SKSpriteNode *)tutorialStepWithText:(NSString *)text{
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithRed:35/255.0f green:35/255.0f blue:35/255.0f alpha:0.5f] size:CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH / 3)];
-    
-    SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"Ravie"];
-    label.text = text;
-    label.fontSize = 12;
-    label.color = [UIColor whiteColor];
-    label.position = CGPointMake(0, 5);
-    [node addChild:label];
-    
-    SKLabelNode *detail = [SKLabelNode labelNodeWithFontNamed:@"Ravie"];
-    detail.text = @"Click to dismiss";
-    detail.fontSize = 10;
-    detail.color = [UIColor whiteColor];
-    detail.position = CGPointMake(label.position.x, label.position.y - 25);
-    [node addChild:detail];
-    
-    node.name = @"TUTORIAL_STEP";
-    node.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
-    node.zPosition = 55;
-    
-    return node;
 }
 
 -(SKLabelNode *)pauseNode {
@@ -176,14 +153,14 @@
             if (monkey == nil)
                 NSLog(@"monkey is nil");
             [monkey launchWeapon];
-        } else {
-            tutoStep = TRUE;
-            numTutoStep++;
-            tutorialStepTime += 2;
-            SKNode *child = [self childNodeWithName:@"TUTORIAL_STEP"];
-            [child removeFromParent];
-            [self resumeGame];
         }
+    }
+
+    SKNode *child = [self childNodeWithName:@"TUTORIAL_STEP"];
+    if (child != nil) {
+        [child removeFromParent];
+        [self resumeGame];
+        [self removeTimer];
     }
     
     if ([node.name isEqualToString:HOME_NODE_NAME]){
@@ -203,9 +180,7 @@
 }
 
 - (void) initScene {
-    tutoStep = FALSE;
-    numTutoStep = 0;
-    tutorialStepTime = 0;
+    [self initTimerTutorial];
     
     self.backgroundColor = [SKColor colorWithRed:52/255.0f green:152/255.0f blue:219/255.0f alpha:1];
 
@@ -331,7 +306,7 @@
     if (show) {
         PauseScene *pauseScene = [[PauseScene alloc] initWithSize:self.size andScene:self];
         [self.view presentScene:pauseScene transition:menuTransition];
-    }
+    }    
 }
 
 - (void) resumeGame {
@@ -345,52 +320,7 @@
     
     NSInteger oldLevel = [GameData getLevel];
     
-    if ([[UserData defaultUser] isFirstRun] == FALSE) {
-        if (tutorialStepTime == 0) {
-            tutorialStepTime = currentTime + 2;
-        }
-    
-        if (currentTime >= tutorialStepTime) {
-            switch (numTutoStep) {
-                case 0: {
-                    static dispatch_once_t step1;
-                    dispatch_once(&step1, ^{
-                        tutoStep = FALSE;
-                        [self addChild:[self tutorialStepWithText:@"Tilt your phone to move Bao"]];
-                    });
-                    break;
-                }
-                case 1: {
-                    static dispatch_once_t step2;
-                    dispatch_once(&step2, ^{
-                        tutoStep = FALSE;
-                        [self addChild:[self tutorialStepWithText:@"Catch coconut and tap to shoot"]];
-                    });
-                    break;
-                }
-                case 2: {
-                    static dispatch_once_t step3;
-                    dispatch_once(&step3, ^{
-                        tutoStep = FALSE;
-                        [self addChild:[self tutorialStepWithText:@"Don't let ennemies destroy your tree"]];
-                    });
-                }
-                case 3: {
-                    static dispatch_once_t step4;
-                    dispatch_once(&step4, ^{
-                        [UserData setIsFirstRun:YES];
-                    });
-                }
-                default:
-                    break;
-            }
-        }
-    
-        if (!tutoStep) {
-            [self pauseGameWithScene:FALSE];
-        }
-    }
-    
+        
     if ([[GameData singleton] isPause]) {
         
         dispatch_once(&oncePause, ^{
@@ -404,6 +334,8 @@
         oncePause = 0;
         pauseTime += currentTime - lastTime;
     });
+    
+    [self displayTutorial:currentTime];
     
     [monkey manageShield:currentTime andScene:self];
     
