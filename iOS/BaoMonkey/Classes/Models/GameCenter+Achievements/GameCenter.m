@@ -50,9 +50,25 @@
         }
         
         else {
+            //[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SHOW_GAME_CENTER_LOGIN object:nil];
             weakSelf.gameCenterEnabled = NO;
         }
     };
+}
+
+# pragma mark - GameCenter Login
+
++(void)showGameCenterLoginWithViewController:(UIViewController*)viewController {
+    [[GameCenter defaultGameCenter] showGameCenterLoginWithViewController:viewController];
+}
+
+-(void)showGameCenterLoginWithViewController:(UIViewController*)viewController {
+    GKGameCenterViewController *gameCenterController = [[GKGameCenterViewController alloc] init];
+    if (gameCenterController != nil) {
+        gameCenterController.gameCenterDelegate = self;
+        gameCenterController.viewState = GKGameCenterViewControllerStateDefault;
+        [viewController presentViewController:gameCenterController animated:YES completion:nil];
+    }
 }
 
 # pragma mark - GameCenter LeaderBoard

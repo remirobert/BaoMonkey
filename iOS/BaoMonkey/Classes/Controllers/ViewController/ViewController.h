@@ -12,7 +12,7 @@
 #import "MainMenu.h"
 #import "Settings.h"
 
-@interface ViewController : UIViewController {
+@interface ViewController : UIViewController{
     MainMenu *mainMenu;
     Settings *settingsMenu;
 }

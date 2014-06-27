@@ -8,6 +8,7 @@
 
 #import "GameController.h"
 #import "GameData.h"
+#import "BaoSize.h"
 
 @implementation GameController
 
@@ -59,12 +60,13 @@ static GameController *singleton;
     
     acceleration = 0.0f;
     
+    
     if (fabs(data.acceleration.x) > kAccelerometerTilt) {
-        if ([UserData getAccelerometerUserSpeed]) {
-            acceleration = data.acceleration.x * ([UserData getAccelerometerUserSpeed] + speed);
-        } else {
-            acceleration = data.acceleration.x * (kAccelerometerSpeed + speed);
-        }
+        acceleration = data.acceleration.x * (([UIScreen mainScreen].bounds.size.width / 7) * ([UserData getAccelerometerUserSpeed] / 10));
+        if (acceleration < 0 && acceleration < -[BaoSize sizeMoveAccelerometer])
+            acceleration = -[BaoSize sizeMoveAccelerometer];
+        else if (acceleration > 0 && acceleration > [BaoSize sizeMoveAccelerometer])
+            acceleration = [BaoSize sizeMoveAccelerometer];
     }
 }
 

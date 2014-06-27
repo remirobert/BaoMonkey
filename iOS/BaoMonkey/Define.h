@@ -91,7 +91,7 @@
 ** ACCELEROMETER
 */
 
-# define kAccelerometerTilt 0.1
+# define kAccelerometerTilt 0.15
 # define kAccelerometerSpeed 25
 
 /*
@@ -107,6 +107,7 @@
 # define NOTIFICATION_GO_TO_HOME            @"NOTIFICATION_GO_TO_HOME"
 # define NOTIFICATION_GO_TO_SETTINGS        @"NOTIFICATION_GO_TO_SETTINGS"
 # define NOTIFICATION_SHOW_GAME_CENTER      @"NOTIFICATION_SHOW_GAME_CENTER"
+# define NOTIFICATION_SHOW_GAME_CENTER_LOGIN      @"NOTIFICATION_SHOW_GAME_CENTER_LOGIN"
 
 /*
 ** SKACTION KEY
