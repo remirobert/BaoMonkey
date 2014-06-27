@@ -84,7 +84,7 @@
     if ([userData.user boolForKey:@"firstRun"]) {
         userData.isFirstRun = [userData.user boolForKey:@"firstRun"];
     } else {
-        userData.isFirstRun = TRUE;
+        userData.isFirstRun = FALSE;
     }
     
     [UserData updateAchievementStatus];
@@ -102,10 +102,11 @@
     UserData *userData;
     
     userData = [UserData defaultUser];
+    
     [userData.user setInteger:userData.enemy_score forKey:ENEMY_KEY];
     [userData.user setInteger:userData.prune_score forKey:PRUNE_KEY];
     [userData.user setInteger:userData.score forKey:SCORE_KEY];
-    [userData.user setBool:FALSE forKey:@"firstRun"];
+    [userData.user setBool:userData.isFirstRun forKey:@"firstRun"];
 }
 
 + (void) resetUserData {
@@ -120,7 +121,7 @@
     UserData *userData;
     
     userData = [UserData defaultUser];
-    userData.isFirstRun = false;
+    userData.isFirstRun = first;
     [self saveUserData];
 }
 

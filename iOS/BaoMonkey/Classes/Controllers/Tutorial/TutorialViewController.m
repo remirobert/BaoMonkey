@@ -84,9 +84,9 @@
 - (void) startPlay {
     NSLog(@"clic");
     
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstRun"];
+    [UserData setIsFirstRun:TRUE];
         
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_START_GAME object:nil];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_START_GAME object:nil];
 //    [self.pageController dismissViewControllerAnimated:NO completion:nil];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
