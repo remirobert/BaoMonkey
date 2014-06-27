@@ -32,13 +32,13 @@
         {
             node.xScale = -1;
             position.x = screen.size.width + (node.size.width / 2);
-            middleScreen = (SCREEN_WIDTH / 2) + (node.size.width / 2);
+            middleScreen = (SCREEN_WIDTH / 2) + (node.size.width / 2) + (IPAD ? 15 : 0);
         }
         else
         {
             node.xScale = 1;
             position.x = -(node.size.width / 2);
-            middleScreen = (SCREEN_WIDTH / 2) - (node.size.width / 2);
+            middleScreen = (SCREEN_WIDTH / 2) - (node.size.width / 2) - (IPAD ? 15 : 0);
         }
         node.name = ENEMY_NODE_NAME;
         position.y = node.size.height / 2 + FLOOR_HEIGHT;
