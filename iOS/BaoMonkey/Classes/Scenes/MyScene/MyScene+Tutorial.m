@@ -121,6 +121,8 @@ NSTimer *timerDismiss;
         isPassed = NO;
         timer = currentTime + 4;
         tutoStep += 1;
+        if (tutoStep == 4)
+            timer = currentTime;
     }
 }
 

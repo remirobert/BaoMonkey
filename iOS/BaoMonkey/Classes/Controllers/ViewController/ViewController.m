@@ -56,7 +56,6 @@
     _skView.showsFPS = NO;
     _skView.showsNodeCount = NO;
     [GameController initAccelerometer];
-    [GameController initOneTapOnView:_skView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(initGame)

@@ -179,6 +179,10 @@
     [self addChild:monkey.collisionMask];
 }
 
+- (void) pauseGame {
+    [self pauseGameWithScene:YES];
+}
+
 - (void) initScene {
     [self initTimerTutorial];
     
@@ -290,8 +294,6 @@
 }
 
 - (void) pauseGameWithScene:(BOOL)show {
-    //[self launchPauseView];
-
     self.speed = 0;
     for (Item *item in _wave) {
         [item pauseTimer];
