@@ -11,6 +11,7 @@
 #import "MyScene.h"
 #import "Settings.h"
 #import "iAdController.h"
+#import "BaoFontSize.h"
 
 @implementation GameOverScene
 
@@ -52,7 +53,7 @@
         
         SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Ravie"];
         scoreLabel.fontColor = [SKColor whiteColor];
-        scoreLabel.fontSize = 23;
+        scoreLabel.fontSize = [BaoFontSize scoreFontSize];
         scoreLabel.text = [NSString stringWithFormat:@"SCORE : %d", (int)[GameData getScore]];
         scoreNode = [[SKSpriteNode alloc] init];
         [scoreNode addChild:scoreLabel];
