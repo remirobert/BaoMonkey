@@ -32,6 +32,8 @@
 		10C599EC191948A400907493 /* BaoMonkeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C599EB191948A400907493 /* BaoMonkeyTests.m */; };
 		2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */; };
 		295373E51941FFDA00611212 /* Ravie.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 295373E41941FFDA00611212 /* Ravie.ttf */; };
+		297C9339195D72420058E672 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 297C9338195D72420058E672 /* iAd.framework */; };
+		297C933D195D75920058E672 /* iAdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 297C933C195D75920058E672 /* iAdController.m */; };
 		29A3D4CF193C66F5003A71DC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C599CA191948A300907493 /* Main_iPhone.storyboard */; };
 		29A3D4D0193C66F5003A71DC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C599CD191948A300907493 /* Main_iPad.storyboard */; };
 		29CE19001926008600513925 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29CE18FF1926008600513925 /* GameKit.framework */; };
@@ -78,6 +80,7 @@
 		3FCEC1C0194AFD0B00C01F40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCEC1BF194AFD0B00C01F40 /* Images.xcassets */; };
 		3FD4B6581940A80300455FBE /* BaoPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4B6571940A80300455FBE /* BaoPosition.m */; };
 		3FD8D6D0193FB3AB00E24ADE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8D6CF193FB3AB00E24ADE /* ViewController.m */; };
+		BB57993E195D801F005A05E1 /* MyScene+Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57993D195D801F005A05E1 /* MyScene+Tutorial.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +132,9 @@
 		10C599EB191948A400907493 /* BaoMonkeyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaoMonkeyTests.m; sourceTree = "<group>"; };
 		2910BA95191D27B300E4B281 /* BaoMonkey.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BaoMonkey.mp3; sourceTree = "<group>"; };
 		295373E41941FFDA00611212 /* Ravie.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ravie.ttf; path = Fonts/Ravie.ttf; sourceTree = "<group>"; };
+		297C9338195D72420058E672 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		297C933B195D75920058E672 /* iAdController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iAdController.h; path = Classes/Models/iAd/iAdController.h; sourceTree = "<group>"; };
+		297C933C195D75920058E672 /* iAdController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iAdController.m; path = Classes/Models/iAd/iAdController.m; sourceTree = "<group>"; };
 		29CE18FF1926008600513925 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		3F0CD894191D423E0079A5EB /* baomonkey.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = baomonkey.m4a; sourceTree = "<group>"; };
 		3F36C475193FB807009D371D /* Achievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achievement.h; sourceTree = "<group>"; };
@@ -213,6 +219,8 @@
 		3FD4B6571940A80300455FBE /* BaoPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaoPosition.m; path = Classes/Helpers/BaoPosition/BaoPosition.m; sourceTree = "<group>"; };
 		3FD8D6CE193FB3AB00E24ADE /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3FD8D6CF193FB3AB00E24ADE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BB57993C195D801F005A05E1 /* MyScene+Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Tutorial.h"; sourceTree = "<group>"; };
+		BB57993D195D801F005A05E1 /* MyScene+Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Tutorial.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				297C9339195D72420058E672 /* iAd.framework in Frameworks */,
 				10C599B9191948A300907493 /* CoreGraphics.framework in Frameworks */,
 				10C599BB191948A300907493 /* UIKit.framework in Frameworks */,
 				10C599BD191948A300907493 /* SpriteKit.framework in Frameworks */,
@@ -263,6 +272,7 @@
 		10C599B5191948A300907493 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				297C9338195D72420058E672 /* iAd.framework */,
 				29CE18FF1926008600513925 /* GameKit.framework */,
 				10C599B6191948A300907493 /* Foundation.framework */,
 				10C599B8191948A300907493 /* CoreGraphics.framework */,
@@ -338,6 +348,15 @@
 				295373E41941FFDA00611212 /* Ravie.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		297C933A195D75260058E672 /* iAd */ = {
+			isa = PBXGroup;
+			children = (
+				297C933B195D75920058E672 /* iAdController.h */,
+				297C933C195D75920058E672 /* iAdController.m */,
+			);
+			name = iAd;
 			sourceTree = "<group>";
 		};
 		29E98BA6191A871F0046F9B2 /* Enemies */ = {
@@ -568,6 +587,7 @@
 		3F50F12219194EB700A37F85 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				297C933A195D75260058E672 /* iAd */,
 				3F36C474193FB807009D371D /* GameCenter+Achievements */,
 				3F36C479193FB807009D371D /* GameController */,
 				3F36C47C193FB807009D371D /* GameData */,
@@ -802,6 +822,8 @@
 			children = (
 				10A7477319405D8C001BF4FC /* MyScene.h */,
 				10A7477419405D8C001BF4FC /* MyScene.m */,
+				BB57993C195D801F005A05E1 /* MyScene+Tutorial.h */,
+				BB57993D195D801F005A05E1 /* MyScene+Tutorial.m */,
 				10A7477519405D8C001BF4FC /* MyScene+Climber.h */,
 				10A7477619405D8C001BF4FC /* MyScene+Climber.m */,
 				10A7477719405D8C001BF4FC /* MyScene+GeneratorWave.h */,
@@ -1000,6 +1022,7 @@
 				3F595E9F193FB64400150ED8 /* EnemiesController.m in Sources */,
 				3F36C4B0193FB807009D371D /* Achievement.m in Sources */,
 				3F36C4C1193FB807009D371D /* Resume.m in Sources */,
+				297C933D195D75920058E672 /* iAdController.m in Sources */,
 				10A7477D19405D8C001BF4FC /* MyScene+GeneratorWave.m in Sources */,
 				3FC52F5E193FB54600DCDCB7 /* LamberJackMachineScene.m in Sources */,
 				3F36C4B5193FB807009D371D /* Bonus.m in Sources */,
@@ -1013,6 +1036,7 @@
 				10A7477C19405D8C001BF4FC /* MyScene+Climber.m in Sources */,
 				3F595EA3193FB64400150ED8 /* LamberJackMachine.m in Sources */,
 				3FC52F5B193FB54600DCDCB7 /* GameOverScene.m in Sources */,
+				BB57993E195D801F005A05E1 /* MyScene+Tutorial.m in Sources */,
 				3F36C4B9193FB807009D371D /* Malus.m in Sources */,
 				3F36C4B7193FB807009D371D /* Item.m in Sources */,
 				3F36C4BC193FB807009D371D /* Weapon.m in Sources */,
