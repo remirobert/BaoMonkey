@@ -99,6 +99,11 @@
                                              selector:@selector(showGameCenter)
                                                  name:NOTIFICATION_SHOW_GAME_CENTER
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(launchGameCenterLogin)
+                                                 name:NOTIFICATION_SHOW_GAME_CENTER_LOGIN
+                                               object:nil];
 
     srand(time(NULL));
     mainMenu = [[MainMenu alloc] initWithSize:_skView.frame.size];
@@ -241,6 +246,10 @@
 
 -(void)showGameCenter {
     [GameCenter showLeaderboardAndAchievements:YES withViewController:self];
+}
+
+-(void)launchGameCenterLogin {
+    [GameCenter showGameCenterLoginWithViewController:self];
 }
 
 -(void)launchTutorial {

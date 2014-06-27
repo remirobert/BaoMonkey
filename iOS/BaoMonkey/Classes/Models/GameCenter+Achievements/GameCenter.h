@@ -16,6 +16,7 @@
 @property (nonatomic, strong) GKLocalPlayer *localPlayer;
 
 + (void) showLeaderboardAndAchievements:(BOOL)shouldShowLeaderboard withViewController:(UIViewController*)viewController;
++ (void)showGameCenterLoginWithViewController:(UIViewController*)viewController;
 + (void) authenticateLocalPlayer;
 + (instancetype) defaultGameCenter;
 + (NSString *) getLeaderboardIdentifier;
