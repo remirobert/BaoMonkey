@@ -245,11 +245,6 @@
     [GameCenter showGameCenterLoginWithViewController:self];
 }
 
--(void)launchTutorial {
-    TutorialViewController *controller = [[TutorialViewController alloc] init];
-    [self presentViewController:controller animated:YES completion:nil];
-}
-
 - (NSUInteger)supportedInterfaceOrientations
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
