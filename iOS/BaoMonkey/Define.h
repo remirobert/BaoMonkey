@@ -91,7 +91,7 @@
 ** ACCELEROMETER
 */
 
-# define kAccelerometerTilt 0.1
+# define kAccelerometerTilt 0.15
 # define kAccelerometerSpeed 25
 
 /*

@@ -30,4 +30,8 @@
                                             userInfo:nil repeats:NO];
 }
 
++ (void) actionBanana:(Monkey *)monkey {
+    [monkey launchWeapon];
+}
+
 @end

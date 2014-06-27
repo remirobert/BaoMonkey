@@ -8,7 +8,6 @@
 
 #import "Malus.h"
 #import "GameController.h"
-#import "Action.h"
 
 @interface Banana : Malus
 

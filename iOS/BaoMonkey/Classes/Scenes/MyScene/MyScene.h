@@ -32,7 +32,6 @@
     CFTimeInterval pauseTime;
     CFTimeInterval lastTime;
     Monkey *monkey;
-    Monkey *monkeyMultiplayer;
     EnemiesController *enemiesController;
     GameController *gc;
     SKLabelNode *score;
@@ -40,6 +39,9 @@
     dispatch_once_t oncePlay;
     SKTransition *menuTransition;
     SKSpriteNode *trunk;
+    BOOL tutoStep;
+    NSInteger numTutoStep;
+    CFTimeInterval tutorialStepTime;
 }
 
 @property (nonatomic) int sizeBlock;

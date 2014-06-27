@@ -77,14 +77,28 @@
     userData.prune_score = [userData.user integerForKey:PRUNE_KEY];
     userData.score = [userData.user integerForKey:SCORE_KEY];
     
-    userData.musicVolume = [userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME];
-    userData.soundEffectsVolume = [userData.user floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME];
-    userData.accelerometerSpeed = [userData.user floatForKey:NSUSERDEFAULT_ACCELEROMETER_SPEED];
+    if ([userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME]) {
+        userData.musicVolume = [userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME];
+    } else {
+        userData.musicVolume = 0.5;
+    }
+    
+    if ([userData.user floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME]) {
+        userData.soundEffectsVolume = [userData.user floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME];
+    } else {
+        userData.soundEffectsVolume = 0.5;
+    }
+    
+    if ([userData.user floatForKey:NSUSERDEFAULT_ACCELEROMETER_SPEED]) {
+        userData.accelerometerSpeed = [userData.user floatForKey:NSUSERDEFAULT_ACCELEROMETER_SPEED];
+    } else {
+        userData.accelerometerSpeed = 25;
+    }
     
     if ([userData.user boolForKey:@"firstRun"]) {
         userData.isFirstRun = [userData.user boolForKey:@"firstRun"];
     } else {
-        userData.isFirstRun = TRUE;
+        userData.isFirstRun = FALSE;
     }
     
     [UserData updateAchievementStatus];
@@ -102,10 +116,11 @@
     UserData *userData;
     
     userData = [UserData defaultUser];
+    
     [userData.user setInteger:userData.enemy_score forKey:ENEMY_KEY];
     [userData.user setInteger:userData.prune_score forKey:PRUNE_KEY];
     [userData.user setInteger:userData.score forKey:SCORE_KEY];
-    [userData.user setBool:FALSE forKey:@"firstRun"];
+    [userData.user setBool:userData.isFirstRun forKey:@"firstRun"];
 }
 
 + (void) resetUserData {
@@ -120,7 +135,7 @@
     UserData *userData;
     
     userData = [UserData defaultUser];
-    userData.isFirstRun = false;
+    userData.isFirstRun = first;
     [self saveUserData];
 }
 

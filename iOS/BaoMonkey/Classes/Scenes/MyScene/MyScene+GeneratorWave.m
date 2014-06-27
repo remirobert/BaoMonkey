@@ -7,11 +7,13 @@
 //
 
 #import "MyScene+GeneratorWave.h"
+#import "Banana.h"
+#import "CocoNuts.h"
+#import "Prune.h"
+#import "Shield.h"
 
 @interface MyScene ()
-
 @property (nonatomic) CGFloat timeWeapon;
-
 @end
 
 @implementation MyScene (GeneratorWave)

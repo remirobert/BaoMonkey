@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10154D41194A1A7600BAAA81 /* NetworkMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 10154D40194A1A7600BAAA81 /* NetworkMessage.m */; };
-		10226D9D19584F0500FB329D /* PageTutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 10226D9C19584F0500FB329D /* PageTutorial.m */; };
 		103A59261942260C00794E98 /* fire_ipad.sks in Resources */ = {isa = PBXBuildFile; fileRef = 103A59251942260C00794E98 /* fire_ipad.sks */; };
 		108C7E39193CCBE200ADCB85 /* smokeTank.sks in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E37193CCBE200ADCB85 /* smokeTank.sks */; };
 		108C7E3A193CCBE200ADCB85 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E38193CCBE200ADCB85 /* spark.png */; };
@@ -19,9 +17,6 @@
 		10A7477C19405D8C001BF4FC /* MyScene+Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477619405D8C001BF4FC /* MyScene+Climber.m */; };
 		10A7477D19405D8C001BF4FC /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477819405D8C001BF4FC /* MyScene+GeneratorWave.m */; };
 		10A7477E19405D8C001BF4FC /* MyScene+LoadBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477A19405D8C001BF4FC /* MyScene+LoadBoss.m */; };
-		10AA9262194AE61400F0D538 /* MyScene+Multiplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AA9261194AE61400F0D538 /* MyScene+Multiplayer.m */; };
-		10AE0B241948812A00D93926 /* ViewController+Multiplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */; };
-		10AE0B27194886D100D93926 /* MultiplayerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B26194886D100D93926 /* MultiplayerData.m */; };
 		10B2E580193DC7EE00DDEF3A /* fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 10B2E57F193DC7EE00DDEF3A /* fire.sks */; };
 		10C599B7191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
 		10C599B9191948A300907493 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B8191948A300907493 /* CoreGraphics.framework */; };
@@ -73,10 +68,6 @@
 		3F99D510193FB2F40054AC9B /* BaoSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F99D50E193FB2F40054AC9B /* BaoSize.m */; };
 		3FB2A49C191BB20C0027B2C7 /* splash.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49B191BB20C0027B2C7 /* splash.mp3 */; };
 		3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */; };
-		3FBDCC8419574958003D6F28 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBDCC8319574958003D6F28 /* TutorialViewController.m */; };
-		3FBDCC8B1957499D003D6F28 /* MYIntroductionPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBDCC871957499D003D6F28 /* MYIntroductionPanel.m */; };
-		3FBDCC8C1957499D003D6F28 /* MYIntroductionView in Resources */ = {isa = PBXBuildFile; fileRef = 3FBDCC881957499D003D6F28 /* MYIntroductionView */; };
-		3FBDCC8D1957499D003D6F28 /* MYIntroductionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBDCC8A1957499D003D6F28 /* MYIntroductionView.m */; };
 		3FC52F5B193FB54600DCDCB7 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F3A193FB54600DCDCB7 /* GameOverScene.m */; };
 		3FC52F5E193FB54600DCDCB7 /* LamberJackMachineScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F42193FB54600DCDCB7 /* LamberJackMachineScene.m */; };
 		3FC52F5F193FB54600DCDCB7 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC52F45193FB54600DCDCB7 /* MainMenu.m */; };
@@ -100,10 +91,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10154D3F194A1A7600BAAA81 /* NetworkMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkMessage.h; sourceTree = "<group>"; };
-		10154D40194A1A7600BAAA81 /* NetworkMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkMessage.m; sourceTree = "<group>"; };
-		10226D9B19584F0500FB329D /* PageTutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTutorial.h; sourceTree = "<group>"; };
-		10226D9C19584F0500FB329D /* PageTutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTutorial.m; sourceTree = "<group>"; };
 		103A59251942260C00794E98 /* fire_ipad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire_ipad.sks; sourceTree = "<group>"; };
 		108C7E37193CCBE200ADCB85 /* smokeTank.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smokeTank.sks; sourceTree = "<group>"; };
 		108C7E38193CCBE200ADCB85 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
@@ -121,12 +108,6 @@
 		10A7477819405D8C001BF4FC /* MyScene+GeneratorWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+GeneratorWave.m"; sourceTree = "<group>"; };
 		10A7477919405D8C001BF4FC /* MyScene+LoadBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+LoadBoss.h"; sourceTree = "<group>"; };
 		10A7477A19405D8C001BF4FC /* MyScene+LoadBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+LoadBoss.m"; sourceTree = "<group>"; };
-		10AA9260194AE61400F0D538 /* MyScene+Multiplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Multiplayer.h"; sourceTree = "<group>"; };
-		10AA9261194AE61400F0D538 /* MyScene+Multiplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Multiplayer.m"; sourceTree = "<group>"; };
-		10AE0B221948812A00D93926 /* ViewController+Multiplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+Multiplayer.h"; sourceTree = "<group>"; };
-		10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+Multiplayer.m"; sourceTree = "<group>"; };
-		10AE0B25194886D100D93926 /* MultiplayerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerData.h; sourceTree = "<group>"; };
-		10AE0B26194886D100D93926 /* MultiplayerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerData.m; sourceTree = "<group>"; };
 		10B2E57F193DC7EE00DDEF3A /* fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire.sks; sourceTree = "<group>"; };
 		10C599B3191948A300907493 /* BaoMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C599B6191948A300907493 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -213,13 +194,6 @@
 		3F99D50E193FB2F40054AC9B /* BaoSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoSize.m; sourceTree = "<group>"; };
 		3FB2A49B191BB20C0027B2C7 /* splash.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = splash.mp3; sourceTree = "<group>"; };
 		3FB2A49D191BD36A0027B2C7 /* coconut.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = coconut.mp3; sourceTree = "<group>"; };
-		3FBDCC8219574958003D6F28 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialViewController.h; path = Classes/Controllers/Tutorial/TutorialViewController.h; sourceTree = "<group>"; };
-		3FBDCC8319574958003D6F28 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialViewController.m; path = Classes/Controllers/Tutorial/TutorialViewController.m; sourceTree = "<group>"; };
-		3FBDCC861957499D003D6F28 /* MYIntroductionPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYIntroductionPanel.h; sourceTree = "<group>"; };
-		3FBDCC871957499D003D6F28 /* MYIntroductionPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYIntroductionPanel.m; sourceTree = "<group>"; };
-		3FBDCC881957499D003D6F28 /* MYIntroductionView */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MYIntroductionView; sourceTree = "<group>"; };
-		3FBDCC891957499D003D6F28 /* MYIntroductionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYIntroductionView.h; sourceTree = "<group>"; };
-		3FBDCC8A1957499D003D6F28 /* MYIntroductionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYIntroductionView.m; sourceTree = "<group>"; };
 		3FC52F39193FB54600DCDCB7 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
 		3FC52F3A193FB54600DCDCB7 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverScene.m; sourceTree = "<group>"; };
 		3FC52F41193FB54600DCDCB7 /* LamberJackMachineScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LamberJackMachineScene.h; sourceTree = "<group>"; };
@@ -267,17 +241,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10AE0B1E19487C6E00D93926 /* Multiplayer */ = {
-			isa = PBXGroup;
-			children = (
-				10AE0B25194886D100D93926 /* MultiplayerData.h */,
-				10AE0B26194886D100D93926 /* MultiplayerData.m */,
-				10154D3F194A1A7600BAAA81 /* NetworkMessage.h */,
-				10154D40194A1A7600BAAA81 /* NetworkMessage.m */,
-			);
-			name = Multiplayer;
-			sourceTree = "<group>";
-		};
 		10C599AA191948A300907493 = {
 			isa = PBXGroup;
 			children = (
@@ -624,7 +587,6 @@
 		3F50F12419194EC700A37F85 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3FBDCC8119574939003D6F28 /* Tutorial */,
 				3FD8D6CD193FB3AB00E24ADE /* ViewController */,
 			);
 			name = Controllers;
@@ -644,7 +606,6 @@
 		3F50F12719194EFD00A37F85 /* Librairies */ = {
 			isa = PBXGroup;
 			children = (
-				3FBDCC851957499D003D6F28 /* MYIntroductionView */,
 			);
 			name = Librairies;
 			sourceTree = "<group>";
@@ -652,7 +613,6 @@
 		3F50F12E19194FA400A37F85 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				10AE0B1E19487C6E00D93926 /* Multiplayer */,
 				3FC52F38193FB54600DCDCB7 /* GameOverScene */,
 				3FC52F3B193FB54600DCDCB7 /* HelicopterScene */,
 				3FC52F40193FB54600DCDCB7 /* LamberJackMachineScene */,
@@ -787,30 +747,6 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
-		3FBDCC8119574939003D6F28 /* Tutorial */ = {
-			isa = PBXGroup;
-			children = (
-				3FBDCC8219574958003D6F28 /* TutorialViewController.h */,
-				3FBDCC8319574958003D6F28 /* TutorialViewController.m */,
-				10226D9B19584F0500FB329D /* PageTutorial.h */,
-				10226D9C19584F0500FB329D /* PageTutorial.m */,
-			);
-			name = Tutorial;
-			sourceTree = "<group>";
-		};
-		3FBDCC851957499D003D6F28 /* MYIntroductionView */ = {
-			isa = PBXGroup;
-			children = (
-				3FBDCC861957499D003D6F28 /* MYIntroductionPanel.h */,
-				3FBDCC871957499D003D6F28 /* MYIntroductionPanel.m */,
-				3FBDCC881957499D003D6F28 /* MYIntroductionView */,
-				3FBDCC891957499D003D6F28 /* MYIntroductionView.h */,
-				3FBDCC8A1957499D003D6F28 /* MYIntroductionView.m */,
-			);
-			name = MYIntroductionView;
-			path = Librairies/MYIntroductionView;
-			sourceTree = "<group>";
-		};
 		3FC52F38193FB54600DCDCB7 /* GameOverScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -866,8 +802,6 @@
 			children = (
 				10A7477319405D8C001BF4FC /* MyScene.h */,
 				10A7477419405D8C001BF4FC /* MyScene.m */,
-				10AA9260194AE61400F0D538 /* MyScene+Multiplayer.h */,
-				10AA9261194AE61400F0D538 /* MyScene+Multiplayer.m */,
 				10A7477519405D8C001BF4FC /* MyScene+Climber.h */,
 				10A7477619405D8C001BF4FC /* MyScene+Climber.m */,
 				10A7477719405D8C001BF4FC /* MyScene+GeneratorWave.h */,
@@ -923,8 +857,6 @@
 			children = (
 				3FD8D6CE193FB3AB00E24ADE /* ViewController.h */,
 				3FD8D6CF193FB3AB00E24ADE /* ViewController.m */,
-				10AE0B221948812A00D93926 /* ViewController+Multiplayer.h */,
-				10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */,
 			);
 			name = ViewController;
 			path = Classes/Controllers/ViewController;
@@ -987,7 +919,7 @@
 				ORGANIZATIONNAME = BaoMonkey;
 				TargetAttributes = {
 					10C599B2191948A300907493 = {
-						DevelopmentTeam = RFKH8ZM9YU;
+						DevelopmentTeam = 44Q2J6374R;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -1027,7 +959,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				103A59261942260C00794E98 /* fire_ipad.sks in Resources */,
-				3FBDCC8C1957499D003D6F28 /* MYIntroductionView in Resources */,
 				29A3D4CF193C66F5003A71DC /* Main_iPhone.storyboard in Resources */,
 				108C7E3A193CCBE200ADCB85 /* spark.png in Resources */,
 				29A3D4D0193C66F5003A71DC /* Main_iPad.storyboard in Resources */,
@@ -1078,14 +1009,12 @@
 				10A7477219405D7D001BF4FC /* HelicopterScene.m in Sources */,
 				3FC52F65193FB54600DCDCB7 /* Settings.m in Sources */,
 				3FC52F67193FB54600DCDCB7 /* TankScene.m in Sources */,
-				10154D41194A1A7600BAAA81 /* NetworkMessage.m in Sources */,
 				3FC52F66193FB54600DCDCB7 /* SpriteKitCursor.m in Sources */,
 				10A7477C19405D8C001BF4FC /* MyScene+Climber.m in Sources */,
 				3F595EA3193FB64400150ED8 /* LamberJackMachine.m in Sources */,
 				3FC52F5B193FB54600DCDCB7 /* GameOverScene.m in Sources */,
 				3F36C4B9193FB807009D371D /* Malus.m in Sources */,
 				3F36C4B7193FB807009D371D /* Item.m in Sources */,
-				10AE0B241948812A00D93926 /* ViewController+Multiplayer.m in Sources */,
 				3F36C4BC193FB807009D371D /* Weapon.m in Sources */,
 				3F595E9E193FB64400150ED8 /* Climber.m in Sources */,
 				3F36C4BD193FB807009D371D /* Monkey.m in Sources */,
@@ -1094,24 +1023,18 @@
 				3FD4B6581940A80300455FBE /* BaoPosition.m in Sources */,
 				3F595EA4193FB64400150ED8 /* Tank.m in Sources */,
 				3F36C4B8193FB807009D371D /* Banana.m in Sources */,
-				3FBDCC8B1957499D003D6F28 /* MYIntroductionPanel.m in Sources */,
 				10C599C9191948A300907493 /* AppDelegate.m in Sources */,
 				3F36C4BB193FB807009D371D /* CocoNuts.m in Sources */,
 				10A7477E19405D8C001BF4FC /* MyScene+LoadBoss.m in Sources */,
 				10962973194755D300AF2E30 /* Credit.m in Sources */,
 				10C599C5191948A300907493 /* main.m in Sources */,
-				10226D9D19584F0500FB329D /* PageTutorial.m in Sources */,
 				10A7477B19405D8C001BF4FC /* MyScene.m in Sources */,
-				10AA9262194AE61400F0D538 /* MyScene+Multiplayer.m in Sources */,
-				3FBDCC8D1957499D003D6F28 /* MYIntroductionView.m in Sources */,
 				3F36C4B2193FB807009D371D /* GameController.m in Sources */,
 				3F36C4B6193FB807009D371D /* Shield.m in Sources */,
-				10AE0B27194886D100D93926 /* MultiplayerData.m in Sources */,
 				3F7F3AF5194BA4B200EA7D91 /* BaoFontSize.m in Sources */,
 				3F36C4B4193FB807009D371D /* Action.m in Sources */,
 				3FC52F5F193FB54600DCDCB7 /* MainMenu.m in Sources */,
 				3F36C4BF193FB807009D371D /* PreloadData.m in Sources */,
-				3FBDCC8419574958003D6F28 /* TutorialViewController.m in Sources */,
 				10A7477119405D7D001BF4FC /* Helicopter.m in Sources */,
 				3F36C4B1193FB807009D371D /* GameCenter.m in Sources */,
 			);

@@ -10,7 +10,6 @@
 #import "UserData.h"
 #import "Define.h"
 #import "GameData.h"
-#import "MultiplayerData.h"
 
 @implementation GameCenter
 
@@ -109,8 +108,6 @@
 # pragma mark - GameCenter score
 
 + (void) reportScore {
-    if ([MultiplayerData data].isMultiplayer == YES)
-        return  ;
     GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"baoMonkeyLeaderboard"];
     scoreReport.value = [GameData getScore];
     scoreReport.context = 0;

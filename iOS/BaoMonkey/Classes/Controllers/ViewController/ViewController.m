@@ -14,8 +14,6 @@
 #import "GameCenter.h"
 #import "GameController.h"
 #import "MyScene.h"
-#import "ViewController+Multiplayer.h"
-#import "TutorialViewController.h"
 
 
 @interface ViewController ()
@@ -26,11 +24,10 @@
 @implementation ViewController
 
 - (void) initGame {
-//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstRun"] == TRUE) {
+//    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"firstRun"] == FALSE) {
 //        [self launchTutorial];
-//        return ;
-//    }
-//    else {
+//        //return ;
+//    } else {
         _scene = [MyScene sceneWithSize:_skView.bounds.size];
         _scene.scaleMode = SKSceneScaleModeAspectFill;
         [_skView presentScene:_scene transition:[SKTransition
@@ -39,6 +36,7 @@
 }
 
 - (void) relaunchGame {
+    _scene = nil;
     _scene = [MyScene sceneWithSize:_skView.bounds.size];
     _scene.scaleMode = SKSceneScaleModeAspectFill;
     
@@ -89,12 +87,7 @@
                                              selector:@selector(shareScore)
                                                  name:@"notification_share_score"
                                                object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(findPlayerMatchMaking)
-                                                 name:@"find_player"
-                                               object:nil];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(showGameCenter)
                                                  name:NOTIFICATION_SHOW_GAME_CENTER
@@ -105,7 +98,7 @@
                                                  name:NOTIFICATION_SHOW_GAME_CENTER_LOGIN
                                                object:nil];
 
-    srand(time(NULL));
+    srand((int)time(NULL));
     mainMenu = [[MainMenu alloc] initWithSize:_skView.frame.size];
     settingsMenu = [[Settings alloc] initWithSize:_skView.frame.size];
     [self goToHome];
