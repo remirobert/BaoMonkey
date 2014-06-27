@@ -180,15 +180,15 @@
     {
         floor.xScale = -1;
         floor.position = CGPointMake(-(FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
-        slide = [SKAction moveToX:(floor.size.width / 2) duration:0.5];
+        slide = [SKAction moveToX:(floor.size.width / 2) - [BaoPosition positionSidePlateform] duration:0.5];
     }
     else
     {
         floor.xScale = 1;
         floor.position = CGPointMake(screen.size.width + (FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
-        slide = [SKAction moveToX:(screen.size.width - (floor.size.width / 2)) duration:0.5];
+        slide = [SKAction moveToX:(screen.size.width - (floor.size.width / 2))  + [BaoPosition positionSidePlateform] duration:0.5];
     }
-    
+    floor.zPosition = 2;
     [scene addChild:floor];
     [floor runAction:slide];
 }

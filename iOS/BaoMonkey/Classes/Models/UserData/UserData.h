@@ -18,6 +18,7 @@
 @property (nonatomic, assign) CGFloat accelerometerSpeed;
 @property (nonatomic, assign) BOOL isFirstRun;
 @property (nonatomic, strong) NSString *playerId;
+@property (nonatomic, assign) BOOL boss;
 
 + (void) initUserData;
 + (void) saveUserData;

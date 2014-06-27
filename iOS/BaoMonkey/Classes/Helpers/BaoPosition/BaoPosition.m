@@ -25,7 +25,7 @@
 + (CGFloat) getBetweenPlateforme {
     return IPAD ? 120.0 : 60.0;
 }
-//88
+
 + (NSString *) pathFireTank {
     return IPAD ? [[NSBundle mainBundle] pathForResource:@"fire_ipad" ofType:@"sks"] :
     [[NSBundle mainBundle] pathForResource:@"fire" ofType:@"sks"];
@@ -127,15 +127,15 @@
 }
 
 +(CGPoint)cursorMusicSettings{
-    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 64, SCREEN_HEIGHT / 2 + 203) : CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 168.5f);
+    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 64, SCREEN_HEIGHT / 2 + 203.5f) : CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 168.5f);
 }
 
 +(CGPoint)cursorSoundEffectsSettings{
-    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 64, SCREEN_HEIGHT / 2 + 83) : CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 234.5f);
+    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 64, SCREEN_HEIGHT / 2 + 83.5f) : CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 234.5f);
 }
 
 +(CGPoint)cursorAccelerometerSettings{
-    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 64, SCREEN_HEIGHT / 2 - 37) : CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 300);
+    return IPAD ? CGPointMake(SCREEN_WIDTH / 2 + 64, SCREEN_HEIGHT / 2 - 36.5f) : CGPointMake(SCREEN_WIDTH - 130, SCREEN_HEIGHT - 300);
 }
 
 +(CGPoint)bubblePositionSettings{
@@ -154,6 +154,10 @@
 
 +(CGPoint)creditsNameGraphismPosition{
     return IPAD ? CGPointMake(300, 100) : CGPointMake(107, 50);
+}
+
++(CGFloat)positionSidePlateform {
+    return IPAD ? 45 : 0;
 }
 
 @end

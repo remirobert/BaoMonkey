@@ -80,6 +80,7 @@
 		3FCEC1C0194AFD0B00C01F40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FCEC1BF194AFD0B00C01F40 /* Images.xcassets */; };
 		3FD4B6581940A80300455FBE /* BaoPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4B6571940A80300455FBE /* BaoPosition.m */; };
 		3FD8D6D0193FB3AB00E24ADE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8D6CF193FB3AB00E24ADE /* ViewController.m */; };
+		BB57993E195D801F005A05E1 /* MyScene+Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57993D195D801F005A05E1 /* MyScene+Tutorial.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +219,8 @@
 		3FD4B6571940A80300455FBE /* BaoPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaoPosition.m; path = Classes/Helpers/BaoPosition/BaoPosition.m; sourceTree = "<group>"; };
 		3FD8D6CE193FB3AB00E24ADE /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3FD8D6CF193FB3AB00E24ADE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BB57993C195D801F005A05E1 /* MyScene+Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Tutorial.h"; sourceTree = "<group>"; };
+		BB57993D195D801F005A05E1 /* MyScene+Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Tutorial.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -819,6 +822,8 @@
 			children = (
 				10A7477319405D8C001BF4FC /* MyScene.h */,
 				10A7477419405D8C001BF4FC /* MyScene.m */,
+				BB57993C195D801F005A05E1 /* MyScene+Tutorial.h */,
+				BB57993D195D801F005A05E1 /* MyScene+Tutorial.m */,
 				10A7477519405D8C001BF4FC /* MyScene+Climber.h */,
 				10A7477619405D8C001BF4FC /* MyScene+Climber.m */,
 				10A7477719405D8C001BF4FC /* MyScene+GeneratorWave.h */,
@@ -1031,6 +1036,7 @@
 				10A7477C19405D8C001BF4FC /* MyScene+Climber.m in Sources */,
 				3F595EA3193FB64400150ED8 /* LamberJackMachine.m in Sources */,
 				3FC52F5B193FB54600DCDCB7 /* GameOverScene.m in Sources */,
+				BB57993E195D801F005A05E1 /* MyScene+Tutorial.m in Sources */,
 				3F36C4B9193FB807009D371D /* Malus.m in Sources */,
 				3F36C4B7193FB807009D371D /* Item.m in Sources */,
 				3F36C4BC193FB807009D371D /* Weapon.m in Sources */,

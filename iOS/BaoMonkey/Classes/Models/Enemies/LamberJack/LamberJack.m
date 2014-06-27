@@ -44,6 +44,7 @@
         position.y = node.size.height / 2 + FLOOR_HEIGHT;
         node.position = position;
         [self startWalking];
+        node.zPosition = 10;
         SKAction *walking = [SKAction moveToX:middleScreen duration:4.0];
         [node runAction:walking completion:^{
             [self startChopping];
