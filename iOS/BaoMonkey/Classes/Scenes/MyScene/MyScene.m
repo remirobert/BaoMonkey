@@ -316,6 +316,7 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
+    NSLog(@"update");
     currentTime -= pauseTime;
     
     NSInteger oldLevel = [GameData getLevel];

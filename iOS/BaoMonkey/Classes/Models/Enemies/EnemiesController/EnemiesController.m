@@ -188,7 +188,7 @@
         floor.position = CGPointMake(screen.size.width + (FLOOR_WIDTH / 2), [[floorsPosition objectAtIndex:numberOfFloors - 1] doubleValue]);
         slide = [SKAction moveToX:(screen.size.width - (floor.size.width / 2))  + [BaoPosition positionSidePlateform] duration:0.5];
     }
-    
+    floor.zPosition = 2;
     [scene addChild:floor];
     [floor runAction:slide];
 }
