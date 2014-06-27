@@ -117,7 +117,8 @@
     SKSpriteNode *nodeShoot;
     
     nodeShoot = [SKSpriteNode spriteNodeWithTexture:[SKTexture textureWithImageNamed:@"munition-fire"]];
-    nodeShoot.size = CGSizeMake(nodeShoot.size.width / 3, nodeShoot.size.height / 3);
+    if (!IPAD)
+        nodeShoot.size = CGSizeMake(nodeShoot.size.width / 3, nodeShoot.size.height / 3);
     
     float angle = atan2f(positionMonkey.y, positionMonkey.x);
     nodeShoot.zRotation = angle;
@@ -135,12 +136,12 @@
         
         nodeShoot.color = [SKColor colorWithRed:0 green:0 blue:0 alpha:0];
         
+        [nodeShoot removeFromParent];
         [nodeShoot runAction:fireAction];
         NSString *burstPath = [BaoPosition pathFireTank];
-//        [[NSBundle mainBundle] pathForResource:[BaoPosition pathFireTank] ofType:@"sks"];
         
         SKEmitterNode *fire = [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
-        fire.position = CGPointMake(nodeShoot.position.x, nodeShoot.position.y - 30);
+        fire.position = CGPointMake(nodeShoot.position.x, [BaoPosition treeBranch].y);
         fire.name = NAME_SPRITE_FIRE_TANK;
         fire.zPosition = 1;
         [scene addChild:fire];
@@ -171,7 +172,7 @@
             [node removeFromParent];
         }];
         
-        [self shootFireBomb:positionMonkey :scene];
+        [self shootFireBomb:CGPointMake(positionMonkey.x, [BaoPosition treeBranch].y - (IPAD ? 20 : 0)) :scene];
     };
     if (_isShoot == YES)
         [self lowStrat:positionMonkey :scene];
