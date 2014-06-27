@@ -14,7 +14,7 @@
 #import "GameCenter.h"
 #import "GameController.h"
 #import "MyScene.h"
-
+#import "iAdController.h"
 
 @interface ViewController ()
 @property (nonatomic) MyScene *scene;
@@ -96,6 +96,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(launchGameCenterLogin)
                                                  name:NOTIFICATION_SHOW_GAME_CENTER_LOGIN
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showAD)
+                                                 name:NOTIFICATION_SHOW_AD
                                                object:nil];
 
     srand((int)time(NULL));
@@ -243,6 +248,10 @@
 
 -(void)launchGameCenterLogin {
     [GameCenter showGameCenterLoginWithViewController:self];
+}
+
+-(void)showAD {
+    [iAdController showADBannerWithViewController:self];
 }
 
 - (NSUInteger)supportedInterfaceOrientations
