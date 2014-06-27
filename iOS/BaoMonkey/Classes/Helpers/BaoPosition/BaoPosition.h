@@ -28,6 +28,7 @@
 +(CGPoint)trunk;
 +(CGPoint)frontLeafs:(CGSize)size;
 +(CGPoint)backLeafs:(CGSize)size;
++(CGFloat)positionSidePlateform;
 
 #pragma mark - BIG BUTTON
 

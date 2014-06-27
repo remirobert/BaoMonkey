@@ -42,13 +42,13 @@
             position.x = screen.size.width + (node.size.width / 2);
             
             actionMove = [SKAction moveToX:[UIScreen mainScreen].bounds.size.width -
-                          (([BaoSize plateform].width) / 4 * slotFloor - (self.node.size.width / 2)) duration:2.0];
+                          (([BaoSize plateform].width) / 4 * slotFloor - (self.node.size.width / 2)) + (IPAD ? 30 : 0) duration:2.0];
         }
         else
         {
             node.xScale = 1;
             position.x = - (node.size.width / 2);
-            actionMove = [SKAction moveToX:([BaoSize plateform].width) / 4 * slotFloor - (self.node.size.width / 2) duration:2.0];
+            actionMove = [SKAction moveToX:([BaoSize plateform].width) / 4 * slotFloor - (self.node.size.width / 2) - (IPAD ? 30 : 0) duration:2.0];
         }
 
         node.name = ENEMY_NODE_NAME;
@@ -84,10 +84,12 @@
         positionX = (rand() % (int)positionMonkey.x - 50) + positionMonkey.x - 50;
     
     SKSpriteNode *shoot = [SKSpriteNode spriteNodeWithTexture:[PreloadData getDataWithKey:@"munition-explosive"]];
-    if (!IPAD)
+    if (!IPAD) {
         shoot.size = CGSizeMake(shoot.size.width / 3, shoot.size.height / 3);
-    else
+    }
+    else {
         shoot.size = CGSizeMake(shoot.size.width / 2, shoot.size.height / 2);
+    }
     
     moveShoot = [SKAction moveTo:CGPointMake(positionX, [UIScreen mainScreen].bounds.size.height)
                         duration:2.0 - (float)([GameData getLevel] / 10.0)];
