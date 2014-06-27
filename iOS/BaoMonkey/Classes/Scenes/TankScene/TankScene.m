@@ -13,6 +13,7 @@
 #import "GameData.h"
 #import "GameOverScene.h"
 #import "UserData.h"
+#import "GameCenter.h"
 
 @interface TankScene ()
 @property (nonatomic, strong) Monkey *monkey;
@@ -176,14 +177,31 @@
     }
 }
 
+- (void) gameOverCountDown {
+    static BOOL gameOver = NO;
+    
+    if (gameOver) {
+        gameOver = NO;
+        [GameData pauseGame];
+        GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size andScene:self];
+        [self.view presentScene:gameOverScene transition:[SKTransition pushWithDirection:SKTransitionDirectionLeft duration:0.5]];
+    }
+    else {
+        [GameData gameOver];
+        gameOver = YES;
+        [self performSelector:@selector(gameOverCountDown) withObject:nil afterDelay:2.0];
+    }
+}
+
 - (void) checkCollisionMonkey {
     [self enumerateChildNodesWithName:NAME_SPRITE_SHOOT_TANK usingBlock:^(SKNode *node, BOOL *stop) {
         
         if ([node intersectsNode:_monkey.collisionMask]) {
-            [self pauseGame];
-            GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size andScene:self];
-            [self.view presentScene:gameOverScene];
-            [GameData gameOver];
+
+            [GameCenter getBestScorePlayer];
+            [_monkey deadMonkey];
+            if (![GameData isGameOver])
+                [self gameOverCountDown];
         }
         if (node.position.y >= [UIScreen mainScreen].bounds.size.height)
             [node removeFromParent];
