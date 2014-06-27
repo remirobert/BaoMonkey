@@ -130,14 +130,11 @@
     SKAction *moveShoot = [SKAction moveTo:CGPointMake(rand() % (int)([UIScreen mainScreen].bounds.size.width),
                                                        positionMonkey.y) duration:2.0];
     
-    SKAction *fireAction = [SKAction resizeToWidth:rand() % 20 duration:1.5];
-    
     [nodeShoot runAction:moveShoot completion:^{
         
         nodeShoot.color = [SKColor colorWithRed:0 green:0 blue:0 alpha:0];
         
         [nodeShoot removeFromParent];
-        [nodeShoot runAction:fireAction];
         NSString *burstPath = [BaoPosition pathFireTank];
         
         SKEmitterNode *fire = [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
@@ -146,6 +143,21 @@
         fire.zPosition = 1;
         [scene addChild:fire];
 
+        SKSpriteNode *fireCollision = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(fire.frame.size.width, fire.frame.size.height)];
+        fireCollision.position = fire.position;
+        fireCollision.name = NAME_SPRITE_FIRE_TANK;
+        fireCollision.zPosition = 300;
+        [scene addChild:fireCollision];
+        NSLog(@"display node");
+        
+        
+        NSLog(@"%f / %f", fire.frame.size.width, fire.particlePositionRange.dx);
+        
+        SKSpriteNode *mask = [[SKSpriteNode alloc] initWithColor:[UIColor clearColor] size:CGSizeMake(fire.particlePositionRange.dx, 100)];
+        mask.name = NAME_SPRITE_FIRE_TANK;
+        mask.position = fire.position;
+        [scene addChild:mask];
+        
         _isShoot = YES;
     }];
 }

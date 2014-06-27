@@ -291,7 +291,7 @@
 
 - (void) pauseGameWithScene:(BOOL)show {
     //[self launchPauseView];
-    
+
     self.speed = 0;
     for (Item *item in _wave) {
         [item pauseTimer];
@@ -322,7 +322,6 @@
     
     NSInteger oldLevel = [GameData getLevel];
     
-        
     if ([[GameData singleton] isPause]) {
         
         dispatch_once(&oncePause, ^{

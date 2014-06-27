@@ -212,10 +212,15 @@
     [self enumerateChildNodesWithName:NAME_SPRITE_FIRE_TANK usingBlock:^(SKNode *node, BOOL *stop) {
         
         if ([node intersectsNode:_monkey.collisionMask]) {
-            [self pauseGame];
-            GameOverScene *gameOverScene = [[GameOverScene alloc] initWithSize:self.size andScene:self];
-            [self.view presentScene:gameOverScene];
-            [GameData gameOver];
+            if ([node intersectsNode:_monkey.collisionMask]) {
+                
+                [GameCenter getBestScorePlayer];
+                [_monkey deadMonkey];
+                if (![GameData isGameOver])
+                    [self gameOverCountDown];
+            }
+            if (node.position.y >= [UIScreen mainScreen].bounds.size.height)
+                [node removeFromParent];
         }
     }];
 }
