@@ -12,7 +12,6 @@
 #import "Settings.h"
 #import "BaoPosition.h"
 #import "Credit.h"
-#import "MultiplayerData.h"
 
 @interface MainMenu ()
 @end
@@ -129,7 +128,6 @@
     SKNode *node = [self nodeAtPoint:location];
     
     if ([node.name isEqualToString:RESUME_NODE_NAME]) {
-        [MultiplayerData data].isMultiplayer = NO;
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_START_GAME object:nil];
     }
     else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {

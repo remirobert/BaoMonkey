@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10154D41194A1A7600BAAA81 /* NetworkMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 10154D40194A1A7600BAAA81 /* NetworkMessage.m */; };
 		10226D9D19584F0500FB329D /* PageTutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 10226D9C19584F0500FB329D /* PageTutorial.m */; };
 		103A59261942260C00794E98 /* fire_ipad.sks in Resources */ = {isa = PBXBuildFile; fileRef = 103A59251942260C00794E98 /* fire_ipad.sks */; };
 		108C7E39193CCBE200ADCB85 /* smokeTank.sks in Resources */ = {isa = PBXBuildFile; fileRef = 108C7E37193CCBE200ADCB85 /* smokeTank.sks */; };
@@ -19,9 +18,6 @@
 		10A7477C19405D8C001BF4FC /* MyScene+Climber.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477619405D8C001BF4FC /* MyScene+Climber.m */; };
 		10A7477D19405D8C001BF4FC /* MyScene+GeneratorWave.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477819405D8C001BF4FC /* MyScene+GeneratorWave.m */; };
 		10A7477E19405D8C001BF4FC /* MyScene+LoadBoss.m in Sources */ = {isa = PBXBuildFile; fileRef = 10A7477A19405D8C001BF4FC /* MyScene+LoadBoss.m */; };
-		10AA9262194AE61400F0D538 /* MyScene+Multiplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AA9261194AE61400F0D538 /* MyScene+Multiplayer.m */; };
-		10AE0B241948812A00D93926 /* ViewController+Multiplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */; };
-		10AE0B27194886D100D93926 /* MultiplayerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 10AE0B26194886D100D93926 /* MultiplayerData.m */; };
 		10B2E580193DC7EE00DDEF3A /* fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = 10B2E57F193DC7EE00DDEF3A /* fire.sks */; };
 		10C599B7191948A300907493 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B6191948A300907493 /* Foundation.framework */; };
 		10C599B9191948A300907493 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C599B8191948A300907493 /* CoreGraphics.framework */; };
@@ -100,8 +96,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		10154D3F194A1A7600BAAA81 /* NetworkMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkMessage.h; sourceTree = "<group>"; };
-		10154D40194A1A7600BAAA81 /* NetworkMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkMessage.m; sourceTree = "<group>"; };
 		10226D9B19584F0500FB329D /* PageTutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTutorial.h; sourceTree = "<group>"; };
 		10226D9C19584F0500FB329D /* PageTutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTutorial.m; sourceTree = "<group>"; };
 		103A59251942260C00794E98 /* fire_ipad.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire_ipad.sks; sourceTree = "<group>"; };
@@ -121,12 +115,6 @@
 		10A7477819405D8C001BF4FC /* MyScene+GeneratorWave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+GeneratorWave.m"; sourceTree = "<group>"; };
 		10A7477919405D8C001BF4FC /* MyScene+LoadBoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+LoadBoss.h"; sourceTree = "<group>"; };
 		10A7477A19405D8C001BF4FC /* MyScene+LoadBoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+LoadBoss.m"; sourceTree = "<group>"; };
-		10AA9260194AE61400F0D538 /* MyScene+Multiplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Multiplayer.h"; sourceTree = "<group>"; };
-		10AA9261194AE61400F0D538 /* MyScene+Multiplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Multiplayer.m"; sourceTree = "<group>"; };
-		10AE0B221948812A00D93926 /* ViewController+Multiplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+Multiplayer.h"; sourceTree = "<group>"; };
-		10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+Multiplayer.m"; sourceTree = "<group>"; };
-		10AE0B25194886D100D93926 /* MultiplayerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerData.h; sourceTree = "<group>"; };
-		10AE0B26194886D100D93926 /* MultiplayerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerData.m; sourceTree = "<group>"; };
 		10B2E57F193DC7EE00DDEF3A /* fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = fire.sks; sourceTree = "<group>"; };
 		10C599B3191948A300907493 /* BaoMonkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaoMonkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C599B6191948A300907493 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -267,17 +255,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10AE0B1E19487C6E00D93926 /* Multiplayer */ = {
-			isa = PBXGroup;
-			children = (
-				10AE0B25194886D100D93926 /* MultiplayerData.h */,
-				10AE0B26194886D100D93926 /* MultiplayerData.m */,
-				10154D3F194A1A7600BAAA81 /* NetworkMessage.h */,
-				10154D40194A1A7600BAAA81 /* NetworkMessage.m */,
-			);
-			name = Multiplayer;
-			sourceTree = "<group>";
-		};
 		10C599AA191948A300907493 = {
 			isa = PBXGroup;
 			children = (
@@ -652,7 +629,6 @@
 		3F50F12E19194FA400A37F85 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				10AE0B1E19487C6E00D93926 /* Multiplayer */,
 				3FC52F38193FB54600DCDCB7 /* GameOverScene */,
 				3FC52F3B193FB54600DCDCB7 /* HelicopterScene */,
 				3FC52F40193FB54600DCDCB7 /* LamberJackMachineScene */,
@@ -866,8 +842,6 @@
 			children = (
 				10A7477319405D8C001BF4FC /* MyScene.h */,
 				10A7477419405D8C001BF4FC /* MyScene.m */,
-				10AA9260194AE61400F0D538 /* MyScene+Multiplayer.h */,
-				10AA9261194AE61400F0D538 /* MyScene+Multiplayer.m */,
 				10A7477519405D8C001BF4FC /* MyScene+Climber.h */,
 				10A7477619405D8C001BF4FC /* MyScene+Climber.m */,
 				10A7477719405D8C001BF4FC /* MyScene+GeneratorWave.h */,
@@ -923,8 +897,6 @@
 			children = (
 				3FD8D6CE193FB3AB00E24ADE /* ViewController.h */,
 				3FD8D6CF193FB3AB00E24ADE /* ViewController.m */,
-				10AE0B221948812A00D93926 /* ViewController+Multiplayer.h */,
-				10AE0B231948812A00D93926 /* ViewController+Multiplayer.m */,
 			);
 			name = ViewController;
 			path = Classes/Controllers/ViewController;
@@ -987,7 +959,7 @@
 				ORGANIZATIONNAME = BaoMonkey;
 				TargetAttributes = {
 					10C599B2191948A300907493 = {
-						DevelopmentTeam = RFKH8ZM9YU;
+						DevelopmentTeam = 44Q2J6374R;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -1078,14 +1050,12 @@
 				10A7477219405D7D001BF4FC /* HelicopterScene.m in Sources */,
 				3FC52F65193FB54600DCDCB7 /* Settings.m in Sources */,
 				3FC52F67193FB54600DCDCB7 /* TankScene.m in Sources */,
-				10154D41194A1A7600BAAA81 /* NetworkMessage.m in Sources */,
 				3FC52F66193FB54600DCDCB7 /* SpriteKitCursor.m in Sources */,
 				10A7477C19405D8C001BF4FC /* MyScene+Climber.m in Sources */,
 				3F595EA3193FB64400150ED8 /* LamberJackMachine.m in Sources */,
 				3FC52F5B193FB54600DCDCB7 /* GameOverScene.m in Sources */,
 				3F36C4B9193FB807009D371D /* Malus.m in Sources */,
 				3F36C4B7193FB807009D371D /* Item.m in Sources */,
-				10AE0B241948812A00D93926 /* ViewController+Multiplayer.m in Sources */,
 				3F36C4BC193FB807009D371D /* Weapon.m in Sources */,
 				3F595E9E193FB64400150ED8 /* Climber.m in Sources */,
 				3F36C4BD193FB807009D371D /* Monkey.m in Sources */,
@@ -1102,11 +1072,9 @@
 				10C599C5191948A300907493 /* main.m in Sources */,
 				10226D9D19584F0500FB329D /* PageTutorial.m in Sources */,
 				10A7477B19405D8C001BF4FC /* MyScene.m in Sources */,
-				10AA9262194AE61400F0D538 /* MyScene+Multiplayer.m in Sources */,
 				3FBDCC8D1957499D003D6F28 /* MYIntroductionView.m in Sources */,
 				3F36C4B2193FB807009D371D /* GameController.m in Sources */,
 				3F36C4B6193FB807009D371D /* Shield.m in Sources */,
-				10AE0B27194886D100D93926 /* MultiplayerData.m in Sources */,
 				3F7F3AF5194BA4B200EA7D91 /* BaoFontSize.m in Sources */,
 				3F36C4B4193FB807009D371D /* Action.m in Sources */,
 				3FC52F5F193FB54600DCDCB7 /* MainMenu.m in Sources */,

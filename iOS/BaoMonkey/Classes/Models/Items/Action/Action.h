@@ -12,10 +12,13 @@
 #import "Item.h"
 #import "GameData.h"
 #import "BaoPosition.h"
+#import "Monkey.h"
+#import "Banana.h"
 
 @interface Action : NSObject
 
 + (void) dropWeapon:(Item *)item;
 + (void) increaseMove;
++ (void) actionBanana:(Monkey *)monkey;
 
 @end

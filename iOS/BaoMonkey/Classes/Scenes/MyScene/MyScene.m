@@ -13,8 +13,7 @@
 #import "MyScene+LoadBoss.h"
 #import "GameCenter.h"
 #import "Settings.h"
-#import "MultiplayerData.h"
-#import "MyScene+Multiplayer.h"
+#import "Banana.h"
 
 @implementation MyScene
 
@@ -63,8 +62,7 @@
 }
 
 -(void)createButtons {
-    if ([MultiplayerData data].isMultiplayer == NO)
-        [self addChild:[BaoButton pause]];
+    [self addChild:[BaoButton pause]];
 }
 
 -(void)updateTrunkTexture{
@@ -202,13 +200,6 @@
     monkey = [[Monkey alloc] initWithPosition:[BaoPosition monkey]];
     [self addChild:monkey.sprite];
     [self addChild:monkey.collisionMask];
-
-    if ([MultiplayerData data].isMultiplayer == YES) {
-        monkeyMultiplayer = [[Monkey alloc] initWithPosition:[BaoPosition monkey]];
-        [self addChild:monkeyMultiplayer.sprite];
-        [self addChild:monkeyMultiplayer.collisionMask];
-        [MultiplayerData data].gameScene = self;
-    }
 }
 
 - (void) initScene {
@@ -423,7 +414,6 @@
     [GameController updateAccelerometerAcceleration];
     [monkey updateMonkeyPosition:[GameController getAcceleration]];    
     
-    [self handleMultiplayer];
     [enemiesController updateEnemies:currentTime];
     
     for (id item in _wave) {
@@ -444,9 +434,7 @@
             if (!monkey.isShield) {
                 [GameCenter getBestScorePlayer];
                 [monkey deadMonkey];
-                [monkeyMultiplayer deadMonkey];
                 if (![GameData isGameOver])
-                    [self sendGameOverGame];
                     [self gameOverCountDown];
             } else {
                 [monkey.shield removeFromParent];
@@ -504,25 +492,21 @@
     if ([GameData getTrunkLife] < 0) {
         [GameCenter getBestScorePlayer];
         [monkey deadMonkey];
-        [monkeyMultiplayer deadMonkey];
         if (![GameData isGameOver])
-            [self sendGameOverGame];
-        [self gameOverCountDown];
+            [self gameOverCountDown];
         // Call the GameOver view when the trunk is dead
     } else{
         [self updateTrunkTexture];
     }
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
     
-    if ([MultiplayerData data].isMultiplayer == NO) {
-        if (oldLevel != [GameData getLevel]) {
-            if (oldLevel == STEP_TANK_BOSS) {
-                [self loadTankScene];
-            }
+    if (oldLevel != [GameData getLevel]) {
+        if (oldLevel == STEP_TANK_BOSS) {
+            [self loadTankScene];
+        }
 //            else if (oldLevel == STEP_LAMBER_JACK_MACHINE_BOSS) {
 //                [self loadLamberJackGeantMachineScene];
 //            }
-        }
     }
 }
 

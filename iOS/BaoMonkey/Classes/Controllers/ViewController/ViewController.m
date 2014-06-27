@@ -14,7 +14,6 @@
 #import "GameCenter.h"
 #import "GameController.h"
 #import "MyScene.h"
-#import "ViewController+Multiplayer.h"
 #import "TutorialViewController.h"
 
 
@@ -38,6 +37,7 @@
 }
 
 - (void) relaunchGame {
+    _scene = nil;
     _scene = [MyScene sceneWithSize:_skView.bounds.size];
     _scene.scaleMode = SKSceneScaleModeAspectFill;
     
