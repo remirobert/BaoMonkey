@@ -182,6 +182,8 @@
 - (void) initScene {
     [self initTimerTutorial];
     
+    [UserData defaultUser].boss = NO;
+    
     self.backgroundColor = [SKColor colorWithRed:52/255.0f green:152/255.0f blue:219/255.0f alpha:1];
 
     [self addChild:[self backgroundNode]];
@@ -316,7 +318,6 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-    NSLog(@"update");
     currentTime -= pauseTime;
     
     NSInteger oldLevel = [GameData getLevel];
@@ -364,7 +365,7 @@
     
     [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
         if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
-            if (!monkey.isShield) {
+            if (!monkey.isShield && [UserData defaultUser].boss == NO) {
                 [GameCenter getBestScorePlayer];
                 [monkey deadMonkey];
                 if (![GameData isGameOver])
@@ -435,6 +436,7 @@
     
     if (oldLevel != [GameData getLevel]) {
         if (oldLevel == STEP_TANK_BOSS) {
+            [UserData defaultUser].boss = YES;
             [self loadTankScene];
         }
     }

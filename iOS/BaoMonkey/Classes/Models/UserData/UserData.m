@@ -76,6 +76,7 @@
     userData.enemy_score = [userData.user integerForKey:ENEMY_KEY];
     userData.prune_score = [userData.user integerForKey:PRUNE_KEY];
     userData.score = [userData.user integerForKey:SCORE_KEY];
+    userData.boss = NO;
     
     if ([userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME]) {
         userData.musicVolume = [userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME];
