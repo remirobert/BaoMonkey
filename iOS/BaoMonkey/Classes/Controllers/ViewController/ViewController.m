@@ -87,12 +87,7 @@
                                              selector:@selector(shareScore)
                                                  name:@"notification_share_score"
                                                object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(findPlayerMatchMaking)
-                                                 name:@"find_player"
-                                               object:nil];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(showGameCenter)
                                                  name:NOTIFICATION_SHOW_GAME_CENTER

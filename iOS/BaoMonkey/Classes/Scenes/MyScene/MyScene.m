@@ -504,9 +504,6 @@
         if (oldLevel == STEP_TANK_BOSS) {
             [self loadTankScene];
         }
-//            else if (oldLevel == STEP_LAMBER_JACK_MACHINE_BOSS) {
-//                [self loadLamberJackGeantMachineScene];
-//            }
     }
 }
 

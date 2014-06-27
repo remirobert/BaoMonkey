@@ -13,9 +13,7 @@
 #import "Shield.h"
 
 @interface MyScene ()
-
 @property (nonatomic) CGFloat timeWeapon;
-
 @end
 
 @implementation MyScene (GeneratorWave)
