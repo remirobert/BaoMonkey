@@ -55,7 +55,7 @@
 
 - (void) initLabel {
     NSMutableArray *name = [[NSMutableArray alloc] initWithArray:@[@"Brieuc de La Fouchardière", @"Rémi Hillairet",
-                      @"Rémi Robert", @"Jérémy Peltier", @"Romain Combe"]];
+                      @"Rémi Robert", @"Jérémy Peltier"]];
     
     name = [self shuffleLabels:name];
     

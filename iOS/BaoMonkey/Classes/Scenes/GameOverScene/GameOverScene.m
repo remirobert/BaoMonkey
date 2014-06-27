@@ -10,6 +10,7 @@
 #import "Define.h"
 #import "MyScene.h"
 #import "Settings.h"
+#import "iAdController.h"
 
 @implementation GameOverScene
 
@@ -61,6 +62,10 @@
     return self;
 }
 
+-(void)didMoveToView:(SKView *)view {
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SHOW_AD object:nil];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
@@ -98,18 +103,22 @@
     SKNode *node = [self nodeAtPoint:location];
     
    if ([node.name isEqualToString:RETRY_NODE_NAME]) {
+        [iAdController hideADBanner];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_RETRY_GAME object:nil];
         [replayNode setTexture:[SKTexture textureWithImageNamed:@"button-replay"]];
     }
     else if ([node.name isEqualToString:HOME_NODE_NAME]) {
+        [iAdController hideADBanner];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GO_TO_HOME object:nil];
         [homeNode setTexture:[SKTexture textureWithImageNamed:@"button-home"]];
     }
     else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
+        [iAdController hideADBanner];
         [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
         [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self] transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:1.0]];
     }
     else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
+        [iAdController hideADBanner];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SHOW_GAME_CENTER object:nil];
         [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-game-center"]];
     }
