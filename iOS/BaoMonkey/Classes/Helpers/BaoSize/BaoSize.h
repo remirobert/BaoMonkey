@@ -18,4 +18,6 @@
 
 +(CGSize)cursorSettings;
 
++ (CGFloat) sizeMoveAccelerometer;
+
 @end

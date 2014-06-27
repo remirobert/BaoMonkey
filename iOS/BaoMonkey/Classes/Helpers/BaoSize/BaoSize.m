@@ -23,4 +23,8 @@
     return IPAD ? CGSizeMake(330, 41.5f) : CGSizeMake(180, 22.5f);
 }
 
++ (CGFloat) sizeMoveAccelerometer {
+    return (IPAD ? 12 : 6);
+}
+
 @end
