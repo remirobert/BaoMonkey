@@ -437,6 +437,7 @@
     if (oldLevel != [GameData getLevel]) {
         if (oldLevel == STEP_TANK_BOSS) {
             [UserData defaultUser].boss = YES;
+            [self pauseGameWithScene:NO];
             [self loadTankScene];
         }
     }

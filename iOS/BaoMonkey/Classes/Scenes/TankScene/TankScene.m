@@ -14,6 +14,7 @@
 #import "GameOverScene.h"
 #import "UserData.h"
 #import "GameCenter.h"
+#import "MyScene.h"
 
 @interface TankScene ()
 @property (nonatomic, strong) Monkey *monkey;
@@ -159,6 +160,7 @@
         [self initTank];
         [_monkey.sprite removeAllActions];
         [UserData defaultUser].boss = NO;
+        [((MyScene *)parentScene) resumeGame];
     }
     return (self);
 }
