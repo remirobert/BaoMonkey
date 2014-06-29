@@ -119,7 +119,6 @@
         [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self] transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:1.0]];
     }
     else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
-        [iAdController hideADBanner];
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SHOW_GAME_CENTER object:nil];
         [gameCenterNode setTexture:[SKTexture textureWithImageNamed:@"button-game-center"]];
     }
