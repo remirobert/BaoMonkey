@@ -320,6 +320,7 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
+    currentTime -= currentTime - lastCurrentTime;
     currentTime -= pauseTime;
     
     NSInteger oldLevel = [GameData getLevel];
@@ -442,6 +443,8 @@
             [self loadTankScene];
         }
     }
+    lastCurrentTime = CFAbsoluteTimeGetCurrent();
+    NSLog(@"lastCurrentTime : %f", lastCurrentTime);
 }
 
 @end

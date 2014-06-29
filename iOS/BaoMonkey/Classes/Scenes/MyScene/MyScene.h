@@ -31,6 +31,7 @@
 @interface MyScene : SKScene {
     CFTimeInterval pauseTime;
     CFTimeInterval lastTime;
+    CFTimeInterval lastCurrentTime;
     Monkey *monkey;
     EnemiesController *enemiesController;
     GameController *gc;
