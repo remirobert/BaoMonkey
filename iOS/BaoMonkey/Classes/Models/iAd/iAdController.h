@@ -12,6 +12,7 @@
 @interface iAdController : NSObject<ADBannerViewDelegate> {
     ADBannerView *iAdView;
     UIViewController *viewControllerParent;
+    BOOL haveToShow;
 }
 
 + (void)showADBannerWithViewController:(UIViewController*)viewController;

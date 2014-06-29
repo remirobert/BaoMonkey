@@ -37,6 +37,7 @@ static iAdController *singleton;
 }
 
 - (void)showADBannerWithViewController:(UIViewController*)viewController {
+    haveToShow = TRUE;
     viewControllerParent = viewController;
     if (iAdView.bannerLoaded) {
         [self runAnimation];
@@ -55,6 +56,7 @@ static iAdController *singleton;
 }
 
 - (void)hideADBanner {
+    haveToShow = FALSE;
     [iAdView removeFromSuperview];
     [iAdView setFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, iAdView.frame.size.height)];
 }
@@ -66,7 +68,8 @@ static iAdController *singleton;
 }
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    [self runAnimation];
+    if (haveToShow)
+        [self runAnimation];
 }
 
 @end
