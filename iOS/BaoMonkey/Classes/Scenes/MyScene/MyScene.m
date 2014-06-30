@@ -238,7 +238,7 @@
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
-        
+        lastCurrentTime = 0;
         [[GameData singleton] initGameData];
         [self initScene];
         [GameData pauseGame];
@@ -320,7 +320,8 @@
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-    currentTime -= currentTime - lastCurrentTime;
+    if (lastCurrentTime > 0)
+        currentTime -= currentTime - lastCurrentTime;
     currentTime -= pauseTime;
     
     NSInteger oldLevel = [GameData getLevel];
