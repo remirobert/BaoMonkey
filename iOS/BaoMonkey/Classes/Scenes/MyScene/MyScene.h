@@ -27,6 +27,7 @@
 #import "Resume.h"
 #import "PauseScene.h"
 #import "GameOverScene.h"
+#import "RRLoopTimerUpdate.h"
 
 @interface MyScene : SKScene {
     CFTimeInterval pauseTime;
@@ -45,6 +46,8 @@
 @property (nonatomic) int sizeBlock;
 @property (nonatomic) TreeBranch *treeBranch;
 @property (nonatomic) NSMutableArray *wave;
+@property (nonatomic, assign) BOOL updateCurrentTime;
+@property (nonatomic, strong) RRLoopTimerUpdate *timerLoop;
 
 - (void) resumeGame;
 - (void) pauseGameWithScene:(BOOL)show;

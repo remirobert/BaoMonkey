@@ -11,12 +11,14 @@
 #import "MyScene.h"
 #import "Settings.h"
 #import "iADController.h"
+#import "RRLoopTimerUpdate.h"
 
 @implementation PauseScene
 
 -(id)initWithSize:(CGSize)size andScene:(SKScene*)scene{
     self = [super initWithSize:size];
     if (self) {
+        [(MyScene*)scene setUpdateCurrentTime:TRUE];
         SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background-right"];
         background.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
         [self addChild:background];
@@ -88,6 +90,7 @@
         [iAdController hideADBanner];
         [resumeNode setTexture:[SKTexture textureWithImageNamed:@"big-button-play"]];
         SKTransition *resumeTransition = [SKTransition pushWithDirection:SKTransitionDirectionRight duration:0.5];
+        [((MyScene *)fromScene).timerLoop restartTimer];
         [self.view presentScene:fromScene transition:resumeTransition];
         [(MyScene*)fromScene resumeGame];
     }

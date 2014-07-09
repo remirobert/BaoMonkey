@@ -238,6 +238,7 @@
 
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
+        _updateCurrentTime = FALSE;
         lastCurrentTime = 0;
         [[GameData singleton] initGameData];
         [self initScene];
@@ -308,6 +309,7 @@
 
     // Present pause scene
     if (show) {
+        [_timerLoop freezeTimer];
         PauseScene *pauseScene = [[PauseScene alloc] initWithSize:self.size andScene:self];
         [self.view presentScene:pauseScene transition:menuTransition];
     }    
@@ -319,10 +321,17 @@
     [self gameCountDown];
 }
 
--(void)update:(CFTimeInterval)currentTime {
-    if (lastCurrentTime > 0)
-        currentTime -= currentTime - lastCurrentTime;
-    currentTime -= pauseTime;
+-(void)update:(CFTimeInterval)currentTime {    
+    if (_timerLoop == nil) {
+        _timerLoop = [[RRLoopTimerUpdate alloc] init:currentTime];
+    }
+    
+    
+    currentTime += _timerLoop.rangeTimer;
+    
+    
+    //currentTime -= pauseTime;
+    //lastCurrentTime = currentTime;
     
     NSInteger oldLevel = [GameData getLevel];
     
@@ -444,8 +453,6 @@
             [self loadTankScene];
         }
     }
-    lastCurrentTime = CFAbsoluteTimeGetCurrent();
-    NSLog(@"lastCurrentTime : %f", lastCurrentTime);
 }
 
 @end

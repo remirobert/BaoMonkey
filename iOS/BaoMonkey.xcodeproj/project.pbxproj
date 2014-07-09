@@ -81,6 +81,7 @@
 		3FD4B6581940A80300455FBE /* BaoPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4B6571940A80300455FBE /* BaoPosition.m */; };
 		3FD8D6D0193FB3AB00E24ADE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8D6CF193FB3AB00E24ADE /* ViewController.m */; };
 		BB57993E195D801F005A05E1 /* MyScene+Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57993D195D801F005A05E1 /* MyScene+Tutorial.m */; };
+		BBB5665A196D3F1800CA5161 /* RRLoopTimerUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB56659196D3F1800CA5161 /* RRLoopTimerUpdate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +222,8 @@
 		3FD8D6CF193FB3AB00E24ADE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BB57993C195D801F005A05E1 /* MyScene+Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Tutorial.h"; sourceTree = "<group>"; };
 		BB57993D195D801F005A05E1 /* MyScene+Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Tutorial.m"; sourceTree = "<group>"; };
+		BBB56658196D3F1800CA5161 /* RRLoopTimerUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRLoopTimerUpdate.h; sourceTree = "<group>"; };
+		BBB56659196D3F1800CA5161 /* RRLoopTimerUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRLoopTimerUpdate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -615,6 +618,7 @@
 		3F50F12519194EE000A37F85 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				BBB56657196D3F1800CA5161 /* RRLoopTimerUpdate */,
 				3F7F3AF2194BA49700EA7D91 /* BaoFontSize */,
 				3FD4B6551940A7E600455FBE /* BaoPosition */,
 				3F99D509193FB2F40054AC9B /* BaoButton */,
@@ -893,6 +897,15 @@
 			name = CreditMenu;
 			sourceTree = "<group>";
 		};
+		BBB56657196D3F1800CA5161 /* RRLoopTimerUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				BBB56658196D3F1800CA5161 /* RRLoopTimerUpdate.h */,
+				BBB56659196D3F1800CA5161 /* RRLoopTimerUpdate.m */,
+			);
+			path = RRLoopTimerUpdate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1056,6 +1069,7 @@
 				3F36C4B2193FB807009D371D /* GameController.m in Sources */,
 				3F36C4B6193FB807009D371D /* Shield.m in Sources */,
 				3F7F3AF5194BA4B200EA7D91 /* BaoFontSize.m in Sources */,
+				BBB5665A196D3F1800CA5161 /* RRLoopTimerUpdate.m in Sources */,
 				3F36C4B4193FB807009D371D /* Action.m in Sources */,
 				3FC52F5F193FB54600DCDCB7 /* MainMenu.m in Sources */,
 				3F36C4BF193FB807009D371D /* PreloadData.m in Sources */,
