@@ -41,6 +41,8 @@
     dispatch_once_t oncePlay;
     SKTransition *menuTransition;
     SKSpriteNode *trunk;
+    SKSpriteNode *backLeaf;
+    SKSpriteNode *frontLeaf;
 }
 
 @property (nonatomic) int sizeBlock;

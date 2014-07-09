@@ -94,18 +94,18 @@
 }
 
 -(SKSpriteNode *)frontLeafNode {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"front-leafs"];
-    node.position = [BaoPosition frontLeafs:node.size];
-    node.name = FRONT_LEAF_NODE_NAME;
-    node.zPosition = 50;
-    return node;
+    frontLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"front-leafs"];
+    frontLeaf.position = [BaoPosition frontLeafs:frontLeaf.size];
+    frontLeaf.name = FRONT_LEAF_NODE_NAME;
+    frontLeaf.zPosition = 50;
+    return frontLeaf;
 }
 
 -(SKSpriteNode *)backLeafNode {
-    SKSpriteNode *node = [SKSpriteNode spriteNodeWithImageNamed:@"back-leafs"];
-    node.position = [BaoPosition backLeafs:node.size];
-    node.name = BACK_LEAF_NODE_NAME;
-    return node;
+    backLeaf = [SKSpriteNode spriteNodeWithImageNamed:@"back-leafs"];
+    backLeaf.position = [BaoPosition backLeafs:backLeaf.size];
+    backLeaf.name = BACK_LEAF_NODE_NAME;
+    return backLeaf;
 }
 
 -(void)scoreNode {
