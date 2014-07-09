@@ -193,6 +193,11 @@
 # define    ACHIEVEMENT_PLUMS   [NSArray arrayWithObjects:@"Achievement_10plums", @"10", @"Achievement_50plums", @"50", @"Achievement_500plums", @"500", @"Achievement_2500plums", @"2500", nil]
 # define    ACHIEVEMENT_ENEMIES [NSArray arrayWithObjects:@"Achievement_50Enemies", @"50", @"Achievement_500Enemies", @"500", @"Achievement_5000Enemies", @"5000", @"Achievement_15000Enemies", @"15000", nil]
 
+# define    STR_ACHIEVEMENT_POINTS  [NSArray arrayWithObjects:@"500 points", @"500", @"1000 points", @"1000", @"1500 points", @"1500", @"5000 points", @"5000", nil]
+# define    STR_ACHIEVEMENT_PLUMS   [NSArray arrayWithObjects:@"10 plums", @"10", @"50 plums", @"50", @"500 plums", @"500", @"2500 plums", @"2500", nil]
+# define    STR_ACHIEVEMENT_ENEMIES [NSArray arrayWithObjects:@"50 Enemies killed", @"50", @"500 Enemies killed", @"500", @"5000 Enemies killed", @"5000", @"15000 Enemies killed", @"15000", nil]
+
+
 /*
 ** TRUNK LIFE
 */

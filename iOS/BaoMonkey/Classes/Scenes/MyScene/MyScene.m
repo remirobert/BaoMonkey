@@ -321,7 +321,7 @@
     [self gameCountDown];
 }
 
--(void)update:(CFTimeInterval)currentTime {    
+-(void)update:(CFTimeInterval)currentTime {
     if (_timerLoop == nil) {
         _timerLoop = [[RRLoopTimerUpdate alloc] init:currentTime];
     }

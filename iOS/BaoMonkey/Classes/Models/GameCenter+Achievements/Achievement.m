@@ -36,7 +36,7 @@
             if (currentScore >= [[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index] integerValue])
             
                 [GKNotificationBanner showBannerWithTitle:@"Score"
-                                                  message:[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index - 1]
+                                                  message:[((NSArray *)STR_ACHIEVEMENT_POINTS) objectAtIndex:index - 1]
                                                  duration:0.5
                                         completionHandler:nil];
         }
@@ -63,7 +63,7 @@
             if (currentEnemy >= [[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index] integerValue])
 
                 [GKNotificationBanner showBannerWithTitle:@"Enemy"
-                                                  message:[((NSArray *)ACHIEVEMENT_ENEMIES) objectAtIndex:index - 1]
+                                                  message:[((NSArray *)STR_ACHIEVEMENT_ENEMIES) objectAtIndex:index - 1]
                                                  duration:0.5
                                         completionHandler:nil];
         }
@@ -90,7 +90,7 @@
                 if (currentPrune >= [[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index] integerValue])
 
                     [GKNotificationBanner showBannerWithTitle:@"Plums"
-                                                      message:[((NSArray *)ACHIEVEMENT_PLUMS) objectAtIndex:index - 1]
+                                                      message:[((NSArray *)STR_ACHIEVEMENT_PLUMS) objectAtIndex:index - 1]
                                                      duration:0.5
                                             completionHandler:nil];
             }
