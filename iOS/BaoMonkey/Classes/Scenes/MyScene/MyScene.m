@@ -321,6 +321,38 @@
     [self gameCountDown];
 }
 
+- (void) deadTree {
+
+    [trunk runAction:[SKAction moveToX:[UIScreen mainScreen].bounds.size.width / 2 + 10 duration:0.1] completion:^{
+        [trunk runAction:[SKAction moveToX:[UIScreen mainScreen].bounds.size.width / 2 - 10 duration:0.1] completion:^{
+            [trunk runAction:[SKAction moveToX:[UIScreen mainScreen].bounds.size.width / 2 + 10 duration:0.1] completion:^{
+                [trunk runAction:[SKAction moveToX:[UIScreen mainScreen].bounds.size.width / 2 - 10 duration:0.1] completion:^{
+                    [trunk runAction:[SKAction moveToX:[UIScreen mainScreen].bounds.size.width / 2 duration:0.1] completion:^{
+
+                        self.physicsBody = nil;
+
+                        monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:monkey.sprite.size];
+                        monkey.sprite.physicsBody.affectedByGravity = YES;
+                        monkey.sprite.physicsBody.dynamic = YES;
+                        
+                        _treeBranch.node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:_treeBranch.node.size];
+                        _treeBranch.node.physicsBody.dynamic = YES;
+                        _treeBranch.node.physicsBody.affectedByGravity = YES;
+                        _treeBranch.node.physicsBody.mass = 500;
+                        
+                        SKPhysicsJointPin *pinJoin = [SKPhysicsJointPin jointWithBodyA:monkey.sprite.physicsBody
+                                                                                 bodyB:_treeBranch.node.physicsBody
+                                                                                anchor:CGPointMake(monkey.sprite.position.x,
+                                                                                                   monkey.sprite.position.y - monkey.sprite.size.height / 2)];
+                        
+                        [self.physicsWorld addJoint:pinJoin];
+                    }];
+                }];
+            }];
+        }];
+    }];
+}
+
 -(void)update:(CFTimeInterval)currentTime {
     if (_timerLoop == nil) {
         _timerLoop = [[RRLoopTimerUpdate alloc] init:currentTime];
@@ -436,6 +468,7 @@
     [self actionClimber];
     
     if ([GameData getTrunkLife] < 0) {
+        //[self deadTree];
         [GameCenter getBestScorePlayer];
         [monkey deadMonkey];
         if (![GameData isGameOver])

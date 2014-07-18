@@ -81,6 +81,8 @@
 		3FD4B6581940A80300455FBE /* BaoPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD4B6571940A80300455FBE /* BaoPosition.m */; };
 		3FD8D6D0193FB3AB00E24ADE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8D6CF193FB3AB00E24ADE /* ViewController.m */; };
 		BB57993E195D801F005A05E1 /* MyScene+Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57993D195D801F005A05E1 /* MyScene+Tutorial.m */; };
+		BBB45161197963AC00B4C32C /* tree.sks in Resources */ = {isa = PBXBuildFile; fileRef = BBB4515F197963AC00B4C32C /* tree.sks */; };
+		BBB45162197963AC00B4C32C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB45160197963AC00B4C32C /* spark.png */; };
 		BBB5665A196D3F1800CA5161 /* RRLoopTimerUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB56659196D3F1800CA5161 /* RRLoopTimerUpdate.m */; };
 /* End PBXBuildFile section */
 
@@ -222,6 +224,8 @@
 		3FD8D6CF193FB3AB00E24ADE /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BB57993C195D801F005A05E1 /* MyScene+Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyScene+Tutorial.h"; sourceTree = "<group>"; };
 		BB57993D195D801F005A05E1 /* MyScene+Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MyScene+Tutorial.m"; sourceTree = "<group>"; };
+		BBB4515F197963AC00B4C32C /* tree.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = tree.sks; sourceTree = "<group>"; };
+		BBB45160197963AC00B4C32C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		BBB56658196D3F1800CA5161 /* RRLoopTimerUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRLoopTimerUpdate.h; sourceTree = "<group>"; };
 		BBB56659196D3F1800CA5161 /* RRLoopTimerUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRLoopTimerUpdate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -630,6 +634,8 @@
 		3F50F12719194EFD00A37F85 /* Librairies */ = {
 			isa = PBXGroup;
 			children = (
+				BBB4515F197963AC00B4C32C /* tree.sks */,
+				BBB45160197963AC00B4C32C /* spark.png */,
 			);
 			name = Librairies;
 			sourceTree = "<group>";
@@ -1003,9 +1009,11 @@
 				108C7E39193CCBE200ADCB85 /* smokeTank.sks in Resources */,
 				295373E51941FFDA00611212 /* Ravie.ttf in Resources */,
 				2910BA96191D27B300E4B281 /* BaoMonkey.mp3 in Resources */,
+				BBB45162197963AC00B4C32C /* spark.png in Resources */,
 				3FB2A49E191BD36A0027B2C7 /* coconut.mp3 in Resources */,
 				10B2E580193DC7EE00DDEF3A /* fire.sks in Resources */,
 				10C599C3191948A300907493 /* InfoPlist.strings in Resources */,
+				BBB45161197963AC00B4C32C /* tree.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
