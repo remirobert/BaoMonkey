@@ -255,6 +255,7 @@
         _currentStrat += 1;
         _currentShootTime = currentTime + 1;
         if (_currentStrat == 3) {
+            [((MyScene *)_parentScene).timerLoop restartTimer];
             [self.view presentScene:_parentScene transition:[SKTransition fadeWithDuration:2.0]];
         }
     }

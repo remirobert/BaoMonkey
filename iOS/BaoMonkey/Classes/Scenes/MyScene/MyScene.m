@@ -321,6 +321,27 @@
     [self gameCountDown];
 }
 
+- (void) deadTree {
+
+    if ([GameData isGameOver] == YES)
+        return ;
+    
+    SKSpriteNode *crack = [SKSpriteNode spriteNodeWithImageNamed:@"crack-tree"];
+    
+    crack.zPosition = 50;
+    crack.size = CGSizeMake(crack.size.width / 2, crack.size.height / 2);
+    crack.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
+                                 FLOOR_HEIGHT + (IPAD ? [UIImage imageNamed:@"lamber-jack-chopping-1"].size.height / 2 :
+                                                 [UIImage imageNamed:@"lamber-jack-chopping-1"].size.height));
+    
+    [self addChild:crack];
+    [crack runAction:[SKAction resizeToWidth:crack.size.width * 2 height:crack.size.height * 2 duration:0.5] completion:^{
+        self.physicsBody = nil;
+        monkey.sprite.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:monkey.sprite.size];
+        monkey.sprite.physicsBody.affectedByGravity = YES;
+    }];
+}
+
 -(void)update:(CFTimeInterval)currentTime {
     if (_timerLoop == nil) {
         _timerLoop = [[RRLoopTimerUpdate alloc] init:currentTime];
@@ -436,6 +457,7 @@
     [self actionClimber];
     
     if ([GameData getTrunkLife] < 0) {
+        [self deadTree];
         [GameCenter getBestScorePlayer];
         [monkey deadMonkey];
         if (![GameData isGameOver])

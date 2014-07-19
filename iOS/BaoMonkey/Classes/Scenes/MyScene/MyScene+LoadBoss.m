@@ -15,6 +15,7 @@
 - (void) loadTankScene {
     TankScene *tankScene = [[TankScene alloc] initWithSize:self.size parent:self];
 
+    [self.timerLoop freezeTimer];
     [self cleanEnemiesScene];
     [self.view presentScene:tankScene transition:[SKTransition fadeWithDuration:2.0]];
 }
