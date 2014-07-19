@@ -57,7 +57,7 @@ NSTimer *timerDismiss;
 }
 
 - (void) timerDismissTutorial {
-    timerDismiss = [NSTimer scheduledTimerWithTimeInterval:2.0
+    timerDismiss = [NSTimer scheduledTimerWithTimeInterval:4.0
                                                     target:self
                                                   selector:@selector(dismissTutorial)
                                                   userInfo:nil
@@ -71,7 +71,7 @@ NSTimer *timerDismiss;
         return ;
 
     if (timer == 0) {
-        timer = currentTime + 2;
+        timer = currentTime + 4;
         return ;
     }
     
@@ -119,7 +119,7 @@ NSTimer *timerDismiss;
                 break;
         }
         isPassed = NO;
-        timer = currentTime + 4;
+        timer = currentTime + 8;
         tutoStep += 1;
         if (tutoStep == 4)
             timer = currentTime;

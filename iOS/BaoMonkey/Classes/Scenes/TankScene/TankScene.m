@@ -100,6 +100,7 @@
 }
 
 - (void) initScene {
+    [GameController initAccelerometer];
 
     SKSpriteNode *bg = [SKSpriteNode spriteNodeWithImageNamed:@"background-center"];
     bg.position = CGPointMake((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
@@ -116,6 +117,7 @@
     backLeaf.name = BACK_LEAF_NODE_NAME;
     [self addChild:backLeaf];
     
+    [self initTrunk];
     
     TreeBranch *treeBranch = [[TreeBranch alloc] init];
     
@@ -133,8 +135,6 @@
     _monkey = [[Monkey alloc] initWithPosition:[BaoPosition monkey]];
     [self addChild:_monkey.sprite];
     [self addChild:_monkey.collisionMask];
-    [GameController initAccelerometer];
-    [self initTrunk];
 }
 
 - (void) pauseGame {
