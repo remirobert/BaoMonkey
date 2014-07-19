@@ -15,6 +15,7 @@
 #import "Settings.h"
 #import "Banana.h"
 #import "MyScene+Tutorial.h"
+#import "BaoFontSize.h"
 
 @implementation MyScene
 
@@ -111,8 +112,8 @@
 -(void)scoreNode {
     score = [SKLabelNode labelNodeWithFontNamed:@"Ravie"];
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
-    score.fontSize = 25;
-    score.position = CGPointMake(20, SCREEN_HEIGHT - 30);
+    score.fontSize = [BaoFontSize scoreFontSize];
+    score.position = [BaoPosition score];
     score.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
     score.name = SCORE_NODE_NAME;
     score.zPosition = 55;
@@ -331,7 +332,7 @@
     crack.zPosition = 50;
     crack.size = CGSizeMake(crack.size.width / 2, crack.size.height / 2);
     crack.position = CGPointMake([UIScreen mainScreen].bounds.size.width / 2,
-                                 FLOOR_HEIGHT + (IPAD ? [UIImage imageNamed:@"lamber-jack-chopping-1"].size.height / 2 :
+                                 FLOOR_HEIGHT + (IPAD_NOT_RETINA ? [UIImage imageNamed:@"lamber-jack-chopping-1"].size.height / 2:
                                                  [UIImage imageNamed:@"lamber-jack-chopping-1"].size.height));
     
     [self addChild:crack];

@@ -160,4 +160,8 @@
     return IPAD ? 45 : 0;
 }
 
++(CGPoint)score {
+    return IPAD ? CGPointMake(40, SCREEN_HEIGHT - 60) : CGPointMake(20, SCREEN_HEIGHT - 30);
+}
+
 @end

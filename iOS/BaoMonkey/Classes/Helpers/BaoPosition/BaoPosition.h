@@ -69,4 +69,6 @@
 +(CGPoint)creditsNameDevelopersPosition;
 +(CGPoint)creditsNameGraphismPosition;
 
++(CGPoint)score;
+
 @end

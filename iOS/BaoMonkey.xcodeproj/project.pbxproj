@@ -81,7 +81,6 @@
 		3FD8D6D0193FB3AB00E24ADE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8D6CF193FB3AB00E24ADE /* ViewController.m */; };
 		BB57993E195D801F005A05E1 /* MyScene+Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = BB57993D195D801F005A05E1 /* MyScene+Tutorial.m */; };
 		BBB45161197963AC00B4C32C /* tree.sks in Resources */ = {isa = PBXBuildFile; fileRef = BBB4515F197963AC00B4C32C /* tree.sks */; };
-		BBB45162197963AC00B4C32C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = BBB45160197963AC00B4C32C /* spark.png */; };
 		BBB5665A196D3F1800CA5161 /* RRLoopTimerUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB56659196D3F1800CA5161 /* RRLoopTimerUpdate.m */; };
 /* End PBXBuildFile section */
 
@@ -957,7 +956,7 @@
 				ORGANIZATIONNAME = BaoMonkey;
 				TargetAttributes = {
 					10C599B2191948A300907493 = {
-						DevelopmentTeam = 44Q2J6374R;
+						DevelopmentTeam = RFKH8ZM9YU;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -1214,7 +1213,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: REMI HILLAIRET (NHLG76Z36Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BaoMonkey/BaoMonkey-Prefix.pch";
@@ -1233,7 +1232,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: REMI HILLAIRET (NHLG76Z36Y)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BaoMonkey/BaoMonkey-Prefix.pch";

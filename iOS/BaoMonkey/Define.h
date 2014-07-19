@@ -14,6 +14,7 @@
 */
 
 # define IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+# define IPAD_NOT_RETINA (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad && [[UIScreen mainScreen] respondsToSelector:@selector(scale)] && [UIScreen mainScreen].scale == 1)
 # define IPHONE_4 ([UIScreen mainScreen].bounds.size.height == 480)
 
 /*
