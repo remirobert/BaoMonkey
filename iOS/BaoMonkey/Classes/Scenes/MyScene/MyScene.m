@@ -397,20 +397,21 @@
         }
     }
     
-    [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
-        if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
-            if (!monkey.isShield && [UserData defaultUser].boss == NO) {
-                [GameCenter getBestScorePlayer];
-                [monkey deadMonkey];
-                if (![GameData isGameOver])
-                    [self gameOverCountDown];
-            } else {
-                [monkey.shield removeFromParent];
-                monkey.isShield = FALSE;
+    if ([UserData defaultUser].boss == NO) {
+        [self enumerateChildNodesWithName:SHOOT_NODE_NAME usingBlock:^(SKNode *node, BOOL *stop) {
+            if (CGRectIntersectsRect(node.frame, monkey.collisionMask.frame)) {
+                if (!monkey.isShield) {
+                    [monkey deadMonkey];
+                    if (![GameData isGameOver])
+                        [self gameOverCountDown];
+                } else {
+                    [monkey.shield removeFromParent];
+                    monkey.isShield = FALSE;
+                }
+                [node removeFromParent];
             }
-            [node removeFromParent];
-        }
-    }];
+        }];
+    }
 
     [UserData updateScore:10];
     
@@ -457,9 +458,8 @@
     
     [self actionClimber];
     
-    if ([GameData getTrunkLife] < 0) {
+    if ([UserData defaultUser].boss == NO && [GameData getTrunkLife] < 0) {
         [self deadTree];
-        [GameCenter getBestScorePlayer];
         [monkey deadMonkey];
         if (![GameData isGameOver])
             [self gameOverCountDown];

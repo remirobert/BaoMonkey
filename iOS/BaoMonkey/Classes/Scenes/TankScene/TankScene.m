@@ -159,7 +159,6 @@
         [self initScene];
         [self initTank];
         [_monkey.sprite removeAllActions];
-        [UserData defaultUser].boss = NO;
         [((MyScene *)parentScene) resumeGame];
     }
     return (self);
@@ -182,6 +181,7 @@
 - (void) gameOverCountDown {
     static BOOL gameOver = NO;
     
+    [UserData defaultUser].boss = NO;
     if (gameOver) {
         gameOver = NO;
         [GameData pauseGame];
@@ -200,7 +200,6 @@
         
         if ([node intersectsNode:_monkey.collisionMask]) {
 
-            [GameCenter getBestScorePlayer];
             [_monkey deadMonkey];
             if (![GameData isGameOver])
                 [self gameOverCountDown];
@@ -214,7 +213,6 @@
         if ([node intersectsNode:_monkey.collisionMask]) {
             if ([node intersectsNode:_monkey.collisionMask]) {
                 
-                [GameCenter getBestScorePlayer];
                 [_monkey deadMonkey];
                 if (![GameData isGameOver])
                     [self gameOverCountDown];

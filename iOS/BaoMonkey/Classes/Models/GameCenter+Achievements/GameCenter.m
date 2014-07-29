@@ -108,6 +108,7 @@
 # pragma mark - GameCenter score
 
 + (void) reportScore {
+    NSLog(@"post score");
     GKScore *scoreReport = [[GKScore alloc] initWithLeaderboardIdentifier:@"baoMonkeyLeaderboard"];
     scoreReport.value = [GameData getScore];
     scoreReport.context = 0;
@@ -119,8 +120,11 @@
     GKLeaderboard *leaderboardRequest = [[GKLeaderboard alloc] init];
     leaderboardRequest.identifier = [[GameCenter defaultGameCenter] leaderboardIdentifier];
     
+    NSLog(@"get score");
     [leaderboardRequest loadScoresWithCompletionHandler:^(NSArray *scores, NSError *error) {
+        NSLog(@"scoring");
         if (scores) {
+            NSLog(@"score in game center : %d", (int)leaderboardRequest.localPlayerScore.value);
             if ([GameData getScore] > (int)leaderboardRequest.localPlayerScore.value) {
                 [self reportScore];
             }
