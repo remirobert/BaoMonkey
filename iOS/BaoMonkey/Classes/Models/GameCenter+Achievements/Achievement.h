@@ -12,5 +12,6 @@
 
 + (void) updateAchievement;
 + (instancetype) defaultAchievement;
++ (void) updateScore;
 
 @end

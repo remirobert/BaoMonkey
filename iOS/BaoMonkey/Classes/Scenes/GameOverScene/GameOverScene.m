@@ -13,6 +13,7 @@
 #import "iAdController.h"
 #import "BaoFontSize.h"
 #import "GameCenter.h"
+#import "Achievement.h"
 
 @implementation GameOverScene
 
@@ -20,6 +21,7 @@
     self = [super initWithSize:size];
     if (self) {
         [GameCenter getBestScorePlayer];
+        [Achievement updateScore];
         SKSpriteNode *background = [SKSpriteNode spriteNodeWithImageNamed:@"background-right"];
         background.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
         [self addChild:background];

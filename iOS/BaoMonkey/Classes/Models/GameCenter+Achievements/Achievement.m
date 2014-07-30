@@ -8,6 +8,7 @@
 
 #import <GameKit/GameKit.h>
 #import "UserData.h"
+#import "GameData.h"
 #import "Achievement.h"
 #import "GameCenter.h"
 #import "Define.h"
@@ -25,12 +26,11 @@
         return ;
     
     Achievement *ach = [Achievement defaultAchievement];
-    NSInteger currentScore = [[UserData defaultUser] score];
+    NSInteger currentScore = [GameData getScore];
     int indexAchievement = 0;
     
     for (int index = 1; index < [((NSArray *)ACHIEVEMENT_POINTS) count]; index += 2) {
         CGFloat percent = 100 * currentScore / [[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index] integerValue];
-        
         if (percent >= 100 && [UserData completedAchievement:[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index - 1]] == NO) {
             
             if (currentScore >= [[((NSArray *)ACHIEVEMENT_POINTS) objectAtIndex:index] integerValue])
