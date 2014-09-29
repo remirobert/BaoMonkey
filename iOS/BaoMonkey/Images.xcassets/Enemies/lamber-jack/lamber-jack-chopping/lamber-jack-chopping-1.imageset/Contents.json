@@ -10,6 +10,10 @@
       "filename" : "lamber-jack-chopping-iphone-1@2x.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "lamber-jack-chopping-ipad-1.png"

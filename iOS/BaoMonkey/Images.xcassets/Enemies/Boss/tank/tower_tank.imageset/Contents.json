@@ -10,6 +10,10 @@
       "filename" : "tourelle_iphone.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "tourelle_iphone-1.png"

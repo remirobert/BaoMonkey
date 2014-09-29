@@ -10,6 +10,10 @@
       "filename" : "water-bubble-2-iphone@2x.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "water-bubble-2-ipad.png"

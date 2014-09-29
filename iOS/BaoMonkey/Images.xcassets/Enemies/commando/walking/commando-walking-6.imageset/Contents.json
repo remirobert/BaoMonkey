@@ -10,6 +10,10 @@
       "filename" : "commando-walking-iphone-6@2x.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "commando-walking-ipad-6.png"

@@ -10,6 +10,10 @@
       "filename" : "button-back-credits-iphone-selected@2s.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "button-back-credits-iphone-selected@2x.png"

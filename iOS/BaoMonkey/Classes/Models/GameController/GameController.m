@@ -60,7 +60,6 @@ static GameController *singleton;
     
     acceleration = 0.0f;
     
-    
     if (fabs(data.acceleration.x) > kAccelerometerTilt) {
         acceleration = data.acceleration.x * (([UIScreen mainScreen].bounds.size.width / 7) * ([UserData getAccelerometerUserSpeed] / 10));
         if (acceleration < 0 && acceleration < -[BaoSize sizeMoveAccelerometer])

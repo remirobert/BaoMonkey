@@ -10,6 +10,10 @@
       "filename" : "frontleaf-iphone.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "frontleaf-iphone-1.png"

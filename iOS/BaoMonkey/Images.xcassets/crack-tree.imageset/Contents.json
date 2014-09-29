@@ -10,6 +10,10 @@
       "filename" : "crack-iphone@2x.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "crack-ipad.png"

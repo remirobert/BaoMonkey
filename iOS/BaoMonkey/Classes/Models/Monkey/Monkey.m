@@ -130,6 +130,7 @@
     static CGFloat oldAcceleration = 0;
     static BOOL isAction = NO;
     
+    [self updateCollisionMask];
     if ([GameData isGameOver] == YES)
         return ;
     
@@ -141,12 +142,12 @@
         isAction = NO;
         [self moveActionWalking];
         
-        if (acceleration < 0) {
+        if (acceleration < 0.1) {
             [self moveActionWalking];
             oldAcceleration = -1;
             sprite.xScale = -1.0;
         }
-        else if (acceleration > 0) {
+        else if (acceleration > -0.1) {
             [self moveActionWalking];
             oldAcceleration = 1;
             sprite.xScale = 1.0;
@@ -154,26 +155,26 @@
         [self moveMonkey:acceleration];
     }
     
-    if (acceleration == 0) {
+    if (acceleration >= -0.1 && acceleration <= 0.1) {
         [self waitMonkey];
         oldAcceleration = 0;
         return ;
     }
-    else if (acceleration < 0) {
+    else if (acceleration < 0.1) {
         if (oldAcceleration >= 0) {
             [self moveActionWalking];
         }
         oldAcceleration = -1;
         sprite.xScale = -1.0;
     }
-    else if (acceleration > 0) {
+    else if (acceleration > -0.1) {
         if (oldAcceleration <= 0) {
             [self moveActionWalking];
         }
         oldAcceleration = 1;
         sprite.xScale = 1.0;
     }
-    [self moveMonkey:acceleration];
+    //[self moveMonkey:acceleration];
 }
 
 #pragma mark - Load texture
@@ -211,6 +212,7 @@
 #pragma mark - Manage Shield
 
 -(void)manageShield:(CFTimeInterval)currentTime andScene:(SKScene *)scene{
+    return;
     static CGFloat timeNext = 0.0;
     static BOOL isCarry = FALSE;
     
@@ -234,6 +236,7 @@
 }
 
 - (void) addShield:(SKScene *)scene {
+    return ;
     SKShapeNode* tile = [SKShapeNode node];
     [tile setPath:CGPathCreateWithRoundedRect(CGRectMake(-sprite.size.width / 2, -sprite.size.height / 2, sprite.size.width, sprite.size.height),
                                               sprite.size.width / 2,

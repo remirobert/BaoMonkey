@@ -10,6 +10,10 @@
       "filename" : "button-share-iphone@2x.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "button-share-ipad.png"

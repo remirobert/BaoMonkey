@@ -343,6 +343,29 @@
     }];
 }
 
+- (void) moveperso {
+    static CMMotionManager *motion;
+    
+    if (motion == nil) {
+        motion = [[CMMotionManager alloc] init];
+        [motion startAccelerometerUpdates];
+    }
+    
+    monkey.sprite.position = CGPointMake(monkey.sprite.position.x + motion.accelerometerData.acceleration.x * 20,
+                                         monkey.sprite.position.y);
+    
+    float maxX = SCREEN_WIDTH + (monkey.sprite.size.width / 2);
+    float minX = -(monkey.sprite.size.width / 2);
+    
+    if (monkey.sprite.position.x > maxX) {
+        monkey.sprite.position = CGPointMake(minX, monkey.sprite.position.y);
+    } else if (monkey.sprite.position.x < minX) {
+        monkey.sprite.position = CGPointMake(maxX, monkey.sprite.position.y);
+    }
+    
+    [monkey updateMonkeyPosition:motion.accelerometerData.acceleration.x];
+}
+
 -(void)update:(CFTimeInterval)currentTime {
     if (_timerLoop == nil) {
         _timerLoop = [[RRLoopTimerUpdate alloc] init:currentTime];
@@ -354,6 +377,7 @@
     
     //currentTime -= pauseTime;
     //lastCurrentTime = currentTime;
+    [self moveperso];
     
     NSInteger oldLevel = [GameData getLevel];
     
@@ -377,10 +401,10 @@
     
     [self addNewWeapon:currentTime];
     [self addNewWave:currentTime];
-    [self addBonus:currentTime];
+    //[self addBonus:currentTime];
     
     [GameController updateAccelerometerAcceleration];
-    [monkey updateMonkeyPosition:[GameController getAcceleration]];    
+    //[monkey updateMonkeyPosition:[GameController getAcceleration]];
     
     [enemiesController updateEnemies:currentTime];
     
@@ -469,13 +493,13 @@
     }
     score.text = [NSString stringWithFormat:@"%ld", (long)[[GameData singleton] getScore]];
     
-    if (oldLevel != [GameData getLevel]) {
-        if (oldLevel == STEP_TANK_BOSS) {
-            [UserData defaultUser].boss = YES;
-            [self pauseGameWithScene:NO];
-            [self loadTankScene];
-        }
-    }
+//    if (oldLevel != [GameData getLevel]) {
+//        if (oldLevel == STEP_TANK_BOSS) {
+//            [UserData defaultUser].boss = YES;
+//            [self pauseGameWithScene:NO];
+//            [self loadTankScene];
+//        }
+//    }
 }
 
 @end

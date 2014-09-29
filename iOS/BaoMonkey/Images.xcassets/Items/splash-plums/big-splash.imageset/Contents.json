@@ -10,6 +10,10 @@
       "filename" : "grosse_tâche_iphone-1.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "grosse_tâche_iphone.png"

@@ -10,6 +10,10 @@
       "filename" : "monkey-dead-iphone-3@2x.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "Ko3.png"

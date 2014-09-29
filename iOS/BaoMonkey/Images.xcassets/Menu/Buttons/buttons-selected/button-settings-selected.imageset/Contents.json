@@ -10,6 +10,10 @@
       "filename" : "button-settings-selected-iphone@2x.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "button-settings-selected-ipad.png"

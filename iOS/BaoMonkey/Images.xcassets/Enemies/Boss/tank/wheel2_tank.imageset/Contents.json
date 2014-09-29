@@ -10,6 +10,10 @@
       "filename" : "roue2_iphone.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "roue2_iphone-1.png"

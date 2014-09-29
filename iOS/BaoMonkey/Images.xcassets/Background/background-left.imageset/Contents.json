@@ -16,6 +16,10 @@
       "scale" : "2x"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "background-left-ipad.png"

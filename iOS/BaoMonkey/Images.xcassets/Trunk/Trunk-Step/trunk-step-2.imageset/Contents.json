@@ -10,6 +10,10 @@
       "filename" : "trunk-2-iphone@2x.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "trunk-2-ipad.png"

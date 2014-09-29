@@ -10,6 +10,10 @@
       "filename" : "canon_iphone.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "canon_ipad-1.png"

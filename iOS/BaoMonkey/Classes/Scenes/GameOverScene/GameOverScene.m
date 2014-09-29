@@ -120,7 +120,8 @@
     else if ([node.name isEqualToString:SETTINGS_NODE_NAME]) {
         [iAdController hideADBanner];
         [settingsNode setTexture:[SKTexture textureWithImageNamed:@"button-settings"]];
-        [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self] transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:1.0]];
+        [self.view presentScene:[[Settings alloc] initWithSize:self.size withParentScene:self]
+                     transition:[SKTransition pushWithDirection:SKTransitionDirectionUp duration:1.0]];
     }
     else if ([node.name isEqualToString:GAMECENTER_NODE_NAME]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_SHOW_GAME_CENTER object:nil];

@@ -10,6 +10,10 @@
       "filename" : "panel-virgin-iphone@2x.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "panel-virgin-ipad.png"

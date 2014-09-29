@@ -10,6 +10,10 @@
       "filename" : "medium-bubble-iphone@2x.png"
     },
     {
+      "idiom" : "iphone",
+      "scale" : "3x"
+    },
+    {
       "idiom" : "ipad",
       "scale" : "1x",
       "filename" : "medium-bubble-ipad.png"
