@@ -344,6 +344,10 @@
 }
 
 - (void) moveperso {
+    if ([GameData isGameOver] == true || [GameData isPause] == true) {
+        return ;
+    }
+    
     static CMMotionManager *motion;
     
     if (motion == nil) {
@@ -378,8 +382,6 @@
     //currentTime -= pauseTime;
     //lastCurrentTime = currentTime;
     [self moveperso];
-    
-    NSInteger oldLevel = [GameData getLevel];
     
     if ([[GameData singleton] isPause]) {
         
