@@ -120,6 +120,11 @@
     NSInteger bestLocalScore = [userDefaults integerForKey:NSUSERDEFAULT_BEST_LOCAL_SCORE];
     [userDefaults setBool:YES forKey:NSUSERDEFAULT_PLAYED_ONCE];
     
+    if ([GameData getScore] > bestLocalScore) {
+        [userDefaults setInteger:[GameData getScore] forKey:NSUSERDEFAULT_BEST_LOCAL_SCORE];
+        [userDefaults synchronize];
+    }
+    
     GKLeaderboard *leaderboardRequest = [[GKLeaderboard alloc] init];
     leaderboardRequest.identifier = [[GameCenter defaultGameCenter] leaderboardIdentifier];
     
@@ -127,9 +132,6 @@
         if (scores) {
             if ([GameData getScore] > (int)leaderboardRequest.localPlayerScore.value) {
                 [self reportScore];
-            }
-            if ([GameData getScore] > bestLocalScore) {
-                [userDefaults setInteger:[GameData getScore] forKey:NSUSERDEFAULT_BEST_LOCAL_SCORE];
             }
             if ((NSInteger)leaderboardRequest.localPlayerScore.value > bestLocalScore) {
                 [userDefaults setInteger:[GameData getScore] forKey:NSUSERDEFAULT_BEST_LOCAL_SCORE];

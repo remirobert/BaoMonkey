@@ -88,7 +88,7 @@
         SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Ravie"];
         scoreLabel.fontColor = [SKColor whiteColor];
         scoreLabel.fontSize = [BaoFontSize scoreFontSize];
-        scoreLabel.text = [NSString stringWithFormat:@"BEST : %ld", bestLocalScore];
+        scoreLabel.text = [NSString stringWithFormat:@"BEST : %ld", (long)bestLocalScore];
         SKNode *scoreNode = [[SKSpriteNode alloc] init];
         [scoreNode addChild:scoreLabel];
         scoreNode.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2) + 5);
