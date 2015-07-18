@@ -81,7 +81,7 @@
     if ([userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME]) {
         userData.musicVolume = [userData.user floatForKey:NSUSERDEFAULT_MUSIC_VOLUME];
     } else {
-        userData.musicVolume = 0.5;
+        userData.musicVolume = 0.05;
     }
     
     if ([userData.user floatForKey:NSUSERDEFAULT_EFFECTS_VOLUME]) {

@@ -12,6 +12,8 @@
 #import "Settings.h"
 #import "BaoPosition.h"
 #import "Credit.h"
+#import "BaoFontSize.h"
+#import "GameCenter.h"
 
 @interface MainMenu ()
 @end
@@ -75,6 +77,23 @@
     [self addChild:multiPlayer];*/
     
     //[monkey runAction:[SKAction repeatActionForever:[SKAction animateWithTextures:monkeyFrames timePerFrame:0.5f resize:NO restore:NxO]]];
+}
+
+-(void)didMoveToView:(SKView *)view {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    BOOL playedOnce = [userDefaults boolForKey:NSUSERDEFAULT_PLAYED_ONCE];
+    
+    if (playedOnce) {
+        NSInteger bestLocalScore = [userDefaults integerForKey:NSUSERDEFAULT_BEST_LOCAL_SCORE];
+        SKLabelNode *scoreLabel = [SKLabelNode labelNodeWithFontNamed:@"Ravie"];
+        scoreLabel.fontColor = [SKColor whiteColor];
+        scoreLabel.fontSize = [BaoFontSize scoreFontSize];
+        scoreLabel.text = [NSString stringWithFormat:@"BEST : %ld", bestLocalScore];
+        SKNode *scoreNode = [[SKSpriteNode alloc] init];
+        [scoreNode addChild:scoreLabel];
+        scoreNode.position = CGPointMake(SCREEN_WIDTH / 2, SCREEN_HEIGHT - (panel.size.height / 2) + 5);
+        [self addChild:scoreNode];
+    }
 }
 
 -(void)loadMonkeyAnimation {
