@@ -19,6 +19,7 @@
     SKSpriteNode *infosNode;
     SKSpriteNode *monkey;
     SKSpriteNode *multiPlayer;
+    SKNode *scoreNode;
     NSArray *monkeyFrames;
 }
 

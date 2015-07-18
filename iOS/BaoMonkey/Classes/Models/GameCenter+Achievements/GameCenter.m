@@ -134,7 +134,7 @@
                 [self reportScore];
             }
             if ((NSInteger)leaderboardRequest.localPlayerScore.value > bestLocalScore) {
-                [userDefaults setInteger:[GameData getScore] forKey:NSUSERDEFAULT_BEST_LOCAL_SCORE];
+                [userDefaults setInteger:(NSInteger)leaderboardRequest.localPlayerScore.value forKey:NSUSERDEFAULT_BEST_LOCAL_SCORE];
             }
             [userDefaults synchronize];
             return ;
